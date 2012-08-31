@@ -1,0 +1,49 @@
+# add fan readings and fan control
+
+into definitionblock code_regex . insert
+begin
+Device (SMCD)\n
+{\n
+	Name (_HID, "FAN00000")  // _HID: Hardware ID\n
+	Method (FAN0, 0, Serialized)\n
+	{\n
+		Store (\_TZ.GFRM (), Local0)\n
+		If (LEqual (0x03C4, Local0))\n
+		{\n
+			Store (Zero, Local0)\n
+			Return (Local0)\n
+		}\n
+		Return (Local0)\n
+	}\n
+	Method (TCPU, 0, Serialized)\n
+	{\n
+		Store (Zero, Local0)\n
+		Store (\_TZ.GTTP (Zero, One, 0x10, Zero, 0x7F), Local0)\n
+		Store (Local0, Local1)\n
+		If (And (LGreaterEqual (Local0, 0x23), LLessEqual (Local0, 0x34)))\n
+		{\n
+			Store (0x80, Local0)\n
+			If (\_SB.PCI0.LPCB.EC0.ECRG)\n
+			{\n
+				Acquire (\_SB.PCI0.LPCB.EC0.ECMX, 0xFFFF)\n
+				Store (Local0, \_SB.PCI0.LPCB.EC0.FTGC)\n
+				Release (\_SB.PCI0.LPCB.EC0.ECMX)\n
+			}\n
+		}\n
+		Else\n
+		{\n
+			If (Or (LLess (Local0, 0x20), LGreaterEqual (Local0, 0x37)))\n
+			{\n
+				Store (0xFF, Local0)\n
+				If (\_SB.PCI0.LPCB.EC0.ECRG)\n
+				{\n
+					Acquire (\_SB.PCI0.LPCB.EC0.ECMX, 0xFFFF)\n
+					Store (Local0, \_SB.PCI0.LPCB.EC0.FTGC)\n
+					Release (\_SB.PCI0.LPCB.EC0.ECMX)\n
+				}\n
+			}\n
+		}\n
+		Return (Local1)\n
+	}\n
+}\n
+end;

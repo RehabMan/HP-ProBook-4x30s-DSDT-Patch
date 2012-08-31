@@ -475,4 +475,7 @@ end;
 
 into all label WNIC set_label begin ARPT end;
 
+# Remove _PLD method from ARPT device
+#rehabman: could not make this work...
+#into method label _PLD parent_label ARPT remove_entry;
 
