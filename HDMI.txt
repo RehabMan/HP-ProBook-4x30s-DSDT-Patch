@@ -1,0 +1,23 @@
+#   Inject HDMI info and dual-link into GFX0/IGPU   */
+into method label _DSM parent_adr 0x00020000 remove_entry;
+into device name_adr 0x00020000 insert
+begin
+Method (_DSM, 4, NotSerialized)\n
+{\n
+                    Store (Package (0x06)\n
+                        {\n
+                            "hda-gfx",\n 
+                            Buffer (0x0A)\n
+                            {\n
+                                "onboard-1"\n
+                            },\n 
+                            "AAPL,snb-platform-id",\n 
+                            Buffer (0x04)\n
+                            {\n
+                                0x00, 0x00, 0x01, 0x00\n
+                            }\n
+                        }, Local0)\n
+                    DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))\n
+                    Return (Local0)\n 
+               }\n
+end;

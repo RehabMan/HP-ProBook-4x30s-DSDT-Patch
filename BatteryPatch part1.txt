@@ -51,6 +51,7 @@ into_all method label GBTI code_regex \(BPV, replaceall_matched begin (B1B2 (BPV
 into_all method label GBTI code_regex \(BDC, replaceall_matched begin (B1B2 (BDC0, BDC1), end;
 into_all method label GBTI code_regex \(BME, replaceall_matched begin (B1B2 (BME0, BME1), end;
 into_all method label GBTI code_regex \(BCC, replaceall_matched begin (B1B2 (BCC0, BCC1), end;
+into_all method label BTIF code_regex \(BCC, replaceall_matched begin (B1B2 (BCC0, BCC1), end;
 into_all method label GBTI code_regex \(CBT, replaceall_matched begin (B1B2 (CBT0, CBT1), end;
 into_all method label GBTI code_regex \(BSTS, replaceall_matched begin (B1B2 (BST0, BST1), end;
 into_all method label GBTI code_regex \(BCV1, replaceall_matched begin (B1B2 (BCX0, BCX1), end;
@@ -61,7 +62,9 @@ into_all method label GBTI code_regex \(BRTE, replaceall_matched begin (B1B2 (RT
 into_all method label GBTI code_regex \(BATE, replaceall_matched begin (B1B2 (ATE0, ATE1), end;
 into_all method label GBTI code_regex \(BATF, replaceall_matched begin (B1B2 (ATF0, ATF1), end;
 into_all method label GBTC code_regex \(MAXC, replaceall_matched begin (B1B2 (AXC0, AXC1), end;
+
 into_all method label SBTC code_regex \(0xFA,\sMAXC\) replaceall_matched begin (0xFA, AXC0)\nStore (Zero, AXC1) end;
 
-
-
+#rehabman: originally part of "BatteryPatch part2.txt"
+into_all method label SBTC code_regex \(Zero,\sMAXC\) replaceall_matched begin (Zero, AXC0)\nStore (Zero, AXC1) end;
+into_all method label SBTC code_regex \(0x00,\sMAXC\) replaceall_matched begin (0x00, AXC0)\nStore (0x00, AXC1) end;

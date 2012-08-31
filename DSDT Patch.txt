@@ -1,35 +1,3 @@
-#      _T_x rename fix
-into_all all code_regex _T_0 replaceall_matched begin T_0 end;
-into_all all code_regex _T_1 replaceall_matched begin T_1 end;
-into_all all code_regex _T_2 replaceall_matched begin T_2 end;
-into_all all code_regex _T_3 replaceall_matched begin T_3 end;
-into_all all code_regex _T_4 replaceall_matched begin T_4 end;
-into_all all code_regex _T_5 replaceall_matched begin T_5 end;
-into_all all code_regex _T_6 replaceall_matched begin T_6 end;
-
-#     Fix 3 compilation warnings 
-into_all all code_regex \\_SB\.F4EV,.0x0500 replaceall_matched begin F4EV, 0xFFFF end;
-into_all all code_regex \\_SB\.BEVT,.0x10 replaceall_matched begin BEVT, 0xFFFF end;
-
-#    Fix line 2169 2181 compilations errors
-into_all all code_regex DWordMemory\s\(ResourceProducer,\sPosDecode,\sMinFixed,\sMaxFixed,\sCacheable,\sReadWrite,\n\s+0x00000000,\s+//\sGranularity\n\s+0x00000000,\s+//\sRange\sMinimum\n\s+0x00000000,\s+//\sRange\sMaximum\n\s+0x00000000,\s+//\sTranslation\sOffset\n\s+0x00000000,\s+//\sLength replace_matched
-begin
-                DWordMemory (ResourceProducer, PosDecode, MinFixed, MaxFixed, Cacheable, ReadWrite,\n
-                    0x00000000,         // Granularity\n
-                    0x00000000,         // Range Minimum\n
-                    0x00000000,         // Range Maximum\n
-                    0x01000000,         // Translation Offset\n
-                    0x00000001,         // Length\n
-end;
-into_all all code_regex DWordMemory\s\(ResourceProducer,\sPosDecode,\sMinFixed,\sMaxFixed,\sCacheable,\sReadWrite,\n\s+0x00000000,\s+//\sGranularity\n\s+0x00000000,\s+//\sRange\sMinimum\n\s+0xFEDFFFFF,\s+//\sRange\sMaximum\n\s+0x00000000,\s+//\sTranslation\sOffset\n\s+0x00000000,\s+//\sLength replace_matched
-begin
-                DWordMemory (ResourceProducer, PosDecode, MinFixed, MaxFixed, Cacheable, ReadWrite,\n
-                    0x00000000,         // Granularity\n
-                    0x00000000,         // Range Minimum\n
-                    0xFEDFFFFF,         // Range Maximum\n
-                    0x00000000,         // Translation Offset\n
-                    0xFEE00000,         // Length\n
-end;
 
 #    Replace all instances of AC with ADP1
 into_all all code_regex \.AC, replaceall_matched begin .ADP1, end;
@@ -255,16 +223,6 @@ Method (_DSM, 4, NotSerialized)\n
     Return (Local0)\n
 }
 end;
-
-#  Fix NBTT compilation error 
-into_all all code_regex Name\s\(NBTT,\sPackage\s\(0x08\) replaceall_matched
-begin
-Name (NBTT, Package ()
-end;
-
-
-#    Fix parse errors 
-into device label GFX0 code_regex If\s\(CondRefOf\s\(FPED\)\)\s*\n\s*\{\s*\n\s*FPED\s\(\)\s*\n\s*\} remove_matched;
 
 #    Rename all instances of GFX0 to IGPU
 into_all all code_regex GFX0 replaceall_matched begin IGPU end;
