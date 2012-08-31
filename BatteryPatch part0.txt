@@ -1,0 +1,28 @@
+# Add cycle count to battery info method
+
+into method label BTIF code_regex Store\s\(BDAT\,\sLocal1\) replace_matched
+begin
+    Store (BDAT, Local1)\n
+    Store (BCC, Index (DerefOf (Index (NBTI, Arg0)), 0x0D))\n
+end;
+
+into all code_regex Name\s\(NBTI\,\sPackage\s\(0x02\)\s+\{\s+Package\s\(0x0D\) replaceall_matched
+begin
+	Name (NBTI, Package(0x02)\n
+	{\n
+		Package (0x0E)\n
+end;
+
+into all code_regex \"Hewlett\-Packard\"\s+\}\,\s+Package\s\(0x0D\) replaceall_matched
+begin
+		"Hewlett-Packard"\n
+   	},\n
+	Package (0x0E)\n
+end;
+
+into_all all code_regex \"LIon\"\,\s+\"Hewlett\-Packard\" replaceall_matched
+begin
+	"LIon",\n
+	"Hewlett-Packard",\n
+	Zero,\n
+end;

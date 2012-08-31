@@ -1,3 +1,5 @@
+# Convert battery EC info from 16-bit to 8-bit fields
+
 into definitionblock code_regex . insert
 begin
     Method (B1B2, 2, NotSerialized)\n
