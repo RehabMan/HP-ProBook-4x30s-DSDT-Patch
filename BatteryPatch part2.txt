@@ -1,0 +1,4 @@
+#    Check if your DSDT uses Zero or 0x00 and use correct line below
+
+into_all method label SBTC code_regex \(Zero,\sMAXC\) replaceall_matched begin (Zero, AXC0)\nStore (Zero, AXC1) end;
+into_all method label SBTC code_regex \(0x00,\sMAXC\) replaceall_matched begin (0x00, AXC0)\nStore (0x00, AXC1) end;
