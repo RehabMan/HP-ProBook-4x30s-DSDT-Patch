@@ -3,3 +3,6 @@
 
 into_all all code_regex If\s\(_OSI\s\(\"Windows\s2006\"\)\) replaceall_matched
 begin If (LOr (_OSI ("Darwin"), _OSI ("Windows 2006"))) end;
+
+into_all all code_regex Method\s\(_RMV\,\s0\,\sNotSerialized\)\s+//\s+_RMV\:\s+Removal\sStatus\s+\{\s+If\s\(_OSI\(\"Windows\s2009\"\)\)\s+\{\s+Return\s\(Zero\)\s+\}\s+Else\s+\{\s+Return\s\(One\)\s+\}\s+\} replaceall_matched
+begin Return (Zero) end;

@@ -434,8 +434,13 @@ end;
 
 
 #   Airport fix works with vanilla IO80211 kext 
-into device name_adr 0x00 parent_adr 0x001C0003 insert
+into device label WNIC parent_label RP04 replace_content
 begin
+Name (_ADR, Zero)  // _ADR: Address\n
+Method (_PRW, 0, Serialized)  // _PRW: Power Resources for Wake\n
+{\n
+	Return (^^_PRW)\n
+}\n
 Method (_DSM, 4, NotSerialized)\n
 {\n
     Store (Package (0x0C)\n
@@ -474,8 +479,4 @@ Method (_DSM, 4, NotSerialized)\n
 end;
 
 into all label WNIC set_label begin ARPT end;
-
-# Remove _PLD method from ARPT device
-#rehabman: could not make this work...
-#into method label _PLD parent_label ARPT remove_entry;
 
