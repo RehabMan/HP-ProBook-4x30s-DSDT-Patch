@@ -4,7 +4,7 @@ into device name_adr 0x00020000 insert
 begin
 Method (_DSM, 4, NotSerialized)\n
 {\n
-                    Store (Package (0x06)\n
+                    Store (Package (0x04)\n
                         {\n
                             "hda-gfx",\n 
                             Buffer (0x0A)\n
