@@ -1,0 +1,5 @@
+
+# patch OS checks
+
+into_all all code_regex If\s\(_OSI\s\(\"Windows\s2006\"\)\) replaceall_matched
+begin If (LOr (_OSI ("Darwin"), _OSI ("Windows 2006"))) end;
