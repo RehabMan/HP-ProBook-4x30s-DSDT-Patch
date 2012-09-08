@@ -16,3 +16,9 @@ screen with a 1080p screen.
 
 And, of course, for more information, see the ProBook forums on tonymacx86.com.
 
+Note: The folder dsdt4530s contains unpatched files from my machine running each
+F20, F23, F27, and F28.  These are provided for reference only and are not intended
+to be installed into /Extra nor should they be used for patching.  You should use
+your own.  That is the whole purpose of the patches -- to use your own.  If something
+doesn't seem right with your own, you can use these AML files for doing reference 
+diffs against yours to help debug any problem you might have.
