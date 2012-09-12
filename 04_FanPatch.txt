@@ -1,3 +1,5 @@
+
+
 # add fan readings and fan control
 
 into definitionblock code_regex . insert
@@ -47,3 +49,4 @@ Device (SMCD)\n
 	}\n
 }\n
 end;
+

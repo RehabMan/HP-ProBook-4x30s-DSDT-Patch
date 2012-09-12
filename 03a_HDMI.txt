@@ -1,3 +1,5 @@
+
+
 #   Inject HDMI info into GFX0/IGPU   */
 into method label _DSM parent_adr 0x00020000 remove_entry;
 into device name_adr 0x00020000 insert
@@ -21,3 +23,4 @@ Method (_DSM, 4, NotSerialized)\n
                     Return (Local0)\n 
                }\n
 end;
+

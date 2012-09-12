@@ -1,3 +1,5 @@
+
+
 # Add cycle count to battery info method
 
 into method label BTIF code_regex Store\s\(BDAT\,\sLocal1\) replace_matched
@@ -32,3 +34,4 @@ begin
 	Zero,\n
 	Zero,\n
 end;
+
