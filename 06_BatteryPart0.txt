@@ -9,7 +9,7 @@ begin
     Store (BCC, Index (DerefOf (Index (NBTI, Arg0)), 0x0D))\n
     // battery temperature\n
 	Store (\\_TZ.GTTP (0x04, 0x05, Zero, Zero, 0x7F), Local2)\n
-	Add (Multiply (Local2, 10), 2731, Local2) // Celsius to .1K\n
+	Add (Multiply (Local2, 10), 2732, Local2) // Celsius to .1K\n
 	Store (Local2, Index (DerefOf (Index (NBTI, Arg0)), 0x0E))\n
 end;
 
