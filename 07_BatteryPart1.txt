@@ -4,12 +4,12 @@
 
 into definitionblock code_regex . insert
 begin
-    Method (B1B2, 2, NotSerialized)\n
-    {\n
-        ShiftLeft (Arg1, 0x08, Local0)\n
-        Or (Arg0, Local0, Local0)\n
-        Return (Local0)\n
-    }\n
+Method (B1B2, 2, NotSerialized)\n
+{\n
+	ShiftLeft (Arg1, 0x08, Local0)\n
+	Or (Arg0, Local0, Local0)\n
+	Return (Local0)\n
+}\n
 end;
 
 into device label EC0 code_regex BDC,\s+16 replace_matched begin BDC0, 8,\nBDC1, 8 end;
