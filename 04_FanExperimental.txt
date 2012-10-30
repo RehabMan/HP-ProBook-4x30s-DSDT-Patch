@@ -18,34 +18,36 @@ Device (SMCD)\n
 		Return (Local0)\n
 	}\n
 \n
+// commented out: just for debugging and experimenting
+//
 // monitoring additional temperatures\n
-	Method (TDIM, 0, Serialized)  // GFXZ temp\n
-	{\n
-		Divide (Subtract (\_TZ.GFXZ._TMP, 2732), 10,, Local0)\n
-		return (Local0)\n
-	}\n
-	Method (TSYS, 0, Serialized)  // LOCZ temp\n
-	{\n
-		Divide (Subtract (\_TZ.LOCZ._TMP, 2732), 10,, Local0)\n
-		return (Local0)\n
-	}\n
-\n
+//	Method (TDIM, 0, Serialized)  // GFXZ temp\n
+//	{\n
+//		Divide (Subtract (\_TZ.GFXZ._TMP, 2732), 10,, Local0)\n
+//		return (Local0)\n
+//	}\n
+//	Method (TSYS, 0, Serialized)  // LOCZ temp\n
+//	{\n
+//		Divide (Subtract (\_TZ.LOCZ._TMP, 2732), 10,, Local0)\n
+//		return (Local0)\n
+//	}\n
+//\n
 // for debugging fan control\n
-	Method (TCPP, 0, Serialized)  // Average temp\n
-	{\n
-		Store (FNUM, Local0)\n
-		if (LNotEqual (Local0, 0))\n
-		{\n
-			Store (FSUM, Local1)\n
-			Divide (Local1, Local0,, Local0)\n
-		}\n
-		return (Local0)\n
-	}\n
-	Method (TAMB, 0, Serialized)  // fan counter\n
-	{\n
-		return (FCNT)\n
-	}\n
-\n
+//	Method (TCPP, 0, Serialized)  // Average temp\n
+//	{\n
+//		Store (FNUM, Local0)\n
+//		if (LNotEqual (Local0, 0))\n
+//		{\n
+//			Store (FSUM, Local1)\n
+//			Divide (Local1, Local0,, Local0)\n
+//		}\n
+//		return (Local0)\n
+//	}\n
+//	Method (TAMB, 0, Serialized)  // fan counter\n
+//	{\n
+//		return (FCNT)\n
+//	}\n
+//\n
 	Method (TCPU, 0, Serialized)\n
 	{\n
 		Acquire (\_SB.PCI0.LPCB.EC0.ECMX, 0xFFFF)\n
@@ -58,12 +60,12 @@ Device (SMCD)\n
 // Fan Control Table (pairs of temp, fan control byte)\n
 	Name (FTAB, Buffer ()\n
 	{\n
-		40, 255, 	// 255 is off (really auto, but at low temp it is off)\n
-		45, 128, 	// 128 is slowest speed\n
-		50, 82,\n
-		55, 74,\n
-		60, 59,\n
-		70, 49,\n
+		50, 255, 	// 255 is off (really auto, but at low temp it is off)\n
+		57, 128, 	// 128 is slowest speed\n
+		63, 82,\n
+		68, 74,\n
+		72, 59,\n
+		75, 49,\n
 		0xFF, 0 	// last entry must be 0xFF, 0 is max fan speed\n
 	})\n
 // Table to keep track of past temperatures (to build average)\n
