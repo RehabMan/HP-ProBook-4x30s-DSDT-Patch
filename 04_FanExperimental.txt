@@ -74,7 +74,8 @@ Device (SMCD)\n
 // Keeps track of last fan speed set, and counter to set new one\n
 	Name (FLST, 0xFF)	// last index for fan control\n
 	Name (FCNT, 0)		// count of times it has been "wrong", 0 means no counter\n
-	Name (FCTO, 20)		// timeout for changes\n
+	Name (FCTU, 20)		// timeout for changes (fan rpm going up)\n
+	Name (FCTD, 40)		// timeout for changes (fan rpm going down)\n
 \n
 	// Fan control for CPU -- expects to be evaluated 1-per second\n
 	Method (FCPU, 0, Serialized)\n
@@ -123,9 +124,15 @@ Device (SMCD)\n
 \n
 		// calculate difference between current and found index\n
 		if (LGreater (Local2, FLST))\n
-			{ Subtract(Local2, FLST, Local1) }\n
+		{\n
+			Subtract(Local2, FLST, Local1)\n
+			Store(FCTU, Local4)\n
+		}\n
 		else\n
-			{ Subtract(FLST, Local2, Local1) }\n
+		{\n
+			Subtract(FLST, Local2, Local1)\n
+			Store(FCTD, Local4)\n
+		}\n
 \n
 		// set new fan speed, if necessary\n
 		if (LEqual (Local1, 0))\n
@@ -142,7 +149,7 @@ Device (SMCD)\n
 \n
 			// how long to wait depends on how big the difference\n
 			// 20 secs if diff is 2, 5 secs if diff is 4, etc.\n
-			Divide (ShiftLeft (FCTO, 1), Local1,, Local1)\n
+			Divide (ShiftLeft (Local4, 1), Local1,, Local1)\n
 			if (LGreaterEqual (Local3, Local1))\n
 			{\n
 				// timeout expired, so set new fan speed\n
