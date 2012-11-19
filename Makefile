@@ -1,5 +1,5 @@
-GENERIC = 01_Compilation.txt 02_DSDTPatch.txt 04_FanPatch.txt 05_OSCheck.txt 06_BatteryPart0.txt 07_BatteryPart1.txt
-EXPERIMENT = 01_Compilation.txt 02_DSDTPatch.txt 04_FanExperimental.txt 05_OSCheck.txt 06_BatteryPart0.txt 07_BatteryPart1.txt
+GENERIC = 01_Compilation.txt 02_DSDTPatch.txt 04_FanPatch.txt 05_OSCheck.txt 07_BatteryPart1.txt 06_BatteryPart0.txt
+EXPERIMENT = 01_Compilation.txt 02_DSDTPatch.txt 04_FanExperimental.txt 05_OSCheck.txt 07_BatteryPart1.txt 06_BatteryPart0.txt
 HDMI = 03a_HDMI.txt
 HDMI1080P = 03b_1080p+HDMI.txt
 

@@ -1,4 +1,14 @@
 
+#   Power fix - uses AppleACPIBatteryManager.kext  instead VoodooBattery
+into device label ADP1 insert
+begin
+Name (_PRW, Package (0x02)\n
+            {\n
+                0x18, \n
+                0x03\n
+            })
+end;
+
 
 #    Replace all instances of AC with ADP1
 into_all all code_regex \.AC, replaceall_matched begin .ADP1, end;
@@ -184,7 +194,6 @@ Method (_DSM, 4, NotSerialized)\n
 end;
 
 
-
 #     IRQ fix
 into device name_hid PNP0000 code_regex IRQNoFlags\s\(\)\n\s+\{(\d+)\} remove_matched;
 into device name_hid PNP0100 code_regex IRQNoFlags\s\(\)\n\s+\{(\d+)\} remove_matched;
@@ -206,6 +215,7 @@ Name (%1, ResourceTemplate ()\n
 })
 end;
 
+
 #   LPC fix injects device 0x1C49 HM65
 into method label _DSM parent_adr 0x001F0000 remove_entry;
 into device name_adr 0x001F0000 insert
@@ -225,6 +235,7 @@ Method (_DSM, 4, NotSerialized)\n
 }
 end;
 
+
 #    Rename all instances of GFX0 to IGPU
 into_all all code_regex GFX0 replaceall_matched begin IGPU end;
 into_all all label GFX0 set_label begin IGPU end;
@@ -242,8 +253,10 @@ Device (PNLF)\n
 }
 end;
 
+
 #   RTC fix
 into device name_hid PNP0B00 code_regex (IO\s\((?:\s*[^,]+,\s*(?:\/\/\s.*)?\s*\n)+\s*)(\dx\d+)(,\s*(?:\/\/\s.*)?\s*\n\s*\)) replace_matched begin %10x02%3 end;
+
 
 #  Shutdown fix
 into method label _PTS code_regex_not If\s\(LEqual\s\(Arg0,\s0x05\)\) code_regex ^((?:.|\n)*)$ replace_matched
@@ -420,17 +433,6 @@ Method (_CRS, 0, NotSerialized)\n
 {\n
     Return (BUF0)\n
 }
-end;
-
-
-#   Power fix - uses AppleACPIBatteryManager.kext  instead VoodooBattery
-into device label ADP1 insert
-begin
-Name (_PRW, Package (0x02)\n
-            {\n
-                0x18, \n
-                0x03\n
-            })
 end;
 
 

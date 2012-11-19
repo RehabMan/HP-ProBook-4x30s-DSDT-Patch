@@ -1,17 +1,18 @@
 
+# Convert battery EC info from 16-bit to 8-bit fields...
 
-# Convert battery EC info from 16-bit to 8-bit fields
-
+# Need this utility method B1B2(lowbyte, hibyte)... returns ((hibyte << 8) | lowbyte)
 into definitionblock code_regex . insert
 begin
 Method (B1B2, 2, NotSerialized)\n
 {\n
-	ShiftLeft (Arg1, 0x08, Local0)\n
+	ShiftLeft (Arg1, 8, Local0)\n
 	Or (Arg0, Local0, Local0)\n
 	Return (Local0)\n
 }\n
 end;
 
+# Change EC register declarations from 16-bit to 8-bit
 into device label EC0 code_regex BDC,\s+16 replace_matched begin BDC0, 8,\nBDC1, 8 end;
 into device label EC0 code_regex BFC,\s+16 replace_matched begin BFC0, 8,\nBFC1, 8 end;
 into device label EC0 code_regex BRTE,\s+16 replace_matched begin RTE0, 8,\nRTE1, 8 end;
@@ -34,9 +35,7 @@ into device label EC0 code_regex BSN,\s+16 replace_matched begin BSN0, 8,\nBSN1,
 into device label EC0 code_regex BDAT,\s+16 replace_matched begin BDA0, 8,\nBDA1, 8 end;
 into device label EC0 code_regex CBT,\s+16 replace_matched begin CBT0, 8,\nCBT1, 8 end;
 
-
-into_all method label GBTI code_regex Store\s\(GBSS\s\(BSN,\sBDAT\),\sBTSN\) replaceall_matched begin Store (GBSS (B1B2 (BSN0, BSN1), BDA0), BTSN)\nStore (GBSS (B1B2 (BSN0, BSN1), BDA1), BTSN) end;
-
+# Change access (reads) to those registers from 16-bit to 8-bit
 into_all method label BTIF code_regex \(BFC, replaceall_matched begin (B1B2 (BFC0, BFC1), end;
 into_all method label GBTI code_regex \(BFC, replaceall_matched begin (B1B2 (BFC0, BFC1), end;
 into_all method label BTIF code_regex \(BDV, replaceall_matched begin (B1B2 (BDV0, BDV1), end;
@@ -67,9 +66,39 @@ into_all method label GBTI code_regex \(BATE, replaceall_matched begin (B1B2 (AT
 into_all method label GBTI code_regex \(BATF, replaceall_matched begin (B1B2 (ATF0, ATF1), end;
 into_all method label GBTC code_regex \(MAXC, replaceall_matched begin (B1B2 (AXC0, AXC1), end;
 
+# Now deal with the writes to those registers
+# Store (0xFA, MAXC)
 into_all method label SBTC code_regex \(0xFA,\sMAXC\) replaceall_matched begin (0xFA, AXC0)\nStore (Zero, AXC1) end;
-
-#rehabman: originally part of "BatteryPatch part2.txt"
+# Store (Zero, MAXC)
 into_all method label SBTC code_regex \(Zero,\sMAXC\) replaceall_matched begin (Zero, AXC0)\nStore (Zero, AXC1) end;
+# Store (0x00, MAXC)
 into_all method label SBTC code_regex \(0x00,\sMAXC\) replaceall_matched begin (0x00, AXC0)\nStore (0x00, AXC1) end;
+
+# Store (GBSS (BSN, BDAT), BTSN)
+# rehabman: this one is buggy...
+# (don't blame me, I didn't write it)
+# but does demonstrate some bugs also in MacIASL
+#into_all method label GBTI code_regex Store\s\(GBSS\s\(BSN,\sBDAT\),\sBTSN\) replaceall_matched begin Store (GBSS (B1B2 (BSN0, BSN1), BDA0), BTSN)\nStore (GBSS (B1B2 (BSN0, BSN1), BDA1), BTSN) end;
+
+# This should match against nothing... if it does, it will cause an error when
+# compiling the DSDT, which will clue us in that this patch below needs to change.
+into_all method label GBTI code_regex Local7 replaceall_matched begin Error_Local7_IsBeingUsedAlready end;
+
+# Store (GBSS (BSN, BDAT), BTSN)
+# (this one is for compatibility with MacIASL)
+into_all method label GBTI code_regex Store\s\(GBSS\s\(BSN,\sBDAT\),\sBTSN\) replaceall_matched
+begin
+Store (GBSS (B1B2 (BSN0, BSN1), B1B2 (BDA0, BDA1)), Local7)\n
+Store (Local7, BSN0)\n
+Store (ShiftRight (Local7, 8), BSN1)
+end;
+
+# Store (GBSS (B1B2 (BSN0, BSN1), BDAT, BTSN)
+# (this one is for compatibility with DSDT Editor)
+into_all method label GBTI code_regex Store\s\(GBSS\s\(B1B2\s\(BSN0,\sBSN1\),\sBDAT\),\sBTSN\) replaceall_matched
+begin
+Store (GBSS (B1B2 (BSN0, BSN1), B1B2 (BDA0, BDA1)), Local7)\n
+Store (Local7, BSN0)\n
+Store (ShiftRight (Local7, 8), BSN1)
+end;
 
