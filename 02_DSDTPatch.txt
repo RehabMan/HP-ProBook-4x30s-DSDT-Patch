@@ -1,6 +1,6 @@
 
 #   Power fix - uses AppleACPIBatteryManager.kext  instead VoodooBattery
-into device label ADP1 insert
+into device label AC insert
 begin
 Name (_PRW, Package (0x02)\n
             {\n
