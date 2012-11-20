@@ -1,4 +1,4 @@
-#Maintained by: RehabMan for: github
+#Maintained by: RehabMan for: HP Probook 4x30s
 
 # Fix compilation errors
 
