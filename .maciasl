@@ -1,4 +1,4 @@
 All (standard screens)	all.txt
 All (dual-link screens)	all1080.txt
-All NewFan (standard screens)	all_exp.txt
-All NewFan (dual-link screens)	all1080_exp.txt
+All (standard screens, quiet fan)	all_exp.txt
+All (dual-link screens, quiet fan)	all1080_exp.txt
