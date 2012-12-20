@@ -14,6 +14,8 @@ To use these patches, extract your native DSDT binary, then use the Intel AML co
 patch #3, apply only 3a or 3b, depending on whether you have replaced the standard 
 screen with a 1080p screen.
 
+For a step-by-step guide, see the wiki: https://github.com/RehabMan/HP-ProBook-4x30s-DSDT-Patch/wiki/How-to-patch-your-DSDT
+
 And, of course, for more information, see the ProBook forums on tonymacx86.com.
 
 Note: The folder dsdt4530s contains unpatched files from my machine running each
