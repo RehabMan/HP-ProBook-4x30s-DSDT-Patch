@@ -1,4 +1,45 @@
 
+# Add cycle count and temperature to battery info method
+
+# 16-bit version
+into method label BTIF code_regex Store\s\(BDAT,\sLocal1\) replace_matched
+begin
+	Store (BDAT, Local1)\n
+	// battery cycle count\n
+	Store (BCC, Index (DerefOf (Index (NBTI, Arg0)), 0x0D))\n
+	// battery temperature\n
+	Store (\\_TZ.GTTP (0x04, 0x05, Zero, Zero, 0x7F), Local2)\n
+	Add (Multiply (Local2, 10), 2732, Local2) // Celsius to .1K\n
+	Store (Local2, Index (DerefOf (Index (NBTI, Arg0)), 0x0E))\n
+end;
+
+# Need to extend size of NBTI packages
+into all code_regex \"Hewlett\-Packard\"\s+\},\s+Package\s\(0x0D\) replaceall_matched
+begin
+		"Hewlett-Packard",\n
+        Zero,\n
+        Zero,\n
+   	},\n
+	Package (0x0F)\n
+end;
+
+into all code_regex Name\s\(NBTI,\sPackage\s\(0x02\)\s+\{\s+Package\s\(0x0D\) replaceall_matched
+begin
+	Name (NBTI, Package(0x02)\n
+	{\n
+		Package (0x0F)\n
+end;
+
+into_all all code_regex \"LIon\",\s+\"Hewlett\-Packard\"\n\s+\}\n replaceall_matched
+begin
+	"LIon",\n
+	"Hewlett-Packard",\n
+	Zero,\n
+	Zero,\n
+}\n
+end;
+
+
 # Convert battery EC info from 16-bit to 8-bit fields...
 
 # Need this utility method B1B2(lowbyte, hibyte)... returns ((hibyte << 8) | lowbyte)
@@ -74,98 +115,15 @@ into_all method label SBTC code_regex \(Zero,\sMAXC\) replaceall_matched begin (
 # Store (0x00, MAXC)
 into_all method label SBTC code_regex \(0x00,\sMAXC\) replaceall_matched begin (0x00, AXC0)\nStore (0x00, AXC1) end;
 
-# Store (GBSS (BSN, BDAT), BTSN)
-# rehabman: this one is buggy...
-# (don't blame me, I didn't write it)
-# but does demonstrate some bugs also in MacIASL
-#into_all method label GBTI code_regex Store\s\(GBSS\s\(BSN,\sBDAT\),\sBTSN\) replaceall_matched begin Store (GBSS (B1B2 (BSN0, BSN1), BDA0), BTSN)\nStore (GBSS (B1B2 (BSN0, BSN1), BDA1), BTSN) end;
-
 # This should match against nothing... if it does, it will cause an error when
 # compiling the DSDT, which will clue us in that this patch below needs to change.
 into_all method label GBTI code_regex Local7 replaceall_matched begin Error_Local7_IsBeingUsedAlready end;
 
-# Store (GBSS (BSN, BDAT), BTSN)
-# (this one is for compatibility with MacIASL)
-into_all method label GBTI code_regex Store\s\(GBSS\s\(BSN,\sBDAT\),\sBTSN\) replaceall_matched
-begin
-Store (GBSS (B1B2 (BSN0, BSN1), B1B2 (BDA0, BDA1)), Local7)\n
-Store (Local7, BSN0)\n
-Store (ShiftRight (Local7, 8), BSN1)
-end;
-
 # Store (GBSS (B1B2 (BSN0, BSN1), BDAT, BTSN)
-# (this one is for compatibility with DSDT Editor)
 into_all method label GBTI code_regex Store\s\(GBSS\s\(B1B2\s\(BSN0,\sBSN1\),\sBDAT\),\sBTSN\) replaceall_matched
 begin
 Store (GBSS (B1B2 (BSN0, BSN1), B1B2 (BDA0, BDA1)), Local7)\n
 Store (Local7, BSN0)\n
 Store (ShiftRight (Local7, 8), BSN1)
-end;
-
-
-# Add cycle count and temperature to battery info method
-
-# 16-bit version
-#into method label BTIF code_regex Store\s\(BDAT,\sLocal1\) replace_matched
-#begin
-#   Store (BDAT, Local1)\n
-#   // battery cycle count\n
-#   Store (BCC, Index (DerefOf (Index (NBTI, Arg0)), 0x0D))\n
-#   // battery temperature\n
-#	Store (\\_TZ.GTTP (0x04, 0x05, Zero, Zero, 0x7F), Local2)\n
-#	Add (Multiply (Local2, 10), 2732, Local2) // Celsius to .1K\n
-#	Store (Local2, Index (DerefOf (Index (NBTI, Arg0)), 0x0E))\n
-#end;
-
-# 8-bit version
-# (this one is for compatibility with MacIASL)
-# Store (BDAT, Local1)
-into method label BTIF code_regex Store\s\(BDAT,\sLocal1\) replace_matched
-begin
-    Store (B1B2 (BDA0, BDA1), Local1)\n
-    // battery cycle count\n
-    Store (B1B2 (BCC0, BCC1), Index (DerefOf (Index (NBTI, Arg0)), 0x0D))\n
-    // battery temperature\n
-	Store (\\_TZ.GTTP (0x04, 0x05, Zero, Zero, 0x7F), Local2)\n
-	Add (Multiply (Local2, 10), 2732, Local2) // Celsius to .1K\n
-	Store (Local2, Index (DerefOf (Index (NBTI, Arg0)), 0x0E))\n
-end;
-
-# (this one is for compatibility with DSDT Editor)
-# Store (B1B2 (BDA0, BDA1), Local1)
-into method label BTIF code_regex Store\s\(B1B2\s\(BDA0,\sBDA1\),\sLocal1\) replace_matched
-begin
-    Store (B1B2 (BDA0, BDA1), Local1)\n
-    // battery cycle count\n
-    Store (B1B2 (BCC0, BCC1), Index (DerefOf (Index (NBTI, Arg0)), 0x0D))\n
-    // battery temperature\n
-	Store (\\_TZ.GTTP (0x04, 0x05, Zero, Zero, 0x7F), Local2)\n
-	Add (Multiply (Local2, 10), 2732, Local2) // Celsius to .1K\n
-	Store (Local2, Index (DerefOf (Index (NBTI, Arg0)), 0x0E))\n
-end;
-
-into all code_regex \"Hewlett\-Packard\"\s+\},\s+Package\s\(0x0D\) replaceall_matched
-begin
-		"Hewlett-Packard",\n
-        Zero,\n
-        Zero,\n
-   	},\n
-	Package (0x0F)\n
-end;
-
-into all code_regex Name\s\(NBTI,\sPackage\s\(0x02\)\s+\{\s+Package\s\(0x0D\) replaceall_matched
-begin
-	Name (NBTI, Package(0x02)\n
-	{\n
-		Package (0x0F)\n
-end;
-
-into_all all code_regex \"LIon\",\s+\"Hewlett\-Packard\"\n\s+\}\n replaceall_matched
-begin
-	"LIon",\n
-	"Hewlett-Packard",\n
-	Zero,\n
-	Zero,\n
-}\n
 end;
 
