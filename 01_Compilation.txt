@@ -46,3 +46,8 @@ end;
 #Name (NBTT, Package ()
 #end;
 
+# ProBook 4x40s specific
+into all code_regex Name\s+\(BB2S,[^\)].*\) replace_matched
+begin
+Name (BB2S, "                                                                                                                                                            ")
+end;
