@@ -150,7 +150,7 @@ end;
 
 
 #     Enable functions keys
-into device name_hid PNP0303 insert
+into device label PS2K insert
 begin
 Method (_DSM, 4, NotSerialized)\n
 {\n
