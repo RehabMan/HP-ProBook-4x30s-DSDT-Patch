@@ -1,0 +1,17 @@
+into device label PS2K insert
+begin
+Method (KBCL, 0, Serialized)\n
+{\n
+    Return (\_SB.PCI0.IGPU.DD02._BCL ())\n
+}\n
+Method (KBCM, 1, Serialized)\n
+{\n
+    \_SB.PCI0.IGPU.DD02._BCM (Arg0)\n
+}\n
+Method (KBQC, 0, Serialized)\n
+{\n
+    Return (\_SB.PCI0.IGPU.DD02._BQC ())\n
+}\n
+end;
+
+
