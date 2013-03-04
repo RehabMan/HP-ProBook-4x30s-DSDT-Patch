@@ -563,11 +563,6 @@ Device (SMCD)\n
 //		Divide (Subtract (\_TZ.GFXZ._TMP, 2732), 10,, Local0)\n
 //		return (Local0)\n
 //	}\n
-//	Method (TSYS, 0, Serialized)  // LOCZ temp\n
-//	{\n
-//		Divide (Subtract (\_TZ.LOCZ._TMP, 2732), 10,, Local0)\n
-//		return (Local0)\n
-//	}\n
 //\n
 // for debugging fan control\n
 //	Method (TCPP, 0, Serialized)  // Average temp\n
@@ -580,17 +575,22 @@ Device (SMCD)\n
 //		}\n
 //		return (Local0)\n
 //	}\n
-//	Method (TAMB, 0, Serialized)  // fan counter\n
+//	Method (TSYS, 0, Serialized)  // fan counter\n
 //	{\n
 //		return (FCNT)\n
 //	}\n
 //\n
-	Method (TCPU, 0, Serialized)\n
+	Method (TCPU, 0, Serialized)	// CPU Heatsink Temp\n
 	{\n
 		Acquire (\_SB.PCI0.LPCB.EC0.ECMX, 0xFFFF)\n
 		Store (1, \_SB.PCI0.LPCB.EC0.CRZN)\n
 		Store (\_SB.PCI0.LPCB.EC0.DTMP, Local0)\n
 		Release (\_SB.PCI0.LPCB.EC0.ECMX)\n
+		return (Local0)\n
+	}\n
+	Method (TAMB, 0, Serialized)  	// Ambient Temp\n
+	{\n
+		Divide (Subtract (\_TZ.LOCZ._TMP, 2732), 10,, Local0)\n
 		return (Local0)\n
 	}\n
 \n
