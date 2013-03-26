@@ -1,3 +1,16 @@
+# Please Note:
+#
+# These patches were created just to test out some functionality in my version of VoodooPS2Keyboard.
+# They add the necessary methods to allow the screen brightness control methods to be accessed
+# from the keyboard driver.
+#
+# These methods inside the PS2K device simply forward their requests on to the standard
+# ACPI brightness methods in the IGPU device.
+# 
+# This was implemented to see if the methods would work with the Probook as the native screen
+# brightness functionality is not 100%. Unfortunately, they didn't work at all.
+#
+
 into device label PS2K insert
 begin
 Method (KBCL, 0, Serialized)\n
