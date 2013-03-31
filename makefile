@@ -1,22 +1,27 @@
-GENERIC = 01_Compilation.txt 02_DSDTPatch.txt 04_FanPatch.txt 05_OSCheck.txt 06_Battery.txt
-EXPERIMENT = 01_Compilation.txt 02_DSDTPatch.txt 04_FanExperimental.txt 05_OSCheck.txt 06_Battery.txt
+COMMON = 01_Compilation.txt 02_DSDTPatch.txt 05_OSCheck.txt 06_Battery.txt
+FANPATCH = 04a_FanPatch.txt
+QUIET = 04b_FanQuiet.txt
+FANREAD = 04c_FanSpeed.txt
 HDMI = 03a_HDMI.txt
-HDMI1080P = 03b_1080p+HDMI.txt
+HDMIDUAL = 03b_1080p+HDMI.txt
+EHCI6 = 02a_EHCI_4x30s.txt
+EHCI7 = 02b_EHCI_4x40s.txt
+IMEI = 07_MEI_4x40s_Sandy.txt
+AR9285 = 08_AR9285.txt
+ALL = 4x30s.txt 4x40s_IvyBridge.txt 4x40s_SandyBridge.txt
 
-all : all.txt all1080.txt all_exp.txt all1080_exp.txt
+.PHONY: all
+all : $(ALL)
 
-all.txt : $(GENERIC) $(HDMI)
-	cat $^ >$@ 
-
-all1080.txt : $(GENERIC) $(HDMI1080P)
-	cat $^ >$@
-	
-all_exp.txt : $(EXPERIMENT) $(HDMI)
-	cat $^ >$@ 
-
-all1080_exp.txt : $(EXPERIMENT) $(HDMI1080P)
-	cat $^ >$@
-	
+.PHONY: clean
 clean: 
-	rm all.txt all1080.txt all_exp.txt all1080_exp.txt
+	rm $(ALL)
 
+4x30s.txt : $(COMMON) $(EHCI6)
+	cat $^ >$@ 
+	
+4x40s_IvyBridge.txt : $(COMMON) $(EHCI7)
+	cat $^ >$@ 
+	
+4x40s_SandyBridge.txt : $(COMMON) $(EHCI7) $(IMEI)
+	cat $^ >$@ 

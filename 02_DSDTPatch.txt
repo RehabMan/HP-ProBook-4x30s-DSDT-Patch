@@ -2,11 +2,7 @@
 #   Power fix - uses AppleACPIBatteryManager.kext  instead VoodooBattery
 into device label AC insert
 begin
-Name (_PRW, Package (0x02)\n
-            {\n
-                0x18, \n
-                0x03\n
-            })
+Name (_PRW, Package (0x02) { 0x18, 0x03 })
 end;
 
 
@@ -22,19 +18,16 @@ begin
 Method (DTGP, 5, NotSerialized)\n
 {\n
     If (LEqual (Arg0, Buffer (0x10)\n
-            {\n
-                /* 0000 */    0xC6, 0xB7, 0xB5, 0xA0, 0x18, 0x13, 0x1C, 0x44, \n
-                /* 0008 */    0xB0, 0xC9, 0xFE, 0x69, 0x5E, 0xAF, 0x94, 0x9B\n
-            }))\n
+        {\n
+            /* 0000 */    0xC6, 0xB7, 0xB5, 0xA0, 0x18, 0x13, 0x1C, 0x44,\n
+            /* 0008 */    0xB0, 0xC9, 0xFE, 0x69, 0x5E, 0xAF, 0x94, 0x9B\n
+        }))\n
     {\n
         If (LEqual (Arg1, One))\n
         {\n
             If (LEqual (Arg2, Zero))\n
             {\n
-                Store (Buffer (One)\n
-                    {\n
-                        0x03\n
-                    }, Arg4)\n
+                Store (Buffer (One) { 0x03 }, Arg4)\n
                 Return (One)\n
             }\n
             If (LEqual (Arg2, One))\n
@@ -43,108 +36,8 @@ Method (DTGP, 5, NotSerialized)\n
             }\n
         }\n
     }\n
-    Store (Buffer (One)\n
-        {\n
-            0x00\n
-        }, Arg4)\n
+    Store (Buffer (One) { 0x00 }, Arg4)\n
     Return (Zero)\n
-}
-end;
-
-
-#    EHCI fix  inject  device 0x1C26 into EHC1 
-into method label _DSM parent_adr 0x001D0000 remove_entry;
-into device name_adr 0x001D0000 insert
-begin
-Method (_DSM, 4, NotSerialized)\n
-{\n
-    Store (Package ()\n
-        {\n
-            "device-id", \n
-            Buffer (0x04)\n
-            {\n
-                0x26, 0x1c, 0x00, 0x00\n
-            }, \n
-            "built-in", \n
-            Buffer (One)\n
-            {\n
-                0x00\n
-            }, \n
-            "AAPL,clock-id", \n
-            Buffer (One)\n
-            {\n
-                0x01\n
-            }, \n
-            "device_type", \n
-            Buffer (0x05)\n
-            {\n
-                "EHCI"\n
-            }, \n
-            "AAPL,current-available", \n
-            0x0834, \n
-            "AAPL,current-extra", \n
-            0x0898, \n
-            "AAPL,current-extra-in-sleep", \n
-            0x0640, \n
-            "AAPL,device-internal",\n
-            0x02,\n
-            "AAPL,max-port-current-in-sleep",\n
-            0x0834,  \n
-            Buffer (One)\n
-            {\n
-                0x00\n
-            }\n
-        }, Local0)\n
-    DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))\n
-    Return (Local0)\n
-}
-end;
-
-#    EHCI fix inject  device 0x1C2D into EHC2
-into method label _DSM parent_adr 0x001A0000 remove_entry;
-into device name_adr 0x001A0000 insert
-begin
-Method (_DSM, 4, NotSerialized)\n
-{\n
-    Store (Package ()\n
-        {\n
-            "device-id", \n
-            Buffer (0x04)\n
-            {\n
-                0x2d, 0x1c, 0x00, 0x00\n
-            }, \n
-            "built-in", \n
-            Buffer (One)\n
-            {\n
-                0x00\n
-            }, \n
-            "AAPL,clock-id", \n
-            Buffer (One)\n
-            {\n
-                0x02\n
-            }, \n
-            "device_type", \n
-            Buffer (0x05)\n
-            {\n
-                "EHCI"\n
-            }, \n
-            "AAPL,current-available", \n
-            0x0834, \n
-            "AAPL,current-extra", \n
-            0x0898, \n
-            "AAPL,current-extra-in-sleep", \n
-            0x0640, \n
-            "AAPL,device-internal",\n
-            0x02,\n
-            "AAPL,max-port-current-in-sleep",\n
-            0x0834,  \n
-            Buffer (One)\n
-            {\n
-                0x00\n
-            }\n
-        }, Local0)\n
-    DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))\n
-    Return (Local0)\n
 }
 end;
 
@@ -155,13 +48,10 @@ begin
 Method (_DSM, 4, NotSerialized)\n
 {\n
     Store (Package (0x02)\n
-        {\n
-            "AAPL,has-embedded-fn-keys", \n
-            Buffer (0x04)\n
-            {\n
-                0x01, 0x00, 0x00, 0x00\n
-            }\n
-        }, Local0)\n
+    {\n
+        "AAPL,has-embedded-fn-keys",\n
+        Buffer (0x04) { 0x01, 0x00, 0x00, 0x00 }\n
+    }, Local0)\n
     DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))\n
     Return (Local0)\n
 }\n
@@ -172,25 +62,19 @@ end;
 into device label HDEF insert
 begin
 Method (_DSM, 4, NotSerialized)\n
-                {\n
-                    Store (Package (0x06)\n
-                        {\n
-                            "hda-gfx", \n
-                            Buffer (0x0A)\n
-                            {\n
-                                "onboard-1"\n
-                            }, \n
-                            "layout-id", \n 
-                            Buffer (0x04)\n
-                            {\n
-                                0x0C, 0x00, 0x00, 0x00\n
-                            }, \n
-                            "PinConfigurations", \n
-                            Buffer (Zero) {}\n
-                        }, Local0)\n
-                    DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))\n
-                    Return (Local0)\n
-                }
+{\n
+    Store (Package()\n
+    {\n
+        "hda-gfx",\n
+        Buffer (0x0A) { "onboard-1" },
+        "layout-id",\n
+        Buffer (0x04) { 0x0C, 0x00, 0x00, 0x00 },\n
+        "PinConfigurations",\n
+        Buffer (Zero) { }\n
+    }, Local0)\n
+    DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))\n
+    Return (Local0)\n
+}
 end;
 
 
@@ -202,37 +86,13 @@ into device name_hid PNP0103 code_regex IRQNoFlags\s\(\)\n\s+\{(\d+)\} removeall
 into device name_hid PNP0103 code_regex Name\s\(([^,]+),\sResourceTemplate\s\(\)\n\s+\{((?:.|\n)*)\}\) replace_matched
 begin
 Name (%1, ResourceTemplate ()\n
-                    {\n
-                        IRQNoFlags ()\n
-                            {0}\n
-                        IRQNoFlags ()\n
-                            {8}\n
-                        IRQNoFlags ()\n
-                            {11}\n
-                        IRQNoFlags ()\n
-                            {15}\n
+{\n
+    IRQNoFlags () {0}\n
+    IRQNoFlags () {8}\n
+    IRQNoFlags () {11}\n
+    IRQNoFlags () {15}\n
 %2
 })
-end;
-
-
-#   LPC fix injects device 0x1C49 HM65
-into method label _DSM parent_adr 0x001F0000 remove_entry;
-into device name_adr 0x001F0000 insert
-begin
-Method (_DSM, 4, NotSerialized)\n
-{\n
-    Store (Package (0x02)\n
-        {\n
-            "device-id", \n
-            Buffer (0x04)\n
-            {\n
-                0x49, 0x1C, 0x00, 0x00\n
-            }\n
-        }, Local0)\n
-    DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))\n
-    Return (Local0)\n
-}
 end;
 
 
@@ -274,25 +134,21 @@ into method label _DSM parent_adr 0x001F0003 remove_entry;
 into device name_adr 0x001F0003 insert
 begin
 Device (BUS0)\n
-                {\n
-                    Name (_CID, "smbus")\n
-                    Name (_ADR, Zero)\n
-                    Device (DVL0)\n
-                    {\n
-                        Name (_ADR, 0x57)\n
-                        Name (_CID, "diagsvault")\n
-                        Method (_DSM, 4, NotSerialized)\n
-                        {\n
-                            Store (Package (0x02)\n
-                                {\n
-                                    "address", \n
-                                    0x57\n
-                                }, Local0)\n
-                            DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))\n
-                            Return (Local0)\n
-                        }\n
-                    }\n
-                }
+{\n
+    Name (_CID, "smbus")\n
+    Name (_ADR, Zero)\n
+    Device (DVL0)\n
+    {\n
+        Name (_ADR, 0x57)\n
+        Name (_CID, "diagsvault")\n
+        Method (_DSM, 4, NotSerialized)\n
+        {\n
+            Store (Package (0x02) { "address", 0x57 }, Local0)\n
+            DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))\n
+            Return (Local0)\n
+        }\n
+    }\n
+}
 end;
 
 #    USB sleep fix injects Macbook 8,1 device IDs
@@ -302,115 +158,100 @@ begin
 Method (_DSM, 4, NotSerialized)\n
 {\n
     Store (Package (0x02)\n
-        {\n
-            "device-id", \n
-            Buffer (0x04)\n
-            {\n
-                0x27, 0x1c, 0x00, 0x00\n
-            }\n
-        }, Local0)\n
+    {\n
+        "device-id",\n
+        Buffer (0x04) { 0x27, 0x1c, 0x00, 0x00 }\n
+    }, Local0)\n
     DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))\n
     Return (Local0)\n
 }
 end;
+
 into method label _DSM parent_adr 0x001D0002 remove_entry;
 into device name_adr 0x001D0002 insert
 begin
 Method (_DSM, 4, NotSerialized)\n
 {\n
     Store (Package (0x02)\n
-        {\n
-            "device-id", \n
-            Buffer (0x04)\n
-            {\n
-                0x2c, 0x1c, 0x00, 0x00\n
-            }\n
-        }, Local0)\n
+    {\n
+        "device-id",\n
+        Buffer (0x04) { 0x2c, 0x1c, 0x00, 0x00 }\n
+    }, Local0)\n
     DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))\n
     Return (Local0)\n
 }
 end;
+
 into method label _DSM parent_adr 0x001D0003 remove_entry;
 into device name_adr 0x001D0003 insert
 begin
 Method (_DSM, 4, NotSerialized)\n
 {\n
     Store (Package (0x02)\n
-        {\n
-            "device-id", \n
-            Buffer (0x04)\n
-            {\n
-                0x27, 0x1c, 0x00, 0x00\n
-            }\n
-        }, Local0)\n
+    {\n
+        "device-id",\n
+        Buffer (0x04) { 0x27, 0x1c, 0x00, 0x00 }\n
+    }, Local0)\n
     DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))\n
     Return (Local0)\n
 }
 end;
+
 into method label _DSM parent_adr 0x001D0004 remove_entry;
 into device name_adr 0x001D0004 insert
 begin
 Method (_DSM, 4, NotSerialized)\n
 {\n
     Store (Package (0x02)\n
-        {\n
-            "device-id", \n
-            Buffer (0x04)\n
-            {\n
-                0x2c, 0x1c, 0x00, 0x00\n
-            }\n
-        }, Local0)\n
+    {\n
+        "device-id",\n
+        Buffer (0x04) { 0x2c, 0x1c, 0x00, 0x00 }\n
+    }, Local0)\n
     DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))\n
     Return (Local0)\n
 }
 end;
+
 into method label _DSM parent_adr 0x001A0001 remove_entry;
 into device name_adr 0x001A0001 insert
 begin
 Method (_DSM, 4, NotSerialized)\n
 {\n
     Store (Package (0x02)\n
-        {\n
-            "device-id", \n
-            Buffer (0x04)\n
-            {\n
-                0x27, 0x1c, 0x00, 0x00\n
-            }\n
-        }, Local0)\n
+    {\n
+        "device-id",\n
+        Buffer (0x04) { 0x27, 0x1c, 0x00, 0x00 }\n
+    }, Local0)\n
     DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))\n
     Return (Local0)\n
 }
 end;
+
 into method label _DSM parent_adr 0x001A0002 remove_entry;
 into device name_adr 0x001A0002 insert
 begin
 Method (_DSM, 4, NotSerialized)\n
 {\n
     Store (Package (0x02)\n
-        {\n
-            "device-id", \n
-            Buffer (0x04)\n
-            {\n
-                0x2c, 0x1c, 0x00, 0x00\n
-            }\n
-        }, Local0)\n
+    {\n
+        "device-id",\n
+        Buffer (0x04) { 0x2c, 0x1c, 0x00, 0x00 }\n
+    }, Local0)\n
     DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))\n
     Return (Local0)\n
 }
 end;
+
 into method label _DSM parent_adr 0x001A0003 remove_entry;
 into device name_adr 0x001A0003 insert
 begin
 Method (_DSM, 4, NotSerialized)\n
 {\n
     Store (Package (0x02)\n
-        {\n
-            "device-id", \n
-            Buffer (0x04)\n
-            {\n
-                0x27, 0x1c, 0x00, 0x00\n
-            }\n
-        }, Local0)\n
+    {\n
+        "device-id",\n
+        Buffer (0x04) { 0x27, 0x1c, 0x00, 0x00 }\n
+    }, Local0)\n
     DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))\n
     Return (Local0)\n
 }
@@ -426,6 +267,7 @@ Method (_STA, 0, NotSerialized)\n
     Return (0x0F)\n
 }
 end;
+
 into method label _CRS parent_hid PNP0103 remove_entry;
 into device name_hid PNP0103 insert
 begin
@@ -434,52 +276,3 @@ Method (_CRS, 0, NotSerialized)\n
     Return (BUF0)\n
 }
 end;
-
-
-#   Airport fix works with vanilla IO80211 kext 
-into device label WNIC parent_label RP04 replace_content
-begin
-Name (_ADR, Zero)  // _ADR: Address\n
-Method (_PRW, 0, Serialized)  // _PRW: Power Resources for Wake\n
-{\n
-	Return (^^_PRW)\n
-}\n
-Method (_DSM, 4, NotSerialized)\n
-{\n
-    Store (Package (0x0C)\n
-        {\n
-            "AAPL,slot-name", \n
-            Buffer (0x08)\n
-            {\n
-                "AirPort"\n
-            }, \n
-            "device-id", \n
-            Unicode ("*"), \n
-            "device_type", \n
-            Buffer (0x08)\n
-            {\n
-                "AirPort"\n
-            }, \n
-            "model", \n
-             Buffer (0x33)\n
-             {\n
-                "Atheros 9285 802.11 b/g/n Wireless Network Adapter"\n
-             },\n
-            "subsystem-id", \n
-            Buffer (0x04)\n
-            {\n
-                0x8F, 0x00, 0x00, 0x00\n
-            }, \n
-            "subsystem-vendor-id", \n
-            Buffer (0x04)\n
-            {\n
-                0x6B, 0x10, 0x00, 0x00\n
-            }\n
-        }, Local0)\n
-    DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))\n
-    Return (Local0)\n
-}
-end;
-
-into all label WNIC set_label begin ARPT end;
-

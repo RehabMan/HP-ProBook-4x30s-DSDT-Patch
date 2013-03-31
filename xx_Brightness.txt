@@ -11,6 +11,10 @@
 # brightness functionality is not 100%. Unfortunately, they didn't work at all.
 #
 
+into method label KBCL parent_label PS2K remove_entry;
+into method label KBCM parent_label PS2K remove_entry;
+into method label KBQC parent_label PS2K remove_entry;
+
 into device label PS2K insert
 begin
 Method (KBCL, 0, Serialized)\n

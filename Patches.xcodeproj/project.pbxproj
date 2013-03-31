@@ -1,0 +1,163 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXFileReference section */
+		8418ECBF17025DF5007A25C4 /* 07_MEI_4x40s_Sandy.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = 07_MEI_4x40s_Sandy.txt; sourceTree = "<group>"; };
+		843DA4791706024900E87F04 /* Mini-SSDT-DualLink.dsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Mini-SSDT-DualLink.dsl"; sourceTree = "<group>"; };
+		845FE5EF1702639F004601B0 /* .maciasl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .maciasl; sourceTree = "<group>"; usesTabs = 1; };
+		846B57131706046600E19787 /* Mini-SSDT.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Mini-SSDT.dsl"; sourceTree = "<group>"; };
+		8499C9761704B5F70066A5F3 /* NullPatch.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = NullPatch.txt; sourceTree = "<group>"; };
+		849EBD50170340BF007EFCFF /* xx_KeyBacklight.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = xx_KeyBacklight.txt; sourceTree = "<group>"; };
+		84B941FD1703347E00C5913C /* 08_AR9285.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = 08_AR9285.txt; sourceTree = "<group>"; };
+		84B9D51916FFE684002CD441 /* 01_Compilation.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 01_Compilation.txt; sourceTree = "<group>"; };
+		84B9D51A16FFE684002CD441 /* 02_DSDTPatch.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 02_DSDTPatch.txt; sourceTree = "<group>"; };
+		84B9D51C16FFE684002CD441 /* 03a_HDMI.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 03a_HDMI.txt; sourceTree = "<group>"; };
+		84B9D51E16FFE684002CD441 /* 03b_1080p+HDMI.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "03b_1080p+HDMI.txt"; sourceTree = "<group>"; };
+		84B9D51F16FFE684002CD441 /* 04b_FanQuiet.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 04b_FanQuiet.txt; sourceTree = "<group>"; };
+		84B9D52016FFE684002CD441 /* 04a_FanPatch.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 04a_FanPatch.txt; sourceTree = "<group>"; };
+		84B9D52116FFE684002CD441 /* 05_OScheck.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 05_OScheck.txt; sourceTree = "<group>"; };
+		84B9D52216FFE684002CD441 /* 06_Battery.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 06_Battery.txt; sourceTree = "<group>"; };
+		84B9D52416FFE684002CD441 /* xx_Brightness.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = xx_Brightness.txt; sourceTree = "<group>"; };
+		84B9D52516FFE684002CD441 /* License.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = License.md; sourceTree = "<group>"; };
+		84B9D52616FFE684002CD441 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; lineEnding = 0; path = Makefile; sourceTree = "<group>"; usesTabs = 1; };
+		84B9D52716FFE684002CD441 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		84D4D88B17025A4E004FF373 /* 02a_EHCI_4x30s.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = 02a_EHCI_4x30s.txt; sourceTree = "<group>"; };
+		84D4D88D17025AFA004FF373 /* 02b_EHCI_4x40s.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = 02b_EHCI_4x40s.txt; sourceTree = "<group>"; };
+		84D4D88F17025C86004FF373 /* 04c_FanSpeed.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = 04c_FanSpeed.txt; sourceTree = "<group>"; };
+		84DA7C6317033BC400738DC0 /* 09_USB3_4x40s_Meize.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = 09_USB3_4x40s_Meize.txt; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		84B9D50E16FFE58F002CD441 = {
+			isa = PBXGroup;
+			children = (
+				845FE5EF1702639F004601B0 /* .maciasl */,
+				84B9D51916FFE684002CD441 /* 01_Compilation.txt */,
+				84B9D51A16FFE684002CD441 /* 02_DSDTPatch.txt */,
+				84D4D88B17025A4E004FF373 /* 02a_EHCI_4x30s.txt */,
+				84D4D88D17025AFA004FF373 /* 02b_EHCI_4x40s.txt */,
+				84B9D51C16FFE684002CD441 /* 03a_HDMI.txt */,
+				84B9D51E16FFE684002CD441 /* 03b_1080p+HDMI.txt */,
+				84B9D52016FFE684002CD441 /* 04a_FanPatch.txt */,
+				84B9D51F16FFE684002CD441 /* 04b_FanQuiet.txt */,
+				84D4D88F17025C86004FF373 /* 04c_FanSpeed.txt */,
+				84B9D52116FFE684002CD441 /* 05_OScheck.txt */,
+				84B9D52216FFE684002CD441 /* 06_Battery.txt */,
+				8418ECBF17025DF5007A25C4 /* 07_MEI_4x40s_Sandy.txt */,
+				84B941FD1703347E00C5913C /* 08_AR9285.txt */,
+				84DA7C6317033BC400738DC0 /* 09_USB3_4x40s_Meize.txt */,
+				846B57131706046600E19787 /* Mini-SSDT.dsl */,
+				843DA4791706024900E87F04 /* Mini-SSDT-DualLink.dsl */,
+				8499C9761704B5F70066A5F3 /* NullPatch.txt */,
+				84B9D52416FFE684002CD441 /* xx_Brightness.txt */,
+				849EBD50170340BF007EFCFF /* xx_KeyBacklight.txt */,
+				84B9D52516FFE684002CD441 /* License.md */,
+				84B9D52616FFE684002CD441 /* Makefile */,
+				84B9D52716FFE684002CD441 /* README.txt */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXLegacyTarget section */
+		84B9D51316FFE58F002CD441 /* Patches */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "$(ACTION)";
+			buildConfigurationList = 84B9D51616FFE58F002CD441 /* Build configuration list for PBXLegacyTarget "Patches" */;
+			buildPhases = (
+			);
+			buildToolPath = /usr/bin/make;
+			dependencies = (
+			);
+			name = Patches;
+			passBuildSettingsInEnvironment = 1;
+			productName = Patches;
+		};
+/* End PBXLegacyTarget section */
+
+/* Begin PBXProject section */
+		84B9D50F16FFE58F002CD441 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = RehabMan;
+			};
+			buildConfigurationList = 84B9D51216FFE58F002CD441 /* Build configuration list for PBXProject "Patches" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 84B9D50E16FFE58F002CD441;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				84B9D51316FFE58F002CD441 /* Patches */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin XCBuildConfiguration section */
+		84B9D51516FFE58F002CD441 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		84B9D51816FFE58F002CD441 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		84B9D51216FFE58F002CD441 /* Build configuration list for PBXProject "Patches" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84B9D51516FFE58F002CD441 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		84B9D51616FFE58F002CD441 /* Build configuration list for PBXLegacyTarget "Patches" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84B9D51816FFE58F002CD441 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 84B9D50F16FFE58F002CD441 /* Project object */;
+}

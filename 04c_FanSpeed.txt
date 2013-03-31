@@ -1,0 +1,36 @@
+#Maintained by: RehabMan for: HP Probook 4x30s/4x40s
+
+# This fan patch simply reports CPU Heatsink, Ambient, and Fan Speed.
+# No manipulation of fan speed is done.  You get default BIOS behavior.
+
+into device label SMCD remove_entry;
+into definitionblock code_regex . insert
+begin
+Device (SMCD)\n
+{\n
+    Name (_HID, "FAN00000")  // _HID: Hardware ID\n
+    Method (FAN0, 0, Serialized)\n
+    {\n
+        Store (\_TZ.GFRM (), Local0)\n
+        If (LEqual (0x03C4, Local0))\n
+        {\n
+            Store (Zero, Local0)\n
+            Return (Local0)\n
+        }\n
+        Return (Local0)\n
+    }\n
+    Method (TCPU, 0, Serialized)\n
+    {\n
+        Acquire (\_SB.PCI0.LPCB.EC0.ECMX, 0xFFFF)\n
+        Store (1, \_SB.PCI0.LPCB.EC0.CRZN)\n
+        Store (\_SB.PCI0.LPCB.EC0.DTMP, Local0)\n
+        Release (\_SB.PCI0.LPCB.EC0.ECMX)\n
+        return (Local0)\n
+    }\n
+	Method (TAMB, 0, Serialized)  	// Ambient Temp\n
+	{\n
+		Divide (Subtract (\_TZ.LOCZ._TMP, 2732), 10,, Local0)\n
+		return (Local0)\n
+	}\n
+}
+end;

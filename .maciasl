@@ -1,4 +1,13 @@
-All (standard screens)	all.txt
-All (dual-link screens)	all1080.txt
-All (standard screens, quiet fan)	all_exp.txt
-All (dual-link screens, quiet fan)	all1080_exp.txt
+=> First, choose one of the following:	NullPatch.txt
+ProBook 4x30s	4x30s.txt
+ProBook 4x40s Ivy Bridge	4x40s_IvyBridge.txt
+ProBook 4x40s Sandy Bridge	4x40s_SandyBridge.txt
+=> Next, choose your screen type:	NullPatch.txt
+IGPU/LVDS Single-Link	03a_HDMI.txt
+IGPU/LVDS Dual-Link	03b_1080p+HDMI.txt
+=> Finally, choose your desired fan behavior:	NullPatch.txt
+Fan and Temps (original fan patch)	04a_FanPatch.txt
+Fan and Temps (quiet fan)	04b_FanQuiet.txt
+Fan and Temps (readings only)	04c_FanSpeed.txt
+=> Optionally, 4x40s native USB3 patch:	NullPatch.txt
+ProBook 4x40s Native USB3	09_USB3_4x40s_Meize.txt
