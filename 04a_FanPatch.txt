@@ -1,6 +1,16 @@
+#Maintained by: RehabMan for: HP Probook 4x30s/4x40s
+
+#
+# This fan patch adds a very conservative modification to the normal
+# BIOS fan control.  It does not attempt to trick the system into
+# thinking that the laptop is arbitrarily cool.  Instead it simply
+# avoids some of the annoying ways in which the default HP BIOS
+# controls the fan.  Primarily that it ramps up the fan speed too
+# agressively, and even when at relatively cool temperatures, it
+# runs the fan at one speed above the lowest.
+#
 
 # add fan readings and fan control
-
 into definitionblock code_regex . insert
 begin
 Device (SMCD)\n
@@ -21,7 +31,9 @@ Device (SMCD)\n
 		Store (Zero, Local0)\n
 		Store (\_TZ.GTTP (Zero, One, 0x10, Zero, 0x7F), Local0)\n
 		Store (Local0, Local1)\n
-		If (And (LGreaterEqual (Local0, 0x23), LLessEqual (Local0, 0x34)))\n
+        // Temp between 35 and 52:\n
+        //      hold fan at lowest speed\n
+		If (And (LGreaterEqual (Local0, 35), LLessEqual (Local0, 52)))\n
 		{\n
 			Store (0x80, Local0)\n
 			If (\_SB.PCI0.LPCB.EC0.ECRG)\n
@@ -33,7 +45,13 @@ Device (SMCD)\n
 		}\n
 		Else\n
 		{\n
-			If (Or (LLess (Local0, 0x20), LGreaterEqual (Local0, 0x37)))\n
+            // Temp 31 or lower, or temp higher than 54:\n
+            //      put fan into "automatic mode"\n
+            // Note: for temps 32, 33, 34 fan stays in whatever mode it was\n
+            //  in previously.\n
+            // Note: for temps 53, 54 fan stays in whatever mode it was in\n
+            //  previously.\n
+			If (Or (LLess (Local0, 32), LGreaterEqual (Local0, 55)))\n
 			{\n
 				Store (0xFF, Local0)\n
 				If (\_SB.PCI0.LPCB.EC0.ECRG)\n

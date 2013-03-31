@@ -1,0 +1,88 @@
+# USB property injection for 4x40s (HM76)
+
+#   Insert Apple USB properties into EHC1
+into method label _DSM parent_adr 0x001D0000 remove_entry;
+into device name_adr 0x001D0000 insert
+begin
+Method (_DSM, 4, NotSerialized)\n
+{\n
+    Store (Package ()\n
+    {\n
+        "subsystem-id",\n 
+        Buffer (0x04) { 0x70, 0x72, 0x00, 0x00 },\n
+        "subsystem-vendor-id",\n 
+        Buffer (0x04) { 0x86, 0x80, 0x00, 0x00 },\n
+        "AAPL,current-available",\n
+        0x0834,\n
+        "AAPL,current-extra",\n
+        0x0898,\n
+        "AAPL,current-extra-in-sleep",\n
+        0x0640,\n
+        "AAPL,device-internal",\n
+        0x02,\n
+        "AAPL,max-port-current-in-sleep",\n
+        0x0834,\n
+        Buffer (One) { 0x00 }\n
+    }, Local0)\n
+    DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))\n
+    Return (Local0)\n
+}\n
+end;
+
+# Insert Apple USB properties into EHC2
+into method label _DSM parent_adr 0x001A0000 remove_entry;
+into device name_adr 0x001A0000 insert
+begin
+Method (_DSM, 4, NotSerialized)\n
+{\n
+    Store (Package ()\n
+    {\n
+        "subsystem-id",\n 
+        Buffer (0x04) { 0x70, 0x72, 0x00, 0x00 },\n
+        "subsystem-vendor-id",\n 
+        Buffer (0x04) { 0x86, 0x80, 0x00, 0x00 },\n
+        "AAPL,current-available",\n
+        0x0834,\n
+        "AAPL,current-extra",\n
+        0x0898,\n
+        "AAPL,current-extra-in-sleep",\n
+        0x0640,\n
+        "AAPL,device-internal",\n
+        0x02,\n
+        "AAPL,max-port-current-in-sleep",\n
+        0x0834,\n
+        Buffer (One) { 0x00 }\n
+    }, Local0)\n
+    DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))\n
+    Return (Local0)\n
+}\n
+end;
+
+# Insert Apple USB properties into USB 3.0 XHC
+into method label _DSM parent_adr 0x00140000 remove_entry;
+into device name_adr 0x00140000 insert
+begin
+Method (_DSM, 4, NotSerialized)\n
+{\n
+    Store (Package ()\n
+    {\n
+        "subsystem-id",\n 
+        Buffer (0x04) { 0x70, 0x72, 0x00, 0x00 },\n
+        "subsystem-vendor-id",\n 
+        Buffer (0x04) { 0x86, 0x80, 0x00, 0x00 },\n
+        "AAPL,current-available",\n
+        0x0834,\n
+        "AAPL,current-extra",\n
+        0x0898,\n
+        "AAPL,current-extra-in-sleep",\n
+        0x0640,\n
+        "AAPL,device-internal",\n
+        0x02,\n
+        "AAPL,max-port-current-in-sleep",\n
+        0x0834,\n
+        Buffer (One) { 0x00 }\n
+    }, Local0)\n
+    DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))\n
+    Return (Local0)\n
+}\n
+end;

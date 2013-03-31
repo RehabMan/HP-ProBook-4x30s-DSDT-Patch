@@ -1,3 +1,14 @@
+#Maintained by: RehabMan for: HP Probook 4x30s/4x40s
+
+#
+# This fan patch provides enhanced fan control.  It does so by tricking
+# the system into thinking that the laptop is arbitrarily cool, such 
+# that it can override the default behavior and have complete control
+# over the fan.
+#
+# More information on how this works is available at:
+# http://www.tonymacx86.com/hp-probook/72043-new-fan-control-dsdt-silent-fan-higher-temps.html
+#
 
 # add fan readings and fan control
 into device label SMCD remove_entry;
@@ -103,8 +114,7 @@ Device (SMCD)\n
 \n
 		// adjust current index into temp table\n
 		Increment (Local2)\n
-		if (LGreaterEqual (Local2, SizeOf(FHST)))\n
-			{ Store (0, Local2) }\n
+		if (LGreaterEqual (Local2, SizeOf(FHST))) { Store (0, Local2) }\n
 		Store (Local2, FIDX)\n
 		// adjust total items collected in temp table\n
 		Store (FNUM, Local2)\n
@@ -120,8 +130,7 @@ Device (SMCD)\n
 		// table based search (use avg temperature to search)\n
 		if (LGreater (Local0, 255)) { Store (255, Local0) }\n
 		Store (Zero, Local2)\n
-		while (LGreater (Local0, DerefOf (Index (FTAB, Local2))))\n
-			{ Add (Local2, 2, Local2) }\n
+		while (LGreater (Local0, DerefOf (Index (FTAB, Local2)))) { Add (Local2, 2, Local2) }\n
 \n
 		// calculate difference between current and found index\n
 		if (LGreater (Local2, FLST))\n

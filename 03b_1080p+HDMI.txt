@@ -1,3 +1,12 @@
+#Maintained by: RehabMan for: HP Probook 4x30s/4x40s
+
+#
+# Use this patch if your laptop has 1600x900 or higher
+# resolution screen.
+# 
+# For example, 47x0s (17") or 45x0s with 1080p user
+# upgraded screen.
+#
 
 #   Inject HDMI info and dual-link into GFX0/IGPU   */
 into method label _DSM parent_adr 0x00020000 remove_entry;
@@ -5,26 +14,19 @@ into device name_adr 0x00020000 insert
 begin
 Method (_DSM, 4, NotSerialized)\n
 {\n
-                    Store (Package (0x06)\n
-                        {\n
-                            "AAPL00,DualLink",\n 
-                            Buffer (0x04)\n
-                            {\n
-                                0x01, 0x00, 0x00, 0x00\n
-                            },\n 
-                            "hda-gfx",\n 
-                            Buffer (0x0A)\n
-                            {\n
-                                "onboard-1"\n
-                            },\n 
-                            "AAPL,snb-platform-id",\n 
-                            Buffer (0x04)\n
-                            {\n
-                                0x00, 0x00, 0x01, 0x00\n
-                            }\n
-                        }, Local0)\n
-                    DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))\n
-                    Return (Local0)\n 
-               }\n
+    Store (Package ()\n
+    {\n
+        "AAPL00,DualLink",\n 
+        Buffer (0x04) { 0x01, 0x00, 0x00, 0x00 },\n
+        "hda-gfx",\n 
+        Buffer (0x0A) { "onboard-1" },\n
+        "AAPL,snb-platform-id",\n 
+        Buffer (0x04) { 0x00, 0x00, 0x01, 0x00 },\n
+        "AAPL,ig-platform-id",\n
+        Buffer (0x04) { 0x04, 0x00, 0x66, 0x01 },\n
+    }, Local0)\n
+    DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))\n
+    Return (Local0)\n 
+}\n
 end;
 
