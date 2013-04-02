@@ -2,16 +2,40 @@
 
 # Fix compilation errors
 
-# Fix _T_x compiler reserved errors
-into_all all code_regex _T_0 replaceall_matched begin T_0 end;
-into_all all code_regex _T_1 replaceall_matched begin T_1 end;
+# Fix _T_x compiler reserved warnings (not necessary to fix)
+#into_all all code_regex _T_0 replaceall_matched begin T_0 end;
+#into_all all code_regex _T_1 replaceall_matched begin T_1 end;
 #into_all all code_regex _T_2 replaceall_matched begin T_2 end;
 #into_all all code_regex _T_3 replaceall_matched begin T_3 end;
 #into_all all code_regex _T_4 replaceall_matched begin T_4 end;
 #into_all all code_regex _T_5 replaceall_matched begin T_5 end;
 #into_all all code_regex _T_6 replaceall_matched begin T_6 end;
 
-# Fix parse errors 
+# Another way to fix the _T_x compiler reserved warnings (still not necessary)
+#into method label TRUP code_regex Name\s+\(_T_0,\s+Zero\) remove_matched;
+#into method label TRUP code_regex Store\s+\(PRDT,\s+_T_0\) remove_matched;
+#into method label TRUP code_regex \(_T_0 replaceall_matched begin (PRDT end;
+#into method label VHIV code_regex Name\s+\(_T_0,\s+Zero\) remove_matched;
+#into method label VHIV code_regex Store\s+\(Arg2,\s+_T_0\) remove_matched;
+#into method label VHIV code_regex \(_T_0 replaceall_matched begin (Arg2 end;
+#into method label \_SB.PCI0.LPCB.PS2M._HID code_regex Name\s+\(_T_0,\s+Zero\) remove_matched;
+#into method label \_SB.PCI0.LPCB.PS2M._HID code_regex Store\s+\(PRDT,\s+_T_0\) remove_matched;
+#into method label \_SB.PCI0.LPCB.PS2M._HID code_regex \(_T_0 replaceall_matched begin (PRDT end;
+#into method label WQBI code_regex Name\s+\(_T_0,\s+Zero\) remove_matched;
+#into method label WQBI code_regex Store\s+\(Arg0,\s+_T_0\) remove_matched;
+#into method label WQBI code_regex \(_T_0 replaceall_matched begin (Arg0 end;
+#into method label WQBC code_regex Name\s+\(_T_0,\s+Zero\) remove_matched;
+#into method label WQBC code_regex Store\s+\(Local6,\s+_T_0\) remove_matched;
+#into method label WQBC code_regex \(_T_0 replaceall_matched begin (Local6 end;
+#into method label WQBC code_regex Name\s+\(_T_1,\s+Zero\) remove_matched;
+#into method label WQBC code_regex Store\s+\(DerefOf\s+\(Index\s+\(ST99,\s+0x00\)\),\s+_T_1\) replace_matched begin Store (DerefOf (Index (ST99, 0x00)), Local2) end;
+#into method label WQBC code_regex \(_T_1 replaceall_matched begin (Local2 end;
+#nto method label WMBA code_regex Name\s+\(_T_0,\s+Zero\) remove_matched;
+#into method label WMBA code_regex Store\s+\(Local6,\s+_T_0\) remove_matched;
+#into method label WMBA code_regex \(_T_0 replaceall_matched begin (Local6 end;
+
+
+# Fix parse errors
 into device label GFX0 code_regex If\s\(CondRefOf\s\(FPED\)\)\s*\n\s*\{\s*\n\s*FPED\s\(\)\s*\n\s*\} remove_matched;
 
 # Fix line 2169 2181 compilations errors (these are specfiic to 4530s)
@@ -43,7 +67,7 @@ end;
 #rehabman: These are also warnings, and not necessary to patch
 #into_all all code_regex Name\s\(NBTT,\sPackage\s\(0x08\) replaceall_matched
 #begin
-#Name (NBTT, Package ()
+#Name (NBTT, Package()
 #end;
 
 # ProBook 4x40s specific (replaces syntax error with 4530s version)

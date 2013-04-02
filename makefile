@@ -9,19 +9,36 @@ EHCI7 = 02b_EHCI_4x40s.txt
 IMEI = 07_MEI_4x40s_Sandy.txt
 AR9285 = 08_AR9285.txt
 ALL = 4x30s.txt 4x40s_IvyBridge.txt 4x40s_SandyBridge.txt
+MINI = Mini-SSDT.aml Mini-SSDT-DualLink.aml Mini-SSDT-IMEI.aml
 
 .PHONY: all
-all : $(ALL)
+all : $(ALL) $(MINI)
 
 .PHONY: clean
 clean: 
-	rm $(ALL)
+	rm $(ALL) $(MINI)
+
+
+# combo patches
 
 4x30s.txt : $(COMMON) $(EHCI6)
 	cat $^ >$@ 
-	
+
 4x40s_IvyBridge.txt : $(COMMON) $(EHCI7)
 	cat $^ >$@ 
-	
+
 4x40s_SandyBridge.txt : $(COMMON) $(EHCI7) $(IMEI)
 	cat $^ >$@ 
+
+
+# mini SSDTs
+
+Mini-SSDT.aml : Mini-SSDT.dsl
+	iasl -p $@ $^
+
+Mini-SSDT-DualLink.aml : Mini-SSDT-DualLink.dsl
+	iasl -p $@ $^
+
+Mini-SSDT-IMEI.aml : Mini-SSDT-IMEI.dsl
+	iasl -p $@ $^
+

@@ -27,7 +27,7 @@ Device (SMCD)\n
 		}\n
 		Return (Local0)\n
 	}\n
-\n
+    \n
 // commented out: just for debugging and experimenting
 //
 // monitoring additional temperatures\n
@@ -66,7 +66,7 @@ Device (SMCD)\n
 		Divide (Subtract (\_TZ.LOCZ._TMP, 2732), 10,, Local0)\n
 		return (Local0)\n
 	}\n
-\n
+    \n
 // Fan Control Table (pairs of temp, fan control byte)\n
 	Name (FTAB, Buffer ()\n
 	{\n
@@ -88,30 +88,30 @@ Device (SMCD)\n
 	Name (FCNT, 0)		// count of times it has been "wrong", 0 means no counter\n
 	Name (FCTU, 20)		// timeout for changes (fan rpm going up)\n
 	Name (FCTD, 40)		// timeout for changes (fan rpm going down)\n
-\n
+    \n
 	// Fan control for CPU -- expects to be evaluated 1-per second\n
 	Method (FCPU, 0, Serialized)\n
 	{\n
 		Acquire (\_SB.PCI0.LPCB.EC0.ECMX, 0xFFFF)\n
-\n
+        \n
 		// setup fake temperature (this is the key to controlling the fan!)\n
 		Store (1, \_SB.PCI0.LPCB.EC0.CRZN)  // select CPU temp\n
 		Store (31, \_SB.PCI0.LPCB.EC0.TEMP) // write fake value there (31C)\n
-\n
+        \n
 		// get current temp into Local0 for eventual return\n
 		// Note: reading from DTMP here instead of TEMP because we wrote\n
 		//  a fake temp to TEMP to trick the system into running the fan\n
 		//	at a lower speed than it otherwise would.\n
 		Store (1, \_SB.PCI0.LPCB.EC0.CRZN)  // select CPU temp\n
 		Store (\_SB.PCI0.LPCB.EC0.DTMP, Local0) // Local0 is current temp\n
-\n
+        \n
 		// calculate average temperature\n
 		Add (Local0, FSUM, Local1)\n
 		Store (FIDX, Local2)\n
 		Subtract (Local1, DerefOf (Index (FHST, Local2)), Local1)\n
 		Store (Local0, Index (FHST, Local2))\n
 		Store (Local1, FSUM)  // Local1 is new sum\n
-\n
+        \n
 		// adjust current index into temp table\n
 		Increment (Local2)\n
 		if (LGreaterEqual (Local2, SizeOf(FHST))) { Store (0, Local2) }\n
@@ -123,15 +123,15 @@ Device (SMCD)\n
 			Increment (Local2)\n
 			Store (Local2, FNUM)\n
 		}\n
-\n
+        \n
 		// Local1 is new sum, Local2 is number of entries in sum\n
 		Divide (Local1, Local2,, Local0)  // Local0 is now average temp\n
-\n		
+        \n
 		// table based search (use avg temperature to search)\n
 		if (LGreater (Local0, 255)) { Store (255, Local0) }\n
 		Store (Zero, Local2)\n
 		while (LGreater (Local0, DerefOf (Index (FTAB, Local2)))) { Add (Local2, 2, Local2) }\n
-\n
+        \n
 		// calculate difference between current and found index\n
 		if (LGreater (Local2, FLST))\n
 		{\n
@@ -143,7 +143,7 @@ Device (SMCD)\n
 			Subtract(FLST, Local2, Local1)\n
 			Store(FCTD, Local4)\n
 		}\n
-\n
+        \n
 		// set new fan speed, if necessary\n
 		if (LEqual (Local1, 0))\n
 		{\n
@@ -156,7 +156,7 @@ Device (SMCD)\n
 			Store (FCNT, Local3)\n
 			Increment (Local3)\n
 			Store (Local3, FCNT)\n
-\n
+            \n
 			// how long to wait depends on how big the difference\n
 			// 20 secs if diff is 2, 5 secs if diff is 4, etc.\n
 			Divide (ShiftLeft (Local4, 1), Local1,, Local1)\n
@@ -169,7 +169,7 @@ Device (SMCD)\n
 				Store (0, FCNT)\n
 			}\n
 		}\n
-\n
+        \n
 		Release (\_SB.PCI0.LPCB.EC0.ECMX)\n
 		return (Local0)  // returns average temp\n
 	}\n

@@ -2,7 +2,7 @@
 #   Power fix - uses AppleACPIBatteryManager.kext  instead VoodooBattery
 into device label AC insert
 begin
-Name (_PRW, Package (0x02) { 0x18, 0x03 })
+Name (_PRW, Package() { 0x18, 0x03 })
 end;
 
 
@@ -11,51 +11,20 @@ into_all all code_regex \.AC, replaceall_matched begin .ADP1, end;
 into all label AC set_label begin ADP1 end;
 
 
-#   Insert standard DTGP entry
-into method label DTGP remove_entry;
-into definitionblock code_regex . insert
-begin
-Method (DTGP, 5, NotSerialized)\n
-{\n
-    If (LEqual (Arg0, Buffer (0x10)\n
-        {\n
-            /* 0000 */    0xC6, 0xB7, 0xB5, 0xA0, 0x18, 0x13, 0x1C, 0x44,\n
-            /* 0008 */    0xB0, 0xC9, 0xFE, 0x69, 0x5E, 0xAF, 0x94, 0x9B\n
-        }))\n
-    {\n
-        If (LEqual (Arg1, One))\n
-        {\n
-            If (LEqual (Arg2, Zero))\n
-            {\n
-                Store (Buffer (One) { 0x03 }, Arg4)\n
-                Return (One)\n
-            }\n
-            If (LEqual (Arg2, One))\n
-            {\n
-                Return (One)\n
-            }\n
-        }\n
-    }\n
-    Store (Buffer (One) { 0x00 }, Arg4)\n
-    Return (Zero)\n
-}
-end;
-
-
+#rehabman: This patch seems to not be necessary...
 #     Enable functions keys
-into device label PS2K insert
-begin
-Method (_DSM, 4, NotSerialized)\n
-{\n
-    Store (Package (0x02)\n
-    {\n
-        "AAPL,has-embedded-fn-keys",\n
-        Buffer (0x04) { 0x01, 0x00, 0x00, 0x00 }\n
-    }, Local0)\n
-    DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))\n
-    Return (Local0)\n
-}\n
-end;
+#into device label PS2K insert
+#begin
+#Method (_DSM, 4, NotSerialized)\n
+#{\n
+#    If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
+#    Return (Package()\n
+#    {\n
+#        "AAPL,has-embedded-fn-keys",\n
+#        Buffer (0x04) { 0x01, 0x00, 0x00, 0x00 }\n
+#    })\n
+#}\n
+#end;
 
 
 #   Inject Audio info
@@ -63,7 +32,8 @@ into device label HDEF insert
 begin
 Method (_DSM, 4, NotSerialized)\n
 {\n
-    Store (Package()\n
+    If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
+    Return (Package()\n
     {\n
         "hda-gfx",\n
         Buffer (0x0A) { "onboard-1" },
@@ -71,9 +41,7 @@ Method (_DSM, 4, NotSerialized)\n
         Buffer (0x04) { 0x0C, 0x00, 0x00, 0x00 },\n
         "PinConfigurations",\n
         Buffer (Zero) { }\n
-    }, Local0)\n
-    DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))\n
-    Return (Local0)\n
+    })\n
 }
 end;
 
@@ -143,9 +111,8 @@ Device (BUS0)\n
         Name (_CID, "diagsvault")\n
         Method (_DSM, 4, NotSerialized)\n
         {\n
-            Store (Package (0x02) { "address", 0x57 }, Local0)\n
-            DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))\n
-            Return (Local0)\n
+            If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
+            Return (Package() { "address", 0x57 })\n
         }\n
     }\n
 }
@@ -157,13 +124,12 @@ into device name_adr 0x001D0001 insert
 begin
 Method (_DSM, 4, NotSerialized)\n
 {\n
-    Store (Package (0x02)\n
+    If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
+    Return (Package()\n
     {\n
         "device-id",\n
         Buffer (0x04) { 0x27, 0x1c, 0x00, 0x00 }\n
-    }, Local0)\n
-    DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))\n
-    Return (Local0)\n
+    })\n
 }
 end;
 
@@ -172,13 +138,12 @@ into device name_adr 0x001D0002 insert
 begin
 Method (_DSM, 4, NotSerialized)\n
 {\n
-    Store (Package (0x02)\n
+    If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
+    Return (Package()\n
     {\n
         "device-id",\n
         Buffer (0x04) { 0x2c, 0x1c, 0x00, 0x00 }\n
-    }, Local0)\n
-    DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))\n
-    Return (Local0)\n
+    })\n
 }
 end;
 
@@ -187,13 +152,12 @@ into device name_adr 0x001D0003 insert
 begin
 Method (_DSM, 4, NotSerialized)\n
 {\n
-    Store (Package (0x02)\n
+    If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
+    Return (Package()\n
     {\n
         "device-id",\n
         Buffer (0x04) { 0x27, 0x1c, 0x00, 0x00 }\n
-    }, Local0)\n
-    DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))\n
-    Return (Local0)\n
+    })\n
 }
 end;
 
@@ -202,13 +166,12 @@ into device name_adr 0x001D0004 insert
 begin
 Method (_DSM, 4, NotSerialized)\n
 {\n
-    Store (Package (0x02)\n
+    If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
+    Return (Package()\n
     {\n
         "device-id",\n
         Buffer (0x04) { 0x2c, 0x1c, 0x00, 0x00 }\n
-    }, Local0)\n
-    DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))\n
-    Return (Local0)\n
+    })\n
 }
 end;
 
@@ -217,13 +180,12 @@ into device name_adr 0x001A0001 insert
 begin
 Method (_DSM, 4, NotSerialized)\n
 {\n
-    Store (Package (0x02)\n
+    If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
+    Return(Package()\n
     {\n
         "device-id",\n
         Buffer (0x04) { 0x27, 0x1c, 0x00, 0x00 }\n
-    }, Local0)\n
-    DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))\n
-    Return (Local0)\n
+    })\n
 }
 end;
 
@@ -232,13 +194,12 @@ into device name_adr 0x001A0002 insert
 begin
 Method (_DSM, 4, NotSerialized)\n
 {\n
-    Store (Package (0x02)\n
+    If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
+    Store (Package()\n
     {\n
         "device-id",\n
         Buffer (0x04) { 0x2c, 0x1c, 0x00, 0x00 }\n
-    }, Local0)\n
-    DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))\n
-    Return (Local0)\n
+    })\n
 }
 end;
 
@@ -247,13 +208,12 @@ into device name_adr 0x001A0003 insert
 begin
 Method (_DSM, 4, NotSerialized)\n
 {\n
-    Store (Package (0x02)\n
+    If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
+    Return (Package()\n
     {\n
         "device-id",\n
         Buffer (0x04) { 0x27, 0x1c, 0x00, 0x00 }\n
-    }, Local0)\n
-    DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))\n
-    Return (Local0)\n
+    })\n
 }
 end;
 
@@ -262,10 +222,7 @@ end;
 into method label _STA parent_hid PNP0103 remove_entry;
 into device name_hid PNP0103 insert
 begin
-Method (_STA, 0, NotSerialized)\n
-{\n
-    Return (0x0F)\n
-}
+Name (_STA, 0x0F)\n
 end;
 
 into method label _CRS parent_hid PNP0103 remove_entry;

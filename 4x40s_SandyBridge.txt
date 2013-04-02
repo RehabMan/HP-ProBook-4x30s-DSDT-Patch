@@ -2,16 +2,40 @@
 
 # Fix compilation errors
 
-# Fix _T_x compiler reserved errors
-into_all all code_regex _T_0 replaceall_matched begin T_0 end;
-into_all all code_regex _T_1 replaceall_matched begin T_1 end;
+# Fix _T_x compiler reserved warnings (not necessary to fix)
+#into_all all code_regex _T_0 replaceall_matched begin T_0 end;
+#into_all all code_regex _T_1 replaceall_matched begin T_1 end;
 #into_all all code_regex _T_2 replaceall_matched begin T_2 end;
 #into_all all code_regex _T_3 replaceall_matched begin T_3 end;
 #into_all all code_regex _T_4 replaceall_matched begin T_4 end;
 #into_all all code_regex _T_5 replaceall_matched begin T_5 end;
 #into_all all code_regex _T_6 replaceall_matched begin T_6 end;
 
-# Fix parse errors 
+# Another way to fix the _T_x compiler reserved warnings (still not necessary)
+#into method label TRUP code_regex Name\s+\(_T_0,\s+Zero\) remove_matched;
+#into method label TRUP code_regex Store\s+\(PRDT,\s+_T_0\) remove_matched;
+#into method label TRUP code_regex \(_T_0 replaceall_matched begin (PRDT end;
+#into method label VHIV code_regex Name\s+\(_T_0,\s+Zero\) remove_matched;
+#into method label VHIV code_regex Store\s+\(Arg2,\s+_T_0\) remove_matched;
+#into method label VHIV code_regex \(_T_0 replaceall_matched begin (Arg2 end;
+#into method label \_SB.PCI0.LPCB.PS2M._HID code_regex Name\s+\(_T_0,\s+Zero\) remove_matched;
+#into method label \_SB.PCI0.LPCB.PS2M._HID code_regex Store\s+\(PRDT,\s+_T_0\) remove_matched;
+#into method label \_SB.PCI0.LPCB.PS2M._HID code_regex \(_T_0 replaceall_matched begin (PRDT end;
+#into method label WQBI code_regex Name\s+\(_T_0,\s+Zero\) remove_matched;
+#into method label WQBI code_regex Store\s+\(Arg0,\s+_T_0\) remove_matched;
+#into method label WQBI code_regex \(_T_0 replaceall_matched begin (Arg0 end;
+#into method label WQBC code_regex Name\s+\(_T_0,\s+Zero\) remove_matched;
+#into method label WQBC code_regex Store\s+\(Local6,\s+_T_0\) remove_matched;
+#into method label WQBC code_regex \(_T_0 replaceall_matched begin (Local6 end;
+#into method label WQBC code_regex Name\s+\(_T_1,\s+Zero\) remove_matched;
+#into method label WQBC code_regex Store\s+\(DerefOf\s+\(Index\s+\(ST99,\s+0x00\)\),\s+_T_1\) replace_matched begin Store (DerefOf (Index (ST99, 0x00)), Local2) end;
+#into method label WQBC code_regex \(_T_1 replaceall_matched begin (Local2 end;
+#nto method label WMBA code_regex Name\s+\(_T_0,\s+Zero\) remove_matched;
+#into method label WMBA code_regex Store\s+\(Local6,\s+_T_0\) remove_matched;
+#into method label WMBA code_regex \(_T_0 replaceall_matched begin (Local6 end;
+
+
+# Fix parse errors
 into device label GFX0 code_regex If\s\(CondRefOf\s\(FPED\)\)\s*\n\s*\{\s*\n\s*FPED\s\(\)\s*\n\s*\} remove_matched;
 
 # Fix line 2169 2181 compilations errors (these are specfiic to 4530s)
@@ -43,7 +67,7 @@ end;
 #rehabman: These are also warnings, and not necessary to patch
 #into_all all code_regex Name\s\(NBTT,\sPackage\s\(0x08\) replaceall_matched
 #begin
-#Name (NBTT, Package ()
+#Name (NBTT, Package()
 #end;
 
 # ProBook 4x40s specific (replaces syntax error with 4530s version)
@@ -55,7 +79,7 @@ end;
 #   Power fix - uses AppleACPIBatteryManager.kext  instead VoodooBattery
 into device label AC insert
 begin
-Name (_PRW, Package (0x02) { 0x18, 0x03 })
+Name (_PRW, Package() { 0x18, 0x03 })
 end;
 
 
@@ -64,51 +88,20 @@ into_all all code_regex \.AC, replaceall_matched begin .ADP1, end;
 into all label AC set_label begin ADP1 end;
 
 
-#   Insert standard DTGP entry
-into method label DTGP remove_entry;
-into definitionblock code_regex . insert
-begin
-Method (DTGP, 5, NotSerialized)\n
-{\n
-    If (LEqual (Arg0, Buffer (0x10)\n
-        {\n
-            /* 0000 */    0xC6, 0xB7, 0xB5, 0xA0, 0x18, 0x13, 0x1C, 0x44,\n
-            /* 0008 */    0xB0, 0xC9, 0xFE, 0x69, 0x5E, 0xAF, 0x94, 0x9B\n
-        }))\n
-    {\n
-        If (LEqual (Arg1, One))\n
-        {\n
-            If (LEqual (Arg2, Zero))\n
-            {\n
-                Store (Buffer (One) { 0x03 }, Arg4)\n
-                Return (One)\n
-            }\n
-            If (LEqual (Arg2, One))\n
-            {\n
-                Return (One)\n
-            }\n
-        }\n
-    }\n
-    Store (Buffer (One) { 0x00 }, Arg4)\n
-    Return (Zero)\n
-}
-end;
-
-
+#rehabman: This patch seems to not be necessary...
 #     Enable functions keys
-into device label PS2K insert
-begin
-Method (_DSM, 4, NotSerialized)\n
-{\n
-    Store (Package (0x02)\n
-    {\n
-        "AAPL,has-embedded-fn-keys",\n
-        Buffer (0x04) { 0x01, 0x00, 0x00, 0x00 }\n
-    }, Local0)\n
-    DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))\n
-    Return (Local0)\n
-}\n
-end;
+#into device label PS2K insert
+#begin
+#Method (_DSM, 4, NotSerialized)\n
+#{\n
+#    If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
+#    Return (Package()\n
+#    {\n
+#        "AAPL,has-embedded-fn-keys",\n
+#        Buffer (0x04) { 0x01, 0x00, 0x00, 0x00 }\n
+#    })\n
+#}\n
+#end;
 
 
 #   Inject Audio info
@@ -116,7 +109,8 @@ into device label HDEF insert
 begin
 Method (_DSM, 4, NotSerialized)\n
 {\n
-    Store (Package()\n
+    If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
+    Return (Package()\n
     {\n
         "hda-gfx",\n
         Buffer (0x0A) { "onboard-1" },
@@ -124,9 +118,7 @@ Method (_DSM, 4, NotSerialized)\n
         Buffer (0x04) { 0x0C, 0x00, 0x00, 0x00 },\n
         "PinConfigurations",\n
         Buffer (Zero) { }\n
-    }, Local0)\n
-    DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))\n
-    Return (Local0)\n
+    })\n
 }
 end;
 
@@ -196,9 +188,8 @@ Device (BUS0)\n
         Name (_CID, "diagsvault")\n
         Method (_DSM, 4, NotSerialized)\n
         {\n
-            Store (Package (0x02) { "address", 0x57 }, Local0)\n
-            DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))\n
-            Return (Local0)\n
+            If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
+            Return (Package() { "address", 0x57 })\n
         }\n
     }\n
 }
@@ -210,13 +201,12 @@ into device name_adr 0x001D0001 insert
 begin
 Method (_DSM, 4, NotSerialized)\n
 {\n
-    Store (Package (0x02)\n
+    If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
+    Return (Package()\n
     {\n
         "device-id",\n
         Buffer (0x04) { 0x27, 0x1c, 0x00, 0x00 }\n
-    }, Local0)\n
-    DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))\n
-    Return (Local0)\n
+    })\n
 }
 end;
 
@@ -225,13 +215,12 @@ into device name_adr 0x001D0002 insert
 begin
 Method (_DSM, 4, NotSerialized)\n
 {\n
-    Store (Package (0x02)\n
+    If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
+    Return (Package()\n
     {\n
         "device-id",\n
         Buffer (0x04) { 0x2c, 0x1c, 0x00, 0x00 }\n
-    }, Local0)\n
-    DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))\n
-    Return (Local0)\n
+    })\n
 }
 end;
 
@@ -240,13 +229,12 @@ into device name_adr 0x001D0003 insert
 begin
 Method (_DSM, 4, NotSerialized)\n
 {\n
-    Store (Package (0x02)\n
+    If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
+    Return (Package()\n
     {\n
         "device-id",\n
         Buffer (0x04) { 0x27, 0x1c, 0x00, 0x00 }\n
-    }, Local0)\n
-    DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))\n
-    Return (Local0)\n
+    })\n
 }
 end;
 
@@ -255,13 +243,12 @@ into device name_adr 0x001D0004 insert
 begin
 Method (_DSM, 4, NotSerialized)\n
 {\n
-    Store (Package (0x02)\n
+    If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
+    Return (Package()\n
     {\n
         "device-id",\n
         Buffer (0x04) { 0x2c, 0x1c, 0x00, 0x00 }\n
-    }, Local0)\n
-    DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))\n
-    Return (Local0)\n
+    })\n
 }
 end;
 
@@ -270,13 +257,12 @@ into device name_adr 0x001A0001 insert
 begin
 Method (_DSM, 4, NotSerialized)\n
 {\n
-    Store (Package (0x02)\n
+    If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
+    Return(Package()\n
     {\n
         "device-id",\n
         Buffer (0x04) { 0x27, 0x1c, 0x00, 0x00 }\n
-    }, Local0)\n
-    DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))\n
-    Return (Local0)\n
+    })\n
 }
 end;
 
@@ -285,13 +271,12 @@ into device name_adr 0x001A0002 insert
 begin
 Method (_DSM, 4, NotSerialized)\n
 {\n
-    Store (Package (0x02)\n
+    If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
+    Store (Package()\n
     {\n
         "device-id",\n
         Buffer (0x04) { 0x2c, 0x1c, 0x00, 0x00 }\n
-    }, Local0)\n
-    DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))\n
-    Return (Local0)\n
+    })\n
 }
 end;
 
@@ -300,13 +285,12 @@ into device name_adr 0x001A0003 insert
 begin
 Method (_DSM, 4, NotSerialized)\n
 {\n
-    Store (Package (0x02)\n
+    If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
+    Return (Package()\n
     {\n
         "device-id",\n
         Buffer (0x04) { 0x27, 0x1c, 0x00, 0x00 }\n
-    }, Local0)\n
-    DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))\n
-    Return (Local0)\n
+    })\n
 }
 end;
 
@@ -315,10 +299,7 @@ end;
 into method label _STA parent_hid PNP0103 remove_entry;
 into device name_hid PNP0103 insert
 begin
-Method (_STA, 0, NotSerialized)\n
-{\n
-    Return (0x0F)\n
-}
+Name (_STA, 0x0F)\n
 end;
 
 into method label _CRS parent_hid PNP0103 remove_entry;
@@ -491,7 +472,8 @@ into device name_adr 0x001D0000 insert
 begin
 Method (_DSM, 4, NotSerialized)\n
 {\n
-    Store (Package ()\n
+    If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
+    Return (Package()\n
     {\n
         "subsystem-id",\n 
         Buffer (0x04) { 0x70, 0x72, 0x00, 0x00 },\n
@@ -508,9 +490,7 @@ Method (_DSM, 4, NotSerialized)\n
         "AAPL,max-port-current-in-sleep",\n
         0x0834,\n
         Buffer (One) { 0x00 }\n
-    }, Local0)\n
-    DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))\n
-    Return (Local0)\n
+    })\n
 }\n
 end;
 
@@ -520,7 +500,8 @@ into device name_adr 0x001A0000 insert
 begin
 Method (_DSM, 4, NotSerialized)\n
 {\n
-    Store (Package ()\n
+    If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
+    Return (Package()\n
     {\n
         "subsystem-id",\n 
         Buffer (0x04) { 0x70, 0x72, 0x00, 0x00 },\n
@@ -537,9 +518,7 @@ Method (_DSM, 4, NotSerialized)\n
         "AAPL,max-port-current-in-sleep",\n
         0x0834,\n
         Buffer (One) { 0x00 }\n
-    }, Local0)\n
-    DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))\n
-    Return (Local0)\n
+    })\n
 }\n
 end;
 
@@ -549,7 +528,8 @@ into device name_adr 0x00140000 insert
 begin
 Method (_DSM, 4, NotSerialized)\n
 {\n
-    Store (Package ()\n
+    If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
+    Return (Package()\n
     {\n
         "subsystem-id",\n 
         Buffer (0x04) { 0x70, 0x72, 0x00, 0x00 },\n
@@ -566,9 +546,7 @@ Method (_DSM, 4, NotSerialized)\n
         "AAPL,max-port-current-in-sleep",\n
         0x0834,\n
         Buffer (One) { 0x00 }\n
-    }, Local0)\n
-    DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))\n
-    Return (Local0)\n
+    })\n
 }\n
 end;
 into device label PCI0 insert
@@ -578,13 +556,12 @@ Device (IMEI)\n
     Name (_ADR, 0x00160000)\n
     Method (_DSM, 4, NotSerialized)\n                
     {\n
-        Store (Package (0x02)\n
+        If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
+        Return (Package()\n
         {\n
             "device-id",\n 
             Buffer (0x04) { 0x3A, 0x1C, 0x00, 0x00 }\n
-        }, Local0)\n
-        DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))\n
-        Return (Local0)\n
+        })\n
     }\n
 }
 end;

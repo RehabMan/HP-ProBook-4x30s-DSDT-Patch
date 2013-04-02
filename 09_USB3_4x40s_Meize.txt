@@ -37,173 +37,102 @@ begin
     Method (_INI, 0, NotSerialized)\n
     {\n
         Store (Zero, MIAI)\n
-        If (LAnd (LGreaterEqual (OSYS, 0x07DC), LLess (OSYS, 0x2710)))\n
-        {\n
-            Store (One, PASS)\n
-            Store (One, PAHC)\n
-            Store (One, PBSS)\n
-            Store (One, PBHC)\n
-            Store (One, PCSS)\n
-            Store (One, PCHC)\n
-            Store (One, PDSS)\n
-            Store (One, PDHC)\n
-        }\n
+        //rehabman: not necessary because OSYS is always == 0x2710
+        //If (LAnd (LGreaterEqual (OSYS, 0x07DC), LLess (OSYS, 0x2710)))\n
+        //{\n
+        //    Store (One, PASS)\n
+        //    Store (One, PAHC)\n
+        //    Store (One, PBSS)\n
+        //    Store (One, PBHC)\n
+        //    Store (One, PCSS)\n
+        //    Store (One, PCHC)\n
+        //    Store (One, PDSS)\n
+        //    Store (One, PDHC)\n
+        //}\n
     }\n
-    Method (_S3D, 0, NotSerialized)\n
-    {\n
-        Return (0x02)\n
-    }\n
-    Method (_S4D, 0, NotSerialized)\n
-    {\n
-        Return (0x02)\n
-    }\n
+    Name (_S3D, 0x02)\n
+    Name (_S4D, 0x02)\n
     Device (RHUB)\n
     {\n
         Name (_ADR, Zero)\n
         Device (PRT1)\n
         {\n
             Name (_ADR, One)\n
-            Method (_UPC, 0, Serialized)\n
+            Name (_UPC, Package() { 0xFF, 0x03, Zero, Zero } )\n
+            Name (_PLD, Package()\n
             {\n
-                Name (UPCP, Package (0x04)\n
+                Buffer (0x10)\n
                 {\n
-                    0xFF,\n 
-                    0x03,\n 
-                    Zero,\n 
-                    Zero\n
-                })\n
-                Return (UPCP)\n
-            }\n
-            Method (_PLD, 0, Serialized)\n
-            {\n
-                Name (PLDP, Package (0x01)\n
-                {\n
-                    Buffer (0x10)\n
-                    {\n
-                        /* 0000 */   0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,\n
-                        /* 0008 */   0x69, 0x0C, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00\n
-                    }\n
-                })\n
-                Return (PLDP)\n
-            }\n
+                    /* 0000 */   0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,\n
+                    /* 0008 */   0x69, 0x0C, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00\n
+                }\n
+            })\n
             Name (MUXS, "EHCA")\n
         }\n
         Device (PRT2)\n
         {\n
             Name (_ADR, 0x02)\n
-            Method (_UPC, 0, Serialized)\n
+            Name (_UPC, Package() { 0xFF, 0x03, Zero, Zero } )\n
+            Name (_PLD, Package()\n
             {\n
-                Name (UPCP, Package (0x04)\n
+                Buffer (0x10)\n
                 {\n
-                    0xFF,\n 
-                    0x03,\n 
-                    Zero,\n 
-                    Zero\n
-                })\n
-                Return (UPCP)\n
-            }\n
-            Method (_PLD, 0, Serialized)\n
-            {\n
-                Name (PLDP, Package (0x01)\n
-                {\n
-                    Buffer (0x10)\n
-                    {\n
-                        /* 0000 */   0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,\n
-                        /* 0008 */   0x69, 0x0C, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00\n
-                    }\n
-                })\n
-                Return (PLDP)\n
-            }\n
+                    /* 0000 */   0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,\n
+                    /* 0008 */   0x69, 0x0C, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00\n
+                }\n
+            })\n
             Name (MUXS, "EHCB")\n
         }\n
         Device (PRT3)\n
         {\n
             Name (_ADR, 0x03)\n
-            Method (_UPC, 0, Serialized)\n
+            Name (_UPC, Package() { 0xFF, 0x03, Zero, Zero } )\n
+            Name (_PLD, Package()\n
             {\n
-                Name (UPCP, Package (0x04)\n
+                Buffer (0x10)\n
                 {\n
-                    0xFF,\n 
-                    0x03,\n 
-                    Zero,\n
-                    Zero\n
-                })\n
-                Return (UPCP)\n
-            }\n
-            Method (_PLD, 0, Serialized)\n
-            {\n
-                Name (PLDP, Package (0x01)\n
-                {\n
-                    Buffer (0x10)\n
-                    {\n
-                        /* 0000 */   0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,\n
-                        /* 0008 */   0x69, 0x0C, 0x80, 0x01, 0x00, 0x00, 0x00, 0x00\n
-                    }\n
-                })\n
-                Return (PLDP)\n
-            }\n
+                    /* 0000 */   0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,\n
+                    /* 0008 */   0x69, 0x0C, 0x80, 0x01, 0x00, 0x00, 0x00, 0x00\n
+                }\n
+            })\n
             Name (MUXS, "EHCC")\n
         }\n
         Device (PRT4)\n
         {\n
             Name (_ADR, 0x04)\n
-            Method (_UPC, 0, Serialized)\n
+            Name (_UPC, Package() { 0xFF, 0x03, Zero, Zero } )\n
+            Name (_PLD, 0, Package()\n
             {\n
-                Name (UPCP, Package (0x04)\n
+                Buffer (0x10)\n
                 {\n
-                    0xFF,\n 
-                    0x03,\n 
-                    Zero,\n 
-                    Zero\n
-                })\n
-                Return (UPCP)\n
-            }\n
-            Method (_PLD, 0, Serialized)\n
-            {\n
-                Name (PLDP, Package (0x01)\n
-                {\n
-                    Buffer (0x10)\n
-                    {\n
-                        /* 0000 */   0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,\n
-                        /* 0008 */   0x69, 0x0C, 0x00, 0x02, 0x00, 0x00, 0x00, 0x00\n
-                    }\n
-                })\n
-                Return (PLDP)\n
-            }\n
+                    /* 0000 */   0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,\n
+                    /* 0008 */   0x69, 0x0C, 0x00, 0x02, 0x00, 0x00, 0x00, 0x00\n
+                }\n
+            })\n
             Name (MUXS, "EHCD")\n
         }\n
     }\n
     Method (_DSM, 4, NotSerialized)\n
     {\n
-        Store (Package (0x0F)\n
-            {\n
-                "subsystem-id",\n 
-                Buffer (0x04)\n
-                {\n
-                     0x70, 0x72, 0x00, 0x00\n
-                },\n 
-                "subsystem-vendor-id",\n 
-                Buffer (0x04)\n
-                {\n
-                     0x86, 0x80, 0x00, 0x00\n
-                },\n 
-                "AAPL,current-available",\n 
-                0x0834,\n 
-                "AAPL,current-extra",\n 
-                0x0898,\n 
-                "AAPL,current-extra-in-sleep",\n 
-                0x0640,\n 
-                "AAPL,max-port-current-in-sleep",\n 
-                0x0834,\n 
-                "AAPL,device-internal",\n 
-                Zero,\n 
-                Buffer (One)\n
-                {\n
-                     0x00\n
-                }\n
-            }, Local0)\n
-        DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))\n
-        Return (Local0)\n
+        If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
+        Return (Package()\n
+        {\n
+            "subsystem-id",\n 
+            Buffer (0x04) { 0x70, 0x72, 0x00, 0x00 },\n
+            "subsystem-vendor-id",\n 
+            Buffer (0x04) { 0x86, 0x80, 0x00, 0x00 },\n
+            "AAPL,current-available",\n 
+            0x0834,\n 
+            "AAPL,current-extra",\n 
+            0x0898,\n 
+            "AAPL,current-extra-in-sleep",\n 
+            0x0640,\n 
+            "AAPL,max-port-current-in-sleep",\n 
+            0x0834,\n 
+            "AAPL,device-internal",\n 
+            Zero,\n 
+            Buffer (One) { 0x00 }\n
+        })\n
     }\n
     Method (XHCA, 0, NotSerialized)\n
     {\n
@@ -321,18 +250,12 @@ begin
     {\n
         Store (Zero, ^^XHC1.PDHC)\n
     }\n
-    Method (XHCN, 0, NotSerialized)\n
-    {\n
-        Return (One)\n
-    }\n
+    Name (XHCN, One)\n
 end;
 
 into device label EHC2 insert
 begin
-    Method (XHCN, 0, NotSerialized)\n
-    {\n
-        Return (One)\n
-    }\n
+    Name (XHCN, One)\n
 end;
 
 into device label HPT1 insert begin Name (MUXS, "XHCA") end;
