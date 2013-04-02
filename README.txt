@@ -18,9 +18,6 @@ analysis of your native DSDT would be necessary.
 For a step-by-step guide in using these patches the wiki: 
     https://github.com/RehabMan/HP-ProBook-4x30s-DSDT-Patch/wiki/How-to-patch-your-DSDT
     
-Or, see this post on tonymacx86.com:
-    http://www.tonymacx86.com/hp-probook/83573-patching-your-dsdt-probook-4x30s-using-maciasl.html
-
 And, of course, for more information, see the ProBook forums on tonymacx86.com.
 
 Note: The folder dsdt4530s contains unpatched files from my machine running each
