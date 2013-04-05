@@ -11,6 +11,7 @@
 #
 
 # add fan readings and fan control
+into device label SMCD remove_entry;
 into definitionblock code_regex . insert
 begin
 Device (SMCD)\n
