@@ -464,6 +464,8 @@ Store (Local7, BSN0)\n
 Store (ShiftRight (Local7, 8), BSN1)
 end;
 
+# Disable BAT1 device
+into method label _STA parent_label BAT1 replace_content begin Return (Zero) end;
 # USB property injection for 4x40s (HM76)
 
 #   Insert Apple USB properties into EHC1
