@@ -1,7 +1,7 @@
 #Maintained by: RehabMan for: HP Probook 4x30s/4x40s
 
 # Courtesy: BigDonkey
-# USB 3.0 patch for Probook 4540S based on mieze's dsdt examples
+# USB 3.0 patch for ProBook 4x40s based on Mieze's DSDT examples
 
 into device label XHC replace_content
 begin
@@ -101,7 +101,7 @@ begin
         {\n
             Name (_ADR, 0x04)\n
             Name (_UPC, Package() { 0xFF, 0x03, Zero, Zero } )\n
-            Name (_PLD, 0, Package()\n
+            Name (_PLD, Package()\n
             {\n
                 Buffer (0x10)\n
                 {\n

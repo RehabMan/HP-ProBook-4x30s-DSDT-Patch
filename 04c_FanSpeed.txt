@@ -3,6 +3,7 @@
 # This fan patch simply reports CPU Heatsink, Ambient, and Fan Speed.
 # No manipulation of fan speed is done.  You get default BIOS behavior.
 
+# add fan readings only
 into device label SMCD remove_entry;
 into definitionblock code_regex . insert
 begin
