@@ -11,5 +11,3 @@ Fan and Temps (quiet fan)	04b_FanQuiet.txt
 Fan and Temps (readings only)	04c_FanSpeed.txt
 => Optionally, ARPT patch for AR9285 Atheros WiFi	NullPatch.txt
 Atheros 9285 WiFi Airport Patch	08_AR9285.txt
-=> Optionally, 4x40s native USB3 patch:	NullPatch.txt
-ProBook 4x40s Native USB3	09_USB3_4x40s_Meize.txt
