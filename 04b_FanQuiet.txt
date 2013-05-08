@@ -16,57 +16,25 @@ into definitionblock code_regex . insert
 begin
 Device (SMCD)\n
 {\n
-	Name (_HID, "FAN00000")  // _HID: Hardware ID\n
-	Method (FAN0, 0, Serialized)\n
+    Name (_HID, "FAN00000") // _HID: Hardware ID\n
+    Method (FAN0, 0, Serialized)\n
+    {\n
+        Store (\_TZ.GFRM (), Local0)\n
+		If (LEqual (0x03C4, Local0)) { Return (Zero) }\n
+        Return (Local0)\n
+    }\n
+    Method (TCPU, 0, Serialized)\n
+    {\n
+        Acquire (\_SB.PCI0.LPCB.EC0.ECMX, 0xFFFF)\n
+        Store (1, \_SB.PCI0.LPCB.EC0.CRZN)\n
+        Store (\_SB.PCI0.LPCB.EC0.DTMP, Local0)\n
+        Release (\_SB.PCI0.LPCB.EC0.ECMX)\n
+        Return (Local0)\n
+    }\n
+	Method (TAMB, 0, Serialized) // Ambient Temp\n
 	{\n
-		Store (\_TZ.GFRM (), Local0)\n
-		If (LEqual (0x03C4, Local0))\n
-		{\n
-			Store (Zero, Local0)\n
-			Return (Local0)\n
-		}\n
-		Return (Local0)\n
+		Return (Divide (Subtract (\_TZ.LOCZ._TMP, 2732), 10))\n
 	}\n
-    \n
-// commented out: just for debugging and experimenting
-//
-// monitoring additional temperatures\n
-//	Method (TDIM, 0, Serialized)  // GFXZ temp\n
-//	{\n
-//		Divide (Subtract (\_TZ.GFXZ._TMP, 2732), 10,, Local0)\n
-//		return (Local0)\n
-//	}\n
-//\n
-// for debugging fan control\n
-//	Method (TCPP, 0, Serialized)  // Average temp\n
-//	{\n
-//		Store (FNUM, Local0)\n
-//		if (LNotEqual (Local0, 0))\n
-//		{\n
-//			Store (FSUM, Local1)\n
-//			Divide (Local1, Local0,, Local0)\n
-//		}\n
-//		return (Local0)\n
-//	}\n
-//	Method (TSYS, 0, Serialized)  // fan counter\n
-//	{\n
-//		return (FCNT)\n
-//	}\n
-//\n
-	Method (TCPU, 0, Serialized)	// CPU Heatsink Temp\n
-	{\n
-		Acquire (\_SB.PCI0.LPCB.EC0.ECMX, 0xFFFF)\n
-		Store (1, \_SB.PCI0.LPCB.EC0.CRZN)\n
-		Store (\_SB.PCI0.LPCB.EC0.DTMP, Local0)\n
-		Release (\_SB.PCI0.LPCB.EC0.ECMX)\n
-		return (Local0)\n
-	}\n
-	Method (TAMB, 0, Serialized)  	// Ambient Temp\n
-	{\n
-		Divide (Subtract (\_TZ.LOCZ._TMP, 2732), 10,, Local0)\n
-		return (Local0)\n
-	}\n
-    \n
 // Fan Control Table (pairs of temp, fan control byte)\n
 	Name (FTAB, Buffer ()\n
 	{\n
@@ -89,7 +57,7 @@ Device (SMCD)\n
 	Name (FCTU, 20)		// timeout for changes (fan rpm going up)\n
 	Name (FCTD, 40)		// timeout for changes (fan rpm going down)\n
     \n
-	// Fan control for CPU -- expects to be evaluated 1-per second\n
+// Fan control for CPU -- expects to be evaluated 1-per second\n
 	Method (FCPU, 0, Serialized)\n
 	{\n
 		Acquire (\_SB.PCI0.LPCB.EC0.ECMX, 0xFFFF)\n
@@ -138,7 +106,7 @@ Device (SMCD)\n
 			Subtract(Local2, FLST, Local1)\n
 			Store(FCTU, Local4)\n
 		}\n
-		else\n
+		Else\n
 		{\n
 			Subtract(FLST, Local2, Local1)\n
 			Store(FCTD, Local4)\n
@@ -150,7 +118,7 @@ Device (SMCD)\n
 			// no difference, so leave current fan speed and reset count\n
 			Store (0, FCNT)\n
 		}\n
-		else\n
+		Else\n
 		{\n
 			// there is a difference, start/continue process of changing fan\n
 			Store (FCNT, Local3)\n
@@ -174,5 +142,29 @@ Device (SMCD)\n
 		return (Local0)  // returns average temp\n
 	}\n
 }\n
+/*
+// commented out: just for debugging and experimenting\n
+// monitoring additional temperatures\n
+	Method (TDIM, 0, Serialized)  // GFXZ temp\n
+	{\n
+		Return (Divide (Subtract (\_TZ.GFXZ._TMP, 2732), 10))\n
+	}\n
+    \n
+// for debugging fan control\n
+	Method (TCPP, 0, Serialized)  // Average temp\n
+	{\n
+		Store (FNUM, Local0)\n
+		if (LNotEqual (Local0, 0))\n
+		{\n
+			Store (FSUM, Local1)\n
+			Divide (Local1, Local0,, Local0)\n
+		}\n
+		Return (Local0)\n
+	}\n
+	Method (TSYS, 0, Serialized)  // fan counter\n
+	{\n
+		Return (FCNT)\n
+	}\n
+\n
+*/\n
 end;
-

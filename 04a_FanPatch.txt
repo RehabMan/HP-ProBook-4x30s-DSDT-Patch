@@ -16,60 +16,56 @@ into definitionblock code_regex . insert
 begin
 Device (SMCD)\n
 {\n
-	Name (_HID, "FAN00000")  // _HID: Hardware ID\n
-	Method (FAN0, 0, Serialized)\n
+    Name (_HID, "FAN00000") // _HID: Hardware ID\n
+    Method (FAN0, 0, Serialized)\n
+    {\n
+        Store (\_TZ.GFRM (), Local0)\n
+		If (LEqual (0x03C4, Local0)) { Return (Zero) }\n
+        Return (Local0)\n
+    }\n
+    Method (TCPU, 0, Serialized)\n
+    {\n
+        Acquire (\_SB.PCI0.LPCB.EC0.ECMX, 0xFFFF)\n
+        Store (1, \_SB.PCI0.LPCB.EC0.CRZN)\n
+        Store (\_SB.PCI0.LPCB.EC0.DTMP, Local0)\n
+        Release (\_SB.PCI0.LPCB.EC0.ECMX)\n
+        Return (Local0)\n
+    }\n
+	Method (TAMB, 0, Serialized) // Ambient Temp\n
 	{\n
-		Store (\_TZ.GFRM (), Local0)\n
-		If (LEqual (0x03C4, Local0))\n
-		{\n
-			Store (Zero, Local0)\n
-			Return (Local0)\n
-		}\n
-		Return (Local0)\n
+		Return (Divide (Subtract (\_TZ.LOCZ._TMP, 2732), 10))\n
 	}\n
-	Method (TCPU, 0, Serialized)\n
+    Method (FCPU, 0, Serialized)\n
 	{\n
-		Store (Zero, Local0)\n
 		Store (\_TZ.GTTP (Zero, One, 0x10, Zero, 0x7F), Local0)\n
-		Store (Local0, Local1)\n
-        // Temp between 35 and 52:\n
-        //      hold fan at lowest speed\n
+        // Temp between 35 and 52: hold fan at lowest speed\n
 		If (And (LGreaterEqual (Local0, 35), LLessEqual (Local0, 52)))\n
 		{\n
-			Store (0x80, Local0)\n
 			If (\_SB.PCI0.LPCB.EC0.ECRG)\n
 			{\n
 				Acquire (\_SB.PCI0.LPCB.EC0.ECMX, 0xFFFF)\n
-				Store (Local0, \_SB.PCI0.LPCB.EC0.FTGC)\n
+				Store (0x80, \_SB.PCI0.LPCB.EC0.FTGC)\n
 				Release (\_SB.PCI0.LPCB.EC0.ECMX)\n
 			}\n
 		}\n
 		Else\n
 		{\n
-            // Temp 31 or lower, or temp higher than 54:\n
-            //      put fan into "automatic mode"\n
+            // Temp 31 or lower, or above 54: put fan into "automatic mode"\n
             // Note: for temps 32, 33, 34 fan stays in whatever mode it was\n
             //  in previously.\n
             // Note: for temps 53, 54 fan stays in whatever mode it was in\n
             //  previously.\n
 			If (Or (LLess (Local0, 32), LGreaterEqual (Local0, 55)))\n
 			{\n
-				Store (0xFF, Local0)\n
 				If (\_SB.PCI0.LPCB.EC0.ECRG)\n
 				{\n
 					Acquire (\_SB.PCI0.LPCB.EC0.ECMX, 0xFFFF)\n
-					Store (Local0, \_SB.PCI0.LPCB.EC0.FTGC)\n
+					Store (0xFF, \_SB.PCI0.LPCB.EC0.FTGC)\n
 					Release (\_SB.PCI0.LPCB.EC0.ECMX)\n
 				}\n
 			}\n
 		}\n
-		Return (Local1)\n
-	}\n
-	Method (TAMB, 0, Serialized)  	// Ambient Temp\n
-	{\n
-		Divide (Subtract (\_TZ.LOCZ._TMP, 2732), 10,, Local0)\n
-		return (Local0)\n
+		Return (Local0)\n
 	}\n
 }\n
 end;
-

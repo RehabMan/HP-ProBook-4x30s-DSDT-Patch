@@ -9,15 +9,11 @@ into definitionblock code_regex . insert
 begin
 Device (SMCD)\n
 {\n
-    Name (_HID, "FAN00000")  // _HID: Hardware ID\n
+    Name (_HID, "FAN00000") // _HID: Hardware ID\n
     Method (FAN0, 0, Serialized)\n
     {\n
         Store (\_TZ.GFRM (), Local0)\n
-        If (LEqual (0x03C4, Local0))\n
-        {\n
-            Store (Zero, Local0)\n
-            Return (Local0)\n
-        }\n
+		If (LEqual (0x03C4, Local0)) { Return (Zero) }\n
         Return (Local0)\n
     }\n
     Method (TCPU, 0, Serialized)\n
@@ -26,12 +22,11 @@ Device (SMCD)\n
         Store (1, \_SB.PCI0.LPCB.EC0.CRZN)\n
         Store (\_SB.PCI0.LPCB.EC0.DTMP, Local0)\n
         Release (\_SB.PCI0.LPCB.EC0.ECMX)\n
-        return (Local0)\n
+        Return (Local0)\n
     }\n
-	Method (TAMB, 0, Serialized)  	// Ambient Temp\n
+	Method (TAMB, 0, Serialized) // Ambient Temp\n
 	{\n
-		Divide (Subtract (\_TZ.LOCZ._TMP, 2732), 10,, Local0)\n
-		return (Local0)\n
+		Return (Divide (Subtract (\_TZ.LOCZ._TMP, 2732), 10))\n
 	}\n
-}
+}\n
 end;
