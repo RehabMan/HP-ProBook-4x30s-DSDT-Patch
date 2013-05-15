@@ -36,7 +36,7 @@ Method (_DSM, 4, NotSerialized)\n
     Return (Package()\n
     {\n
         "hda-gfx",\n
-        Buffer (0x0A) { "onboard-1" },
+        Buffer (0x0A) { "onboard-1" },\n
         "layout-id",\n
         Buffer (0x04) { 0x0C, 0x00, 0x00, 0x00 },\n
         "PinConfigurations",\n
