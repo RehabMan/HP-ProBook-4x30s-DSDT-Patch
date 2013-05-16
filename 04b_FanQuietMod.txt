@@ -1,0 +1,184 @@
+#Maintained by: RehabMan for: HP Probook 4x30s/4x40s
+
+#
+# Please Note: 04b_FanQuietMod.txt is a work-in-progress
+# Eventually, it will be much more than a simple change
+# to the FTAB!
+#
+
+#
+# This fan patch provides enhanced fan control.  It does so by tricking
+# the system into thinking that the laptop is arbitrarily cool, such 
+# that it can override the default behavior and have complete control
+# over the fan.
+#
+# This version, 04b_FanQuietMod.txt, is best used when you desire the
+# fan to be always on.  I'm using it to control my fan on my ProBook
+# for which I have inserted a couple of #1N4001 diodes inline with the 
+# red/orange wire feeding power to the fan.  This results in a fan system
+# that is able to reach more low-RPM fan speeds than stock.
+#
+# More information on how this works is available at:
+# http://www.tonymacx86.com/hp-probook/72043-new-fan-control-dsdt-silent-fan-higher-temps.html
+#
+
+# add fan readings and fan control
+into device label SMCD remove_entry;
+into definitionblock code_regex . insert
+begin
+Device (SMCD)\n
+{\n
+    Name (_HID, "FAN00000") // _HID: Hardware ID\n
+    Method (FAN0, 0, Serialized)\n
+    {\n
+        Store (\_TZ.GFRM (), Local0)\n
+		If (LEqual (0x03C4, Local0)) { Return (Zero) }\n
+        Return (Local0)\n
+    }\n
+    Method (TCPU, 0, Serialized)\n
+    {\n
+        Acquire (\_SB.PCI0.LPCB.EC0.ECMX, 0xFFFF)\n
+        Store (1, \_SB.PCI0.LPCB.EC0.CRZN)\n
+        Store (\_SB.PCI0.LPCB.EC0.DTMP, Local0)\n
+        Release (\_SB.PCI0.LPCB.EC0.ECMX)\n
+        Return (Local0)\n
+    }\n
+	Method (TAMB, 0, Serialized) // Ambient Temp\n
+	{\n
+		Return (Divide (Subtract (\_TZ.LOCZ._TMP, 2732), 10))\n
+	}\n
+// Fan Control Table (pairs of temp, fan control byte)\n
+	Name (FTAB, Buffer ()\n
+	{\n
+        //35, 255,\n  // commented out so always on
+        57, 128,\n
+        60, 109,\n
+        63, 90,\n
+        66, 82,\n
+        69, 74,\n
+        72, 59,\n
+        75, 49,\n
+        0xFF, 0\n
+	})\n
+// Table to keep track of past temperatures (to build average)\n
+	Name (FHST, Buffer (16) { 0x0, 0, 0, 0, 0x0, 0, 0, 0, 0x0, 0, 0, 0, 0x0, 0, 0, 0 })\n
+	Name (FIDX, Zero) 	// current index in buffer above\n
+	Name (FNUM, Zero) 	// number of entries in above buffer to count in avg\n
+	Name (FSUM, Zero) 	// current sum of entries in buffer\n
+// Keeps track of last fan speed set, and counter to set new one\n
+	Name (FLST, 0xFF)	// last index for fan control\n
+	Name (FCNT, 0)		// count of times it has been "wrong", 0 means no counter\n
+	Name (FCTU, 20)		// timeout for changes (fan rpm going up)\n
+	Name (FCTD, 40)		// timeout for changes (fan rpm going down)\n
+    \n
+// Fan control for CPU -- expects to be evaluated 1-per second\n
+	Method (FCPU, 0, Serialized)\n
+	{\n
+		Acquire (\_SB.PCI0.LPCB.EC0.ECMX, 0xFFFF)\n
+        \n
+		// setup fake temperature (this is the key to controlling the fan!)\n
+		Store (1, \_SB.PCI0.LPCB.EC0.CRZN)  // select CPU temp\n
+		Store (31, \_SB.PCI0.LPCB.EC0.TEMP) // write fake value there (31C)\n
+        \n
+		// get current temp into Local0 for eventual return\n
+		// Note: reading from DTMP here instead of TEMP because we wrote\n
+		//  a fake temp to TEMP to trick the system into running the fan\n
+		//	at a lower speed than it otherwise would.\n
+		Store (1, \_SB.PCI0.LPCB.EC0.CRZN)  // select CPU temp\n
+		Store (\_SB.PCI0.LPCB.EC0.DTMP, Local0) // Local0 is current temp\n
+        \n
+		// calculate average temperature\n
+		Add (Local0, FSUM, Local1)\n
+		Store (FIDX, Local2)\n
+		Subtract (Local1, DerefOf (Index (FHST, Local2)), Local1)\n
+		Store (Local0, Index (FHST, Local2))\n
+		Store (Local1, FSUM)  // Local1 is new sum\n
+        \n
+		// adjust current index into temp table\n
+		Increment (Local2)\n
+		if (LGreaterEqual (Local2, SizeOf(FHST))) { Store (0, Local2) }\n
+		Store (Local2, FIDX)\n
+		// adjust total items collected in temp table\n
+		Store (FNUM, Local2)\n
+		if (LNotEqual (Local2, SizeOf (FHST)))\n
+		{\n
+			Increment (Local2)\n
+			Store (Local2, FNUM)\n
+		}\n
+        \n
+		// Local1 is new sum, Local2 is number of entries in sum\n
+		Divide (Local1, Local2,, Local0)  // Local0 is now average temp\n
+        \n
+		// table based search (use avg temperature to search)\n
+		if (LGreater (Local0, 255)) { Store (255, Local0) }\n
+		Store (Zero, Local2)\n
+		while (LGreater (Local0, DerefOf (Index (FTAB, Local2)))) { Add (Local2, 2, Local2) }\n
+        \n
+		// calculate difference between current and found index\n
+		if (LGreater (Local2, FLST))\n
+		{\n
+			Subtract(Local2, FLST, Local1)\n
+			Store(FCTU, Local4)\n
+		}\n
+		Else\n
+		{\n
+			Subtract(FLST, Local2, Local1)\n
+			Store(FCTD, Local4)\n
+		}\n
+        \n
+		// set new fan speed, if necessary\n
+		if (LEqual (Local1, 0))\n
+		{\n
+			// no difference, so leave current fan speed and reset count\n
+			Store (0, FCNT)\n
+		}\n
+		Else\n
+		{\n
+			// there is a difference, start/continue process of changing fan\n
+			Store (FCNT, Local3)\n
+			Increment (Local3)\n
+			Store (Local3, FCNT)\n
+            \n
+			// how long to wait depends on how big the difference\n
+			// 20 secs if diff is 2, 5 secs if diff is 4, etc.\n
+			Divide (ShiftLeft (Local4, 1), Local1,, Local1)\n
+			if (LGreaterEqual (Local3, Local1))\n
+			{\n
+				// timeout expired, so set new fan speed\n
+				Store (Local2, FLST)\n
+				Increment (Local2)\n
+				Store (DerefOf (Index (FTAB, Local2)), \_SB.PCI0.LPCB.EC0.FTGC)\n
+				Store (0, FCNT)\n
+			}\n
+		}\n
+        \n
+		Release (\_SB.PCI0.LPCB.EC0.ECMX)\n
+		return (Local0)  // returns average temp\n
+	}\n
+}\n
+/*
+// commented out: just for debugging and experimenting\n
+// monitoring additional temperatures\n
+	Method (TDIM, 0, Serialized)  // GFXZ temp\n
+	{\n
+		Return (Divide (Subtract (\_TZ.GFXZ._TMP, 2732), 10))\n
+	}\n
+    \n
+// for debugging fan control\n
+	Method (TCPP, 0, Serialized)  // Average temp\n
+	{\n
+		Store (FNUM, Local0)\n
+		if (LNotEqual (Local0, 0))\n
+		{\n
+			Store (FSUM, Local1)\n
+			Divide (Local1, Local0,, Local0)\n
+		}\n
+		Return (Local0)\n
+	}\n
+	Method (TSYS, 0, Serialized)  // fan counter\n
+	{\n
+		Return (FCNT)\n
+	}\n
+\n
+*/\n
+end;
