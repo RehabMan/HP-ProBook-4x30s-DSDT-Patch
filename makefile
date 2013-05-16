@@ -1,4 +1,4 @@
-COMMON = 01_Compilation.txt 02_DSDTPatch.txt 05_OSCheck.txt 06_Battery.txt
+COMMON = 00_Optimize.txt 01_Compilation.txt 02_DSDTPatch.txt 05_OSCheck.txt 06_Battery.txt
 FANPATCH = 04a_FanPatch.txt
 QUIET = 04b_FanQuiet.txt
 FANREAD = 04c_FanSpeed.txt
