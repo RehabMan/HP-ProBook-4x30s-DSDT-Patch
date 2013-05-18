@@ -1,3 +1,5 @@
+#Maintained by: RehabMan for: HP Probook 4x30s/4x40s
+# 06_Battery.txt
 
 # Add cycle count and temperature to battery info method
 

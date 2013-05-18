@@ -1,4 +1,5 @@
 #Maintained by: RehabMan for: HP Probook 4x30s/4x40s
+# 03a_HDMI.txt
 
 #
 # Use this patch if your laptop has the standard 1366x768 screen

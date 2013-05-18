@@ -1,4 +1,5 @@
 #Maintained by: RehabMan for: HP Probook 4x30s/4x40s
+# 04a_FanPatch.txt
 
 #
 # This fan patch adds a very conservative modification to the normal

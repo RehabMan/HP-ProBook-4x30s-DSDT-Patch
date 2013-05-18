@@ -1,4 +1,5 @@
 #Maintained by: RehabMan for: HP Probook 4x30s/4x40s
+# 08_AR9285.txt
 
 #   Airport fix works with vanilla IO80211 kext
 into device label WNIC insert

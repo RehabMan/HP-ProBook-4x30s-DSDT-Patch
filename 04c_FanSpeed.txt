@@ -1,4 +1,5 @@
 #Maintained by: RehabMan for: HP Probook 4x30s/4x40s
+# 04c_FanSpeed.txt
 
 # This fan patch simply reports CPU Heatsink, Ambient, and Fan Speed.
 # No manipulation of fan speed is done.  You get default BIOS behavior.

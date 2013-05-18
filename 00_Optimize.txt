@@ -1,4 +1,7 @@
-# optimize (get rid of stuff that is WMI/BIOS related)
+#Maintained by: RehabMan for: HP Probook 4x30s/4x40s
+# 00_Optimize.txt
+
+# Optimize (get rid of stuff that is WMI/BIOS related)
 
 # remove large chunk of symbols used only by device WMID and device WMID itself
 into all code_regex Name\s*\(WSIP,[\s\S]*Name\s*\(ETYP,\s*Buffer\s*\(.*\)\s*\{\}\) remove_matched;
@@ -7,4 +10,5 @@ into device label WMID remove_entry;
 # remove references to device WMID
 into_all all code_regex .*WMID.*\(.*\) removeall_matched;
 into method label _TMP parent_label PCHZ code_regex Store\s*\(DerefOf\s*\(Index\s*\(DerefOf\s*\(Index\s*\(\\_SB\.WMID\.TSTV,[\s\S]*\} remove_matched;
+
 

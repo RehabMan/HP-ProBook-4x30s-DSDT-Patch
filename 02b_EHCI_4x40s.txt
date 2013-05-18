@@ -1,3 +1,6 @@
+#Maintained by: RehabMan for: HP Probook 4x30s/4x40s
+# 02b_EHCI_4x40s.txt
+
 # USB property injection for 4x40s (HM76)
 
 #   Insert Apple USB properties into EHC1

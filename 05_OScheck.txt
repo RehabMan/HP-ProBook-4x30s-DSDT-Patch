@@ -1,3 +1,5 @@
+#Maintained by: RehabMan for: HP Probook 4x30s/4x40s
+# 05_OScheck.txt
 
 # patch _INI method in Scope(_SB)
 into method label _INI replace_content
