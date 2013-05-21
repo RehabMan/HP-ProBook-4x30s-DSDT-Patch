@@ -13,20 +13,24 @@ into_all all code_regex \.AC, replaceall_matched begin .ADP1, end;
 into all label AC set_label begin ADP1 end;
 
 
-#rehabman: This patch seems to not be necessary...
 #     Enable functions keys
-#into device label PS2K insert
-#begin
-#Method (_DSM, 4, NotSerialized)\n
-#{\n
-#    If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
-#    Return (Package()\n
-#    {\n
-#        "AAPL,has-embedded-fn-keys",\n
-#        Buffer (0x04) { 0x01, 0x00, 0x00, 0x00 }\n
-#    })\n
-#}\n
-#end;
+#     Override DSDT oemId (for Clover, since it patches with "Apple "
+into device label PS2K insert
+begin
+Method (_DSM, 4, NotSerialized)\n
+{\n
+    If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
+    Return (Package()\n
+    {\n
+        /* Function key part seems to not be necessary
+        "AAPL,has-embedded-fn-keys",\n
+        Buffer (0x04) { 0x01, 0x00, 0x00, 0x00 },\n
+        */
+        "RM,oem-id",\n
+        "HPQOEM",\n
+    })\n
+}\n
+end;
 
 
 #   Inject Audio info
