@@ -9,5 +9,6 @@ IGPU/LVDS Dual-Link	03b_1080p+HDMI.txt
 Fan and Temps (original fan patch)	04a_FanPatch.txt
 Fan and Temps (quiet fan)	04b_FanQuiet.txt
 Fan and Temps (readings only)	04c_FanSpeed.txt
+Fan and Temps (quiet fan mod)	04b_FanQuietMod.txt
 => Optionally, ARPT patch for AR9285 Atheros WiFi	NullPatch.txt
-Atheros 9285 WiFi Airport Patch	08_AR9285.txt
+Atheros 9285 WiFi AirPort Patch	08_AR9285.txt

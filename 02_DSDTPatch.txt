@@ -22,10 +22,10 @@ Method (_DSM, 4, NotSerialized)\n
     If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
     Return (Package()\n
     {\n
-        /* Function key part seems to not be necessary
+        /* Note: Function key part seems to not be necessary\n
         "AAPL,has-embedded-fn-keys",\n
-        Buffer (0x04) { 0x01, 0x00, 0x00, 0x00 },\n
-        */
+        Buffer() { 0x01, 0x00, 0x00, 0x00 },\n
+        */\n
         "RM,oem-id",\n
         "HPQOEM",\n
     })\n
@@ -42,13 +42,13 @@ Method (_DSM, 4, NotSerialized)\n
     Return (Package()\n
     {\n
         "hda-gfx",\n
-        Buffer (0x0A) { "onboard-1" },\n
+        Buffer() { "onboard-1" },\n
         "layout-id",\n
-        Buffer (0x04) { 0x0C, 0x00, 0x00, 0x00 },\n
+        Buffer() { 0x0C, 0x00, 0x00, 0x00 },\n
         "PinConfigurations",\n
-        Buffer (Zero) { }\n
+        Buffer() { }\n
     })\n
-}
+}\n
 end;
 
 
@@ -59,14 +59,14 @@ into device name_hid PNP0B00 code_regex IRQNoFlags\s\(\)\n\s+\{(\d+)\} remove_ma
 into device name_hid PNP0103 code_regex IRQNoFlags\s\(\)\n\s+\{(\d+)\} removeall_matched;
 into device name_hid PNP0103 code_regex Name\s\(([^,]+),\sResourceTemplate\s\(\)\n\s+\{((?:.|\n)*)\}\) replace_matched
 begin
-Name (%1, ResourceTemplate ()\n
+Name (%1, ResourceTemplate()\n
 {\n
-    IRQNoFlags () {0}\n
-    IRQNoFlags () {8}\n
-    IRQNoFlags () {11}\n
-    IRQNoFlags () {15}\n
+    IRQNoFlags() {0}\n
+    IRQNoFlags() {8}\n
+    IRQNoFlags() {11}\n
+    IRQNoFlags() {15}\n
 %2
-})
+})\n
 end;
 
 
@@ -84,7 +84,7 @@ Device (PNLF)\n
 	Name (_CID, "backlight")\n
 	Name (_UID, 0x0A)\n
 	Name (_STA, 0x0B)\n
-}
+}\n
 end;
 
 
@@ -95,11 +95,11 @@ into device name_hid PNP0B00 code_regex (IO\s\((?:\s*[^,]+,\s*(?:\/\/\s.*)?\s*\n
 #  Shutdown fix
 into method label _PTS code_regex_not If\s\(LEqual\s\(Arg0,\s0x05\)\) code_regex ^((?:.|\n)*)$ replace_matched
 begin
-        If (LEqual (Arg0, 0x05)) {}\n
-        Else\n
-        {\n
+    If (LEqual (Arg0, 0x05)) {}\n
+    Else\n
+    {\n
 %1
-        }
+    }\n
 end;
 
 
@@ -121,7 +121,7 @@ Device (BUS0)\n
             Return (Package() { "address", 0x57 })\n
         }\n
     }\n
-}
+}\n
 end;
 
 #    USB sleep fix injects Macbook 8,1 device IDs
@@ -134,9 +134,9 @@ Method (_DSM, 4, NotSerialized)\n
     Return (Package()\n
     {\n
         "device-id",\n
-        Buffer (0x04) { 0x27, 0x1c, 0x00, 0x00 }\n
+        Buffer() { 0x27, 0x1c, 0x00, 0x00 }\n
     })\n
-}
+}\n
 end;
 
 into method label _DSM parent_adr 0x001D0002 remove_entry;
@@ -148,9 +148,9 @@ Method (_DSM, 4, NotSerialized)\n
     Return (Package()\n
     {\n
         "device-id",\n
-        Buffer (0x04) { 0x2c, 0x1c, 0x00, 0x00 }\n
+        Buffer() { 0x2c, 0x1c, 0x00, 0x00 }\n
     })\n
-}
+}\n
 end;
 
 into method label _DSM parent_adr 0x001D0003 remove_entry;
@@ -162,9 +162,9 @@ Method (_DSM, 4, NotSerialized)\n
     Return (Package()\n
     {\n
         "device-id",\n
-        Buffer (0x04) { 0x27, 0x1c, 0x00, 0x00 }\n
+        Buffer() { 0x27, 0x1c, 0x00, 0x00 }\n
     })\n
-}
+}\n
 end;
 
 into method label _DSM parent_adr 0x001D0004 remove_entry;
@@ -176,9 +176,9 @@ Method (_DSM, 4, NotSerialized)\n
     Return (Package()\n
     {\n
         "device-id",\n
-        Buffer (0x04) { 0x2c, 0x1c, 0x00, 0x00 }\n
+        Buffer() { 0x2c, 0x1c, 0x00, 0x00 }\n
     })\n
-}
+}\n
 end;
 
 into method label _DSM parent_adr 0x001A0001 remove_entry;
@@ -190,9 +190,9 @@ Method (_DSM, 4, NotSerialized)\n
     Return(Package()\n
     {\n
         "device-id",\n
-        Buffer (0x04) { 0x27, 0x1c, 0x00, 0x00 }\n
+        Buffer() { 0x27, 0x1c, 0x00, 0x00 }\n
     })\n
-}
+}\n
 end;
 
 into method label _DSM parent_adr 0x001A0002 remove_entry;
@@ -204,9 +204,9 @@ Method (_DSM, 4, NotSerialized)\n
     Store (Package()\n
     {\n
         "device-id",\n
-        Buffer (0x04) { 0x2c, 0x1c, 0x00, 0x00 }\n
+        Buffer() { 0x2c, 0x1c, 0x00, 0x00 }\n
     })\n
-}
+}\n
 end;
 
 into method label _DSM parent_adr 0x001A0003 remove_entry;
@@ -218,9 +218,9 @@ Method (_DSM, 4, NotSerialized)\n
     Return (Package()\n
     {\n
         "device-id",\n
-        Buffer (0x04) { 0x27, 0x1c, 0x00, 0x00 }\n
+        Buffer() { 0x27, 0x1c, 0x00, 0x00 }\n
     })\n
-}
+}\n
 end;
 
 
@@ -237,5 +237,5 @@ begin
 Method (_CRS, 0, NotSerialized)\n
 {\n
     Return (BUF0)\n
-}
+}\n
 end;

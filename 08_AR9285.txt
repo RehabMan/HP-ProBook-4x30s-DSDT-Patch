@@ -1,29 +1,34 @@
 #Maintained by: RehabMan for: HP Probook 4x30s/4x40s
 # 08_AR9285.txt
 
-#   Airport fix works with vanilla IO80211 kext
-into device label WNIC insert
-begin
-    Method (_DSM, 4, NotSerialized)\n
-    {\n
-        If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
-        Return (Package()\n
-        {\n
-            "AAPL,slot-name",\n
-            Buffer (0x08) { "AirPort" },\n
-            "device-id",\n
-            Unicode ("*"),\n
-            "device_type",\n
-            Buffer (0x08) { "AirPort" },\n
-            "model",\n
-            Buffer (0x33) { "Atheros 9285 802.11 b/g/n Wireless Network Adapter" },\n
-            "subsystem-id",\n
-            Buffer (0x04) { 0x8F, 0x00, 0x00, 0x00 },\n
-            "subsystem-vendor-id",\n
-            Buffer (0x04) { 0x6B, 0x10, 0x00, 0x00 }\n
-        })\n
-    }
-end;
+into method label _DSM parent_label WNIC remove_entry;
+into method label _DSM parent_label ARPT remove_entry;
 
 into all label WNIC set_label begin ARPT end;
+
+#   Airport fix works with vanilla IO80211 kext
+
+into device label ARPT insert
+begin
+Method (_DSM, 4, NotSerialized)\n
+{\n
+    If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
+    Return (Package()\n
+    {\n
+        "device-id",\n
+        Buffer() { 0x2A, 0x00, 0x00, 0x00 },\n
+        "AAPL,slot-name",\n
+        Buffer() { "AirPort" },\n
+        "device_type",\n
+        Buffer() { "AirPort" },\n
+        "model",\n
+        Buffer() { "Atheros 9285 802.11 b/g/n Wireless Network Adapter" },\n
+        "subsystem-id",\n
+        Buffer() { 0x8F, 0x00, 0x00, 0x00 },\n
+        "subsystem-vendor-id",\n
+        Buffer() { 0x6B, 0x10, 0x00, 0x00 },\n
+    })\n
+}\n
+end;
+
 

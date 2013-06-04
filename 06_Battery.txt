@@ -22,14 +22,14 @@ begin
         Zero,\n
         Zero,\n
    	},\n
-	Package (0x0F)\n
+	Package(0x0F)\n
 end;
 
 into all code_regex Name\s\(NBTI,\sPackage\s\(0x02\)\s+\{\s+Package\s\(0x0D\) replaceall_matched
 begin
 	Name (NBTI, Package(0x02)\n
 	{\n
-		Package (0x0F)\n
+		Package(0x0F)\n
 end;
 
 into_all all code_regex \"LIon\",\s+\"Hewlett\-Packard\"\n\s+\}\n replaceall_matched

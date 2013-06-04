@@ -62,7 +62,7 @@ begin
             Name (_UPC, Package() { 0xFF, 0x03, Zero, Zero } )\n
             Name (_PLD, Package()\n
             {\n
-                Buffer (0x10)\n
+                Buffer()\n
                 {\n
                     /* 0000 */   0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,\n
                     /* 0008 */   0x69, 0x0C, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00\n
@@ -76,7 +76,7 @@ begin
             Name (_UPC, Package() { 0xFF, 0x03, Zero, Zero } )\n
             Name (_PLD, Package()\n
             {\n
-                Buffer (0x10)\n
+                Buffer()\n
                 {\n
                     /* 0000 */   0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,\n
                     /* 0008 */   0x69, 0x0C, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00\n
@@ -90,7 +90,7 @@ begin
             Name (_UPC, Package() { 0xFF, 0x03, Zero, Zero } )\n
             Name (_PLD, Package()\n
             {\n
-                Buffer (0x10)\n
+                Buffer()\n
                 {\n
                     /* 0000 */   0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,\n
                     /* 0008 */   0x69, 0x0C, 0x80, 0x01, 0x00, 0x00, 0x00, 0x00\n
@@ -104,7 +104,7 @@ begin
             Name (_UPC, Package() { 0xFF, 0x03, Zero, Zero } )\n
             Name (_PLD, Package()\n
             {\n
-                Buffer (0x10)\n
+                Buffer()\n
                 {\n
                     /* 0000 */   0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,\n
                     /* 0008 */   0x69, 0x0C, 0x00, 0x02, 0x00, 0x00, 0x00, 0x00\n
@@ -119,9 +119,9 @@ begin
         Return (Package()\n
         {\n
             "subsystem-id",\n 
-            Buffer (0x04) { 0x70, 0x72, 0x00, 0x00 },\n
+            Buffer() { 0x70, 0x72, 0x00, 0x00 },\n
             "subsystem-vendor-id",\n 
-            Buffer (0x04) { 0x86, 0x80, 0x00, 0x00 },\n
+            Buffer() { 0x86, 0x80, 0x00, 0x00 },\n
             "AAPL,current-available",\n 
             0x0834,\n 
             "AAPL,current-extra",\n 
@@ -132,7 +132,7 @@ begin
             0x0834,\n 
             "AAPL,device-internal",\n 
             Zero,\n 
-            Buffer (One) { 0x00 }\n
+            Buffer() { 0x00 }\n
         })\n
     }\n
     Method (XHCA, 0, NotSerialized)\n

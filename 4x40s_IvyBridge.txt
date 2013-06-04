@@ -56,21 +56,21 @@ into device label GFX0 code_regex If\s\(CondRefOf\s\(FPED\)\)\s*\n\s*\{\s*\n\s*F
 # Fix line 2169 2181 compilations errors (these are specfiic to 4530s)
 into_all all code_regex DWordMemory\s\(ResourceProducer,\sPosDecode,\sMinFixed,\sMaxFixed,\sCacheable,\sReadWrite,\n\s+0x00000000,\s+//\sGranularity\n\s+0x00000000,\s+//\sRange\sMinimum\n\s+0x00000000,\s+//\sRange\sMaximum\n\s+0x00000000,\s+//\sTranslation\sOffset\n\s+0x00000000,\s+//\sLength replace_matched
 begin
-                DWordMemory (ResourceProducer, PosDecode, MinFixed, MaxFixed, Cacheable, ReadWrite,\n
-                    0x00000000,         // Granularity\n
-                    0x00000000,         // Range Minimum\n
-                    0x00000000,         // Range Maximum\n
-                    0x00000000,         // Translation Offset\n
-                    0x00000001,         // Length\n
+DWordMemory (ResourceProducer, PosDecode, MinFixed, MaxFixed, Cacheable, ReadWrite,\n
+    0x00000000,         // Granularity\n
+    0x00000000,         // Range Minimum\n
+    0x00000000,         // Range Maximum\n
+    0x00000000,         // Translation Offset\n
+    0x00000001,         // Length\n
 end;
 into_all all code_regex DWordMemory\s\(ResourceProducer,\sPosDecode,\sMinFixed,\sMaxFixed,\sCacheable,\sReadWrite,\n\s+0x00000000,\s+//\sGranularity\n\s+0x00000000,\s+//\sRange\sMinimum\n\s+0xFEDFFFFF,\s+//\sRange\sMaximum\n\s+0x00000000,\s+//\sTranslation\sOffset\n\s+0x00000000,\s+//\sLength replace_matched
 begin
-                DWordMemory (ResourceProducer, PosDecode, MinFixed, MaxFixed, Cacheable, ReadWrite,\n
-                    0x00000000,         // Granularity\n
-                    0x00000000,         // Range Minimum\n
-                    0xFEDFFFFF,         // Range Maximum\n
-                    0x00000000,         // Translation Offset\n
-                    0xFEE00000,         // Length\n
+DWordMemory (ResourceProducer, PosDecode, MinFixed, MaxFixed, Cacheable, ReadWrite,\n
+    0x00000000,         // Granularity\n
+    0x00000000,         // Range Minimum\n
+    0xFEDFFFFF,         // Range Maximum\n
+    0x00000000,         // Translation Offset\n
+    0xFEE00000,         // Length\n
 end;
 
 # Fix 3 compilation warnings 
@@ -85,10 +85,10 @@ end;
 #Name (NBTT, Package()
 #end;
 
-# ProBook 4x40s specific (replaces syntax error with 4530s version)
-into all code_regex Name\s+\(BB2S,[^\)].*\) replace_matched
+# ProBook 4x40s specific
+into all code_regex Name\s+\(BB2S,\s+\"\s+\"\.\.\.\) replace_matched
 begin
-Name (BB2S, "                                                                                                                                                                                           ")
+Name (BB2S, "                                                                                                                                                                                                                                                                                               ")
 end;
 #Maintained by: RehabMan for: HP Probook 4x30s/4x40s
 # 02_DSDTPatch.txt
@@ -114,10 +114,10 @@ Method (_DSM, 4, NotSerialized)\n
     If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
     Return (Package()\n
     {\n
-        /* Function key part seems to not be necessary
+        /* Note: Function key part seems to not be necessary\n
         "AAPL,has-embedded-fn-keys",\n
-        Buffer (0x04) { 0x01, 0x00, 0x00, 0x00 },\n
-        */
+        Buffer() { 0x01, 0x00, 0x00, 0x00 },\n
+        */\n
         "RM,oem-id",\n
         "HPQOEM",\n
     })\n
@@ -134,13 +134,13 @@ Method (_DSM, 4, NotSerialized)\n
     Return (Package()\n
     {\n
         "hda-gfx",\n
-        Buffer (0x0A) { "onboard-1" },\n
+        Buffer() { "onboard-1" },\n
         "layout-id",\n
-        Buffer (0x04) { 0x0C, 0x00, 0x00, 0x00 },\n
+        Buffer() { 0x0C, 0x00, 0x00, 0x00 },\n
         "PinConfigurations",\n
-        Buffer (Zero) { }\n
+        Buffer() { }\n
     })\n
-}
+}\n
 end;
 
 
@@ -151,14 +151,14 @@ into device name_hid PNP0B00 code_regex IRQNoFlags\s\(\)\n\s+\{(\d+)\} remove_ma
 into device name_hid PNP0103 code_regex IRQNoFlags\s\(\)\n\s+\{(\d+)\} removeall_matched;
 into device name_hid PNP0103 code_regex Name\s\(([^,]+),\sResourceTemplate\s\(\)\n\s+\{((?:.|\n)*)\}\) replace_matched
 begin
-Name (%1, ResourceTemplate ()\n
+Name (%1, ResourceTemplate()\n
 {\n
-    IRQNoFlags () {0}\n
-    IRQNoFlags () {8}\n
-    IRQNoFlags () {11}\n
-    IRQNoFlags () {15}\n
+    IRQNoFlags() {0}\n
+    IRQNoFlags() {8}\n
+    IRQNoFlags() {11}\n
+    IRQNoFlags() {15}\n
 %2
-})
+})\n
 end;
 
 
@@ -176,7 +176,7 @@ Device (PNLF)\n
 	Name (_CID, "backlight")\n
 	Name (_UID, 0x0A)\n
 	Name (_STA, 0x0B)\n
-}
+}\n
 end;
 
 
@@ -187,11 +187,11 @@ into device name_hid PNP0B00 code_regex (IO\s\((?:\s*[^,]+,\s*(?:\/\/\s.*)?\s*\n
 #  Shutdown fix
 into method label _PTS code_regex_not If\s\(LEqual\s\(Arg0,\s0x05\)\) code_regex ^((?:.|\n)*)$ replace_matched
 begin
-        If (LEqual (Arg0, 0x05)) {}\n
-        Else\n
-        {\n
+    If (LEqual (Arg0, 0x05)) {}\n
+    Else\n
+    {\n
 %1
-        }
+    }\n
 end;
 
 
@@ -213,7 +213,7 @@ Device (BUS0)\n
             Return (Package() { "address", 0x57 })\n
         }\n
     }\n
-}
+}\n
 end;
 
 #    USB sleep fix injects Macbook 8,1 device IDs
@@ -226,9 +226,9 @@ Method (_DSM, 4, NotSerialized)\n
     Return (Package()\n
     {\n
         "device-id",\n
-        Buffer (0x04) { 0x27, 0x1c, 0x00, 0x00 }\n
+        Buffer() { 0x27, 0x1c, 0x00, 0x00 }\n
     })\n
-}
+}\n
 end;
 
 into method label _DSM parent_adr 0x001D0002 remove_entry;
@@ -240,9 +240,9 @@ Method (_DSM, 4, NotSerialized)\n
     Return (Package()\n
     {\n
         "device-id",\n
-        Buffer (0x04) { 0x2c, 0x1c, 0x00, 0x00 }\n
+        Buffer() { 0x2c, 0x1c, 0x00, 0x00 }\n
     })\n
-}
+}\n
 end;
 
 into method label _DSM parent_adr 0x001D0003 remove_entry;
@@ -254,9 +254,9 @@ Method (_DSM, 4, NotSerialized)\n
     Return (Package()\n
     {\n
         "device-id",\n
-        Buffer (0x04) { 0x27, 0x1c, 0x00, 0x00 }\n
+        Buffer() { 0x27, 0x1c, 0x00, 0x00 }\n
     })\n
-}
+}\n
 end;
 
 into method label _DSM parent_adr 0x001D0004 remove_entry;
@@ -268,9 +268,9 @@ Method (_DSM, 4, NotSerialized)\n
     Return (Package()\n
     {\n
         "device-id",\n
-        Buffer (0x04) { 0x2c, 0x1c, 0x00, 0x00 }\n
+        Buffer() { 0x2c, 0x1c, 0x00, 0x00 }\n
     })\n
-}
+}\n
 end;
 
 into method label _DSM parent_adr 0x001A0001 remove_entry;
@@ -282,9 +282,9 @@ Method (_DSM, 4, NotSerialized)\n
     Return(Package()\n
     {\n
         "device-id",\n
-        Buffer (0x04) { 0x27, 0x1c, 0x00, 0x00 }\n
+        Buffer() { 0x27, 0x1c, 0x00, 0x00 }\n
     })\n
-}
+}\n
 end;
 
 into method label _DSM parent_adr 0x001A0002 remove_entry;
@@ -296,9 +296,9 @@ Method (_DSM, 4, NotSerialized)\n
     Store (Package()\n
     {\n
         "device-id",\n
-        Buffer (0x04) { 0x2c, 0x1c, 0x00, 0x00 }\n
+        Buffer() { 0x2c, 0x1c, 0x00, 0x00 }\n
     })\n
-}
+}\n
 end;
 
 into method label _DSM parent_adr 0x001A0003 remove_entry;
@@ -310,9 +310,9 @@ Method (_DSM, 4, NotSerialized)\n
     Return (Package()\n
     {\n
         "device-id",\n
-        Buffer (0x04) { 0x27, 0x1c, 0x00, 0x00 }\n
+        Buffer() { 0x27, 0x1c, 0x00, 0x00 }\n
     })\n
-}
+}\n
 end;
 
 
@@ -329,7 +329,7 @@ begin
 Method (_CRS, 0, NotSerialized)\n
 {\n
     Return (BUF0)\n
-}
+}\n
 end;
 #Maintained by: RehabMan for: HP Probook 4x30s/4x40s
 # 05_OScheck.txt
@@ -381,14 +381,14 @@ begin
         Zero,\n
         Zero,\n
    	},\n
-	Package (0x0F)\n
+	Package(0x0F)\n
 end;
 
 into all code_regex Name\s\(NBTI,\sPackage\s\(0x02\)\s+\{\s+Package\s\(0x0D\) replaceall_matched
 begin
 	Name (NBTI, Package(0x02)\n
 	{\n
-		Package (0x0F)\n
+		Package(0x0F)\n
 end;
 
 into_all all code_regex \"LIon\",\s+\"Hewlett\-Packard\"\n\s+\}\n replaceall_matched
@@ -506,9 +506,9 @@ Method (_DSM, 4, NotSerialized)\n
     Return (Package()\n
     {\n
         "subsystem-id",\n 
-        Buffer (0x04) { 0x70, 0x72, 0x00, 0x00 },\n
+        Buffer() { 0x70, 0x72, 0x00, 0x00 },\n
         "subsystem-vendor-id",\n 
-        Buffer (0x04) { 0x86, 0x80, 0x00, 0x00 },\n
+        Buffer() { 0x86, 0x80, 0x00, 0x00 },\n
         "AAPL,current-available",\n
         0x0834,\n
         "AAPL,current-extra",\n
@@ -519,7 +519,7 @@ Method (_DSM, 4, NotSerialized)\n
         0x02,\n
         "AAPL,max-port-current-in-sleep",\n
         0x0834,\n
-        Buffer (One) { 0x00 }\n
+        Buffer() { 0x00 }\n
     })\n
 }\n
 end;
@@ -534,9 +534,9 @@ Method (_DSM, 4, NotSerialized)\n
     Return (Package()\n
     {\n
         "subsystem-id",\n 
-        Buffer (0x04) { 0x70, 0x72, 0x00, 0x00 },\n
+        Buffer() { 0x70, 0x72, 0x00, 0x00 },\n
         "subsystem-vendor-id",\n 
-        Buffer (0x04) { 0x86, 0x80, 0x00, 0x00 },\n
+        Buffer() { 0x86, 0x80, 0x00, 0x00 },\n
         "AAPL,current-available",\n
         0x0834,\n
         "AAPL,current-extra",\n
@@ -547,7 +547,7 @@ Method (_DSM, 4, NotSerialized)\n
         0x02,\n
         "AAPL,max-port-current-in-sleep",\n
         0x0834,\n
-        Buffer (One) { 0x00 }\n
+        Buffer() { 0x00 }\n
     })\n
 }\n
 end;
@@ -562,9 +562,9 @@ Method (_DSM, 4, NotSerialized)\n
     Return (Package()\n
     {\n
         "subsystem-id",\n 
-        Buffer (0x04) { 0x70, 0x72, 0x00, 0x00 },\n
+        Buffer() { 0x70, 0x72, 0x00, 0x00 },\n
         "subsystem-vendor-id",\n 
-        Buffer (0x04) { 0x86, 0x80, 0x00, 0x00 },\n
+        Buffer() { 0x86, 0x80, 0x00, 0x00 },\n
         "AAPL,current-available",\n
         0x0834,\n
         "AAPL,current-extra",\n
@@ -575,7 +575,7 @@ Method (_DSM, 4, NotSerialized)\n
         0x02,\n
         "AAPL,max-port-current-in-sleep",\n
         0x0834,\n
-        Buffer (One) { 0x00 }\n
+        Buffer() { 0x00 }\n
     })\n
 }\n
 end;

@@ -12,8 +12,8 @@ Device (IMEI)\n
         Return (Package()\n
         {\n
             "device-id",\n 
-            Buffer (0x04) { 0x3A, 0x1C, 0x00, 0x00 }\n
+            Buffer() { 0x3A, 0x1C, 0x00, 0x00 }\n
         })\n
     }\n
-}
+}\n
 end;

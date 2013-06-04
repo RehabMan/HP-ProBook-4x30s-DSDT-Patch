@@ -12,14 +12,15 @@ Method (_DSM, 4, NotSerialized)\n
     If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
     Return (Package()\n
     {\n
+        ////Note: Native device-id is already the same as these...\n
         ////"device-id",\n
-        ////Buffer (0x04) { 0x26, 0x1c, 0x00, 0x00 },\n
+        ////Buffer() { 0x26, 0x1c, 0x00, 0x00 },\n
         "built-in",\n
-        Buffer (One) { 0x00 },\n
+        Buffer() { 0x00 },\n
         "AAPL,clock-id",\n
-        Buffer (One) { 0x01 },\n
+        Buffer() { 0x01 },\n
         "device_type",\n
-        Buffer (0x05) { "EHCI" },\n
+        Buffer() { "EHCI" },\n
         "AAPL,current-available",\n
         0x0834,\n
         "AAPL,current-extra",\n
@@ -30,7 +31,7 @@ Method (_DSM, 4, NotSerialized)\n
         0x02,\n
         "AAPL,max-port-current-in-sleep",\n
         0x0834,\n
-        Buffer (One) { 0x00 }\n
+        Buffer() { 0x00 }\n
     })\n
 }\n
 end;
@@ -44,14 +45,15 @@ Method (_DSM, 4, NotSerialized)\n
     If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
     Return (Package()\n
     {\n
+        ////Note: Native device-id is already the same as these...\n
         ////"device-id",\n
-        ////Buffer (0x04) { 0x2d, 0x1c, 0x00, 0x00 },\n
+        ////Buffer() { 0x2d, 0x1c, 0x00, 0x00 },\n
         "built-in",\n
-        Buffer (One) { 0x00 },\n
+        Buffer() { 0x00 },\n
         "AAPL,clock-id",\n
-        Buffer (One) { 0x02 },\n
+        Buffer() { 0x02 },\n
         "device_type",\n
-        Buffer (0x05) { "EHCI" },\n
+        Buffer() { "EHCI" },\n
         "AAPL,current-available",\n
         0x0834,\n
         "AAPL,current-extra",\n
@@ -62,7 +64,7 @@ Method (_DSM, 4, NotSerialized)\n
         0x02,\n
         "AAPL,max-port-current-in-sleep",\n
         0x0834,\n
-        Buffer (One) { 0x00 }\n
+        Buffer() { 0x00 }\n
     })\n
 }\n
 end;
@@ -81,7 +83,7 @@ end;
 #    Return (Package()\n
 #    {\n
 #        "device-id",\n
-#        Buffer (0x04) { 0x49, 0x1C, 0x00, 0x00\n }\n
+#        Buffer() { 0x49, 0x1C, 0x00, 0x00\n }\n
 #    })\n
 #}\n
 #end;

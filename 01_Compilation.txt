@@ -42,21 +42,21 @@ into device label GFX0 code_regex If\s\(CondRefOf\s\(FPED\)\)\s*\n\s*\{\s*\n\s*F
 # Fix line 2169 2181 compilations errors (these are specfiic to 4530s)
 into_all all code_regex DWordMemory\s\(ResourceProducer,\sPosDecode,\sMinFixed,\sMaxFixed,\sCacheable,\sReadWrite,\n\s+0x00000000,\s+//\sGranularity\n\s+0x00000000,\s+//\sRange\sMinimum\n\s+0x00000000,\s+//\sRange\sMaximum\n\s+0x00000000,\s+//\sTranslation\sOffset\n\s+0x00000000,\s+//\sLength replace_matched
 begin
-                DWordMemory (ResourceProducer, PosDecode, MinFixed, MaxFixed, Cacheable, ReadWrite,\n
-                    0x00000000,         // Granularity\n
-                    0x00000000,         // Range Minimum\n
-                    0x00000000,         // Range Maximum\n
-                    0x00000000,         // Translation Offset\n
-                    0x00000001,         // Length\n
+DWordMemory (ResourceProducer, PosDecode, MinFixed, MaxFixed, Cacheable, ReadWrite,\n
+    0x00000000,         // Granularity\n
+    0x00000000,         // Range Minimum\n
+    0x00000000,         // Range Maximum\n
+    0x00000000,         // Translation Offset\n
+    0x00000001,         // Length\n
 end;
 into_all all code_regex DWordMemory\s\(ResourceProducer,\sPosDecode,\sMinFixed,\sMaxFixed,\sCacheable,\sReadWrite,\n\s+0x00000000,\s+//\sGranularity\n\s+0x00000000,\s+//\sRange\sMinimum\n\s+0xFEDFFFFF,\s+//\sRange\sMaximum\n\s+0x00000000,\s+//\sTranslation\sOffset\n\s+0x00000000,\s+//\sLength replace_matched
 begin
-                DWordMemory (ResourceProducer, PosDecode, MinFixed, MaxFixed, Cacheable, ReadWrite,\n
-                    0x00000000,         // Granularity\n
-                    0x00000000,         // Range Minimum\n
-                    0xFEDFFFFF,         // Range Maximum\n
-                    0x00000000,         // Translation Offset\n
-                    0xFEE00000,         // Length\n
+DWordMemory (ResourceProducer, PosDecode, MinFixed, MaxFixed, Cacheable, ReadWrite,\n
+    0x00000000,         // Granularity\n
+    0x00000000,         // Range Minimum\n
+    0xFEDFFFFF,         // Range Maximum\n
+    0x00000000,         // Translation Offset\n
+    0xFEE00000,         // Length\n
 end;
 
 # Fix 3 compilation warnings 
@@ -71,8 +71,8 @@ end;
 #Name (NBTT, Package()
 #end;
 
-# ProBook 4x40s specific (replaces syntax error with 4530s version)
-into all code_regex Name\s+\(BB2S,[^\)].*\) replace_matched
+# ProBook 4x40s specific
+into all code_regex Name\s+\(BB2S,\s+\"\s+\"\.\.\.\) replace_matched
 begin
-Name (BB2S, "                                                                                                                                                                                           ")
+Name (BB2S, "                                                                                                                                                                                                                                                                                               ")
 end;
