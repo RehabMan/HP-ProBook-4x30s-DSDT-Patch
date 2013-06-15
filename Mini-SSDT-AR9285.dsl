@@ -6,7 +6,7 @@ DefinitionBlock("ssdt.aml", "SSDT", 2, "HPQOEM", "general", 0x00001000)
         Return (Package()
         {
             "device-id",
-            Buffer() { 0x2A, 0x00, 0x00, 0x00 },
+            Buffer() { 0x30, 0x00, 0x00, 0x00 },
         })
     }
 }
