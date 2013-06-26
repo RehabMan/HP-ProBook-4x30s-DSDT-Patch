@@ -108,6 +108,7 @@ into all label AC set_label begin ADP1 end;
 
 #     Enable functions keys
 #     Override DSDT oemId (for Clover, since it patches with "Apple "
+into method label _DSM parent_label PS2K remove_entry;
 into device label PS2K insert
 begin
 Method (_DSM, 4, NotSerialized)\n
@@ -127,6 +128,7 @@ end;
 
 
 #   Inject Audio info
+into method label _DSM parent_label HDEF remove_entry;
 into device label HDEF insert
 begin
 Method (_DSM, 4, NotSerialized)\n
@@ -169,6 +171,7 @@ into_all all label GFX0 set_label begin IGPU end;
 
 
 #   Brightness control fix
+into device label PNLF remove_entry;
 into scope label \_SB insert
 begin
 Device (PNLF)\n
@@ -197,7 +200,7 @@ end;
 
 
 #   SMBUS fix
-into method label _DSM parent_adr 0x001F0003 remove_entry;
+into device label BUS0 parent_adr 0x001F0003 remove_entry;
 into device name_adr 0x001F0003 insert
 begin
 Device (BUS0)\n
@@ -319,6 +322,7 @@ end;
 
 #     HPET fix to avoid AppleIntelCPUPowerManagement panic
 into method label _STA parent_hid PNP0103 remove_entry;
+into device name_hid PNP0103 code_regex Name\s\(_STA\,\s+0x0F\) remove_matched;
 into device name_hid PNP0103 insert
 begin
 Name (_STA, 0x0F)\n
@@ -478,16 +482,10 @@ into_all method label SBTC code_regex \(Zero,\sMAXC\) replaceall_matched begin (
 # Store (0x00, MAXC)
 into_all method label SBTC code_regex \(0x00,\sMAXC\) replaceall_matched begin (0x00, AXC0)\nStore (0x00, AXC1) end;
 
-# This should match against nothing... if it does, it will cause an error when
-# compiling the DSDT, which will clue us in that this patch below needs to change.
-into_all method label GBTI code_regex Local7 replaceall_matched begin Error_Local7_IsBeingUsedAlready end;
-
 # Store (GBSS (B1B2 (BSN0, BSN1), BDAT, BTSN)
 into_all method label GBTI code_regex Store\s\(GBSS\s\(B1B2\s\(BSN0,\sBSN1\),\sBDAT\),\sBTSN\) replaceall_matched
 begin
-Store (GBSS (B1B2 (BSN0, BSN1), B1B2 (BDA0, BDA1)), Local7)\n
-Store (Local7, BSN0)\n
-Store (ShiftRight (Local7, 8), BSN1)
+Store (GBSS (B1B2 (BSN0, BSN1), B1B2 (BDA0, BDA1)), BTSN)\n
 end;
 
 # Disable BAT1 device
