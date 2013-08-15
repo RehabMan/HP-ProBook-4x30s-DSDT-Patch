@@ -7,6 +7,8 @@ DefinitionBlock("ssdt.aml", "SSDT", 2, "HPQOEM", "general", 0x00001000)
         {
             "device-id",
             Buffer() { 0x30, 0x00, 0x00, 0x00 },
+            "name",
+            "pci168c,30",
         })
     }
 }
