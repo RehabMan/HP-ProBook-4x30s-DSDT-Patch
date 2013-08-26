@@ -4,19 +4,27 @@
 # patch _INI method in Scope(_SB)
 into method label _INI replace_content
 begin
-    // always store 0x2710 for "Darwin"\n
-    Store (0x2710, OSYS)\n
+    // always store 0x07D6 for "Darwin"\n
+    Store (0x07D6, OSYS)\n
     \_TZ.BOTT ()\n
     \_TZ.RETD ()\n
     Store (One, PFLV)\n      
 end;
 
-# patch OS checks
-into_all all code_regex If\s\(_OSI\s\(\"Windows\s2006\"\)\) replaceall_matched
-begin If (LOr (_OSI ("Darwin"), _OSI ("Windows 2006"))) end;
+into method label WCOS replace_content
+begin
+    // assume "Windows 2006" values\n
+    Store (0x06, WOSI)\n
+    Store (WOSI, WHOS)\n
+    Return (WOSI)\n
+end;
 
-into_all all code_regex If\s\(\\_OSI\s\(\"Windows\s2006\"\)\) replaceall_matched
-begin If (LOr (_OSI ("Darwin"), _OSI ("Windows 2006"))) end;
+# patch OS checks
+#into_all all code_regex If\s\(_OSI\s\(\"Windows\s2006\"\)\) replaceall_matched
+#begin If (LOr (_OSI ("Darwin"), _OSI ("Windows 2006"))) end;
+
+#into_all all code_regex If\s\(\\_OSI\s\(\"Windows\s2006\"\)\) replaceall_matched
+#begin If (LOr (_OSI ("Darwin"), _OSI ("Windows 2006"))) end;
 
 # Remove icons on menu bar for SD card
 into method label _RMV parent_label SMHC replace_content begin Return (Zero) end;
