@@ -502,7 +502,7 @@ into method label _STA parent_label BAT1 replace_content begin Return (Zero) end
 
 # USB property injection for 4x30s (HM65)
 
-#    EHCI fix  inject  device 0x1C26 into EHC1 
+#    EHCI fix inject Apple properties for device 0x1C26 into EHC1
 into method label _DSM parent_adr 0x001D0000 remove_entry;
 into device name_adr 0x001D0000 insert
 begin
@@ -511,9 +511,6 @@ Method (_DSM, 4, NotSerialized)\n
     If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
     Return (Package()\n
     {\n
-        ////Note: Native device-id is already the same as these...\n
-        ////"device-id",\n
-        ////Buffer() { 0x26, 0x1c, 0x00, 0x00 },\n
         "built-in",\n
         Buffer() { 0x00 },\n
         "AAPL,clock-id",\n
@@ -535,7 +532,7 @@ Method (_DSM, 4, NotSerialized)\n
 }\n
 end;
 
-#    EHCI fix inject  device 0x1C2D into EHC2
+#    EHCI fix inject Apple properties for device 0x1C2D into EHC2
 into method label _DSM parent_adr 0x001A0000 remove_entry;
 into device name_adr 0x001A0000 insert
 begin
@@ -544,9 +541,6 @@ Method (_DSM, 4, NotSerialized)\n
     If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
     Return (Package()\n
     {\n
-        ////Note: Native device-id is already the same as these...\n
-        ////"device-id",\n
-        ////Buffer() { 0x2d, 0x1c, 0x00, 0x00 },\n
         "built-in",\n
         Buffer() { 0x00 },\n
         "AAPL,clock-id",\n
