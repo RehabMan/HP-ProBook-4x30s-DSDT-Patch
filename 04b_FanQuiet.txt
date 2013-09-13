@@ -30,12 +30,13 @@ Device (SMCD)\n
         Store (1, \_SB.PCI0.LPCB.EC0.CRZN)\n
         Store (\_SB.PCI0.LPCB.EC0.DTMP, Local0)\n
         Release (\_SB.PCI0.LPCB.EC0.ECMX)\n
-        Return (\_TZ.GETK(Local0))\n
+        Return (Local0)\n
+        //Return (\_TZ.GETK(Local0))\n
     }\n
 	Method (TAMB, 0, Serialized) // Ambient Temp\n
 	{\n
-		//Return (Divide (Subtract (\_TZ.LOCZ._TMP, 2732), 10))\n
-        Return (\_TZ.LOCZ._TMP)\n
+		Return (Divide (Subtract (\_TZ.LOCZ._TMP, 2732), 10))\n
+        //Return (\_TZ.LOCZ._TMP)\n
 	}\n
 // Fan Control Table (pairs of temp, fan control byte)\n
 	Name (FTAB, Buffer()\n
@@ -148,8 +149,8 @@ Device (SMCD)\n
 // monitoring additional temperatures\n
 	Method (TDIM, 0, Serialized)  // GFXZ temp\n
 	{\n
-		//Return (Divide (Subtract (\_TZ.GFXZ._TMP, 2732), 10))\n
-        Return (\_TZ.GFXZ._TMP)\n
+        Return (Divide (Subtract (\_TZ.GFXZ._TMP, 2732), 10))\n
+        //Return (\_TZ.GFXZ._TMP)\n
 	}\n
     \n
 // for debugging fan control\n
@@ -161,11 +162,13 @@ Device (SMCD)\n
 			Store (FSUM, Local1)\n
 			Divide (Local1, Local0,, Local0)\n
 		}\n
-		Return (\_TZ.GETK(Local0))\n
+		Return (Local0)\n
+		//Return (\_TZ.GETK(Local0))\n
 	}\n
 	Method (TSYS, 0, Serialized)  // fan counter\n
 	{\n
-		Return (\_TZ.GETK(FCNT))\n
+		Return (FCNT)\n
+		//Return (\_TZ.GETK(FCNT))\n
 	}\n
 */\n
 }\n
