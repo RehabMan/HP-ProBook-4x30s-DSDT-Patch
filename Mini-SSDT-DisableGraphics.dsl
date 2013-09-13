@@ -8,7 +8,9 @@ DefinitionBlock("ssdt.aml", "SSDT", 2, "HPQOEM", "general", 0x00001000)
             "device-id", 
             Buffer() { 0x22, 0x01, 0x00, 0x00 },
             "compatible",
-            Buffer() { "pci8086,122" }
+            Buffer() { "pci8086,122" },
+            "name",
+            Buffer() { "pci8086,122" },
         })
     }
 }

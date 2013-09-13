@@ -28,7 +28,7 @@ Method (_DSM, 4, NotSerialized)\n
         0x02,\n
         "AAPL,max-port-current-in-sleep",\n
         0x0834,\n
-        Buffer() { 0x00 }\n
+        Buffer() { 0x00 },\n
     })\n
 }\n
 end;
@@ -58,7 +58,7 @@ Method (_DSM, 4, NotSerialized)\n
         0x02,\n
         "AAPL,max-port-current-in-sleep",\n
         0x0834,\n
-        Buffer() { 0x00 }\n
+        Buffer() { 0x00 },\n
     })\n
 }\n
 end;
@@ -77,7 +77,9 @@ end;
 #    Return (Package()\n
 #    {\n
 #        "device-id",\n
-#        Buffer() { 0x49, 0x1C, 0x00, 0x00\n }\n
+#        Buffer() { 0x49, 0x1C, 0x00, 0x00\n },\n
+#        "name",\n
+#        "pci8086,1c49",\n
 #    })\n
 #}\n
 #end;

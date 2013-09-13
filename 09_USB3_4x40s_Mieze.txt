@@ -132,7 +132,7 @@ begin
             0x0834,\n 
             "AAPL,device-internal",\n 
             Zero,\n 
-            Buffer() { 0x00 }\n
+            Buffer() { 0x00 },\n
         })\n
     }\n
     Method (XHCA, 0, NotSerialized)\n

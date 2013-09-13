@@ -50,7 +50,7 @@ Method (_DSM, 4, NotSerialized)\n
         "layout-id",\n
         Buffer() { 0x0C, 0x00, 0x00, 0x00 },\n
         "PinConfigurations",\n
-        Buffer() { }\n
+        Buffer() { },\n
     })\n
 }\n
 end;
@@ -139,7 +139,9 @@ Method (_DSM, 4, NotSerialized)\n
     Return (Package()\n
     {\n
         "device-id",\n
-        Buffer() { 0x27, 0x1c, 0x00, 0x00 }\n
+        Buffer() { 0x27, 0x1c, 0x00, 0x00 },\n
+        "name",\n
+        "pci8086,1c27",\n
     })\n
 }\n
 end;
@@ -153,7 +155,9 @@ Method (_DSM, 4, NotSerialized)\n
     Return (Package()\n
     {\n
         "device-id",\n
-        Buffer() { 0x2c, 0x1c, 0x00, 0x00 }\n
+        Buffer() { 0x2c, 0x1c, 0x00, 0x00 },\n
+        "name",\n
+        "pci8086,1c2c",\n
     })\n
 }\n
 end;
@@ -167,7 +171,9 @@ Method (_DSM, 4, NotSerialized)\n
     Return (Package()\n
     {\n
         "device-id",\n
-        Buffer() { 0x27, 0x1c, 0x00, 0x00 }\n
+        Buffer() { 0x27, 0x1c, 0x00, 0x00 },\n
+        "name",\n
+        "pci8086,1c27",\n
     })\n
 }\n
 end;
@@ -181,7 +187,9 @@ Method (_DSM, 4, NotSerialized)\n
     Return (Package()\n
     {\n
         "device-id",\n
-        Buffer() { 0x2c, 0x1c, 0x00, 0x00 }\n
+        Buffer() { 0x2c, 0x1c, 0x00, 0x00 },\n
+        "name",\n
+        "pci8086,1c2c",\n
     })\n
 }\n
 end;
@@ -195,7 +203,9 @@ Method (_DSM, 4, NotSerialized)\n
     Return(Package()\n
     {\n
         "device-id",\n
-        Buffer() { 0x27, 0x1c, 0x00, 0x00 }\n
+        Buffer() { 0x27, 0x1c, 0x00, 0x00 },\n
+        "name",\n
+        "pci8086,1c27",\n
     })\n
 }\n
 end;
@@ -209,7 +219,9 @@ Method (_DSM, 4, NotSerialized)\n
     Store (Package()\n
     {\n
         "device-id",\n
-        Buffer() { 0x2c, 0x1c, 0x00, 0x00 }\n
+        Buffer() { 0x2c, 0x1c, 0x00, 0x00 },\n
+        "name",\n
+        "pci8086,1c2c",\n
     })\n
 }\n
 end;
@@ -223,7 +235,9 @@ Method (_DSM, 4, NotSerialized)\n
     Return (Package()\n
     {\n
         "device-id",\n
-        Buffer() { 0x27, 0x1c, 0x00, 0x00 }\n
+        Buffer() { 0x27, 0x1c, 0x00, 0x00 },\n
+        "name",\n
+        "pci8086,1c27",\n
     })\n
 }\n
 end;
