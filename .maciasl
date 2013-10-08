@@ -1,14 +1,14 @@
-=> First, choose one of the following:	NullPatch.txt
-ProBook 4x30s	4x30s.txt
-ProBook 4x40s Ivy Bridge	4x40s_IvyBridge.txt
-ProBook 4x40s Sandy Bridge	4x40s_SandyBridge.txt
-=> Next, choose your screen type:	NullPatch.txt
-IGPU/LVDS Single-Link	03a_HDMI.txt
-IGPU/LVDS Dual-Link	03b_1080p+HDMI.txt
-=> Finally, choose your desired fan behavior:	NullPatch.txt
-Fan and Temps (original fan patch)	04a_FanPatch.txt
-Fan and Temps (quiet fan)	04b_FanQuiet.txt
-Fan and Temps (readings only)	04c_FanSpeed.txt
-Fan and Temps (quiet fan mod)	04b_FanQuietMod.txt
-=> Optionally, ARPT patch for AR9285 Atheros WiFi	NullPatch.txt
-Atheros 9285 WiFi AirPort Patch	08_AR9285.txt
+[1.0] == First, choose your ProBook model ==	NullPatch.txt
+[1.1]   ProBook 4x30s	4x30s.txt
+[1.2]   ProBook 4x40s Ivy Bridge	4x40s_IvyBridge.txt
+[1.3]   ProBook 4x40s Sandy Bridge	4x40s_SandyBridge.txt
+[2.0] == Next, choose your screen type ==	NullPatch.txt
+[2.1]   IGPU/LVDS Single-Link	03a_HDMI.txt
+[2.2]   IGPU/LVDS Dual-Link	03b_1080p+HDMI.txt
+[3.0] == Finally, choose your desired fan behavior ==	NullPatch.txt
+[3.1]   Fan and Temps (original fan patch)	04a_FanPatch.txt
+[3.2]   Fan and Temps (quiet fan)	04b_FanQuiet.txt
+[3.3]   Fan and Temps (readings only)	04c_FanSpeed.txt
+[3.4]   Fan and Temps (quiet fan mod)	04b_FanQuietMod.txt
+[4.0] == Optionally, ARPT patch for AR9285 Atheros WiFi ==	NullPatch.txt
+[4.1]   Atheros 9285 WiFi AirPort Patch	08_AR9285.txt
