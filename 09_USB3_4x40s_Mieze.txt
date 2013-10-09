@@ -1,8 +1,18 @@
 #Maintained by: RehabMan for: HP Probook 4x30s/4x40s
 # 09_USB3_4x40s_Mieze.txt
 
+#
 # Courtesy: BigDonkey
 # USB 3.0 patch for ProBook 4x40s based on Mieze's DSDT examples
+#
+# These patches can be used instead of GenericUSBXHCI.kext in order to use
+# native AppleUSBXHCI.kext.
+#
+# Please note: You must remove GenericUSBXHCI.kext installed by the 
+# Probook Installer to use this solution.
+#
+# Only for ProBooks that have native Intel USB3 (7-series chipset)
+#
 
 into device label XHC replace_content
 begin
@@ -38,7 +48,7 @@ begin
     Method (_INI, 0, NotSerialized)\n
     {\n
         Store (Zero, MIAI)\n
-        //rehabman: not necessary because OSYS is always == 0x2710
+        //rehabman: not necessary because system is always Darwin
         //If (LAnd (LGreaterEqual (OSYS, 0x07DC), LLess (OSYS, 0x2710)))\n
         //{\n
         //    Store (One, PASS)\n
