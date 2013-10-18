@@ -13,10 +13,11 @@
 		845A57FA1733114800E882FA /* 04b_FanQuietMod.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 04b_FanQuietMod.txt; sourceTree = "<group>"; };
 		845FE5EF1702639F004601B0 /* .maciasl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .maciasl; sourceTree = "<group>"; usesTabs = 1; };
 		846B57131706046600E19787 /* Mini-SSDT.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Mini-SSDT.dsl"; sourceTree = "<group>"; };
+		8470FEA0180B7FD700FA322E /* 08b_BCM4322x.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 08b_BCM4322x.txt; sourceTree = "<group>"; };
 		84878E3B17445FE100F82A03 /* 00_Optimize.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 00_Optimize.txt; sourceTree = "<group>"; };
 		8499C9761704B5F70066A5F3 /* NullPatch.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = NullPatch.txt; sourceTree = "<group>"; };
 		849EBD50170340BF007EFCFF /* xx_KeyBacklight.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = xx_KeyBacklight.txt; sourceTree = "<group>"; };
-		84B941FD1703347E00C5913C /* 08_AR9285.txt */ = {isa = PBXFileReference; lastKnownFileType = text; lineEnding = 0; path = 08_AR9285.txt; sourceTree = "<group>"; };
+		84B941FD1703347E00C5913C /* 08a_AR9285.txt */ = {isa = PBXFileReference; lastKnownFileType = text; lineEnding = 0; path = 08a_AR9285.txt; sourceTree = "<group>"; };
 		84B9D51916FFE684002CD441 /* 01_Compilation.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 01_Compilation.txt; sourceTree = "<group>"; };
 		84B9D51A16FFE684002CD441 /* 02_DSDTPatch.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; lineEnding = 0; path = 02_DSDTPatch.txt; sourceTree = "<group>"; };
 		84B9D51C16FFE684002CD441 /* 03a_HDMI.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; lineEnding = 0; path = 03a_HDMI.txt; sourceTree = "<group>"; };
@@ -57,7 +58,8 @@
 				84B9D52116FFE684002CD441 /* 05_OScheck.txt */,
 				84B9D52216FFE684002CD441 /* 06_Battery.txt */,
 				8418ECBF17025DF5007A25C4 /* 07_MEI_4x40s_Sandy.txt */,
-				84B941FD1703347E00C5913C /* 08_AR9285.txt */,
+				84B941FD1703347E00C5913C /* 08a_AR9285.txt */,
+				8470FEA0180B7FD700FA322E /* 08b_BCM4322x.txt */,
 				84DA7C6317033BC400738DC0 /* 09_USB3_4x40s_Mieze.txt */,
 				846B57131706046600E19787 /* Mini-SSDT.dsl */,
 				843DA4791706024900E87F04 /* Mini-SSDT-DualLink.dsl */,

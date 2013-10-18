@@ -19,18 +19,9 @@ into method label KKQC parent_label PS2K remove_entry;
 
 into device label PS2K insert
 begin
-Method (KKCL, 0, Serialized)\n
-{\n
-    Return (Package() { 0, 1, 2, 3, })\n
-}\n
-Method (KKCM, 1, Serialized)\n
-{\n
-    \_SB.ATKD.SLKB(Or(Arg0, 0x80))\n
-}\n
-Method (KKQC, 0, Serialized)\n
-{\n
-    Return (\_SB.ATKD.GLKB(2))\n
-}\n
+Method (KKCL, 0, Serialized) { Return (Package() { 0, 1, 2, 3, }) }
+Method (KKCM, 1, Serialized) { \_SB.ATKD.SLKB(Or(Arg0, 0x80)) }
+Method (KKQC, 0, Serialized) { Return (\_SB.ATKD.GLKB(2)) }
 end;
 
 

@@ -5,12 +5,9 @@ DefinitionBlock("ssdt.aml", "SSDT", 2, "HPQOEM", "general", 0x00001000)
         If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }
         Return (Package()
         {
-            "device-id", 
-            Buffer() { 0x22, 0x01, 0x00, 0x00 },
-            "compatible",
-            Buffer() { "pci8086,122" },
-            "name",
-            Buffer() { "pci8086,122" },
+            "device-id", Buffer() { 0x22, 0x01, 0x00, 0x00 },
+            "compatible", Buffer() { "pci8086,122" },
+            "name", Buffer() { "pci8086,122" },
         })
     }
 }

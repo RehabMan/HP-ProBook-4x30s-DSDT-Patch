@@ -17,18 +17,9 @@ into method label KBQC parent_label PS2K remove_entry;
 
 into device label PS2K insert
 begin
-Method (KBCL, 0, Serialized)\n
-{\n
-    Return (\_SB.PCI0.IGPU.DD02._BCL ())\n
-}\n
-Method (KBCM, 1, Serialized)\n
-{\n
-    \_SB.PCI0.IGPU.DD02._BCM (Arg0)\n
-}\n
-Method (KBQC, 0, Serialized)\n
-{\n
-    Return (\_SB.PCI0.IGPU.DD02._BQC ())\n
-}\n
+Method (KBCL, 0, Serialized) { Return (\_SB.PCI0.IGPU.DD02._BCL ()) }
+Method (KBCM, 1, Serialized) { \_SB.PCI0.IGPU.DD02._BCM (Arg0) }
+Method (KBQC, 0, Serialized) { Return (\_SB.PCI0.IGPU.DD02._BQC()) }
 end;
 
 

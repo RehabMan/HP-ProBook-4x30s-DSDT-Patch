@@ -11,5 +11,6 @@
 [3.3]   Fan and Temps (readings only)	04c_FanSpeed.txt
 [3.4]   Fan and Temps (quiet fan mod)	04b_FanQuietMod.txt
 [4.0] == Optional WiFi/USB3 ==	NullPatch.txt
-[4.1]   Atheros 9285 WiFi AirPort Patch	08_AR9285.txt
-[4.2]   Native USB3 patches based on Mieze XHC patches	09_USB3_4x40s_Mieze.txt
+[4.1]   Atheros 9285 WiFi AirPort Patch	08a_AR9285.txt
+[4.2]   Broadcom BCM4322x AirPort Patch	08b_BCM4322x.txt
+[4.3]   Native USB3 patches based on Mieze XHC patches	09_USB3_4x40s_Mieze.txt

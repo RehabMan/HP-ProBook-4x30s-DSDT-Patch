@@ -128,21 +128,13 @@ begin
         If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
         Return (Package()\n
         {\n
-            "subsystem-id",\n 
-            Buffer() { 0x70, 0x72, 0x00, 0x00 },\n
-            "subsystem-vendor-id",\n 
-            Buffer() { 0x86, 0x80, 0x00, 0x00 },\n
-            "AAPL,current-available",\n 
-            0x0834,\n 
-            "AAPL,current-extra",\n 
-            0x0898,\n 
-            "AAPL,current-extra-in-sleep",\n 
-            0x0640,\n 
-            "AAPL,max-port-current-in-sleep",\n 
-            0x0834,\n 
-            "AAPL,device-internal",\n 
-            Zero,\n 
-            Buffer() { 0x00 },\n
+            "subsystem-id", Buffer() { 0x70, 0x72, 0x00, 0x00 },\n
+            "subsystem-vendor-id", Buffer() { 0x86, 0x80, 0x00, 0x00 },\n
+            "AAPL,current-available", 2100,\n
+            "AAPL,current-extra", 2200,\n
+            "AAPL,current-extra-in-sleep", 1600,\n
+            "AAPL,max-port-current-in-sleep", 2100,\n
+            "AAPL,device-internal", Zero,\n
         })\n
     }\n
     Method (XHCA, 0, NotSerialized)\n

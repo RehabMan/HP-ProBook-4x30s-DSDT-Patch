@@ -115,12 +115,9 @@ Method (_DSM, 4, NotSerialized)\n
     If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
     Return (Package()\n
     {\n
-        /* Note: Function key part seems to not be necessary\n
-        "AAPL,has-embedded-fn-keys",\n
-        Buffer() { 0x01, 0x00, 0x00, 0x00 },\n
-        */\n
-        "RM,oem-id",\n
-        "HPQOEM",\n
+        // Note: Function key part seems to not be necessary
+        // "AAPL,has-embedded-fn-keys", Buffer() { 0x01, 0x00, 0x00, 0x00 },\n
+        "RM,oem-id", "HPQOEM",\n
     })\n
 }\n
 end;
@@ -135,12 +132,9 @@ Method (_DSM, 4, NotSerialized)\n
     If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
     Return (Package()\n
     {\n
-        "hda-gfx",\n
-        Buffer() { "onboard-1" },\n
-        "layout-id",\n
-        Buffer() { 0x0C, 0x00, 0x00, 0x00 },\n
-        "PinConfigurations",\n
-        Buffer() { },\n
+        "hda-gfx", Buffer() { "onboard-1" },\n
+        "layout-id", Buffer() { 0x0C, 0x00, 0x00, 0x00 },\n
+        "PinConfigurations", Buffer() { },\n
     })\n
 }\n
 end;
@@ -155,10 +149,7 @@ into device name_hid PNP0103 code_regex Name\s\(([^,]+),\sResourceTemplate\s\(\)
 begin
 Name (%1, ResourceTemplate()\n
 {\n
-    IRQNoFlags() {0}\n
-    IRQNoFlags() {8}\n
-    IRQNoFlags() {11}\n
-    IRQNoFlags() {15}\n
+    IRQNoFlags() { 0, 8, 11, 15 }\n
 %2
 })\n
 end;
@@ -228,10 +219,8 @@ Method (_DSM, 4, NotSerialized)\n
     If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
     Return (Package()\n
     {\n
-        "device-id",\n
-        Buffer() { 0x27, 0x1c, 0x00, 0x00 },\n
-        "name",\n
-        "pci8086,1c27",\n
+        "device-id", Buffer() { 0x27, 0x1c, 0x00, 0x00 },\n
+        "name", Buffer() { "pci8086,1c27" },\n
     })\n
 }\n
 end;
@@ -244,10 +233,8 @@ Method (_DSM, 4, NotSerialized)\n
     If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
     Return (Package()\n
     {\n
-        "device-id",\n
-        Buffer() { 0x2c, 0x1c, 0x00, 0x00 },\n
-        "name",\n
-        "pci8086,1c2c",\n
+        "device-id", Buffer() { 0x2c, 0x1c, 0x00, 0x00 },\n
+        "name", Buffer() { "pci8086,1c2c" },\n
     })\n
 }\n
 end;
@@ -260,10 +247,8 @@ Method (_DSM, 4, NotSerialized)\n
     If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
     Return (Package()\n
     {\n
-        "device-id",\n
-        Buffer() { 0x27, 0x1c, 0x00, 0x00 },\n
-        "name",\n
-        "pci8086,1c27",\n
+        "device-id", Buffer() { 0x27, 0x1c, 0x00, 0x00 },\n
+        "name", Buffer() { "pci8086,1c27" },\n
     })\n
 }\n
 end;
@@ -276,10 +261,8 @@ Method (_DSM, 4, NotSerialized)\n
     If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
     Return (Package()\n
     {\n
-        "device-id",\n
-        Buffer() { 0x2c, 0x1c, 0x00, 0x00 },\n
-        "name",\n
-        "pci8086,1c2c",\n
+        "device-id", Buffer() { 0x2c, 0x1c, 0x00, 0x00 },\n
+        "name", Buffer() { "pci8086,1c2c" },\n
     })\n
 }\n
 end;
@@ -292,10 +275,8 @@ Method (_DSM, 4, NotSerialized)\n
     If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
     Return(Package()\n
     {\n
-        "device-id",\n
-        Buffer() { 0x27, 0x1c, 0x00, 0x00 },\n
-        "name",\n
-        "pci8086,1c27",\n
+        "device-id", Buffer() { 0x27, 0x1c, 0x00, 0x00 },\n
+        "name", Buffer() { "pci8086,1c27" },\n
     })\n
 }\n
 end;
@@ -308,10 +289,8 @@ Method (_DSM, 4, NotSerialized)\n
     If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
     Store (Package()\n
     {\n
-        "device-id",\n
-        Buffer() { 0x2c, 0x1c, 0x00, 0x00 },\n
-        "name",\n
-        "pci8086,1c2c",\n
+        "device-id", Buffer() { 0x2c, 0x1c, 0x00, 0x00 },\n
+        "name", Buffer() { "pci8086,1c2c" },\n
     })\n
 }\n
 end;
@@ -324,10 +303,8 @@ Method (_DSM, 4, NotSerialized)\n
     If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
     Return (Package()\n
     {\n
-        "device-id",\n
-        Buffer() { 0x27, 0x1c, 0x00, 0x00 },\n
-        "name",\n
-        "pci8086,1c27",\n
+        "device-id", Buffer() { 0x27, 0x1c, 0x00, 0x00 },\n
+        "name", Buffer() { "pci8086,1c27" },\n
     })\n
 }\n
 end;
@@ -344,11 +321,17 @@ end;
 into method label _CRS parent_hid PNP0103 remove_entry;
 into device name_hid PNP0103 insert
 begin
-Method (_CRS, 0, NotSerialized)\n
-{\n
-    Return (BUF0)\n
-}\n
+Method (_CRS, 0, NotSerialized) { Return (BUF0) }\n
 end;
+
+
+#     Fix _WAK method to deal with bug in AppleACPIPlatform v1.8 (in 10.8.5+)
+into method label _WAK code_regex (.?WAK\s+\([^)]*\)) replace_matched
+begin
+if (LOr(LLess(Arg0,1),LGreater(Arg0,5))) { Store(3,Arg0) }\n
+%1
+end;
+
 #Maintained by: RehabMan for: HP Probook 4x30s/4x40s
 # 05_OScheck.txt
 
@@ -525,21 +508,13 @@ Method (_DSM, 4, NotSerialized)\n
     If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
     Return (Package()\n
     {\n
-        "subsystem-id",\n 
-        Buffer() { 0x70, 0x72, 0x00, 0x00 },\n
-        "subsystem-vendor-id",\n 
-        Buffer() { 0x86, 0x80, 0x00, 0x00 },\n
-        "AAPL,current-available",\n
-        0x0834,\n
-        "AAPL,current-extra",\n
-        0x0898,\n
-        "AAPL,current-extra-in-sleep",\n
-        0x0640,\n
-        "AAPL,device-internal",\n
-        0x02,\n
-        "AAPL,max-port-current-in-sleep",\n
-        0x0834,\n
-        Buffer() { 0x00 },\n
+        "subsystem-id", Buffer() { 0x70, 0x72, 0x00, 0x00 },\n
+        "subsystem-vendor-id", Buffer() { 0x86, 0x80, 0x00, 0x00 },\n
+        "AAPL,current-available", 2100,\n
+        "AAPL,current-extra", 2200,\n
+        "AAPL,current-extra-in-sleep", 1600,\n
+        "AAPL,device-internal", 0x02,\n
+        "AAPL,max-port-current-in-sleep", 2100,\n
     })\n
 }\n
 end;
@@ -553,21 +528,13 @@ Method (_DSM, 4, NotSerialized)\n
     If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
     Return (Package()\n
     {\n
-        "subsystem-id",\n 
-        Buffer() { 0x70, 0x72, 0x00, 0x00 },\n
-        "subsystem-vendor-id",\n 
-        Buffer() { 0x86, 0x80, 0x00, 0x00 },\n
-        "AAPL,current-available",\n
-        0x0834,\n
-        "AAPL,current-extra",\n
-        0x0898,\n
-        "AAPL,current-extra-in-sleep",\n
-        0x0640,\n
-        "AAPL,device-internal",\n
-        0x02,\n
-        "AAPL,max-port-current-in-sleep",\n
-        0x0834,\n
-        Buffer() { 0x00 },\n
+        "subsystem-id", Buffer() { 0x70, 0x72, 0x00, 0x00 },\n
+        "subsystem-vendor-id", Buffer() { 0x86, 0x80, 0x00, 0x00 },\n
+        "AAPL,current-available", 2100,\n
+        "AAPL,current-extra", 2200,\n
+        "AAPL,current-extra-in-sleep", 1600,\n
+        "AAPL,device-internal", 0x02,\n
+        "AAPL,max-port-current-in-sleep", 2100,\n
     })\n
 }\n
 end;
@@ -581,21 +548,13 @@ Method (_DSM, 4, NotSerialized)\n
     If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
     Return (Package()\n
     {\n
-        "subsystem-id",\n 
-        Buffer() { 0x70, 0x72, 0x00, 0x00 },\n
-        "subsystem-vendor-id",\n 
-        Buffer() { 0x86, 0x80, 0x00, 0x00 },\n
-        "AAPL,current-available",\n
-        0x0834,\n
-        "AAPL,current-extra",\n
-        0x0898,\n
-        "AAPL,current-extra-in-sleep",\n
-        0x0640,\n
-        "AAPL,device-internal",\n
-        0x02,\n
-        "AAPL,max-port-current-in-sleep",\n
-        0x0834,\n
-        Buffer() { 0x00 },\n
+        "subsystem-id", Buffer() { 0x70, 0x72, 0x00, 0x00 },\n
+        "subsystem-vendor-id", Buffer() { 0x86, 0x80, 0x00, 0x00 },\n
+        "AAPL,current-available", 2100,\n
+        "AAPL,current-extra", 2200,\n
+        "AAPL,current-extra-in-sleep", 1600,\n
+        "AAPL,device-internal", 0x02,\n
+        "AAPL,max-port-current-in-sleep", 2100,\n
     })\n
 }\n
 end;
@@ -613,10 +572,8 @@ Device (IMEI)\n
         If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
         Return (Package()\n
         {\n
-            "device-id",\n 
-            Buffer() { 0x3A, 0x1C, 0x00, 0x00 },\n
-            "name",\n
-            "pci8086,1c3a",\n
+            "device-id", Buffer() { 0x3A, 0x1C, 0x00, 0x00 },\n
+            "name", Buffer() { "pci8086,1c3a" },\n
         })\n
     }\n
 }\n
