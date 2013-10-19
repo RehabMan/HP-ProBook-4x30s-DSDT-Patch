@@ -16,12 +16,14 @@ Method (_DSM, 4, NotSerialized)\n
     Return (Package()\n
     {\n
         "device-id", Buffer() { 0xa0, 0x43, 0x00, 0x00 },\n
-        "name", Buffer() { "pci14e4,43a0" },\n
+        "compatible", Buffer() { "pci14e4,43a0" },\n
+        "name", "AirPort Extreme",\n
+        "model", Buffer() { "Broadcom BCM4322x 802.11 b/g/n Wireless Network Adapter" },\n
         "AAPL,slot-name", Buffer() { "AirPort" },\n
         "device_type", Buffer() { "AirPort" },\n
-        "model", Buffer() { "Atheros 9285 802.11 b/g/n Wireless Network Adapter" },\n
-        "subsystem-id", Buffer() { 0x8F, 0x00, 0x00, 0x00 },\n
-        "subsystem-vendor-id", Buffer() { 0x6B, 0x10, 0x00, 0x00 },\n
+        "built-in", Buffer () {0x00},\n
+        //"subsystem-id", Buffer() { 0x8F, 0x00, 0x00, 0x00 },\n
+        //"subsystem-vendor-id", Buffer() { 0x6B, 0x10, 0x00, 0x00 },\n
     })\n
 }\n
 end;
