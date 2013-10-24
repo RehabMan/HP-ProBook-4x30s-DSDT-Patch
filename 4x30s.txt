@@ -326,9 +326,9 @@ end;
 
 
 #     Fix _WAK method to deal with bug in AppleACPIPlatform v1.8 (in 10.8.5+)
-into method label _WAK code_regex (.?WAK\s+\([^)]*\)) replace_matched
+into method label _WAK code_regex \s(.?WAK\s+\([^)]*\)) replace_matched
 begin
-if (LOr(LLess(Arg0,1),LGreater(Arg0,5))) { Store(3,Arg0) }\n
+If (LOr(LLess(Arg0,1),LGreater(Arg0,5))) { Store(3,Arg0) }\n
 %1
 end;
 
