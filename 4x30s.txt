@@ -135,6 +135,7 @@ Method (_DSM, 4, NotSerialized)\n
         "hda-gfx", Buffer() { "onboard-1" },\n
         "layout-id", Buffer() { 0x0C, 0x00, 0x00, 0x00 },\n
         "PinConfigurations", Buffer() { },\n
+        "MaximumBootBeepVolume", 77,
     })\n
 }\n
 end;
