@@ -36,6 +36,7 @@
 		84DA7C6317033BC400738DC0 /* 09_USB3_4x40s_Mieze.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = 09_USB3_4x40s_Mieze.txt; sourceTree = "<group>"; };
 		84E815E21752C76500B9EF1E /* Mini-SSDT-AR9285.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Mini-SSDT-AR9285.dsl"; sourceTree = "<group>"; };
 		84F52D0B1709C9A3001643C8 /* Mini-SSDT-IMEI.dsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Mini-SSDT-IMEI.dsl"; sourceTree = "<group>"; };
+		84F616791850BC650053B76E /* 10_LPC_4x40s_Sandy_SL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 10_LPC_4x40s_Sandy_SL.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -61,6 +62,7 @@
 				84B941FD1703347E00C5913C /* 08a_AR9285.txt */,
 				8470FEA0180B7FD700FA322E /* 08b_BCM4322x.txt */,
 				84DA7C6317033BC400738DC0 /* 09_USB3_4x40s_Mieze.txt */,
+				84F616791850BC650053B76E /* 10_LPC_4x40s_Sandy_SL.txt */,
 				846B57131706046600E19787 /* Mini-SSDT.dsl */,
 				843DA4791706024900E87F04 /* Mini-SSDT-DualLink.dsl */,
 				84F52D0B1709C9A3001643C8 /* Mini-SSDT-IMEI.dsl */,

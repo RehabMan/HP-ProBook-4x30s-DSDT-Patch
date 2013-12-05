@@ -1,0 +1,28 @@
+#Maintained by: RehabMan for: HP Probook 4x30s/4x40s
+# 10_LPC_4x40s_Sandy_SL.txt
+
+# This patch is required only for running Snow Leopard on 4x40s
+# with Sandy Bridge CPU.
+#
+# Note: SL does not support 4x40s Ivy...
+#
+# It injects the device ID for 6-series LPC.  The 4x40s is
+# has a 7-series chipset, which is not natively supported 
+# by SL's AppleLPC driver.  This forces the driver to load
+# as it will think the device is 6-series LPC.
+
+#   LPC fix injects device 0x1C49 HM65
+into method label _DSM parent_adr 0x001F0000 remove_entry;
+into device name_adr 0x001F0000 insert
+begin
+Method (_DSM, 4, NotSerialized)\n
+{\n
+    If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
+    Return (Package()\n
+    {\n
+        "device-id", Buffer () { 0x49, 0x1C, 0x00, 0x00 },\n
+        //"name" injection not necessary for Snow Leopard\n
+        //"name", "pci8086,1c49",\n
+    })\n
+}
+end;
