@@ -4,6 +4,8 @@
 # To disable the Radeon chipset
 # Apply these patches to DSDT
 
+# PLEASE NOTE: These patches are a work-in-progress
+
 into definitionblock code_regex . insert
 begin
 External(\_SB_.PCI0.PEGP.DGFX._OFF, MethodObj)\n
@@ -11,6 +13,9 @@ end;
 
 into method label _INI parent_label _SB code_regex . insert
 begin
-\_SB_.PCI0.PEGP.DGFX._OFF()\n
+If (CondRefOf(\_SB_.PCI0.PEGP.DGFX._OFF))\n
+{\n
+    \_SB_.PCI0.PEGP.DGFX._OFF()\n
+}\n
 end;
 
