@@ -496,9 +496,11 @@ end;
 # Disable BAT1 device
 into method label _STA parent_label BAT1 replace_content begin Return (Zero) end;
 
-# Fix method PPNT, called from AC adapter device (AC/ADP1)
-
+# Fix method PPNT, called from AC adapter device (AC/ADP1) (ProBooks)
 into method label PPNT parent_label EC0 replace_content begin // nothing end;
+
+# Fix method PNOT, called from AC adapter device (AC/ADP1) (EliteBooks?)
+into method label PNOT replace_content begin // nothing end;
 #Maintained by: RehabMan for: HP Probook 4x30s/4x40s
 # 02b_EHCI_4x40s.txt
 
