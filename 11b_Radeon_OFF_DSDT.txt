@@ -1,0 +1,16 @@
+#Maintained by: RehabMan for: HP Probook 4x30s/4x40s
+# 11a_Radeon_OFF_DSDT.txt
+
+# To disable the Radeon chipset
+# Apply these patches to DSDT
+
+into definitionblock code_regex . insert
+begin
+External(\_SB_.PCI0.PEGP.DGFX._OFF, MethodObj)\n
+end;
+
+into method label _INI parent_label _SB code_regex . insert
+begin
+\_SB_.PCI0.PEGP.DGFX._OFF()\n
+end;
+
