@@ -8,6 +8,7 @@
 
 /* Begin PBXFileReference section */
 		8418ECBF17025DF5007A25C4 /* 07_MEI_4x40s_Sandy.txt */ = {isa = PBXFileReference; lastKnownFileType = text; lineEnding = 0; path = 07_MEI_4x40s_Sandy.txt; sourceTree = "<group>"; };
+		842F94371858FA4400BAF14B /* 12_Brightness.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 12_Brightness.txt; sourceTree = "<group>"; };
 		843DA4791706024900E87F04 /* Mini-SSDT-DualLink.dsl */ = {isa = PBXFileReference; lastKnownFileType = text; lineEnding = 0; path = "Mini-SSDT-DualLink.dsl"; sourceTree = "<group>"; };
 		8456BC3D1752A827008F4353 /* Mini-SSDT-DisableGraphics.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Mini-SSDT-DisableGraphics.dsl"; sourceTree = "<group>"; };
 		845A57FA1733114800E882FA /* 04b_FanQuietMod.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 04b_FanQuietMod.txt; sourceTree = "<group>"; };
@@ -67,6 +68,7 @@
 				84F616791850BC650053B76E /* 10_LPC_4x40s_Sandy_SL.txt */,
 				84B165B81856183900C2DF39 /* 11a_Radeon_OFF_SSDT.txt */,
 				84B165B91856187E00C2DF39 /* 11b_Radeon_OFF_DSDT.txt */,
+				842F94371858FA4400BAF14B /* 12_Brightness.txt */,
 				846B57131706046600E19787 /* Mini-SSDT.dsl */,
 				843DA4791706024900E87F04 /* Mini-SSDT-DualLink.dsl */,
 				84F52D0B1709C9A3001643C8 /* Mini-SSDT-IMEI.dsl */,

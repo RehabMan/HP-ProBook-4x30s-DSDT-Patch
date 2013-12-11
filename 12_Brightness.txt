@@ -1,0 +1,83 @@
+
+into definitionblock code_regex . insert
+begin
+OperationRegion (BRIT, SystemMemory, 0xd4000004, 0xc8254)\n
+Field (BRIT, AnyAcc, Lock, Preserve)\n
+{\n
+    Offset(0x4824c),\n
+    LEV2, 32,\n
+    LEVL, 32,\n
+    Offset(0xc824c),\n
+    LEVX, 32,\n
+    LEVW, 32,\n
+}\n
+end;
+
+# probably not necessary
+into device label DD02 code_regex Name\s+\(\_HID,\sEisaId\s[\s\S\)]*\)\) remove_matched;
+into device label DD02 insert begin Name (_HID, EisaId ("LCD1234"))\n end;
+
+# new PNLF device
+into device label PNLF remove_entry;
+into scope label \_SB insert
+begin
+Device (PNLF)\n
+{\n
+    // normal PNLF declares (note some of this probably not necessary)\n
+    Name (_HID, EisaId ("APP0002"))\n
+    Name (_CID, "backlight")\n
+    Name (_UID, 0x0A)\n
+    Name (_STA, 0x0B)\n
+    //define hardware register access for brightness\n
+    // note: base address 0xd4000004 is BAR1 address\n
+    // define in PCI config offset 0x10\n
+    // you can see this value in RW-Everything under Bus00,02 Intel VGA controler PCI\n
+    OperationRegion (BRIT, SystemMemory, 0xd4000004, 0xc8254)\n
+    Field (BRIT, AnyAcc, Lock, Preserve)\n
+    {\n
+        Offset(0x4824c),\n
+        LEV2, 32,\n
+        LEVL, 32,\n
+        Offset(0xc824c),\n
+        LEVX, 32,\n
+        LEVW, 32,\n
+    }\n
+    // _BCL: returns list of valid brightness levels\n
+    // first two entries describe battery/ac power levels\n
+    Method (_BCL, 0, NotSerialized)\n
+    {\n
+        Return (Package (0x13)\n
+        {\n
+            100,\n
+            48,\n
+            0, 6, 12, 18, 24, 30, 36, 42, 48,\n
+            54, 60, 66, 72, 78, 84, 90, 100,\n
+        })\n
+    }\n
+    // _BCM/_BQC: set/get for brightness level\n
+    Name (LAST, 48)\n
+    Method (_BCM, 1, NotSerialized)\n
+    {\n
+        Store(0x80000000, LEV2)\n
+        If (LGreaterEqual(Arg0, 100))    { Store (0x12FF, LEVL) Store(100, LAST) }\n
+        ElseIf (LGreaterEqual(Arg0, 90)) { Store (0x11FF, LEVL) Store(90, LAST) }\n
+        ElseIf (LGreaterEqual(Arg0, 84)) { Store (0x103A, LEVL) Store(84, LAST) }\n
+        ElseIf (LGreaterEqual(Arg0, 78)) { Store (0x0EBB, LEVL) Store(78, LAST) }\n
+        ElseIf (LGreaterEqual(Arg0, 72)) { Store (0x0B24, LEVL) Store(72, LAST) }\n
+        ElseIf (LGreaterEqual(Arg0, 66)) { Store (0x0873, LEVL) Store(66, LAST) }\n
+        ElseIf (LGreaterEqual(Arg0, 60)) { Store (0x065B, LEVL) Store(60, LAST) }\n
+        ElseIf (LGreaterEqual(Arg0, 54)) { Store (0x04C8, LEVL) Store(54, LAST) }\n
+        ElseIf (LGreaterEqual(Arg0, 48)) { Store (0x0396, LEVL) Store(48, LAST) }\n
+        ElseIf (LGreaterEqual(Arg0, 42)) { Store (0x02B0, LEVL) Store(42, LAST) }\n
+        ElseIf (LGreaterEqual(Arg0, 36)) { Store (0x0266, LEVL) Store(36, LAST) }\n
+        ElseIf (LGreaterEqual(Arg0, 30)) { Store (0x0218, LEVL) Store(30, LAST) }\n
+        ElseIf (LGreaterEqual(Arg0, 24)) { Store (0x01D1, LEVL) Store(24, LAST) }\n
+        ElseIf (LGreaterEqual(Arg0, 18)) { Store (0x0191, LEVL) Store(18, LAST) }\n
+        ElseIf (LGreaterEqual(Arg0, 12)) { Store (0x0161, LEVL) Store(12, LAST) }\n
+        ElseIf (LGreaterEqual(Arg0, 6))  { Store (0x0132, LEVL) Store(6, LAST) }\n
+        ElseIf (LGreaterEqual(Arg0, 0))  { Store (0x0082, LEVL) Store(0, LAST) }\n
+    }\n
+    Method (_BQC, 0, NotSerialized) { Return(LAST) }\n
+    Method (_DOS, 1, NotSerialized) { ^^PCI0.IGPU._DOS(Arg0) }\n
+}\n
+end;
