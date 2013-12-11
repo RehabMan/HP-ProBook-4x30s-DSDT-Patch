@@ -3,12 +3,12 @@
 
 # To disable the Radeon chipset
 # Apply these patches to SSDT containing the secondary graphics routines
-# "SgTabl"
+# "SgTabl" (SSDT-5)
 # Include patched version as SSDT-1.aml
 
-# PLEASE NOTE: These patches are a work-in-progress
+# Known issue: Restarting your computer will cause shutdown instead.
 
-# Syntax fixes
+# syntax fixes
 into scope label \_SB.PCI0.GFX0 code_regex (OperationRegion.*)VRMB\s+\(VRMS\s+\(\)\), replace_matched begin %1VRMB(),VRMS())\n end;
 into scope label \_SB.PCI0.GFX0 code_regex (Field\s+\(REVD,.*\n.*\n.*\n.*\n.*\})\) replace_matched begin %1 end;
 into scope label \_SB.PCI0.PEGP code_regex (OperationRegion.*)\\XBAS\s+\(0x9000\), replace_matched begin %1\\XBAS,0x9000)\n end;
@@ -21,6 +21,12 @@ into definitionblock code_regex External\s+\(\\_SB_\.PCI0\.GFX0\.DD02\._BCM,\s+I
 end;
 into method label _BCM parent_label DD02 code_regex Return\s+\(([^\)]*)\)\n.*Arg0 replace_matched begin Return(%1(Arg0)) end;
 
-# Remove While loop
-into method label _OFF parent_label \_SB.PCI0.PEGP.DGFX code_regex While\s+\(([^\}]*)\} remove_matched;
+# rename GFX0
+into_all all code_regex \.GFX0 replaceall_matched begin .IGPU end;
+into_all all label \_SB.PCI0.GFX0 set_label begin \_SB.PCI0.IGPU end;
 
+# remove wait for LNKS (while loop) (not necessary, commented out for now)
+#into method label _OFF parent_label \_SB.PCI0.PEGP.DGFX code_regex While\s+\([^\}]*\} remove_matched;
+
+# call _OFF from _SB.PCI0.DGFX._INI
+into method label _INI parent_label \_SB.PCI0.PEGP.DGFX code_regex . insert begin _OFF()\n end;

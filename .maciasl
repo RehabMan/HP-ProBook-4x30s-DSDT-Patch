@@ -16,5 +16,4 @@
 [4.3]   Native USB3 patches based on Mieze XHC patches	09_USB3_4x40s_Mieze.txt
 [4.4]   LPC patch for SL 4x40s Sandy Bridge	10_LPC_4x40s_Sandy_SL.txt
 [5.0] == Disabling Radeon ==	NullPatch.txt
-[5.1]   Fix SgTabl SSDT	(patch for SSDT)	11a_Radeon_OFF_SSDT.txt
-[5.2]   Call _OFF from DSDT (patch for DSDT)	11b_Radeon_OFF_DSDT.txt
+[5.1]   Call _OFF from _INI	(patch for SSDT-5)	11a_Radeon_OFF_SSDT.txt

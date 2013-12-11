@@ -4,7 +4,7 @@
 # To disable the Radeon chipset
 # Apply these patches to DSDT
 
-# PLEASE NOTE: These patches are a work-in-progress
+# Not necessary since call to _OFF works from SSDT...
 
 into definitionblock code_regex . insert
 begin
