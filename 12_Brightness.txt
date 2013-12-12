@@ -9,6 +9,17 @@
 # Note: This patch and ACPIBacklight is a work-in-progress.
 #
 
+into device label IGPU code_regex (OperationRegion\s\(IGD2,\sPCI_Config[^\}]*\}) remove_matched;
+into device label IGPU code_regex (OperationRegion\s\(IGDP,\sPCI_Config[^\}]*\}) replace_matched
+begin
+%1\n
+OperationRegion (IGD2, PCI_Config, 0x10, 4)\n
+Field (IGD2, AnyAcc, NoLock, Preserve)\n
+{\n
+	BAR1,32,\n
+}\n
+end;
+
 into device label PNLF remove_entry;
 into scope label \_SB insert
 begin
@@ -23,7 +34,7 @@ Device (PNLF)\n
     // note: base address 0xd4000004 is BAR1 address\n
     // define in PCI config offset 0x10\n
     // you can see this value in RW-Everything under Bus00,02 Intel VGA controler PCI\n
-    OperationRegion (BRIT, SystemMemory, 0xd4000004, 0xc8254)\n
+    OperationRegion (BRIT, SystemMemory, \_SB.PCI0.IGPU.BAR1, 0xc8254)\n
     Field (BRIT, AnyAcc, Lock, Preserve)\n
     {\n
         Offset(0x4824c),\n
