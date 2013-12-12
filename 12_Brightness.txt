@@ -1,23 +1,14 @@
+#Maintained by: RehabMan for: HP Probook 4x30s/4x40s
+# 12_Brightness.txt
 
-#into definitionblock code_regex . insert
-#begin
-#OperationRegion (BRIT, SystemMemory, 0xd4000004, 0xc8254)\n
-#Field (BRIT, AnyAcc, Lock, Preserve)\n
-#{\n
-#    Offset(0x4824c),\n
-#    LEV2, 32,\n
-#    LEVL, 32,\n
-#    Offset(0xc824c),\n
-#    LEVX, 32,\n
-#    LEVW, 32,\n
-#}\n
-#end;
+#
+# This patch is to use ACPIBacklight.kext instead of the native
+# backlight control.  With it you can have more control over
+# the range of brightness.
+#
+# Note: This patch and ACPIBacklight is a work-in-progress.
+#
 
-# probably not necessary
-#into device label DD02 code_regex Name\s+\(\_HID,\sEisaId\s[\s\S\)]*\)\) remove_matched;
-#into device label DD02 insert begin Name (_HID, EisaId ("LCD1234"))\n end;
-
-# new PNLF device
 into device label PNLF remove_entry;
 into scope label \_SB insert
 begin
@@ -70,24 +61,6 @@ Device (PNLF)\n
         469, 494, 520, 546,\n
         572, 598, 624, 651,\n
     })\n
-    // LOOK - could not make Match work, so use this instead\n
-    Method (LOOK, 3, NotSerialized)\n
-    {\n
-        // Arg0 array to look at\n
-        // Arg1 find entry in array larger or equal to this\n
-        // Arg2 entry to start looking at\n
-        Store(Ones, Local0)\n
-        While (LLess(Arg2, SizeOf(Arg0)))\n
-        {\n
-            if (LLessEqual(Arg1, DerefOf(Index(Arg0, Arg2))))\n
-            {\n
-                Store(Arg2, Local0)\n
-                Break\n
-            }\n
-            Increment(Arg2)\n
-        }\n
-        Return(Local0)\n
-    }\n
     // _BCM/_BQC: set/get for brightness level\n
     Method (_BCM, 1, NotSerialized)\n
     {\n
