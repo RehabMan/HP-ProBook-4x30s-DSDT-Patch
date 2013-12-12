@@ -1,21 +1,21 @@
 
-into definitionblock code_regex . insert
-begin
-OperationRegion (BRIT, SystemMemory, 0xd4000004, 0xc8254)\n
-Field (BRIT, AnyAcc, Lock, Preserve)\n
-{\n
-    Offset(0x4824c),\n
-    LEV2, 32,\n
-    LEVL, 32,\n
-    Offset(0xc824c),\n
-    LEVX, 32,\n
-    LEVW, 32,\n
-}\n
-end;
+#into definitionblock code_regex . insert
+#begin
+#OperationRegion (BRIT, SystemMemory, 0xd4000004, 0xc8254)\n
+#Field (BRIT, AnyAcc, Lock, Preserve)\n
+#{\n
+#    Offset(0x4824c),\n
+#    LEV2, 32,\n
+#    LEVL, 32,\n
+#    Offset(0xc824c),\n
+#    LEVX, 32,\n
+#    LEVW, 32,\n
+#}\n
+#end;
 
 # probably not necessary
-into device label DD02 code_regex Name\s+\(\_HID,\sEisaId\s[\s\S\)]*\)\) remove_matched;
-into device label DD02 insert begin Name (_HID, EisaId ("LCD1234"))\n end;
+#into device label DD02 code_regex Name\s+\(\_HID,\sEisaId\s[\s\S\)]*\)\) remove_matched;
+#into device label DD02 insert begin Name (_HID, EisaId ("LCD1234"))\n end;
 
 # new PNLF device
 into device label PNLF remove_entry;
@@ -44,40 +44,67 @@ Device (PNLF)\n
     }\n
     // _BCL: returns list of valid brightness levels\n
     // first two entries describe battery/ac power levels\n
-    Method (_BCL, 0, NotSerialized)\n
+    Name (_BCL, Package()\n
     {\n
-        Return (Package (0x13)\n
+        651,\n
+        227,\n
+        0,\n
+        102, 112, 122, 132,\n
+        134, 136, 138, 140,\n
+        142, 144, 146, 148,\n
+        150, 152, 154, 155,\n
+        157, 159, 161, 163,\n
+        167, 171, 175, 178,\n
+        182, 186, 190, 193,\n
+        195, 198, 201, 204,\n
+        207, 210, 213, 216,\n
+        219, 222, 224, 227,\n
+        229, 231, 234, 237,\n
+        239, 241, 244, 247,\n
+        249, 251, 254, 257,\n
+        264, 272, 280, 288,\n
+        296, 304, 312, 321,\n
+        336, 351, 366, 382,\n
+        389, 397, 405, 413,\n
+        420, 428, 436, 444,\n
+        469, 494, 520, 546,\n
+        572, 598, 624, 651,\n
+    })\n
+    // LOOK - could not make Match work, so use this instead\n
+    Method (LOOK, 3, NotSerialized)\n
+    {\n
+        // Arg0 array to look at\n
+        // Arg1 find entry in array larger or equal to this\n
+        // Arg2 entry to start looking at\n
+        Store(Ones, Local0)\n
+        While (LLess(Arg2, SizeOf(Arg0)))\n
         {\n
-            100,\n
-            48,\n
-            0, 6, 12, 18, 24, 30, 36, 42, 48,\n
-            54, 60, 66, 72, 78, 84, 90, 100,\n
-        })\n
+            if (LLessEqual(Arg1, DerefOf(Index(Arg0, Arg2))))\n
+            {\n
+                Store(Arg2, Local0)\n
+                Break\n
+            }\n
+            Increment(Arg2)\n
+        }\n
+        Return(Local0)\n
     }\n
     // _BCM/_BQC: set/get for brightness level\n
-    Name (LAST, 48)\n
     Method (_BCM, 1, NotSerialized)\n
     {\n
         Store(0x80000000, LEV2)\n
-        If (LGreaterEqual(Arg0, 100))    { Store (0x12FF, LEVL) Store(100, LAST) }\n
-        ElseIf (LGreaterEqual(Arg0, 90)) { Store (0x11FF, LEVL) Store(90, LAST) }\n
-        ElseIf (LGreaterEqual(Arg0, 84)) { Store (0x103A, LEVL) Store(84, LAST) }\n
-        ElseIf (LGreaterEqual(Arg0, 78)) { Store (0x0EBB, LEVL) Store(78, LAST) }\n
-        ElseIf (LGreaterEqual(Arg0, 72)) { Store (0x0B24, LEVL) Store(72, LAST) }\n
-        ElseIf (LGreaterEqual(Arg0, 66)) { Store (0x0873, LEVL) Store(66, LAST) }\n
-        ElseIf (LGreaterEqual(Arg0, 60)) { Store (0x065B, LEVL) Store(60, LAST) }\n
-        ElseIf (LGreaterEqual(Arg0, 54)) { Store (0x04C8, LEVL) Store(54, LAST) }\n
-        ElseIf (LGreaterEqual(Arg0, 48)) { Store (0x0396, LEVL) Store(48, LAST) }\n
-        ElseIf (LGreaterEqual(Arg0, 42)) { Store (0x02B0, LEVL) Store(42, LAST) }\n
-        ElseIf (LGreaterEqual(Arg0, 36)) { Store (0x0266, LEVL) Store(36, LAST) }\n
-        ElseIf (LGreaterEqual(Arg0, 30)) { Store (0x0218, LEVL) Store(30, LAST) }\n
-        ElseIf (LGreaterEqual(Arg0, 24)) { Store (0x01D1, LEVL) Store(24, LAST) }\n
-        ElseIf (LGreaterEqual(Arg0, 18)) { Store (0x0191, LEVL) Store(18, LAST) }\n
-        ElseIf (LGreaterEqual(Arg0, 12)) { Store (0x0161, LEVL) Store(12, LAST) }\n
-        ElseIf (LGreaterEqual(Arg0, 6))  { Store (0x0132, LEVL) Store(6, LAST) }\n
-        ElseIf (LGreaterEqual(Arg0, 0))  { Store (0x0082, LEVL) Store(0, LAST) }\n
+        Store(Match(_BCL, MGE, Arg0, MTR, 0, 2), Local0)\n
+        if (LNotEqual(Local0, Ones))\n
+            { Store(DerefOf(Index(_BCL, Local0)), LEVL) }\n
     }\n
-    Method (_BQC, 0, NotSerialized) { Return(LAST) }\n
+    Method (_BQC, 0, NotSerialized)\n
+    {\n
+        Store(LEVL, Local0)\n
+        Store(Match(_BCL, MGE, Local0, MTR, 0, 2), Local0)\n
+        if (LEqual(Local0, Ones))\n
+            { Store(DerefOf(Index(_BCL, 1)), Local0) }\n
+        Return(Local0)\n
+    }\n
     Method (_DOS, 1, NotSerialized) { ^^PCI0.IGPU._DOS(Arg0) }\n
 }\n
 end;
+
