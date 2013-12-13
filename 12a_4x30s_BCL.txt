@@ -1,0 +1,33 @@
+into device label PNLF code_regex Name\s\(_BCL,\sPackage[^\}]*\}\) remove_matched;
+into device label PNLF code_regex . insert
+begin
+    // _BCL: returns list of valid brightness levels\n
+    // first two entries describe ac/battery power levels\n
+    Name (_BCL, Package()\n
+    {\n
+        651,\n
+        227,\n
+        0,\n
+        102, 112, 122, 132,\n
+        134, 136, 138, 140,\n
+        142, 144, 146, 148,\n
+        150, 152, 154, 155,\n
+        157, 159, 161, 163,\n
+        167, 171, 175, 178,\n
+        182, 186, 190, 193,\n
+        195, 198, 201, 204,\n
+        207, 210, 213, 216,\n
+        219, 222, 224, 227,\n
+        229, 231, 234, 237,\n
+        239, 241, 244, 247,\n
+        249, 251, 254, 257,\n
+        264, 272, 280, 288,\n
+        296, 304, 312, 321,\n
+        336, 351, 366, 382,\n
+        389, 397, 405, 413,\n
+        420, 428, 436, 444,\n
+        469, 494, 520, 546,\n
+        572, 598, 624, 651,\n
+    })\n
+end;
+

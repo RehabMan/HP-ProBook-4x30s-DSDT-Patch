@@ -15,6 +15,9 @@
 [4.2]   Broadcom BCM4322x AirPort Patch	08b_BCM4322x.txt
 [4.3]   Native USB3 patches based on Mieze XHC patches	09_USB3_4x40s_Mieze.txt
 [4.4]   LPC patch for SL 4x40s Sandy Bridge	10_LPC_4x40s_Sandy_SL.txt
-[4.5]   ACPI backlight control	12_Brightness.txt
 [5.0] == Disabling Radeon ==	NullPatch.txt
 [5.1]   Call _OFF from _INI	(patch for SSDT-5)	11a_Radeon_OFF_SSDT.txt
+[6.0] == ACPI backlight control ==	NullPatch.txt
+[6.1]   ACPI backlight control	12_Brightness.txt
+[6.2]   Brightness data (4x30s)	12a_4x30s_BCL.txt
+[6.3]   Brightness data (4x40s)	12b_4x40s_BCL.txt
