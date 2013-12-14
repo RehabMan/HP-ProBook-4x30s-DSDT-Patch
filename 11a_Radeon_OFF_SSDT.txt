@@ -6,20 +6,19 @@
 # "SgTabl" (SSDT-5)
 # Include patched version as SSDT-1.aml
 
-#REVIEW: These patches could use some cleanup.
-
 # Known issue: Restarting your computer will cause shutdown instead.
 
 # syntax fixes
 into scope label \_SB.PCI0.GFX0 code_regex (OperationRegion.*)VRMB\s+\(VRMS\s+\(\)\), replace_matched begin %1VRMB(),VRMS())\n end;
-into scope label \_SB.PCI0.GFX0 code_regex (Field\s+\(REVD,.*\n.*\n.*\n.*\n.*\})\) replace_matched begin %1 end;
-into scope label \_SB.PCI0.PEGP code_regex (OperationRegion.*)\\XBAS\s+\(0x9000\), replace_matched begin %1\\XBAS,0x9000)\n end;
-into scope label \_SB.PCI0.PEGP code_regex (Field\s+\(RPCX,.*\n.*\n.*\n.*\n.*\n.*\n.*\n.*\n.*\n.*\})\) replace_matched begin %1 end;
-into scope label \_SB.PCI0.PEGP.DGFX code_regex (OperationRegion.*)\\GBAS\s+\(0x60\), replace_matched begin %1\\GBAS,0x60)\n end;
-into scope label \_SB.PCI0.PEGP.DGFX code_regex (Field\s+\(GPIO,.*\n.*\n.*\n.*\n.*\n.*\n.*\n.*\n.*\})\) replace_matched begin %1 end;
-into scope label \_SB.PCI0.PEGP.DGFX code_regex (OperationRegion.*)\\EECP\s+\(0x14\), replace_matched begin %1\\EECP,0x14)\n end;
-into scope label \_SB.PCI0.PEGP.DGFX code_regex (Field\s+\(PCAP.*\n.*\n.*\n.*\n.*\})\) replace_matched begin %1 end;
-into definitionblock code_regex External\s+\(\\_SB_\.PCI0\.GFX0\.DD02\._BCM,\s+IntObj\) replace_matched begin External(\\_SB_.PCI0.GFX0.DD02._BCM, MethodObj)
+into scope label \_SB.PCI0.GFX0 code_regex (Field\s+\(REVD,[^\}]*\})\) replace_matched begin %1 end;
+
+into scope label \_SB.PCI0.PEGP code_regex (OperationRegion.*)\\XBAS\s+\((.*)\), replace_matched begin %1\\XBAS,%2)\n end;
+into scope label \_SB.PCI0.PEGP code_regex (Field\s+\(RPCX,[^\}]*\})\) replace_matched begin %1 end;
+into scope label \_SB.PCI0.PEGP.DGFX code_regex (OperationRegion.*)\\GBAS\s+\((.*)\), replace_matched begin %1\\GBAS,%2)\n end;
+into scope label \_SB.PCI0.PEGP.DGFX code_regex (Field\s+\(GPIO,[^\}]*\})\) replace_matched begin %1 end;
+into scope label \_SB.PCI0.PEGP.DGFX code_regex (OperationRegion.*)\\EECP\s+\((.*)\), replace_matched begin %1\\EECP,%2)\n end;
+into scope label \_SB.PCI0.PEGP.DGFX code_regex (Field\s+\(PCAP,[^\}]*\})\) replace_matched begin %1 end;
+into definitionblock code_regex External\s+\((\\_SB_\.PCI0\.GFX0\.DD02\._BCM),\s+IntObj\) replace_matched begin External(%1, MethodObj)
 end;
 into method label _BCM parent_label DD02 code_regex Return\s+\(([^\)]*)\)\n.*Arg0 replace_matched begin Return(%1(Arg0)) end;
 
@@ -36,7 +35,6 @@ into method label _INI parent_label \_SB.PCI0.PEGP.DGFX code_regex . insert begi
 # some patches specific to 4530s w/ Radeon
 
 into method label _DSM parent_label \_SB.PCI0.IGPU remove_entry;
-
-into scope label \_SB.PCI0.PEGP code_regex (OperationRegion.*)\\XBAS\s+\(0x8400\), replace_matched begin %1\\XBAS,0x8400)\n end;
 into scope label \_SB.PCI0.PEGP code_regex (Field\s+\(RPCX,[^\}]*\})\) replace_matched begin %1 end;
-into definitionblock code_regex External\s+\(_SB_\.PCI0\.GFX0\.DD02\._BCM,\s+IntObj\) replace_matched begin External(\\_SB_.PCI0.GFX0.DD02._BCM, MethodObj)
+into definitionblock code_regex External\s+\((_SB_\.PCI0\.GFX0\.DD02\._BCM),\s+IntObj\) replace_matched begin External(%1, MethodObj)
+
