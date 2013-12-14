@@ -6,6 +6,8 @@
 # "SgTabl" (SSDT-5)
 # Include patched version as SSDT-1.aml
 
+#REVIEW: These patches could use some cleanup.
+
 # Known issue: Restarting your computer will cause shutdown instead.
 
 # syntax fixes
@@ -30,3 +32,11 @@ into_all all label \_SB.PCI0.GFX0 set_label begin \_SB.PCI0.IGPU end;
 
 # call _OFF from _SB.PCI0.DGFX._INI
 into method label _INI parent_label \_SB.PCI0.PEGP.DGFX code_regex . insert begin _OFF()\n end;
+
+# some patches specific to 4530s w/ Radeon
+
+into method label _DSM parent_label \_SB.PCI0.IGPU remove_entry;
+
+into scope label \_SB.PCI0.PEGP code_regex (OperationRegion.*)\\XBAS\s+\(0x8400\), replace_matched begin %1\\XBAS,0x8400)\n end;
+into scope label \_SB.PCI0.PEGP code_regex (Field\s+\(RPCX,[^\}]*\})\) replace_matched begin %1 end;
+into definitionblock code_regex External\s+\(_SB_\.PCI0\.GFX0\.DD02\._BCM,\s+IntObj\) replace_matched begin External(\\_SB_.PCI0.GFX0.DD02._BCM, MethodObj)
