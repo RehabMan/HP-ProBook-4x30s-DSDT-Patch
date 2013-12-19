@@ -31,9 +31,7 @@ Device (PNLF)\n
     Name (_UID, 0x0A)\n
     Name (_STA, 0x0B)\n
     //define hardware register access for brightness\n
-    // note: base address 0xd4000004 is BAR1 address\n
-    // define in PCI config offset 0x10\n
-    // you can see this value in RW-Everything under Bus00,02 Intel VGA controler PCI\n
+    // you can see BAR1 value in RW-Everything under Bus00,02 Intel VGA controler PCI\n
     OperationRegion (BRIT, SystemMemory, \_SB.PCI0.IGPU.BAR1, 0xc8254)\n
     Field (BRIT, AnyAcc, Lock, Preserve)\n
     {\n
@@ -49,16 +47,37 @@ Device (PNLF)\n
     {\n
         Store(0x80000000, LEV2)\n
         Store(Match(_BCL, MGE, Arg0, MTR, 0, 2), Local0)\n
-        if (LEqual(Local0, Ones)) { Store(Subtract(SizeOf(_BCL),1), Local0) }\n
+        If (LEqual(Local0, Ones)) { Store(Subtract(SizeOf(_BCL),1), Local0) }\n
         Store(DerefOf(Index(_BCL, Local0)), LEVL)\n
     }\n
     Method (_BQC, 0, NotSerialized)\n
     {\n
         Store(Match(_BCL, MGE, LEVL, MTR, 0, 2), Local0)\n
-        if (LEqual(Local0, Ones)) { Store(Subtract(SizeOf(_BCL),1), Local0) }\n
+        If (LEqual(Local0, Ones)) { Store(Subtract(SizeOf(_BCL),1), Local0) }\n
         Return(DerefOf(Index(_BCL, Local0)))\n
     }\n
-    Method (_DOS, 1, NotSerialized) { ^^PCI0.IGPU._DOS(Arg0) }\n
+    Method (_DOS, 1, NotSerialized)\n
+    {\n
+        ^^PCI0.IGPU._DOS(Arg0)\n
+        // initialize for consistent backlight level before/after sleep\n
+        Store (0x80000000, LEVW)\n
+    	Store (0x061A061A, LEVX)\n
+    }\n
+    // extended _BCM/_BQC for setting "in between" levels\n
+    Method (XBCM, 1, NotSerialized)\n
+    {\n
+        If (LGreater(Arg0, XRGH)) { Store(XRGH, Arg0) }\n
+        If (LLess(Arg0, XRGL)) { Store(XRGL, Arg0) }\n
+        Store(0x80000000, LEV2)\n
+        Store(Arg0, LEVL)\n
+    }\n
+    Method (XBQC, 0, NotSerialized)\n
+    {\n
+        Store(LEVL, Local0)\n
+        If (LGreater(Local0, XRGH)) { Store(XRGH, Local0) }\n
+        If (LLess(Local0, XRGL)) { Store(XRGL, Local0) }\n
+        Return(LEVL)\n
+    }\n
 }\n
 end;
 

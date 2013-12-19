@@ -1,6 +1,11 @@
 into device label PNLF code_regex Name\s\(_BCL,\sPackage[^\}]*\}\) remove_matched;
+into device label PNLF code_regex Name\s\(XRGL,.*\)\n removeall_matched;
+into device label PNLF code_regex Name\s\(XRGH,.*\)\n removeall_matched;
 into device label PNLF code_regex . insert
 begin
+    // XRGL/XRGH: defines the valid range
+    Name (XRGL, Zero)\n
+    Name (XRGH, 3487)\n
     // _BCL: returns list of valid brightness levels\n
     // first two entries describe ac/battery power levels\n
     Name (_BCL, Package()\n
