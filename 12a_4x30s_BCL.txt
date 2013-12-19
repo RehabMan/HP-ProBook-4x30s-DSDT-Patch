@@ -6,6 +6,7 @@ begin
     // XRGL/XRGH: defines the valid range\n
     Name (XRGL, Zero)\n
     Name (XRGH, 651)\n
+    Name (KLVX, 0x061a061a)\n
     // _BCL: returns list of valid brightness levels\n
     // first two entries describe ac/battery power levels\n
     Name (_BCL, Package()\n

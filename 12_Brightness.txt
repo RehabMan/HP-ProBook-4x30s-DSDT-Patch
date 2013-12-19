@@ -61,7 +61,7 @@ Device (PNLF)\n
         ^^PCI0.IGPU._DOS(Arg0)\n
         // initialize for consistent backlight level before/after sleep\n
         Store (0x80000000, LEVW)\n
-    	Store (0x061A061A, LEVX)\n
+    	Store (KLVX, LEVX)\n
     }\n
     // extended _BCM/_BQC for setting "in between" levels\n
     Method (XBCM, 1, NotSerialized)\n
