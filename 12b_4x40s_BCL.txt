@@ -3,7 +3,7 @@ into device label PNLF code_regex Name\s\(XRGL,.*\)\n removeall_matched;
 into device label PNLF code_regex Name\s\(XRGH,.*\)\n removeall_matched;
 into device label PNLF code_regex . insert
 begin
-    // XRGL/XRGH: defines the valid range
+    // XRGL/XRGH: defines the valid range\n
     Name (XRGL, Zero)\n
     Name (XRGH, 3487)\n
     // _BCL: returns list of valid brightness levels\n
