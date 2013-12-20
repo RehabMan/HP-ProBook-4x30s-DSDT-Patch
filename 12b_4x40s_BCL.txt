@@ -1,35 +1,37 @@
 into device label PNLF code_regex Name\s\(_BCL,\sPackage[^\}]*\}\) remove_matched;
 into device label PNLF code_regex Name\s\(XRGL,.*\)\n removeall_matched;
 into device label PNLF code_regex Name\s\(XRGH,.*\)\n removeall_matched;
+into device label PNLF code_regex Name\s\(KLVX,.*\)\n removeall_matched;
 into device label PNLF code_regex . insert
 begin
     // XRGL/XRGH: defines the valid range\n
     Name (XRGL, Zero)\n
     Name (XRGH, 3487)\n
+    // KLVX is initialization value for LEVX\n
     Name (KLVX, 0x0d9f0d9f)\n
     // _BCL: returns list of valid brightness levels\n
     // first two entries describe ac/battery power levels\n
     Name (_BCL, Package()\n
     {\n
         3487,\n
-        1008,\n
+        930,\n
         0,\n
-        190, 195, 200, 205,\n
-        209, 214, 219, 224,\n
-        237, 250, 263, 276,\n
-        296, 316, 336, 357,\n
-        384, 412, 439, 467,\n
-        503, 540, 577, 614,\n
-        659, 705, 751, 797,\n
-        849, 902, 955, 1008,\n
-        1060, 1113, 1165, 1218,\n
-        1264, 1310, 1356, 1402,\n
-        1451, 1500, 1549, 1599,\n
-        1654, 1709, 1764, 1820,\n
-        1875, 1931, 1987, 2043,\n
-        2140, 2237, 2334, 2432,\n
-        2555, 2678, 2801, 2924,\n
-        3064, 3205, 3346, 3487,\n
+        183, 188, 193, 198,\n
+        203, 208, 213, 218,\n
+        223, 228, 238, 256,\n
+        274, 292, 310, 328,\n
+        356, 384, 412, 440,\n
+        468, 503, 542, 580,\n
+        618, 657, 698, 744,\n
+        791, 837, 883, 930,\n
+        980, 1031, 1081, 1132,\n
+        1183, 1236, 1290, 1345,\n
+        1399, 1453, 1510, 1570,\n
+        1630, 1690, 1750, 1810,\n
+        1883, 1956, 2029, 2102,\n
+        2175, 2265, 2362, 2460,\n
+        2557, 2655, 2767, 2911,\n
+        3055, 3199, 3343, 3487,\n
     })\n
 end;
 
