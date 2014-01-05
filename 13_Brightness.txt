@@ -1,0 +1,54 @@
+#Maintained by: RehabMan for: HP Probook 4x30s/4x40s
+# 13_Brightness.txt
+
+#
+# This patch is for use with native patched AppleBacklight.kext
+#
+
+into device label IGPU code_regex (OperationRegion\s\(IGD2,\sPCI_Config[^\}]*\}) remove_matched;
+into device label IGPU code_regex (OperationRegion\s\(IGDP,\sPCI_Config[^\}]*\}) replace_matched
+begin
+%1\n
+OperationRegion (IGD2, PCI_Config, 0x10, 4)\n
+Field (IGD2, AnyAcc, NoLock, Preserve)\n
+{\n
+	BAR1,32,\n
+}\n
+end;
+
+into device label PNLF remove_entry;
+into scope label \_SB insert
+begin
+Device (PNLF)\n
+{\n
+    // normal PNLF declares (note some of this probably not necessary)\n
+    Name (_ADR, Zero)\n
+    Name (_HID, EisaId ("APP0002"))\n
+    Name (_CID, "backlight")\n
+    Name (_UID, 10)\n
+    Name (_STA, 0x0B)\n
+    //define hardware register access for brightness\n
+    // you can see BAR1 value in RW-Everything under Bus00,02 Intel VGA controler PCI\n
+    OperationRegion (BRIT, SystemMemory, \_SB.PCI0.IGPU.BAR1, 0xc8254)\n
+    Field (BRIT, AnyAcc, Lock, Preserve)\n
+    {\n
+        Offset(0x4824c),\n
+        LEV2, 32,\n
+        LEVL, 32,\n
+        Offset (0x7003C),\n
+        P0BL, 32,\n
+        Offset(0xc824c),\n
+        LEVW, 32,\n
+        LEVX, 32,\n
+    }\n
+    Method (_INI, 0, NotSerialized)\n
+    {\n
+        Divide(Multiply(LEVL, 0x710), ShiftRight(LEVX, 16),, Local0)\n
+        //Store(P0BL, Local1)\n
+        //While(LEqual (P0BL, Local1)) {}\n
+        Store(Local0, LEVL)\n
+        Store(0x7100000, LEVX)\n
+    }\n
+}\n
+end;
+
