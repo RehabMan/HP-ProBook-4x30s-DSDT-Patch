@@ -38,19 +38,24 @@ Device (PNLF)\n
         Offset(0x4824c),\n
         LEV2, 32,\n
         LEVL, 32,\n
-        Offset (0x7003C),\n
+        Offset(0x7003C),\n
         P0BL, 32,\n
         Offset(0xc824c),\n
         LEVW, 32,\n
         LEVX, 32,\n
     }\n
+    // _INI deals with differences between native setting and desired\n
     Method (_INI, 0, NotSerialized)\n
     {\n
-        Divide(Multiply(LEVL, 0x710), ShiftRight(LEVX, 16),, Local0)\n
-        //Store(P0BL, Local1)\n
-        //While(LEqual (P0BL, Local1)) {}\n
-        Store(Local0, LEVL)\n
-        Store(0x7100000, LEVX)\n
+        Store(ShiftRight(LEVX,16), Local1)\n
+        if (LNotEqual(0x710, Local1))\n
+        {\n
+            Divide(Multiply(LEVL, 0x710), Local1,, Local0)\n
+            //Store(P0BL, Local1)\n
+            //While(LEqual (P0BL, Local1)) {}\n
+            Store(Local0, LEVL)\n
+            Store(0x7100000, LEVX)\n
+        }\n
     }\n
 }\n
 end;

@@ -21,5 +21,6 @@
 [6.1]   ACPI backlight control	12_Brightness.txt
 [6.2]   Brightness data (4x30s)	12a_4x30s_BCL.txt
 [6.3]   Brightness data (4x40s)	12b_4x40s_BCL.txt
+[6.4]   Brightness data (generic)	12c_generic_BCL.txt
 [7.0] == Native backlight control ==	NullPatch.txt
 [7.1]   Native backlight fix	13_Brightness.txt

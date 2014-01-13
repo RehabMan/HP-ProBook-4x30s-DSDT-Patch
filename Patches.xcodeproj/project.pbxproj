@@ -14,6 +14,7 @@
 		845A57FA1733114800E882FA /* 04b_FanQuietMod.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 04b_FanQuietMod.txt; sourceTree = "<group>"; };
 		845FE5EF1702639F004601B0 /* .maciasl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .maciasl; sourceTree = "<group>"; usesTabs = 1; };
 		846B57131706046600E19787 /* Mini-SSDT.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Mini-SSDT.dsl"; sourceTree = "<group>"; };
+		847041A31884884B00D69231 /* 12c_generic_BCL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 12c_generic_BCL.txt; sourceTree = "<group>"; };
 		8470FEA0180B7FD700FA322E /* 08b_BCM4322x.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 08b_BCM4322x.txt; sourceTree = "<group>"; };
 		848049D0185BA12D00EA42CF /* 12b_4x40s_BCL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 12b_4x40s_BCL.txt; sourceTree = "<group>"; };
 		84817C301878CFE00061AF92 /* 13_Brightness.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 13_Brightness.txt; sourceTree = "<group>"; };
@@ -74,6 +75,7 @@
 				842F94371858FA4400BAF14B /* 12_Brightness.txt */,
 				84F0B0DC185AE420008C82BE /* 12a_4x30s_BCL.txt */,
 				848049D0185BA12D00EA42CF /* 12b_4x40s_BCL.txt */,
+				847041A31884884B00D69231 /* 12c_generic_BCL.txt */,
 				84817C301878CFE00061AF92 /* 13_Brightness.txt */,
 				846B57131706046600E19787 /* Mini-SSDT.dsl */,
 				843DA4791706024900E87F04 /* Mini-SSDT-DualLink.dsl */,

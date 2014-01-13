@@ -4,8 +4,10 @@ into device label PNLF code_regex Name\s\(XRGH,.*\)\n removeall_matched;
 into device label PNLF code_regex Name\s\(KLVX,.*\)\n removeall_matched;
 into device label PNLF code_regex . insert
 begin
+    // Use XOPT=1 to disable smooth transitions\n
+    Name (XOPT, Zero)\n
     // XRGL/XRGH: defines the valid range\n
-    Name (XRGL, Zero)\n
+    Name (XRGL, 1)\n
     Name (XRGH, 3487)\n
     // KLVX is initialization value for LEVX\n
     Name (KLVX, 0x0d9f0d9f)\n
