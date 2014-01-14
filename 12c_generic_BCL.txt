@@ -1,4 +1,5 @@
 into device label PNLF code_regex Name\s\(_BCL,\sPackage[^\}]*\}\) remove_matched;
+into device label PNLF code_regex Name\s\(XOPT,.*\)\n removeall_matched;
 into device label PNLF code_regex Name\s\(XRGL,.*\)\n removeall_matched;
 into device label PNLF code_regex Name\s\(XRGH,.*\)\n removeall_matched;
 into device label PNLF code_regex Name\s\(KLVX,.*\)\n removeall_matched;
