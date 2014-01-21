@@ -6,7 +6,7 @@
 # "SgTabl" (SSDT-5)
 # Include patched version as SSDT-1.aml
 
-# Known issue: Restarting your computer will cause shutdown instead.
+# Known issue: Restarting your computer may cause shutdown instead.
 
 # syntax fixes
 into scope label \_SB.PCI0.GFX0 code_regex (OperationRegion.*)VRMB\s+\(VRMS\s+\(\)\), replace_matched begin %1VRMB(),VRMS())\n end;

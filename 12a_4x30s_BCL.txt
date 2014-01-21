@@ -8,7 +8,7 @@ begin
     // Use XOPT=1 to disable smooth transitions\n
     Name (XOPT, Zero)\n
     // XRGL/XRGH: defines the valid range\n
-    Name (XRGL, 1)\n
+    Name (XRGL, 91)\n
     Name (XRGH, 651)\n
     // KLVX is initialization value for LEVX\n
     Name (KLVX, 0x061a061a)\n
