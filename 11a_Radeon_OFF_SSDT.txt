@@ -18,8 +18,7 @@ into scope label \_SB.PCI0.PEGP.DGFX code_regex (OperationRegion.*)\\GBAS\s+\((.
 into scope label \_SB.PCI0.PEGP.DGFX code_regex (Field\s+\(GPIO,[^\}]*\})\) replace_matched begin %1 end;
 into scope label \_SB.PCI0.PEGP.DGFX code_regex (OperationRegion.*)\\EECP\s+\((.*)\), replace_matched begin %1\\EECP,%2)\n end;
 into scope label \_SB.PCI0.PEGP.DGFX code_regex (Field\s+\(PCAP,[^\}]*\})\) replace_matched begin %1 end;
-into definitionblock code_regex External\s+\((\\_SB_\.PCI0\.GFX0\.DD02\._BCM),\s+IntObj\) replace_matched begin External(%1, MethodObj)
-end;
+into definitionblock code_regex External\s+\((.*_SB_\.PCI0\.GFX0\.DD02\._BCM),\s+IntObj\) replace_matched begin External(%1, MethodObj) end;
 into method label _BCM parent_label DD02 code_regex Return\s+\(([^\)]*)\)\n.*Arg0 replace_matched begin Return(%1(Arg0)) end;
 
 # rename GFX0
