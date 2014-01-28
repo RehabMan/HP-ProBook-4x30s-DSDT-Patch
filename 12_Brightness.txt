@@ -32,17 +32,21 @@ Device (PNLF)\n
     Name (_STA, 0x0B)\n
     //define hardware register access for brightness\n
     // you can see BAR1 value in RW-Everything under Bus00,02 Intel VGA controler PCI\n
-    OperationRegion (BRIT, SystemMemory, \_SB.PCI0.IGPU.BAR1, 0xc8254)\n
+    // Note: Not sure which one is right here... for now, going with BAR1 minus 4\n
+    OperationRegion (BRIT, SystemMemory, Subtract(\_SB.PCI0.IGPU.BAR1, 4), 0xe1184)\n
+    //OperationRegion (BRIT, SystemMemory, And(\_SB.PCI0.IGPU.BAR1, Not(0xF)), 0xe1184)\n
     Field (BRIT, AnyAcc, Lock, Preserve)\n
     {\n
-        Offset(0x4824c),\n
+        Offset(0x48250),\n
         LEV2, 32,\n
         LEVL, 32,\n
-        Offset(0x7003C),\n
+        Offset(0x70040),\n
         P0BL, 32,\n
-        Offset(0xc824c),\n
+        Offset(0xc8250),\n
         LEVW, 32,\n
         LEVX, 32,\n
+        Offset(0xe1180),\n
+        PCHL, 32,\n
     }\n
     // DEB1 special for setting KLVX at runtime...\n
     //Method (DEB1, 1, NotSerialized)\n
@@ -107,3 +111,42 @@ Device (PNLF)\n
 }\n
 end;
 
+into device label PNLF code_regex Name\s\(_BCL,\sPackage[^\}]*\}\) remove_matched;
+into device label PNLF code_regex Name\s\(XOPT,.*\)\n removeall_matched;
+into device label PNLF code_regex Name\s\(XRGL,.*\)\n removeall_matched;
+into device label PNLF code_regex Name\s\(XRGH,.*\)\n removeall_matched;
+into device label PNLF code_regex Name\s\(KLVX,.*\)\n removeall_matched;
+into device label PNLF code_regex . insert
+begin
+    // Use XOPT=1 to disable smooth transitions\n
+    Name (XOPT, Zero)\n
+    // XRGL/XRGH: defines the valid range\n
+    Name (XRGL, 40)\n
+    Name (XRGH, 1808)\n
+    // KLVX is initialization value for LEVX\n
+    Name (KLVX, 0x7100000)\n
+    // _BCL: returns list of valid brightness levels\n
+    // first two entries describe ac/battery power levels\n
+    Name (_BCL, Package()\n
+    {\n
+        1808,\n
+        479,\n
+        0,\n
+        55, 55, 57, 59,\n
+        62, 66, 71, 77,\n
+        83, 91, 99, 108,\n
+        119, 130, 142, 154,\n
+        168, 183, 198, 214,\n
+        232, 250, 269, 289,\n
+        309, 331, 354, 377,\n
+        401, 426, 453, 479,\n
+        507, 536, 566, 596,\n
+        627, 660, 693, 727,\n
+        762, 797, 834, 872,\n
+        910, 949, 990, 1031,\n
+        1073, 1115, 1159, 1204,\n
+        1249, 1296, 1343, 1391,\n
+        1440, 1490, 1541, 1592,\n
+        1645, 1698, 1753, 1808,\n
+    })\n
+end;
