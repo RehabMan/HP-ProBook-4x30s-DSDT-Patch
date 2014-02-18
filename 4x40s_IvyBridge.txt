@@ -10,6 +10,9 @@ into device label WMID remove_entry;
 # remove references to device WMID
 into_all all code_regex .*WMID.*\(.*\) removeall_matched;
 into method label _TMP parent_label PCHZ code_regex Store\s*\(DerefOf\s*\(Index\s*\(DerefOf\s*\(Index\s*\(\\_SB\.WMID\.TSTV,[\s\S]*\} remove_matched;
+
+# remove all OEM _DSM methods
+into_all method label _DSM remove_entry;
 #Maintained by: RehabMan for: HP Probook 4x30s/4x40s
 # 01_Compilation.txt
 
