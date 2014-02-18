@@ -11,6 +11,19 @@ begin
 Device (SMCD)\n
 {\n
     Name (_HID, "FAN00000") // _HID: Hardware ID\n
+// ACPISensors.kext configuration\n
+    Name (TACH, Package()\n
+    {\n
+        "System Fan", "FAN0",\n
+    })\n
+    Name (TEMP, Package()\n
+    {\n
+        "CPU Heatsink", "TCPU",\n
+        "Ambient", "TAMB",\n
+        //"Mainboard", "TSYS",\n
+        //"CPU Proximity", "TCPP",\n
+    })\n
+// Actual methods to implement fan/temp readings/control\n
     Method (FAN0, 0, Serialized)\n
     {\n
         Store (\_TZ.GFRM, Local0)\n

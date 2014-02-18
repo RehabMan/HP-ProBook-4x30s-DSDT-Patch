@@ -9,13 +9,22 @@
 into definitionblock code_regex . insert
 begin
 External(\_SB_.PCI0.PEGP.DGFX._OFF, MethodObj)\n
+External(\_SB_.PCI0.PEGP.DGFX._ON, MethodObj)\n
 end;
 
-into method label _INI parent_label _SB code_regex . insert
+#into method label _INI parent_label _SB code_regex . insert
+#begin
+#If (CondRefOf(\_SB_.PCI0.PEGP.DGFX._OFF)) { \_SB_.PCI0.PEGP.DGFX._OFF() }\n
+#end;
+
+into method label _PTS code_regex ([\s\S]*) replace_matched
 begin
-If (CondRefOf(\_SB_.PCI0.PEGP.DGFX._OFF))\n
-{\n
-    \_SB_.PCI0.PEGP.DGFX._OFF()\n
-}\n
+If (CondRefOf(\\_SB_.PCI0.PEGP.DGFX._ON)) { \\_SB_.PCI0.PEGP.DGFX._ON() }\n
+%1
 end;
 
+into method label _WAK code_regex (Return\s+\(.*) replace_matched
+begin
+If (CondRefOf(\\_SB_.PCI0.PEGP.DGFX._OFF)) { \\_SB_.PCI0.PEGP.DGFX._OFF() }\n
+%1
+end;
