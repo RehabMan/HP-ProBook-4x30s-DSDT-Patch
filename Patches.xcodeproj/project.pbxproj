@@ -45,6 +45,7 @@
 		84F0B0DC185AE420008C82BE /* 12a_4x30s_BCL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 12a_4x30s_BCL.txt; sourceTree = "<group>"; };
 		84F52D0B1709C9A3001643C8 /* Mini-SSDT-IMEI.dsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Mini-SSDT-IMEI.dsl"; sourceTree = "<group>"; };
 		84F616791850BC650053B76E /* 10_LPC_4x40s_Sandy_SL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 10_LPC_4x40s_Sandy_SL.txt; sourceTree = "<group>"; };
+		84FD879D18BCC6B1000BC61E /* 03c_Haswell-HDMI.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "03c_Haswell-HDMI.txt"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -60,6 +61,7 @@
 				84D4D88D17025AFA004FF373 /* 02b_EHCI_4x40s.txt */,
 				84B9D51C16FFE684002CD441 /* 03a_HDMI.txt */,
 				84B9D51E16FFE684002CD441 /* 03b_1080p+HDMI.txt */,
+				84FD879D18BCC6B1000BC61E /* 03c_Haswell-HDMI.txt */,
 				84B9D52016FFE684002CD441 /* 04a_FanPatch.txt */,
 				84B9D51F16FFE684002CD441 /* 04b_FanQuiet.txt */,
 				845A57FA1733114800E882FA /* 04b_FanQuietMod.txt */,
