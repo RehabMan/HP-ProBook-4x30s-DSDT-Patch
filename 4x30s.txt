@@ -504,6 +504,21 @@ into method label PPNT parent_label EC0 replace_content begin // nothing end;
 
 # Fix method PNOT, called from AC adapter device (AC/ADP1) (EliteBooks?)
 into method label PNOT replace_content begin // nothing end;
+
+# These are not really battery related, but similar problems...
+
+# Fix method PCNT, called from HWAK which is called from _WAK
+into method label PCNT replace_content begin // nothing end;
+
+# CFGD is an External in an SSDT being dropped...
+into method label _WAK code_regex (If\s+\(And\s+\(CFGD,\s+0x01000000\)\)[\s\S]*\((0x01|One),\s+0x48\)\n.*\n.*\}) replace_matched
+begin
+If (CondRefOf(CFGD))\n
+{\n
+%1\n
+}\n
+end;
+
 #Maintained by: RehabMan for: HP Probook 4x30s/4x40s
 # 02a_EHCI_4x30s.txt
 
