@@ -13,6 +13,10 @@ into method label _TMP parent_label PCHZ code_regex Store\s*\(DerefOf\s*\(Index\
 
 # remove all OEM _DSM methods
 into_all method label _DSM remove_entry;
+
+# remove ThermalZone
+into scope label \_TZ remove_entry;
+into_all method code_regex \\_TZ.* removeall_matched;
 #Maintained by: RehabMan for: HP Probook 4x30s/4x40s
 # 01_Compilation.txt
 
@@ -344,8 +348,8 @@ into method label _INI replace_content
 begin
     // always store 0x07D6 for "Darwin"\n
     Store (0x07D6, OSYS)\n
-    \_TZ.BOTT ()\n
-    \_TZ.RETD ()\n
+    //\_TZ.BOTT ()\n
+    //\_TZ.RETD ()\n
     Store (One, PFLV)\n      
 end;
 
@@ -382,7 +386,10 @@ begin
 	// battery cycle count\n
 	Store (BCC, Index (DerefOf (Index (NBTI, Arg0)), 0x0D))\n
 	// battery temperature\n
-	Store (\\_TZ.GTTP (0x04, 0x05, Zero, Zero, 0x7F), Local2)\n
+    Acquire (\\_SB.PCI0.LPCB.EC0.ECMX, 0xFFFF)\n
+    Store (5, \\_SB.PCI0.LPCB.EC0.CRZN)\n
+    Store (\\_SB.PCI0.LPCB.EC0.TEMP, Local2)\n
+    Release (\\_SB.PCI0.LPCB.EC0.ECMX)\n
 	Add (Multiply (Local2, 10), 2732, Local2) // Celsius to .1K\n
 	Store (Local2, Index (DerefOf (Index (NBTI, Arg0)), 0x0E))\n
 end;

@@ -13,3 +13,7 @@ into method label _TMP parent_label PCHZ code_regex Store\s*\(DerefOf\s*\(Index\
 
 # remove all OEM _DSM methods
 into_all method label _DSM remove_entry;
+
+# remove ThermalZone
+into scope label \_TZ remove_entry;
+into_all method code_regex \\_TZ.* removeall_matched;

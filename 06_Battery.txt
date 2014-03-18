@@ -10,7 +10,10 @@ begin
 	// battery cycle count\n
 	Store (BCC, Index (DerefOf (Index (NBTI, Arg0)), 0x0D))\n
 	// battery temperature\n
-	Store (\\_TZ.GTTP (0x04, 0x05, Zero, Zero, 0x7F), Local2)\n
+    Acquire (\\_SB.PCI0.LPCB.EC0.ECMX, 0xFFFF)\n
+    Store (5, \\_SB.PCI0.LPCB.EC0.CRZN)\n
+    Store (\\_SB.PCI0.LPCB.EC0.TEMP, Local2)\n
+    Release (\\_SB.PCI0.LPCB.EC0.ECMX)\n
 	Add (Multiply (Local2, 10), 2732, Local2) // Celsius to .1K\n
 	Store (Local2, Index (DerefOf (Index (NBTI, Arg0)), 0x0E))\n
 end;

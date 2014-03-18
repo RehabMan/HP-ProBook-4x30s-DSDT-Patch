@@ -26,7 +26,8 @@ Device (SMCD)\n
 // Actual methods to implement fan/temp readings/control\n
     Method (FAN0, 0, Serialized)\n
     {\n
-        Store (\_TZ.GFRM, Local0)\n
+        Store (\_SB.PCI0.LPCB.EC0.FRDC, Local0)
+        If (Local0) { Divide (Add(0x3C000, ShiftRight(Local0,1)), Local0,, Local0) }
 		If (LEqual (0x03C4, Local0)) { Return (Zero) }\n
         Return (Local0)\n
     }\n
@@ -37,12 +38,14 @@ Device (SMCD)\n
         Store (\_SB.PCI0.LPCB.EC0.DTMP, Local0)\n
         Release (\_SB.PCI0.LPCB.EC0.ECMX)\n
         Return (Local0)\n
-        //Return (\_TZ.GETK(Local0))\n
     }\n
-	Method (TAMB, 0, Serialized) // Ambient Temp\n
+	Method (TAMB, 0, Serialized)
 	{\n
-		Return (Divide (Subtract (\_TZ.LOCZ._TMP, 2732), 10))\n
-        //Return (\_TZ.LOCZ._TMP)\n
+        Acquire (\_SB.PCI0.LPCB.EC0.ECMX, 0xFFFF)\n
+        Store (4, \_SB.PCI0.LPCB.EC0.CRZN)\n
+        Store (\_SB.PCI0.LPCB.EC0.TEMP, Local0)\n
+        Release (\_SB.PCI0.LPCB.EC0.ECMX)\n
+        Return (Local0)\n
 	}\n
 }\n
 end;
