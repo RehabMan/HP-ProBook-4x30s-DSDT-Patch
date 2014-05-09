@@ -340,6 +340,16 @@ If (LOr(LLess(Arg0,1),LGreater(Arg0,5))) { Store(3,Arg0) }\n
 %1
 end;
 
+#     Add missing IMEI device
+into device label IMEI parent_label PCI0 remove_entry;
+into device label PCI0 insert
+begin
+Device (IMEI)\n
+{\n
+    Name (_ADR, 0x00160000)\n
+}\n
+end;
+
 #Maintained by: RehabMan for: HP Probook 4x30s/4x40s
 # 05_OScheck.txt
 
