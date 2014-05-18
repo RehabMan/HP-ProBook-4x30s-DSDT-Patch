@@ -175,6 +175,5 @@ Device (SMCD)\n
 	{\n
 		Return (FCNT)\n
 	}\n
-*/\n
 }\n
 end;
