@@ -46,6 +46,8 @@
 		84F52D0B1709C9A3001643C8 /* Mini-SSDT-IMEI.dsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Mini-SSDT-IMEI.dsl"; sourceTree = "<group>"; };
 		84F616791850BC650053B76E /* 10_LPC_4x40s_Sandy_SL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 10_LPC_4x40s_Sandy_SL.txt; sourceTree = "<group>"; };
 		84FD879D18BCC6B1000BC61E /* 03c_Haswell-HDMI.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "03c_Haswell-HDMI.txt"; sourceTree = "<group>"; };
+		ED634E2619FD2A9B00289C54 /* 14_ProBook-102key.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "14_ProBook-102key.txt"; sourceTree = "<group>"; };
+		ED634E2719FD2B3E00289C54 /* 14_ProBook-87key.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "14_ProBook-87key.txt"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -81,6 +83,8 @@
 				848049D0185BA12D00EA42CF /* 12b_4x40s_BCL.txt */,
 				847041A31884884B00D69231 /* 12c_generic_BCL.txt */,
 				84817C301878CFE00061AF92 /* 13_Brightness.txt */,
+				ED634E2719FD2B3E00289C54 /* 14_ProBook-87key.txt */,
+				ED634E2619FD2A9B00289C54 /* 14_ProBook-102key.txt */,
 				846B57131706046600E19787 /* Mini-SSDT.dsl */,
 				843DA4791706024900E87F04 /* Mini-SSDT-DualLink.dsl */,
 				84F52D0B1709C9A3001643C8 /* Mini-SSDT-IMEI.dsl */,

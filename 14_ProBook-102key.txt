@@ -1,0 +1,16 @@
+#Maintained by: RehabMan for: HP Probook 4x30s/4x40s
+# 14_ProBook-102key.txt
+
+into method label _DSM parent_label PS2K remove_entry;
+into device label PS2K insert
+begin
+Method (_DSM, 4, NotSerialized)\n
+{\n
+    If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
+    Return (Package()\n
+    {\n
+        "RM,oem-id", "HPQOEM",\n
+        "RM,oem-table-id", "167C",\n
+    })\n
+}\n
+end;
