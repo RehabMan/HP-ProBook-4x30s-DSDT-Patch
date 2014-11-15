@@ -6,23 +6,17 @@
 # backlight control.  With it you can have more control over
 # the range of brightness.
 #
-# Note: This patch and ACPIBacklight is a work-in-progress.
-#
 
-into device label IGPU code_regex (OperationRegion\s\(IGD2,\sPCI_Config[^\}]*\}) remove_matched;
-into device label IGPU code_regex (OperationRegion\s\(IGDP,\sPCI_Config[^\}]*\}) replace_matched
+into_all device label PNLF remove_entry;
+into_all device name_adr 0x00020000 code_regex (OperationRegion\s\(RMPC,\sPCI_Config[^\}]*\}) remove_matched;
+
+into device name_adr 0x00020000 insert
 begin
-%1\n
-OperationRegion (IGD2, PCI_Config, 0x10, 4)\n
-Field (IGD2, AnyAcc, NoLock, Preserve)\n
+OperationRegion (RMPC, PCI_Config, 0x10, 4)\n
+Field (RMPC, AnyAcc, NoLock, Preserve)\n
 {\n
-	BAR1,32,\n
+    BAR1,32,\n
 }\n
-end;
-
-into device label PNLF remove_entry;
-into scope label \_SB insert
-begin
 Device (PNLF)\n
 {\n
     // normal PNLF declares (note some of this probably not necessary)\n
@@ -33,8 +27,8 @@ Device (PNLF)\n
     //define hardware register access for brightness\n
     // you can see BAR1 value in RW-Everything under Bus00,02 Intel VGA controler PCI\n
     // Note: Not sure which one is right here... for now, going with BAR1 masked\n
-    //OperationRegion (BRIT, SystemMemory, Subtract(\_SB.PCI0.IGPU.BAR1, 4), 0xe1184)\n
-    OperationRegion (BRIT, SystemMemory, And(\_SB.PCI0.IGPU.BAR1, Not(0xF)), 0xe1184)\n
+    //OperationRegion (BRIT, SystemMemory, Subtract(^BAR1, 4), 0xe1184)\n
+    OperationRegion (BRIT, SystemMemory, And(^BAR1, Not(0xF)), 0xe1184)\n
     Field (BRIT, AnyAcc, Lock, Preserve)\n
     {\n
         Offset(0x48250),\n
@@ -87,7 +81,7 @@ Device (PNLF)\n
     }\n
     Method (_DOS, 1, NotSerialized)\n
     {\n
-        ^^PCI0.IGPU._DOS(Arg0)\n
+        ^^_DOS(Arg0)\n
     }\n
     // extended _BCM/_BQC for setting "in between" levels\n
     Method (XBCM, 1, NotSerialized)\n
@@ -108,16 +102,6 @@ Device (PNLF)\n
         If (LAnd(Local0, LLess(Local0, XRGL))) { Store(XRGL, Local0) }\n
         Return(Local0)\n
     }\n
-}\n
-end;
-
-into device label PNLF code_regex Name\s\(_BCL,\sPackage[^\}]*\}\) remove_matched;
-into device label PNLF code_regex Name\s\(XOPT,.*\)\n removeall_matched;
-into device label PNLF code_regex Name\s\(XRGL,.*\)\n removeall_matched;
-into device label PNLF code_regex Name\s\(XRGH,.*\)\n removeall_matched;
-into device label PNLF code_regex Name\s\(KLVX,.*\)\n removeall_matched;
-into device label PNLF code_regex . insert
-begin
     // Use XOPT=1 to disable smooth transitions\n
     Name (XOPT, Zero)\n
     // XRGL/XRGH: defines the valid range\n
@@ -149,4 +133,6 @@ begin
         1440, 1490, 1541, 1592,\n
         1645, 1698, 1753, 1808,\n
     })\n
+}\n
 end;
+
