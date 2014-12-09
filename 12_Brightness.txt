@@ -52,7 +52,7 @@ Device (PNLF)\n
     // LMAX: use 0x710 to force OS X value\n
     //       or use any arbitrary value\n
     //       or use 0 to capture BIOS setting\n
-    Name (LMAX, 0x710)\n
+    Name (LMAX, 0)\n
     // KMAX: defines the unscaled range in the _BCL table below\n
     Name (KMAX, 0x710)\n
     // KPCH: saved value for PCHL\n
