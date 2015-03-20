@@ -1,5 +1,5 @@
 #Maintained by: RehabMan for: HP Probook 4x30s/4x40s
-# 14_ProBook-102key.txt
+# 14_ProBook-87key.txt
 
 into method label _DSM parent_label PS2K remove_entry;
 into device label PS2K insert
