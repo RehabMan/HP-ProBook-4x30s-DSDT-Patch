@@ -25,5 +25,5 @@
 [7.0] == Native backlight control ==	NullPatch.txt
 [7.1]   Native backlight fix	13_Brightness.txt
 [8.0] == Keyboard Mapping ==	NullPatch.txt
-[8.1]   ProBook 102-key layout	14_Probook-102key.txt
+[8.1]   ProBook 102-key layout	14_ProBook-102key.txt
 [8.2]   ProBook 87-key layout	14_ProBook-87key.txt
