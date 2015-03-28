@@ -45,6 +45,7 @@
 		84FD879D18BCC6B1000BC61E /* 03c_Haswell-HDMI.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "03c_Haswell-HDMI.txt"; sourceTree = "<group>"; };
 		ED634E2619FD2A9B00289C54 /* 14_ProBook-102key.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "14_ProBook-102key.txt"; sourceTree = "<group>"; };
 		ED634E2719FD2B3E00289C54 /* 14_ProBook-87key.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "14_ProBook-87key.txt"; sourceTree = "<group>"; };
+		EDBFC62A1AC74DA600E24D1F /* 06a_Battery_PNOT.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 06a_Battery_PNOT.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -68,6 +69,7 @@
 				842CC2BE189750A4008240D1 /* 04b_FanSmooth.txt */,
 				84B9D52116FFE684002CD441 /* 05_OScheck.txt */,
 				84B9D52216FFE684002CD441 /* 06_Battery.txt */,
+				EDBFC62A1AC74DA600E24D1F /* 06a_Battery_PNOT.txt */,
 				8418ECBF17025DF5007A25C4 /* 07_MEI_4x40s_Sandy.txt */,
 				84B941FD1703347E00C5913C /* 08a_AR9285.txt */,
 				8470FEA0180B7FD700FA322E /* 08b_BCM4322x.txt */,
