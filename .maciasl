@@ -16,8 +16,9 @@
 [4.1]   Atheros 9285 WiFi AirPort Patch	08a_AR9285.txt
 [4.2]   Broadcom BCM4322x AirPort Patch	08b_BCM4322x.txt
 [4.3]   Native USB3 patches based on Mieze XHC patches	09_USB3_4x40s_Mieze.txt
-[4.4]   LPC patch for SL 4x40s Sandy Bridge	10_LPC_4x40s_Sandy_SL.txt
-[4.5]   For non-OEM CPU SSDTs (deprecated patches)	06a_Battery_PNOT.txt
+[4.4]   Native USB3 patches for 10.11	09_USB3_4x40s_10_11.txt
+[4.5]   LPC patch for SL 4x40s Sandy Bridge	10_LPC_4x40s_Sandy_SL.txt
+[4.6]   For non-OEM CPU SSDTs (deprecated patches)	06a_Battery_PNOT.txt
 [5.0] == Disabling Radeon ==	NullPatch.txt
 [5.1]   Call _OFF from _INI	(for SSDT-5)	11a_Radeon_OFF_SSDT.txt
 [5.2]   Call _ON/_OFF from _PTS/_WAK (for DSDT)	11b_Radeon_OFF_DSDT.txt

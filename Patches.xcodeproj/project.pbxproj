@@ -16,6 +16,10 @@
 		845FE5EF1702639F004601B0 /* .maciasl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .maciasl; sourceTree = "<group>"; usesTabs = 1; };
 		846B57131706046600E19787 /* Mini-SSDT.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Mini-SSDT.dsl"; sourceTree = "<group>"; };
 		8470FEA0180B7FD700FA322E /* 08b_BCM4322x.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 08b_BCM4322x.txt; sourceTree = "<group>"; };
+		847F5ED81B50873A00825CE8 /* 09_USB3_4x40s_10_11.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 09_USB3_4x40s_10_11.txt; sourceTree = "<group>"; };
+		847F5EDB1B508B2C00825CE8 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = USBXHCI_4x40s.kext/Contents/Info.plist; sourceTree = "<group>"; };
+		847F5EDC1B508B4B00825CE8 /* patch_backlight.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = patch_backlight.sh; sourceTree = "<group>"; };
+		847F5EDD1B508B4B00825CE8 /* Backlight.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Backlight.plist; sourceTree = "<group>"; };
 		84817C301878CFE00061AF92 /* 13_Brightness.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 13_Brightness.txt; sourceTree = "<group>"; };
 		84878E3B17445FE100F82A03 /* 00_Optimize.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 00_Optimize.txt; sourceTree = "<group>"; };
 		8499C9761704B5F70066A5F3 /* NullPatch.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = NullPatch.txt; sourceTree = "<group>"; };
@@ -49,11 +53,47 @@
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
-		84B9D50E16FFE58F002CD441 = {
+		847F5ED91B508AFC00825CE8 /* backlight */ = {
 			isa = PBXGroup;
 			children = (
-				845FE5EF1702639F004601B0 /* .maciasl */,
-				84B9D52616FFE684002CD441 /* makefile */,
+				847F5EDC1B508B4B00825CE8 /* patch_backlight.sh */,
+				847F5EDD1B508B4B00825CE8 /* Backlight.plist */,
+			);
+			name = backlight;
+			sourceTree = "<group>";
+		};
+		847F5EDA1B508B0800825CE8 /* USBXHCI_4x40s.kext */ = {
+			isa = PBXGroup;
+			children = (
+				847F5EDB1B508B2C00825CE8 /* Info.plist */,
+			);
+			name = USBXHCI_4x40s.kext;
+			sourceTree = "<group>";
+		};
+		847F5EDF1B508B8200825CE8 /* mini-SSDTs */ = {
+			isa = PBXGroup;
+			children = (
+				846B57131706046600E19787 /* Mini-SSDT.dsl */,
+				843DA4791706024900E87F04 /* Mini-SSDT-DualLink.dsl */,
+				84F52D0B1709C9A3001643C8 /* Mini-SSDT-IMEI.dsl */,
+				8456BC3D1752A827008F4353 /* Mini-SSDT-DisableGraphics.dsl */,
+				84E815E21752C76500B9EF1E /* Mini-SSDT-AR9285.dsl */,
+			);
+			name = "mini-SSDTs";
+			sourceTree = "<group>";
+		};
+		847F5EE01B508C1400825CE8 /* other patches */ = {
+			isa = PBXGroup;
+			children = (
+				84B9D52416FFE684002CD441 /* xx_Brightness.txt */,
+				849EBD50170340BF007EFCFF /* xx_KeyBacklight.txt */,
+			);
+			name = "other patches";
+			sourceTree = "<group>";
+		};
+		847F5EE11B508C2300825CE8 /* ProBook patches */ = {
+			isa = PBXGroup;
+			children = (
 				84878E3B17445FE100F82A03 /* 00_Optimize.txt */,
 				84B9D51916FFE684002CD441 /* 01_Compilation.txt */,
 				84B9D51A16FFE684002CD441 /* 02_DSDTPatch.txt */,
@@ -74,6 +114,7 @@
 				84B941FD1703347E00C5913C /* 08a_AR9285.txt */,
 				8470FEA0180B7FD700FA322E /* 08b_BCM4322x.txt */,
 				84DA7C6317033BC400738DC0 /* 09_USB3_4x40s_Mieze.txt */,
+				847F5ED81B50873A00825CE8 /* 09_USB3_4x40s_10_11.txt */,
 				84F616791850BC650053B76E /* 10_LPC_4x40s_Sandy_SL.txt */,
 				84B165B81856183900C2DF39 /* 11a_Radeon_OFF_SSDT.txt */,
 				84B165B91856187E00C2DF39 /* 11b_Radeon_OFF_DSDT.txt */,
@@ -81,16 +122,23 @@
 				84817C301878CFE00061AF92 /* 13_Brightness.txt */,
 				ED634E2719FD2B3E00289C54 /* 14_ProBook-87key.txt */,
 				ED634E2619FD2A9B00289C54 /* 14_ProBook-102key.txt */,
-				846B57131706046600E19787 /* Mini-SSDT.dsl */,
-				843DA4791706024900E87F04 /* Mini-SSDT-DualLink.dsl */,
-				84F52D0B1709C9A3001643C8 /* Mini-SSDT-IMEI.dsl */,
-				8456BC3D1752A827008F4353 /* Mini-SSDT-DisableGraphics.dsl */,
-				84E815E21752C76500B9EF1E /* Mini-SSDT-AR9285.dsl */,
 				8499C9761704B5F70066A5F3 /* NullPatch.txt */,
-				84B9D52416FFE684002CD441 /* xx_Brightness.txt */,
-				849EBD50170340BF007EFCFF /* xx_KeyBacklight.txt */,
+			);
+			name = "ProBook patches";
+			sourceTree = "<group>";
+		};
+		84B9D50E16FFE58F002CD441 = {
+			isa = PBXGroup;
+			children = (
+				845FE5EF1702639F004601B0 /* .maciasl */,
+				84B9D52616FFE684002CD441 /* makefile */,
 				84B9D52516FFE684002CD441 /* License.md */,
 				84B9D52716FFE684002CD441 /* README.txt */,
+				847F5EE11B508C2300825CE8 /* ProBook patches */,
+				847F5EDF1B508B8200825CE8 /* mini-SSDTs */,
+				847F5EDA1B508B0800825CE8 /* USBXHCI_4x40s.kext */,
+				847F5ED91B508AFC00825CE8 /* backlight */,
+				847F5EE01B508C1400825CE8 /* other patches */,
 			);
 			sourceTree = "<group>";
 		};
