@@ -140,8 +140,9 @@ Device (PNLF)\n
         If (LAnd(Local0, LLess(Local0, XRGL))) { Store(XRGL, Local0) }\n
         Return(Local0)\n
     }\n
-    // Use XOPT=1 to disable smooth transitions\n
-    Name (XOPT, Zero)\n
+    // Use XOPT bit0 to disable smooth transitions\n
+    // Use XOPT bit1 to syncronize with BacklightHandler object\n
+    Name (XOPT, 0x02)\n
     // XRGL/XRGH: defines the valid range\n
     Name (XRGL, 40)\n
     Name (XRGH, 1808)\n

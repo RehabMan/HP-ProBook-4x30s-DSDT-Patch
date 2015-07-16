@@ -34,6 +34,7 @@ plist=AppleBacklightInjector.kext/Contents/Info.plist
 /usr/libexec/PlistBuddy -c "Delete ':DTXcode'" $plist
 /usr/libexec/PlistBuddy -c "Delete ':DTXcodeBuild'" $plist
 /usr/libexec/PlistBuddy -c "Delete ':OSBundleLibraries'" $plist
+/usr/libexec/PlistBuddy -c "Delete ':CFBundleExecutable'" $plist
 /usr/libexec/PlistBuddy -c "Set ':CFBundleGetInfoString' '0.9.0, Copyright 2013 RehabMan Inc. All rights reserved.'" $plist
 /usr/libexec/PlistBuddy -c "Set ':CFBundleIdentifier' 'org.rehabman.injector.AppleBacklightInjector'" $plist
 /usr/libexec/PlistBuddy -c "Set ':CFBundleName' 'AppleBacklightInjector'" $plist
