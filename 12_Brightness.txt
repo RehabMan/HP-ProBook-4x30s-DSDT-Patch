@@ -142,7 +142,8 @@ Device (PNLF)\n
     }\n
     // Use XOPT bit0 to disable smooth transitions\n
     // Use XOPT bit1 to syncronize with BacklightHandler object\n
-    Name (XOPT, 0x02)\n
+    // Set XOPT bit 2 to force use of BacklightHandler for 10.10 and prior\n
+    Name (XOPT, 0x06)\n
     // XRGL/XRGH: defines the valid range\n
     Name (XRGL, 40)\n
     Name (XRGH, 1808)\n
