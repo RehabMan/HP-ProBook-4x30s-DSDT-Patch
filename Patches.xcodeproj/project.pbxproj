@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXFileReference section */
+		84144E971BC64063004DF673 /* config_4540s_1080p.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config_4540s_1080p.plist; sourceTree = "<group>"; };
 		8418ECBF17025DF5007A25C4 /* 07_MEI_4x40s_Sandy.txt */ = {isa = PBXFileReference; lastKnownFileType = text; lineEnding = 0; path = 07_MEI_4x40s_Sandy.txt; sourceTree = "<group>"; };
 		842CC2BE189750A4008240D1 /* 04b_FanSmooth.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 04b_FanSmooth.txt; sourceTree = "<group>"; };
 		842F94371858FA4400BAF14B /* 12_Brightness.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 12_Brightness.txt; sourceTree = "<group>"; };
@@ -44,6 +45,7 @@
 		84D4D88F17025C86004FF373 /* 04c_FanSpeed.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = 04c_FanSpeed.txt; sourceTree = "<group>"; };
 		84DA7C6317033BC400738DC0 /* 09_USB3_4x40s_Mieze.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = 09_USB3_4x40s_Mieze.txt; sourceTree = "<group>"; };
 		84E815E21752C76500B9EF1E /* Mini-SSDT-AR9285.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Mini-SSDT-AR9285.dsl"; sourceTree = "<group>"; };
+		84EEDDDC1BC605BE000F5071 /* SSDT-HACK.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-HACK.dsl"; sourceTree = "<group>"; };
 		84F52D0B1709C9A3001643C8 /* Mini-SSDT-IMEI.dsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Mini-SSDT-IMEI.dsl"; sourceTree = "<group>"; };
 		84F616791850BC650053B76E /* 10_LPC_4x40s_Sandy_SL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 10_LPC_4x40s_Sandy_SL.txt; sourceTree = "<group>"; };
 		84FD879D18BCC6B1000BC61E /* 03c_Haswell-HDMI.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "03c_Haswell-HDMI.txt"; sourceTree = "<group>"; };
@@ -130,10 +132,12 @@
 		84B9D50E16FFE58F002CD441 = {
 			isa = PBXGroup;
 			children = (
-				845FE5EF1702639F004601B0 /* .maciasl */,
-				84B9D52616FFE684002CD441 /* makefile */,
-				84B9D52516FFE684002CD441 /* License.md */,
 				84B9D52716FFE684002CD441 /* README.txt */,
+				84B9D52516FFE684002CD441 /* License.md */,
+				84B9D52616FFE684002CD441 /* makefile */,
+				84EEDDDC1BC605BE000F5071 /* SSDT-HACK.dsl */,
+				84144E971BC64063004DF673 /* config_4540s_1080p.plist */,
+				845FE5EF1702639F004601B0 /* .maciasl */,
 				847F5EE11B508C2300825CE8 /* ProBook patches */,
 				847F5EDF1B508B8200825CE8 /* mini-SSDTs */,
 				847F5EDA1B508B0800825CE8 /* USBXHCI_4x40s.kext */,
