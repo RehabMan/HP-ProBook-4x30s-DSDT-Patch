@@ -178,7 +178,7 @@
 	</dict>
 	<key>GUI</key>
 	<dict>
-		<key>ScreenResolution</key>
+		<key>#ScreenResolution</key>
 		<string>1920x1080</string>
 		<key>Theme</key>
 		<string>bluemac_s</string>
@@ -198,7 +198,7 @@
 			<key>Kernel</key>
 			<string>None</string>
 		</dict>
-		<key>Custom</key>
+		<key>#Custom</key>
 		<dict>
 			<key>Entries</key>
 			<array>
@@ -470,12 +470,8 @@
 	</dict>
 	<key>Graphics</key>
 	<dict>
-		<key>CustomEDID</key>
-		<data>AP///////wAwrrJAAAAAAAETAQOQIhN46iE1rVA3qiQRUFQAAAABAQEBAQEBAQEBAQEBAQEBTDaAgnA4MkA8MKoAWMEQAAAYPy2AgnA4MkA8MKoAWMEQAAAYAAAADwDRCTLRCSgbGQAGr1Y0AAAA/gBCMTU2SFcwMSBWNCAKANY=</data>
 		<key>ig-platform-id</key>
 		<string>0x01660004</string>
-		<key>InjectEDID</key>
-		<true/>
 		<key>#Inject</key>
 		<dict>
 			<key>Intel</key>
