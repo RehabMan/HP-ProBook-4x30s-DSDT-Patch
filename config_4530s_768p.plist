@@ -443,6 +443,14 @@
 						<key>Value</key>
 						<data>AQAAAA==</data>
 					</dict>
+					<dict>
+						<key>Comment</key>
+						<string>AAPL,os-info is for 10.6.8 HD3000</string>
+						<key>Key</key>
+						<string>AAPL,os-info</string>
+						<key>Value</key>
+						<data>MEkBERERCAAAAfAfAQAAABAHAAA=</data>
+					</dict>
 				</array>
 			</dict>
 			<dict>
