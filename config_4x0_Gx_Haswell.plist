@@ -8,6 +8,7 @@
 		<array>
 			<string>SSDT.aml</string>
 			<string>SSDT-HACK.aml</string>
+			<string>SSDT-IGPU.aml</string>
 			<string>SSDT-BATT.aml</string>
 			<string>SSDT-BATT-G2.aml</string>
 			<string>SSDT-KEY87.aml</string>
@@ -279,16 +280,6 @@
 				<key>Name</key>
 				<string>AirPortBrcm4360</string>
 				<key>Find</key>
-				<data>TWFjLTJFNkZBQjk2NTY2RkU1OEM=</data>
-				<key>Replace</key>
-				<data>TWFjLTkzN0NCMjZFMkUwMkJCMDE=</data>
-				<key>Comment</key>
-				<string>Broadcom 43224 whitelist</string>
-			</dict>
-			<dict>
-				<key>Name</key>
-				<string>AirPortBrcm4360</string>
-				<key>Find</key>
 				<data>QYP8/3QsSA==</data>
 				<key>Replace</key>
 				<data>ZscGVVPrKw==</data>
@@ -306,14 +297,34 @@
 				<string>Handoff Fix</string>
 			</dict>
 			<dict>
-				<key>Name</key>
-				<string>AppleIntelBDWGraphicsFramebuffer</string>
-				<key>Find</key>
-				<data>AQULAAAEAAAHBQAAAgQLAAAEAAAHBQAA/wAAAAEAAABAAAAA</data>
-				<key>Replace</key>
-				<data>AQULAAAIAACCAAAAAgQLAAAIAACCAAAA/wAAAAEAAABAAAAA</data>
 				<key>Comment</key>
-				<string>Patch HD5500 HDMI Audio</string>
+				<string>Enable 9MB cursor bytes, 0x0a260006</string>
+				<key>Name</key>
+				<string>AppleIntelFramebufferAzul</string>
+				<key>Find</key>
+				<data>BgAmCgEDAwMAAAACAAAwAQAAYAA=</data>
+				<key>Replace</key>
+				<data>BgAmCgEDAwMAAAACAAAwAQAAkAA=</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>HDMI-audio, port 0105(12), 0x0a2e0008, 0x0a16000c, 0x0a2e000d, 0x0a26000d</string>
+				<key>Name</key>
+				<string>AppleIntelFramebufferAzul</string>
+				<key>Find</key>
+				<data>AQUJAAAEAAAHAQAA</data>
+				<key>Replace</key>
+				<data>AQUSAAAIAAAHAQAA</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>HDMI-audio, port 0204(12), 0x0a2e0008, 0x0a16000c, 0x0a2e000d, 0x0a26000d</string>
+				<key>Name</key>
+				<string>AppleIntelFramebufferAzul</string>
+				<key>Find</key>
+				<data>AgQJAAAEAAAHAQAA</data>
+				<key>Replace</key>
+				<data>AgQSAAAIAAAHAQAA</data>
 			</dict>
 			<dict>
 				<key>Name</key>
@@ -360,7 +371,7 @@
 	<key>#Graphics</key>
 	<dict>
 		<key>ig-platform-id</key>
-		<string>0x16260006</string>
+		<string>0x0a260006</string>
 		<key>Inject</key>
 		<dict>
 			<key>Intel</key>
@@ -375,27 +386,6 @@
 	<dict>
 		<key>Arbitrary</key>
 		<array>
-			<dict>
-				<key>Comment</key>
-				<string>Intel HD5500</string>
-				<key>PciAddr</key>
-				<string>00:02.00</string>
-				<key>CustomProperties</key>
-				<array>
-					<dict>
-						<key>Key</key>
-						<string>hda-gfx</string>
-						<key>Value</key>
-						<string>onboard-1</string>
-					</dict>
-					<dict>
-						<key>Key</key>
-						<string>AAPL,ig-platform-id</string>
-						<key>Value</key>
-						<data>BgAmFg==</data>
-					</dict>
-				</array>
-			</dict>
 			<dict>
 				<key>Comment</key>
 				<string>Intel HDA</string>

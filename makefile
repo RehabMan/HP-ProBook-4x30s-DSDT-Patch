@@ -14,6 +14,7 @@ MINI = Mini-SSDT.aml Mini-SSDT-DualLink.aml Mini-SSDT-IMEI.aml Mini-SSDT-Disable
 BUILDDIR=./build
 
 MINI:=$(MINI) $(BUILDDIR)/SSDT-HACK.aml
+MINI:=$(MINI) $(BUILDDIR)/SSDT-IGPU.aml
 MINI:=$(MINI) $(BUILDDIR)/SSDT-BATT.aml $(BUILDDIR)/SSDT-BATT-G2.aml
 MINI:=$(MINI) $(BUILDDIR)/SSDT-KEY87.aml $(BUILDDIR)/SSDT-KEY102.aml
 MINI:=$(MINI) $(BUILDDIR)/SSDT-FAN-QUIET.aml $(BUILDDIR)/SSDT-FAN-ORIG.aml $(BUILDDIR)/SSDT-FAN-READ.aml $(BUILDDIR)/SSDT-FAN-SMOOTH.aml
@@ -59,6 +60,9 @@ Mini-SSDT-AR9285.aml : mini/Mini-SSDT-AR9285.dsl
 
 $(BUILDDIR)/SSDT-HACK.aml : SSDT-HACK.dsl
 	iasl -p $@ $^
+
+$(BUILDDIR)/SSDT-IGPU.aml : SSDT-IGPU.dsl
+	iasl -vw 2095 -p $@ $^
 
 $(BUILDDIR)/SSDT-BATT.aml : SSDT-BATT.dsl
 	iasl -vw 2146 -vw 2089 -p $@ $^

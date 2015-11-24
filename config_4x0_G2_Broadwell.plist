@@ -8,6 +8,7 @@
 		<array>
 			<string>SSDT.aml</string>
 			<string>SSDT-HACK.aml</string>
+			<string>SSDT-IGPU.aml</string>
 			<string>SSDT-BATT.aml</string>
 			<string>SSDT-BATT-G2.aml</string>
 			<string>SSDT-KEY87.aml</string>
@@ -91,6 +92,14 @@
 					<data>R0ZYMA==</data>
 					<key>Replace</key>
 					<data>SUdQVQ==</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>change B0D3 to HDAU</string>
+					<key>Find</key>
+					<data>QjBEMw==</data>
+					<key>Replace</key>
+					<data>SERBVQ==</data>
 				</dict>
 				<dict>
 					<key>Comment</key>
@@ -190,7 +199,7 @@
 		<key>ScreenResolution</key>
 		<string>1024x768</string>
 		<key>Theme</key>
-		<string>bluemac_s</string>
+		<string>Yosemite S</string>
 		<key>Mouse</key>
 		<dict>
 			<key>Enabled</key>
@@ -204,8 +213,6 @@
 			<true/>
 			<key>Legacy</key>
 			<false/>
-			<key>Kernel</key>
-			<string>None</string>
 		</dict>
 		<key>Custom</key>
 		<dict>
@@ -245,132 +252,10 @@
 	<dict>
 		<key>AppleRTC</key>
 		<true/>
-		<key>AsusAICPUPM</key>
+		<key>KernelPm</key>
 		<true/>
-		<key>KernelLapic</key>
-		<false/>
 		<key>KextsToPatch</key>
 		<array>
-			<dict>
-				<key>Name</key>
-				<string>AppleHDA</string>
-				<key>Find</key>
-				<data>gxnUEQ==</data>
-				<key>Replace</key>
-				<data>AAAAAA==</data>
-				<key>Comment</key>
-				<string>IDT 76D1</string>
-			</dict>
-			<dict>
-				<key>Name</key>
-				<string>AppleHDA</string>
-				<key>Find</key>
-				<data>hBnUEQ==</data>
-				<key>Replace</key>
-				<data>0XYdEQ==</data>
-				<key>Comment</key>
-				<string>IDT 76D1</string>
-			</dict>
-			<dict>
-				<key>Name</key>
-				<string>AppleIntelSNBGraphicsFB</string>
-				<key>Find</key>
-				<data>BAYAAAAEAAAJAAAA</data>
-				<key>Replace</key>
-				<data>BAYAAAAIAAAJAAAA</data>
-				<key>Comment</key>
-				<string>Patch HDMI Audio HD3000 (disable this if you use VGA patch)</string>
-			</dict>
-			<dict>
-				<key>Name</key>
-				<string>AppleUSBXHCI</string>
-				<key>Find</key>
-				<data>9oDUAAAAgHU6</data>
-				<key>Replace</key>
-				<data>9oDUAAAAgOs6</data>
-				<key>Comment</key>
-				<string>USB 3.0 Disable Intel USB3 controller check 10.9</string>
-			</dict>
-			<dict>
-				<key>Name</key>
-				<string>AppleUSBXHCI</string>
-				<key>Find</key>
-				<data>9oDUAAAAgHU0</data>
-				<key>Replace</key>
-				<data>9oDUAAAAgOs0</data>
-				<key>Comment</key>
-				<string>USB 3.0 Disable Intel USB3 controller check 10.10</string>
-			</dict>
-			<dict>
-				<key>Name</key>
-				<string>AppleUSBXHCI</string>
-				<key>Find</key>
-				<data>Zj0AAQ==</data>
-				<key>Replace</key>
-				<data>Zj0AAA==</data>
-				<key>Comment</key>
-				<string>USB 3.0 Disable XHCI 1.0 check 10.9</string>
-			</dict>
-			<dict>
-				<key>Name</key>
-				<string>AppleUSBXHCI</string>
-				<key>Find</key>
-				<data>QbzHAgDgPQABAAA=</data>
-				<key>Replace</key>
-				<data>QbzHAgDgPQAAAAA=</data>
-				<key>Comment</key>
-				<string>USB 3.0 Disable XHCI 1.0 check 10.10</string>
-			</dict>
-			<dict>
-				<key>Name</key>
-				<string>AppleUSBXHCI</string>
-				<key>Find</key>
-				<data>gUkIAABAAA==</data>
-				<key>Replace</key>
-				<data>gUkIAAAAAA==</data>
-				<key>Comment</key>
-				<string>USB 3.0 Patch MSI or pin interrupts #1</string>
-			</dict>
-			<dict>
-				<key>Name</key>
-				<string>AppleUSBXHCI</string>
-				<key>Find</key>
-				<data>QcdHCAAAQAA=</data>
-				<key>Replace</key>
-				<data>QcdHCAAAAAA=</data>
-				<key>Comment</key>
-				<string>USB 3.0 Patch MSI or pin interrupts #2</string>
-			</dict>
-			<dict>
-				<key>Name</key>
-				<string>AppleUSBXHCI</string>
-				<key>Find</key>
-				<data>dU1Ii7voAQAA</data>
-				<key>Replace</key>
-				<data>601Ii7voAQAA</data>
-				<key>Comment</key>
-				<string>USB 3.0 Enable PCI power management</string>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Boot graphics glitch, 10.11.dp3 (credit lisai9093)</string>
-				<key>Name</key>
-				<string>IOGraphicsFamily</string>
-				<key>Find</key>
-				<data>AQAAdRc=</data>
-				<key>Replace</key>
-				<data>AQAAdBc=</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>10.10.2-BT4LE-Handoff-Hotspot</string>
-				<key>Find</key>
-				<data>SIXAdFwPt0g=</data>
-				<key>Name</key>
-				<string>IOBluetoothFamily</string>
-				<key>Replace</key>
-				<data>Qb4PAAAA61k=</data>
-			</dict>
 			<dict>
 				<key>Name</key>
 				<string>IOAHCIBlockStorage</string>
@@ -381,10 +266,102 @@
 				<key>Comment</key>
 				<string>Enable Trim on SSD</string>
 			</dict>
+			<dict>
+				<key>Name</key>
+				<string>IOGraphicsFamily</string>
+				<key>Find</key>
+				<data>AQAAdRc=</data>
+				<key>Replace</key>
+				<data>AQAAdBc=</data>
+				<key>Comment</key>
+				<string>Second Stage patch 10.11</string>
+			</dict>
+			<dict>
+				<key>Name</key>
+				<string>AirPortBrcm4360</string>
+				<key>Find</key>
+				<data>TWFjLTJFNkZBQjk2NTY2RkU1OEM=</data>
+				<key>Replace</key>
+				<data>TWFjLTkzN0NCMjZFMkUwMkJCMDE=</data>
+				<key>Comment</key>
+				<string>Broadcom 43224 whitelist</string>
+			</dict>
+			<dict>
+				<key>Name</key>
+				<string>AirPortBrcm4360</string>
+				<key>Find</key>
+				<data>QYP8/3QsSA==</data>
+				<key>Replace</key>
+				<data>ZscGVVPrKw==</data>
+				<key>Comment</key>
+				<string>Broadcom 5Ghz US</string>
+			</dict>
+			<dict>
+				<key>Name</key>
+				<string>IOBluetoothFamily</string>
+				<key>Find</key>
+				<data>SIX/dEdIiwc=</data>
+				<key>Replace</key>
+				<data>Qb4PAAAA60Q=</data>
+				<key>Comment</key>
+				<string>Handoff Fix</string>
+			</dict>
+			<dict>
+				<key>Name</key>
+				<string>AppleIntelBDWGraphicsFramebuffer</string>
+				<key>Find</key>
+				<data>AQULAAAEAAAHBQAAAgQLAAAEAAAHBQAA/wAAAAEAAABAAAAA</data>
+				<key>Replace</key>
+				<data>AQULAAAIAACCAAAAAgQLAAAIAACCAAAA/wAAAAEAAABAAAAA</data>
+				<key>Comment</key>
+				<string>Patch HD5500 HDMI Audio</string>
+			</dict>
+			<dict>
+				<key>Name</key>
+				<string>AppleHDA</string>
+				<key>Find</key>
+				<data>gxnUEQ==</data>
+				<key>Replace</key>
+				<data>AAAAAA==</data>
+				<key>Comment</key>
+				<string>AppleHDA Patch 10.11</string>
+			</dict>
+			<dict>
+				<key>Name</key>
+				<string>AppleHDA</string>
+				<key>Find</key>
+				<data>hAjsEA==</data>
+				<key>Replace</key>
+				<data>AAAAAA==</data>
+				<key>Comment</key>
+				<string>ALC 282</string>
+			</dict>
+			<dict>
+				<key>Name</key>
+				<string>AppleHDA</string>
+				<key>Find</key>
+				<data>hQjsEA==</data>
+				<key>Replace</key>
+				<data>AAAAAA==</data>
+				<key>Comment</key>
+				<string>ALC 282</string>
+			</dict>
+			<dict>
+				<key>Name</key>
+				<string>AppleHDA</string>
+				<key>Find</key>
+				<data>hBnUEQ==</data>
+				<key>Replace</key>
+				<data>ggLsEA==</data>
+				<key>Comment</key>
+				<string>ALC 282</string>
+			</dict>
 		</array>
 	</dict>
 	<key>#Graphics</key>
 	<dict>
+		<key>ig-platform-id</key>
+		<string>0x16260006</string>
 		<key>Inject</key>
 		<dict>
 			<key>Intel</key>
@@ -401,47 +378,6 @@
 		<array>
 			<dict>
 				<key>Comment</key>
-				<string>Intel HD3000 768p</string>
-				<key>PciAddr</key>
-				<string>00:02.00</string>
-				<key>CustomProperties</key>
-				<array>
-					<dict>
-						<key>Key</key>
-						<string>model</string>
-						<key>Value</key>
-						<string>Intel HD Graphics 3000</string>
-					</dict>
-					<dict>
-						<key>Key</key>
-						<string>hda-gfx</string>
-						<key>Value</key>
-						<string>onboard-1</string>
-					</dict>
-					<dict>
-						<key>Key</key>
-						<string>AAPL,snb-platform-id</string>
-						<key>Value</key>
-						<data>AAABAA==</data>
-					</dict>
-					<dict>
-						<key>Key</key>
-						<string>#AAPL,DualLink</string>
-						<key>Value</key>
-						<data>AQAAAA==</data>
-					</dict>
-					<dict>
-						<key>Comment</key>
-						<string>AAPL,os-info is for 10.6.8 HD3000</string>
-						<key>Key</key>
-						<string>AAPL,os-info</string>
-						<key>Value</key>
-						<data>MEkBERERCAAAAfAfAQAAABAHAAA=</data>
-					</dict>
-				</array>
-			</dict>
-			<dict>
-				<key>Comment</key>
 				<string>Intel HDA</string>
 				<key>PciAddr</key>
 				<string>00:1B.00</string>
@@ -451,13 +387,34 @@
 						<key>Key</key>
 						<string>layout-id</string>
 						<key>Value</key>
-						<data>DAAAAA==</data>
+						<data>AQAAAA==</data>
 					</dict>
 					<dict>
 						<key>Key</key>
 						<string>PinConfigurations</string>
 						<key>Value</key>
 						<data></data>
+					</dict>
+					<dict>
+						<key>Key</key>
+						<string>hda-gfx</string>
+						<key>Value</key>
+						<string>onboard-1</string>
+					</dict>
+				</array>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Intel HDMI HDA</string>
+				<key>PciAddr</key>
+				<string>00:03.00</string>
+				<key>CustomProperties</key>
+				<array>
+					<dict>
+						<key>Key</key>
+						<string>layout-id</string>
+						<key>Value</key>
+						<data>AQAAAA==</data>
 					</dict>
 					<dict>
 						<key>Key</key>
@@ -476,21 +433,15 @@
 				<array>
 					<dict>
 						<key>Key</key>
-						<string>built-in</string>
+						<string>subsystem-id</string>
 						<key>Value</key>
-						<data>AA==</data>
+						<data>cHIAAA==</data>
 					</dict>
 					<dict>
 						<key>Key</key>
-						<string>device_type</string>
+						<string>subsystem-vendor-id</string>
 						<key>Value</key>
-						<string>EHCI</string>
-					</dict>
-					<dict>
-						<key>Key</key>
-						<string>AAPL,device-internal</string>
-						<key>Value</key>
-						<integer>2</integer>
+						<data>hoAAAA==</data>
 					</dict>
 					<dict>
 						<key>Key</key>
@@ -527,21 +478,60 @@
 				<array>
 					<dict>
 						<key>Key</key>
-						<string>built-in</string>
+						<string>subsystem-id</string>
 						<key>Value</key>
-						<data>AA==</data>
+						<data>cHIAAA==</data>
 					</dict>
 					<dict>
 						<key>Key</key>
-						<string>device_type</string>
+						<string>subsystem-vendor-id</string>
 						<key>Value</key>
-						<string>EHCI</string>
+						<data>hoAAAA==</data>
 					</dict>
 					<dict>
 						<key>Key</key>
-						<string>AAPL,device-internal</string>
+						<string>AAPL,current-available</string>
 						<key>Value</key>
-						<integer>2</integer>
+						<integer>2100</integer>
+					</dict>
+					<dict>
+						<key>Key</key>
+						<string>AAPL,current-extra</string>
+						<key>Value</key>
+						<integer>2200</integer>
+					</dict>
+					<dict>
+						<key>Key</key>
+						<string>AAPL,current-extra-in-sleep</string>
+						<key>Value</key>
+						<integer>1600</integer>
+					</dict>
+					<dict>
+						<key>Key</key>
+						<string>AAPL,max-port-current-in-sleep</string>
+						<key>Value</key>
+						<integer>2100</integer>
+					</dict>
+				</array>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Intel XHCI</string>
+				<key>PciAddr</key>
+				<string>00:14.00</string>
+				<key>CustomProperties</key>
+				<array>
+					<dict>
+						<key>Key</key>
+						<string>subsystem-id</string>
+						<key>Value</key>
+						<data>cHIAAA==</data>
+					</dict>
+					<dict>
+						<key>Key</key>
+						<string>subsystem-vendor-id</string>
+						<key>Value</key>
+						<data>hoAAAA==</data>
 					</dict>
 					<dict>
 						<key>Key</key>
@@ -577,11 +567,11 @@
 		</dict>
 		<key>USB</key>
 		<dict>
-			<key>AddClockID</key>
-			<false/>
 			<key>Inject</key>
 			<false/>
 			<key>FixOwnership</key>
+			<false/>
+			<key>AddClockID</key>
 			<false/>
 		</dict>
 		<key>UseIntelHDMI</key>
@@ -589,8 +579,12 @@
 	</dict>
 	<key>SMBIOS</key>
 	<dict>
+		<key>Comment</key>
+		<string>No MacBookAir7,2 support in Clover right now</string>
 		<key>ProductName</key>
-		<string>MacBookPro8,1</string>
+		<string>MacBookAir6,2</string>
+		<key>#ProductName</key>
+		<string>MacBookAir7,2</string>
 		<key>Trust</key>
 		<true/>
 	</dict>
