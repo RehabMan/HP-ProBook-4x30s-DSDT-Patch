@@ -1,14 +1,14 @@
-COMMON = 00_Optimize.txt 01_Compilation.txt 02_DSDTPatch.txt 05_OSCheck.txt 06_Battery.txt
-FANPATCH = 04a_FanPatch.txt
-QUIET = 04b_FanQuiet.txt
-FANREAD = 04c_FanSpeed.txt
-HDMI = 03a_HDMI.txt
-HDMIDUAL = 03b_1080p+HDMI.txt
-EHCI6 = 02a_EHCI_4x30s.txt
-EHCI7 = 02b_EHCI_4x40s.txt
-IMEI = 07_MEI_4x40s_Sandy.txt
-AR9285 = 08_AR9285.txt
-ALL = 4x30s.txt 4x40s_IvyBridge.txt 4x40s_SandyBridge.txt
+COMMON = patches/00_Optimize.txt patches/01_Compilation.txt patches/02_DSDTPatch.txt patches/05_OSCheck.txt patches/06_Battery.txt
+FANPATCH = patches/04a_FanPatch.txt
+QUIET = patches/04b_FanQuiet.txt
+FANREAD = patches/04c_FanSpeed.txt
+HDMI = patches/03a_HDMI.txt
+HDMIDUAL = patches/03b_1080p+HDMI.txt
+EHCI6 = patches/02a_EHCI_4x30s.txt
+EHCI7 = patches/02b_EHCI_4x40s.txt
+IMEI = patches/07_MEI_4x40s_Sandy.txt
+AR9285 = patches/08_AR9285.txt
+ALL = patches/4x30s.txt patches/4x40s_IvyBridge.txt patches/4x40s_SandyBridge.txt
 MINI = Mini-SSDT.aml Mini-SSDT-DualLink.aml Mini-SSDT-IMEI.aml Mini-SSDT-DisableGraphics.aml Mini-SSDT-AR9285.aml
 
 BUILDDIR=./build
@@ -28,31 +28,31 @@ clean:
 
 # combo patches
 
-4x30s.txt : $(COMMON) $(EHCI6)
+patches/4x30s.txt : $(COMMON) $(EHCI6)
 	cat $^ >$@ 
 
-4x40s_IvyBridge.txt : $(COMMON) $(EHCI7)
+patches/4x40s_IvyBridge.txt : $(COMMON) $(EHCI7)
 	cat $^ >$@ 
 
-4x40s_SandyBridge.txt : $(COMMON) $(EHCI7) $(IMEI)
+patches/4x40s_SandyBridge.txt : $(COMMON) $(EHCI7) $(IMEI)
 	cat $^ >$@ 
 
 
 # mini SSDTs
 
-Mini-SSDT.aml : Mini-SSDT.dsl
+Mini-SSDT.aml : mini/Mini-SSDT.dsl
 	iasl -p $@ $^
 
-Mini-SSDT-DualLink.aml : Mini-SSDT-DualLink.dsl
+Mini-SSDT-DualLink.aml : mini/Mini-SSDT-DualLink.dsl
 	iasl -p $@ $^
 
-Mini-SSDT-IMEI.aml : Mini-SSDT-IMEI.dsl
+Mini-SSDT-IMEI.aml : mini/Mini-SSDT-IMEI.dsl
 	iasl -p $@ $^
 
-Mini-SSDT-DisableGraphics.aml : Mini-SSDT-DisableGraphics.dsl
+Mini-SSDT-DisableGraphics.aml : mini/Mini-SSDT-DisableGraphics.dsl
 	iasl -p $@ $^
 
-Mini-SSDT-AR9285.aml : Mini-SSDT-AR9285.dsl
+Mini-SSDT-AR9285.aml : mini/Mini-SSDT-AR9285.dsl
 	iasl -p $@ $^
 
 # new SSDT-HACK

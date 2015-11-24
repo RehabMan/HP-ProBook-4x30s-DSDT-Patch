@@ -1,31 +1,31 @@
-[1.0] == First, choose your ProBook model ==	NullPatch.txt
-[1.1]   ProBook 4x30s	4x30s.txt
-[1.2]   ProBook 4x40s Ivy Bridge	4x40s_IvyBridge.txt
-[1.3]   ProBook 4x40s Sandy Bridge	4x40s_SandyBridge.txt
-[2.0] == Next, choose your screen type ==	NullPatch.txt
-[2.1]   IGPU/LVDS Single-Link	03a_HDMI.txt
-[2.2]   IGPU/LVDS Dual-Link	03b_1080p+HDMI.txt
-[2.3]   IGPU/LVDS Haswell	03c_Haswell-HDMI.txt
-[3.0] == Finally, choose your desired fan behavior ==	NullPatch.txt
-[3.1]   Fan and Temps (original fan patch)	04a_FanPatch.txt
-[3.2]   Fan and Temps (quiet fan)	04b_FanQuiet.txt
-[3.3]   Fan and Temps (readings only)	04c_FanSpeed.txt
-[3.4]   Fan and Temps (quiet fan mod)	04b_FanQuietMod.txt
-[3.5]   Fan and Temps (smooth fan mod)	04b_FanSmooth.txt
-[4.0] == Optional WiFi/USB3 ==	NullPatch.txt
-[4.1]   Atheros 9285 WiFi AirPort Patch	08a_AR9285.txt
-[4.2]   Broadcom BCM4322x AirPort Patch	08b_BCM4322x.txt
-[4.3]   Native USB3 patches based on Mieze XHC patches	09_USB3_4x40s_Mieze.txt
-[4.4]   Native USB3 patches for 10.11	09_USB3_4x40s_10_11.txt
-[4.5]   LPC patch for SL 4x40s Sandy Bridge	10_LPC_4x40s_Sandy_SL.txt
-[4.6]   For non-OEM CPU SSDTs (deprecated patches)	06a_Battery_PNOT.txt
-[5.0] == Disabling Radeon ==	NullPatch.txt
-[5.1]   Call _OFF from _INI	(for SSDT-5)	11a_Radeon_OFF_SSDT.txt
-[5.2]   Call _ON/_OFF from _PTS/_WAK (for DSDT)	11b_Radeon_OFF_DSDT.txt
-[6.0] == ACPI backlight control ==	NullPatch.txt
-[6.1]   ACPI backlight control	12_Brightness.txt
-[7.0] == Native backlight control ==	NullPatch.txt
-[7.1]   Native backlight fix	13_Brightness.txt
-[8.0] == Keyboard Mapping ==	NullPatch.txt
-[8.1]   ProBook 102-key layout	14_ProBook-102key.txt
-[8.2]   ProBook 87-key layout	14_ProBook-87key.txt
+[1.0] == First, choose your ProBook model ==	patches/NullPatch.txt
+[1.1]   ProBook 4x30s	patches/4x30s.txt
+[1.2]   ProBook 4x40s Ivy Bridge	patches/4x40s_IvyBridge.txt
+[1.3]   ProBook 4x40s Sandy Bridge	patches/4x40s_SandyBridge.txt
+[2.0] == Next, choose your screen type ==	patches/NullPatch.txt
+[2.1]   IGPU/LVDS Single-Link	patches/03a_HDMI.txt
+[2.2]   IGPU/LVDS Dual-Link	patches/03b_1080p+HDMI.txt
+[2.3]   IGPU/LVDS Haswell	patches/03c_Haswell-HDMI.txt
+[3.0] == Finally, choose your desired fan behavior ==	patches/NullPatch.txt
+[3.1]   Fan and Temps (original fan patch)	patches/04a_FanPatch.txt
+[3.2]   Fan and Temps (quiet fan)	patches/04b_FanQuiet.txt
+[3.3]   Fan and Temps (readings only)	patches/04c_FanSpeed.txt
+[3.4]   Fan and Temps (quiet fan mod)	patches/04b_FanQuietMod.txt
+[3.5]   Fan and Temps (smooth fan mod)	patches/04b_FanSmooth.txt
+[4.0] == Optional WiFi/USB3 ==	patches/NullPatch.txt
+[4.1]   Atheros 9285 WiFi AirPort Patch	patches/08a_AR9285.txt
+[4.2]   Broadcom BCM4322x AirPort Patch	patches/08b_BCM4322x.txt
+[4.3]   Native USB3 patches based on Mieze XHC patches	patches/09_USB3_4x40s_Mieze.txt
+[4.4]   Native USB3 patches for 10.11	patches/09_USB3_4x40s_10_11.txt
+[4.5]   LPC patch for SL 4x40s Sandy Bridge	patches/10_LPC_4x40s_Sandy_SL.txt
+[4.6]   For non-OEM CPU SSDTs (deprecated patches)	patches/06a_Battery_PNOT.txt
+[5.0] == Disabling Radeon ==	patches/NullPatch.txt
+[5.1]   Call _OFF from _INI	(for SSDT-5)	patches/11a_Radeon_OFF_SSDT.txt
+[5.2]   Call _ON/_OFF from _PTS/_WAK (for DSDT)	patches/11b_Radeon_OFF_DSDT.txt
+[6.0] == ACPI backlight control ==	patches/NullPatch.txt
+[6.1]   ACPI backlight control	patches/12_Brightness.txt
+[7.0] == Native backlight control ==	patches/NullPatch.txt
+[7.1]   Native backlight fix	patches/13_Brightness.txt
+[8.0] == Keyboard Mapping ==	patches/NullPatch.txt
+[8.1]   ProBook 102-key layout	patches/14_ProBook-102key.txt
+[8.2]   ProBook 87-key layout	patches/14_ProBook-87key.txt
