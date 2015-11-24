@@ -8,6 +8,14 @@
 		<array>
 			<string>SSDT.aml</string>
 			<string>SSDT-HACK.aml</string>
+			<string>SSDT-BATT.aml</string>
+			<string>SSDT-BATT-G2.aml</string>
+			<string>SSDT-KEY87.aml</string>
+			<string>SSDT-KEY102.aml</string>
+			<string>SSDT-FAN-QUIET.aml</string>
+			<string>SSDT-FAN-SMOOTH.aml</string>
+			<string>SSDT-FAN-ORIG.aml</string>
+			<string>SSDT-FAN-READ.aml</string>
 		</array>
 		<key>DSDT</key>
 		<dict>

@@ -52,6 +52,15 @@
 		ED634E2619FD2A9B00289C54 /* 14_ProBook-102key.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "14_ProBook-102key.txt"; sourceTree = "<group>"; };
 		ED634E2719FD2B3E00289C54 /* 14_ProBook-87key.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "14_ProBook-87key.txt"; sourceTree = "<group>"; };
 		ED72750B1BE1B1D700314108 /* config_4530s_768p.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config_4530s_768p.plist; sourceTree = "<group>"; };
+		EDB940B71C04D11C00480024 /* SSDT-BATT.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-BATT.dsl"; sourceTree = "<group>"; };
+		EDB940B81C04D12300480024 /* config_450_G2_HD5500.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config_450_G2_HD5500.plist; sourceTree = "<group>"; };
+		EDB940B91C04D2CB00480024 /* SSDT-BATT-G2.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-BATT-G2.dsl"; sourceTree = "<group>"; };
+		EDB940BB1C04D4D400480024 /* SSDT-KEY102.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-KEY102.dsl"; sourceTree = "<group>"; };
+		EDB940BC1C04D4D400480024 /* SSDT-KEY87.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-KEY87.dsl"; sourceTree = "<group>"; };
+		EDB940BD1C04D78800480024 /* SSDT-FAN-QUIET.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-FAN-QUIET.dsl"; sourceTree = "<group>"; };
+		EDB940BE1C04D99A00480024 /* SSDT-FAN-READ.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-FAN-READ.dsl"; sourceTree = "<group>"; };
+		EDB940BF1C04D99A00480024 /* SSDT-FAN-ORIG.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-FAN-ORIG.dsl"; sourceTree = "<group>"; };
+		EDB940C01C04D9D500480024 /* SSDT-FAN-SMOOTH.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-FAN-SMOOTH.dsl"; sourceTree = "<group>"; };
 		EDBFC62A1AC74DA600E24D1F /* 06a_Battery_PNOT.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 06a_Battery_PNOT.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -136,9 +145,7 @@
 				84B9D52716FFE684002CD441 /* README.txt */,
 				84B9D52516FFE684002CD441 /* License.md */,
 				84B9D52616FFE684002CD441 /* makefile */,
-				84EEDDDC1BC605BE000F5071 /* SSDT-HACK.dsl */,
-				ED72750B1BE1B1D700314108 /* config_4530s_768p.plist */,
-				84144E971BC64063004DF673 /* config_4540s_1080p.plist */,
+				EDB940BA1C04D44500480024 /* hotpatch */,
 				845FE5EF1702639F004601B0 /* .maciasl */,
 				847F5EE11B508C2300825CE8 /* ProBook patches */,
 				847F5EDF1B508B8200825CE8 /* mini-SSDTs */,
@@ -146,6 +153,25 @@
 				847F5ED91B508AFC00825CE8 /* backlight */,
 				847F5EE01B508C1400825CE8 /* other patches */,
 			);
+			sourceTree = "<group>";
+		};
+		EDB940BA1C04D44500480024 /* hotpatch */ = {
+			isa = PBXGroup;
+			children = (
+				84EEDDDC1BC605BE000F5071 /* SSDT-HACK.dsl */,
+				EDB940B71C04D11C00480024 /* SSDT-BATT.dsl */,
+				EDB940B91C04D2CB00480024 /* SSDT-BATT-G2.dsl */,
+				EDB940BC1C04D4D400480024 /* SSDT-KEY87.dsl */,
+				EDB940BB1C04D4D400480024 /* SSDT-KEY102.dsl */,
+				EDB940BD1C04D78800480024 /* SSDT-FAN-QUIET.dsl */,
+				EDB940C01C04D9D500480024 /* SSDT-FAN-SMOOTH.dsl */,
+				EDB940BF1C04D99A00480024 /* SSDT-FAN-ORIG.dsl */,
+				EDB940BE1C04D99A00480024 /* SSDT-FAN-READ.dsl */,
+				ED72750B1BE1B1D700314108 /* config_4530s_768p.plist */,
+				84144E971BC64063004DF673 /* config_4540s_1080p.plist */,
+				EDB940B81C04D12300480024 /* config_450_G2_HD5500.plist */,
+			);
+			name = hotpatch;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

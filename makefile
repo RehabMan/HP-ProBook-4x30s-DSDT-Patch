@@ -14,6 +14,9 @@ MINI = Mini-SSDT.aml Mini-SSDT-DualLink.aml Mini-SSDT-IMEI.aml Mini-SSDT-Disable
 BUILDDIR=./build
 
 MINI:=$(MINI) $(BUILDDIR)/SSDT-HACK.aml
+MINI:=$(MINI) $(BUILDDIR)/SSDT-BATT.aml $(BUILDDIR)/SSDT-BATT-G2.aml
+MINI:=$(MINI) $(BUILDDIR)/SSDT-KEY87.aml $(BUILDDIR)/SSDT-KEY102.aml
+MINI:=$(MINI) $(BUILDDIR)/SSDT-FAN-QUIET.aml $(BUILDDIR)/SSDT-FAN-ORIG.aml $(BUILDDIR)/SSDT-FAN-READ.aml $(BUILDDIR)/SSDT-FAN-SMOOTH.aml
 
 .PHONY: all
 all : $(ALL) $(MINI)
@@ -57,3 +60,26 @@ Mini-SSDT-AR9285.aml : Mini-SSDT-AR9285.dsl
 $(BUILDDIR)/SSDT-HACK.aml : SSDT-HACK.dsl
 	iasl -p $@ $^
 
+$(BUILDDIR)/SSDT-BATT.aml : SSDT-BATT.dsl
+	iasl -vw 2146 -vw 2089 -p $@ $^
+
+$(BUILDDIR)/SSDT-BATT-G2.aml : SSDT-BATT-G2.dsl
+	iasl -vw 2146 -vw 2089 -p $@ $^
+
+$(BUILDDIR)/SSDT-KEY87.aml : SSDT-KEY87.dsl
+	iasl -p $@ $^
+
+$(BUILDDIR)/SSDT-KEY102.aml : SSDT-KEY102.dsl
+	iasl -p $@ $^
+
+$(BUILDDIR)/SSDT-FAN-QUIET.aml : SSDT-FAN-QUIET.dsl
+	iasl -p $@ $^
+
+$(BUILDDIR)/SSDT-FAN-ORIG.aml : SSDT-FAN-ORIG.dsl
+	iasl -p $@ $^
+
+$(BUILDDIR)/SSDT-FAN-READ.aml : SSDT-FAN-READ.dsl
+	iasl -p $@ $^
+
+$(BUILDDIR)/SSDT-FAN-SMOOTH.aml : SSDT-FAN-SMOOTH.dsl
+	iasl -p $@ $^
