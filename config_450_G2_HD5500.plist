@@ -78,6 +78,14 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
+					<string>change B0D3 to HDAU</string>
+					<key>Find</key>
+					<data>QjBEMw==</data>
+					<key>Replace</key>
+					<data>SERBVQ==</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
 					<string>change _PTS to ZPTS</string>
 					<key>Find</key>
 					<data>X1BUUwE=</data>
