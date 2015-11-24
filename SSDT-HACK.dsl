@@ -584,29 +584,22 @@ DefinitionBlock ("SSDT-HACK.aml", "SSDT", 1, "hack", "hack", 0x00003000)
                         Buffer (0x6B) {}
                     }, Local0)
                     Store (B1B2 (BDC0, BDC1), Index (DerefOf (Index (Local0, 0x02)), 0x00))
-                    Store (ShiftRight (B1B2 (BDC0, BDC1), 0x08), Index (DerefOf (Index (Local0, 0x02)), 0x01
-                    ))
+                    Store (ShiftRight (B1B2 (BDC0, BDC1), 0x08), Index (DerefOf (Index (Local0, 0x02)), 0x01))
                     Store (B1B2 (BFC0, BFC1), Index (DerefOf (Index (Local0, 0x02)), 0x02))
-                    Store (ShiftRight (B1B2 (BFC0, BFC1), 0x08), Index (DerefOf (Index (Local0, 0x02)), 0x03
-                    ))
+                    Store (ShiftRight (B1B2 (BFC0, BFC1), 0x08), Index (DerefOf (Index (Local0, 0x02)), 0x03))
                     Store (B1B2 (BRC0, BRC1), Index (DerefOf (Index (Local0, 0x02)), 0x04))
-                    Store (ShiftRight (B1B2 (BRC0, BRC1), 0x08), Index (DerefOf (Index (Local0, 0x02)), 0x05
-                    ))
+                    Store (ShiftRight (B1B2 (BRC0, BRC1), 0x08), Index (DerefOf (Index (Local0, 0x02)), 0x05))
                     Store (B1B2 (BME0, BME1), Index (DerefOf (Index (Local0, 0x02)), 0x06))
-                    Store (ShiftRight (B1B2 (BME0, BME1), 0x08), Index (DerefOf (Index (Local0, 0x02)), 0x07
-                    ))
+                    Store (ShiftRight (B1B2 (BME0, BME1), 0x08), Index (DerefOf (Index (Local0, 0x02)), 0x07))
                     Store (B1B2 (BCC0, BCC1), Index (DerefOf (Index (Local0, 0x02)), 0x08))
-                    Store (ShiftRight (B1B2 (BCC0, BCC1), 0x08), Index (DerefOf (Index (Local0, 0x02)), 0x09
-                    ))
+                    Store (ShiftRight (B1B2 (BCC0, BCC1), 0x08), Index (DerefOf (Index (Local0, 0x02)), 0x09))
                     Store (B1B2 (CBT0, CBT1), Local1)
                     Subtract (Local1, 0x0AAC, Local1)
                     Divide (Local1, 0x0A, Local2, Local3)
                     Store (Local3, Index (DerefOf (Index (Local0, 0x02)), 0x0A))
-                    Store (ShiftRight (Local3, 0x08), Index (DerefOf (Index (Local0, 0x02)), 0x0B
-                    ))
+                    Store (ShiftRight (Local3, 0x08), Index (DerefOf (Index (Local0, 0x02)), 0x0B))
                     Store (B1B2 (BPV0, BPV1), Index (DerefOf (Index (Local0, 0x02)), 0x0C))
-                    Store (ShiftRight (B1B2 (BPV0, BPV1), 0x08), Index (DerefOf (Index (Local0, 0x02)), 0x0D
-                    ))
+                    Store (ShiftRight (B1B2 (BPV0, BPV1), 0x08), Index (DerefOf (Index (Local0, 0x02)), 0x0D))
                     Store (B1B2 (BPR0, BPR1), Local1)
                     If (Local1)
                     {
@@ -618,66 +611,48 @@ DefinitionBlock ("SSDT-HACK.aml", "SSDT", 1, "hack", "hack", 0x00003000)
                     }
 
                     Store (Local1, Index (DerefOf (Index (Local0, 0x02)), 0x0E))
-                    Store (ShiftRight (Local1, 0x08), Index (DerefOf (Index (Local0, 0x02)), 0x0F
-                    ))
+                    Store (ShiftRight (Local1, 0x08), Index (DerefOf (Index (Local0, 0x02)), 0x0F))
                     Store (B1B2 (BDV0, BDV1), Index (DerefOf (Index (Local0, 0x02)), 0x10))
-                    Store (ShiftRight (B1B2 (BDV0, BDV1), 0x08), Index (DerefOf (Index (Local0, 0x02)), 0x11
-                    ))
+                    Store (ShiftRight (B1B2 (BDV0, BDV1), 0x08), Index (DerefOf (Index (Local0, 0x02)), 0x11))
                     Store (B1B2 (BST0, BST1), Index (DerefOf (Index (Local0, 0x02)), 0x12))
-                    Store (ShiftRight (B1B2 (BST0, BST1), 0x08), Index (DerefOf (Index (Local0, 0x02)), 0x13
-                    ))
+                    Store (ShiftRight (B1B2 (BST0, BST1), 0x08), Index (DerefOf (Index (Local0, 0x02)), 0x13))
                     Store (B1B2 (BCX0, BCX1), Index (DerefOf (Index (Local0, 0x02)), 0x14))
-                    Store (ShiftRight (B1B2 (BCX0, BCX1), 0x08), Index (DerefOf (Index (Local0, 0x02)), 0x15
-                    ))
+                    Store (ShiftRight (B1B2 (BCX0, BCX1), 0x08), Index (DerefOf (Index (Local0, 0x02)), 0x15))
                     Store (B1B2 (BCA0, BCA1), Index (DerefOf (Index (Local0, 0x02)), 0x16))
-                    Store (ShiftRight (B1B2 (BCA0, BCA1), 0x08), Index (DerefOf (Index (Local0, 0x02)), 0x17
-                    ))
+                    Store (ShiftRight (B1B2 (BCA0, BCA1), 0x08), Index (DerefOf (Index (Local0, 0x02)), 0x17))
                     Store (B1B2 (BCB0, BCB1), Index (DerefOf (Index (Local0, 0x02)), 0x18))
-                    Store (ShiftRight (B1B2 (BCB0, BCB1), 0x08), Index (DerefOf (Index (Local0, 0x02)), 0x19
-                    ))
+                    Store (ShiftRight (B1B2 (BCB0, BCB1), 0x08), Index (DerefOf (Index (Local0, 0x02)), 0x19))
                     Store (B1B2 (BCP0, BCP1), Index (DerefOf (Index (Local0, 0x02)), 0x1A))
-                    Store (ShiftRight (B1B2 (BCP0, BCP1), 0x08), Index (DerefOf (Index (Local0, 0x02)), 0x1B
-                    ))
-                    CreateField (DerefOf (Index (Local0, 0x02)), Multiply (0x1C, 0x08), Multiply (0x10,
-                    0x08), BTSN)
+                    Store (ShiftRight (B1B2 (BCP0, BCP1), 0x08), Index (DerefOf (Index (Local0, 0x02)), 0x1B))
+                    CreateField (DerefOf (Index (Local0, 0x02)), Multiply (0x1C, 0x08), Multiply (0x10, 0x08), BTSN)
                     Store (GBSS (B1B2 (BSN0, BSN1), B1B2 (BDA0, BDA1)), BTSN)
-
                     Store (GBMF (), Local1)
                     Store (SizeOf (Local1), Local2)
-                    CreateField (DerefOf (Index (Local0, 0x02)), Multiply (0x2C, 0x08), Multiply (Local2,
-                    0x08), BMAN)
+                    CreateField (DerefOf (Index (Local0, 0x02)), Multiply (0x2C, 0x08), Multiply (Local2, 0x08), BMAN)
                     Store (Local1, BMAN)
                     Add (Local2, 0x2C, Local2)
-                    CreateField (DerefOf (Index (Local0, 0x02)), Multiply (Local2, 0x08), Multiply (0x10,
-                    0x08), CLBL)
+                    CreateField (DerefOf (Index (Local0, 0x02)), Multiply (Local2, 0x08), Multiply (0x10, 0x08), CLBL)
                     Store (GCTL (0x00), CLBL)
                     Add (Local2, 0x11, Local2)
-                    CreateField (DerefOf (Index (Local0, 0x02)), Multiply (Local2, 0x08), Multiply (0x07,
-                    0x08), DNAM)
+                    CreateField (DerefOf (Index (Local0, 0x02)), Multiply (Local2, 0x08), Multiply (0x07, 0x08), DNAM)
                     Store (GDNM (0x00), DNAM)
                     Add (Local2, 0x07, Local2)
-                    CreateField (DerefOf (Index (Local0, 0x02)), Multiply (Local2, 0x08), Multiply (0x04,
-                    0x08), DCHE)
+                    CreateField (DerefOf (Index (Local0, 0x02)), Multiply (Local2, 0x08), Multiply (0x04, 0x08), DCHE)
                     Store (GDCH (0x00), DCHE)
                     Add (Local2, 0x04, Local2)
-                    CreateField (DerefOf (Index (Local0, 0x02)), Multiply (Local2, 0x08), Multiply (0x02,
-                    0x08), BMAC)
+                    CreateField (DerefOf (Index (Local0, 0x02)), Multiply (Local2, 0x08), Multiply (0x02, 0x08), BMAC)
                     Store (0x00, BMAC)
                     Add (Local2, 0x02, Local2)
-                    CreateField (DerefOf (Index (Local0, 0x02)), Multiply (Local2, 0x08), Multiply (0x02,
-                    0x08), BMAD)
+                    CreateField (DerefOf (Index (Local0, 0x02)), Multiply (Local2, 0x08), Multiply (0x02, 0x08), BMAD)
                     Store (B1B2 (BDA0, BDA1), BMAD)
                     Add (Local2, 0x02, Local2)
-                    CreateField (DerefOf (Index (Local0, 0x02)), Multiply (Local2, 0x08), Multiply (0x02,
-                    0x08), BCCU)
+                    CreateField (DerefOf (Index (Local0, 0x02)), Multiply (Local2, 0x08), Multiply (0x02, 0x08), BCCU)
                     Store (BRCC, BCCU)
                     Add (Local2, 0x02, Local2)
-                    CreateField (DerefOf (Index (Local0, 0x02)), Multiply (Local2, 0x08), Multiply (0x02,
-                    0x08), BCVO)
+                    CreateField (DerefOf (Index (Local0, 0x02)), Multiply (Local2, 0x08), Multiply (0x02, 0x08), BCVO)
                     Store (BRCV, BCVO)
                     Add (Local2, 0x02, Local2)
-                    CreateField (DerefOf (Index (Local0, 0x02)), Multiply (Local2, 0x08), Multiply (0x02,
-                    0x08), BAVC)
+                    CreateField (DerefOf (Index (Local0, 0x02)), Multiply (Local2, 0x08), Multiply (0x02, 0x08), BAVC)
                     Store (B1B2 (BCR0, BCR1), Local1)
                     If (Local1)
                     {
@@ -690,20 +665,16 @@ DefinitionBlock ("SSDT-HACK.aml", "SSDT", 1, "hack", "hack", 0x00003000)
 
                     Store (Local1, BAVC)
                     Add (Local2, 0x02, Local2)
-                    CreateField (DerefOf (Index (Local0, 0x02)), Multiply (Local2, 0x08), Multiply (0x02,
-                    0x08), RTTE)
+                    CreateField (DerefOf (Index (Local0, 0x02)), Multiply (Local2, 0x08), Multiply (0x02, 0x08), RTTE)
                     Store (B1B2 (RTE0, RTE1), RTTE)
                     Add (Local2, 0x02, Local2)
-                    CreateField (DerefOf (Index (Local0, 0x02)), Multiply (Local2, 0x08), Multiply (0x02,
-                    0x08), ATTE)
+                    CreateField (DerefOf (Index (Local0, 0x02)), Multiply (Local2, 0x08), Multiply (0x02, 0x08), ATTE)
                     Store (B1B2 (ATE0, ATE1), RTTE)
                     Add (Local2, 0x02, Local2)
-                    CreateField (DerefOf (Index (Local0, 0x02)), Multiply (Local2, 0x08), Multiply (0x02,
-                    0x08), ATTF)
+                    CreateField (DerefOf (Index (Local0, 0x02)), Multiply (Local2, 0x08), Multiply (0x02, 0x08), ATTF)
                     Store (B1B2 (ATF0, ATF1), RTTE)
                     Add (Local2, 0x02, Local2)
-                    CreateField (DerefOf (Index (Local0, 0x02)), Multiply (Local2, 0x08), Multiply (0x01,
-                    0x08), NOBS)
+                    CreateField (DerefOf (Index (Local0, 0x02)), Multiply (Local2, 0x08), Multiply (0x01, 0x08), NOBS)
                     Store (BATN, NOBS)
                 }
                 Else
@@ -795,8 +766,7 @@ DefinitionBlock ("SSDT-HACK.aml", "SSDT", 1, "hack", "hack", 0x00003000)
                     }
                     Else
                     {
-                        If (LAnd (LAnd (LAnd (LEqual (INAC, 0x00), LEqual (INCH, 0x01)), LEqual (IDIS,
-                        0x02)), LEqual (B1B2 (AXC0, AXC1), 0x00)))
+                        If (LAnd (LAnd (LAnd (LEqual (INAC, 0x00), LEqual (INCH, 0x01)), LEqual (IDIS, 0x02)), LEqual (B1B2 (AXC0, AXC1), 0x00)))
                         {
                             Store (0x01, Index (DerefOf (Index (Local0, 0x02)), 0x01))
                         }
@@ -808,8 +778,7 @@ DefinitionBlock ("SSDT-HACK.aml", "SSDT", 1, "hack", "hack", 0x00003000)
                             }
                             Else
                             {
-                                If (LAnd (LAnd (LAnd (LEqual (INAC, 0x00), LEqual (INCH, 0x01)), LEqual (IDIS,
-                                0x02)), LEqual (B1B2 (AXC0, AXC1), 0xFA)))
+                                If (LAnd (LAnd (LAnd (LEqual (INAC, 0x00), LEqual (INCH, 0x01)), LEqual (IDIS, 0x02)), LEqual (B1B2 (AXC0, AXC1), 0xFA)))
                                 {
                                     Store (0x03, Index (DerefOf (Index (Local0, 0x02)), 0x01))
                                 }

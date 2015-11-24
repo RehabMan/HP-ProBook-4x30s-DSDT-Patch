@@ -11,7 +11,9 @@ AR9285 = 08_AR9285.txt
 ALL = 4x30s.txt 4x40s_IvyBridge.txt 4x40s_SandyBridge.txt
 MINI = Mini-SSDT.aml Mini-SSDT-DualLink.aml Mini-SSDT-IMEI.aml Mini-SSDT-DisableGraphics.aml Mini-SSDT-AR9285.aml
 
-MINI:=$(MINI) SSDT-HACK.aml
+BUILDDIR=./build
+
+MINI:=$(MINI) $(BUILDDIR)/SSDT-HACK.aml
 
 .PHONY: all
 all : $(ALL) $(MINI)
@@ -52,6 +54,6 @@ Mini-SSDT-AR9285.aml : Mini-SSDT-AR9285.dsl
 
 # new SSDT-HACK
 
-SSDT-HACK.aml : SSDT-HACK.dsl
+$(BUILDDIR)/SSDT-HACK.aml : SSDT-HACK.dsl
 	iasl -p $@ $^
 

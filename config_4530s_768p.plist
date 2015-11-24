@@ -166,14 +166,7 @@
 			<key>DropOem</key>
 			<false/>
 			<key>Generate</key>
-			<dict>
-				<key>PStates</key>
-				<false/>
-				<key>CStates</key>
-				<false/>
-			</dict>
-			<key>PluginType</key>
-			<integer>0</integer>
+			<false/>
 		</dict>
 	</dict>
 	<key>GUI</key>
@@ -198,41 +191,19 @@
 			<key>Kernel</key>
 			<string>None</string>
 		</dict>
-		<key>#Custom</key>
+		<key>Custom</key>
 		<dict>
 			<key>Entries</key>
 			<array>
 				<dict>
-					<key>Volume</key>
-					<string>B48720EA-2D07-45DA-9705-0F8E354F38F6</string>
-					<key>Path</key>
-					<string>\EFI\Microsoft\Boot\bootmgfw.efi</string>
 					<key>FullTitle</key>
-					<string>Windows 8.1</string>
+					<string>UEFI Internal</string>
 					<key>Hidden</key>
-					<false/>
+					<string>Always</string>
 					<key>Disabled</key>
 					<false/>
 					<key>Type</key>
-					<string>Windows</string>
-					<key>VolumeType</key>
-					<string>Internal</string>
-				</dict>
-				<dict>
-					<key>Volume</key>
-					<string>E0326B71-2878-41E8-80BA-210F71048D64</string>
-					<key>Path</key>
-					<string>\EFI\Microsoft\Boot\bootmgfw.efi</string>
-					<key>FullTitle</key>
-					<string>Windows 7</string>
-					<key>Hidden</key>
-					<false/>
-					<key>Disabled</key>
-					<false/>
-					<key>Type</key>
-					<string>Windows</string>
-					<key>VolumeType</key>
-					<string>Internal</string>
+					<string>Other</string>
 				</dict>
 			</array>
 		</dict>
@@ -240,7 +211,7 @@
 	<key>Boot</key>
 	<dict>
 		<key>Arguments</key>
-		<string>kext-dev-mode=1 rootless=0</string>
+		<string>kext-dev-mode=1 dart=0</string>
 		<key>Legacy</key>
 		<string>LegacyBiosDefault</string>
 		<key>Log</key>
@@ -396,9 +367,9 @@
 			</dict>
 		</array>
 	</dict>
-	<key>Graphics</key>
+	<key>#Graphics</key>
 	<dict>
-		<key>#Inject</key>
+		<key>Inject</key>
 		<dict>
 			<key>Intel</key>
 			<true/>
@@ -605,7 +576,7 @@
 		<key>ProductName</key>
 		<string>MacBookPro8,1</string>
 		<key>Trust</key>
-		<false/>
+		<true/>
 	</dict>
 	<key>SystemParameters</key>
 	<dict>
