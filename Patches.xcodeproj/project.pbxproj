@@ -14,7 +14,7 @@
 		843DA4791706024900E87F04 /* Mini-SSDT-DualLink.dsl */ = {isa = PBXFileReference; lastKnownFileType = text; lineEnding = 0; path = "mini/Mini-SSDT-DualLink.dsl"; sourceTree = "<group>"; };
 		8456BC3D1752A827008F4353 /* Mini-SSDT-DisableGraphics.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "mini/Mini-SSDT-DisableGraphics.dsl"; sourceTree = "<group>"; };
 		845A57FA1733114800E882FA /* 04b_FanQuietMod.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = patches/04b_FanQuietMod.txt; sourceTree = "<group>"; };
-		845FE5EF1702639F004601B0 /* .maciasl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = patches/.maciasl; sourceTree = "<group>"; usesTabs = 1; };
+		845FE5EF1702639F004601B0 /* .maciasl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .maciasl; sourceTree = "<group>"; usesTabs = 1; };
 		846B57131706046600E19787 /* Mini-SSDT.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "mini/Mini-SSDT.dsl"; sourceTree = "<group>"; };
 		8470FEA0180B7FD700FA322E /* 08b_BCM4322x.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = patches/08b_BCM4322x.txt; sourceTree = "<group>"; };
 		847F5ED81B50873A00825CE8 /* 09_USB3_4x40s_10_11.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = patches/09_USB3_4x40s_10_11.txt; sourceTree = "<group>"; };
