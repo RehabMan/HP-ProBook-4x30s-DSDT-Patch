@@ -9,6 +9,7 @@
 			<string>SSDT.aml</string>
 			<string>SSDT-HACK.aml</string>
 			<string>SSDT-IGPU.aml</string>
+			<string>SSDT-IGPU-HIRES.aml</string>
 			<string>SSDT-BATT.aml</string>
 			<string>SSDT-BATT-G2.aml</string>
 			<string>SSDT-KEY87.aml</string>

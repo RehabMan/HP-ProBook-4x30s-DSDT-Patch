@@ -8,7 +8,7 @@
 #define OBJECTTYPE_INTEGER 1
 #define OBJECTTYPE_PACKAGE 4
 
-DefinitionBlock ("SSDT-HACK.aml", "SSDT", 1, "hack", "IGPU", 0x00003000)
+DefinitionBlock ("SSDT-IGPU.aml", "SSDT", 1, "hack", "igpu", 0x00003000)
 {
     External(\_SB.PCI0, DeviceObj)
     Scope (\_SB.PCI0)
@@ -36,15 +36,20 @@ DefinitionBlock ("SSDT-HACK.aml", "SSDT", 1, "hack", "IGPU", 0x00003000)
                         "hda-gfx", Buffer() { "onboard-1" },
                         "AAPL,snb-platform-id", Buffer() { 0x00, 0x00, 0x21, 0x00 },
                         "AAPL,os-info", Buffer() { 0x30, 0x49, 0x01, 0x11, 0x11, 0x11, 0x08, 0x00, 0x00, 0x01, 0xf0, 0x1f, 0x01, 0x00, 0x00, 0x00, 0x10, 0x07, 0x00, 0x00 },
-                        //"#AAPL,DualLink", Buffer() { 0x01, 0x00, 0x00, 0x00 },  //1080p
+                        #ifdef HIRES
+                        "AAPL,DualLink", Buffer() { 0x01, 0x00, 0x00, 0x00 },         //900p/1080p
+                        #endif
                     },
                     // Ivy Bridge/HD4000
                     0x0166, Package()
                     {
                         "model", Buffer() { "Intel HD Graphics 4000" },
                         "hda-gfx", Buffer() { "onboard-1" },
-                        //"AAPL,ig-platform-id", Buffer() { 0x03, 0x00, 0x66, 0x01 },    //768p
-                        "AAPL,ig-platform-id", Buffer() { 0x04, 0x00, 0x66, 0x01 },     //1080p
+                        #ifndef HIRES
+                        "AAPL,ig-platform-id", Buffer() { 0x03, 0x00, 0x66, 0x01 },   //768p
+                        #else
+                        "AAPL,ig-platform-id", Buffer() { 0x04, 0x00, 0x66, 0x01 },   //900p/1080p
+                        #endif
                     },
                     // Haswell/HD4200
                     0x0a1e, Package()
