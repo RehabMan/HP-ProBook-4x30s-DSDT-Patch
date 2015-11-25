@@ -141,25 +141,17 @@ DefinitionBlock ("SSDT-IGPU.aml", "SSDT", 1, "hack", "igpu", 0x00003000)
                 If (LEqual(Arg2, Zero)) { Return (Buffer() { 0x03 } ) }
                 Store(^^IGPU.GDID, Local1)
                 Store(MDID, Local2)
-                Name(DBUF, Buffer(4){})
                 If (0x0166 == Local1 && 0x1c3a == Local2)
                 {
                     // HD4000 on 6-series, inject 7-series IMEI device-id
-                    Store(0x1e3a, DBUF)
+                    Return (Package() { "device-id", Buffer() { 0x3a, 0x1e, 0, 0 } })
                 }
                 ElseIf ((0x0116 == Local1 || 0x0126 == Local1) && 0x1e3a == Local2)
                 {
                     // HD3000 on 7-series, inject 6-series IMEI device-id
-                    Store(0x1c3a, DBUF)
+                    Return (Package() { "device-id", Buffer() { 0x3a, 0x1c, 0, 0 } })
                 }
-                If (DerefOf(Index(DBUF,0)))
-                {
-                    Return (Package() { "device-id", DBUF })
-                }
-                Else
-                {
-                    Return (Package(){})
-                }
+                Return (Package(){})
             }
         }
     }
