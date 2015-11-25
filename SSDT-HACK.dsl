@@ -98,11 +98,6 @@ DefinitionBlock ("SSDT-HACK.aml", "SSDT", 1, "hack", "hack", 0x00003000)
 
     Scope (\_SB.PCI0)
     {
-        Device(IMEI)
-        {
-            Name (_ADR, 0x00160000)
-        }
-
         Device(SBUS.BUS0)
         {
             Name(_CID, "smbus")

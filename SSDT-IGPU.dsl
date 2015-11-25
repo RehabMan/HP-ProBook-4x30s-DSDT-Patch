@@ -125,6 +125,43 @@ DefinitionBlock ("SSDT-IGPU.aml", "SSDT", 1, "hack", "igpu", 0x00003000)
                 Return (Package() { })
             }
         }
+
+        Device(IMEI)
+        {
+            Name(_ADR, 0x00160000)
+
+            // deal with mixed system, HD3000/7-series, HD4000/6-series
+            OperationRegion(MMD4, PCI_Config, 2, 2)
+            Field(MMD4, AnyAcc, NoLock, Preserve)
+            {
+                MDID,16
+            }
+            Method(_DSM, 4)
+            {
+                If (LEqual(Arg2, Zero)) { Return (Buffer() { 0x03 } ) }
+                Store(Package()
+                {
+                    "device-id", Buffer() { 0, 0, 0, 0 },
+                }, Local0)
+                Store(^^IGPU.GDID, Local1)
+                Store(MDID, Local2)
+                If (0x0166 == Local1 && 0x1c3a == Local2)
+                {
+                    // HD4000 on 6-series, inject 7-series IMEI device-id
+                    Store(0x1e3a, Index(local0,1))
+                }
+                ElseIf ((0x0116 == Local1 || 0x0126 == Local1) && 0x1e3a == Local2)
+                {
+                    // HD3000 on 7-series, inject 6-series IMEI device-id
+                    Store(0x1c3a, Index(Local0,1))
+                }
+                Else
+                {
+                    Store(Local2, Index(Local0,1))
+                }
+                Return (Local0)
+            }
+        }
     }
 }
 
