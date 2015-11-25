@@ -98,6 +98,30 @@ DefinitionBlock ("SSDT-HACK.aml", "SSDT", 1, "hack", "hack", 0x00003000)
 
     Scope (\_SB.PCI0)
     {
+        Scope(LPCB)
+        {
+            OperationRegion(LPD4, PCI_Config, 2, 2)
+            Field(LPD4, AnyAcc, NoLock, Preserve)
+            {
+                LDID,16
+            }
+            Method(_DSM, 4)
+            {
+                // list of 8-series LPC device-ids not natively supported
+                Store(Package()
+                {
+                    0x8c46, 0x8c49, 0x8c4a, 0x8c4c, 0x8c4e, 0x8c4f,
+                    0x8c50, 0x8c52, 0x8c54, 0x8c56, 0x8c5c
+                }, Local0)
+                // inject 0x8c4b for unsupported LPC device-id
+                If (LNotEqual(Match(Local0, MEQ, LDID, MTR, 0, 0), Ones))
+                {
+                    Return (Package() { "compatible", Buffer() { "pci8086,8c4b" } })
+                }
+                Return (Package() { })
+            }
+        }
+
         Device(SBUS.BUS0)
         {
             Name(_CID, "smbus")
