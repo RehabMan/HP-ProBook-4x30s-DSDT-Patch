@@ -17,15 +17,32 @@ MINI:=$(MINI) $(BUILDDIR)/SSDT-HACK.aml
 MINI:=$(MINI) $(BUILDDIR)/SSDT-IGPU.aml $(BUILDDIR)/SSDT-IGPU-HIRES.aml
 MINI:=$(MINI) $(BUILDDIR)/SSDT-BATT.aml $(BUILDDIR)/SSDT-BATT-G2.aml
 MINI:=$(MINI) $(BUILDDIR)/SSDT-KEY87.aml $(BUILDDIR)/SSDT-KEY102.aml
-MINI:=$(MINI) $(BUILDDIR)/SSDT-FAN-QUIET.aml $(BUILDDIR)/SSDT-FAN-ORIG.aml $(BUILDDIR)/SSDT-FAN-READ.aml $(BUILDDIR)/SSDT-FAN-SMOOTH.aml
+MINI:=$(MINI) $(BUILDDIR)/SSDT-FAN-QUIET.aml $(BUILDDIR)/SSDT-FAN-MOD.aml $(BUILDDIR)/SSDT-FAN-SMOOTH.aml
+MINI:=$(MINI) $(BUILDDIR)/SSDT-FAN-ORIG.aml $(BUILDDIR)/SSDT-FAN-READ.aml
+
+PLIST:=config_4x0s_Gx.plist config_4x30s.plist config_4x40s.plist
 
 .PHONY: all
-all : $(ALL) $(MINI)
+all : $(ALL) $(MINI) $(PLIST)
 
 .PHONY: clean
 clean: 
-	rm $(ALL) $(MINI)
+	rm $(ALL) $(MINI) $(PLIST)
 
+# generated config.plist files
+
+config_4x0s_Gx.plist : config_master.plist config_ALC282.plist
+	cp config_master.plist $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_ALC282.plist $@
+
+config_4x30s.plist : config_master.plist config_IDT76d1.plist config_non_Intel_USB3.plist
+	cp config_master.plist $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_IDT76d1.plist $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_non_Intel_USB3.plist $@
+
+config_4x40s.plist : config_master.plist config_IDT76d9.plist
+	cp config_master.plist $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_IDT76d9.plist $@
 
 # combo patches
 
@@ -37,7 +54,6 @@ patches/4x40s_IvyBridge.txt : $(COMMON) $(EHCI7)
 
 patches/4x40s_SandyBridge.txt : $(COMMON) $(EHCI7) $(IMEI)
 	cat $^ >$@ 
-
 
 # mini SSDTs
 
@@ -80,7 +96,13 @@ $(BUILDDIR)/SSDT-KEY102.aml : SSDT-KEY102.dsl
 	iasl -p $@ $^
 
 $(BUILDDIR)/SSDT-FAN-QUIET.aml : SSDT-FAN-QUIET.dsl
-	iasl -p $@ $^
+	iasl -D QUIET -p $@ $^
+
+$(BUILDDIR)/SSDT-FAN-MOD.aml : SSDT-FAN-QUIET.dsl
+	iasl -D REHABMAN -p $@ $^
+
+$(BUILDDIR)/SSDT-FAN-SMOOTH.aml : SSDT-FAN-QUIET.dsl
+	iasl -D GRAPPLER -p $@ $^
 
 $(BUILDDIR)/SSDT-FAN-ORIG.aml : SSDT-FAN-ORIG.dsl
 	iasl -p $@ $^
@@ -88,5 +110,3 @@ $(BUILDDIR)/SSDT-FAN-ORIG.aml : SSDT-FAN-ORIG.dsl
 $(BUILDDIR)/SSDT-FAN-READ.aml : SSDT-FAN-READ.dsl
 	iasl -p $@ $^
 
-$(BUILDDIR)/SSDT-FAN-SMOOTH.aml : SSDT-FAN-SMOOTH.dsl
-	iasl -p $@ $^

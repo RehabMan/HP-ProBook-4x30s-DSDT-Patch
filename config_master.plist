@@ -23,8 +23,6 @@
 		<dict>
 			<key>Fixes</key>
 			<dict>
-				<key>FixRegions_10000000</key>
-				<true/>
 				<key>NewWay_80000000</key>
 				<true/>
 				<key>FIX_TMR_40000</key>
@@ -72,22 +70,6 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>change Method(UPRW,2,..) to Method(XPRW,2,..)</string>
-					<key>Find</key>
-					<data>VVBSVwpwEg==</data>
-					<key>Replace</key>
-					<data>WFBSVwpwEg==</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>change LANC Method(_PRW,0,Serialized) to Method(XPRW,0,..)</string>
-					<key>Find</key>
-					<data>AAAZABQfX1BSVwg=</data>
-					<key>Replace</key>
-					<data>AAAZABQfWFBSVwg=</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
 					<string>change GFX0 to IGPU</string>
 					<key>Find</key>
 					<data>R0ZYMA==</data>
@@ -101,6 +83,22 @@
 					<data>QjBEMw==</data>
 					<key>Replace</key>
 					<data>SERBVQ==</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>change Method(UPRW,2,..) to Method(XPRW,2,..)</string>
+					<key>Find</key>
+					<data>VVBSVwpwEg==</data>
+					<key>Replace</key>
+					<data>WFBSVwpwEg==</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>change LANC Method(_PRW,0,Serialized) to Method(XPRW,0,..)</string>
+					<key>Find</key>
+					<data>AAAZABQfX1BSVwg=</data>
+					<key>Replace</key>
+					<data>AAAZABQfWFBSVwg=</data>
 				</dict>
 				<dict>
 					<key>Comment</key>
@@ -195,43 +193,6 @@
 			<false/>
 		</dict>
 	</dict>
-	<key>GUI</key>
-	<dict>
-		<key>ScreenResolution</key>
-		<string>1024x768</string>
-		<key>Theme</key>
-		<string>Yosemite S</string>
-		<key>Mouse</key>
-		<dict>
-			<key>Enabled</key>
-			<false/>
-		</dict>
-		<key>Scan</key>
-		<dict>
-			<key>Entries</key>
-			<true/>
-			<key>Tool</key>
-			<true/>
-			<key>Legacy</key>
-			<false/>
-		</dict>
-		<key>Custom</key>
-		<dict>
-			<key>Entries</key>
-			<array>
-				<dict>
-					<key>FullTitle</key>
-					<string>UEFI Internal</string>
-					<key>Hidden</key>
-					<string>Always</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Type</key>
-					<string>Other</string>
-				</dict>
-			</array>
-		</dict>
-	</dict>
 	<key>Boot</key>
 	<dict>
 		<key>Arguments</key>
@@ -248,130 +209,6 @@
 		<string>Yes</string>
 		<key>Secure</key>
 		<false/>
-	</dict>
-	<key>KernelAndKextPatches</key>
-	<dict>
-		<key>AppleRTC</key>
-		<true/>
-		<key>KernelPm</key>
-		<true/>
-		<key>KextsToPatch</key>
-		<array>
-			<dict>
-				<key>Name</key>
-				<string>IOAHCIBlockStorage</string>
-				<key>Find</key>
-				<data>QVBQTEUgU1NE</data>
-				<key>Replace</key>
-				<data>AAAAAAAAAAAA</data>
-				<key>Comment</key>
-				<string>Enable Trim on SSD</string>
-			</dict>
-			<dict>
-				<key>Name</key>
-				<string>IOGraphicsFamily</string>
-				<key>Find</key>
-				<data>AQAAdRc=</data>
-				<key>Replace</key>
-				<data>AQAAdBc=</data>
-				<key>Comment</key>
-				<string>Second Stage patch 10.11</string>
-			</dict>
-			<dict>
-				<key>Name</key>
-				<string>AirPortBrcm4360</string>
-				<key>Find</key>
-				<data>TWFjLTJFNkZBQjk2NTY2RkU1OEM=</data>
-				<key>Replace</key>
-				<data>TWFjLTkzN0NCMjZFMkUwMkJCMDE=</data>
-				<key>Comment</key>
-				<string>Broadcom 43224 whitelist</string>
-			</dict>
-			<dict>
-				<key>Name</key>
-				<string>AirPortBrcm4360</string>
-				<key>Find</key>
-				<data>QYP8/3QsSA==</data>
-				<key>Replace</key>
-				<data>ZscGVVPrKw==</data>
-				<key>Comment</key>
-				<string>Broadcom 5Ghz US</string>
-			</dict>
-			<dict>
-				<key>Name</key>
-				<string>IOBluetoothFamily</string>
-				<key>Find</key>
-				<data>SIX/dEdIiwc=</data>
-				<key>Replace</key>
-				<data>Qb4PAAAA60Q=</data>
-				<key>Comment</key>
-				<string>Handoff Fix</string>
-			</dict>
-			<dict>
-				<key>Name</key>
-				<string>AppleIntelBDWGraphicsFramebuffer</string>
-				<key>Find</key>
-				<data>AQULAAAEAAAHBQAAAgQLAAAEAAAHBQAA/wAAAAEAAABAAAAA</data>
-				<key>Replace</key>
-				<data>AQULAAAIAACCAAAAAgQLAAAIAACCAAAA/wAAAAEAAABAAAAA</data>
-				<key>Comment</key>
-				<string>Patch HD5500 HDMI Audio</string>
-			</dict>
-			<dict>
-				<key>Name</key>
-				<string>AppleHDA</string>
-				<key>Find</key>
-				<data>gxnUEQ==</data>
-				<key>Replace</key>
-				<data>AAAAAA==</data>
-				<key>Comment</key>
-				<string>AppleHDA Patch 10.11</string>
-			</dict>
-			<dict>
-				<key>Name</key>
-				<string>AppleHDA</string>
-				<key>Find</key>
-				<data>hAjsEA==</data>
-				<key>Replace</key>
-				<data>AAAAAA==</data>
-				<key>Comment</key>
-				<string>ALC 282</string>
-			</dict>
-			<dict>
-				<key>Name</key>
-				<string>AppleHDA</string>
-				<key>Find</key>
-				<data>hQjsEA==</data>
-				<key>Replace</key>
-				<data>AAAAAA==</data>
-				<key>Comment</key>
-				<string>ALC 282</string>
-			</dict>
-			<dict>
-				<key>Name</key>
-				<string>AppleHDA</string>
-				<key>Find</key>
-				<data>hBnUEQ==</data>
-				<key>Replace</key>
-				<data>ggLsEA==</data>
-				<key>Comment</key>
-				<string>ALC 282</string>
-			</dict>
-		</array>
-	</dict>
-	<key>#Graphics</key>
-	<dict>
-		<key>ig-platform-id</key>
-		<string>0x16260006</string>
-		<key>Inject</key>
-		<dict>
-			<key>Intel</key>
-			<true/>
-			<key>ATI</key>
-			<false/>
-			<key>NVidia</key>
-			<false/>
-		</dict>
 	</dict>
 	<key>Devices</key>
 	<dict>
@@ -578,21 +415,272 @@
 		<key>UseIntelHDMI</key>
 		<false/>
 	</dict>
-	<key>SMBIOS</key>
+	<key>GUI</key>
 	<dict>
-		<key>Comment</key>
-		<string>No MacBookAir7,2 support in Clover right now</string>
-		<key>ProductName</key>
-		<string>MacBookAir6,2</string>
-		<key>#ProductName</key>
-		<string>MacBookAir7,2</string>
-		<key>Trust</key>
-		<true/>
+		<key>ScreenResolution</key>
+		<string>1024x768</string>
+		<key>Theme</key>
+		<string>Yosemite S</string>
+		<key>Mouse</key>
+		<dict>
+			<key>Enabled</key>
+			<false/>
+		</dict>
+		<key>Scan</key>
+		<dict>
+			<key>Entries</key>
+			<true/>
+			<key>Tool</key>
+			<true/>
+			<key>Legacy</key>
+			<false/>
+		</dict>
+		<key>Custom</key>
+		<dict>
+			<key>Entries</key>
+			<array>
+				<dict>
+					<key>FullTitle</key>
+					<string>UEFI Internal</string>
+					<key>Hidden</key>
+					<string>Always</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Type</key>
+					<string>Other</string>
+				</dict>
+			</array>
+		</dict>
 	</dict>
-	<key>SystemParameters</key>
+	<key>KernelAndKextPatches</key>
 	<dict>
-		<key>InjectKexts</key>
-		<string>Detect</string>
+		<key>AppleRTC</key>
+		<true/>
+		<key>KernelPm</key>
+		<true/>
+		<key>KextsToPatch</key>
+		<array>
+			<dict>
+				<key>Comment</key>
+				<string>Enable TRIM for non-Apple SSDs</string>
+				<key>Find</key>
+				<data>AEFQUExFIFNTRAA=</data>
+				<key>Name</key>
+				<string>IOAHCIBlockStorage</string>
+				<key>Replace</key>
+				<data>AAAAAAAAAAAAAAA=</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Boot graphics glitch, 10.10.x/10.11.x (credit lisai9093, cecekpawon)</string>
+				<key>Find</key>
+				<data>AQAAdRc=</data>
+				<key>Name</key>
+				<string>IOGraphicsFamily</string>
+				<key>Replace</key>
+				<data>AQAA6xc=</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>AirPortBrcm4360 whitelist patch (board-id), credit RehabMan</string>
+				<key>Name</key>
+				<string>AirPortBrcm4360</string>
+				<key>Find</key>
+				<data>MdtMO2XYdRI=</data>
+				<key>Replace</key>
+				<data>Mdv/w5CQkJA=</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>10.9.5 5Ghz US FCC, svko</string>
+				<key>Name</key>
+				<string>AirPortBrcm4360</string>
+				<key>Find</key>
+				<data>WFQAIBcnIAAA</data>
+				<key>Replace</key>
+				<data>WFQAG2cxlQAJ</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>10.10.2+ 5Ghz US FCC, the-darkvoid</string>
+				<key>Name</key>
+				<string>AirPortBrcm4360</string>
+				<key>Find</key>
+				<data>QYP8/3QsSA==</data>
+				<key>Replace</key>
+				<data>ZscGVVPrKw==</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>10.10.2+ BT4LE-Handoff-Hotspot, Dokterdok</string>
+				<key>Name</key>
+				<string>IOBluetoothFamily</string>
+				<key>Find</key>
+				<data>SIXAdFwPt0g=</data>
+				<key>Replace</key>
+				<data>Qb4PAAAA61k=</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>10.11.dp1+ BT4LE-Handoff-Hotspot, credit RehabMan based on Dokterdok original</string>
+				<key>Name</key>
+				<string>IOBluetoothFamily</string>
+				<key>Find</key>
+				<data>SIX/dEdIiwc=</data>
+				<key>Replace</key>
+				<data>Qb4PAAAA60Q=</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>HDMI-audio/VGA(0602) HD3000, 0x00010000, port 0406</string>
+				<key>Name</key>
+				<string>disabled:AppleIntelSNBGraphicsFB</string>
+				<key>Find</key>
+				<data>AQIEABAHAAAQBwAABQMAAAIAAAAwAAAAAgUAAAAEAAAHAAAAAwQAAAAEAAAJAAAABAYAAAAEAAAJAAAA</data>
+				<key>Replace</key>
+				<data>AQIDABAHAAAQBwAABgIAAAABAAAJAAAABQMAAAIAAAAwAAAABAYAAAAIAAAJAAAAAAAAAAAAAAAAAAAA</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>HDMI-audio HD3000, 0x00010000, port 0205</string>
+				<key>Name</key>
+				<string>disabled:AppleIntelSNBGraphicsFB</string>
+				<key>Find</key>
+				<data>AgUAAAAEAAAHAAAA</data>
+				<key>Replace</key>
+				<data>AgUAAAAIAAAHAAAA</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>HDMI-audio HD3000, 0x00010000, port 0304</string>
+				<key>Name</key>
+				<string>disabled:AppleIntelSNBGraphicsFB</string>
+				<key>Find</key>
+				<data>AwQAAAAEAAAJAAAA</data>
+				<key>Replace</key>
+				<data>AwQAAAAIAAAJAAAA</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>HDMI-audio HD3000, 0x00010000, port 0406</string>
+				<key>Name</key>
+				<string>AppleIntelSNBGraphicsFB</string>
+				<key>Find</key>
+				<data>BAYAAAAEAAAJAAAA</data>
+				<key>Replace</key>
+				<data>BAYAAAAIAAAJAAAA</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>HDMI-video, 64MB BIOS, HD4000 0x01660004 #1 of 2</string>
+				<key>Name</key>
+				<string>AppleIntelFramebufferCapri</string>
+				<key>Find</key>
+				<data>BABmAQEDAQEAAAAC</data>
+				<key>Replace</key>
+				<data>BABmAQECBAIAAAAE</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>HDMI-video, 64MB BIOS, HD4000 0x01660004 #2 of 2</string>
+				<key>Name</key>
+				<string>AppleIntelFramebufferCapri</string>
+				<key>Find</key>
+				<data>MAIAAAAAAAABAAAAQAAAAAAAAAABAAAAQAAAAAAAAAABAAAAQAAAAAAAAAAAAAAA</data>
+				<key>Replace</key>
+				<data>MAIAAAIFAAAABAAABwQAAAMEAAAABAAAgQAAAAQGAAAABAAAgQAAAAAAAAAAAgAR</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>HDMI-audio HD4000 0x01660003/0004, port 0205</string>
+				<key>Name</key>
+				<string>disabled:AppleIntelFramebufferCapri</string>
+				<key>Find</key>
+				<data>AgUAAAAEAAAHBAAA</data>
+				<key>Replace</key>
+				<data>AgUAAAAIAAAGAAAA</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>HDMI-audio HD4000 0x01660003/0004, port 0304</string>
+				<key>Name</key>
+				<string>disabled:AppleIntelFramebufferCapri</string>
+				<key>Find</key>
+				<data>AwQAAAAEAACBAAAA</data>
+				<key>Replace</key>
+				<data>AwQAAAAIAAAGAAAA</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>HDMI-audio HD4000 0x01660003/0004, port 0406</string>
+				<key>Name</key>
+				<string>AppleIntelFramebufferCapri</string>
+				<key>Find</key>
+				<data>BAYAAAAEAACBAAAA</data>
+				<key>Replace</key>
+				<data>BAYAAAAIAAAGAAAA</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Enable 9MB cursor bytes, 0x0a260006, vbo</string>
+				<key>Name</key>
+				<string>AppleIntelFramebufferAzul</string>
+				<key>Find</key>
+				<data>BgAmCgEDAwMAAAACAAAwAQAAYAA=</data>
+				<key>Replace</key>
+				<data>BgAmCgEDAwMAAAACAAAwAQAAkAA=</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>HDMI-audio, port 0105(12), 0x0a260005 0x0a260006, 0x0d220003, 0x0a2e000a, 0x0a26000a</string>
+				<key>Name</key>
+				<string>AppleIntelFramebufferAzul</string>
+				<key>Find</key>
+				<data>AQUJAAAEAACHAAAA</data>
+				<key>Replace</key>
+				<data>AQUSAAAIAACHAAAA</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>HDMI-audio, port 0204(12), 0x0a260005 0x0a260006</string>
+				<key>Name</key>
+				<string>AppleIntelFramebufferAzul</string>
+				<key>Find</key>
+				<data>AgQJAAAEAACHAAAA</data>
+				<key>Replace</key>
+				<data>AgQSAAAIAACHAAAA</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>HDMI-audio, port 0105, 0x0a260005 0x0a260006, 0x0d220003, 0x0a2e000a, 0x0a26000a</string>
+				<key>Name</key>
+				<string>disabled:AppleIntelFramebufferAzul</string>
+				<key>Find</key>
+				<data>AQUJAAAEAACHAAAA</data>
+				<key>Replace</key>
+				<data>AQUJAAAIAACHAAAA</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>HDMI-audio, port 0204, 0x0a260005 0x0a260006</string>
+				<key>Name</key>
+				<string>disabled:AppleIntelFramebufferAzul</string>
+				<key>Find</key>
+				<data>AgQJAAAEAACHAAAA</data>
+				<key>Replace</key>
+				<data>AgQJAAAIAACHAAAA</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>HDMI-audio, port 0105/0204, 0x16260006</string>
+				<key>Name</key>
+				<string>AppleIntelBDWGraphicsFramebuffer</string>
+				<key>Find</key>
+				<data>AQULAAAEAAAHBQAAAgQLAAAEAAAHBQAA/wAAAAEAAABAAAAA</data>
+				<key>Replace</key>
+				<data>AQULAAAIAACCAAAAAgQLAAAIAACCAAAA/wAAAAEAAABAAAAA</data>
+			</dict>
+		</array>
 	</dict>
 	<key>RtVariables</key>
 	<dict>
@@ -600,6 +688,20 @@
 		<string>0x67</string>
 		<key>BooterConfig</key>
 		<string>0x28</string>
+	</dict>
+	<key>SMBIOS</key>
+	<dict>
+		<key>Comment</key>
+		<string>smbios_comment_placeholder</string>
+		<key>ProductName</key>
+		<string>smbios_productname_placeholder</string>
+		<key>Trust</key>
+		<true/>
+	</dict>
+	<key>SystemParameters</key>
+	<dict>
+		<key>InjectKexts</key>
+		<string>Detect</string>
 	</dict>
 </dict>
 </plist>

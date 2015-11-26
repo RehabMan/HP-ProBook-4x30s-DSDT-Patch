@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>KernelAndKextPatches</key>
+	<dict>
+		<key>KextsToPatch</key>
+		<array>
+			<dict>
+				<key>Comment</key>
+				<string>USB 3.0 Disable Intel USB3 controller check 10.9</string>
+				<key>Name</key>
+				<string>AppleUSBXHCI</string>
+				<key>Find</key>
+				<data>9oDUAAAAgHU6</data>
+				<key>Replace</key>
+				<data>9oDUAAAAgOs6</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>USB 3.0 Disable Intel USB3 controller check 10.10</string>
+				<key>Name</key>
+				<string>AppleUSBXHCI</string>
+				<key>Find</key>
+				<data>9oDUAAAAgHU0</data>
+				<key>Replace</key>
+				<data>9oDUAAAAgOs0</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>USB 3.0 Disable XHCI 1.0 check 10.9</string>
+				<key>Name</key>
+				<string>AppleUSBXHCI</string>
+				<key>Find</key>
+				<data>Zj0AAQ==</data>
+				<key>Replace</key>
+				<data>Zj0AAA==</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>USB 3.0 Disable XHCI 1.0 check 10.10</string>
+				<key>Name</key>
+				<string>AppleUSBXHCI</string>
+				<key>Find</key>
+				<data>QbzHAgDgPQABAAA=</data>
+				<key>Replace</key>
+				<data>QbzHAgDgPQAAAAA=</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>USB 3.0 Patch MSI or pin interrupts #1</string>
+				<key>Name</key>
+				<string>AppleUSBXHCI</string>
+				<key>Find</key>
+				<data>gUkIAABAAA==</data>
+				<key>Replace</key>
+				<data>gUkIAAAAAA==</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>USB 3.0 Patch MSI or pin interrupts #2</string>
+				<key>Name</key>
+				<string>AppleUSBXHCI</string>
+				<key>Find</key>
+				<data>QcdHCAAAQAA=</data>
+				<key>Replace</key>
+				<data>QcdHCAAAAAA=</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>USB 3.0 Enable PCI power management</string>
+				<key>Name</key>
+				<string>AppleUSBXHCI</string>
+				<key>Find</key>
+				<data>dU1Ii7voAQAA</data>
+				<key>Replace</key>
+				<data>601Ii7voAQAA</data>
+			</dict>
+		</array>
+	</dict>
+</dict>
+</plist>
