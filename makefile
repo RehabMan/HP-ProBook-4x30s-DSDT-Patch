@@ -34,15 +34,18 @@ clean:
 config_4x0s_Gx.plist : config_master.plist config_ALC282.plist
 	cp config_master.plist $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_ALC282.plist $@
+	/usr/libexec/plistbuddy -c "Set :SMBIOS:ProductName MacBookAir7,2" $@
 
 config_4x30s.plist : config_master.plist config_IDT76d1.plist config_non_Intel_USB3.plist
 	cp config_master.plist $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_IDT76d1.plist $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_non_Intel_USB3.plist $@
+	/usr/libexec/plistbuddy -c "Set SMBIOS:ProductName MacBookPro9,2" $@
 
 config_4x40s.plist : config_master.plist config_IDT76d9.plist
 	cp config_master.plist $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_IDT76d9.plist $@
+	/usr/libexec/plistbuddy -c "Set :SMBIOS:ProductName MacBookPro8,2" $@
 
 # combo patches
 

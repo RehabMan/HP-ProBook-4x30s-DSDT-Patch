@@ -909,10 +909,8 @@
 	</dict>
 	<key>SMBIOS</key>
 	<dict>
-		<key>Comment</key>
-		<string>smbios_comment_placeholder</string>
 		<key>ProductName</key>
-		<string>smbios_productname_placeholder</string>
+		<string>MacBookPro8,2</string>
 		<key>Trust</key>
 		<true/>
 	</dict>
