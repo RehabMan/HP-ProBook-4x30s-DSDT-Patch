@@ -40,12 +40,16 @@ config_4x30s.plist : config_master.plist config_IDT76d1.plist config_non_Intel_U
 	cp config_master.plist $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_IDT76d1.plist $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_non_Intel_USB3.plist $@
-	/usr/libexec/plistbuddy -c "Set SMBIOS:ProductName MacBookPro9,2" $@
+	/usr/libexec/plistbuddy -c "Set SMBIOS:ProductName MacBookPro8,2" $@
+	/usr/libexec/plistbuddy -c "Set Devices:Arbitrary:0:CustomProperties:0:Value 12" $@
+	/usr/libexec/plistbuddy -c "Set Devices:Arbitrary:1:CustomProperties:0:Value 12" $@
 
 config_4x40s.plist : config_master.plist config_IDT76d9.plist
 	cp config_master.plist $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_IDT76d9.plist $@
-	/usr/libexec/plistbuddy -c "Set :SMBIOS:ProductName MacBookPro8,2" $@
+	/usr/libexec/plistbuddy -c "Set :SMBIOS:ProductName MacBookPro9,2" $@
+	/usr/libexec/plistbuddy -c "Set Devices:Arbitrary:0:CustomProperties:0:Value 12" $@
+	/usr/libexec/plistbuddy -c "Set Devices:Arbitrary:1:CustomProperties:0:Value 12" $@
 
 # combo patches
 

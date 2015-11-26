@@ -30,7 +30,7 @@ DefinitionBlock ("SSDT-IGPU.aml", "SSDT", 1, "hack", "igpu", 0x00003000)
                 Store(Package()
                 {
                     // Sandy Bridge/HD3000
-                    0x0116, 0x0126, Package()
+                    Package() { 0x0116, 0x0126, }, Package()
                     {
                         "model", Buffer() { "Intel HD Graphics 3000" },
                         "hda-gfx", Buffer() { "onboard-1" },
@@ -76,13 +76,13 @@ DefinitionBlock ("SSDT-IGPU.aml", "SSDT", 1, "hack", "igpu", 0x00003000)
                         "AAPL,ig-platform-id", Buffer() { 0x06, 0x00, 0x26, 0x0a },
                     },
                     // Haswell/HD5000/HD5100/HD5200
-                    0x0a26, 0x0a2e, 0x0d26, Package()
+                    Package() { 0x0a26, 0x0a2e, 0x0d26, }, Package()
                     {
                         "hda-gfx", Buffer() { "onboard-1" },
                         "AAPL,ig-platform-id", Buffer() { 0x06, 0x00, 0x26, 0x0a },
                     },
                     // Broadwell/HD5300/HD5500/HD5600/HD6000
-                    0x161e, 0x1616, 0x1612, 0x1626, 0x162b, Package()
+                    Package() { 0x161e, 0x1616, 0x1612, 0x1626, 0x162b, }, Package()
                     {
                         "hda-gfx", Buffer() { "onboard-1" },
                         "AAPL,ig-platform-id", Buffer() { 0x06, 0x00, 0x26, 0x16 },
@@ -100,22 +100,33 @@ DefinitionBlock ("SSDT-IGPU.aml", "SSDT", 1, "hack", "igpu", 0x00003000)
                 Store(SizeOf(Local4), Local1)
                 While (LLess(Local0, Local1))
                 {
+                    // Local2 is object at current index
+                    // Local5 is the type of that object
                     Store(DerefOf(Index(Local4,Local0)), Local2)
-                    If (LEqual(OBJECTTYPE_INTEGER, ObjectType(Local2)))
+                    Store(ObjectType(Local2), Local5)
+                    Increment(Local0) // Local0 now at result package entry
+                    If (LEqual(OBJECTTYPE_INTEGER, Local5))
                     {
-                        If (LEqual(Local2, Local3)) // matching device-id?
+                        If (LEqual(Local3, Local2)) // matching device-id?
                         {
-                            // search for Package that follows
-                            Increment(Local0)
-                            While (LLess(Local0, Local1)) // should always be found, but...
+                            // Local0 already points to return package
+                            Return (DerefOf(Index(Local4,Local0)))
+                        }
+                    }
+                    ElseIf (LEqual(OBJECTTYPE_PACKAGE, Local5))
+                    {
+                        // Local6 is current index in subpackage
+                        // Local7 is size of the subpackage
+                        Store(0, Local6)
+                        Store(SizeOf(Local2), Local7)
+                        While (LLess(Local6, Local7))
+                        {
+                            If (LEqual(Local3, DerefOf(Index(Local2,Local6))))
                             {
-                                Store(DerefOf(Index(Local4,Local0)), Local2)
-                                If (LEqual(OBJECTTYPE_PACKAGE, ObjectType(Local2)))
-                                {
-                                    Return (Local2)
-                                }
-                                Increment(Local0)
+                                // Local0 already points to return package
+                                Return (DerefOf(Index(Local4,Local0)))
                             }
+                            Increment(Local6)
                         }
                     }
                     Increment(Local0)

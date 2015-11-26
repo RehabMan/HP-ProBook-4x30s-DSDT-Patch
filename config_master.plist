@@ -166,12 +166,6 @@
 					<data>CE5CVDU=</data>
 				</dict>
 			</array>
-			<key>Debug</key>
-			<false/>
-			<key>ReuseFFFF</key>
-			<false/>
-			<key>DropOEM_DSM</key>
-			<false/>
 		</dict>
 		<key>DropTables</key>
 		<array>
@@ -226,7 +220,7 @@
 						<key>Key</key>
 						<string>layout-id</string>
 						<key>Value</key>
-						<data>AQAAAA==</data>
+						<integer>1</integer>
 					</dict>
 					<dict>
 						<key>Key</key>
@@ -253,7 +247,7 @@
 						<key>Key</key>
 						<string>layout-id</string>
 						<key>Value</key>
-						<data>AQAAAA==</data>
+						<integer>1</integer>
 					</dict>
 					<dict>
 						<key>Key</key>
@@ -457,6 +451,10 @@
 	<dict>
 		<key>AppleRTC</key>
 		<true/>
+		<key>AsusAICPUPM</key>
+		<true/>
+		<key>KernelLapic</key>
+		<false/>
 		<key>KernelPm</key>
 		<true/>
 		<key>KextsToPatch</key>
