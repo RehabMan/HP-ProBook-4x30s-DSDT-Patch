@@ -252,6 +252,7 @@
 			<string>SSDT-KEY87.aml</string>
 			<string>SSDT-KEY102.aml</string>
 			<string>SSDT-FAN-QUIET.aml</string>
+			<string>SSDT-FAN-MOD.aml</string>
 			<string>SSDT-FAN-SMOOTH.aml</string>
 			<string>SSDT-FAN-ORIG.aml</string>
 			<string>SSDT-FAN-READ.aml</string>
