@@ -10,22 +10,23 @@ IMEI = patches/07_MEI_4x40s_Sandy.txt
 AR9285 = patches/08_AR9285.txt
 ALL = patches/4x30s.txt patches/4x40s_IvyBridge.txt patches/4x40s_SandyBridge.txt
 MINI = Mini-SSDT.aml Mini-SSDT-DualLink.aml Mini-SSDT-IMEI.aml Mini-SSDT-DisableGraphics.aml Mini-SSDT-AR9285.aml
+#//REVIEW: stop building MINI for now
+MINI=
 
 BUILDDIR=./build
 
-MINI:=$(MINI) $(BUILDDIR)/SSDT-HACK.aml
-MINI:=$(MINI) $(BUILDDIR)/SSDT-IGPU.aml $(BUILDDIR)/SSDT-IGPU-HIRES.aml
-MINI:=$(MINI) $(BUILDDIR)/SSDT-BATT.aml $(BUILDDIR)/SSDT-BATT-G2.aml
-MINI:=$(MINI) $(BUILDDIR)/SSDT-KEY87.aml $(BUILDDIR)/SSDT-KEY102.aml
-MINI:=$(MINI) $(BUILDDIR)/SSDT-FAN-QUIET.aml $(BUILDDIR)/SSDT-FAN-MOD.aml $(BUILDDIR)/SSDT-FAN-SMOOTH.aml
-MINI:=$(MINI) $(BUILDDIR)/SSDT-FAN-ORIG.aml $(BUILDDIR)/SSDT-FAN-READ.aml
-#//REVIEW: stop building MINI for now
-MINI=
+HACK:=$(HACK) $(BUILDDIR)/SSDT-HACK.aml
+HACK:=$(HACK) $(BUILDDIR)/SSDT-IGPU.aml $(BUILDDIR)/SSDT-IGPU-HIRES.aml
+HACK:=$(HACK) $(BUILDDIR)/SSDT-BATT.aml $(BUILDDIR)/SSDT-BATT-G2.aml
+HACK:=$(HACK) $(BUILDDIR)/SSDT-KEY87.aml $(BUILDDIR)/SSDT-KEY102.aml
+HACK:=$(HACK) $(BUILDDIR)/SSDT-FAN-QUIET.aml $(BUILDDIR)/SSDT-FAN-MOD.aml $(BUILDDIR)/SSDT-FAN-SMOOTH.aml
+HACK:=$(HACK) $(BUILDDIR)/SSDT-FAN-ORIG.aml $(BUILDDIR)/SSDT-FAN-READ.aml
+
 
 PLIST:=config_4x0s_Gx.plist config_4x30s.plist config_4x40s.plist
 
 .PHONY: all
-all : $(ALL) $(MINI) $(PLIST)
+all : $(ALL) $(MINI) $(HACK) $(PLIST)
 
 .PHONY: clean
 clean: 
