@@ -105,18 +105,28 @@ DefinitionBlock ("SSDT-HACK.aml", "SSDT", 1, "hack", "hack", 0x00003000)
             {
                 LDID,16
             }
-            Method(_DSM, 4)
+            Name(LPDL, Package()
             {
                 // list of 8-series LPC device-ids not natively supported
-                Store(Package()
-                {
-                    0x8c46, 0x8c49, 0x8c4a, 0x8c4c, 0x8c4e, 0x8c4f,
-                    0x8c50, 0x8c52, 0x8c54, 0x8c56, 0x8c5c
-                }, Local0)
                 // inject 0x8c4b for unsupported LPC device-id
-                If (LNotEqual(Match(Local0, MEQ, LDID, MTR, 0, 0), Ones))
+                0x8c46, 0x8c49, 0x8c4a, 0x8c4c, 0x8c4e, 0x8c4f,
+                0x8c50, 0x8c52, 0x8c54, 0x8c56, 0x8c5c, 0,
+                Package() { "compatible", Buffer() { "pci8086,8c4b" } },
+                // Note: currently only the above 8-series unsupported ids are handled,
+                // but easy to add more here, just like the IGPU code
+            })
+            Method(_DSM, 4)
+            {
+                If (LEqual(Arg2, Zero)) { Return (Buffer() { 0x03 } ) }
+                // search for matching device-id in device-id list, LPDL
+                Store(Match(LPDL, MEQ, LDID, MTR, 0, 0), Local0)
+                If (LNotEqual(Local0, Ones))
                 {
-                    Return (Package() { "compatible", Buffer() { "pci8086,8c4b" } })
+                    // start search for zero-terminator (prefix to injection package)
+                    Increment(Local0)
+                    Store(Match(LPDL, MEQ, 0, MTR, 0, Local0), Local0)
+                    Increment(Local0)
+                    Return (DerefOf(Index(LPDL,Local0)))
                 }
                 Return (Package() { })
             }

@@ -19,6 +19,8 @@ MINI:=$(MINI) $(BUILDDIR)/SSDT-BATT.aml $(BUILDDIR)/SSDT-BATT-G2.aml
 MINI:=$(MINI) $(BUILDDIR)/SSDT-KEY87.aml $(BUILDDIR)/SSDT-KEY102.aml
 MINI:=$(MINI) $(BUILDDIR)/SSDT-FAN-QUIET.aml $(BUILDDIR)/SSDT-FAN-MOD.aml $(BUILDDIR)/SSDT-FAN-SMOOTH.aml
 MINI:=$(MINI) $(BUILDDIR)/SSDT-FAN-ORIG.aml $(BUILDDIR)/SSDT-FAN-READ.aml
+#//REVIEW: stop building MINI for now
+MINI=
 
 PLIST:=config_4x0s_Gx.plist config_4x30s.plist config_4x40s.plist
 
@@ -82,7 +84,7 @@ Mini-SSDT-AR9285.aml : mini/Mini-SSDT-AR9285.dsl
 # new SSDT-HACK
 
 $(BUILDDIR)/SSDT-HACK.aml : SSDT-HACK.dsl
-	iasl -p $@ $^
+	iasl -vw 2095 -p $@ $^
 
 $(BUILDDIR)/SSDT-IGPU.aml : SSDT-IGPU.dsl
 	iasl -vw 2095 -p $@ $^

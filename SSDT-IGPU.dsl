@@ -25,7 +25,7 @@ DefinitionBlock ("SSDT-IGPU.aml", "SSDT", 1, "hack", "igpu", 0x00003000)
             Name(GIDL, Package()
             {
                 // Sandy Bridge/HD3000
-                Package() { 0x0116, 0x0126, }, Package()
+                0x0116, 0x0126, 0, Package()
                 {
                     "model", Buffer() { "Intel HD Graphics 3000" },
                     "hda-gfx", Buffer() { "onboard-1" },
@@ -36,7 +36,7 @@ DefinitionBlock ("SSDT-IGPU.aml", "SSDT", 1, "hack", "igpu", 0x00003000)
                     #endif
                 },
                 // Ivy Bridge/HD4000
-                0x0166, Package()
+                0x0166, 0, Package()
                 {
                     "model", Buffer() { "Intel HD Graphics 4000" },
                     "hda-gfx", Buffer() { "onboard-1" },
@@ -47,7 +47,7 @@ DefinitionBlock ("SSDT-IGPU.aml", "SSDT", 1, "hack", "igpu", 0x00003000)
                     #endif
                 },
                 // Haswell/HD4200
-                0x0a1e, Package()
+                0x0a1e, 0, Package()
                 {
                     "model", Buffer() { "Intel HD Graphics 4200" },
                     "device-id", Buffer() { 0x12, 0x04, 0x00, 0x00 },
@@ -55,7 +55,7 @@ DefinitionBlock ("SSDT-IGPU.aml", "SSDT", 1, "hack", "igpu", 0x00003000)
                     "AAPL,ig-platform-id", Buffer() { 0x06, 0x00, 0x26, 0x0a },
                 },
                 // Haswell/HD4400
-                0x0a16, Package()
+                0x0a16, 0, Package()
                 {
                     "model", Buffer() { "Intel HD Graphics 4400" },
                     "device-id", Buffer() { 0x12, 0x04, 0x00, 0x00 },
@@ -63,7 +63,7 @@ DefinitionBlock ("SSDT-IGPU.aml", "SSDT", 1, "hack", "igpu", 0x00003000)
                     "AAPL,ig-platform-id", Buffer() { 0x06, 0x00, 0x26, 0x0a },
                 },
                 // Haswell/HD4600
-                0x0416, Package()
+                0x0416, 0, Package()
                 {
                     "model", Buffer() { "Intel HD Graphics 4600" },
                     "device-id", Buffer() { 0x12, 0x04, 0x00, 0x00 },
@@ -71,13 +71,13 @@ DefinitionBlock ("SSDT-IGPU.aml", "SSDT", 1, "hack", "igpu", 0x00003000)
                     "AAPL,ig-platform-id", Buffer() { 0x06, 0x00, 0x26, 0x0a },
                 },
                 // Haswell/HD5000/HD5100/HD5200
-                Package() { 0x0a26, 0x0a2e, 0x0d26, }, Package()
+                0x0a26, 0x0a2e, 0x0d26, 0, Package()
                 {
                     "hda-gfx", Buffer() { "onboard-1" },
                     "AAPL,ig-platform-id", Buffer() { 0x06, 0x00, 0x26, 0x0a },
                 },
                 // Broadwell/HD5300/HD5500/HD5600/HD6000
-                Package() { 0x161e, 0x1616, 0x1612, 0x1626, 0x162b, }, Package()
+                0x161e, 0x1616, 0x1612, 0x1626, 0x162b, 0, Package()
                 {
                     "hda-gfx", Buffer() { "onboard-1" },
                     "AAPL,ig-platform-id", Buffer() { 0x06, 0x00, 0x26, 0x16 },
@@ -88,39 +88,15 @@ DefinitionBlock ("SSDT-IGPU.aml", "SSDT", 1, "hack", "igpu", 0x00003000)
             Method(_DSM, 4)
             {
                 If (LEqual(Arg2, Zero)) { Return (Buffer() { 0x03 } ) }
-
-                // looking for Local3 in GIDL array
-                // Local2 is scratch
-                // Local0 is current index
-                // Local1 is size of array
-
-                // search for package that matches device-id
-                Store(GDID, Local3)
-                Store(Match(GIDL, MEQ, Local3, MTR, 0, 0), Local2)
-                If (LNotEqual(Local2, Ones))
+                // search for matching device-id in device-id list
+                Store(Match(GIDL, MEQ, GDID, MTR, 0, 0), Local0)
+                If (LNotEqual(Local0, Ones))
                 {
-                    Increment(Local2)
-                    Return (DerefOf(Index(GIDL,Local2)))
-                }
-                Store(0, Local0)
-                Store(SizeOf(GIDL), Local1)
-                While (LLess(Local0, Local1))
-                {
-                    // Local2 is object at current index
-                    // Local5 is the type of that object
-                    Store(DerefOf(Index(GIDL,Local0)), Local2)
-                    Store(ObjectType(Local2), Local5)
-                    Increment(Local0) // Local0 now at result package entry
-                    If (LEqual(OBJECTTYPE_PACKAGE, Local5))
-                    {
-                        Store(Match(Local2, MEQ, Local3, MTR, 0, 0), Local2)
-                        If (LNotEqual(Local2, Ones))
-                        {
-                            // Local0 already points to return package
-                            Return (DerefOf(Index(GIDL,Local0)))
-                        }
-                    }
+                    // start search for zero-terminator (prefix to injection package)
                     Increment(Local0)
+                    Store(Match(GIDL, MEQ, 0, MTR, 0, Local0), Local0)
+                    Increment(Local0)
+                    Return (DerefOf(Index(GIDL,Local0)))
                 }
                 // should never happen, but inject nothing in this case
                 Return (Package() { })
