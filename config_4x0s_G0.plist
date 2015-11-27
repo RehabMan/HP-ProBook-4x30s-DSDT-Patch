@@ -282,7 +282,7 @@
 						<key>Key</key>
 						<string>layout-id</string>
 						<key>Value</key>
-						<integer>12</integer>
+						<integer>1</integer>
 					</dict>
 					<dict>
 						<key>Key</key>
@@ -310,7 +310,7 @@
 						<key>Key</key>
 						<string>layout-id</string>
 						<key>Value</key>
-						<integer>12</integer>
+						<integer>1</integer>
 					</dict>
 					<dict>
 						<key>Key</key>
@@ -636,20 +636,6 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>HDMI-audio HD3000, 0x00010000, port 0406</string>
-				<key>Find</key>
-				<data>
-				BAYAAAAEAAAJAAAA
-				</data>
-				<key>Name</key>
-				<string>AppleIntelSNBGraphicsFB</string>
-				<key>Replace</key>
-				<data>
-				BAYAAAAIAAAJAAAA
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
 				<string>HDMI-video, 64MB BIOS, HD4000 0x01660004 #1 of 2</string>
 				<key>Find</key>
 				<data>
@@ -694,24 +680,10 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>IDT 76d9 #1</string>
+				<string>ALC 282</string>
 				<key>Find</key>
 				<data>
-				PYsZ1BE=
-				</data>
-				<key>Name</key>
-				<string>AppleHDA</string>
-				<key>Replace</key>
-				<data>
-				Pdl2HRE=
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>IDT 76d9 #2</string>
-				<key>Find</key>
-				<data>
-				PYQZ1BE=
+				PYQI7BA=
 				</data>
 				<key>Name</key>
 				<string>AppleHDA</string>
@@ -722,7 +694,35 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>IDT 76d9 #3</string>
+				<string>ALC 282</string>
+				<key>Find</key>
+				<data>
+				PYUI7BA=
+				</data>
+				<key>Name</key>
+				<string>AppleHDA</string>
+				<key>Replace</key>
+				<data>
+				PQAAAAA=
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>ALC 282</string>
+				<key>Find</key>
+				<data>
+				PYQZ1BE=
+				</data>
+				<key>Name</key>
+				<string>AppleHDA</string>
+				<key>Replace</key>
+				<data>
+				PYIC7BA=
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>AppleHDA ( new in 10.11, credit lisai9093)</string>
 				<key>Find</key>
 				<data>
 				PYMZ1BE=

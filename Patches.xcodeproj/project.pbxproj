@@ -50,11 +50,16 @@
 		84F616791850BC650053B76E /* 10_LPC_4x40s_Sandy_SL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = 10_LPC_4x40s_Sandy_SL.txt; path = patches/10_LPC_4x40s_Sandy_SL.txt; sourceTree = "<group>"; };
 		84FD879D18BCC6B1000BC61E /* 03c_Haswell-HDMI.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "03c_Haswell-HDMI.txt"; path = "patches/03c_Haswell-HDMI.txt"; sourceTree = "<group>"; };
 		ED3089651C077B5A00BAB77C /* config_4x0s_Gx.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config_4x0s_Gx.plist; sourceTree = "<group>"; };
+		ED49A4761C08B6CB00305FF3 /* config_4x0s_G0.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config_4x0s_G0.plist; sourceTree = "<group>"; };
 		ED511C971C062320005DAA2B /* config_ALC282.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config_ALC282.plist; sourceTree = "<group>"; };
 		ED511C981C062320005DAA2B /* config_master.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config_master.plist; sourceTree = "<group>"; };
 		ED511C991C062320005DAA2B /* config_non_Intel_USB3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config_non_Intel_USB3.plist; sourceTree = "<group>"; };
 		ED511C9A1C0623AB005DAA2B /* config_IDT76d1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config_IDT76d1.plist; sourceTree = "<group>"; };
 		ED511C9B1C0624BF005DAA2B /* config_IDT76d9.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config_IDT76d9.plist; sourceTree = "<group>"; };
+		ED56AA131C08B10A00260DBA /* config_Broadwell.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config_Broadwell.plist; sourceTree = "<group>"; };
+		ED56AA141C08B10A00260DBA /* config_Haswell.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config_Haswell.plist; sourceTree = "<group>"; };
+		ED56AA151C08B10A00260DBA /* config_HD4000.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config_HD4000.plist; sourceTree = "<group>"; };
+		ED56AA161C08B10A00260DBA /* config_HD3000.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config_HD3000.plist; sourceTree = "<group>"; };
 		ED634E2619FD2A9B00289C54 /* 14_ProBook-102key.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "14_ProBook-102key.txt"; path = "patches/14_ProBook-102key.txt"; sourceTree = "<group>"; };
 		ED634E2719FD2B3E00289C54 /* 14_ProBook-87key.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "14_ProBook-87key.txt"; path = "patches/14_ProBook-87key.txt"; sourceTree = "<group>"; };
 		ED72750B1BE1B1D700314108 /* config_4x30s.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config_4x30s.plist; sourceTree = "<group>"; };
@@ -165,6 +170,7 @@
 			children = (
 				ED72750B1BE1B1D700314108 /* config_4x30s.plist */,
 				84144E971BC64063004DF673 /* config_4x40s.plist */,
+				ED49A4761C08B6CB00305FF3 /* config_4x0s_G0.plist */,
 				ED3089651C077B5A00BAB77C /* config_4x0s_Gx.plist */,
 			);
 			name = "Generated config";
@@ -187,6 +193,10 @@
 				ED511C9A1C0623AB005DAA2B /* config_IDT76d1.plist */,
 				ED511C9B1C0624BF005DAA2B /* config_IDT76d9.plist */,
 				ED511C991C062320005DAA2B /* config_non_Intel_USB3.plist */,
+				ED56AA161C08B10A00260DBA /* config_HD3000.plist */,
+				ED56AA151C08B10A00260DBA /* config_HD4000.plist */,
+				ED56AA141C08B10A00260DBA /* config_Haswell.plist */,
+				ED56AA131C08B10A00260DBA /* config_Broadwell.plist */,
 				ED3089661C077B9A00BAB77C /* Generated config */,
 			);
 			name = hotpatch;

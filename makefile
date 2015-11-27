@@ -23,7 +23,7 @@ HACK:=$(HACK) $(BUILDDIR)/SSDT-FAN-QUIET.aml $(BUILDDIR)/SSDT-FAN-MOD.aml $(BUIL
 HACK:=$(HACK) $(BUILDDIR)/SSDT-FAN-ORIG.aml $(BUILDDIR)/SSDT-FAN-READ.aml
 
 
-PLIST:=config_4x0s_Gx.plist config_4x30s.plist config_4x40s.plist
+PLIST:=config_4x30s.plist config_4x40s.plist config_4x0s_Gx.plist config_4x0s_G0.plist
 
 .PHONY: all
 all : $(ALL) $(MINI) $(HACK) $(PLIST)
@@ -34,23 +34,35 @@ clean:
 
 # generated config.plist files
 
-config_4x0s_Gx.plist : config_master.plist config_ALC282.plist
+config_4x0s_G0.plist : config_master.plist config_ALC282.plist config_HD4000.plist
 	cp config_master.plist $@
+	/usr/libexec/plistbuddy -c "Set :SMBIOS:ProductName MacBookPro9,2" $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_HD4000.plist $@
+	#4x0_G0 is probably not ALC282
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_ALC282.plist $@
-	/usr/libexec/plistbuddy -c "Set :SMBIOS:ProductName MacBookAir7,2" $@
 
-config_4x30s.plist : config_master.plist config_IDT76d1.plist config_non_Intel_USB3.plist
+config_4x0s_Gx.plist : config_master.plist config_ALC282.plist config_Haswell.plist config_Broadwell.plist
 	cp config_master.plist $@
-	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_IDT76d1.plist $@
-	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_non_Intel_USB3.plist $@
+	/usr/libexec/plistbuddy -c "Set :SMBIOS:ProductName MacBookAir7,2" $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_Haswell.plist $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_Broadwell.plist $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_ALC282.plist $@
+
+config_4x30s.plist : config_master.plist config_IDT76d1.plist config_HD3000.plist config_non_Intel_USB3.plist
+	cp config_master.plist $@
 	/usr/libexec/plistbuddy -c "Set SMBIOS:ProductName MacBookPro8,2" $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_IDT76d1.plist $@
 	/usr/libexec/plistbuddy -c "Set Devices:Arbitrary:0:CustomProperties:0:Value 12" $@
 	/usr/libexec/plistbuddy -c "Set Devices:Arbitrary:1:CustomProperties:0:Value 12" $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_HD3000.plist $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_non_Intel_USB3.plist $@
 
-config_4x40s.plist : config_master.plist config_IDT76d9.plist
+config_4x40s.plist : config_master.plist config_IDT76d9.plist config_HD3000.plist config_HD4000.plist
 	cp config_master.plist $@
-	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_IDT76d9.plist $@
 	/usr/libexec/plistbuddy -c "Set :SMBIOS:ProductName MacBookPro9,2" $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_HD3000.plist $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_HD4000.plist $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_IDT76d9.plist $@
 	/usr/libexec/plistbuddy -c "Set Devices:Arbitrary:0:CustomProperties:0:Value 12" $@
 	/usr/libexec/plistbuddy -c "Set Devices:Arbitrary:1:CustomProperties:0:Value 12" $@
 
