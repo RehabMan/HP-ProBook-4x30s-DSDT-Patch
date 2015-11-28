@@ -1,3 +1,15 @@
+# makefile
+
+#
+# Patches/Installs/Builds DSDT patches for HP ProBook
+#
+# Created by RehabMan
+#
+
+HDA=ProBook
+RESOURCES=./Resources_$(HDA)
+HDAINJECT=AppleHDA_$(HDA).kext
+
 COMMON = patches/00_Optimize.txt patches/01_Compilation.txt patches/02_DSDTPatch.txt patches/05_OSCheck.txt patches/06_Battery.txt
 FANPATCH = patches/04a_FanPatch.txt
 QUIET = patches/04b_FanQuiet.txt
@@ -25,11 +37,27 @@ HACK:=$(HACK) $(BUILDDIR)/SSDT-FAN-ORIG.aml $(BUILDDIR)/SSDT-FAN-READ.aml
 PLIST:=config/config_4x30s.plist config/config_4x40s.plist config/config_4x0s_Gx.plist config/config_4x0s_G0.plist
 
 .PHONY: all
-all : $(ALL) $(MINI) $(HACK) $(PLIST)
+all : $(ALL) $(MINI) $(HACK) $(PLIST) $(HDAINJECT)
 
 .PHONY: clean
 clean: 
 	rm $(ALL) $(MINI) $(PLIST)
+
+$(HDAINJECT): $(RESOURCES)/*.plist ./patch_hda.sh
+	./patch_hda.sh $(HDA)
+	touch $@
+
+.PHONY: update_kernelcache
+update_kernelcache:
+	sudo touch $(SLE)
+	sudo kextcache -update-volume /
+
+.PHONY: install_hda
+	install_hda:
+	sudo rm -Rf $(INSTDIR)/$(HDAINJECT)
+	sudo cp -R ./$(HDAINJECT) $(INSTDIR)
+	if [ "`which tag`" != "" ]; then sudo tag -a Blue $(INSTDIR)/$(HDAINJECT); fi
+	make update_kernelcache
 
 # generated config.plist files
 
@@ -50,10 +78,10 @@ config/config_4x0s_Gx.plist : config_master.plist config_ALC282.plist config_Has
 config/config_4x30s.plist : config_master.plist config_IDT76d1.plist config_HD3000.plist config_non_Intel_USB3.plist
 	cp config_master.plist $@
 	/usr/libexec/plistbuddy -c "Set SMBIOS:ProductName MacBookPro8,2" $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_HD3000.plist $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_IDT76d1.plist $@
 	/usr/libexec/plistbuddy -c "Set Devices:Arbitrary:0:CustomProperties:0:Value 12" $@
 	/usr/libexec/plistbuddy -c "Set Devices:Arbitrary:1:CustomProperties:0:Value 12" $@
-	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_HD3000.plist $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_non_Intel_USB3.plist $@
 
 config/config_4x40s.plist : config_master.plist config_IDT76d9.plist config_HD3000.plist config_HD4000.plist
@@ -62,8 +90,8 @@ config/config_4x40s.plist : config_master.plist config_IDT76d9.plist config_HD30
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_HD3000.plist $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_HD4000.plist $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_IDT76d9.plist $@
-	/usr/libexec/plistbuddy -c "Set Devices:Arbitrary:0:CustomProperties:0:Value 12" $@
-	/usr/libexec/plistbuddy -c "Set Devices:Arbitrary:1:CustomProperties:0:Value 12" $@
+	/usr/libexec/plistbuddy -c "Set Devices:Arbitrary:0:CustomProperties:0:Value 13" $@
+	/usr/libexec/plistbuddy -c "Set Devices:Arbitrary:1:CustomProperties:0:Value 13" $@
 
 # combo patches
 

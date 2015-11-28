@@ -636,6 +636,20 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
+				<string>HDMI-audio HD3000, 0x00010000, port 0406</string>
+				<key>Find</key>
+				<data>
+				BAYAAAAEAAAJAAAA
+				</data>
+				<key>Name</key>
+				<string>AppleIntelSNBGraphicsFB</string>
+				<key>Replace</key>
+				<data>
+				BAYAAAAIAAAJAAAA
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
 				<string>IDT 76D1</string>
 				<key>Find</key>
 				<data>
@@ -660,20 +674,6 @@
 				<key>Replace</key>
 				<data>
 				PdF2HRE=
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>HDMI-audio HD3000, 0x00010000, port 0406</string>
-				<key>Find</key>
-				<data>
-				BAYAAAAEAAAJAAAA
-				</data>
-				<key>Name</key>
-				<string>AppleIntelSNBGraphicsFB</string>
-				<key>Replace</key>
-				<data>
-				BAYAAAAIAAAJAAAA
 				</data>
 			</dict>
 			<dict>

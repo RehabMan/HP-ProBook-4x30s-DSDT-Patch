@@ -87,7 +87,6 @@
 		847F5EDA1B508B0800825CE8 /* USBXHCI_4x40s.kext */ = {
 			isa = PBXGroup;
 			children = (
-				847F5ED91B508AFC00825CE8 /* backlight */,
 				847F5EDB1B508B2C00825CE8 /* Info.plist */,
 			);
 			name = USBXHCI_4x40s.kext;
@@ -158,6 +157,7 @@
 				84B9D52616FFE684002CD441 /* makefile */,
 				EDB940BA1C04D44500480024 /* hotpatch */,
 				847F5EDA1B508B0800825CE8 /* USBXHCI_4x40s.kext */,
+				847F5ED91B508AFC00825CE8 /* backlight */,
 				847F5EDF1B508B8200825CE8 /* mini-SSDTs */,
 				845FE5EF1702639F004601B0 /* .maciasl */,
 				847F5EE11B508C2300825CE8 /* ProBook patches */,

@@ -128,6 +128,7 @@ DefinitionBlock ("SSDT-HACK.aml", "SSDT", 1, "hack", "hack", 0x00003000)
                     Increment(Local0)
                     Return (DerefOf(Index(LPDL,Local0)))
                 }
+                // if no match, assume it is supported natively... no inject
                 Return (Package() { })
             }
         }
