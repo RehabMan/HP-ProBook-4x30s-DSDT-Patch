@@ -56,7 +56,7 @@
 		</dict>
 		<dict>
 			<key>CodecID</key>
-			<real>287143573</real>
+			<integer>287143573</integer>
 			<key>ConfigData</key>
 			<data>AKccEACnHRAApx4hAKcfAgCnDAIAtxwgALcdEAC3HqEAtx8CALcMAgDXHDAA1x0BANceFwDXH5AA1wwCAOccQADnHQEA5x6gAOcfkA==</data>
 			<key>FuncGroup</key>

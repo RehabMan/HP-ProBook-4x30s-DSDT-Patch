@@ -6,9 +6,19 @@
 # Created by RehabMan
 #
 
+BUILDDIR=./build
 HDA=ProBook
 RESOURCES=./Resources_$(HDA)
 HDAINJECT=AppleHDA_$(HDA).kext
+
+VERSION_ERA=$(shell ./print_version.sh)
+ifeq "$(VERSION_ERA)" "10.10-"
+	INSTDIR=/System/Library/Extensions
+else
+	INSTDIR=/Library/Extensions
+endif
+SLE=/System/Library/Extensions
+
 
 COMMON = patches/00_Optimize.txt patches/01_Compilation.txt patches/02_DSDTPatch.txt patches/05_OSCheck.txt patches/06_Battery.txt
 FANPATCH = patches/04a_FanPatch.txt
@@ -25,7 +35,6 @@ MINI = Mini-SSDT.aml Mini-SSDT-DualLink.aml Mini-SSDT-IMEI.aml Mini-SSDT-Disable
 #//REVIEW: stop building MINI for now
 MINI=
 
-BUILDDIR=./build
 
 HACK:=$(HACK) $(BUILDDIR)/SSDT-HACK.aml
 HACK:=$(HACK) $(BUILDDIR)/SSDT-IGPU.aml $(BUILDDIR)/SSDT-IGPU-HIRES.aml
@@ -53,7 +62,7 @@ update_kernelcache:
 	sudo kextcache -update-volume /
 
 .PHONY: install_hda
-	install_hda:
+install_hda:
 	sudo rm -Rf $(INSTDIR)/$(HDAINJECT)
 	sudo cp -R ./$(HDAINJECT) $(INSTDIR)
 	if [ "`which tag`" != "" ]; then sudo tag -a Blue $(INSTDIR)/$(HDAINJECT); fi
