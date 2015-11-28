@@ -2,8 +2,8 @@
 
 #set -x
 
-#unpatched=/System/Library/Extensions
-unpatched=./
+unpatched=/System/Library/Extensions
+#unpatched=./
 
 # extract minor version (eg. 10.9 vs. 10.10 vs. 10.11)
 MINOR_VER=$([[ "$(sw_vers -productVersion)" =~ [0-9]+\.([0-9]+) ]] && echo ${BASH_REMATCH[1]})
@@ -19,7 +19,7 @@ function createAppleHDAInjector()
     rm -R AppleHDA_$1.kext/Contents/Resources/*
     rm -R AppleHDA_$1.kext/Contents/PlugIns
     rm -R AppleHDA_$1.kext/Contents/_CodeSignature
-    rm AppleHDA_$1.kext/Contents/Code*
+    rm -f AppleHDA_$1.kext/Contents/Code*
     rm -R AppleHDA_$1.kext/Contents/MacOS/AppleHDA
     rm AppleHDA_$1.kext/Contents/version.plist
     ln -s /System/Library/Extensions/AppleHDA.kext/Contents/MacOS/AppleHDA AppleHDA_$1.kext/Contents/MacOS/AppleHDA
