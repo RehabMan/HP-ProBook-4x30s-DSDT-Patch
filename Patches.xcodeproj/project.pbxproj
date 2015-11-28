@@ -76,6 +76,8 @@
 		ED634E2619FD2A9B00289C54 /* 14_ProBook-102key.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "14_ProBook-102key.txt"; path = "patches/14_ProBook-102key.txt"; sourceTree = "<group>"; };
 		ED634E2719FD2B3E00289C54 /* 14_ProBook-87key.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "14_ProBook-87key.txt"; path = "patches/14_ProBook-87key.txt"; sourceTree = "<group>"; };
 		ED72750B1BE1B1D700314108 /* config_4x30s.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_4x30s.plist; path = config/config_4x30s.plist; sourceTree = "<group>"; };
+		ED97346F1C0A5F260063BCF9 /* download.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = download.sh; sourceTree = "<group>"; };
+		ED9734701C0A5F370063BCF9 /* install_downloads.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = install_downloads.sh; sourceTree = "<group>"; };
 		EDB940B71C04D11C00480024 /* SSDT-BATT.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-BATT.dsl"; sourceTree = "<group>"; };
 		EDB940B91C04D2CB00480024 /* SSDT-BATT-G2.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-BATT-G2.dsl"; sourceTree = "<group>"; };
 		EDB940BB1C04D4D400480024 /* SSDT-KEY102.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-KEY102.dsl"; sourceTree = "<group>"; };
@@ -167,6 +169,8 @@
 			children = (
 				84B9D52716FFE684002CD441 /* README.txt */,
 				84B9D52516FFE684002CD441 /* License.md */,
+				ED97346F1C0A5F260063BCF9 /* download.sh */,
+				ED9734701C0A5F370063BCF9 /* install_downloads.sh */,
 				84B9D52616FFE684002CD441 /* makefile */,
 				ED1837451C0A4B1200A5A3DA /* print_version.sh */,
 				ED1837421C0A4B1200A5A3DA /* merge_plist.sh */,

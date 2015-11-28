@@ -28,6 +28,8 @@ download os-x-acpi-battery-driver RehabMan-Battery
 download os-x-eapd-codec-commander RehabMan-CodecCommander
 download os-x-fake-pci-id RehabMan-FakePCIID
 download os-x-brcmpatchram RehabMan-BrcmPatchRAM
+download os-x-atheros-3k-firmware RehabMan-Atheros
+download os-x-acpi-poller RehabMan-Poller
 download os-x-usb-inject-all RehabMan-USBInjectAll
 #download os-x-acpi-debug RehabMan-Debug
 cd ..
@@ -39,3 +41,7 @@ download os-x-maciasl-patchmatic RehabMan-MaciASL
 download acpica iasl iasl.zip
 cd ..
 
+# download Clover related (HPFanReset.efi)
+mkdir ./efi && cd ./efi
+download hp-probook-4x30s-fan-reset HPFanReset
+cd ..
