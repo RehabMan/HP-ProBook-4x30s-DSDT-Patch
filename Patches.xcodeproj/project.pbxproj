@@ -49,6 +49,19 @@
 		84F52D0B1709C9A3001643C8 /* Mini-SSDT-IMEI.dsl */ = {isa = PBXFileReference; lastKnownFileType = text; name = "Mini-SSDT-IMEI.dsl"; path = "mini/Mini-SSDT-IMEI.dsl"; sourceTree = "<group>"; };
 		84F616791850BC650053B76E /* 10_LPC_4x40s_Sandy_SL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = 10_LPC_4x40s_Sandy_SL.txt; path = patches/10_LPC_4x40s_Sandy_SL.txt; sourceTree = "<group>"; };
 		84FD879D18BCC6B1000BC61E /* 03c_Haswell-HDMI.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "03c_Haswell-HDMI.txt"; path = "patches/03c_Haswell-HDMI.txt"; sourceTree = "<group>"; };
+		ED1837421C0A4B1200A5A3DA /* merge_plist.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = merge_plist.sh; sourceTree = "<group>"; };
+		ED1837431C0A4B1200A5A3DA /* mount_efi.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = mount_efi.sh; sourceTree = "<group>"; };
+		ED1837441C0A4B1200A5A3DA /* patch_hda.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = patch_hda.sh; sourceTree = "<group>"; };
+		ED1837451C0A4B1200A5A3DA /* print_version.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = print_version.sh; sourceTree = "<group>"; };
+		ED1837461C0A4B1200A5A3DA /* ahhcd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = ahhcd.plist; path = Resources_ProBook/ahhcd.plist; sourceTree = "<group>"; };
+		ED1837471C0A4B1200A5A3DA /* layout3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = layout3.plist; path = Resources_ProBook/layout3.plist; sourceTree = "<group>"; };
+		ED1837481C0A4B1200A5A3DA /* layout12.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = layout12.plist; path = Resources_ProBook/layout12.plist; sourceTree = "<group>"; };
+		ED1837491C0A4B1200A5A3DA /* layout13.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = layout13.plist; path = Resources_ProBook/layout13.plist; sourceTree = "<group>"; };
+		ED18374A1C0A4B1200A5A3DA /* layout14.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = layout14.plist; path = Resources_ProBook/layout14.plist; sourceTree = "<group>"; };
+		ED18374B1C0A4B1200A5A3DA /* layout15.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = layout15.plist; path = Resources_ProBook/layout15.plist; sourceTree = "<group>"; };
+		ED18374C1C0A4B1200A5A3DA /* layout16.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = layout16.plist; path = Resources_ProBook/layout16.plist; sourceTree = "<group>"; };
+		ED18374D1C0A4B1200A5A3DA /* Platforms.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Platforms.plist; path = Resources_ProBook/Platforms.plist; sourceTree = "<group>"; };
+		ED18374E1C0A4B1200A5A3DA /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.txt; path = Resources_ProBook/README.txt; sourceTree = "<group>"; };
 		ED3089651C077B5A00BAB77C /* config_4x0s_Gx.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_4x0s_Gx.plist; path = config/config_4x0s_Gx.plist; sourceTree = "<group>"; };
 		ED49A4761C08B6CB00305FF3 /* config_4x0s_G0.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_4x0s_G0.plist; path = config/config_4x0s_G0.plist; sourceTree = "<group>"; };
 		ED511C971C062320005DAA2B /* config_ALC282.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config_ALC282.plist; sourceTree = "<group>"; };
@@ -155,6 +168,10 @@
 				84B9D52716FFE684002CD441 /* README.txt */,
 				84B9D52516FFE684002CD441 /* License.md */,
 				84B9D52616FFE684002CD441 /* makefile */,
+				ED1837451C0A4B1200A5A3DA /* print_version.sh */,
+				ED1837421C0A4B1200A5A3DA /* merge_plist.sh */,
+				ED1837431C0A4B1200A5A3DA /* mount_efi.sh */,
+				ED18374F1C0A4B5D00A5A3DA /* audio */,
 				EDB940BA1C04D44500480024 /* hotpatch */,
 				847F5EDA1B508B0800825CE8 /* USBXHCI_4x40s.kext */,
 				847F5ED91B508AFC00825CE8 /* backlight */,
@@ -163,6 +180,23 @@
 				847F5EE11B508C2300825CE8 /* ProBook patches */,
 				847F5EE01B508C1400825CE8 /* other patches */,
 			);
+			sourceTree = "<group>";
+		};
+		ED18374F1C0A4B5D00A5A3DA /* audio */ = {
+			isa = PBXGroup;
+			children = (
+				ED18374E1C0A4B1200A5A3DA /* README.txt */,
+				ED1837441C0A4B1200A5A3DA /* patch_hda.sh */,
+				ED1837461C0A4B1200A5A3DA /* ahhcd.plist */,
+				ED18374D1C0A4B1200A5A3DA /* Platforms.plist */,
+				ED1837471C0A4B1200A5A3DA /* layout3.plist */,
+				ED1837481C0A4B1200A5A3DA /* layout12.plist */,
+				ED1837491C0A4B1200A5A3DA /* layout13.plist */,
+				ED18374A1C0A4B1200A5A3DA /* layout14.plist */,
+				ED18374B1C0A4B1200A5A3DA /* layout15.plist */,
+				ED18374C1C0A4B1200A5A3DA /* layout16.plist */,
+			);
+			name = audio;
 			sourceTree = "<group>";
 		};
 		ED3089661C077B9A00BAB77C /* Generated config */ = {

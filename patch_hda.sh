@@ -2,7 +2,8 @@
 
 #set -x
 
-unpatched=/System/Library/Extensions
+#unpatched=/System/Library/Extensions
+unpatched=./
 
 # extract minor version (eg. 10.9 vs. 10.10 vs. 10.11)
 MINOR_VER=$([[ "$(sw_vers -productVersion)" =~ [0-9]+\.([0-9]+) ]] && echo ${BASH_REMATCH[1]})
@@ -18,6 +19,7 @@ function createAppleHDAInjector()
     rm -R AppleHDA_$1.kext/Contents/Resources/*
     rm -R AppleHDA_$1.kext/Contents/PlugIns
     rm -R AppleHDA_$1.kext/Contents/_CodeSignature
+    rm AppleHDA_$1.kext/Contents/Code*
     rm -R AppleHDA_$1.kext/Contents/MacOS/AppleHDA
     rm AppleHDA_$1.kext/Contents/version.plist
     ln -s /System/Library/Extensions/AppleHDA.kext/Contents/MacOS/AppleHDA AppleHDA_$1.kext/Contents/MacOS/AppleHDA
@@ -25,7 +27,11 @@ function createAppleHDAInjector()
     for layout in $layouts; do
         cp Resources_$1/$layout AppleHDA_$1.kext/Contents/Resources/${layout/.plist/.xml}
     done
-    ./tools/zlib inflate $unpatched/AppleHDA.kext/Contents/Resources/Platforms.xml.zlib >/tmp/rm_Platforms.plist
+    if [[ $MINOR_VER -ge 8 ]]; then
+        ./tools/zlib inflate $unpatched/AppleHDA.kext/Contents/Resources/Platforms.xml.zlib >/tmp/rm_Platforms.plist
+    else
+        cp $unpatched/AppleHDA.kext/Contents/Resources/Platforms.xml /tmp/rm_Platforms.plist
+    fi
     /usr/libexec/plistbuddy -c "Delete ':PathMaps'" /tmp/rm_Platforms.plist
     /usr/libexec/plistbuddy -c "Merge Resources_$1/Platforms.plist" /tmp/rm_Platforms.plist
     cp /tmp/rm_Platforms.plist AppleHDA_$1.kext/Contents/Resources/Platforms.xml
