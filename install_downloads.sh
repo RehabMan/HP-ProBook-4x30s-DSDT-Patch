@@ -3,7 +3,8 @@
 SUDO=sudo
 #SUDO='echo #'
 #SUDO=nothing
-TAG=`pwd`/tools/tag
+TAG=tag_file
+TAGCMD=`pwd`/tools/tag
 SLE=/System/Library/Extensions
 LE=/Library/Extensions
 EXCEPTIONS="Sensors|FakePCIID_BCM57XX|FakePCIID_AR9280|FakePCIID_Intel_GbX|FakePCIID_Intel_HDMI|BrcmPatchRAM|BrcmBluetoothInjector|BrcmFirmwareData|USBInjectAll"
@@ -17,6 +18,14 @@ if [[ $MINOR_VER -ge 11 ]]; then
 else
     KEXTDEST=$SLE
 fi
+
+# this could be removed if 'tag' can be made to work on old systems
+function tag_file
+{
+    if [[ $MINOR_VER -ge 9 ]]; then
+        $SUDO $TAGCMD "$@"
+    fi
+}
 
 function check_directory
 {
@@ -40,7 +49,7 @@ function install_kext
         echo installing $1 to $KEXTDEST
         $SUDO rm -Rf $SLE/`basename $1` $KEXTDEST/`basename $1`
         $SUDO cp -Rf $1 $KEXTDEST
-        $SUDO $TAG -a Gray $KEXTDEST/`basename $1`
+        $TAG -a Gray $KEXTDEST/`basename $1`
     fi
 }
 
@@ -50,7 +59,7 @@ function install_app
         echo installing $1 to /Applications
         $SUDO rm -Rf /Applications/`basename $1`
         $SUDO cp -Rf $1 /Applications
-        $SUDO $TAG -a Gray /Applications/`basename $1`
+        $TAG -a Gray /Applications/`basename $1`
     fi
 }
 
@@ -60,7 +69,7 @@ function install_binary
         echo installing $1 to /usr/bin
         $SUDO rm -f /usr/bin/`basename $1`
         $SUDO cp -f $1 /usr/bin
-        $SUDO $TAG -a Gray /usr/bin/`basename $1`
+        $TAG -a Gray /usr/bin/`basename $1`
     fi
 }
 
@@ -170,9 +179,6 @@ install_kext JMB38X.kext
 install_kext ProBookAtheros.kext
 cd ..
 
-# USBXHC_u430 is mostly specific to 10.11, but it does inject non-removable=yes
-# for the touchscreen
-
 #if [[ $MINOR_VER -ge 11 ]]; then
     # create custom AppleBacklightInjector.kext and install
     #./patch_backlight.sh
@@ -208,7 +214,7 @@ fi
 echo Installing VoodooPS2Daemon to /usr/bin and /Library/LaunchDaemons...
 cd ./downloads/kexts/RehabMan-Voodoo-*
 $SUDO cp ./Release/VoodooPS2Daemon /usr/bin
-$SUDO $TAG -a Gray /usr/bin/VoodooPS2Daemon
+$TAG -a Gray /usr/bin/VoodooPS2Daemon
 $SUDO cp ./org.rehabman.voodoo.driver.Daemon.plist /Library/LaunchDaemons
-$SUDO $TAG -a Gray /Library/LaunchDaemons/org.rehabman.voodoo.driver.Daemon.plist
+$TAG -a Gray /Library/LaunchDaemons/org.rehabman.voodoo.driver.Daemon.plist
 cd ../..
