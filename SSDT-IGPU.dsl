@@ -4,10 +4,6 @@
 // A bit experimental, and a bit more difficult with laptops, but
 // still possible.
 
-// ObjectType return values per ACPI spec
-#define OBJECTTYPE_INTEGER 1
-#define OBJECTTYPE_PACKAGE 4
-
 DefinitionBlock ("SSDT-IGPU.aml", "SSDT", 1, "hack", "igpu", 0x00003000)
 {
     External(\_SB.PCI0, DeviceObj)

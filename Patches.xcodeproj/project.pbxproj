@@ -49,6 +49,7 @@
 		84F52D0B1709C9A3001643C8 /* Mini-SSDT-IMEI.dsl */ = {isa = PBXFileReference; lastKnownFileType = text; name = "Mini-SSDT-IMEI.dsl"; path = "mini/Mini-SSDT-IMEI.dsl"; sourceTree = "<group>"; };
 		84F616791850BC650053B76E /* 10_LPC_4x40s_Sandy_SL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = 10_LPC_4x40s_Sandy_SL.txt; path = patches/10_LPC_4x40s_Sandy_SL.txt; sourceTree = "<group>"; };
 		84FD879D18BCC6B1000BC61E /* 03c_Haswell-HDMI.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "03c_Haswell-HDMI.txt"; path = "patches/03c_Haswell-HDMI.txt"; sourceTree = "<group>"; };
+		ED1278681C1655010094A691 /* SSDT-USB-4x0s-G2.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-USB-4x0s-G2.dsl"; sourceTree = "<group>"; };
 		ED1837421C0A4B1200A5A3DA /* merge_plist.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = merge_plist.sh; sourceTree = "<group>"; };
 		ED1837431C0A4B1200A5A3DA /* mount_efi.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = mount_efi.sh; sourceTree = "<group>"; };
 		ED1837441C0A4B1200A5A3DA /* patch_hda.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = patch_hda.sh; sourceTree = "<group>"; };
@@ -226,6 +227,7 @@
 				EDB940BD1C04D78800480024 /* SSDT-FAN-QUIET.dsl */,
 				EDB940BF1C04D99A00480024 /* SSDT-FAN-ORIG.dsl */,
 				EDB940BE1C04D99A00480024 /* SSDT-FAN-READ.dsl */,
+				ED1278681C1655010094A691 /* SSDT-USB-4x0s-G2.dsl */,
 				ED511C981C062320005DAA2B /* config_master.plist */,
 				ED511C971C062320005DAA2B /* config_ALC282.plist */,
 				ED511C9A1C0623AB005DAA2B /* config_IDT76d1.plist */,

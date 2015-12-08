@@ -206,6 +206,59 @@
 			<key>model</key>
 			<string>MacBookPro9,1</string>
 		</dict>
+		<key>MacBookPro9,2-EH02-hub</key>
+		<dict>
+			<key>CFBundleIdentifier</key>
+			<string>com.apple.driver.AppleUSBHostMergeProperties</string>
+			<key>IOClass</key>
+			<string>AppleUSBHostMergeProperties</string>
+			<key>IOProviderClass</key>
+			<string>AppleUSB20InternalHub</string>
+			<key>IOProbeScore</key>
+			<integer>5000</integer>
+			<key>IOProviderMergeProperties</key>
+			<dict>
+				<key>port-count</key>
+				<data>BgAAAA==</data>
+				<key>ports</key>
+				<dict>
+					<key>PRT1</key>
+					<dict>
+						<key>port</key>
+						<data>AQAAAA==</data>
+					</dict>
+					<key>PRT2</key>
+					<dict>
+						<key>port</key>
+						<data>AgAAAA==</data>
+					</dict>
+					<key>PRT3</key>
+					<dict>
+						<key>port</key>
+						<data>AwAAAA==</data>
+					</dict>
+					<key>PRT4</key>
+					<dict>
+						<key>port</key>
+						<data>BAAAAA==</data>
+					</dict>
+					<key>PRT5</key>
+					<dict>
+						<key>port</key>
+						<data>BQAAAA==</data>
+					</dict>
+					<key>PRT6</key>
+					<dict>
+						<key>port</key>
+						<data>BgAAAA==</data>
+					</dict>
+				</dict>
+			</dict>
+			<key>locationID</key>
+			<integer>437256192</integer>
+			<key>model</key>
+			<string>MacBookPro9,2</string>
+		</dict>
 		<key>MacBookPro9,2-EH01</key>
 		<dict>
 			<key>CFBundleIdentifier</key>
