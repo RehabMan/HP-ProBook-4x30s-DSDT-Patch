@@ -42,7 +42,7 @@ HACK:=$(HACK) $(BUILDDIR)/SSDT-BATT.aml $(BUILDDIR)/SSDT-BATT-G2.aml
 HACK:=$(HACK) $(BUILDDIR)/SSDT-KEY87.aml $(BUILDDIR)/SSDT-KEY102.aml
 HACK:=$(HACK) $(BUILDDIR)/SSDT-FAN-QUIET.aml $(BUILDDIR)/SSDT-FAN-MOD.aml $(BUILDDIR)/SSDT-FAN-SMOOTH.aml
 HACK:=$(HACK) $(BUILDDIR)/SSDT-FAN-ORIG.aml $(BUILDDIR)/SSDT-FAN-READ.aml
-HACK:=$(HACK) $(BUILDDIR)/SSDT-USB-4x0s-G2.aml
+HACK:=$(HACK) $(BUILDDIR)/SSDT-USB-4x0s-G2.aml $(BUILDDIR)/SSDT-USB-4x40s.aml
 
 PLIST:=config/config_4x30s.plist config/config_4x40s.plist config/config_4x0s_Gx.plist config/config_4x0s_G0.plist
 
@@ -171,4 +171,7 @@ $(BUILDDIR)/SSDT-FAN-READ.aml : SSDT-FAN-READ.dsl
 
 $(BUILDDIR)/SSDT-USB-4x0s-G2.aml : SSDT-USB-4x0s-G2.dsl
 	iasl -vw 2095 -p $@ $^
+
+$(BUILDDIR)/SSDT-USB-4x40s.aml : SSDT-USB-4x40s.dsl
+	iasl -p $@ $^
 

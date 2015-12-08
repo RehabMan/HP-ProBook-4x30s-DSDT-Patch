@@ -1,5 +1,7 @@
-// Instead of providing patched DSDT/SSDT, just include a single SSDT
-// and do the rest of the work in config.plist
+// USBInjectAll configuration/override for ProBook 4x0s G2
+//
+// investigative work done by mo7a1995 (with direction from RehabMan)
+//
 
 DefinitionBlock ("SSDT-HACK.aml", "SSDT", 1, "hack", "usb", 0x00003000)
 {
