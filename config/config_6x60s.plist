@@ -266,7 +266,7 @@
 						<key>Key</key>
 						<string>layout-id</string>
 						<key>Value</key>
-						<integer>14</integer>
+						<integer>15</integer>
 					</dict>
 					<dict>
 						<key>Key</key>
@@ -294,7 +294,7 @@
 						<key>Key</key>
 						<string>layout-id</string>
 						<key>Value</key>
-						<integer>14</integer>
+						<integer>15</integer>
 					</dict>
 					<dict>
 						<key>Key</key>
@@ -620,51 +620,21 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>HDMI-video, 64MB BIOS, HD4000 0x01660004 #1 of 2</string>
+				<string>HDMI-audio HD3000, 0x00010000, port 0406</string>
 				<key>Find</key>
 				<data>
-				BABmAQEDAQEAAAAC
+				BAYAAAAEAAAJAAAA
 				</data>
 				<key>Name</key>
-				<string>AppleIntelFramebufferCapri</string>
+				<string>AppleIntelSNBGraphicsFB</string>
 				<key>Replace</key>
 				<data>
-				BABmAQECBAIAAAAE
+				BAYAAAAIAAAJAAAA
 				</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>HDMI-video, 64MB BIOS, HD4000 0x01660004 #2 of 2</string>
-				<key>Find</key>
-				<data>
-				MAIAAAAAAAABAAAAQAAAAAAAAAABAAAAQAAAAAAAAAAB
-				AAAAQAAAAAAAAAAAAAAA
-				</data>
-				<key>Name</key>
-				<string>AppleIntelFramebufferCapri</string>
-				<key>Replace</key>
-				<data>
-				MAIAAAIFAAAABAAABwQAAAMEAAAABAAAgQAAAAQGAAAA
-				BAAAgQAAAAAAAAAAAgAR
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>HDMI-audio HD4000 0x01660003/0004, port 0406</string>
-				<key>Find</key>
-				<data>
-				BAYAAAAEAACBAAAA
-				</data>
-				<key>Name</key>
-				<string>AppleIntelFramebufferCapri</string>
-				<key>Replace</key>
-				<data>
-				BAYAAAAIAAAGAAAA
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>IDT 76e0 #3</string>
+				<string>IDT 7605 #3</string>
 				<key>Find</key>
 				<data>
 				PYMZ1BE=
@@ -678,7 +648,7 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>IDT 76e0 #2</string>
+				<string>IDT 7605 #2</string>
 				<key>Find</key>
 				<data>
 				PYQZ1BE=
@@ -692,7 +662,7 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>IDT 76e0 #1</string>
+				<string>IDT 7605 #1</string>
 				<key>Find</key>
 				<data>
 				PYsZ1BE=
@@ -701,7 +671,105 @@
 				<string>AppleHDA</string>
 				<key>Replace</key>
 				<data>
-				PeB2HRE=
+				PQV2HRE=
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>USB 3.0 Disable Intel USB3 controller check 10.9</string>
+				<key>Find</key>
+				<data>
+				9oDUAAAAgHU6
+				</data>
+				<key>Name</key>
+				<string>AppleUSBXHCI</string>
+				<key>Replace</key>
+				<data>
+				9oDUAAAAgOs6
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>USB 3.0 Disable Intel USB3 controller check 10.10</string>
+				<key>Find</key>
+				<data>
+				9oDUAAAAgHU0
+				</data>
+				<key>Name</key>
+				<string>AppleUSBXHCI</string>
+				<key>Replace</key>
+				<data>
+				9oDUAAAAgOs0
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>USB 3.0 Disable XHCI 1.0 check 10.9</string>
+				<key>Find</key>
+				<data>
+				Zj0AAQ==
+				</data>
+				<key>Name</key>
+				<string>AppleUSBXHCI</string>
+				<key>Replace</key>
+				<data>
+				Zj0AAA==
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>USB 3.0 Disable XHCI 1.0 check 10.10</string>
+				<key>Find</key>
+				<data>
+				QbzHAgDgPQABAAA=
+				</data>
+				<key>Name</key>
+				<string>AppleUSBXHCI</string>
+				<key>Replace</key>
+				<data>
+				QbzHAgDgPQAAAAA=
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>USB 3.0 Patch MSI or pin interrupts #1</string>
+				<key>Find</key>
+				<data>
+				gUkIAABAAA==
+				</data>
+				<key>Name</key>
+				<string>AppleUSBXHCI</string>
+				<key>Replace</key>
+				<data>
+				gUkIAAAAAA==
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>USB 3.0 Patch MSI or pin interrupts #2</string>
+				<key>Find</key>
+				<data>
+				QcdHCAAAQAA=
+				</data>
+				<key>Name</key>
+				<string>AppleUSBXHCI</string>
+				<key>Replace</key>
+				<data>
+				QcdHCAAAAAA=
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>USB 3.0 Enable PCI power management</string>
+				<key>Find</key>
+				<data>
+				dU1Ii7voAQAA
+				</data>
+				<key>Name</key>
+				<string>AppleUSBXHCI</string>
+				<key>Replace</key>
+				<data>
+				601Ii7voAQAA
 				</data>
 			</dict>
 		</array>
@@ -716,7 +784,7 @@
 	<key>SMBIOS</key>
 	<dict>
 		<key>ProductName</key>
-		<string>MacBookPro9,2</string>
+		<string>MacBookPro8,2</string>
 		<key>Trust</key>
 		<true/>
 	</dict>

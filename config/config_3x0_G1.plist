@@ -266,7 +266,7 @@
 						<key>Key</key>
 						<string>layout-id</string>
 						<key>Value</key>
-						<integer>14</integer>
+						<integer>16</integer>
 					</dict>
 					<dict>
 						<key>Key</key>
@@ -294,7 +294,7 @@
 						<key>Key</key>
 						<string>layout-id</string>
 						<key>Value</key>
-						<integer>14</integer>
+						<integer>16</integer>
 					</dict>
 					<dict>
 						<key>Key</key>
@@ -664,7 +664,7 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>IDT 76e0 #3</string>
+				<string>IDT 7695 #3</string>
 				<key>Find</key>
 				<data>
 				PYMZ1BE=
@@ -678,7 +678,7 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>IDT 76e0 #2</string>
+				<string>IDT 7695 #2</string>
 				<key>Find</key>
 				<data>
 				PYQZ1BE=
@@ -692,7 +692,7 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>IDT 76e0 #1</string>
+				<string>IDT 7605 #1</string>
 				<key>Find</key>
 				<data>
 				PYsZ1BE=
@@ -701,7 +701,7 @@
 				<string>AppleHDA</string>
 				<key>Replace</key>
 				<data>
-				PeB2HRE=
+				PZV2HRE=
 				</data>
 			</dict>
 		</array>

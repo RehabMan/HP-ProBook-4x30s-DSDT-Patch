@@ -8,7 +8,7 @@
 		<array>
 			<dict>
 				<key>Comment</key>
-				<string>IDT 76d9 #3</string>
+				<string>IDT 7695 #3</string>
 				<key>Name</key>
 				<string>AppleHDA</string>
 				<key>Find</key>
@@ -18,7 +18,7 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>IDT 76d9 #2</string>
+				<string>IDT 7695 #2</string>
 				<key>Name</key>
 				<string>AppleHDA</string>
 				<key>Find</key>
@@ -28,13 +28,13 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>IDT 76d9 #1</string>
+				<string>IDT 7605 #1</string>
 				<key>Name</key>
 				<string>AppleHDA</string>
 				<key>Find</key>
 				<data>PYsZ1BE=</data>
 				<key>Replace</key>
-				<data>Pdl2HRE=</data>
+				<data>PZV2HRE=</data>
 			</dict>
 		</array>
 	</dict>

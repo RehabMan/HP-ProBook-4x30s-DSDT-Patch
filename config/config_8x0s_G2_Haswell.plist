@@ -266,7 +266,7 @@
 						<key>Key</key>
 						<string>layout-id</string>
 						<key>Value</key>
-						<integer>14</integer>
+						<integer>3</integer>
 					</dict>
 					<dict>
 						<key>Key</key>
@@ -294,7 +294,7 @@
 						<key>Key</key>
 						<string>layout-id</string>
 						<key>Value</key>
-						<integer>14</integer>
+						<integer>3</integer>
 					</dict>
 					<dict>
 						<key>Key</key>
@@ -620,51 +620,91 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>HDMI-video, 64MB BIOS, HD4000 0x01660004 #1 of 2</string>
+				<string>Enable 9MB cursor bytes, 0x0a260006, vbo</string>
 				<key>Find</key>
 				<data>
-				BABmAQEDAQEAAAAC
+				BgAmCgEDAwMAAAACAAAwAQAAYAA=
 				</data>
 				<key>Name</key>
-				<string>AppleIntelFramebufferCapri</string>
+				<string>AppleIntelFramebufferAzul</string>
 				<key>Replace</key>
 				<data>
-				BABmAQECBAIAAAAE
+				BgAmCgEDAwMAAAACAAAwAQAAkAA=
 				</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>HDMI-video, 64MB BIOS, HD4000 0x01660004 #2 of 2</string>
+				<string>HDMI-audio, port 0105(12), 0x0a260005 0x0a260006, 0x0d220003, 0x0a2e000a, 0x0a26000a</string>
 				<key>Find</key>
 				<data>
-				MAIAAAAAAAABAAAAQAAAAAAAAAABAAAAQAAAAAAAAAAB
-				AAAAQAAAAAAAAAAAAAAA
+				AQUJAAAEAACHAAAA
 				</data>
 				<key>Name</key>
-				<string>AppleIntelFramebufferCapri</string>
+				<string>AppleIntelFramebufferAzul</string>
 				<key>Replace</key>
 				<data>
-				MAIAAAIFAAAABAAABwQAAAMEAAAABAAAgQAAAAQGAAAA
-				BAAAgQAAAAAAAAAAAgAR
+				AQUSAAAIAACHAAAA
 				</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>HDMI-audio HD4000 0x01660003/0004, port 0406</string>
+				<string>HDMI-audio, port 0204(12), 0x0a260005 0x0a260006</string>
 				<key>Find</key>
 				<data>
-				BAYAAAAEAACBAAAA
+				AgQJAAAEAACHAAAA
 				</data>
 				<key>Name</key>
-				<string>AppleIntelFramebufferCapri</string>
+				<string>AppleIntelFramebufferAzul</string>
 				<key>Replace</key>
 				<data>
-				BAYAAAAIAAAGAAAA
+				AgQSAAAIAACHAAAA
 				</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>IDT 76e0 #3</string>
+				<string>ALC 282</string>
+				<key>Find</key>
+				<data>
+				PYQI7BA=
+				</data>
+				<key>Name</key>
+				<string>AppleHDA</string>
+				<key>Replace</key>
+				<data>
+				PQAAAAA=
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>ALC 282</string>
+				<key>Find</key>
+				<data>
+				PYUI7BA=
+				</data>
+				<key>Name</key>
+				<string>AppleHDA</string>
+				<key>Replace</key>
+				<data>
+				PQAAAAA=
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>ALC 282</string>
+				<key>Find</key>
+				<data>
+				PYQZ1BE=
+				</data>
+				<key>Name</key>
+				<string>AppleHDA</string>
+				<key>Replace</key>
+				<data>
+				PYIC7BA=
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>AppleHDA ( new in 10.11, credit lisai9093)</string>
 				<key>Find</key>
 				<data>
 				PYMZ1BE=
@@ -674,34 +714,6 @@
 				<key>Replace</key>
 				<data>
 				PQAAAAA=
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>IDT 76e0 #2</string>
-				<key>Find</key>
-				<data>
-				PYQZ1BE=
-				</data>
-				<key>Name</key>
-				<string>AppleHDA</string>
-				<key>Replace</key>
-				<data>
-				PQAAAAA=
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>IDT 76e0 #1</string>
-				<key>Find</key>
-				<data>
-				PYsZ1BE=
-				</data>
-				<key>Name</key>
-				<string>AppleHDA</string>
-				<key>Replace</key>
-				<data>
-				PeB2HRE=
 				</data>
 			</dict>
 		</array>
@@ -716,7 +728,7 @@
 	<key>SMBIOS</key>
 	<dict>
 		<key>ProductName</key>
-		<string>MacBookPro9,2</string>
+		<string>MacBookAir6,2</string>
 		<key>Trust</key>
 		<true/>
 	</dict>

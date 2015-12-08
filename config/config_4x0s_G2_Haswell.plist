@@ -662,22 +662,6 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>HDMI-audio, port 0105/0204, 0x16260006</string>
-				<key>Find</key>
-				<data>
-				AQULAAAEAAAHBQAAAgQLAAAEAAAHBQAA/wAAAAEAAABA
-				AAAA
-				</data>
-				<key>Name</key>
-				<string>AppleIntelBDWGraphicsFramebuffer</string>
-				<key>Replace</key>
-				<data>
-				AQULAAAIAACCAAAAAgQLAAAIAACCAAAA/wAAAAEAAABA
-				AAAA
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
 				<string>ALC 282</string>
 				<key>Find</key>
 				<data>
@@ -744,7 +728,7 @@
 	<key>SMBIOS</key>
 	<dict>
 		<key>ProductName</key>
-		<string>MacBookAir7,2</string>
+		<string>MacBookAir6,2</string>
 		<key>Trust</key>
 		<true/>
 	</dict>

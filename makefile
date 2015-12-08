@@ -19,7 +19,6 @@ else
 endif
 SLE=/System/Library/Extensions
 
-
 COMMON = patches/00_Optimize.txt patches/01_Compilation.txt patches/02_DSDTPatch.txt patches/05_OSCheck.txt patches/06_Battery.txt
 FANPATCH = patches/04a_FanPatch.txt
 QUIET = patches/04b_FanQuiet.txt
@@ -35,7 +34,6 @@ MINI = Mini-SSDT.aml Mini-SSDT-DualLink.aml Mini-SSDT-IMEI.aml Mini-SSDT-Disable
 #//REVIEW: stop building MINI for now
 MINI=
 
-
 HACK:=$(HACK) $(BUILDDIR)/SSDT-HACK.aml
 HACK:=$(HACK) $(BUILDDIR)/SSDT-IGPU.aml $(BUILDDIR)/SSDT-IGPU-HIRES.aml
 HACK:=$(HACK) $(BUILDDIR)/SSDT-BATT.aml $(BUILDDIR)/SSDT-BATT-G2.aml
@@ -44,14 +42,19 @@ HACK:=$(HACK) $(BUILDDIR)/SSDT-FAN-QUIET.aml $(BUILDDIR)/SSDT-FAN-MOD.aml $(BUIL
 HACK:=$(HACK) $(BUILDDIR)/SSDT-FAN-ORIG.aml $(BUILDDIR)/SSDT-FAN-READ.aml
 HACK:=$(HACK) $(BUILDDIR)/SSDT-USB-4x0s-G2.aml $(BUILDDIR)/SSDT-USB-4x40s.aml $(BUILDDIR)/SSDT-USB-4x30s.aml
 
-PLIST:=config/config_4x30s.plist config/config_4x40s.plist config/config_4x0s_Gx.plist config/config_4x0s_G0.plist
+PLIST:=$(PLIST) config/config_4x30s.plist config/config_4x40s.plist
+PLIST:=$(PLIST) config/config_4x0s_G0.plist config/config_4x0s_G1.plist
+PLIST:=$(PLIST) config/config_8x0s_G1.plist config/config_9x70m.plist
+PLIST:=$(PLIST) config/config_6x60s.plist config/config_6x70s.plist config/config_3x0_G1.plist
+PLIST:=$(PLIST) config/config_4x0s_G2_Haswell.plist config/config_8x0s_G2_Haswell.plist
+PLIST:=$(PLIST) config/config_4x0s_G2_Broadwell.plist config/config_8x0s_G2_Broadwell.plist
 
 .PHONY: all
 all : $(ALL) $(MINI) $(HACK) $(PLIST) $(HDAINJECT)
 
 .PHONY: clean
 clean: 
-	rm $(ALL) $(MINI) $(PLIST)
+	rm -f $(ALL) $(MINI) $(PLIST)
 
 $(HDAINJECT): $(RESOURCES)/*.plist ./patch_hda.sh
 	./patch_hda.sh $(HDA)
@@ -71,21 +74,9 @@ install_hda:
 
 # generated config.plist files
 
-config/config_4x0s_G0.plist : config_master.plist config_ALC282.plist config_HD4000.plist
-	cp config_master.plist $@
-	/usr/libexec/plistbuddy -c "Set :SMBIOS:ProductName MacBookPro9,2" $@
-	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_HD4000.plist $@
-	#4x0_G0 is probably not ALC282
-	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_ALC282.plist $@
-
-config/config_4x0s_Gx.plist : config_master.plist config_ALC282.plist config_Haswell.plist config_Broadwell.plist
-	cp config_master.plist $@
-	/usr/libexec/plistbuddy -c "Set :SMBIOS:ProductName MacBookAir7,2" $@
-	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_Haswell.plist $@
-	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_Broadwell.plist $@
-	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_ALC282.plist $@
-
+# 4x30s is IDT76d1, HD3000
 config/config_4x30s.plist : config_master.plist config_IDT76d1.plist config_HD3000.plist config_non_Intel_USB3.plist
+	@printf "!! creating $@\n"
 	cp config_master.plist $@
 	/usr/libexec/plistbuddy -c "Set SMBIOS:ProductName MacBookPro8,2" $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_HD3000.plist $@
@@ -93,8 +84,11 @@ config/config_4x30s.plist : config_master.plist config_IDT76d1.plist config_HD30
 	/usr/libexec/plistbuddy -c "Set Devices:Arbitrary:0:CustomProperties:0:Value 12" $@
 	/usr/libexec/plistbuddy -c "Set Devices:Arbitrary:1:CustomProperties:0:Value 12" $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_non_Intel_USB3.plist $@
+	@printf "\n"
 
+# 4x40s is IDT76d9, HD3000 or HD4000
 config/config_4x40s.plist : config_master.plist config_IDT76d9.plist config_HD3000.plist config_HD4000.plist
+	@printf "!! creating $@\n"
 	cp config_master.plist $@
 	/usr/libexec/plistbuddy -c "Set :SMBIOS:ProductName MacBookPro9,2" $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_HD3000.plist $@
@@ -102,6 +96,100 @@ config/config_4x40s.plist : config_master.plist config_IDT76d9.plist config_HD30
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_IDT76d9.plist $@
 	/usr/libexec/plistbuddy -c "Set Devices:Arbitrary:0:CustomProperties:0:Value 13" $@
 	/usr/libexec/plistbuddy -c "Set Devices:Arbitrary:1:CustomProperties:0:Value 13" $@
+	@printf "\n"
+
+# 4x0s_G0 (and ZBook) is IDT 76e0, HD4000
+config/config_4x0s_G0.plist : config_master.plist config_IDT76e0.plist config_HD4000.plist
+	@printf "!! creating $@\n"
+	cp config_master.plist $@
+	/usr/libexec/plistbuddy -c "Set :SMBIOS:ProductName MacBookPro9,2" $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_HD4000.plist $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_IDT76e0.plist $@
+	/usr/libexec/plistbuddy -c "Set Devices:Arbitrary:0:CustomProperties:0:Value 14" $@
+	/usr/libexec/plistbuddy -c "Set Devices:Arbitrary:1:CustomProperties:0:Value 14" $@
+	@printf "\n"
+
+# 4x0s_G1 is same as 4x0s_G0
+config/config_4x0s_G1.plist: config/config_4x0s_G0.plist
+	@printf "!! creating $@\n"
+	cp config/config_4x0s_G0.plist $@
+	@printf "\n"
+
+# 8x0s_G1 is same as 4x0s_G0
+config/config_8x0s_G1.plist: config/config_4x0s_G0.plist
+	@printf "!! creating $@\n"
+	cp config/config_4x0s_G0.plist $@
+	@printf "\n"
+
+# 9x70m is same as 4x0s_G0
+config/config_9x70m.plist: config/config_4x0s_G0.plist
+	@printf "!! creating $@\n"
+	cp config/config_4x0s_G0.plist $@
+	@printf "\n"
+
+# 6x60s is IDT7605, HD3000, non-Intel USB3
+config/config_6x60s.plist : config_master.plist config_IDT7605.plist config_HD3000.plist config_non_Intel_USB3.plist
+	@printf "!! creating $@\n"
+	cp config_master.plist $@
+	/usr/libexec/plistbuddy -c "Set SMBIOS:ProductName MacBookPro8,2" $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_HD3000.plist $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_IDT7605.plist $@
+	/usr/libexec/plistbuddy -c "Set Devices:Arbitrary:0:CustomProperties:0:Value 15" $@
+	/usr/libexec/plistbuddy -c "Set Devices:Arbitrary:1:CustomProperties:0:Value 15" $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_non_Intel_USB3.plist $@
+	@printf "\n"
+
+# 6x70s is IDT7605, HD4000
+config/config_6x70s.plist : config_master.plist config_IDT7605.plist config_HD4000.plist
+	@printf "!! creating $@\n"
+	cp config_master.plist $@
+	/usr/libexec/plistbuddy -c "Set :SMBIOS:ProductName MacBookPro9,2" $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_HD4000.plist $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_IDT7605.plist $@
+	/usr/libexec/plistbuddy -c "Set Devices:Arbitrary:0:CustomProperties:0:Value 15" $@
+	/usr/libexec/plistbuddy -c "Set Devices:Arbitrary:1:CustomProperties:0:Value 15" $@
+	@printf "\n"
+
+# 3x0_G1 is IDT7695, HD4000 (//review)
+config/config_3x0_G1.plist : config_master.plist config_IDT7695.plist config_HD4000.plist
+	@printf "!! creating $@\n"
+	cp config_master.plist $@
+	/usr/libexec/plistbuddy -c "Set :SMBIOS:ProductName MacBookPro9,2" $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_HD4000.plist $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_IDT7695.plist $@
+	/usr/libexec/plistbuddy -c "Set Devices:Arbitrary:0:CustomProperties:0:Value 16" $@
+	/usr/libexec/plistbuddy -c "Set Devices:Arbitrary:1:CustomProperties:0:Value 16" $@
+	@printf "\n"
+
+# 4x0s_G2_Haswell is ALC282, Haswell
+config/config_4x0s_G2_Haswell.plist : config_master.plist config_ALC282.plist config_Haswell.plist
+	@printf "!! creating $@\n"
+	cp config_master.plist $@
+	/usr/libexec/plistbuddy -c "Set :SMBIOS:ProductName MacBookAir6,2" $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_Haswell.plist $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_ALC282.plist $@
+	@printf "\n"
+
+# 8x0s_G2_Haswell is same as 4x0s_G2_Haswell, non-Intel USB3
+config/config_8x0s_G2_Haswell.plist: config/config_4x0s_G2_Haswell.plist
+	@printf "!! creating $@\n"
+	cp config/config_4x0s_G2_Haswell.plist $@
+	@printf "\n"
+
+# 4x0s_G2_Broadwell is ALC282, Broadwell
+config/config_4x0s_G2_Broadwell.plist : config_master.plist config_ALC282.plist config_Broadwell.plist
+	@printf "!! creating $@\n"
+	cp config_master.plist $@
+	/usr/libexec/plistbuddy -c "Set :SMBIOS:ProductName MacBookAir7,2" $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_Broadwell.plist $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_ALC282.plist $@
+	@printf "\n"
+
+# 8x0s_G2_Broadwell is same as 4x0s_G2_Broadwell, non-Intel USB3
+config/config_8x0s_G2_Broadwell.plist: config/config_4x0s_G2_Broadwell.plist
+	@printf "!! creating $@\n"
+	cp config/config_4x0s_G2_Broadwell.plist $@
+	@printf "\n"
 
 # combo patches
 
