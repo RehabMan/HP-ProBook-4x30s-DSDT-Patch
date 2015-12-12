@@ -1,9 +1,8 @@
 // USBInjectAll configuration/override for ProBook 8x0s G1 Haswell
 //
 
-//REVIEW: not done yet... need someone to verify diffs between G1/G2.
-
-// this data is for 8x0s G2 Haswell
+//REVIEW: preliminary data for G1.  Note that it has a hub on XHC, which
+//  may need further work.
 
 DefinitionBlock ("SSDT-HACK.aml", "SSDT", 1, "hack", "usb", 0x00003000)
 {
