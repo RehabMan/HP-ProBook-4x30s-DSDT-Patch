@@ -1,7 +1,9 @@
-// USBInjectAll configuration/override for ProBook 4x0s G2
+// USBInjectAll configuration/override for ProBook 8x0s G1 Haswell
 //
-// investigative work done by mo7a1995 (with direction from RehabMan)
-//
+
+//REVIEW: not done yet... need someone to verify diffs between G1/G2.
+
+// this data is for 8x0s G2 Haswell
 
 DefinitionBlock ("SSDT-HACK.aml", "SSDT", 1, "hack", "usb", 0x00003000)
 {
@@ -25,24 +27,20 @@ DefinitionBlock ("SSDT-HACK.aml", "SSDT", 1, "hack", "usb", 0x00003000)
                 //"port-count", Buffer() { 0x0d, 0, 0, 0},
                 "ports", Package()
                 {
-                    "HS01", Package() // HS USB3 
-                    {
-                        "UsbConnector", 3,
-                        "port", Buffer() { 0x01, 0, 0, 0 },
-                    },
-                    "HS02", Package() // HS USB3 
-                    {
-                        "UsbConnector", 3,
-                        "port", Buffer() { 0x02, 0, 0, 0 },
-                    }, 
-                    "HS03", Package() // USB2 
+                    // HS01 not used
+                    "HS02", Package() // USB2
                     {
                         "UsbConnector", 0,
-                        "port", Buffer() { 0x03, 0, 0, 0 },
-                    },
-                    "HS04", Package() // bluetooth
+                        "port", Buffer() { 0x02, 0, 0, 0 },
+                    }, 
+                    "HS03", Package() // internal 4-port USB2 hub (SSP3 is USB3)
                     {
                         "UsbConnector", 255,
+                        "port", Buffer() { 0x03, 0, 0, 0 },
+                    },
+                    "HS04", Package() // SS USB2 (SSP4 is USB3)
+                    {
+                        "UsbConnector", 0,
                         "port", Buffer() { 0x04, 0, 0, 0 },
                     },
                     #if 0
@@ -62,17 +60,14 @@ DefinitionBlock ("SSDT-HACK.aml", "SSDT", 1, "hack", "usb", 0x00003000)
                         "UsbConnector", 255,
                         "port", Buffer() { 0x07, 0, 0, 0 },
                     },
-                    "HS08", Package() // USB2 
+                    // HS08/HS09 not used
+                    // SSP1/SSP2 not used
+                    "SSP3", Package() // internal 4-port USB3 hub (HS03 is USB2)
                     {
-                        "UsbConnector", 0,
-                        "port", Buffer() { 0x08, 0, 0, 0 },
-                    },
-                    "SSP3", Package() // SS USB3 
-                    {
-                        "UsbConnector", 3,
+                        "UsbConnector", 255,
                         "port", Buffer() { 0x0c, 0, 0, 0 },
                     },
-                    "SSP4", Package() // SS USB3 
+                    "SSP4", Package() // SS USB3 (HS04 is USB2)
                     {
                         "UsbConnector", 3,
                         "port", Buffer() { 0x0d, 0, 0, 0 },
