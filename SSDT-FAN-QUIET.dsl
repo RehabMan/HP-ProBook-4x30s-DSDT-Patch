@@ -31,8 +31,10 @@ DefinitionBlock ("SSDT-FAN-QUIET.aml", "SSDT", 1, "hack", "fan", 0x00003000)
         {
             "CPU Heatsink", "TCPU",
             "Ambient", "TAMB",
+#ifdef DEBUG
             "Mainboard", "TSYS",
             "CPU Proximity", "TCPP",
+#endif
         })
         // Actual methods to implement fan/temp readings/control
         Method (FAN0, 0, Serialized)
@@ -58,6 +60,23 @@ DefinitionBlock ("SSDT-FAN-QUIET.aml", "SSDT", 1, "hack", "fan", 0x00003000)
             Release (\_SB.PCI0.LPCB.EC0.ECMX)
             Return (Local0)
         }
+#ifdef DEBUG
+        // for debugging fan control\n
+        Method (TCPP, 0, Serialized)  // Average temp\n
+        {\n
+            Store (FNUM, Local0)\n
+            if (LNotEqual (Local0, 0))\n
+            {\n
+                Store (FSUM, Local1)\n
+                Divide (Local1, Local0,, Local0)\n
+            }\n
+            Return (Local0)\n
+        }\n
+        Method (TSYS, 0, Serialized)  // fan counter\n
+        {\n
+            Return (FCNT)\n
+        }\n
+#endif
 #ifdef QUIET
         // original quiet table by RehabMan
         Name(FTA1, Package()
