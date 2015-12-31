@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>English</string>
+	<key>CFBundleExecutable</key>
+	<string>JMicronATA</string>
+	<key>CFBundleGetInfoString</key>
+	<string>1.1.6, Copyright JMicron Technology Corporation</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.jmicron.JMicronATA</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>JMicron JMB368 CF Card Reader Driver</string>
+	<key>CFBundlePackageType</key>
+	<string>KEXT</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.1.6</string>
+	<key>CFBundleSignature</key>
+	<string>????</string>
+	<key>CFBundleVersion</key>
+	<string>1.1.6</string>
+	<key>IOKitPersonalities</key>
+	<dict>
+		<key>JMicronATA Driver</key>
+		<dict>
+			<key>CFBundleIdentifier</key>
+			<string>com.jmicron.JMicronATA</string>
+			<key>Hardware Vendor</key>
+			<string>JMicron</string>
+			<key>IOClass</key>
+			<string>JMicronATA</string>
+			<key>IOMediaIcon</key>
+			<dict>
+				<key>CFBundleIdentifier</key>
+				<string>com.apple.iokit.IOStorageFamily</string>
+				<key>IOBundleResourceFile</key>
+				<string>External.icns</string>
+			</dict>
+			<key>IOProviderClass</key>
+			<string>JMicronATAChannel</string>
+		</dict>
+		<key>JMicronATA PCI</key>
+		<dict>
+			<key>CFBundleIdentifier</key>
+			<string>com.jmicron.JMicronATA</string>
+			<key>Hardware Vendor</key>
+			<string>JMicron</string>
+			<key>IOClass</key>
+			<string>JMicronATAPCIRoot</string>
+			<key>IOPCIPrimaryMatch</key>
+			<string>0x2368197b</string>
+			<key>IOProbeScore</key>
+			<integer>10000</integer>
+			<key>IOProviderClass</key>
+			<string>IOPCIDevice</string>
+		</dict>
+	</dict>
+	<key>OSBundleLibraries</key>
+	<dict>
+		<key>com.apple.iokit.IOATAFamily</key>
+		<string>1.6</string>
+		<key>com.apple.iokit.IOPCIFamily</key>
+		<string>2.0</string>
+		<key>com.apple.kpi.bsd</key>
+		<string>8.0</string>
+		<key>com.apple.kpi.iokit</key>
+		<string>8.0</string>
+		<key>com.apple.kpi.libkern</key>
+		<string>8.0</string>
+	</dict>
+	<key>OSBundleRequired</key>
+	<string>Local-Root</string>
+</dict>
+</plist>

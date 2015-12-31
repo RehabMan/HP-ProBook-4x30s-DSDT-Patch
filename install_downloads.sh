@@ -176,6 +176,7 @@ install_kext AppleHDA_ProBook.kext
 cd kexts
 install_kext HSSDBlockStorage.kext
 install_kext JMB38X.kext
+install_kext JMicronATA.kext
 install_kext ProBookAtheros.kext
 cd ..
 
