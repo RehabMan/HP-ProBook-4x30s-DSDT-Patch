@@ -24,4 +24,5 @@ DefinitionBlock ("SSDT-KEY102.aml", "SSDT", 1, "hack", "key102", 0x00003000)
         }
     }
 }
+
 //EOF

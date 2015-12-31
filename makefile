@@ -41,11 +41,13 @@ HACK:=$(HACK) $(BUILDDIR)/SSDT-KEY87.aml $(BUILDDIR)/SSDT-KEY102.aml
 HACK:=$(HACK) $(BUILDDIR)/SSDT-FAN-QUIET.aml $(BUILDDIR)/SSDT-FAN-MOD.aml $(BUILDDIR)/SSDT-FAN-SMOOTH.aml
 HACK:=$(HACK) $(BUILDDIR)/SSDT-FAN-ORIG.aml $(BUILDDIR)/SSDT-FAN-READ.aml
 HACK:=$(HACK) $(BUILDDIR)/SSDT-USB-4x0s-G2.aml $(BUILDDIR)/SSDT-USB-4x40s.aml $(BUILDDIR)/SSDT-USB-4x30s.aml
+HACK:=$(HACK) $(BUILDDIR)/SSDT-USB-8x0s-G1.aml
 
 PLIST:=$(PLIST) config/config_4x30s.plist config/config_4x40s.plist
 PLIST:=$(PLIST) config/config_4x0s_G0.plist config/config_4x0s_G1.plist
 PLIST:=$(PLIST) config/config_8x0s_G1.plist config/config_9x70m.plist
 PLIST:=$(PLIST) config/config_6x60s.plist config/config_6x70s.plist config/config_3x0_G1.plist
+PLIST:=$(PLIST) config/config_8x0s_G1_Haswell.plist
 PLIST:=$(PLIST) config/config_4x0s_G2_Haswell.plist config/config_8x0s_G2_Haswell.plist
 PLIST:=$(PLIST) config/config_4x0s_G2_Broadwell.plist config/config_8x0s_G2_Broadwell.plist
 
@@ -119,6 +121,17 @@ config/config_4x0s_G1.plist: config/config_4x0s_G0.plist
 config/config_8x0s_G1.plist: config/config_4x0s_G0.plist
 	@printf "!! creating $@\n"
 	cp config/config_4x0s_G0.plist $@
+	@printf "\n"
+
+# 8x0s_G1_Haswell is IDT 76e0, HD4400
+config/config_8x0s_G1_Haswell.plist : config_master.plist config_IDT76e0.plist config_Haswell.plist
+	@printf "!! creating $@\n"
+	cp config_master.plist $@
+	/usr/libexec/plistbuddy -c "Set :SMBIOS:ProductName MacBookAir6,2" $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_Haswell.plist $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_IDT76e0.plist $@
+	/usr/libexec/plistbuddy -c "Set Devices:Arbitrary:0:CustomProperties:0:Value 14" $@
+	/usr/libexec/plistbuddy -c "Set Devices:Arbitrary:1:CustomProperties:0:Value 14" $@
 	@printf "\n"
 
 # 9x70m is same as 4x0s_G0
@@ -257,12 +270,15 @@ $(BUILDDIR)/SSDT-FAN-ORIG.aml : SSDT-FAN-ORIG.dsl
 $(BUILDDIR)/SSDT-FAN-READ.aml : SSDT-FAN-READ.dsl
 	iasl -p $@ $^
 
-$(BUILDDIR)/SSDT-USB-4x0s-G2.aml : SSDT-USB-4x0s-G2.dsl
-	iasl -vw 2095 -p $@ $^
+$(BUILDDIR)/SSDT-USB-4x30s.aml : SSDT-USB-4x30s.dsl
+	iasl -p $@ $^
 
 $(BUILDDIR)/SSDT-USB-4x40s.aml : SSDT-USB-4x40s.dsl
 	iasl -p $@ $^
 
-$(BUILDDIR)/SSDT-USB-4x30s.aml : SSDT-USB-4x30s.dsl
-	iasl -p $@ $^
+$(BUILDDIR)/SSDT-USB-8x0s-G1.aml : SSDT-USB-8x0s-G1.dsl
+	iasl -vw 2095 -p $@ $^
+
+$(BUILDDIR)/SSDT-USB-4x0s-G2.aml : SSDT-USB-4x0s-G2.dsl
+	iasl -vw 2095 -p $@ $^
 

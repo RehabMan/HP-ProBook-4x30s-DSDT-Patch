@@ -72,8 +72,29 @@ DefinitionBlock ("SSDT-IGPU.aml", "SSDT", 1, "hack", "igpu", 0x00003000)
                     "hda-gfx", Buffer() { "onboard-1" },
                     "AAPL,ig-platform-id", Buffer() { 0x06, 0x00, 0x26, 0x0a },
                 },
-                // Broadwell/HD5300/HD5500/HD5600/HD6000
-                0x161e, 0x1616, 0x1612, 0x1626, 0x162b, 0, Package()
+                // Broadwell/HD5300
+                0x161e, 0, Package()
+                {
+                    "model", Buffer() { "Intel HD Graphics 5300" },
+                    "hda-gfx", Buffer() { "onboard-1" },
+                    "AAPL,ig-platform-id", Buffer() { 0x06, 0x00, 0x26, 0x16 },
+                },
+                // Broadwell/HD5500
+                0x1616, 0, Package()
+                {
+                    "model", Buffer() { "Intel HD Graphics 5500" },
+                    "hda-gfx", Buffer() { "onboard-1" },
+                    "AAPL,ig-platform-id", Buffer() { 0x06, 0x00, 0x26, 0x16 },
+                },
+                // Broadwell/HD5600
+                0x1612, 0, Package()
+                {
+                    "model", Buffer() { "Intel HD Graphics 5600" },
+                    "hda-gfx", Buffer() { "onboard-1" },
+                    "AAPL,ig-platform-id", Buffer() { 0x06, 0x00, 0x26, 0x16 },
+                },
+                // Broadwell/HD6000/HD6100/HD6200
+                0x1626, 0x162b, 0x1622, 0, Package()
                 {
                     "hda-gfx", Buffer() { "onboard-1" },
                     "AAPL,ig-platform-id", Buffer() { 0x06, 0x00, 0x26, 0x16 },
