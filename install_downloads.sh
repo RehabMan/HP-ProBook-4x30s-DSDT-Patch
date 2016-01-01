@@ -7,7 +7,7 @@ TAG=tag_file
 TAGCMD=`pwd`/tools/tag
 SLE=/System/Library/Extensions
 LE=/Library/Extensions
-EXCEPTIONS="Sensors|FakePCIID_BCM57XX|FakePCIID_AR9280|FakePCIID_Intel_GbX|FakePCIID_Intel_HDMI|BrcmPatchRAM|BrcmBluetoothInjector|BrcmFirmwareData|USBInjectAll"
+EXCEPTIONS="Sensors|FakePCIID_BCM57XX|FakePCIID_AR9280|FakePCIID_Intel_GbX|BrcmPatchRAM|BrcmBluetoothInjector|BrcmFirmwareData|USBInjectAll"
 
 # extract minor version (eg. 10.9 vs. 10.10 vs. 10.11)
 MINOR_VER=$([[ "$(sw_vers -productVersion)" =~ [0-9]+\.([0-9]+) ]] && echo ${BASH_REMATCH[1]})
@@ -157,8 +157,6 @@ if [ $? -ne 0 ]; then
     $SUDO rm -Rf $SLE/BrcmFirmwareData.kext $KEXTDEST/BrcmFirmwareData.kext
     # now using IntelBacklight.kext instead of ACPIBacklight.kext
     $SUDO rm -Rf $SLE/ACPIBacklight.kext $KEXTDEST/ACPIBacklight.kext
-    # since EHCI #1 is disabled, FakePCIID_XHCIMux.kext cannot be used
-    $SUDO rm -Rf $KEXTDEST/FakePCIID_XHCIMux.kext
     # deal with some renames
     if [[ -e $KEXTDEST/FakePCIID_Broadcom_WiFi.kext ]]; then
         # remove old FakePCIID_BCM94352Z_as_BCM94360CS2.kext

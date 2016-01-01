@@ -128,6 +128,19 @@ DefinitionBlock ("SSDT-HACK.aml", "SSDT", 1, "hack", "usb", 0x00003000)
             }
         }
     }
+
+//
+// Configure FakePCIID_XHCIMux.kext to handle USB2 on XHC
+//
+    External(_SB.PCI0.LPCB.XHC, DeviceObj)
+    Method(_SB.PCI0.LPCB.XHC._DSM, 4)
+    {
+        If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }
+        Return (Package()
+        {
+            "RM,pr2-force", Buffer() { 0xff, 0x3f, 0, 0 },
+        })
+    }
 }
 
 //EOF
