@@ -22,6 +22,7 @@ mkdir ./kexts && cd ./kexts
 download os-x-fakesmc-kozlek RehabMan-FakeSMC
 download os-x-voodoo-ps2-controller RehabMan-Voodoo
 download os-x-realtek-network RehabMan-Realtek-Network
+download os-x-intel-network RehabMan-IntelMausiEthernet
 #download os-x-acpi-backlight RehabMan-Backlight
 download os-x-intel-backlight RehabMan-IntelBacklight
 download os-x-acpi-battery-driver RehabMan-Battery

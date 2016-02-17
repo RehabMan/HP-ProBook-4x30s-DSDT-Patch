@@ -50,6 +50,7 @@ PLIST:=$(PLIST) config/config_6x60s.plist config/config_6x70s.plist config/confi
 PLIST:=$(PLIST) config/config_8x0s_G1_Haswell.plist
 PLIST:=$(PLIST) config/config_4x0s_G2_Haswell.plist config/config_8x0s_G2_Haswell.plist
 PLIST:=$(PLIST) config/config_4x0s_G2_Broadwell.plist config/config_8x0s_G2_Broadwell.plist
+PLIST:=$(PLIST) config/config_ZBook_G2_Haswell.plist
 
 .PHONY: all
 all : $(ALL) $(MINI) $(HACK) $(PLIST) $(HDAINJECT)
@@ -202,6 +203,17 @@ config/config_4x0s_G2_Broadwell.plist : config_master.plist config_ALC282.plist 
 config/config_8x0s_G2_Broadwell.plist: config/config_4x0s_G2_Broadwell.plist
 	@printf "!! creating $@\n"
 	cp config/config_4x0s_G2_Broadwell.plist $@
+	@printf "\n"
+
+# ZBook_G2_Haswell is ALC280, Haswell
+config/config_ZBook_G2_Haswell.plist : config_master.plist config_ALC280.plist config_Haswell.plist
+	@printf "!! creating $@\n"
+	cp config_master.plist $@
+	/usr/libexec/plistbuddy -c "Set :SMBIOS:ProductName MacBookPro11,1" $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_Haswell.plist $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_ALC280.plist $@
+	/usr/libexec/plistbuddy -c "Set Devices:Arbitrary:0:CustomProperties:0:Value 4" $@
+	/usr/libexec/plistbuddy -c "Set Devices:Arbitrary:1:CustomProperties:0:Value 4" $@
 	@printf "\n"
 
 # combo patches

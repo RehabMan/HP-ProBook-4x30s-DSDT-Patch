@@ -15,6 +15,20 @@
 			<integer>3</integer>
 		</dict>
 		<dict>
+			<key>AFGLowPowerState</key>
+			<data>AwAAAA==</data>
+			<key>Codec</key>
+			<string>Mirone - Realtek ALC280</string>
+			<key>CodecID</key>
+			<integer>283902592</integer>
+			<key>ConfigData</key>
+			<data>AUccEAFHHQABRx4TAUcfkAFXHCABVx0QAVceIQFXHwEBJxwwAScdAAEnHqABJx+QAaccQAGnHRABpx6BAacfAgFHDAIBVwwC</data>
+			<key>FuncGroup</key>
+			<integer>1</integer>
+			<key>LayoutID</key>
+			<integer>4</integer>
+		</dict>
+		<dict>
 			<key>CodecID</key>
 			<integer>287143633</integer>
 			<key>ConfigData</key>

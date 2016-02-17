@@ -1,6 +1,7 @@
 LayoutID and PathMapID mappings for AppleHDA_ProBook.kext
 
 ALC282: 3
+ALC280: 4
 
 IDT_76d1: 12
 IDT_76d9: 13
@@ -12,7 +13,11 @@ IDT_7695: 16
 
 Model/Audio mapping
 
+
+
 ALC282: 4x0G2, 4x0G2Broadwell, 8x0G2 Broadwell
+
+ALC280: Zbook 15 G2
 
 76d1: 4x30s,
 
