@@ -77,7 +77,7 @@ install_hda:
 
 # generated config.plist files
 
-# 4x30s is IDT76d1, HD3000
+# 4x30s is IDT76d1, HD3000, non-Intel USB3
 config/config_4x30s.plist : config_master.plist config_IDT76d1.plist config_HD3000.plist config_non_Intel_USB3.plist
 	@printf "!! creating $@\n"
 	cp config_master.plist $@
@@ -184,7 +184,7 @@ config/config_4x0s_G2_Haswell.plist : config_master.plist config_ALC282.plist co
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_ALC282.plist $@
 	@printf "\n"
 
-# 8x0s_G2_Haswell is same as 4x0s_G2_Haswell, non-Intel USB3
+# 8x0s_G2_Haswell is same as 4x0s_G2_Haswell
 config/config_8x0s_G2_Haswell.plist: config/config_4x0s_G2_Haswell.plist
 	@printf "!! creating $@\n"
 	cp config/config_4x0s_G2_Haswell.plist $@
@@ -199,7 +199,7 @@ config/config_4x0s_G2_Broadwell.plist : config_master.plist config_ALC282.plist 
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_ALC282.plist $@
 	@printf "\n"
 
-# 8x0s_G2_Broadwell is same as 4x0s_G2_Broadwell, non-Intel USB3
+# 8x0s_G2_Broadwell is same as 4x0s_G2_Broadwell
 config/config_8x0s_G2_Broadwell.plist: config/config_4x0s_G2_Broadwell.plist
 	@printf "!! creating $@\n"
 	cp config/config_4x0s_G2_Broadwell.plist $@
