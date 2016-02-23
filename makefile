@@ -190,13 +190,13 @@ config/config_8x0s_G2_Haswell.plist: config/config_4x0s_G2_Haswell.plist
 	cp config/config_4x0s_G2_Haswell.plist $@
 	@printf "\n"
 
-# 4x0s_G2_Broadwell is ALC282, Broadwell
-config/config_4x0s_G2_Broadwell.plist : config_master.plist config_ALC282.plist config_Broadwell.plist
+# 4x0s_G2_Broadwell is ALC280, Broadwell
+config/config_4x0s_G2_Broadwell.plist : config_master.plist config_ALC280.plist config_Broadwell.plist
 	@printf "!! creating $@\n"
 	cp config_master.plist $@
 	/usr/libexec/plistbuddy -c "Set :SMBIOS:ProductName MacBookAir7,2" $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_Broadwell.plist $@
-	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_ALC282.plist $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_ALC280.plist $@
 	@printf "\n"
 
 # 8x0s_G2_Broadwell is same as 4x0s_G2_Broadwell
