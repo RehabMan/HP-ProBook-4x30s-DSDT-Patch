@@ -4,7 +4,7 @@
 //REVIEW: preliminary data for G1.  Note that it has a hub on XHC, which
 //  may need further work.
 
-DefinitionBlock ("SSDT-HACK.aml", "SSDT", 1, "hack", "usb", 0x00003000)
+DefinitionBlock ("SSDT-USB-8x0s-G1.aml", "SSDT", 1, "hack", "usb", 0x00003000)
 {
 //
 // Override for USBInjectAll.kext

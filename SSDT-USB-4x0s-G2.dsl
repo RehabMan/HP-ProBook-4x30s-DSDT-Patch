@@ -3,7 +3,7 @@
 // investigative work done by mo7a1995 (with direction from RehabMan)
 //
 
-DefinitionBlock ("SSDT-HACK.aml", "SSDT", 1, "hack", "usb", 0x00003000)
+DefinitionBlock ("SSDT-USB-4x0s-G2.aml", "SSDT", 1, "hack", "usb", 0x00003000)
 {
 //
 // Override for USBInjectAll.kext
