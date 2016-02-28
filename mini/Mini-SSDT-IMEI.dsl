@@ -1,4 +1,4 @@
-DefinitionBlock("ssdt-1.aml", "SSDT", 2, "HPQOEM", "general", 0x00001000)
+DefinitionBlock("", "SSDT", 2, "HPQOEM", "general", 0x00001000)
 {
     Device(_SB.PCI0.IMEI)
     {

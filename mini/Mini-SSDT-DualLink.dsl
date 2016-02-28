@@ -1,4 +1,4 @@
-DefinitionBlock("ssdt.aml", "SSDT", 2, "HPQOEM", "general", 0x00001000)
+DefinitionBlock("", "SSDT", 2, "HPQOEM", "general", 0x00001000)
 {
     Method(_SB.PCI0.GFX0._DSM, 4, NotSerialized)
     {

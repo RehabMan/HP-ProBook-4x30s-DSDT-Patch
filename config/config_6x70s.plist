@@ -213,6 +213,22 @@
 					CE5CVDU=
 					</data>
 				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>rename BAT1._STA to BAT1.XSTA</string>
+					<key>Find</key>
+					<data>
+					CUJBVDEIX0hJRAxB0AwKFCFfVUlEAKAVkZNP
+					U1lTC9wHk09TWVML3wekCgGhBKQKAhQ0X1NU
+					QQ==
+					</data>
+					<key>Replace</key>
+					<data>
+					CUJBVDEIX0hJRAxB0AwKFCFfVUlEAKAVkZNP
+					U1lTC9wHk09TWVML3wekCgGhBKQKAhQ0WFNU
+					QQ==
+					</data>
+				</dict>
 			</array>
 		</dict>
 		<key>DropTables</key>

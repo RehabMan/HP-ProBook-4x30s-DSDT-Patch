@@ -4,7 +4,7 @@
 // A bit experimental, and a bit more difficult with laptops, but
 // still possible.
 
-DefinitionBlock ("SSDT-FAN-QUIET.aml", "SSDT", 1, "hack", "fan", 0x00003000)
+DefinitionBlock ("", "SSDT", 1, "hack", "fan", 0x00003000)
 {
     External(\_SB.PCI0, DeviceObj)
     External(\_SB.PCI0.LPCB, DeviceObj)

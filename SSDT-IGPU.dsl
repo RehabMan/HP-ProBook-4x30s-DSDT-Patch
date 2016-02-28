@@ -4,7 +4,7 @@
 // A bit experimental, and a bit more difficult with laptops, but
 // still possible.
 
-DefinitionBlock ("SSDT-IGPU.aml", "SSDT", 1, "hack", "igpu", 0x00003000)
+DefinitionBlock ("", "SSDT", 1, "hack", "igpu", 0x00003000)
 {
     External(\_SB.PCI0, DeviceObj)
     Scope (\_SB.PCI0)
