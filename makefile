@@ -197,6 +197,8 @@ config/config_4x0s_G2_Broadwell.plist : config_master.plist config_ALC280.plist 
 	/usr/libexec/plistbuddy -c "Set :SMBIOS:ProductName MacBookAir7,2" $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_Broadwell.plist $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_ALC280.plist $@
+	/usr/libexec/plistbuddy -c "Set Devices:Arbitrary:0:CustomProperties:0:Value 4" $@
+	/usr/libexec/plistbuddy -c "Set Devices:Arbitrary:1:CustomProperties:0:Value 4" $@
 	@printf "\n"
 
 # 8x0s_G2_Broadwell is same as 4x0s_G2_Broadwell
