@@ -25,7 +25,7 @@ DefinitionBlock ("", "SSDT", 1, "hack", "igpu", 0x00003000)
                 {
                     "model", Buffer() { "Intel HD Graphics 3000" },
                     "hda-gfx", Buffer() { "onboard-1" },
-                    "AAPL,snb-platform-id", Buffer() { 0x00, 0x00, 0x21, 0x00 },
+                    "AAPL,snb-platform-id", Buffer() { 0x00, 0x00, 0x01, 0x00 },
                     "AAPL,os-info", Buffer() { 0x30, 0x49, 0x01, 0x11, 0x11, 0x11, 0x08, 0x00, 0x00, 0x01, 0xf0, 0x1f, 0x01, 0x00, 0x00, 0x00, 0x10, 0x07, 0x00, 0x00 },
                     #ifdef HIRES
                     "AAPL,DualLink", Buffer() { 0x01, 0x00, 0x00, 0x00 },         //900p/1080p
