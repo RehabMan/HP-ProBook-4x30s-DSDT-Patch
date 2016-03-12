@@ -1,14 +1,15 @@
-// Instead of providing patched DSDT/SSDT, just include a single SSDT
-// and do the rest of the work in config.plist
+// battery status patched for earlier ProBooks
 
-// A bit experimental, and a bit more difficult with laptops, but
-// still possible.
-
-DefinitionBlock ("", "SSDT", 1, "hack", "batt", 0x00003000)
+DefinitionBlock ("", "SSDT", 2, "hack", "batt", 0)
 {
     External(\_SB.PCI0, DeviceObj)
     External(\_SB.PCI0.LPCB, DeviceObj)
     External(\_SB.PCI0.LPCB.EC0, DeviceObj)
+
+    //REVIEW: perhaps this can be done in the ACPIBatteryManager.kext instead
+    // Disable the secondary battery object
+    External(_SB.BAT1, DeviceObj)
+    Name(_SB.BAT1._STA, 0)
 
     Scope(\_SB.PCI0.LPCB.EC0)
     {

@@ -3,7 +3,7 @@
 // investigative work done by mo7a1995 (with direction from RehabMan)
 //
 
-DefinitionBlock ("", "SSDT", 1, "hack", "usb", 0x00003000)
+DefinitionBlock ("", "SSDT", 2, "hack", "usb4x0g2", 0)
 {
 //
 // Override for USBInjectAll.kext
@@ -107,7 +107,7 @@ DefinitionBlock ("", "SSDT", 1, "hack", "usb", 0x00003000)
                 RCB1, 32, // Root Complex Base Address
             }
             // address is in bits 31:14
-            OperationRegion(FDM1, SystemMemory, Add(And(RCB1,Not(Subtract(ShiftLeft(1,14),1))),0x3418), 4)
+            OperationRegion(FDM1, SystemMemory, (RCB1 & Not((1<<14)-1)) + 0x3418, 4)
             Field(FDM1, DWordAcc, NoLock, Preserve)
             {
                 ,15,    // skip first 15 bits
@@ -122,9 +122,9 @@ DefinitionBlock ("", "SSDT", 1, "hack", "usb", 0x00003000)
             {
                 // disable EHCI#1
                 // put EHCI#1 in D3hot (sleep mode)
-                Store(3, ^^EH01.PSTE)
+                ^^EH01.PSTE = 3
                 // disable EHCI#1 PCI space
-                Store(1, ^^LPCB.FDE1)
+                ^^LPCB.FDE1 = 1
             }
         }
     }
@@ -135,7 +135,7 @@ DefinitionBlock ("", "SSDT", 1, "hack", "usb", 0x00003000)
     External(_SB.PCI0.LPCB.XHC, DeviceObj)
     Method(_SB.PCI0.LPCB.XHC._DSM, 4)
     {
-        If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }
+        If (!Arg2) { Return (Buffer() { 0x03 } ) }
         Return (Package()
         {
             "RM,pr2-force", Buffer() { 0xff, 0x3f, 0, 0 },

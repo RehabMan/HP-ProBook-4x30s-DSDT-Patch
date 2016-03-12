@@ -1,10 +1,6 @@
-// Instead of providing patched DSDT/SSDT, just include a single SSDT
-// and do the rest of the work in config.plist
+// IGPU injections for Intel graphics
 
-// A bit experimental, and a bit more difficult with laptops, but
-// still possible.
-
-DefinitionBlock ("", "SSDT", 1, "hack", "igpu", 0x00003000)
+DefinitionBlock ("", "SSDT", 2, "hack", "igpu", 0)
 {
     External(\_SB.PCI0, DeviceObj)
     Scope (\_SB.PCI0)
@@ -104,16 +100,14 @@ DefinitionBlock ("", "SSDT", 1, "hack", "igpu", 0x00003000)
             // inject properties for integrated graphics on IGPU
             Method(_DSM, 4)
             {
-                If (LEqual(Arg2, Zero)) { Return (Buffer() { 0x03 } ) }
+                If (!Arg2) { Return (Buffer() { 0x03 } ) }
                 // search for matching device-id in device-id list
-                Store(Match(GIDL, MEQ, GDID, MTR, 0, 0), Local0)
-                If (LNotEqual(Local0, Ones))
+                Local0 = Match(GIDL, MEQ, GDID, MTR, 0, 0)
+                If (Ones != Local0)
                 {
                     // start search for zero-terminator (prefix to injection package)
-                    Increment(Local0)
-                    Store(Match(GIDL, MEQ, 0, MTR, 0, Local0), Local0)
-                    Increment(Local0)
-                    Return (DerefOf(Index(GIDL,Local0)))
+                    Local0 = Match(GIDL, MEQ, 0, MTR, 0, Local0+1)
+                    Return (DerefOf(GIDL[Local0+1]))
                 }
                 // should never happen, but inject nothing in this case
                 Return (Package() { })
@@ -130,11 +124,11 @@ DefinitionBlock ("", "SSDT", 1, "hack", "igpu", 0x00003000)
             {
                 MDID,16
             }
-            Method(_DSM, 4, Serialized)
+            Method(_DSM, 4)
             {
-                If (LEqual(Arg2, Zero)) { Return (Buffer() { 0x03 } ) }
-                Store(^^IGPU.GDID, Local1)
-                Store(MDID, Local2)
+                If (!Arg2) { Return (Buffer() { 0x03 } ) }
+                Local1 = ^^IGPU.GDID
+                Local2 = MDID
                 If (0x0166 == Local1 && 0x1c3a == Local2)
                 {
                     // HD4000 on 6-series, inject 7-series IMEI device-id

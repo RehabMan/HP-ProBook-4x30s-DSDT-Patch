@@ -1,10 +1,10 @@
-// Instead of providing patched DSDT/SSDT, just include a single SSDT
-// and do the rest of the work in config.plist
+// Instead of providing patched DSDT/SSDT, just include a add-on
+// SSDTs and the rest of the work done in config.plist.
 
 // A bit experimental, and a bit more difficult with laptops, but
 // still possible.
 
-DefinitionBlock ("", "SSDT", 1, "hack", "hack", 0x00003000)
+DefinitionBlock ("", "SSDT", 2, "hack", "hack", 0)
 {
     External(\_SB.PCI0, DeviceObj)
     External(\_SB.PCI0.LPCB, DeviceObj)
@@ -18,7 +18,7 @@ DefinitionBlock ("", "SSDT", 1, "hack", "hack", 0x00003000)
         // simulation targets
         // source: (google 'Microsoft Windows _OSI')
         //  http://download.microsoft.com/download/7/E/7/7E7662CF-CBEA-470B-A97E-CE7CE0D98DC2/WinACPI_OSI.docx
-        Store(Package()
+        Local0 = Package()
         {
             "Windows",              // generic Windows query
             "Windows 2001",         // Windows XP
@@ -32,8 +32,8 @@ DefinitionBlock ("", "SSDT", 1, "hack", "hack", 0x00003000)
             //"Windows 2012",       // Windows 8/Windows Sesrver 2012
             //"Windows 2013",       // Windows 8.1/Windows Server 2012 R2
             //"Windows 2015",       // Windows 10/Windows Server TP
-        }, Local0)
-        Return (LNotEqual(Match(Local0, MEQ, Arg0, MTR, 0, 0), Ones))
+        }
+        Return (Ones != Match(Local0, MEQ, Arg0, MTR, 0, 0))
     }
 
     // In DSDT, native UPRW is renamed to XPRW with Clover binpatch.
@@ -43,14 +43,21 @@ DefinitionBlock ("", "SSDT", 1, "hack", "hack", 0x00003000)
     // of the return package.
     Method(UPRW, 2)
     {
-        If (LEqual(Arg0, 0x0d)) { Return(Package() { 0x0d, 0, }) }
+        If (0x0d == Arg0) { Return(Package() { 0x0d, 0, }) }
+        If (0x6d == Arg0) { Return(Package() { 0x6d, 0, }) }
         External(\XPRW, MethodObj)
         Return(XPRW(Arg0, Arg1))
     }
 
     // LANC._PRW is renamed to XPRW so we can replace it here
-    External(\_SB.PCI0.LANC, DeviceObj)
-    Name(\_SB.PCI0.LANC._PRW, Package() { 0x0d, 0 })
+    External(_SB.PCI0.LANC, DeviceObj)
+    External(_SB.PCI0.LANC.XPRW, MethodObj)
+    Method(_SB.PCI0.LANC._PRW)
+    {
+        Local0 = \_SB.PCI0.LANC.XPRW()
+        Local0[1] = 0
+        Return(Local0)
+    }
 
     // For backlight control
     Device(_SB.PNLF)
@@ -82,6 +89,7 @@ DefinitionBlock ("", "SSDT", 1, "hack", "hack", 0x00003000)
     // As a result, calls to these methods land here.
     Method(_PTS, 1)
     {
+        If (5 == Arg0) { Return }
         External(\_SB_.PCI0.PEGP.DGFX._ON, MethodObj)
         If (CondRefOf(\_SB_.PCI0.PEGP.DGFX._ON)) { \_SB_.PCI0.PEGP.DGFX._ON() }
         External(\ZPTS, MethodObj)
@@ -89,9 +97,9 @@ DefinitionBlock ("", "SSDT", 1, "hack", "hack", 0x00003000)
     }
     Method(_WAK, 1)
     {
-        If (LOr(LLess(Arg0,1),LGreater(Arg0,5))) { Store(3,Arg0) }
+        If (Arg0 < 1 || Arg0 > 5) { Arg0 = 3 }
         External(\ZWAK, MethodObj)
-        Store(ZWAK(Arg0), Local0)
+        Local0 = ZWAK(Arg0)
         If (CondRefOf(\_SB_.PCI0.PEGP.DGFX._OFF)) { \_SB_.PCI0.PEGP.DGFX._OFF() }
         Return(Local0)
     }
@@ -117,16 +125,14 @@ DefinitionBlock ("", "SSDT", 1, "hack", "hack", 0x00003000)
             })
             Method(_DSM, 4)
             {
-                If (LEqual(Arg2, Zero)) { Return (Buffer() { 0x03 } ) }
+                If (!Arg2) { Return (Buffer() { 0x03 } ) }
                 // search for matching device-id in device-id list, LPDL
-                Store(Match(LPDL, MEQ, LDID, MTR, 0, 0), Local0)
-                If (LNotEqual(Local0, Ones))
+                Local0 = Match(LPDL, MEQ, LDID, MTR, 0, 0)
+                If (Ones != Local0)
                 {
                     // start search for zero-terminator (prefix to injection package)
-                    Increment(Local0)
-                    Store(Match(LPDL, MEQ, 0, MTR, 0, Local0), Local0)
-                    Increment(Local0)
-                    Return (DerefOf(Index(LPDL,Local0)))
+                    Local0 = Match(LPDL, MEQ, 0, MTR, 0, Local0+1)
+                    Return (DerefOf(LPDL[Local0+1]))
                 }
                 // if no match, assume it is supported natively... no inject
                 Return (Package() { })
@@ -143,7 +149,7 @@ DefinitionBlock ("", "SSDT", 1, "hack", "hack", 0x00003000)
                 Name(_CID, "diagsvault")
                 Method(_DSM, 4)
                 {
-                    If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }
+                    If (!Arg2) { Return (Buffer() { 0x03 } ) }
                     Return (Package() { "address", 0x57 })
                 }
             }

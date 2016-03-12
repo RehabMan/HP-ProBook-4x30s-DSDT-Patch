@@ -1,10 +1,6 @@
-// Instead of providing patched DSDT/SSDT, just include a single SSDT
-// and do the rest of the work in config.plist
+// "original" fan patch
 
-// A bit experimental, and a bit more difficult with laptops, but
-// still possible.
-
-DefinitionBlock ("", "SSDT", 1, "hack", "fan", 0x00003000)
+DefinitionBlock ("", "SSDT", 2, "hack", "fan", 0)
 {
     External(\_SB.PCI0, DeviceObj)
     External(\_SB.PCI0.LPCB, DeviceObj)
@@ -36,37 +32,37 @@ DefinitionBlock ("", "SSDT", 1, "hack", "fan", 0x00003000)
         // Actual methods to implement fan/temp readings/control
         Method (FAN0, 0, Serialized)
         {
-            Store (\_SB.PCI0.LPCB.EC0.FRDC, Local0)
-            If (Local0) { Divide (Add(0x3C000, ShiftRight(Local0,1)), Local0,, Local0) }
-            If (LEqual (0x03C4, Local0)) { Return (Zero) }
+            Local0 = \_SB.PCI0.LPCB.EC0.FRDC
+            If (Local0) { Local0 = (0x3C000 + (Local0 >> 1)) / Local0 }
+            If (0x03C4 == Local0) { Return (0) }
             Return (Local0)
         }
         Method (TCPU, 0, Serialized)
         {
             Acquire (\_SB.PCI0.LPCB.EC0.ECMX, 0xFFFF)
-            Store (1, \_SB.PCI0.LPCB.EC0.CRZN)
-            Store (\_SB.PCI0.LPCB.EC0.DTMP, Local0)
+            \_SB.PCI0.LPCB.EC0.CRZN = 1
+            Local0 = \_SB.PCI0.LPCB.EC0.DTMP
             Release (\_SB.PCI0.LPCB.EC0.ECMX)
             Return (Local0)
         }
         Method (TAMB, 0, Serialized)
         {
             Acquire (\_SB.PCI0.LPCB.EC0.ECMX, 0xFFFF)
-            Store (4, \_SB.PCI0.LPCB.EC0.CRZN)
-            Store (\_SB.PCI0.LPCB.EC0.TEMP, Local0)
+            \_SB.PCI0.LPCB.EC0.CRZN = 4
+            Local0 = \_SB.PCI0.LPCB.EC0.TEMP
             Release (\_SB.PCI0.LPCB.EC0.ECMX)
             Return (Local0)
         }
         Method (FCPU, 0, Serialized)
         {
-            Store (TCPU(), Local0)
+            Local0 = TCPU()
             // Temp between 35 and 52: hold fan at lowest speed
-            If (And (LGreaterEqual (Local0, 35), LLessEqual (Local0, 52)))
+            If (Local0 >= 35 && Local0 <= 52)
             {
                 If (\_SB.PCI0.LPCB.EC0.ECRG)
                 {
                     Acquire (\_SB.PCI0.LPCB.EC0.ECMX, 0xFFFF)
-                    Store (0x80, \_SB.PCI0.LPCB.EC0.FTGC)
+                    \_SB.PCI0.LPCB.EC0.FTGC = 0x80
                     Release (\_SB.PCI0.LPCB.EC0.ECMX)
                 }
             }
@@ -77,12 +73,12 @@ DefinitionBlock ("", "SSDT", 1, "hack", "fan", 0x00003000)
                 //  in previously.
                 // Note: for temps 53, 54 fan stays in whatever mode it was in
                 //  previously.
-                If (Or (LLess (Local0, 32), LGreaterEqual (Local0, 55)))
+                If (Local0 < 32 || Local0 >= 55)
                 {
                     If (\_SB.PCI0.LPCB.EC0.ECRG)
                     {
                         Acquire (\_SB.PCI0.LPCB.EC0.ECMX, 0xFFFF)
-                        Store (0xFF, \_SB.PCI0.LPCB.EC0.FTGC)
+                        \_SB.PCI0.LPCB.EC0.FTGC = 0xFF
                         Release (\_SB.PCI0.LPCB.EC0.ECMX)
                     }
                 }

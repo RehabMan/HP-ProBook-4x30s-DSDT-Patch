@@ -1,10 +1,6 @@
-// Instead of providing patched DSDT/SSDT, just include a single SSDT
-// and do the rest of the work in config.plist
+// battery status patched for ProBook G2 laptops
 
-// A bit experimental, and a bit more difficult with laptops, but
-// still possible.
-
-DefinitionBlock ("", "SSDT", 1, "hack", "batt-G2", 0x00003000)
+DefinitionBlock ("", "SSDT", 2, "hack", "battg2", 0)
 {
     External(\_SB.PCI0, DeviceObj)
     External(\_SB.PCI0.LPCB, DeviceObj)

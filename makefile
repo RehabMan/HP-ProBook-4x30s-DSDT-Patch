@@ -29,7 +29,7 @@ EHCI6 = patches/02a_EHCI_4x30s.txt
 EHCI7 = patches/02b_EHCI_4x40s.txt
 IMEI = patches/07_MEI_4x40s_Sandy.txt
 AR9285 = patches/08_AR9285.txt
-ALL = patches/4x30s.txt patches/4x40s_IvyBridge.txt patches/4x40s_SandyBridge.txt
+STATIC = patches/4x30s.txt patches/4x40s_IvyBridge.txt patches/4x40s_SandyBridge.txt
 MINI = Mini-SSDT.aml Mini-SSDT-DualLink.aml Mini-SSDT-IMEI.aml Mini-SSDT-DisableGraphics.aml Mini-SSDT-AR9285.aml
 #//REVIEW: stop building MINI for now
 MINI=
@@ -42,6 +42,7 @@ HACK:=$(HACK) $(BUILDDIR)/SSDT-FAN-QUIET.aml $(BUILDDIR)/SSDT-FAN-MOD.aml $(BUIL
 HACK:=$(HACK) $(BUILDDIR)/SSDT-FAN-ORIG.aml $(BUILDDIR)/SSDT-FAN-READ.aml
 HACK:=$(HACK) $(BUILDDIR)/SSDT-USB-4x0s-G2.aml $(BUILDDIR)/SSDT-USB-4x40s.aml $(BUILDDIR)/SSDT-USB-4x30s.aml
 HACK:=$(HACK) $(BUILDDIR)/SSDT-USB-8x0s-G1.aml
+HACK:=$(HACK) $(BUILDDIR)/SSDT-USB-8x0s-G2.aml
 
 PLIST:=$(PLIST) config/config_4x30s.plist config/config_4x40s.plist
 PLIST:=$(PLIST) config/config_4x0s_G0.plist config/config_4x0s_G1.plist
@@ -53,15 +54,23 @@ PLIST:=$(PLIST) config/config_4x0s_G2_Broadwell.plist config/config_8x0s_G2_Broa
 PLIST:=$(PLIST) config/config_ZBook_G2_Haswell.plist
 
 .PHONY: all
-all : $(ALL) $(MINI) $(HACK) $(PLIST) $(HDAINJECT)
+all : $(STATIC) $(MINI) $(HACK) $(PLIST) $(HDAINJECT)
 
 .PHONY: clean
 clean: 
-	rm -f $(ALL) $(MINI) $(PLIST)
+	rm -f $(STATIC) $(HACK) $(MINI) $(PLIST)
+	make clean_hda
 
 $(HDAINJECT): $(RESOURCES)/*.plist ./patch_hda.sh
 	./patch_hda.sh $(HDA)
 	touch $@
+
+.PHONY: clean_hda
+clean_hda:
+	rm -rf $(HDAINJECT)
+
+.PHONY: hda
+hda: $(HDAINJECT)
 
 .PHONY: update_kernelcache
 update_kernelcache:
@@ -69,7 +78,7 @@ update_kernelcache:
 	sudo kextcache -update-volume /
 
 .PHONY: install_hda
-install_hda:
+install_hda: $(HDAINJECT)
 	sudo rm -Rf $(INSTDIR)/$(HDAINJECT)
 	sudo cp -R ./$(HDAINJECT) $(INSTDIR)
 	if [ "`which tag`" != "" ]; then sudo tag -a Blue $(INSTDIR)/$(HDAINJECT); fi
@@ -294,5 +303,8 @@ $(BUILDDIR)/SSDT-USB-8x0s-G1.aml : SSDT-USB-8x0s-G1.dsl
 	iasl -vw 2095 -p $@ $^
 
 $(BUILDDIR)/SSDT-USB-4x0s-G2.aml : SSDT-USB-4x0s-G2.dsl
+	iasl -vw 2095 -p $@ $^
+
+$(BUILDDIR)/SSDT-USB-8x0s-G2.aml : SSDT-USB-8x0s-G2.dsl
 	iasl -vw 2095 -p $@ $^
 

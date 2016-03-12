@@ -1,10 +1,6 @@
-// Instead of providing patched DSDT/SSDT, just include a single SSDT
-// and do the rest of the work in config.plist
+// for laptops that need 102-key layout
 
-// A bit experimental, and a bit more difficult with laptops, but
-// still possible.
-
-DefinitionBlock ("", "SSDT", 1, "hack", "key102", 0x00003000)
+DefinitionBlock ("", "SSDT", 2, "hack", "key102", 0)
 {
     External(\_SB.PCI0, DeviceObj)
     External(\_SB.PCI0.LPCB, DeviceObj)
@@ -15,7 +11,7 @@ DefinitionBlock ("", "SSDT", 1, "hack", "key102", 0x00003000)
         // Select specific keyboard map in VoodooPS2Keyboard.kext
         Method(_DSM, 4)
         {
-            If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }
+            If (!Arg2) { Return (Buffer() { 0x03 } ) }
             Return (Package()
             {
                 "RM,oem-id", "HPQOEM",

@@ -1,6 +1,6 @@
 // USB configuration for 4x40s
 
-DefinitionBlock ("", "SSDT", 1, "hack", "usb", 0x00003000)
+DefinitionBlock ("", "SSDT", 2, "hack", "usb4x40s", 0)
 {
 //
 // Override for USBInjectAll.kext
