@@ -229,6 +229,30 @@
 					QQ==
 					</data>
 				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>rename BAT1._STA to BAT1.XSTA</string>
+					<key>Find</key>
+					<data>
+					CF9ISUQMQdAMCghfVUlECgIUNF9TVEEA
+					</data>
+					<key>Replace</key>
+					<data>
+					CF9ISUQMQdAMCghfVUlECgIUNFhTVEEA
+					</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>rename BAT1._STA to BAT1.XSTA</string>
+					<key>Find</key>
+					<data>
+					CF9ISUQMQdAMCghfVUlECgIUCV9TVEEA
+					</data>
+					<key>Replace</key>
+					<data>
+					CF9ISUQMQdAMCghfVUlECgIUCVhTVEEA
+					</data>
+				</dict>
 			</array>
 		</dict>
 		<key>DropTables</key>

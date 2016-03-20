@@ -164,7 +164,7 @@
 					<key>FuncGroup</key>
 					<integer>1</integer>
 					<key>LayoutID</key>
-					<integer>14</integer>
+					<integer>17</integer>
 				</dict>
 				<dict>
 					<key>CodecID</key>
@@ -176,7 +176,7 @@
 					<key>FuncGroup</key>
 					<integer>1</integer>
 					<key>LayoutID</key>
-					<integer>15</integer>
+					<integer>18</integer>
 				</dict>
 				<dict>
 					<key>CodecID</key>
@@ -190,7 +190,7 @@
 					<key>FuncGroup</key>
 					<integer>1</integer>
 					<key>LayoutID</key>
-					<integer>16</integer>
+					<integer>19</integer>
 				</dict>
 			</array>
 			<key>IOClass</key>

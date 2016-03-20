@@ -5,9 +5,11 @@ ALC280: 4
 
 IDT_76d1: 12
 IDT_76d9: 13
-IDT_76e0: 14
-IDT_7605: 15
-IDT_7695: 16
+IDT_76e0: 17
+IDT_7605: 18
+IDT_7695: 19
+
+Note: Layout-id 14,15,16 may not be able to be used due to AppleHDA not using them (there may be a whitelist)
 
 --
 
