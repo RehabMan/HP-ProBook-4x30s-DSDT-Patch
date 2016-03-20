@@ -67,6 +67,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "usb4x0g2", 0)
                         "UsbConnector", 0,
                         "port", Buffer() { 0x08, 0, 0, 0 },
                     },
+                    // SSP1/SSP2 not used
                     "SSP3", Package() // SS USB3 
                     {
                         "UsbConnector", 3,

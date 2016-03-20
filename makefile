@@ -191,6 +191,8 @@ config/config_4x0s_G2_Haswell.plist : config_master.plist config_ALC282.plist co
 	/usr/libexec/plistbuddy -c "Set :SMBIOS:ProductName MacBookAir6,2" $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_Haswell.plist $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_ALC282.plist $@
+	/usr/libexec/plistbuddy -c "Set Devices:Arbitrary:0:CustomProperties:0:Value 3" $@
+	/usr/libexec/plistbuddy -c "Set Devices:Arbitrary:1:CustomProperties:0:Value 3" $@
 	@printf "\n"
 
 # 8x0s_G2_Haswell is same as 4x0s_G2_Haswell
@@ -199,8 +201,19 @@ config/config_8x0s_G2_Haswell.plist: config/config_4x0s_G2_Haswell.plist
 	cp config/config_4x0s_G2_Haswell.plist $@
 	@printf "\n"
 
-# 4x0s_G2_Broadwell is ALC280, Broadwell
-config/config_4x0s_G2_Broadwell.plist : config_master.plist config_ALC280.plist config_Broadwell.plist
+# 4x0s_G2_Broadwell is ALC282, Broadwell
+config/config_4x0s_G2_Broadwell.plist : config_master.plist config_ALC282.plist config_Broadwell.plist
+	@printf "!! creating $@\n"
+	cp config_master.plist $@
+	/usr/libexec/plistbuddy -c "Set :SMBIOS:ProductName MacBookAir7,2" $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_Broadwell.plist $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_ALC282.plist $@
+	/usr/libexec/plistbuddy -c "Set Devices:Arbitrary:0:CustomProperties:0:Value 3" $@
+	/usr/libexec/plistbuddy -c "Set Devices:Arbitrary:1:CustomProperties:0:Value 3" $@
+	@printf "\n"
+
+# 8x0s_G2_Broadwell is ALC280, Broadwell
+config/config_8x0s_G2_Broadwell.plist : config_master.plist config_ALC280.plist config_Broadwell.plist
 	@printf "!! creating $@\n"
 	cp config_master.plist $@
 	/usr/libexec/plistbuddy -c "Set :SMBIOS:ProductName MacBookAir7,2" $@
@@ -208,12 +221,6 @@ config/config_4x0s_G2_Broadwell.plist : config_master.plist config_ALC280.plist 
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_ALC280.plist $@
 	/usr/libexec/plistbuddy -c "Set Devices:Arbitrary:0:CustomProperties:0:Value 4" $@
 	/usr/libexec/plistbuddy -c "Set Devices:Arbitrary:1:CustomProperties:0:Value 4" $@
-	@printf "\n"
-
-# 8x0s_G2_Broadwell is same as 4x0s_G2_Broadwell
-config/config_8x0s_G2_Broadwell.plist: config/config_4x0s_G2_Broadwell.plist
-	@printf "!! creating $@\n"
-	cp config/config_4x0s_G2_Broadwell.plist $@
 	@printf "\n"
 
 # ZBook_G2_Haswell is ALC280, Haswell

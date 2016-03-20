@@ -1,4 +1,4 @@
-// USBInjectAll configuration/override for ProBook 8x0s G1 Haswell
+// USBInjectAll configuration/override for EliteBook 8x0s G1 Haswell
 //
 
 //REVIEW: preliminary data for G1.  Note that it has a hub on XHC, which

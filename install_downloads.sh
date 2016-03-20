@@ -169,6 +169,14 @@ if [ $? -ne 0 ]; then
     cd ../..
 fi
 
+# remove kexts that PBI might have installed
+if [[ -e $SLE/AppleHDAIDT.kext ]]; then
+    $SUDO rm -Rf $SLE/AppleHDAIDT.kext
+fi
+if [[ -e $SLE/AppleHDAALC.kext ]]; then
+    $SUDO rm -Rf $SLE/AppleHDAALC.kext
+fi
+
 # install (injector) kexts in the repo itself
 install_kext AppleHDA_ProBook.kext
 cd kexts
