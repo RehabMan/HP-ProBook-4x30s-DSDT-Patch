@@ -104,41 +104,41 @@ DefinitionBlock ("", "SSDT", 2, "hack", "hack", 0)
         Return(Local0)
     }
 
-    Scope (\_SB.PCI0)
+    Scope (_SB.PCI0.LPCB)
     {
-        Scope(LPCB)
+        OperationRegion(LPD4, PCI_Config, 2, 2)
+        Field(LPD4, AnyAcc, NoLock, Preserve)
         {
-            OperationRegion(LPD4, PCI_Config, 2, 2)
-            Field(LPD4, AnyAcc, NoLock, Preserve)
-            {
-                LDID,16
-            }
-            Name(LPDL, Package()
-            {
-                // list of 8-series LPC device-ids not natively supported
-                // inject 0x8c4b for unsupported LPC device-id
-                0x8c46, 0x8c49, 0x8c4a, 0x8c4c, 0x8c4e, 0x8c4f,
-                0x8c50, 0x8c52, 0x8c54, 0x8c56, 0x8c5c, 0,
-                Package() { "compatible", Buffer() { "pci8086,8c4b" } },
-                // Note: currently only the above 8-series unsupported ids are handled,
-                // but easy to add more here, just like the IGPU code
-            })
-            Method(_DSM, 4)
-            {
-                If (!Arg2) { Return (Buffer() { 0x03 } ) }
-                // search for matching device-id in device-id list, LPDL
-                Local0 = Match(LPDL, MEQ, LDID, MTR, 0, 0)
-                If (Ones != Local0)
-                {
-                    // start search for zero-terminator (prefix to injection package)
-                    Local0 = Match(LPDL, MEQ, 0, MTR, 0, Local0+1)
-                    Return (DerefOf(LPDL[Local0+1]))
-                }
-                // if no match, assume it is supported natively... no inject
-                Return (Package() { })
-            }
+            LDID,16
         }
+        Name(LPDL, Package()
+        {
+            // list of 8-series LPC device-ids not natively supported
+            // inject 0x8c4b for unsupported LPC device-id
+            0x8c46, 0x8c49, 0x8c4a, 0x8c4c, 0x8c4e, 0x8c4f,
+            0x8c50, 0x8c52, 0x8c54, 0x8c56, 0x8c5c, 0,
+            Package() { "compatible", Buffer() { "pci8086,8c4b" } },
+            // Note: currently only the above 8-series unsupported ids are handled,
+            // but easy to add more here, just like the IGPU code
+        })
+        Method(_DSM, 4)
+        {
+            If (!Arg2) { Return (Buffer() { 0x03 } ) }
+            // search for matching device-id in device-id list, LPDL
+            Local0 = Match(LPDL, MEQ, LDID, MTR, 0, 0)
+            If (Ones != Local0)
+            {
+                // start search for zero-terminator (prefix to injection package)
+                Local0 = Match(LPDL, MEQ, 0, MTR, 0, Local0+1)
+                Return (DerefOf(LPDL[Local0+1]))
+            }
+            // if no match, assume it is supported natively... no inject
+            Return (Package() { })
+        }
+    }
 
+    Scope (_SB.PCI0)
+    {
         Device(SBUS.BUS0)
         {
             Name(_CID, "smbus")

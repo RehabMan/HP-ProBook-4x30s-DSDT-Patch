@@ -68,32 +68,33 @@ DefinitionBlock ("", "SSDT", 2, "hack", "usb8x0g2", 0)
     External(_SB.PCI0, DeviceObj)
     External(_SB.PCI0.LPCB, DeviceObj)
     External(_SB.PCI0.EH01, DeviceObj)
+
+    // registers needed for disabling EHC#1
+    Scope(_SB.PCI0.EH01)
+    {
+        OperationRegion(PSTS, PCI_Config, 0x54, 2)
+        Field(PSTS, WordAcc, NoLock, Preserve)
+        {
+            PSTE, 2  // bits 2:0 are power state
+        }
+    }
+    Scope(_SB.PCI0.LPCB)
+    {
+        OperationRegion(RMLP, PCI_Config, 0xF0, 4)
+        Field(RMLP, DWordAcc, NoLock, Preserve)
+        {
+            RCB1, 32, // Root Complex Base Address
+        }
+        // address is in bits 31:14
+        OperationRegion(FDM1, SystemMemory, (RCB1 & Not((1<<14)-1)) + 0x3418, 4)
+        Field(FDM1, DWordAcc, NoLock, Preserve)
+        {
+            ,15,    // skip first 15 bits
+            FDE1,1, // should be bit 15 (0-based) (FD EHCI#1)
+        }
+    }
     Scope(_SB.PCI0)
     {
-        // registers needed for disabling EHC#1
-        Scope(EH01)
-        {
-            OperationRegion(PSTS, PCI_Config, 0x54, 2)
-            Field(PSTS, WordAcc, NoLock, Preserve)
-            {
-                PSTE, 2  // bits 2:0 are power state
-            }
-        }
-        Scope(LPCB)
-        {
-            OperationRegion(RMLP, PCI_Config, 0xF0, 4)
-            Field(RMLP, DWordAcc, NoLock, Preserve)
-            {
-                RCB1, 32, // Root Complex Base Address
-            }
-            // address is in bits 31:14
-            OperationRegion(FDM1, SystemMemory, (RCB1 & Not((1<<14)-1)) + 0x3418, 4)
-            Field(FDM1, DWordAcc, NoLock, Preserve)
-            {
-                ,15,    // skip first 15 bits
-                FDE1,1, // should be bit 15 (0-based) (FD EHCI#1)
-            }
-        }
         Device(RMD1)
         {
             //Name(_ADR, 0)
