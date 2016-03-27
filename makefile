@@ -247,71 +247,25 @@ patches/4x40s_SandyBridge.txt : $(COMMON) $(EHCI7) $(IMEI)
 
 # mini SSDTs
 
-Mini-SSDT.aml : mini/Mini-SSDT.dsl
-	iasl -p $@ $^
+%.aml : mini/%.dsl
+	iasl -p $@ $<
 
-Mini-SSDT-DualLink.aml : mini/Mini-SSDT-DualLink.dsl
-	iasl -p $@ $^
+# new hotpatch SSDTs
 
-Mini-SSDT-IMEI.aml : mini/Mini-SSDT-IMEI.dsl
-	iasl -p $@ $^
+IASLOPTS=-vw 2095 -vw 2146 -vw 2089
 
-Mini-SSDT-DisableGraphics.aml : mini/Mini-SSDT-DisableGraphics.dsl
-	iasl -p $@ $^
-
-Mini-SSDT-AR9285.aml : mini/Mini-SSDT-AR9285.dsl
-	iasl -p $@ $^
-
-# new SSDT-HACK
-
-$(BUILDDIR)/SSDT-HACK.aml : SSDT-HACK.dsl
-	iasl -vw 2095 -p $@ $^
-
-$(BUILDDIR)/SSDT-IGPU.aml : SSDT-IGPU.dsl
-	iasl -vw 2095 -p $@ $^
+$(BUILDDIR)/%.aml : %.dsl
+	iasl $(IASLOPTS) -p $@ $^
 
 $(BUILDDIR)/SSDT-IGPU-HIRES.aml : SSDT-IGPU.dsl
-	iasl -D HIRES -vw 2095 -p $@ $^
-
-$(BUILDDIR)/SSDT-BATT.aml : SSDT-BATT.dsl
-	iasl -vw 2146 -vw 2089 -p $@ $^
-
-$(BUILDDIR)/SSDT-BATT-G2.aml : SSDT-BATT-G2.dsl
-	iasl -vw 2146 -vw 2089 -p $@ $^
-
-$(BUILDDIR)/SSDT-KEY87.aml : SSDT-KEY87.dsl
-	iasl -p $@ $^
-
-$(BUILDDIR)/SSDT-KEY102.aml : SSDT-KEY102.dsl
-	iasl -p $@ $^
+	iasl -D HIRES $(IASLOPTS) -p $@ $^
 
 $(BUILDDIR)/SSDT-FAN-QUIET.aml : SSDT-FAN-QUIET.dsl
-	iasl -D QUIET -p $@ $^
+	iasl -D QUIET $(IASLOPTS) -p $@ $^
 
 $(BUILDDIR)/SSDT-FAN-MOD.aml : SSDT-FAN-QUIET.dsl
-	iasl -D REHABMAN -p $@ $^
+	iasl -D REHABMAN $(IASLOPTS) -p $@ $^
 
 $(BUILDDIR)/SSDT-FAN-SMOOTH.aml : SSDT-FAN-QUIET.dsl
-	iasl -D GRAPPLER -p $@ $^
-
-$(BUILDDIR)/SSDT-FAN-ORIG.aml : SSDT-FAN-ORIG.dsl
-	iasl -p $@ $^
-
-$(BUILDDIR)/SSDT-FAN-READ.aml : SSDT-FAN-READ.dsl
-	iasl -p $@ $^
-
-$(BUILDDIR)/SSDT-USB-4x30s.aml : SSDT-USB-4x30s.dsl
-	iasl -p $@ $^
-
-$(BUILDDIR)/SSDT-USB-4x40s.aml : SSDT-USB-4x40s.dsl
-	iasl -p $@ $^
-
-$(BUILDDIR)/SSDT-USB-8x0s-G1.aml : SSDT-USB-8x0s-G1.dsl
-	iasl -vw 2095 -p $@ $^
-
-$(BUILDDIR)/SSDT-USB-4x0s-G2.aml : SSDT-USB-4x0s-G2.dsl
-	iasl -vw 2095 -p $@ $^
-
-$(BUILDDIR)/SSDT-USB-8x0s-G2.aml : SSDT-USB-8x0s-G2.dsl
-	iasl -vw 2095 -p $@ $^
+	iasl -D GRAPPLER $(IASLOPTS) -p $@ $^
 
