@@ -128,8 +128,8 @@ DefinitionBlock ("", "SSDT", 2, "hack", "usb8x0g1", 0)
 //
 // Configure FakePCIID_XHCIMux.kext to handle USB2 on XHC
 //
-    External(_SB.PCI0.LPCB.XHC, DeviceObj)
-    Method(_SB.PCI0.LPCB.XHC._DSM, 4)
+    External(_SB.PCI0.XHC, DeviceObj)
+    Method(_SB.PCI0.XHC._DSM, 4)
     {
         If (!Arg2) { Return (Buffer() { 0x03 } ) }
         Return (Package()
