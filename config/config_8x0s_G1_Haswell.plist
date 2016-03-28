@@ -714,21 +714,21 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>IDT 76e0 #3</string>
+				<string>IDT 76e0 #1 of 3</string>
 				<key>Find</key>
 				<data>
-				PYMZ1BE=
+				PYsZ1BE=
 				</data>
 				<key>Name</key>
 				<string>AppleHDA</string>
 				<key>Replace</key>
 				<data>
-				PQAAAAA=
+				PeB2HRE=
 				</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>IDT 76e0 #2</string>
+				<string>IDT 76e0 #2 of 3</string>
 				<key>Find</key>
 				<data>
 				PYQZ1BE=
@@ -742,16 +742,16 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>IDT 76e0 #1</string>
+				<string>IDT 76e0 #3 of 3</string>
 				<key>Find</key>
 				<data>
-				PYsZ1BE=
+				PYMZ1BE=
 				</data>
 				<key>Name</key>
 				<string>AppleHDA</string>
 				<key>Replace</key>
 				<data>
-				PeB2HRE=
+				PQAAAAA=
 				</data>
 			</dict>
 		</array>

@@ -688,35 +688,7 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>ALC 280</string>
-				<key>Find</key>
-				<data>
-				PYQI7BA=
-				</data>
-				<key>Name</key>
-				<string>AppleHDA</string>
-				<key>Replace</key>
-				<data>
-				PQAAAAA=
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>ALC 280</string>
-				<key>Find</key>
-				<data>
-				PYUI7BA=
-				</data>
-				<key>Name</key>
-				<string>AppleHDA</string>
-				<key>Replace</key>
-				<data>
-				PQAAAAA=
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>ALC 280</string>
+				<string>ALC 280 #1 of 4</string>
 				<key>Find</key>
 				<data>
 				PYQZ1BE=
@@ -730,7 +702,35 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>AppleHDA ( new in 10.11, credit lisai9093)</string>
+				<string>ALC 280 #2 of 4</string>
+				<key>Find</key>
+				<data>
+				PYQI7BA=
+				</data>
+				<key>Name</key>
+				<string>AppleHDA</string>
+				<key>Replace</key>
+				<data>
+				PQAAAAA=
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>ALC 280 #3 of 4</string>
+				<key>Find</key>
+				<data>
+				PYUI7BA=
+				</data>
+				<key>Name</key>
+				<string>AppleHDA</string>
+				<key>Replace</key>
+				<data>
+				PQAAAAA=
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>ALC 280 #4 of 4 (new in 10.11, credit lisai9093) </string>
 				<key>Find</key>
 				<data>
 				PYMZ1BE=

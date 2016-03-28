@@ -41,6 +41,10 @@
 		84B9D52516FFE684002CD441 /* License.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = License.md; sourceTree = "<group>"; };
 		84B9D52616FFE684002CD441 /* makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; lineEnding = 0; path = makefile; sourceTree = "<group>"; usesTabs = 1; };
 		84B9D52716FFE684002CD441 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		84CF5EE71CA9DF2000FB64FA /* layout17.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = layout17.plist; path = Resources_ProBook/layout17.plist; sourceTree = "<group>"; };
+		84CF5EE81CA9DF2000FB64FA /* layout18.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = layout18.plist; path = Resources_ProBook/layout18.plist; sourceTree = "<group>"; };
+		84CF5EE91CA9DF2000FB64FA /* layout19.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = layout19.plist; path = Resources_ProBook/layout19.plist; sourceTree = "<group>"; };
+		84CF5EEA1CA9DF3200FB64FA /* layout4.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = layout4.plist; path = Resources_ProBook/layout4.plist; sourceTree = "<group>"; };
 		84D4D88B17025A4E004FF373 /* 02a_EHCI_4x30s.txt */ = {isa = PBXFileReference; lastKnownFileType = text; lineEnding = 0; name = 02a_EHCI_4x30s.txt; path = patches/02a_EHCI_4x30s.txt; sourceTree = "<group>"; };
 		84D4D88D17025AFA004FF373 /* 02b_EHCI_4x40s.txt */ = {isa = PBXFileReference; lastKnownFileType = text; lineEnding = 0; name = 02b_EHCI_4x40s.txt; path = patches/02b_EHCI_4x40s.txt; sourceTree = "<group>"; };
 		84D4D88F17025C86004FF373 /* 04c_FanSpeed.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = 04c_FanSpeed.txt; path = patches/04c_FanSpeed.txt; sourceTree = "<group>"; };
@@ -59,9 +63,6 @@
 		ED1837471C0A4B1200A5A3DA /* layout3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = layout3.plist; path = Resources_ProBook/layout3.plist; sourceTree = "<group>"; };
 		ED1837481C0A4B1200A5A3DA /* layout12.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = layout12.plist; path = Resources_ProBook/layout12.plist; sourceTree = "<group>"; };
 		ED1837491C0A4B1200A5A3DA /* layout13.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = layout13.plist; path = Resources_ProBook/layout13.plist; sourceTree = "<group>"; };
-		ED18374A1C0A4B1200A5A3DA /* layout14.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = layout14.plist; path = Resources_ProBook/layout14.plist; sourceTree = "<group>"; };
-		ED18374B1C0A4B1200A5A3DA /* layout15.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = layout15.plist; path = Resources_ProBook/layout15.plist; sourceTree = "<group>"; };
-		ED18374C1C0A4B1200A5A3DA /* layout16.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = layout16.plist; path = Resources_ProBook/layout16.plist; sourceTree = "<group>"; };
 		ED18374D1C0A4B1200A5A3DA /* Platforms.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Platforms.plist; path = Resources_ProBook/Platforms.plist; sourceTree = "<group>"; };
 		ED18374E1C0A4B1200A5A3DA /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.txt; path = Resources_ProBook/README.txt; sourceTree = "<group>"; };
 		ED511C971C062320005DAA2B /* config_ALC282.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config_ALC282.plist; sourceTree = "<group>"; };
@@ -213,11 +214,12 @@
 				ED1837461C0A4B1200A5A3DA /* ahhcd.plist */,
 				ED18374D1C0A4B1200A5A3DA /* Platforms.plist */,
 				ED1837471C0A4B1200A5A3DA /* layout3.plist */,
+				84CF5EEA1CA9DF3200FB64FA /* layout4.plist */,
 				ED1837481C0A4B1200A5A3DA /* layout12.plist */,
 				ED1837491C0A4B1200A5A3DA /* layout13.plist */,
-				ED18374A1C0A4B1200A5A3DA /* layout14.plist */,
-				ED18374B1C0A4B1200A5A3DA /* layout15.plist */,
-				ED18374C1C0A4B1200A5A3DA /* layout16.plist */,
+				84CF5EE71CA9DF2000FB64FA /* layout17.plist */,
+				84CF5EE81CA9DF2000FB64FA /* layout18.plist */,
+				84CF5EE91CA9DF2000FB64FA /* layout19.plist */,
 			);
 			name = audio;
 			sourceTree = "<group>";
