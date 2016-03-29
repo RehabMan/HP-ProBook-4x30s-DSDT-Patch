@@ -53,6 +53,7 @@
 		84EEDDDC1BC605BE000F5071 /* SSDT-HACK.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-HACK.dsl"; sourceTree = "<group>"; };
 		84F52D0B1709C9A3001643C8 /* Mini-SSDT-IMEI.dsl */ = {isa = PBXFileReference; lastKnownFileType = text; name = "Mini-SSDT-IMEI.dsl"; path = "mini/Mini-SSDT-IMEI.dsl"; sourceTree = "<group>"; };
 		84F616791850BC650053B76E /* 10_LPC_4x40s_Sandy_SL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = 10_LPC_4x40s_Sandy_SL.txt; path = patches/10_LPC_4x40s_Sandy_SL.txt; sourceTree = "<group>"; };
+		84FAF3521CA9FB630066178B /* config_ZBook_G2_Haswell.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_ZBook_G2_Haswell.plist; path = config/config_ZBook_G2_Haswell.plist; sourceTree = "<group>"; };
 		84FD879D18BCC6B1000BC61E /* 03c_Haswell-HDMI.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "03c_Haswell-HDMI.txt"; path = "patches/03c_Haswell-HDMI.txt"; sourceTree = "<group>"; };
 		ED1278681C1655010094A691 /* SSDT-USB-4x0s-G2.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-USB-4x0s-G2.dsl"; sourceTree = "<group>"; };
 		ED1837421C0A4B1200A5A3DA /* merge_plist.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = merge_plist.sh; sourceTree = "<group>"; };
@@ -151,6 +152,7 @@
 		847F5EE11B508C2300825CE8 /* ProBook patches */ = {
 			isa = PBXGroup;
 			children = (
+				845FE5EF1702639F004601B0 /* .maciasl */,
 				84878E3B17445FE100F82A03 /* 00_Optimize.txt */,
 				84B9D51916FFE684002CD441 /* 01_Compilation.txt */,
 				84B9D51A16FFE684002CD441 /* 02_DSDTPatch.txt */,
@@ -200,7 +202,6 @@
 				847F5EDA1B508B0800825CE8 /* USBXHCI_4x40s.kext */,
 				847F5ED91B508AFC00825CE8 /* backlight */,
 				847F5EDF1B508B8200825CE8 /* mini-SSDTs */,
-				845FE5EF1702639F004601B0 /* .maciasl */,
 				847F5EE11B508C2300825CE8 /* ProBook patches */,
 				847F5EE01B508C1400825CE8 /* other patches */,
 			);
@@ -239,6 +240,7 @@
 				EDEC127B1C180E880080CCCA /* config_8x0s_G1_Haswell.plist */,
 				EDD44B761C178DD1003D0CA9 /* config_4x0s_G2_Haswell.plist */,
 				EDD44B731C178DD1003D0CA9 /* config_8x0s_G2_Haswell.plist */,
+				84FAF3521CA9FB630066178B /* config_ZBook_G2_Haswell.plist */,
 				EDD44B711C178DD1003D0CA9 /* config_8x0s_G2_Broadwell.plist */,
 				EDD44B721C178DD1003D0CA9 /* config_4x0s_G2_Broadwell.plist */,
 			);
