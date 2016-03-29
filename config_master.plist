@@ -153,9 +153,9 @@
 					<key>Comment</key>
 					<string>rename BAT1._STA to BAT1.XSTA</string>
 					<key>Find</key>
-					<data>CUJBVDEIX0hJRAxB0AwKFCFfVUlEAKAVkZNPU1lTC9wHk09TWVML3wekCgGhBKQKAhQ0X1NUQQ==</data>
+					<data>QkFUMQhfSElEDEHQDAoUIV9VSUQAoBWRk09TWVML3AeTT1NZUwvfB6QKAaEEpAoCFDRfU1RB</data>
 					<key>Replace</key>
-					<data>CUJBVDEIX0hJRAxB0AwKFCFfVUlEAKAVkZNPU1lTC9wHk09TWVML3wekCgGhBKQKAhQ0WFNUQQ==</data>
+					<data>QkFUMQhfSElEDEHQDAoUIV9VSUQAoBWRk09TWVML3AeTT1NZUwvfB6QKAaEEpAoCFDRYU1RB</data>
 				</dict>
 				<dict>
 					<key>Comment</key>
@@ -164,6 +164,14 @@
 					<data>QkFUMQhfSElEDEHQDAoUGF9VSUQAoAyTT1NZUwvcB6QKAaEEpAoCFAlfU1RB</data>
 					<key>Replace</key>
 					<data>QkFUMQhfSElEDEHQDAoUGF9VSUQAoAyTT1NZUwvcB6QKAaEEpAoCFAlYU1RB</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>rename BAT1._STA to BAT1.XSTA</string>
+					<key>Find</key>
+					<data>QkFUMQhfSElEDEHQDAoUGF9VSUQAoAyTT1NZUwvcB6QKAaEEpAoCFDRfU1RB</data>
+					<key>Replace</key>
+					<data>QkFUMQhfSElEDEHQDAoUGF9VSUQAoAyTT1NZUwvcB6QKAaEEpAoCFDRYU1RB</data>
 				</dict>
 				<dict>
 					<key>Comment</key>

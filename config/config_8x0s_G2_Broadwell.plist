@@ -218,15 +218,13 @@
 					<string>rename BAT1._STA to BAT1.XSTA</string>
 					<key>Find</key>
 					<data>
-					CUJBVDEIX0hJRAxB0AwKFCFfVUlEAKAVkZNP
-					U1lTC9wHk09TWVML3wekCgGhBKQKAhQ0X1NU
-					QQ==
+					QkFUMQhfSElEDEHQDAoUIV9VSUQAoBWRk09T
+					WVML3AeTT1NZUwvfB6QKAaEEpAoCFDRfU1RB
 					</data>
 					<key>Replace</key>
 					<data>
-					CUJBVDEIX0hJRAxB0AwKFCFfVUlEAKAVkZNP
-					U1lTC9wHk09TWVML3wekCgGhBKQKAhQ0WFNU
-					QQ==
+					QkFUMQhfSElEDEHQDAoUIV9VSUQAoBWRk09T
+					WVML3AeTT1NZUwvfB6QKAaEEpAoCFDRYU1RB
 					</data>
 				</dict>
 				<dict>
@@ -241,6 +239,20 @@
 					<data>
 					QkFUMQhfSElEDEHQDAoUGF9VSUQAoAyTT1NZ
 					UwvcB6QKAaEEpAoCFAlYU1RB
+					</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>rename BAT1._STA to BAT1.XSTA</string>
+					<key>Find</key>
+					<data>
+					QkFUMQhfSElEDEHQDAoUGF9VSUQAoAyTT1NZ
+					UwvcB6QKAaEEpAoCFDRfU1RB
+					</data>
+					<key>Replace</key>
+					<data>
+					QkFUMQhfSElEDEHQDAoUGF9VSUQAoAyTT1NZ
+					UwvcB6QKAaEEpAoCFDRYU1RB
 					</data>
 				</dict>
 				<dict>
