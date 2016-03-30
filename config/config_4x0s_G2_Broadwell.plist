@@ -577,7 +577,7 @@
 		<key>AppleRTC</key>
 		<true/>
 		<key>AsusAICPUPM</key>
-		<true/>
+		<false/>
 		<key>KernelLapic</key>
 		<false/>
 		<key>KernelPm</key>

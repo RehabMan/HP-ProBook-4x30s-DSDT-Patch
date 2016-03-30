@@ -42,7 +42,7 @@ HACK:=$(HACK) $(BUILDDIR)/SSDT-FAN-QUIET.aml $(BUILDDIR)/SSDT-FAN-MOD.aml $(BUIL
 HACK:=$(HACK) $(BUILDDIR)/SSDT-FAN-ORIG.aml $(BUILDDIR)/SSDT-FAN-READ.aml
 HACK:=$(HACK) $(BUILDDIR)/SSDT-USB-4x0s-G2.aml $(BUILDDIR)/SSDT-USB-4x40s.aml $(BUILDDIR)/SSDT-USB-4x30s.aml
 HACK:=$(HACK) $(BUILDDIR)/SSDT-USB-8x0s-G1.aml
-HACK:=$(HACK) $(BUILDDIR)/SSDT-USB-8x0s-G2.aml
+HACK:=$(HACK) $(BUILDDIR)/SSDT-USB-820-G2.aml $(BUILDDIR)/SSDT-USB-840-G2.aml
 
 PLIST:=$(PLIST) config/config_4x30s.plist config/config_4x40s.plist
 PLIST:=$(PLIST) config/config_4x0s_G0.plist config/config_4x0s_G1.plist
@@ -90,6 +90,7 @@ install_hda: $(HDAINJECT)
 config/config_4x30s.plist : config_master.plist config_IDT76d1.plist config_HD3000.plist config_non_Intel_USB3.plist
 	@printf "!! creating $@\n"
 	cp config_master.plist $@
+	/usr/libexec/plistbuddy -c "Set KernelAndKextPatches:KernelPm false" $@
 	/usr/libexec/plistbuddy -c "Set SMBIOS:ProductName MacBookPro8,2" $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_HD3000.plist $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_IDT76d1.plist $@
@@ -137,6 +138,7 @@ config/config_8x0s_G1.plist: config/config_4x0s_G0.plist
 config/config_8x0s_G1_Haswell.plist : config_master.plist config_IDT76e0.plist config_Haswell.plist
 	@printf "!! creating $@\n"
 	cp config_master.plist $@
+	/usr/libexec/plistbuddy -c "Set KernelAndKextPatches:AsusAICPUPM false" $@
 	/usr/libexec/plistbuddy -c "Set :SMBIOS:ProductName MacBookAir6,2" $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_Haswell.plist $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_IDT76e0.plist $@
@@ -154,6 +156,7 @@ config/config_9x70m.plist: config/config_4x0s_G0.plist
 config/config_6x60s.plist : config_master.plist config_IDT7605.plist config_HD3000.plist config_non_Intel_USB3.plist
 	@printf "!! creating $@\n"
 	cp config_master.plist $@
+	/usr/libexec/plistbuddy -c "Set KernelAndKextPatches:KernelPm false" $@
 	/usr/libexec/plistbuddy -c "Set SMBIOS:ProductName MacBookPro8,2" $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_HD3000.plist $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_IDT7605.plist $@
@@ -188,6 +191,7 @@ config/config_3x0_G1.plist : config_master.plist config_IDT7695.plist config_HD4
 config/config_4x0s_G2_Haswell.plist : config_master.plist config_ALC282.plist config_Haswell.plist
 	@printf "!! creating $@\n"
 	cp config_master.plist $@
+	/usr/libexec/plistbuddy -c "Set KernelAndKextPatches:AsusAICPUPM false" $@
 	/usr/libexec/plistbuddy -c "Set :SMBIOS:ProductName MacBookAir6,2" $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_Haswell.plist $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_ALC282.plist $@
@@ -205,6 +209,7 @@ config/config_8x0s_G2_Haswell.plist: config/config_4x0s_G2_Haswell.plist
 config/config_4x0s_G2_Broadwell.plist : config_master.plist config_ALC282.plist config_Broadwell.plist
 	@printf "!! creating $@\n"
 	cp config_master.plist $@
+	/usr/libexec/plistbuddy -c "Set KernelAndKextPatches:AsusAICPUPM false" $@
 	/usr/libexec/plistbuddy -c "Set :SMBIOS:ProductName MacBookAir7,2" $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_Broadwell.plist $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_ALC282.plist $@
@@ -216,6 +221,7 @@ config/config_4x0s_G2_Broadwell.plist : config_master.plist config_ALC282.plist 
 config/config_8x0s_G2_Broadwell.plist : config_master.plist config_ALC280.plist config_Broadwell.plist
 	@printf "!! creating $@\n"
 	cp config_master.plist $@
+	/usr/libexec/plistbuddy -c "Set KernelAndKextPatches:AsusAICPUPM false" $@
 	/usr/libexec/plistbuddy -c "Set :SMBIOS:ProductName MacBookAir7,2" $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_Broadwell.plist $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_ALC280.plist $@
@@ -227,6 +233,7 @@ config/config_8x0s_G2_Broadwell.plist : config_master.plist config_ALC280.plist 
 config/config_ZBook_G2_Haswell.plist : config_master.plist config_ALC280.plist config_Haswell.plist
 	@printf "!! creating $@\n"
 	cp config_master.plist $@
+	/usr/libexec/plistbuddy -c "Set KernelAndKextPatches:AsusAICPUPM false" $@
 	/usr/libexec/plistbuddy -c "Set :SMBIOS:ProductName MacBookPro11,1" $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_Haswell.plist $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_ALC280.plist $@

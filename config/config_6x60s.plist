@@ -581,7 +581,7 @@
 		<key>KernelLapic</key>
 		<false/>
 		<key>KernelPm</key>
-		<true/>
+		<false/>
 		<key>KextsToPatch</key>
 		<array>
 			<dict>
