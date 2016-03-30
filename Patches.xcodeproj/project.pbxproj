@@ -90,7 +90,8 @@
 		EDB940BE1C04D99A00480024 /* SSDT-FAN-READ.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-FAN-READ.dsl"; sourceTree = "<group>"; };
 		EDB940BF1C04D99A00480024 /* SSDT-FAN-ORIG.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-FAN-ORIG.dsl"; sourceTree = "<group>"; };
 		EDBFC62A1AC74DA600E24D1F /* 06a_Battery_PNOT.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = 06a_Battery_PNOT.txt; path = patches/06a_Battery_PNOT.txt; sourceTree = "<group>"; };
-		EDC2F47F1C87D6370009DA13 /* SSDT-USB-8x0s-G2.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-USB-8x0s-G2.dsl"; sourceTree = "<group>"; };
+		EDC2F47F1C87D6370009DA13 /* SSDT-USB-840-G2.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-USB-840-G2.dsl"; sourceTree = "<group>"; };
+		EDCDE4FD1CAC1A6700EBF998 /* SSDT-USB-820-G2.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-USB-820-G2.dsl"; sourceTree = "<group>"; };
 		EDD44B6E1C178B17003D0CA9 /* config_IDT76e0.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config_IDT76e0.plist; sourceTree = "<group>"; };
 		EDD44B6F1C178B17003D0CA9 /* config_IDT7695.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config_IDT7695.plist; sourceTree = "<group>"; };
 		EDD44B701C178B17003D0CA9 /* config_IDT7605.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config_IDT7605.plist; sourceTree = "<group>"; };
@@ -263,7 +264,8 @@
 				84A520C71C166BF5006C4C64 /* SSDT-USB-4x40s.dsl */,
 				ED1278681C1655010094A691 /* SSDT-USB-4x0s-G2.dsl */,
 				EDE8FF151C18123F006FCDD1 /* SSDT-USB-8x0s-G1.dsl */,
-				EDC2F47F1C87D6370009DA13 /* SSDT-USB-8x0s-G2.dsl */,
+				EDCDE4FD1CAC1A6700EBF998 /* SSDT-USB-820-G2.dsl */,
+				EDC2F47F1C87D6370009DA13 /* SSDT-USB-840-G2.dsl */,
 				ED511C981C062320005DAA2B /* config_master.plist */,
 				ED511C971C062320005DAA2B /* config_ALC282.plist */,
 				ED85B91A1C44A2FC004A5921 /* config_ALC280.plist */,

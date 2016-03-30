@@ -1,12 +1,12 @@
-// USBInjectAll configuration/override for ProBook 8x0s G2 Broadwell
+// USBInjectAll configuration/override for EliteBook 820 G2 Broadwell
 //
 
 //REVIEW: preliminary data for G2.  Note that it has a hub on XHC, which
 //  may need further work.
 
-// Based on information provided from EliteBook Pro 840 G2
+// Based on information provided from EliteBook Pro 820 G2
 
-DefinitionBlock ("", "SSDT", 2, "hack", "usb8x0g2", 0)
+DefinitionBlock ("", "SSDT", 2, "hack", "usb820g2", 0)
 {
 //
 // Override for USBInjectAll.kext
@@ -44,19 +44,21 @@ DefinitionBlock ("", "SSDT", 2, "hack", "usb8x0g2", 0)
                         "UsbConnector", 255,
                         "port", Buffer() { 0x04, 0, 0, 0 },
                     },
-                    // HS05/HS06 not used
+                    //HS05 is fingerprint reader (disabled)
+                    //HS06 not used
                     "HS07", Package() // camera
                     {
                         "UsbConnector", 255,
                         "port", Buffer() { 0x07, 0, 0, 0 },
                     },
                     // HS08/HS09 not used
-                    // SSP1/SSP2/SSP3 not used
-                    "SSP4", Package() // SS USB3 (HS03.port2 is USB2?)
+                    // SSP1/SSP2 not used
+                    "SSP3", Package() // SS USB3 hub (HS03.port2 is USB2?)
                     {
                         "UsbConnector", 3,
-                        "port", Buffer() { 0x0d, 0, 0, 0 },
+                        "port", Buffer() { 0x0c, 0, 0, 0 },
                     },
+                    // SSP4 not used
                 },
             },
         })
