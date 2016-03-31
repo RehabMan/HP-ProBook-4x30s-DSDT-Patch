@@ -29,7 +29,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "usb820g2", 0)
                 "ports", Package()
                 {
                     // HS01 not used
-                    "HS02", Package() // USB2
+                    "HS02", Package() // USB2 (SSP2 is USB3)
                     {
                         "UsbConnector", 0,
                         "port", Buffer() { 0x02, 0, 0, 0 },
@@ -52,7 +52,12 @@ DefinitionBlock ("", "SSDT", 2, "hack", "usb820g2", 0)
                         "port", Buffer() { 0x07, 0, 0, 0 },
                     },
                     // HS08/HS09/HS10/HS11 not used
-                    // SSP1/SSP2 not used
+                    // SSP1 not used
+                    "SSP2", Package() // SS USB3 port
+                    {
+                        "UsbConnector", 3,
+                        "port", Buffer() { 0x0d, 0, 0, 0 },
+                    },
                     "SSP3", Package() // SS USB3 hub (HS03.port2 is USB2?)
                     {
                         "UsbConnector", 255,
