@@ -23,9 +23,9 @@ DefinitionBlock ("", "SSDT", 2, "hack", "usb820g2", 0)
                 "ports", Package() { },
             },
             // XHC overrides
-            "8086_9xxx", Package()
+            "8086_9cb1", Package()
             {
-                //"port-count", Buffer() { 0x0d, 0, 0, 0},
+                //"port-count", Buffer() { 0x0f, 0, 0, 0},
                 "ports", Package()
                 {
                     // HS01 not used
@@ -51,12 +51,12 @@ DefinitionBlock ("", "SSDT", 2, "hack", "usb820g2", 0)
                         "UsbConnector", 255,
                         "port", Buffer() { 0x07, 0, 0, 0 },
                     },
-                    // HS08/HS09 not used
+                    // HS08/HS09/HS10/HS11 not used
                     // SSP1/SSP2 not used
                     "SSP3", Package() // SS USB3 hub (HS03.port2 is USB2?)
                     {
-                        "UsbConnector", 3,
-                        "port", Buffer() { 0x0c, 0, 0, 0 },
+                        "UsbConnector", 255,
+                        "port", Buffer() { 0x0e, 0, 0, 0 },
                     },
                     // SSP4 not used
                 },
