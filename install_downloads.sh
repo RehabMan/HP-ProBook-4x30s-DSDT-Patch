@@ -176,6 +176,9 @@ fi
 if [[ -e $SLE/AppleHDAALC.kext ]]; then
     $SUDO rm -Rf $SLE/AppleHDAALC.kext
 fi
+if [[ -e $SLE/USBXHCI_4x40s.kext ]]; then
+    $SUDO rm -Rf $SLE/USBXHCI_4x40s.kext
+fi
 
 # install (injector) kexts in the repo itself
 install_kext AppleHDA_ProBook.kext

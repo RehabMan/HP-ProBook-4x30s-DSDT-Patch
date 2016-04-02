@@ -19,7 +19,7 @@ Model/Audio mapping
 
 ALC282: 4x0G2, 4x0G2Broadwell, 8x0G2 Broadwell
 
-ALC280: Zbook 15 G2
+ALC280: Zbook 15 G2, HP Folio 9480m Haswell
 
 76d1: 4x30s,
 
