@@ -197,6 +197,14 @@
 					<key>Replace</key>
 					<data>QkFUMQhfSElEDEHQDAoIX1VJRAoCFCBYU1RBAA==</data>
 				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>rename BAT1._STA to BAT1.XSTA</string>
+					<key>Find</key>
+					<data>QkFUMQhfSElEDEHQDAoUGV9VSUQAoA2SlU9TWVML3AekCgGhBKQKAhQJX1NUQQ==</data>
+					<key>Replace</key>
+					<data>QkFUMQhfSElEDEHQDAoUGV9VSUQAoA2SlU9TWVML3AekCgGhBKQKAhQJWFNUQQ==</data>
+				</dict>
 			</array>
 		</dict>
 		<key>DropTables</key>

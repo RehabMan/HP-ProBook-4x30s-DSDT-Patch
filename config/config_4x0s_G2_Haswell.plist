@@ -293,6 +293,20 @@
 					AA==
 					</data>
 				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>rename BAT1._STA to BAT1.XSTA</string>
+					<key>Find</key>
+					<data>
+					QkFUMQhfSElEDEHQDAoUGV9VSUQAoA2SlU9T
+					WVML3AekCgGhBKQKAhQJX1NUQQ==
+					</data>
+					<key>Replace</key>
+					<data>
+					QkFUMQhfSElEDEHQDAoUGV9VSUQAoA2SlU9T
+					WVML3AekCgGhBKQKAhQJWFNUQQ==
+					</data>
+				</dict>
 			</array>
 		</dict>
 		<key>DropTables</key>
