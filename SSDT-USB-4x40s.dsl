@@ -85,6 +85,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "usb4x40s", 0)
                     "HP23", Package()   // camera
                     {
                         //"UsbConnector", 255,
+                        "portType", 4,  // fix for camera after sleep?
                         "port", Buffer() { 3, 0, 0, 0 },
                     },
                 },
