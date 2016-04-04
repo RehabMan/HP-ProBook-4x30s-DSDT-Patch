@@ -82,6 +82,7 @@
 		ED85B91A1C44A2FC004A5921 /* config_ALC280.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config_ALC280.plist; sourceTree = "<group>"; };
 		ED97346F1C0A5F260063BCF9 /* download.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = download.sh; sourceTree = "<group>"; };
 		ED9734701C0A5F370063BCF9 /* install_downloads.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = install_downloads.sh; sourceTree = "<group>"; };
+		ED9B77141CB2BFBC000E62FE /* SSDT-USB-6x70.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-USB-6x70.dsl"; sourceTree = "<group>"; };
 		EDB940B71C04D11C00480024 /* SSDT-BATT.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-BATT.dsl"; sourceTree = "<group>"; };
 		EDB940B91C04D2CB00480024 /* SSDT-BATT-G2.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-BATT-G2.dsl"; sourceTree = "<group>"; };
 		EDB940BB1C04D4D400480024 /* SSDT-KEY102.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-KEY102.dsl"; sourceTree = "<group>"; };
@@ -263,6 +264,7 @@
 				ED7126761C16A6F200BBED31 /* SSDT-USB-4x30s.dsl */,
 				84A520C71C166BF5006C4C64 /* SSDT-USB-4x40s.dsl */,
 				ED1278681C1655010094A691 /* SSDT-USB-4x0s-G2.dsl */,
+				ED9B77141CB2BFBC000E62FE /* SSDT-USB-6x70.dsl */,
 				EDE8FF151C18123F006FCDD1 /* SSDT-USB-8x0s-G1.dsl */,
 				EDCDE4FD1CAC1A6700EBF998 /* SSDT-USB-820-G2.dsl */,
 				EDC2F47F1C87D6370009DA13 /* SSDT-USB-840-G2.dsl */,
