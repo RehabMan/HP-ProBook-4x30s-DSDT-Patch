@@ -220,12 +220,60 @@
 				<string>PtidDevc</string>
 			</dict>
 		</array>
+		<key>#DropTables</key>
+		<array>
+			<dict>
+				<key>Signature</key>
+				<string>DMAR</string>
+			</dict>
+			<dict>
+				<key>Signature</key>
+				<string>SSDT</string>
+				<key>TableId</key>
+				<string>PtidDevc</string>
+			</dict>
+			<dict>
+				<key>Signature</key>
+				<string>SSDT</string>
+				<key>TableId</key>
+				<string>CpuPm</string>
+			</dict>
+			<dict>
+				<key>Signature</key>
+				<string>SSDT</string>
+				<key>TableId</key>
+				<string>Cpu0Cst</string>
+			</dict>
+			<dict>
+				<key>Signature</key>
+				<string>SSDT</string>
+				<key>TableId</key>
+				<string>Cpu0Ist</string>
+			</dict>
+			<dict>
+				<key>Signature</key>
+				<string>SSDT</string>
+				<key>TableId</key>
+				<string>ApCst</string>
+			</dict>
+			<dict>
+				<key>Signature</key>
+				<string>SSDT</string>
+				<key>TableId</key>
+				<string>ApIst</string>
+			</dict>
+		</array>
 		<key>SSDT</key>
 		<dict>
 			<key>DropOem</key>
 			<false/>
 			<key>Generate</key>
-			<false/>
+			<dict>
+				<key>CStates</key>
+				<false/>
+				<key>PStates</key>
+				<false/>
+			</dict>
 		</dict>
 	</dict>
 	<key>Boot</key>
