@@ -1,6 +1,6 @@
 // USB configuration for EliteBook 6x70
 //
-// This information from an EliteBook 6570b
+// This information from an EliteBook 6570b (courtesy Xeon3D).
 
 DefinitionBlock ("", "SSDT", 2, "hack", "usb6x70", 0)
 {
@@ -31,17 +31,17 @@ DefinitionBlock ("", "SSDT", 2, "hack", "usb6x70", 0)
                 "port-count", Buffer() { 8, 0, 0, 0 },
                 "ports", Package()
                 {
-                    "HP12", Package()   // HS USB3 near left
+                    "HP12", Package()   // USB2 left near hinge
                     {
                         //"UsbConnector", 3,
                         "port", Buffer() { 2, 0, 0, 0 },
                     },
-                    "HP13", Package()   // HS USB3 far left
+                    "HP13", Package()   // HS USB3 right near hinge
                     {
                         //"UsbConnector", 3,
                         "port", Buffer() { 3, 0, 0, 0 },
                     },
-                    "HP14", Package()   // USB2 far right
+                    "HP14", Package()   // HS USB3 right far from hinge
                     {
                         //"UsbConnector", 0,
                         "port", Buffer() { 4, 0, 0, 0 },
@@ -79,7 +79,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "usb6x70", 0)
                         "port", Buffer() { 1, 0, 0, 0 },
                     },
                     #endif
-                    "HP22", Package()   // USB2 near right
+                    "HP22", Package()   // USB2 left middle (near power button)
                     {
                         //"UsbConnector", 0,
                         "port", Buffer() { 2, 0, 0, 0 },
@@ -90,7 +90,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "usb6x70", 0)
                         "portType", 4,  // fix for camera after sleep?
                         "port", Buffer() { 3, 0, 0, 0 },
                     },
-                    "HP26", Package()   // unknown USB2
+                    "HP26", Package()   // USB2 left near ctrl key (USB2/eSATA port)
                     {
                         //"UsbConnector", 255,
                         "port", Buffer() { 6, 0, 0, 0 },
@@ -109,12 +109,12 @@ DefinitionBlock ("", "SSDT", 2, "hack", "usb6x70", 0)
                     // HS03 HS USB3 far left
                     // HS04 USB2 far right
                     // SS05/SS06 not used
-                    "SS07", Package()   // SS USB3 near left
+                    "SS07", Package()   // SS USB3 right near hinge
                     {
                         "UsbConnector", 3,
                         "port", Buffer() { 7, 0, 0, 0 },
                     },
-                    "SS08", Package()   // SS USB3 far left
+                    "SS08", Package()   // SS USB3 right far from hinge
                     {
                         "UsbConnector", 3,
                         "port", Buffer() { 8, 0, 0, 0 },
