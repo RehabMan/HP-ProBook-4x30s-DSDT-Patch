@@ -48,7 +48,7 @@ HACK:=$(HACK) $(BUILDDIR)/SSDT-USB-6x70.aml
 PLIST:=$(PLIST) config/config_4x30s.plist config/config_4x40s.plist
 PLIST:=$(PLIST) config/config_4x0s_G0.plist config/config_4x0s_G1.plist
 PLIST:=$(PLIST) config/config_8x0s_G1.plist config/config_9x70m.plist
-PLIST:=$(PLIST) config/config_6x60s.plist config/config_6x70s.plist config/config_3x0_G1.plist
+PLIST:=$(PLIST) config/config_6x60s.plist config/config_8x60p.plist config/config_6x70s.plist config/config_3x0_G1.plist
 PLIST:=$(PLIST) config/config_8x0s_G1_Haswell.plist
 PLIST:=$(PLIST) config/config_4x0s_G2_Haswell.plist config/config_8x0s_G2_Haswell.plist
 PLIST:=$(PLIST) config/config_4x0s_G2_Broadwell.plist config/config_8x0s_G2_Broadwell.plist
@@ -148,7 +148,7 @@ config/config_8x0s_G1_Haswell.plist : config_master.plist config_IDT76e0.plist c
 	@printf "\n"
 
 # 9x70m is same as 4x0s_G0
-config/config_9x70m.plist: config/config_4x0s_G0.plist
+config/config_9x70m.plist : config/config_4x0s_G0.plist
 	@printf "!! creating $@\n"
 	cp config/config_4x0s_G0.plist $@
 	@printf "\n"
@@ -164,6 +164,12 @@ config/config_6x60s.plist : config_master.plist config_IDT7605.plist config_HD30
 	/usr/libexec/plistbuddy -c "Set Devices:Arbitrary:0:CustomProperties:0:Value 18" $@
 	/usr/libexec/plistbuddy -c "Set Devices:Arbitrary:1:CustomProperties:0:Value 18" $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_non_Intel_USB3.plist $@
+	@printf "\n"
+
+# 8x60p is same as 6x60s
+config/config_8x60p.plist : config/config_6x60s.plist
+	@printf "!! creating $@\n"
+	cp config/config_6x60s.plist $@
 	@printf "\n"
 
 # 6x70s is IDT7605, HD4000
