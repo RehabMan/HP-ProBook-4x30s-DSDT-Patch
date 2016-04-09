@@ -9,6 +9,21 @@ DefinitionBlock ("", "SSDT", 2, "hack", "hack", 0)
     External(\_SB.PCI0, DeviceObj)
     External(\_SB.PCI0.LPCB, DeviceObj)
 
+    Device(RMCF)
+    {
+        Name(_ADR, 0)   // do not remove
+
+        Method(HELP)
+        {
+            Store("DGPU indicates whether discrete GPU should be disabled. 1: yes, 0: no", Debug)
+        }
+
+        // DGPU: Controls whether the DGPU is disabled via ACPI or not
+        // 1: (default) DGPU is disabled at startup, enabled in _PTS, disabled in _WAK
+        // 0: DGPU is not manipulated
+        Name(DGPU, 1)
+    }
+
     // All _OSI calls in DSDT are routed to XOSI...
     // XOSI simulates "Windows 2009" (which is Windows 7)
     // Note: According to ACPI spec, _OSI("Windows") must also return true
@@ -78,10 +93,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "hack", 0)
         {
             // disable discrete graphics (Nvidia) if it is present
             External(\_SB_.PCI0.PEGP.DGFX._OFF, MethodObj)
-            If (CondRefOf(\_SB_.PCI0.PEGP.DGFX._OFF))
-            {
-                \_SB_.PCI0.PEGP.DGFX._OFF()
-            }
+            If (1 == \RMCF.DGPU && CondRefOf(\_SB_.PCI0.PEGP.DGFX._OFF)) { \_SB_.PCI0.PEGP.DGFX._OFF() }
         }
     }
 
@@ -91,7 +103,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "hack", 0)
     {
         If (5 == Arg0) { Return }
         External(\_SB_.PCI0.PEGP.DGFX._ON, MethodObj)
-        If (CondRefOf(\_SB_.PCI0.PEGP.DGFX._ON)) { \_SB_.PCI0.PEGP.DGFX._ON() }
+        If (1 == \RMCF.DGPU && CondRefOf(\_SB_.PCI0.PEGP.DGFX._ON)) { \_SB_.PCI0.PEGP.DGFX._ON() }
         External(\ZPTS, MethodObj)
         ZPTS(Arg0)
     }
@@ -100,7 +112,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "hack", 0)
         If (Arg0 < 1 || Arg0 > 5) { Arg0 = 3 }
         External(\ZWAK, MethodObj)
         Local0 = ZWAK(Arg0)
-        If (CondRefOf(\_SB_.PCI0.PEGP.DGFX._OFF)) { \_SB_.PCI0.PEGP.DGFX._OFF() }
+        If (1 == \RMCF.DGPU && CondRefOf(\_SB_.PCI0.PEGP.DGFX._OFF)) { \_SB_.PCI0.PEGP.DGFX._OFF() }
         Return(Local0)
     }
 
