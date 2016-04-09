@@ -53,6 +53,7 @@ PLIST:=$(PLIST) config/config_8x0s_G1_Haswell.plist
 PLIST:=$(PLIST) config/config_4x0s_G2_Haswell.plist config/config_8x0s_G2_Haswell.plist
 PLIST:=$(PLIST) config/config_4x0s_G2_Broadwell.plist config/config_8x0s_G2_Broadwell.plist
 PLIST:=$(PLIST) config/config_ZBook_G2_Haswell.plist
+PLIST:=$(PLIST) config/config_8570p_amd.plist
 
 .PHONY: all
 all : $(STATIC) $(MINI) $(HACK) $(PLIST) $(HDAINJECT)
@@ -241,6 +242,31 @@ config/config_ZBook_G2_Haswell.plist : config_master.plist config_ALC280.plist c
 	/usr/libexec/plistbuddy -c "Set Devices:Arbitrary:0:CustomProperties:0:Value 4" $@
 	/usr/libexec/plistbuddy -c "Set Devices:Arbitrary:1:CustomProperties:0:Value 4" $@
 	@printf "\n"
+
+# EliteBook 8570p AMD Radeon HD 7570M 1600x900
+config/config_8570p_amd.plist : config_master.plist config_IDT7605.plist config_AMD7570M.plist
+	@printf "!! creating $@\n"
+	cp config_master.plist $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_IDT7605.plist $@
+	./merge_plist.sh "KernelAndKextPatches" config_AMD7570M.plist $@	
+	./merge_plist.sh "Devices:Arbitrary" config_AMD7570M.plist $@
+	# remove the boot graphics glitch patch in IOGraphicsFamily - it prevents proper qe/ci on amd gpu
+	# assuming this path is array index 1 of the KextsToPatch array (zero based index)
+	/usr/libexec/plistbuddy -c "Delete KernelAndKextPatches:KextsToPatch:1" $@
+	/usr/libexec/plistbuddy -c "Set GUI:ScreenResolution 1600x900" $@
+	/usr/libexec/plistbuddy -c "Set Devices:Arbitrary:0:CustomProperties:0:Value 18" $@
+	/usr/libexec/plistbuddy -c "Set Devices:Arbitrary:1:CustomProperties:0:Value 18" $@
+	# AMD needs -xcpm boot args
+	$(eval ENTRY := $(shell /usr/libexec/plistbuddy -c "Print Boot:Arguments" config_master.plist))
+	/usr/libexec/plistbuddy -c "Set Boot:Arguments $(ENTRY) -xcpm" $@
+	/usr/libexec/plistbuddy -c "Set ACPI:DSDT:Patches:5:Comment change B0D4 to HDAU" $@
+	/usr/libexec/plistbuddy -c "Set ACPI:DSDT:Patches:5:Find B0D4" $@
+	 if [ -e config_my_smbios.plist ]; then \
+	 /usr/libexec/plistbuddy -c "Delete SMBIOS:ProductName" $@ && \
+	 ./merge_plist.sh "SMBIOS" config_my_smbios.plist $@; \
+	 fi;
+	@printf "\n"
+
 
 # combo patches
 
