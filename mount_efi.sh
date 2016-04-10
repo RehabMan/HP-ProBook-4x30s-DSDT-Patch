@@ -20,6 +20,19 @@ if [ -z "$DiskDevice" ]; then
     exit 1
 fi
 
+#check if it is a core storage device
+CoreStorage=$(LC_ALL=C diskutil info "$DestVolume" 2>/dev/null | grep "Core Storage")
+if [ -n "$CoreStorage" ]; then
+    echo "Detected Core Storage logical volume - trying to determine physical disk via recover partition"
+    # use the recovery disk to determine the real physical disk
+    RecoveryDisk=$(LC_ALL=C diskutil info "$DestVolume" 2>/dev/null | sed -n 's/.*Recovery Disk: *//p')
+    if [ -n "$RecoveryDisk" ]; then
+        echo "Found recovery disk on $RecoveryDisk"
+        DiskDevice=$(LC_ALL=C diskutil info /dev/$RecoveryDisk 2>/dev/null | sed -n 's/.*Part [oO]f Whole: *//p')
+    fi
+fi
+
+
 # Check if the disk is a GPT disk
 PartitionScheme=$(LC_ALL=C diskutil info "$DiskDevice" 2>/dev/null | sed -nE 's/.*(Partition Type|Content \(IOContent\)): *//p')
 if [ "$PartitionScheme" != "GUID_partition_scheme" ]; then
