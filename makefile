@@ -43,12 +43,13 @@ HACK:=$(HACK) $(BUILDDIR)/SSDT-FAN-ORIG.aml $(BUILDDIR)/SSDT-FAN-READ.aml
 HACK:=$(HACK) $(BUILDDIR)/SSDT-USB-4x0s-G2.aml $(BUILDDIR)/SSDT-USB-4x40s.aml $(BUILDDIR)/SSDT-USB-4x30s.aml
 HACK:=$(HACK) $(BUILDDIR)/SSDT-USB-8x0s-G1.aml
 HACK:=$(HACK) $(BUILDDIR)/SSDT-USB-820-G2.aml $(BUILDDIR)/SSDT-USB-840-G2.aml
-HACK:=$(HACK) $(BUILDDIR)/SSDT-USB-6x70.aml
+HACK:=$(HACK) $(BUILDDIR)/SSDT-USB-6x60.aml $(BUILDDIR)/SSDT-USB-6x70.aml
 
 PLIST:=$(PLIST) config/config_4x30s.plist config/config_4x40s.plist
 PLIST:=$(PLIST) config/config_4x0s_G0.plist config/config_4x0s_G1.plist
 PLIST:=$(PLIST) config/config_8x0s_G1.plist config/config_9x70m.plist
-PLIST:=$(PLIST) config/config_6x60s.plist config/config_8x60p.plist config/config_6x70s.plist config/config_3x0_G1.plist
+PLIST:=$(PLIST) config/config_6x60p.plist config/config_8x60p.plist config/config_6x70p.plist config/config_8x70p.plist
+PLIST:=$(PLIST) config/config_3x0_G1.plist
 PLIST:=$(PLIST) config/config_8x0s_G1_Haswell.plist
 PLIST:=$(PLIST) config/config_4x0s_G2_Haswell.plist config/config_8x0s_G2_Haswell.plist
 PLIST:=$(PLIST) config/config_4x0s_G2_Broadwell.plist config/config_8x0s_G2_Broadwell.plist
@@ -153,8 +154,8 @@ config/config_9x70m.plist : config/config_4x0s_G0.plist
 	cp config/config_4x0s_G0.plist $@
 	@printf "\n"
 
-# 6x60s is IDT7605, HD3000, non-Intel USB3
-config/config_6x60s.plist : config_master.plist config_IDT7605.plist config_HD3000.plist config_non_Intel_USB3.plist
+# 6x60p is IDT7605, HD3000, non-Intel USB3
+config/config_6x60p.plist : config_master.plist config_IDT7605.plist config_HD3000.plist config_non_Intel_USB3.plist
 	@printf "!! creating $@\n"
 	cp config_master.plist $@
 	/usr/libexec/plistbuddy -c "Set KernelAndKextPatches:KernelPm false" $@
@@ -166,14 +167,14 @@ config/config_6x60s.plist : config_master.plist config_IDT7605.plist config_HD30
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_non_Intel_USB3.plist $@
 	@printf "\n"
 
-# 8x60p is same as 6x60s
-config/config_8x60p.plist : config/config_6x60s.plist
+# 8x60p is same as 6x60p
+config/config_8x60p.plist : config/config_6x60p.plist
 	@printf "!! creating $@\n"
-	cp config/config_6x60s.plist $@
+	cp config/config_6x60p.plist $@
 	@printf "\n"
 
-# 6x70s is IDT7605, HD4000
-config/config_6x70s.plist : config_master.plist config_IDT7605.plist config_HD4000.plist
+# 6x70p is IDT7605, HD4000
+config/config_6x70p.plist : config_master.plist config_IDT7605.plist config_HD4000.plist
 	@printf "!! creating $@\n"
 	cp config_master.plist $@
 	/usr/libexec/plistbuddy -c "Set :SMBIOS:ProductName MacBookPro9,2" $@
@@ -181,6 +182,12 @@ config/config_6x70s.plist : config_master.plist config_IDT7605.plist config_HD40
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_IDT7605.plist $@
 	/usr/libexec/plistbuddy -c "Set Devices:Arbitrary:0:CustomProperties:0:Value 18" $@
 	/usr/libexec/plistbuddy -c "Set Devices:Arbitrary:1:CustomProperties:0:Value 18" $@
+	@printf "\n"
+
+# 8x70p is same as 6x70p
+config/config_8x70p.plist : config/config_6x70p.plist
+	@printf "!! creating $@\n"
+	cp config/config_6x70p.plist $@
 	@printf "\n"
 
 # 3x0_G1 is IDT7695, HD4000 (//review)
