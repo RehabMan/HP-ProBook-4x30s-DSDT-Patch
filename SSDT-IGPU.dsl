@@ -98,7 +98,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "igpu", 0)
             0x1916, 0, Package()
             {
                 "hda-gfx", Buffer() { "onboard-1" },
-                "AAPL,ig-platform-id", Buffer() { 0x06, 0x00, 0x16, 0x19 },
+                "AAPL,ig-platform-id", Buffer() { 0x00, 0x00, 0x16, 0x19 },
             },
         })
 
