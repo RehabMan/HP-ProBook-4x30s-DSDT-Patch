@@ -63,6 +63,14 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
+					<string>change HDAS to HDEF</string>
+					<key>Find</key>
+					<data>SERBUw==</data>
+					<key>Replace</key>
+					<data>SERFRg==</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
 					<string>change B0D3 to HDAU</string>
 					<key>Find</key>
 					<data>QjBEMw==</data>
