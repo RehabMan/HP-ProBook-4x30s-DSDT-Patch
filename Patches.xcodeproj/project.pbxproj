@@ -67,6 +67,8 @@
 		ED18374D1C0A4B1200A5A3DA /* Platforms.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Platforms.plist; path = Resources_ProBook/Platforms.plist; sourceTree = "<group>"; };
 		ED18374E1C0A4B1200A5A3DA /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.txt; path = Resources_ProBook/README.txt; sourceTree = "<group>"; };
 		ED304EF01CB95CC100780D95 /* SSDT-USB-6x60.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-USB-6x60.dsl"; sourceTree = "<group>"; };
+		ED499C5F1CBE8A6500C7C106 /* SSDT-BATT-G3.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-BATT-G3.dsl"; sourceTree = "<group>"; };
+		ED4CEBE31CBE80A100831F4D /* config_Skylake.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config_Skylake.plist; sourceTree = "<group>"; };
 		ED511C971C062320005DAA2B /* config_ALC282.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config_ALC282.plist; sourceTree = "<group>"; };
 		ED511C981C062320005DAA2B /* config_master.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config_master.plist; sourceTree = "<group>"; };
 		ED511C991C062320005DAA2B /* config_non_Intel_USB3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config_non_Intel_USB3.plist; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 		ED56AA161C08B10A00260DBA /* config_HD3000.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config_HD3000.plist; sourceTree = "<group>"; };
 		ED634E2619FD2A9B00289C54 /* 14_ProBook-102key.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "14_ProBook-102key.txt"; path = "patches/14_ProBook-102key.txt"; sourceTree = "<group>"; };
 		ED634E2719FD2B3E00289C54 /* 14_ProBook-87key.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "14_ProBook-87key.txt"; path = "patches/14_ProBook-87key.txt"; sourceTree = "<group>"; };
+		ED6CF8F31CBE8224009A49C7 /* config_CX20724.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config_CX20724.plist; sourceTree = "<group>"; };
 		ED7126761C16A6F200BBED31 /* SSDT-USB-4x30s.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-USB-4x30s.dsl"; sourceTree = "<group>"; };
 		ED72750B1BE1B1D700314108 /* config_4x30s.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_4x30s.plist; path = config/config_4x30s.plist; sourceTree = "<group>"; };
 		ED85B91A1C44A2FC004A5921 /* config_ALC280.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config_ALC280.plist; sourceTree = "<group>"; };
@@ -257,6 +260,7 @@
 				EDF9A6211C0514C300A2E045 /* SSDT-IGPU.dsl */,
 				EDB940B71C04D11C00480024 /* SSDT-BATT.dsl */,
 				EDB940B91C04D2CB00480024 /* SSDT-BATT-G2.dsl */,
+				ED499C5F1CBE8A6500C7C106 /* SSDT-BATT-G3.dsl */,
 				EDB940BC1C04D4D400480024 /* SSDT-KEY87.dsl */,
 				EDB940BB1C04D4D400480024 /* SSDT-KEY102.dsl */,
 				EDB940BD1C04D78800480024 /* SSDT-FAN-QUIET.dsl */,
@@ -273,6 +277,7 @@
 				ED511C981C062320005DAA2B /* config_master.plist */,
 				ED511C971C062320005DAA2B /* config_ALC282.plist */,
 				ED85B91A1C44A2FC004A5921 /* config_ALC280.plist */,
+				ED6CF8F31CBE8224009A49C7 /* config_CX20724.plist */,
 				ED511C9A1C0623AB005DAA2B /* config_IDT76d1.plist */,
 				ED511C9B1C0624BF005DAA2B /* config_IDT76d9.plist */,
 				EDD44B701C178B17003D0CA9 /* config_IDT7605.plist */,
@@ -283,6 +288,7 @@
 				ED56AA151C08B10A00260DBA /* config_HD4000.plist */,
 				ED56AA141C08B10A00260DBA /* config_Haswell.plist */,
 				ED56AA131C08B10A00260DBA /* config_Broadwell.plist */,
+				ED4CEBE31CBE80A100831F4D /* config_Skylake.plist */,
 				ED3089661C077B9A00BAB77C /* Generated config */,
 			);
 			name = hotpatch;

@@ -458,7 +458,7 @@
 						<key>Key</key>
 						<string>layout-id</string>
 						<key>Value</key>
-						<integer>19</integer>
+						<integer>5</integer>
 					</dict>
 					<dict>
 						<key>Key</key>
@@ -486,7 +486,7 @@
 						<key>Key</key>
 						<string>layout-id</string>
 						<key>Value</key>
-						<integer>19</integer>
+						<integer>5</integer>
 					</dict>
 					<dict>
 						<key>Key</key>
@@ -703,7 +703,7 @@
 		<key>AppleRTC</key>
 		<true/>
 		<key>AsusAICPUPM</key>
-		<true/>
+		<false/>
 		<key>KernelLapic</key>
 		<false/>
 		<key>KernelPm</key>
@@ -810,68 +810,40 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>HDMI-video, 64MB BIOS, HD4000 0x01660004 #1 of 2</string>
+				<string>HDMI-audio, port 0105/0204, 0x16260006 (REVIEW: not done, just a placeholder)</string>
 				<key>Find</key>
 				<data>
-				BABmAQEDAQEAAAAC
+				AQULAAAEAAAHBQAAAgQLAAAEAAAHBQAA/wAAAAEAAABA
+				AAAA
 				</data>
 				<key>Name</key>
-				<string>AppleIntelFramebufferCapri</string>
+				<string>#AppleIntelSKLGraphicsFramebuffer</string>
 				<key>Replace</key>
 				<data>
-				BABmAQECBAIAAAAE
+				AQULAAAIAACCAAAAAgQLAAAIAACCAAAA/wAAAAEAAABA
+				AAAA
 				</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>HDMI-video, 64MB BIOS, HD4000 0x01660004 #2 of 2</string>
+				<string>CX20724  #1 of 4</string>
 				<key>Find</key>
 				<data>
-				MAIAAAAAAAABAAAAQAAAAAAAAAABAAAAQAAAAAAAAAAB
-				AAAAQAAAAAAAAAAAAAAA
-				</data>
-				<key>Name</key>
-				<string>AppleIntelFramebufferCapri</string>
-				<key>Replace</key>
-				<data>
-				MAIAAAIFAAAABAAABwQAAAMEAAAABAAAgQAAAAQGAAAA
-				BAAAgQAAAAAAAAAAAgAR
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>HDMI-audio HD4000 0x01660003/0004, port 0406</string>
-				<key>Find</key>
-				<data>
-				BAYAAAAEAACBAAAA
-				</data>
-				<key>Name</key>
-				<string>AppleIntelFramebufferCapri</string>
-				<key>Replace</key>
-				<data>
-				BAYAAAAIAAAGAAAA
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>IDT 7605 #1 of 3</string>
-				<key>Find</key>
-				<data>
-				PYsZ1BE=
+				PYQZ1BE=
 				</data>
 				<key>Name</key>
 				<string>AppleHDA</string>
 				<key>Replace</key>
 				<data>
-				PZV2HRE=
+				PfRQ8RQ=
 				</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>IDT 7695 #2 of 3</string>
+				<string>CX20724 #2 of 4</string>
 				<key>Find</key>
 				<data>
-				PYQZ1BE=
+				PYQI7BA=
 				</data>
 				<key>Name</key>
 				<string>AppleHDA</string>
@@ -882,7 +854,21 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>IDT 7695 #3 of 3</string>
+				<string>CX20724 #3 of 4</string>
+				<key>Find</key>
+				<data>
+				PYUI7BA=
+				</data>
+				<key>Name</key>
+				<string>AppleHDA</string>
+				<key>Replace</key>
+				<data>
+				PQAAAAA=
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>CX20724 #4 of 4 (new in 10.11, credit lisai9093) </string>
 				<key>Find</key>
 				<data>
 				PYMZ1BE=
@@ -906,7 +892,7 @@
 	<key>SMBIOS</key>
 	<dict>
 		<key>ProductName</key>
-		<string>MacBookPro9,2</string>
+		<string>MacBookPro11,1</string>
 		<key>Trust</key>
 		<true/>
 	</dict>

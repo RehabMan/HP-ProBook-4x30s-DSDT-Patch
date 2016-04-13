@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>KernelAndKextPatches</key>
+	<dict>
+		<key>KextsToPatch</key>
+		<array>
+			<dict>
+				<key>Comment</key>
+				<string>HDMI-audio, port 0105/0204, 0x16260006 (REVIEW: not done, just a placeholder)</string>
+				<key>Name</key>
+				<string>#AppleIntelSKLGraphicsFramebuffer</string>
+				<key>Find</key>
+				<data>AQULAAAEAAAHBQAAAgQLAAAEAAAHBQAA/wAAAAEAAABAAAAA</data>
+				<key>Replace</key>
+				<data>AQULAAAIAACCAAAAAgQLAAAIAACCAAAA/wAAAAEAAABAAAAA</data>
+			</dict>
+		</array>
+	</dict>
+</dict>
+</plist>

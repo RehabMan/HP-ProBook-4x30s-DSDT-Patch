@@ -94,6 +94,12 @@ DefinitionBlock ("", "SSDT", 2, "hack", "igpu", 0)
                 "hda-gfx", Buffer() { "onboard-1" },
                 "AAPL,ig-platform-id", Buffer() { 0x06, 0x00, 0x26, 0x16 },
             },
+            // Skylake
+            0x1916, 0, Package()
+            {
+                "hda-gfx", Buffer() { "onboard-1" },
+                "AAPL,ig-platform-id", Buffer() { 0x06, 0x00, 0x16, 0x19 },
+            },
         })
 
         // inject properties for integrated graphics on IGPU

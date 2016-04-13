@@ -2,6 +2,7 @@ LayoutID and PathMapID mappings for AppleHDA_ProBook.kext
 
 ALC282: 3
 ALC280: 4
+CX20724: 5 (reserved... not currently in the file)
 
 IDT_76d1: 12
 IDT_76d9: 13
@@ -16,10 +17,11 @@ Note: Layout-id 14,15,16 may not be able to be used due to AppleHDA not using th
 Model/Audio mapping
 
 
-
 ALC282: 4x0G2, 4x0G2Broadwell, 8x0G2 Broadwell
 
 ALC280: Zbook 15 G2, HP Folio 9480m Haswell
+
+CX20724: 4x0sG3 Skylake
 
 76d1: 4x30s,
 

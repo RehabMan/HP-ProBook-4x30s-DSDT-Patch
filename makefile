@@ -44,6 +44,7 @@ HACK:=$(HACK) $(BUILDDIR)/SSDT-USB-4x0s-G2.aml $(BUILDDIR)/SSDT-USB-4x40s.aml $(
 HACK:=$(HACK) $(BUILDDIR)/SSDT-USB-8x0s-G1.aml
 HACK:=$(HACK) $(BUILDDIR)/SSDT-USB-820-G2.aml $(BUILDDIR)/SSDT-USB-840-G2.aml
 HACK:=$(HACK) $(BUILDDIR)/SSDT-USB-6x60.aml $(BUILDDIR)/SSDT-USB-6x70.aml
+HACK:=$(HACK) $(BUILDDIR)/SSDT-BATT-G3.aml
 
 PLIST:=$(PLIST) config/config_4x30s.plist config/config_4x40s.plist
 PLIST:=$(PLIST) config/config_4x0s_G0.plist config/config_4x0s_G1.plist
@@ -54,6 +55,7 @@ PLIST:=$(PLIST) config/config_8x0s_G1_Haswell.plist
 PLIST:=$(PLIST) config/config_4x0s_G2_Haswell.plist config/config_8x0s_G2_Haswell.plist
 PLIST:=$(PLIST) config/config_4x0s_G2_Broadwell.plist config/config_8x0s_G2_Broadwell.plist
 PLIST:=$(PLIST) config/config_ZBook_G2_Haswell.plist
+PLIST:=$(PLIST) config/config_4x0s_G3_Skylake.plist
 
 .PHONY: all
 all : $(STATIC) $(MINI) $(HACK) $(PLIST) $(HDAINJECT)
@@ -253,6 +255,18 @@ config/config_ZBook_G2_Haswell.plist : config_master.plist config_ALC280.plist c
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_ALC280.plist $@
 	/usr/libexec/plistbuddy -c "Set Devices:Arbitrary:0:CustomProperties:0:Value 4" $@
 	/usr/libexec/plistbuddy -c "Set Devices:Arbitrary:1:CustomProperties:0:Value 4" $@
+	@printf "\n"
+
+# ProBook_4x0s_G3_Skylake is CX20724, Skylake
+config/config_4x0s_G3_Skylake.plist : config_master.plist config_CX20724.plist config_Skylake.plist
+	@printf "!! creating $@\n"
+	cp config_master.plist $@
+	/usr/libexec/plistbuddy -c "Set KernelAndKextPatches:AsusAICPUPM false" $@
+	/usr/libexec/plistbuddy -c "Set :SMBIOS:ProductName MacBookPro11,1" $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_Skylake.plist $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_CX20724.plist $@
+	/usr/libexec/plistbuddy -c "Set Devices:Arbitrary:0:CustomProperties:0:Value 5" $@
+	/usr/libexec/plistbuddy -c "Set Devices:Arbitrary:1:CustomProperties:0:Value 5" $@
 	@printf "\n"
 
 # combo patches

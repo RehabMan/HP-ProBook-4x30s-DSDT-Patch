@@ -186,6 +186,18 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
+					<string>change _WAK to ZWAK (G3)</string>
+					<key>Find</key>
+					<data>
+					X1dBSwk=
+					</data>
+					<key>Replace</key>
+					<data>
+					WldBSwk=
+					</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
 					<string>change Method(BTIF,1,Serialized) to BTI0</string>
 					<key>Find</key>
 					<data>
@@ -198,6 +210,18 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
+					<string>change Method(BTIF,1,Serialized) to BTI0 (G3)</string>
+					<key>Find</key>
+					<data>
+					QlRJRgl5AWg=
+					</data>
+					<key>Replace</key>
+					<data>
+					QlRJMAl5AWg=
+					</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
 					<string>change Method(BTST,2,Serialized) to BTS1</string>
 					<key>Find</key>
 					<data>
@@ -206,6 +230,18 @@
 					<key>Replace</key>
 					<data>
 					QlRTMQp5Cg==
+					</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>change Method(BTST,2,Serialized) to BTS1 (G3)</string>
+					<key>Find</key>
+					<data>
+					QlRTVAp5AWg=
+					</data>
+					<key>Replace</key>
+					<data>
+					QlRTMQp5AWg=
 					</data>
 				</dict>
 				<dict>
@@ -348,6 +384,20 @@
 					<data>
 					QkFUMQhfSElEDEHQDAoUGV9VSUQAoA2SlU9T
 					WVML3AekCgGhBKQKAhQJWFNUQQ==
+					</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>rename BAT1._STA to BAT1.XSTA (G3)</string>
+					<key>Find</key>
+					<data>
+					QkFUMQhfSElEDEHQDAoIX1VJRAoCFAhfU1RB
+					AA==
+					</data>
+					<key>Replace</key>
+					<data>
+					QkFUMQhfSElEDEHQDAoIX1VJRAoCFAhYU1RB
+					AA==
 					</data>
 				</dict>
 			</array>
