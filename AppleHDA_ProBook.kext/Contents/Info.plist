@@ -126,6 +126,24 @@
 					<integer>4</integer>
 				</dict>
 				<dict>
+					<key>AFGLowPowerState</key>
+					<data>
+					AwAAAA==
+					</data>
+					<key>CodecID</key>
+					<integer>351359220</integer>
+					<key>ConfigData</key>
+					<data>
+					AWccEAFnHRABZx4hAWcfAgF3HCABdx0AAXce
+					FwF3H5EBlxwwAZcdEAGXHoEBlx8CAaccQAGn
+					HQABpx6mAacfkA==
+					</data>
+					<key>FuncGroup</key>
+					<integer>1</integer>
+					<key>LayoutID</key>
+					<integer>5</integer>
+				</dict>
+				<dict>
 					<key>CodecID</key>
 					<integer>287143633</integer>
 					<key>ConfigData</key>
