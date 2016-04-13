@@ -63,6 +63,14 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
+					<string>Change Device(HECI) _ADR=0x00160000 to _ADR=0</string>
+					<key>Find</key>
+					<data>SEVDSQhfQURSDAAAFgA=</data>
+					<key>Replace</key>
+					<data>SEVDSQhfQURSDAAAAAA=</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
 					<string>change HDAS to HDEF</string>
 					<key>Find</key>
 					<data>SERBUw==</data>
