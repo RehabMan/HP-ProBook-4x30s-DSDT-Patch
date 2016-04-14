@@ -34,7 +34,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "hack", 0)
         //
         // 0: Using IntelBacklight.kext
         // 1: Using AppleBacklight.kext + AppleBacklightInjector.kext
-        Name(BLKT, 0)
+        Name(BKLT, 0)
 
         // LMAX: Backlight PWM MAX.  Must match framebuffer in use.
         //
@@ -141,11 +141,11 @@ DefinitionBlock ("", "SSDT", 2, "hack", "hack", 0)
             }
 
             // IntelBacklight.kext takes care of this at load time...
-            If (1 != \RMCF.BLKT) { Return }
+            If (1 != \RMCF.BKLT) { Return }
 
             // Adjustment required when using AppleBacklight.kext
             Local0 = \_SB.PCI0.IGPU.GDID
-            If (Ones != Match(Package() { 0x0116, 0x0126, 0x0112, 0x0122, 0x0116, 0x42, 0x46 }, MEQ, Local0, MTR, 0, 0))
+            If (Ones != Match(Package() { 0x0116, 0x0126, 0x0112, 0x0122, 0x0166, 0x42, 0x46 }, MEQ, Local0, MTR, 0, 0))
             {
                 // Sandy/Ivy
                 Local2 = \RMCF.LMAX
