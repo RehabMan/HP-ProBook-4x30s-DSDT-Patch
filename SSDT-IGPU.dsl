@@ -98,6 +98,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "igpu", 0)
             // Skylake
             0x1916, 0, Package()
             {
+                "model", Buffer() { "Intel HD Graphics 520" },
                 "hda-gfx", Buffer() { "onboard-1" },
                 "AAPL,ig-platform-id", Buffer() { 0x00, 0x00, 0x16, 0x19 },
             },
