@@ -127,6 +127,8 @@
 				<dict>
 					<key>Comment</key>
 					<string>Change Device(HECI) _ADR=0x00160000 to _ADR=0</string>
+					<key>Disabled</key>
+					<true/>
 					<key>Find</key>
 					<data>
 					SEVDSQhfQURSDAAAFgA=

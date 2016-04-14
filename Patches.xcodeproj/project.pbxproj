@@ -93,6 +93,7 @@
 		ED97346F1C0A5F260063BCF9 /* download.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = download.sh; sourceTree = "<group>"; };
 		ED9734701C0A5F370063BCF9 /* install_downloads.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = install_downloads.sh; sourceTree = "<group>"; };
 		ED9B77141CB2BFBC000E62FE /* SSDT-USB-6x70.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-USB-6x70.dsl"; sourceTree = "<group>"; };
+		EDA4905A1CC04CD100A2562A /* SSDT-HECI.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-HECI.dsl"; sourceTree = "<group>"; };
 		EDB940B71C04D11C00480024 /* SSDT-BATT.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-BATT.dsl"; sourceTree = "<group>"; };
 		EDB940B91C04D2CB00480024 /* SSDT-BATT-G2.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-BATT-G2.dsl"; sourceTree = "<group>"; };
 		EDB940BB1C04D4D400480024 /* SSDT-KEY102.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-KEY102.dsl"; sourceTree = "<group>"; };
@@ -269,6 +270,7 @@
 			children = (
 				84EEDDDC1BC605BE000F5071 /* SSDT-HACK.dsl */,
 				EDF9A6211C0514C300A2E045 /* SSDT-IGPU.dsl */,
+				EDA4905A1CC04CD100A2562A /* SSDT-HECI.dsl */,
 				EDB940B71C04D11C00480024 /* SSDT-BATT.dsl */,
 				EDB940B91C04D2CB00480024 /* SSDT-BATT-G2.dsl */,
 				ED499C5F1CBE8A6500C7C106 /* SSDT-BATT-G3.dsl */,
