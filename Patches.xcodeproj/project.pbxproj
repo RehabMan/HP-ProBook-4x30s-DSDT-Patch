@@ -20,7 +20,7 @@
 		847F5ED81B50873A00825CE8 /* 09_USB3_4x40s_10_11.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = 09_USB3_4x40s_10_11.txt; path = patches/09_USB3_4x40s_10_11.txt; sourceTree = "<group>"; };
 		847F5EDB1B508B2C00825CE8 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = USBXHCI_4x40s.kext/Contents/Info.plist; sourceTree = "<group>"; };
 		847F5EDC1B508B4B00825CE8 /* patch_backlight.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = patch_backlight.sh; sourceTree = "<group>"; };
-		847F5EDD1B508B4B00825CE8 /* Backlight.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Backlight.plist; sourceTree = "<group>"; };
+		847F5EDD1B508B4B00825CE8 /* Backlight_0x710.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Backlight_0x710.plist; sourceTree = "<group>"; };
 		84817C301878CFE00061AF92 /* 13_Brightness.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = 13_Brightness.txt; path = patches/13_Brightness.txt; sourceTree = "<group>"; };
 		84878E3B17445FE100F82A03 /* 00_Optimize.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = 00_Optimize.txt; path = patches/00_Optimize.txt; sourceTree = "<group>"; };
 		8499C9761704B5F70066A5F3 /* NullPatch.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = NullPatch.txt; path = patches/NullPatch.txt; sourceTree = "<group>"; };
@@ -103,6 +103,7 @@
 		EDBFC62A1AC74DA600E24D1F /* 06a_Battery_PNOT.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = 06a_Battery_PNOT.txt; path = patches/06a_Battery_PNOT.txt; sourceTree = "<group>"; };
 		EDC2F47F1C87D6370009DA13 /* SSDT-USB-840-G2.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-USB-840-G2.dsl"; sourceTree = "<group>"; };
 		EDCDE4FD1CAC1A6700EBF998 /* SSDT-USB-820-G2.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-USB-820-G2.dsl"; sourceTree = "<group>"; };
+		EDD010261CC0181000D0CCF1 /* Backlight_0xad9.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Backlight_0xad9.plist; sourceTree = "<group>"; };
 		EDD44B6E1C178B17003D0CA9 /* config_IDT76e0.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config_IDT76e0.plist; sourceTree = "<group>"; };
 		EDD44B6F1C178B17003D0CA9 /* config_IDT7695.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config_IDT7695.plist; sourceTree = "<group>"; };
 		EDD44B701C178B17003D0CA9 /* config_IDT7605.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config_IDT7605.plist; sourceTree = "<group>"; };
@@ -126,7 +127,8 @@
 			isa = PBXGroup;
 			children = (
 				847F5EDC1B508B4B00825CE8 /* patch_backlight.sh */,
-				847F5EDD1B508B4B00825CE8 /* Backlight.plist */,
+				847F5EDD1B508B4B00825CE8 /* Backlight_0x710.plist */,
+				EDD010261CC0181000D0CCF1 /* Backlight_0xad9.plist */,
 			);
 			name = backlight;
 			sourceTree = "<group>";
