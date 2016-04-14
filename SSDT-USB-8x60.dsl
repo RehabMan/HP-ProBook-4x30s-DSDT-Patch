@@ -30,21 +30,25 @@ DefinitionBlock ("", "SSDT", 2, "hack", "usb6x60", 0)
                 "port-count", Buffer() { 8, 0, 0, 0 },
                 "ports", Package()
                 {
+                    #if 0
                     "HP11", Package()   // USB2 near left
                     {
                         //"UsbConnector", 0,
                         "port", Buffer() { 1, 0, 0, 0 },
                     },
+                    #endif
                     "HP12", Package()   // USB2 near right
                     {
                         //"UsbConnector", 0,
                         "port", Buffer() { 2, 0, 0, 0 },
                     },
+                    #if 0
                     "HP13", Package()   // USB2 far left
                     {
                         //"UsbConnector", 0,
                         "port", Buffer() { 3, 0, 0, 0 },
                     },
+                    #endif
                     "HP14", Package()   // camera
                     {
                         //"UsbConnector", 255,
@@ -88,11 +92,13 @@ DefinitionBlock ("", "SSDT", 2, "hack", "usb6x60", 0)
                         //"UsbConnector", 255,
                         "port", Buffer() { 2, 0, 0, 0 },
                     },
+                    #if 0
                     "HP23", Package()   // USB2 far right
                     {
                         //"UsbConnector", 0,
                         "port", Buffer() { 3, 0, 0, 0 },
                     },
+                    #endif
                 },
             },
         })
