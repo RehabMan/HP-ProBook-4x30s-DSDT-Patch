@@ -9,6 +9,11 @@ DefinitionBlock ("", "SSDT", 2, "hack", "hack", 0)
     External(\_SB.PCI0, DeviceObj)
     External(\_SB.PCI0.LPCB, DeviceObj)
 
+    External(\_SB_.PCI0.PEGP.DGFX._OFF, MethodObj)
+    External(\_SB_.PCI0.PEG0.PEGP._OFF, MethodObj)
+    External(\_SB_.PCI0.PEGP.DGFX._ON, MethodObj)
+    External(\_SB_.PCI0.PEG0.PEGP._ON, MethodObj)
+
     Device(RMCF)
     {
         Name(_ADR, 0)   // do not remove
@@ -16,12 +21,26 @@ DefinitionBlock ("", "SSDT", 2, "hack", "hack", 0)
         Method(HELP)
         {
             Store("DGPU indicates whether discrete GPU should be disabled. 1: yes, 0: no", Debug)
+            Store("BKLT indicates the type of backlight control. 0: IntelBacklight, 1: AppleBacklight", Debug)
+            Store("LMAX indicates max for IGPU PWM backlight. Ones: Use default, other values must match framebuffer", Debug)
         }
 
         // DGPU: Controls whether the DGPU is disabled via ACPI or not
         // 1: (default) DGPU is disabled at startup, enabled in _PTS, disabled in _WAK
         // 0: DGPU is not manipulated
         Name(DGPU, 1)
+
+        // BKLT: Backlight control type
+        //
+        // 0: Using IntelBacklight.kext
+        // 1: Using AppleBacklight.kext + AppleBacklightInjector.kext
+        Name(BLKT, 0)
+
+        // LMAX: Backlight PWM MAX.  Must match framebuffer in use.
+        //
+        // Ones: Default will be used (0x710 for Ivy/Sandy, 0xad9 for Haswell/Broadwell)
+        // Other values: must match framebuffer
+        Name(LMAX, Ones)
     }
 
     // All _OSI calls in DSDT are routed to XOSI...
@@ -89,11 +108,84 @@ DefinitionBlock ("", "SSDT", 2, "hack", "hack", 0)
                 "PWMMax", 0,
             })
         }
+
+        OperationRegion(RMB1, SystemMemory, \_SB.PCI0.IGPU.BAR1 & ~0xF, 0xe1184)
+        Field(RMB1, AnyAcc, Lock, Preserve)
+        {
+            Offset(0x48250),
+            LEV2, 32,
+            LEVL, 32,
+            Offset(0x70040),
+            P0BL, 32,
+            Offset(0xc8250),
+            LEVW, 32,
+            LEVX, 32,
+            Offset(0xe1180),
+            PCHL, 32,
+        }
+
+        External(\_SB.PCI0.IGPU.GDID, FieldUnitObj)
+        External(\_SB.PCI0.IGPU.BAR1, FieldUnitObj)
+
+        //REVIEW: come up with table driven effort here...
+        #define SANDYIVY_PWMMAX 0x710
+        #define HASWELL_PWMMAX 0xad9
+
         Method(_INI)
         {
-            // disable discrete graphics (Nvidia) if it is present
-            External(\_SB_.PCI0.PEGP.DGFX._OFF, MethodObj)
-            If (1 == \RMCF.DGPU && CondRefOf(\_SB_.PCI0.PEGP.DGFX._OFF)) { \_SB_.PCI0.PEGP.DGFX._OFF() }
+            // disable discrete graphics (Nvidia/Radeon) if it is present
+            If (1 == \RMCF.DGPU)
+            {
+                If (CondRefOf(\_SB_.PCI0.PEGP.DGFX._OFF)) { \_SB_.PCI0.PEGP.DGFX._OFF() }
+                If (CondRefOf(\_SB_.PCI0.PEG0.PEGP._OFF)) { \_SB_.PCI0.PEG0.PEGP._OFF() }
+            }
+
+            // IntelBacklight.kext takes care of this at load time...
+            If (1 != \RMCF.BLKT) { Return }
+
+            // Adjustment required when using AppleBacklight.kext
+            Local0 = \_SB.PCI0.IGPU.GDID
+            If (Ones != Match(Package() { 0x0116, 0x0126, 0x0112, 0x0122, 0x0116, 0x42, 0x46 }, MEQ, Local0, MTR, 0, 0))
+            {
+                // Sandy/Ivy
+                Local2 = \RMCF.LMAX
+                if (Ones == \RMCF.LMAX) { Local2 = SANDYIVY_PWMMAX }
+
+                // change/scale only if different than current...
+                Local1 = LEVX >> 16
+                If (!Local1) { Local1 = Local2 }
+                If (Local2 != Local1)
+                {
+                    // set new backlight PWMAX but retain current backlight level by scaling
+                    Local0 = (LEVL * Local2) / Local1
+                    //REVIEW: wait for vblank before setting new PWM config
+                    //For (Local7 = P0BL, P0BL == Local7, ) { }
+                    LEVL = Local0
+                    LEVX = Local2 << 16
+                }
+            }
+            Else
+            {
+                // otherwise... Assume Haswell/Broadwell/Skylake
+                Local2 = \RMCF.LMAX
+                if (Ones == \RMCF.LMAX) { Local2 = HASWELL_PWMMAX }
+
+                // This 0xC value comes from looking what OS X initializes this\n
+                // register to after display sleep (using ACPIDebug/ACPIPoller)\n
+                LEVW = 0xC0000000
+
+                // change/scale only if different than current...
+                Local1 = LEVX >> 16
+                If (!Local1) { Local1 = Local2 }
+                If (Local2 != Local1)
+                {
+                    // set new backlight PWMAX but retain current backlight level by scaling
+                    Local0 = (((LEVX & 0xFFFF) * Local2) / Local1) | (Local2 << 16)
+                    //REVIEW: wait for vblank before setting new PWM config
+                    //For (Local7 = P0BL, P0BL == Local7, ) { }
+                    LEVX = Local0
+                }
+            }
         }
     }
 
@@ -102,8 +194,11 @@ DefinitionBlock ("", "SSDT", 2, "hack", "hack", 0)
     Method(_PTS, 1)
     {
         If (5 == Arg0) { Return }
-        External(\_SB_.PCI0.PEGP.DGFX._ON, MethodObj)
-        If (1 == \RMCF.DGPU && CondRefOf(\_SB_.PCI0.PEGP.DGFX._ON)) { \_SB_.PCI0.PEGP.DGFX._ON() }
+        If (1 == \RMCF.DGPU)
+        {
+            If (CondRefOf(\_SB_.PCI0.PEGP.DGFX._ON)) { \_SB_.PCI0.PEGP.DGFX._ON() }
+            If (CondRefOf(\_SB_.PCI0.PEG0.PEGP._ON)) { \_SB_.PCI0.PEG0.PEGP._ON() }
+        }
         External(\ZPTS, MethodObj)
         ZPTS(Arg0)
     }
@@ -112,7 +207,11 @@ DefinitionBlock ("", "SSDT", 2, "hack", "hack", 0)
         If (Arg0 < 1 || Arg0 > 5) { Arg0 = 3 }
         External(\ZWAK, MethodObj)
         Local0 = ZWAK(Arg0)
-        If (1 == \RMCF.DGPU && CondRefOf(\_SB_.PCI0.PEGP.DGFX._OFF)) { \_SB_.PCI0.PEGP.DGFX._OFF() }
+        If (1 == \RMCF.DGPU)
+        {
+            If (CondRefOf(\_SB_.PCI0.PEGP.DGFX._OFF)) { \_SB_.PCI0.PEGP.DGFX._OFF() }
+            If (CondRefOf(\_SB_.PCI0.PEG0.PEGP._OFF)) { \_SB_.PCI0.PEG0.PEGP._OFF() }
+        }
         Return(Local0)
     }
 

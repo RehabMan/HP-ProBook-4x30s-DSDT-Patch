@@ -8,10 +8,11 @@ DefinitionBlock ("", "SSDT", 2, "hack", "igpu", 0)
     Scope(_SB.PCI0.IGPU)
     {
         // need the device-id from PCI_config to inject correct properties
-        OperationRegion(IGD4, PCI_Config, 2, 2)
+        OperationRegion(IGD4, PCI_Config, 0, 0x14)
         Field(IGD4, AnyAcc, NoLock, Preserve)
         {
-            GDID,16
+            Offset(0x02), GDID,16,
+            Offset(0x10), BAR1,32,
         }
         Name(GIDL, Package()
         {
