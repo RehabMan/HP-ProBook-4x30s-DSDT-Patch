@@ -266,7 +266,7 @@ config/config_4x0s_G3_Skylake.plist : config_master.plist config_CX20724.plist c
 	/usr/libexec/plistbuddy -c "Set :SMBIOS:ProductName MacBookPro11,1" $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_Skylake.plist $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_CX20724.plist $@
-	/usr/libexec/plistbuddy -c "Set Devices:Arbitrary:0:CustomProperties:0:Value 5" $@
+	/usr/libexec/plistbuddy -c "Set Devices:Arbitrary:2:CustomProperties:0:Value 5" $@
 	/usr/libexec/plistbuddy -c "Set Devices:Arbitrary:1:CustomProperties:0:Value 5" $@
 	@printf "\n"
 
