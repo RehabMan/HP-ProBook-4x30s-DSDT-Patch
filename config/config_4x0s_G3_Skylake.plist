@@ -850,10 +850,10 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>CX20724  #1 of 4</string>
+				<string>CX20724  #1 of 3</string>
 				<key>Find</key>
 				<data>
-				PYQZ1BE=
+				PYsZ1BE=
 				</data>
 				<key>Name</key>
 				<string>AppleHDA</string>
@@ -864,10 +864,10 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>CX20724 #2 of 4</string>
+				<string>CX20724 #2 of 3</string>
 				<key>Find</key>
 				<data>
-				PYQI7BA=
+				PYQZ1BE=
 				</data>
 				<key>Name</key>
 				<string>AppleHDA</string>
@@ -878,21 +878,7 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>CX20724 #3 of 4</string>
-				<key>Find</key>
-				<data>
-				PYUI7BA=
-				</data>
-				<key>Name</key>
-				<string>AppleHDA</string>
-				<key>Replace</key>
-				<data>
-				PQAAAAA=
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>CX20724 #4 of 4 (new in 10.11, credit lisai9093) </string>
+				<string>CX20724 #3 of 3</string>
 				<key>Find</key>
 				<data>
 				PYMZ1BE=
