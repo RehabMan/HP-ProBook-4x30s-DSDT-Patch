@@ -52,6 +52,7 @@ PLIST:=$(PLIST) config/config_4x30s.plist config/config_4x40s.plist
 PLIST:=$(PLIST) config/config_4x0s_G0.plist config/config_4x0s_G1_Ivy.plist
 PLIST:=$(PLIST) config/config_8x0s_G1_Ivy.plist config/config_9x70m.plist
 PLIST:=$(PLIST) config/config_6x60p.plist config/config_8x60p.plist config/config_6x70p.plist config/config_8x70p.plist
+PLIST:=$(PLIST) config/config_2x70p.plist
 PLIST:=$(PLIST) config/config_3x0_G1.plist
 PLIST:=$(PLIST) config/config_8x0s_G1_Haswell.plist config/config_4x0s_G1_Haswell.plist
 PLIST:=$(PLIST) config/config_4x0s_G2_Haswell.plist config/config_8x0s_G2_Haswell.plist
@@ -196,6 +197,12 @@ config/config_6x70p.plist : config_master.plist config_IDT7605.plist config_HD40
 
 # 8x70p is same as 6x70p
 config/config_8x70p.plist : config/config_6x70p.plist
+	@printf "!! creating $@\n"
+	cp config/config_6x70p.plist $@
+	@printf "\n"
+
+# 2x70p is same as 6x70p
+config/config_2x70p.plist : config/config_6x70p.plist
 	@printf "!! creating $@\n"
 	cp config/config_6x70p.plist $@
 	@printf "\n"
