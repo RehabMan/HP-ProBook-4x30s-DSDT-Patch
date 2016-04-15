@@ -164,7 +164,7 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>change Method(UPRW,2,..) to Method(XPRW,2,..)</string>
+					<string>change Method(UPRW,2,S) to XPRW</string>
 					<key>Find</key>
 					<data>
 					VVBSVwpwEg==
@@ -172,6 +172,18 @@
 					<key>Replace</key>
 					<data>
 					WFBSVwpwEg==
+					</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>change Method(GPRW,2,N) to XPRW</string>
+					<key>Find</key>
+					<data>
+					R1BSVwI=
+					</data>
+					<key>Replace</key>
+					<data>
+					WFBSVwI=
 					</data>
 				</dict>
 				<dict>

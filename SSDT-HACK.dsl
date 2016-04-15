@@ -43,6 +43,16 @@ DefinitionBlock ("", "SSDT", 2, "hack", "hack", 0)
         Name(LMAX, Ones)
     }
 
+    External(USWE, FieldUnitObj)
+    Scope(RMCF)
+    {
+        Method(_INI)
+        {
+            // disable wake on XHC (XHC._PRW checks USWE and enables wake if it is 1)
+            If (CondRefOf(\USWE)) { \USWE = 0 }
+        }
+    }
+
     // All _OSI calls in DSDT are routed to XOSI...
     // XOSI simulates "Windows 2009" (which is Windows 7)
     // Note: According to ACPI spec, _OSI("Windows") must also return true
@@ -70,12 +80,19 @@ DefinitionBlock ("", "SSDT", 2, "hack", "hack", 0)
         Return (Ones != Match(Local0, MEQ, Arg0, MTR, 0, 0))
     }
 
-    // In DSDT, native UPRW is renamed to XPRW with Clover binpatch.
+    // In DSDT, native UPRW/GPRW is renamed to XPRW with Clover binpatch.
     // As a result, calls to UPRW land here.
     // The purpose of this implementation is to avoid "instant wake"
     // by returning 0 in the second position (sleep state supported)
     // of the return package.
     Method(UPRW, 2)
+    {
+        If (0x0d == Arg0) { Return(Package() { 0x0d, 0, }) }
+        If (0x6d == Arg0) { Return(Package() { 0x6d, 0, }) }
+        External(\XPRW, MethodObj)
+        Return(XPRW(Arg0, Arg1))
+    }
+    Method(GPRW, 2)
     {
         If (0x0d == Arg0) { Return(Package() { 0x0d, 0, }) }
         If (0x6d == Arg0) { Return(Package() { 0x6d, 0, }) }
