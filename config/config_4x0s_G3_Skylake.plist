@@ -864,18 +864,34 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>HDMI-audio, port 0105/0204, 0x16260006 (REVIEW: not done, just a placeholder)</string>
+				<string>HDMI-audio, port 0105, 0x19160000</string>
+				<key>Disabled</key>
+				<true/>
 				<key>Find</key>
 				<data>
-				AQULAAAEAAAHBQAAAgQLAAAEAAAHBQAA/wAAAAEAAABA
-				AAAA
+				AQUJAAAEAACHAQAA
 				</data>
 				<key>Name</key>
-				<string>#AppleIntelSKLGraphicsFramebuffer</string>
+				<string>AppleIntelSKLGraphicsFramebuffer</string>
 				<key>Replace</key>
 				<data>
-				AQULAAAIAACCAAAAAgQLAAAIAACCAAAA/wAAAAEAAABA
-				AAAA
+				AQUJAAAIAACHAQAA
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>HDMI-audio, port 0204, 0x19160000</string>
+				<key>Disabled</key>
+				<true/>
+				<key>Find</key>
+				<data>
+				AgQKAAAEAACHAQAA
+				</data>
+				<key>Name</key>
+				<string>AppleIntelSKLGraphicsFramebuffer</string>
+				<key>Replace</key>
+				<data>
+				AgQKAAAIAACHAQAA
 				</data>
 			</dict>
 			<dict>
