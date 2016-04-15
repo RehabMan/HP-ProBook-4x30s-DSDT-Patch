@@ -53,7 +53,7 @@ PLIST:=$(PLIST) config/config_4x0s_G0.plist config/config_4x0s_G1_Ivy.plist
 PLIST:=$(PLIST) config/config_8x0s_G1_Ivy.plist config/config_9x70m.plist
 PLIST:=$(PLIST) config/config_6x60p.plist config/config_8x60p.plist config/config_6x70p.plist config/config_8x70p.plist
 PLIST:=$(PLIST) config/config_3x0_G1.plist
-PLIST:=$(PLIST) config/config_8x0s_G1_Haswell.plist
+PLIST:=$(PLIST) config/config_8x0s_G1_Haswell.plist config/config_4x0s_G1_Haswell.plist
 PLIST:=$(PLIST) config/config_4x0s_G2_Haswell.plist config/config_8x0s_G2_Haswell.plist
 PLIST:=$(PLIST) config/config_4x0s_G2_Broadwell.plist config/config_8x0s_G2_Broadwell.plist
 PLIST:=$(PLIST) config/config_ZBook_G2_Haswell.plist
@@ -150,6 +150,12 @@ config/config_8x0s_G1_Haswell.plist : config_master.plist config_IDT76e0.plist c
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_IDT76e0.plist $@
 	/usr/libexec/plistbuddy -c "Set Devices:Arbitrary:0:CustomProperties:0:Value 17" $@
 	/usr/libexec/plistbuddy -c "Set Devices:Arbitrary:1:CustomProperties:0:Value 17" $@
+	@printf "\n"
+
+# 4x0s_G1_Haswell is same as 8x0s_G1_Haswell
+config/config_4x0s_G1_Haswell.plist : config/config_8x0s_G1_Haswell.plist
+	@printf "!! creating $@\n"
+	cp config/config_8x0s_G1_Haswell.plist $@
 	@printf "\n"
 
 # 9x70m is same as 4x0s_G0
