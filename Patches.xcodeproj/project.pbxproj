@@ -112,9 +112,9 @@
 		EDD44B721C178DD1003D0CA9 /* config_4x0s_G2_Broadwell.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_4x0s_G2_Broadwell.plist; path = config/config_4x0s_G2_Broadwell.plist; sourceTree = "<group>"; };
 		EDD44B731C178DD1003D0CA9 /* config_8x0s_G2_Haswell.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_8x0s_G2_Haswell.plist; path = config/config_8x0s_G2_Haswell.plist; sourceTree = "<group>"; };
 		EDD44B741C178DD1003D0CA9 /* config_3x0_G1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_3x0_G1.plist; path = config/config_3x0_G1.plist; sourceTree = "<group>"; };
-		EDD44B751C178DD1003D0CA9 /* config_4x0s_G1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_4x0s_G1.plist; path = config/config_4x0s_G1.plist; sourceTree = "<group>"; };
+		EDD44B751C178DD1003D0CA9 /* config_4x0s_G1_Ivy.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_4x0s_G1_Ivy.plist; path = config/config_4x0s_G1_Ivy.plist; sourceTree = "<group>"; };
 		EDD44B761C178DD1003D0CA9 /* config_4x0s_G2_Haswell.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_4x0s_G2_Haswell.plist; path = config/config_4x0s_G2_Haswell.plist; sourceTree = "<group>"; };
-		EDD44B791C178DD1003D0CA9 /* config_8x0s_G1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_8x0s_G1.plist; path = config/config_8x0s_G1.plist; sourceTree = "<group>"; };
+		EDD44B791C178DD1003D0CA9 /* config_8x0s_G1_Ivy.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_8x0s_G1_Ivy.plist; path = config/config_8x0s_G1_Ivy.plist; sourceTree = "<group>"; };
 		EDD44B7A1C178DD1003D0CA9 /* config_9x70m.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_9x70m.plist; path = config/config_9x70m.plist; sourceTree = "<group>"; };
 		EDD44B7C1C178E90003D0CA9 /* config_4x0s_G0.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_4x0s_G0.plist; path = config/config_4x0s_G0.plist; sourceTree = "<group>"; };
 		EDE8FF151C18123F006FCDD1 /* SSDT-USB-8x0s-G1.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-USB-8x0s-G1.dsl"; sourceTree = "<group>"; };
@@ -252,8 +252,8 @@
 				EDD44B7A1C178DD1003D0CA9 /* config_9x70m.plist */,
 				EDD44B741C178DD1003D0CA9 /* config_3x0_G1.plist */,
 				EDD44B7C1C178E90003D0CA9 /* config_4x0s_G0.plist */,
-				EDD44B751C178DD1003D0CA9 /* config_4x0s_G1.plist */,
-				EDD44B791C178DD1003D0CA9 /* config_8x0s_G1.plist */,
+				EDD44B751C178DD1003D0CA9 /* config_4x0s_G1_Ivy.plist */,
+				EDD44B791C178DD1003D0CA9 /* config_8x0s_G1_Ivy.plist */,
 				EDEC127B1C180E880080CCCA /* config_8x0s_G1_Haswell.plist */,
 				EDD44B761C178DD1003D0CA9 /* config_4x0s_G2_Haswell.plist */,
 				EDD44B731C178DD1003D0CA9 /* config_8x0s_G2_Haswell.plist */,
