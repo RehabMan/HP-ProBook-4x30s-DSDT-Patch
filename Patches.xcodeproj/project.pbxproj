@@ -69,6 +69,7 @@
 		ED304EF01CB95CC100780D95 /* SSDT-USB-6x60.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-USB-6x60.dsl"; sourceTree = "<group>"; };
 		ED499C5F1CBE8A6500C7C106 /* SSDT-BATT-G3.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-BATT-G3.dsl"; sourceTree = "<group>"; };
 		ED4CEBE31CBE80A100831F4D /* config_Skylake.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config_Skylake.plist; sourceTree = "<group>"; };
+		ED4F13ED1CC17FA200A00E34 /* SSDT-USB-4x0-G3.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-USB-4x0-G3.dsl"; sourceTree = "<group>"; };
 		ED511C971C062320005DAA2B /* config_ALC282.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config_ALC282.plist; sourceTree = "<group>"; };
 		ED511C981C062320005DAA2B /* config_master.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config_master.plist; sourceTree = "<group>"; };
 		ED511C991C062320005DAA2B /* config_non_Intel_USB3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config_non_Intel_USB3.plist; sourceTree = "<group>"; };
@@ -290,6 +291,7 @@
 				EDE8FF151C18123F006FCDD1 /* SSDT-USB-8x0s-G1.dsl */,
 				EDCDE4FD1CAC1A6700EBF998 /* SSDT-USB-820-G2.dsl */,
 				EDC2F47F1C87D6370009DA13 /* SSDT-USB-840-G2.dsl */,
+				ED4F13ED1CC17FA200A00E34 /* SSDT-USB-4x0-G3.dsl */,
 				ED511C981C062320005DAA2B /* config_master.plist */,
 				ED511C971C062320005DAA2B /* config_ALC282.plist */,
 				ED85B91A1C44A2FC004A5921 /* config_ALC280.plist */,
