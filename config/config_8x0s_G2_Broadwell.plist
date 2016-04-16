@@ -795,6 +795,8 @@
 			<dict>
 				<key>Comment</key>
 				<string>Enable TRIM for non-Apple SSDs</string>
+				<key>Disabled</key>
+				<false/>
 				<key>Find</key>
 				<data>
 				AEFQUExFIFNTRAA=
@@ -892,18 +894,34 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>HDMI-audio, port 0105/0204, 0x16260006</string>
+				<string>HDMI-audio, port 0105, 0x16120003 0x16120005 0x16120006 0x16260006</string>
+				<key>Disabled</key>
+				<false/>
 				<key>Find</key>
 				<data>
-				AQULAAAEAAAHBQAAAgQLAAAEAAAHBQAA/wAAAAEAAABA
-				AAAA
+				AQULAAAEAAAHBQAA
 				</data>
 				<key>Name</key>
 				<string>AppleIntelBDWGraphicsFramebuffer</string>
 				<key>Replace</key>
 				<data>
-				AQULAAAIAACCAAAAAgQLAAAIAACCAAAA/wAAAAEAAABA
-				AAAA
+				AQULAAAIAACCAAAA
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>HDMI-audio, port 0204, 0x16120003 0x16120005 0x16120006 0x16260006</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				AgQLAAAEAAAHBQAA
+				</data>
+				<key>Name</key>
+				<string>AppleIntelBDWGraphicsFramebuffer</string>
+				<key>Replace</key>
+				<data>
+				AgQLAAAIAACCAAAA
 				</data>
 			</dict>
 			<dict>

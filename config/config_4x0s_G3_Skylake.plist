@@ -795,6 +795,8 @@
 			<dict>
 				<key>Comment</key>
 				<string>Enable TRIM for non-Apple SSDs</string>
+				<key>Disabled</key>
+				<false/>
 				<key>Find</key>
 				<data>
 				AEFQUExFIFNTRAA=

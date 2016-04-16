@@ -795,6 +795,8 @@
 			<dict>
 				<key>Comment</key>
 				<string>Enable TRIM for non-Apple SSDs</string>
+				<key>Disabled</key>
+				<false/>
 				<key>Find</key>
 				<data>
 				AEFQUExFIFNTRAA=
@@ -923,6 +925,8 @@
 			<dict>
 				<key>Comment</key>
 				<string>HDMI-audio HD4000 0x01660003/0004, port 0406</string>
+				<key>Disabled</key>
+				<false/>
 				<key>Find</key>
 				<data>
 				BAYAAAAEAACBAAAA
