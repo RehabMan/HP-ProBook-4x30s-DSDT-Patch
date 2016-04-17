@@ -59,6 +59,7 @@ PLIST:=$(PLIST) config/config_4x0s_G2_Haswell.plist config/config_8x0s_G2_Haswel
 PLIST:=$(PLIST) config/config_4x0s_G2_Broadwell.plist config/config_8x0s_G2_Broadwell.plist
 PLIST:=$(PLIST) config/config_ZBook_G2_Haswell.plist
 PLIST:=$(PLIST) config/config_4x0s_G3_Skylake.plist
+PLIST:=$(PLIST) config/config_1040_G1_Haswell.plist
 
 .PHONY: all
 all : $(STATIC) $(MINI) $(HACK) $(PLIST) $(HDAINJECT)
@@ -155,6 +156,12 @@ config/config_8x0s_G1_Haswell.plist : config_master.plist config_IDT76e0.plist c
 
 # 4x0s_G1_Haswell is same as 8x0s_G1_Haswell
 config/config_4x0s_G1_Haswell.plist : config/config_8x0s_G1_Haswell.plist
+	@printf "!! creating $@\n"
+	cp config/config_8x0s_G1_Haswell.plist $@
+	@printf "\n"
+
+# 1040_G1_Haswell is same as 8x0s_G1_Haswell
+config/config_1040_G1_Haswell.plist : config/config_8x0s_G1_Haswell.plist
 	@printf "!! creating $@\n"
 	cp config/config_8x0s_G1_Haswell.plist $@
 	@printf "\n"
