@@ -23,6 +23,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "hack", 0)
             Store("DGPU indicates whether discrete GPU should be disabled. 1: yes, 0: no", Debug)
             Store("BKLT indicates the type of backlight control. 0: IntelBacklight, 1: AppleBacklight", Debug)
             Store("LMAX indicates max for IGPU PWM backlight. Ones: Use default, other values must match framebuffer", Debug)
+            Store("SHUT enables shutdown fix. 1: disables _PTS code when Arg0==5", Debug)
         }
 
         // DGPU: Controls whether the DGPU is disabled via ACPI or not
@@ -41,13 +42,19 @@ DefinitionBlock ("", "SSDT", 2, "hack", "hack", 0)
         // Ones: Default will be used (0x710 for Ivy/Sandy, 0xad9 for Haswell/Broadwell)
         // Other values: must match framebuffer
         Name(LMAX, Ones)
+
+        // SHUT: Shutdown fix, disable _PTS code when Arg0==5 (shutdown)
+        //
+        //  0: does not affect _PTS behavior during shutdown
+        //  1: disables _PTS code during shutdown
+        Name(SHUT, 1)
     }
 
     // In DSDT, native _PTS and _WAK are renamed ZPTS/ZWAK
     // As a result, calls to these methods land here.
     Method(_PTS, 1)
     {
-        If (5 == Arg0) { Return }
+        If (\RMCF.SHUT && 5 == Arg0) { Return }
         If (1 == \RMCF.DGPU)
         {
             If (CondRefOf(\_SB_.PCI0.PEGP.DGFX._ON)) { \_SB_.PCI0.PEGP.DGFX._ON() }

@@ -50,7 +50,7 @@ HACK:=$(HACK) $(BUILDDIR)/SSDT-KEY87.aml $(BUILDDIR)/SSDT-KEY102.aml
 # depends on hardware (USB optimization)
 HACK:=$(HACK) $(BUILDDIR)/SSDT-USB-4x0s-G2.aml $(BUILDDIR)/SSDT-USB-4x40s.aml $(BUILDDIR)/SSDT-USB-4x30s.aml
 HACK:=$(HACK) $(BUILDDIR)/SSDT-USB-8x0s-G1.aml
-HACK:=$(HACK) $(BUILDDIR)/SSDT-USB-820-G2.aml $(BUILDDIR)/SSDT-USB-840-G2.aml
+HACK:=$(HACK) $(BUILDDIR)/SSDT-USB-820-G2.aml $(BUILDDIR)/SSDT-USB-840-G2.aml $(BUILDDIR)/SSDT-USB-850-G2.aml
 HACK:=$(HACK) $(BUILDDIR)/SSDT-USB-6x60.aml $(BUILDDIR)/SSDT-USB-6x70.aml
 HACK:=$(HACK) $(BUILDDIR)/SSDT-USB-8x60.aml
 HACK:=$(HACK) $(BUILDDIR)/SSDT-USB-4x0-G3.aml
@@ -265,7 +265,7 @@ install_4x0g0:
 	make install
 	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
 	cp $(BUILDDIR)/SSDT-4x0-G0.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-KEY102.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-KEY87.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 #	cp $(BUILDDIR)/SSDT-USB-4x0-G0.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 	cp $(BUILDDIR)/SSDT-FAN-MOD.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 
@@ -402,6 +402,15 @@ install_840g2_broadwell:
 	cp $(BUILDDIR)/SSDT-8x0-G2-Broadwell.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 	cp $(BUILDDIR)/SSDT-KEY102.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 	cp $(BUILDDIR)/SSDT-USB-840-G2.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-FAN-MOD.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+
+.PHONY: install_850g2_broadwell
+install_850g2_broadwell:
+	make install
+	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
+	cp $(BUILDDIR)/SSDT-8x0-G2-Broadwell.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-KEY102.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-USB-850-G2.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 	cp $(BUILDDIR)/SSDT-FAN-MOD.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 
 .PHONY: install_4x0g3_skylake
