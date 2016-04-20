@@ -53,6 +53,13 @@
 		84F616791850BC650053B76E /* 10_LPC_4x40s_Sandy_SL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = 10_LPC_4x40s_Sandy_SL.txt; path = patches/10_LPC_4x40s_Sandy_SL.txt; sourceTree = "<group>"; };
 		84FAF3521CA9FB630066178B /* config_ZBook_G2_Haswell.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_ZBook_G2_Haswell.plist; path = config/config_ZBook_G2_Haswell.plist; sourceTree = "<group>"; };
 		84FD879D18BCC6B1000BC61E /* 03c_Haswell-HDMI.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "03c_Haswell-HDMI.txt"; path = "patches/03c_Haswell-HDMI.txt"; sourceTree = "<group>"; };
+		ED16A73D1CC7B8B400EA1E82 /* SSDT-XOSI.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-XOSI.dsl"; path = "hotpatch/SSDT-XOSI.dsl"; sourceTree = "<group>"; };
+		ED16A73E1CC7B8B400EA1E82 /* SSDT-PNLF.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-PNLF.dsl"; path = "hotpatch/SSDT-PNLF.dsl"; sourceTree = "<group>"; };
+		ED16A73F1CC7B8B400EA1E82 /* SSDT-SMBUS.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-SMBUS.dsl"; path = "hotpatch/SSDT-SMBUS.dsl"; sourceTree = "<group>"; };
+		ED16A7401CC7B8B400EA1E82 /* SSDT-SATA.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-SATA.dsl"; path = "hotpatch/SSDT-SATA.dsl"; sourceTree = "<group>"; };
+		ED16A7411CC7B8B400EA1E82 /* SSDT-LPC.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-LPC.dsl"; path = "hotpatch/SSDT-LPC.dsl"; sourceTree = "<group>"; };
+		ED16A7421CC7B93200EA1E82 /* SSDT-PRW.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-PRW.dsl"; path = "hotpatch/SSDT-PRW.dsl"; sourceTree = "<group>"; };
+		ED16A7431CC7B9FD00EA1E82 /* SSDT-LANC_PRW.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-LANC_PRW.dsl"; path = "hotpatch/SSDT-LANC_PRW.dsl"; sourceTree = "<group>"; };
 		ED1837421C0A4B1200A5A3DA /* merge_plist.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = merge_plist.sh; sourceTree = "<group>"; };
 		ED1837431C0A4B1200A5A3DA /* mount_efi.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = mount_efi.sh; sourceTree = "<group>"; };
 		ED1837441C0A4B1200A5A3DA /* patch_hda.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = patch_hda.sh; sourceTree = "<group>"; };
@@ -373,8 +380,15 @@
 				ED97E9361CC757D7006C757A /* SSDT-4x0-G3-Skylake.dsl */,
 				ED97E9431CC757D7006C757A /* SSDT-ZBook-G2-Haswell.dsl */,
 				ED97E9441CC757D7006C757A /* SSDT-HACK.dsl */,
+				ED16A73D1CC7B8B400EA1E82 /* SSDT-XOSI.dsl */,
+				ED16A73F1CC7B8B400EA1E82 /* SSDT-SMBUS.dsl */,
+				ED16A7401CC7B8B400EA1E82 /* SSDT-SATA.dsl */,
+				ED16A7411CC7B8B400EA1E82 /* SSDT-LPC.dsl */,
 				ED97E9491CC757D7006C757A /* SSDT-USB.dsl */,
+				ED16A7421CC7B93200EA1E82 /* SSDT-PRW.dsl */,
+				ED16A7431CC7B9FD00EA1E82 /* SSDT-LANC_PRW.dsl */,
 				ED97E94B1CC757D7006C757A /* SSDT-IGPU.dsl */,
+				ED16A73E1CC7B8B400EA1E82 /* SSDT-PNLF.dsl */,
 				ED97E9521CC757D7006C757A /* SSDT-BATT.dsl */,
 				ED97E9531CC757D7006C757A /* SSDT-BATT-G2.dsl */,
 				ED97E94E1CC757D7006C757A /* SSDT-BATT-G3.dsl */,

@@ -61,6 +61,11 @@ HACK:=$(HACK) $(BUILDDIR)/SSDT-USB-6x60.aml $(BUILDDIR)/SSDT-USB-6x70.aml
 HACK:=$(HACK) $(BUILDDIR)/SSDT-USB-8x60.aml
 HACK:=$(HACK) $(BUILDDIR)/SSDT-BATT-G3.aml $(BUILDDIR)/SSDT-USB-4x0-G3.aml
 
+# from hotpatch in laptop Clover guide/repo
+HACK:=$(HACK) $(BUILDDIR)/SSDT-XOSI.aml
+HACK:=$(HACK) $(BUILDDIR)/SSDT-LPC.aml $(BUILDDIR)/SSDT-SATA.aml $(BUILDDIR)/SSDT-SMBUS.aml $(BUILDDIR)/SSDT-PNLF.aml
+HACK:=$(HACK) $(BUILDDIR)/SSDT-PRW.aml $(BUILDDIR)/SSDT-LANC_PRW.aml
+
 PLIST:=$(PLIST) config/config_4x30s.plist config/config_4x40s.plist
 PLIST:=$(PLIST) config/config_4x0s_G0.plist config/config_4x0s_G1_Ivy.plist
 PLIST:=$(PLIST) config/config_8x0s_G1_Ivy.plist config/config_9x70m.plist
