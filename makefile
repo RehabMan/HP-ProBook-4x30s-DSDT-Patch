@@ -94,8 +94,12 @@ clean:
 	rm -f $(STATIC) $(HACK) $(MINI) $(PLIST)
 	make clean_hda
 
+.PHONY: install_help # lists all the 'install' targets
+install_help:
+	@grep PHONY.*install makefile | grep -v grep
+
 # install core SSDTs
-.PHONY: install
+.PHONY: install # installs 'core' SSDTs (low resolution)
 install:
 	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
 	cp $(CORE) $(EFIDIR)/EFI/CLOVER/ACPI/patched
@@ -103,7 +107,7 @@ install:
 	cp $(BUILDDIR)/SSDT-IGPU.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 	cp $(BUILDDIR)/SSDT-BATT.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 
-.PHONY: install_hires
+.PHONY: install_hires # installs 'core' SSDTs (high resolution)
 install_hires:
 	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
 	cp $(CORE) $(EFIDIR)/EFI/CLOVER/ACPI/patched
