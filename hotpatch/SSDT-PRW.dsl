@@ -1,5 +1,4 @@
-// For solving instant wake by hooking GPRW
-//REVIEW: update main Clover hotpatch with GPRW/UPRW
+// For solving instant wake by hooking GPRW or UPRW
 
 DefinitionBlock("", "SSDT", 2, "hack", "PRW", 0)
 {
