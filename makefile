@@ -103,7 +103,7 @@ install_help:
 install:
 	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
 	cp $(CORE) $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	rm $(EFIDIR)/EFI/CLOVER/ACPI/patched/SSDT-IGPU-HIRES.aml
+	rm -f $(EFIDIR)/EFI/CLOVER/ACPI/patched/SSDT-IGPU-HIRES.aml
 	cp $(BUILDDIR)/SSDT-IGPU.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 	cp $(BUILDDIR)/SSDT-BATT.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 
@@ -111,7 +111,7 @@ install:
 install_hires:
 	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
 	cp $(CORE) $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	rm $(EFIDIR)/EFI/CLOVER/ACPI/patched/SSDT-IGPU.aml
+	rm -f $(EFIDIR)/EFI/CLOVER/ACPI/patched/SSDT-IGPU.aml
 	cp $(BUILDDIR)/SSDT-IGPU-HIRES.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 	cp $(BUILDDIR)/SSDT-BATT.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 

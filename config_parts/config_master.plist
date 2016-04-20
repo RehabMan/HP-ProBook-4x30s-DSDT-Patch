@@ -376,6 +376,14 @@
 			<false/>
 		</dict>
 	</dict>
+	<key>Graphics</key>
+	<dict>
+		<key>Inject</key>
+		<dict>
+			<key>Intel</key>
+			<false/>
+		</dict>
+	</dict>
 	<key>GUI</key>
 	<dict>
 		<key>ScreenResolution</key>
