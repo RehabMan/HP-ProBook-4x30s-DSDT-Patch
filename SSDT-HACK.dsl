@@ -43,16 +43,6 @@ DefinitionBlock ("", "SSDT", 2, "hack", "hack", 0)
         Name(LMAX, Ones)
     }
 
-    External(USWE, FieldUnitObj)
-    Scope(RMCF)
-    {
-        Method(_INI)
-        {
-            // disable wake on XHC (XHC._PRW checks USWE and enables wake if it is 1)
-            If (CondRefOf(\USWE)) { \USWE = 0 }
-        }
-    }
-
     // All _OSI calls in DSDT are routed to XOSI...
     // XOSI simulates "Windows 2009" (which is Windows 7)
     // Note: According to ACPI spec, _OSI("Windows") must also return true

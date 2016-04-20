@@ -110,10 +110,10 @@ DefinitionBlock ("", "SSDT", 2, "hack", "usb8x0g1", 0)
     }
     Scope(_SB.PCI0)
     {
-        Device(RMD1)
+        Device(RMD2)
         {
             //Name(_ADR, 0)
-            Name(_HID, "RMD10000")
+            Name(_HID, "RMD20000")
             Method(_INI)
             {
                 // disable EHCI#1

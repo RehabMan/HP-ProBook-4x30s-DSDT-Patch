@@ -1,11 +1,9 @@
 .DS_Store
 DerivedData/
 Patches.xcodeproj/project.xcworkspace/xcuserdata/
+Patches.xcodeproj/project.xcworkspace/xcshareddata/
 Patches.xcodeproj/xcuserdata/
 AppleBacklightInjector.kext
 Build/*
 !Build/readme.txt
-Resources_ProBook/Info*.plist
-Resources_ProBook/Platforms*.plist
-Resources_ProBook/*.zlib
-!Resources_ProBook/Platforms.plist
+downloads
