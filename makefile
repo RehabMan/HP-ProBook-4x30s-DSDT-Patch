@@ -34,6 +34,31 @@ MINI = Mini-SSDT.aml Mini-SSDT-DualLink.aml Mini-SSDT-IMEI.aml Mini-SSDT-Disable
 #//REVIEW: stop building MINI for now
 MINI=
 
+# core files
+HACK:=$(HACK) $(BUILDDIR)/SSDT-HACK.aml
+HACK:=$(HACK) $(BUILDDIR)/SSDT-USB.aml
+# core files (from hotpatch in laptop Clover guide/repo)
+HACK:=$(HACK) $(BUILDDIR)/SSDT-XOSI.aml
+HACK:=$(HACK) $(BUILDDIR)/SSDT-LPC.aml $(BUILDDIR)/SSDT-SATA.aml $(BUILDDIR)/SSDT-SMBUS.aml $(BUILDDIR)/SSDT-PNLF.aml
+HACK:=$(HACK) $(BUILDDIR)/SSDT-PRW.aml $(BUILDDIR)/SSDT-LANC_PRW.aml
+CORE:=$(HACK)
+
+# depends on hardware
+HACK:=$(HACK) $(BUILDDIR)/SSDT-IGPU.aml $(BUILDDIR)/SSDT-IGPU-HIRES.aml
+HACK:=$(HACK) $(BUILDDIR)/SSDT-BATT.aml $(BUILDDIR)/SSDT-BATT-G2.aml $(BUILDDIR)/SSDT-BATT-G3.aml
+HACK:=$(HACK) $(BUILDDIR)/SSDT-KEY87.aml $(BUILDDIR)/SSDT-KEY102.aml
+# depends on hardware (USB optimization)
+HACK:=$(HACK) $(BUILDDIR)/SSDT-USB-4x0s-G2.aml $(BUILDDIR)/SSDT-USB-4x40s.aml $(BUILDDIR)/SSDT-USB-4x30s.aml
+HACK:=$(HACK) $(BUILDDIR)/SSDT-USB-8x0s-G1.aml
+HACK:=$(HACK) $(BUILDDIR)/SSDT-USB-820-G2.aml $(BUILDDIR)/SSDT-USB-840-G2.aml
+HACK:=$(HACK) $(BUILDDIR)/SSDT-USB-6x60.aml $(BUILDDIR)/SSDT-USB-6x70.aml
+HACK:=$(HACK) $(BUILDDIR)/SSDT-USB-8x60.aml
+HACK:=$(HACK) $(BUILDDIR)/SSDT-USB-4x0-G3.aml
+
+# depends on personal choices
+HACK:=$(HACK) $(BUILDDIR)/SSDT-FAN-QUIET.aml $(BUILDDIR)/SSDT-FAN-MOD.aml $(BUILDDIR)/SSDT-FAN-SMOOTH.aml $(BUILDDIR)/SSDT-FAN-ORIG.aml $(BUILDDIR)/SSDT-FAN-READ.aml
+
+# system specific SSDTs
 HACK:=$(HACK) $(BUILDDIR)/SSDT-4x30s.aml $(BUILDDIR)/SSDT-4x40s.aml
 HACK:=$(HACK) $(BUILDDIR)/SSDT-6x60.aml $(BUILDDIR)/SSDT-8x60.aml
 HACK:=$(HACK) $(BUILDDIR)/SSDT-2x70.aml $(BUILDDIR)/SSDT-6x70.aml $(BUILDDIR)/SSDT-8x70.aml $(BUILDDIR)/SSDT-9x70.aml
@@ -47,25 +72,7 @@ HACK:=$(HACK) $(BUILDDIR)/SSDT-4x0-G2-Broadwell.aml $(BUILDDIR)/SSDT-8x0-G2-Broa
 HACK:=$(HACK) $(BUILDDIR)/SSDT-ZBook-G2-Haswell.aml
 HACK:=$(HACK) $(BUILDDIR)/SSDT-4x0-G3-Skylake.aml
 
-HACK:=$(HACK) $(BUILDDIR)/SSDT-HACK.aml
-HACK:=$(HACK) $(BUILDDIR)/SSDT-IGPU.aml $(BUILDDIR)/SSDT-IGPU-HIRES.aml
-HACK:=$(HACK) $(BUILDDIR)/SSDT-BATT.aml $(BUILDDIR)/SSDT-BATT-G2.aml
-HACK:=$(HACK) $(BUILDDIR)/SSDT-KEY87.aml $(BUILDDIR)/SSDT-KEY102.aml
-HACK:=$(HACK) $(BUILDDIR)/SSDT-FAN-QUIET.aml $(BUILDDIR)/SSDT-FAN-MOD.aml $(BUILDDIR)/SSDT-FAN-SMOOTH.aml
-HACK:=$(HACK) $(BUILDDIR)/SSDT-FAN-ORIG.aml $(BUILDDIR)/SSDT-FAN-READ.aml
-HACK:=$(HACK) $(BUILDDIR)/SSDT-USB.aml
-HACK:=$(HACK) $(BUILDDIR)/SSDT-USB-4x0s-G2.aml $(BUILDDIR)/SSDT-USB-4x40s.aml $(BUILDDIR)/SSDT-USB-4x30s.aml
-HACK:=$(HACK) $(BUILDDIR)/SSDT-USB-8x0s-G1.aml
-HACK:=$(HACK) $(BUILDDIR)/SSDT-USB-820-G2.aml $(BUILDDIR)/SSDT-USB-840-G2.aml
-HACK:=$(HACK) $(BUILDDIR)/SSDT-USB-6x60.aml $(BUILDDIR)/SSDT-USB-6x70.aml
-HACK:=$(HACK) $(BUILDDIR)/SSDT-USB-8x60.aml
-HACK:=$(HACK) $(BUILDDIR)/SSDT-BATT-G3.aml $(BUILDDIR)/SSDT-USB-4x0-G3.aml
-
-# from hotpatch in laptop Clover guide/repo
-HACK:=$(HACK) $(BUILDDIR)/SSDT-XOSI.aml
-HACK:=$(HACK) $(BUILDDIR)/SSDT-LPC.aml $(BUILDDIR)/SSDT-SATA.aml $(BUILDDIR)/SSDT-SMBUS.aml $(BUILDDIR)/SSDT-PNLF.aml
-HACK:=$(HACK) $(BUILDDIR)/SSDT-PRW.aml $(BUILDDIR)/SSDT-LANC_PRW.aml
-
+# system specfic config.plist
 PLIST:=$(PLIST) config/config_4x30s.plist config/config_4x40s.plist
 PLIST:=$(PLIST) config/config_4x0s_G0.plist config/config_4x0s_G1_Ivy.plist
 PLIST:=$(PLIST) config/config_8x0s_G1_Ivy.plist config/config_9x70m.plist
@@ -86,6 +93,330 @@ all : $(STATIC) $(MINI) $(HACK) $(PLIST) $(HDAINJECT)
 clean: 
 	rm -f $(STATIC) $(HACK) $(MINI) $(PLIST)
 	make clean_hda
+
+# install core SSDTs
+.PHONY: install
+install:
+	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
+	cp $(CORE) $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	rm $(EFIDIR)/EFI/CLOVER/ACPI/patched/SSDT-IGPU-HIRES.aml
+	cp $(BUILDDIR)/SSDT-IGPU.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-BATT.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+
+.PHONY: install_hires
+install_hires:
+	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
+	cp $(CORE) $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	rm $(EFIDIR)/EFI/CLOVER/ACPI/patched/SSDT-IGPU.aml
+	cp $(BUILDDIR)/SSDT-IGPU-HIRES.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-BATT.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+
+# system specfic SSDT installs
+.PHONY: install_4x30s
+install_4x30s:
+	make install
+	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
+	cp $(BUILDDIR)/SSDT-4x30s.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-KEY102.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-USB-4x30s.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-FAN-MOD.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+
+.PHONY: install_4x30s_hires
+install_4x30s_hires:
+	make install_hires
+	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
+	cp $(BUILDDIR)/SSDT-4x30s.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-KEY102.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-USB-4x30s.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-FAN-MOD.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+
+.PHONY: install_4x40s
+install_4x40s:
+	make install
+	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
+	cp $(BUILDDIR)/SSDT-4x40s.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-KEY102.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-USB-4x40s.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-FAN-MOD.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+
+.PHONY: install_4x40s_hires
+install_4x40s_hires:
+	make install_hires
+	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
+	cp $(BUILDDIR)/SSDT-4x40s.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-KEY102.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-USB-4x40s.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-FAN-MOD.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+
+.PHONY: install_6x60
+install_6x60:
+	make install
+	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
+	cp $(BUILDDIR)/SSDT-6x60.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-KEY87.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-USB-6x60.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-FAN-MOD.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+
+.PHONY: install_6x60_hires
+install_6x60_hires:
+	make install_hires
+	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
+	cp $(BUILDDIR)/SSDT-6x60.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-KEY87.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-USB-6x60.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-FAN-MOD.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+
+.PHONY: install_8x60
+install_8x60:
+	make install
+	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
+	cp $(BUILDDIR)/SSDT-8x60.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-KEY87.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-USB-8x60.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-FAN-MOD.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+
+.PHONY: install_8x60_hires
+install_8x60_hires:
+	make install_hires
+	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
+	cp $(BUILDDIR)/SSDT-8x60.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-KEY87.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-USB-8x60.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-FAN-MOD.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+
+.PHONY: install_2x70
+install_2x70:
+	make install
+	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
+	cp $(BUILDDIR)/SSDT-2x70.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-KEY87.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+#	cp $(BUILDDIR)/SSDT-USB-2x70.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-FAN-MOD.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+
+.PHONY: install_2x70_hires
+install_2x70_hires:
+	make install_hires
+	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
+	cp $(BUILDDIR)/SSDT-2x70.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-KEY87.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+#	cp $(BUILDDIR)/SSDT-USB-2x70.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-FAN-MOD.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+
+.PHONY: install_6x70
+install_6x70:
+	make install
+	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
+	cp $(BUILDDIR)/SSDT-6x70.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-KEY87.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-USB-6x70.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-FAN-MOD.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+
+.PHONY: install_6x70_hires
+install_6x70_hires:
+	make install_hires
+	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
+	cp $(BUILDDIR)/SSDT-6x70.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-KEY87.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-USB-6x70.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-FAN-MOD.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+
+.PHONY: install_8x70
+install_8x70:
+	make install
+	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
+	cp $(BUILDDIR)/SSDT-8x70.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-KEY87.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+#	cp $(BUILDDIR)/SSDT-USB-8x70.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-FAN-MOD.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+
+.PHONY: install_6x70_hires
+install_8x70_hires:
+	make install_hires
+	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
+	cp $(BUILDDIR)/SSDT-8x70.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-KEY87.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+#	cp $(BUILDDIR)/SSDT-USB-8x70.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-FAN-MOD.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+
+.PHONY: install_9x70
+install_9x70:
+	make install
+	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
+	cp $(BUILDDIR)/SSDT-9x70.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-KEY87.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+#	cp $(BUILDDIR)/SSDT-USB-9x70.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-FAN-MOD.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+
+.PHONY: install_9x70_hires
+install_9x60_hires:
+	make install_hires
+	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
+	cp $(BUILDDIR)/SSDT-9x70.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-KEY87.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+#	cp $(BUILDDIR)/SSDT-USB-9x70.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-FAN-MOD.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+
+.PHONY: install_4x0g0
+install_4x0g0:
+	make install
+	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
+	cp $(BUILDDIR)/SSDT-4x0-G0.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-KEY102.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+#	cp $(BUILDDIR)/SSDT-USB-4x0-G0.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-FAN-MOD.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+
+.PHONY: install_4x0g0_hires
+install_4x0g0_hires:
+	make install_hires
+	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
+	cp $(BUILDDIR)/SSDT-4x0-G0.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-KEY102.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+#	cp $(BUILDDIR)/SSDT-USB-4x0-G0.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-FAN-MOD.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+
+.PHONY: install_3x0g1
+install_3x0g1:
+	make install
+	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
+	cp $(BUILDDIR)/SSDT-3x0-G1.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-KEY102.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+#	cp $(BUILDDIR)/SSDT-USB-3x0-G1.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-FAN-MOD.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+
+.PHONY: install_3x0g1_hires
+install_3x0g1_hires:
+	make install_hires
+	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
+	cp $(BUILDDIR)/SSDT-3x0-G1.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-KEY102.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+#	cp $(BUILDDIR)/SSDT-USB-3x0-G1.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-FAN-MOD.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+
+.PHONY: install_4x0g1_ivy
+install_4x0g1_ivy:
+	make install
+	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
+	cp $(BUILDDIR)/SSDT-4x0-G1-Ivy.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-KEY102.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+#	cp $(BUILDDIR)/SSDT-USB-4x0-G1-Ivy.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-FAN-MOD.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+
+.PHONY: install_4x0g1_ivy_hires
+install_4x0g1_ivy_hires:
+	make install_hires
+	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
+	cp $(BUILDDIR)/SSDT-4x0-G1-Ivy.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-KEY102.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+#	cp $(BUILDDIR)/SSDT-USB-4x0-G1-Ivy.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-FAN-MOD.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+
+.PHONY: install_8x0g1_ivy
+install_8x0g1_ivy:
+	make install
+	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
+	cp $(BUILDDIR)/SSDT-8x0-G1-Ivy.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-KEY102.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-USB-8x0-G1.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-FAN-MOD.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+
+.PHONY: install_8x0g1_ivy_hires
+install_8x0g1_ivy_hires:
+	make install_hires
+	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
+	cp $(BUILDDIR)/SSDT-8x0-G1-Ivy.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-KEY102.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-USB-8x0s-G1.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-FAN-MOD.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+
+.PHONY: install_4x0g1_haswell
+install_4x0g1_haswell:
+	make install
+	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
+	cp $(BUILDDIR)/SSDT-4x0-G1-Haswell.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-KEY102.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+#	cp $(BUILDDIR)/SSDT-USB-4x0-G1.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-FAN-MOD.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+
+.PHONY: install_8x0g1_haswell
+install_8x0g1_haswell:
+	make install
+	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
+	cp $(BUILDDIR)/SSDT-8x0-G1-Haswell.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-KEY102.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-USB-8x0s-G1.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-FAN-MOD.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+
+.PHONY: install_1040g1_haswell
+install_1040g1_haswell:
+	make install
+	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
+	cp $(BUILDDIR)/SSDT-1040-G1-Haswell.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-KEY102.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+#	cp $(BUILDDIR)/SSDT-USB-1040-G1.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-FAN-MOD.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+
+.PHONY: install_4x0g2_haswell
+install_4x0g2_haswell:
+	make install
+	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
+	cp $(BUILDDIR)/SSDT-4x0-G2-Haswell.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-KEY102.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-USB-4x0s-G2.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-FAN-MOD.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+
+.PHONY: install_8x0g2_haswell
+install_8x0g2_haswell:
+	make install
+	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
+	cp $(BUILDDIR)/SSDT-8x0-G2-Haswell.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-KEY102.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+#	cp $(BUILDDIR)/SSDT-USB-8x0s-G2.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-FAN-MOD.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+
+.PHONY: install_4x0g2_broadwell
+install_4x0g2_broadwell:
+	make install
+	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
+	cp $(BUILDDIR)/SSDT-4x0-G2-Broadwell.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-KEY102.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-USB-4x0s-G2.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-FAN-MOD.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+
+.PHONY: install_820g2_broadwell
+install_820g2_broadwell:
+	make install
+	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
+	cp $(BUILDDIR)/SSDT-8x0-G2-Broadwell.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-KEY102.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-USB-820-G2.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-FAN-MOD.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+
+.PHONY: install_840g2_broadwell
+install_840g2_broadwell:
+	make install
+	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
+	cp $(BUILDDIR)/SSDT-8x0-G2-Broadwell.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-KEY102.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-USB-840-G2.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-FAN-MOD.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+
+.PHONY: install_4x0g3_skylake
+install_4x0g3_skylake:
+	make install
+	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
+	cp $(BUILDDIR)/SSDT-4x0-G3-Skylake.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-KEY102.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-USB-4x0s-G3.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-FAN-READ.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+
+.PHONY: install_ZBook_G2_haswell
+install_ZBook_G2_haswell:
+	make install
+	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
+	cp $(BUILDDIR)/SSDT-ZBook-G2-Haswell.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-KEY102.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+#	cp $(BUILDDIR)/SSDT-USB-ZBook-G2.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-FAN-READ.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 
 $(HDAINJECT): $(RESOURCES)/*.plist ./patch_hda.sh
 	./patch_hda.sh $(HDA)

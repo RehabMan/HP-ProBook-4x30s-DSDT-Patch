@@ -5,10 +5,10 @@
     {
         "CodecCommander", Package()
         {
-            "Disabled", ">y",
+            "Disable", ">y",
         },
         "CodecCommanderPowerHook", Package()
         {
-            "Disabled", ">y",
+            "Disable", ">y",
         },
     })
