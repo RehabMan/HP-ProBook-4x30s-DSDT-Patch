@@ -107,34 +107,36 @@ install_hda: $(HDAINJECT)
 
 # generated config.plist files
 
+PARTS=config_parts
+
 # 4x30s is IDT76d1, HD3000, non-Intel USB3
-config/config_4x30s.plist : config_master.plist config_IDT76d1.plist config_HD3000.plist config_non_Intel_USB3.plist
+config/config_4x30s.plist : $(PARTS)/config_master.plist $(PARTS)/config_IDT76d1.plist $(PARTS)/config_HD3000.plist $(PARTS)/config_non_Intel_USB3.plist
 	@printf "!! creating $@\n"
-	cp config_master.plist $@
+	cp $(PARTS)/config_master.plist $@
 	/usr/libexec/plistbuddy -c "Set KernelAndKextPatches:KernelPm false" $@
 	/usr/libexec/plistbuddy -c "Set SMBIOS:ProductName MacBookPro8,2" $@
-	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_HD3000.plist $@
-	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_IDT76d1.plist $@
-	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_non_Intel_USB3.plist $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_HD3000.plist $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_IDT76d1.plist $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_non_Intel_USB3.plist $@
 	@printf "\n"
 
 # 4x40s is IDT76d9, HD3000 or HD4000
-config/config_4x40s.plist : config_master.plist config_IDT76d9.plist config_HD3000.plist config_HD4000.plist
+config/config_4x40s.plist : $(PARTS)/config_master.plist $(PARTS)/config_IDT76d9.plist $(PARTS)/config_HD3000.plist $(PARTS)/config_HD4000.plist
 	@printf "!! creating $@\n"
-	cp config_master.plist $@
+	cp $(PARTS)/config_master.plist $@
 	/usr/libexec/plistbuddy -c "Set :SMBIOS:ProductName MacBookPro9,2" $@
-	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_HD3000.plist $@
-	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_HD4000.plist $@
-	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_IDT76d9.plist $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_HD3000.plist $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_HD4000.plist $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_IDT76d9.plist $@
 	@printf "\n"
 
 # 4x0s_G0 (and ZBook) is IDT 76e0, HD4000
-config/config_4x0s_G0.plist : config_master.plist config_IDT76e0.plist config_HD4000.plist
+config/config_4x0s_G0.plist : $(PARTS)/config_master.plist $(PARTS)/config_IDT76e0.plist $(PARTS)/config_HD4000.plist
 	@printf "!! creating $@\n"
-	cp config_master.plist $@
+	cp $(PARTS)/config_master.plist $@
 	/usr/libexec/plistbuddy -c "Set :SMBIOS:ProductName MacBookPro9,2" $@
-	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_HD4000.plist $@
-	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_IDT76e0.plist $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_HD4000.plist $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_IDT76e0.plist $@
 	@printf "\n"
 
 # 4x0s_G1_Ivy is same as 4x0s_G0
@@ -150,13 +152,13 @@ config/config_8x0s_G1_Ivy.plist: config/config_4x0s_G0.plist
 	@printf "\n"
 
 # 8x0s_G1_Haswell is IDT 76e0, HD4400
-config/config_8x0s_G1_Haswell.plist : config_master.plist config_IDT76e0.plist config_Haswell.plist
+config/config_8x0s_G1_Haswell.plist : $(PARTS)/config_master.plist $(PARTS)/config_IDT76e0.plist $(PARTS)/config_Haswell.plist
 	@printf "!! creating $@\n"
-	cp config_master.plist $@
+	cp $(PARTS)/config_master.plist $@
 	/usr/libexec/plistbuddy -c "Set KernelAndKextPatches:AsusAICPUPM false" $@
 	/usr/libexec/plistbuddy -c "Set :SMBIOS:ProductName MacBookAir6,2" $@
-	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_Haswell.plist $@
-	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_IDT76e0.plist $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_Haswell.plist $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_IDT76e0.plist $@
 	@printf "\n"
 
 # 4x0s_G1_Haswell is same as 8x0s_G1_Haswell
@@ -178,14 +180,14 @@ config/config_9x70m.plist : config/config_4x0s_G0.plist
 	@printf "\n"
 
 # 6x60p is IDT7605, HD3000, non-Intel USB3
-config/config_6x60p.plist : config_master.plist config_IDT7605.plist config_HD3000.plist config_non_Intel_USB3.plist
+config/config_6x60p.plist : $(PARTS)/config_master.plist $(PARTS)/config_IDT7605.plist $(PARTS)/config_HD3000.plist $(PARTS)/config_non_Intel_USB3.plist
 	@printf "!! creating $@\n"
-	cp config_master.plist $@
+	cp $(PARTS)/config_master.plist $@
 	/usr/libexec/plistbuddy -c "Set KernelAndKextPatches:KernelPm false" $@
 	/usr/libexec/plistbuddy -c "Set SMBIOS:ProductName MacBookPro8,2" $@
-	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_HD3000.plist $@
-	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_IDT7605.plist $@
-	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_non_Intel_USB3.plist $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_HD3000.plist $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_IDT7605.plist $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_non_Intel_USB3.plist $@
 	@printf "\n"
 
 # 8x60p is same as 6x60p
@@ -195,12 +197,12 @@ config/config_8x60p.plist : config/config_6x60p.plist
 	@printf "\n"
 
 # 6x70p is IDT7605, HD4000
-config/config_6x70p.plist : config_master.plist config_IDT7605.plist config_HD4000.plist
+config/config_6x70p.plist : $(PARTS)/config_master.plist $(PARTS)/config_IDT7605.plist $(PARTS)/config_HD4000.plist
 	@printf "!! creating $@\n"
-	cp config_master.plist $@
+	cp $(PARTS)/config_master.plist $@
 	/usr/libexec/plistbuddy -c "Set :SMBIOS:ProductName MacBookPro9,2" $@
-	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_HD4000.plist $@
-	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_IDT7605.plist $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_HD4000.plist $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_IDT7605.plist $@
 	@printf "\n"
 
 # 8x70p is same as 6x70p
@@ -216,22 +218,22 @@ config/config_2x70p.plist : config/config_6x70p.plist
 	@printf "\n"
 
 # 3x0_G1 is IDT7695, HD4000 (//review)
-config/config_3x0_G1.plist : config_master.plist config_IDT7695.plist config_HD4000.plist
+config/config_3x0_G1.plist : $(PARTS)/config_master.plist $(PARTS)/config_IDT7695.plist $(PARTS)/config_HD4000.plist
 	@printf "!! creating $@\n"
-	cp config_master.plist $@
+	cp $(PARTS)/config_master.plist $@
 	/usr/libexec/plistbuddy -c "Set :SMBIOS:ProductName MacBookPro9,2" $@
-	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_HD4000.plist $@
-	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_IDT7695.plist $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_HD4000.plist $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_IDT7695.plist $@
 	@printf "\n"
 
 # 4x0s_G2_Haswell is ALC282, Haswell
-config/config_4x0s_G2_Haswell.plist : config_master.plist config_ALC282.plist config_Haswell.plist
+config/config_4x0s_G2_Haswell.plist : $(PARTS)/config_master.plist $(PARTS)/config_ALC282.plist $(PARTS)/config_Haswell.plist
 	@printf "!! creating $@\n"
-	cp config_master.plist $@
+	cp $(PARTS)/config_master.plist $@
 	/usr/libexec/plistbuddy -c "Set KernelAndKextPatches:AsusAICPUPM false" $@
 	/usr/libexec/plistbuddy -c "Set :SMBIOS:ProductName MacBookAir6,2" $@
-	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_Haswell.plist $@
-	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_ALC282.plist $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_Haswell.plist $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_ALC282.plist $@
 	@printf "\n"
 
 # 8x0s_G2_Haswell is same as 4x0s_G2_Haswell
@@ -241,43 +243,43 @@ config/config_8x0s_G2_Haswell.plist: config/config_4x0s_G2_Haswell.plist
 	@printf "\n"
 
 # 4x0s_G2_Broadwell is ALC282, Broadwell
-config/config_4x0s_G2_Broadwell.plist : config_master.plist config_ALC282.plist config_Broadwell.plist
+config/config_4x0s_G2_Broadwell.plist : $(PARTS)/config_master.plist $(PARTS)/config_ALC282.plist $(PARTS)/config_Broadwell.plist
 	@printf "!! creating $@\n"
-	cp config_master.plist $@
+	cp $(PARTS)/config_master.plist $@
 	/usr/libexec/plistbuddy -c "Set KernelAndKextPatches:AsusAICPUPM false" $@
 	/usr/libexec/plistbuddy -c "Set :SMBIOS:ProductName MacBookAir7,2" $@
-	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_Broadwell.plist $@
-	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_ALC282.plist $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_Broadwell.plist $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_ALC282.plist $@
 	@printf "\n"
 
 # 8x0s_G2_Broadwell is ALC280, Broadwell
-config/config_8x0s_G2_Broadwell.plist : config_master.plist config_ALC280.plist config_Broadwell.plist
+config/config_8x0s_G2_Broadwell.plist : $(PARTS)/config_master.plist $(PARTS)/config_ALC280.plist $(PARTS)/config_Broadwell.plist
 	@printf "!! creating $@\n"
-	cp config_master.plist $@
+	cp $(PARTS)/config_master.plist $@
 	/usr/libexec/plistbuddy -c "Set KernelAndKextPatches:AsusAICPUPM false" $@
 	/usr/libexec/plistbuddy -c "Set :SMBIOS:ProductName MacBookAir7,2" $@
-	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_Broadwell.plist $@
-	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_ALC280.plist $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_Broadwell.plist $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_ALC280.plist $@
 	@printf "\n"
 
 # ZBook_G2_Haswell is ALC280, Haswell
-config/config_ZBook_G2_Haswell.plist : config_master.plist config_ALC280.plist config_Haswell.plist
+config/config_ZBook_G2_Haswell.plist : $(PARTS)/config_master.plist $(PARTS)/config_ALC280.plist $(PARTS)/config_Haswell.plist
 	@printf "!! creating $@\n"
-	cp config_master.plist $@
+	cp $(PARTS)/config_master.plist $@
 	/usr/libexec/plistbuddy -c "Set KernelAndKextPatches:AsusAICPUPM false" $@
 	/usr/libexec/plistbuddy -c "Set :SMBIOS:ProductName MacBookPro11,1" $@
-	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_Haswell.plist $@
-	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_ALC280.plist $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_Haswell.plist $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_ALC280.plist $@
 	@printf "\n"
 
 # ProBook_4x0s_G3_Skylake is CX20724, Skylake
-config/config_4x0s_G3_Skylake.plist : config_master.plist config_CX20724.plist config_Skylake.plist
+config/config_4x0s_G3_Skylake.plist : $(PARTS)/config_master.plist $(PARTS)/config_CX20724.plist $(PARTS)/config_Skylake.plist
 	@printf "!! creating $@\n"
-	cp config_master.plist $@
+	cp $(PARTS)/config_master.plist $@
 	/usr/libexec/plistbuddy -c "Set KernelAndKextPatches:AsusAICPUPM false" $@
 	/usr/libexec/plistbuddy -c "Set :SMBIOS:ProductName MacBookPro11,1" $@
-	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_Skylake.plist $@
-	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_CX20724.plist $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_Skylake.plist $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_CX20724.plist $@
 	@printf "\n"
 
 # combo patches
@@ -300,18 +302,18 @@ patches/4x40s_SandyBridge.txt : $(COMMON) $(EHCI7) $(IMEI)
 
 IASLOPTS=-vw 2095 -vw 2146 -vw 2089
 
-$(BUILDDIR)/%.aml : %.dsl
+$(BUILDDIR)/%.aml : hotpatch/%.dsl
 	iasl $(IASLOPTS) -p $@ $^
 
-$(BUILDDIR)/SSDT-IGPU-HIRES.aml : SSDT-IGPU.dsl
+$(BUILDDIR)/SSDT-IGPU-HIRES.aml : hotpatch/SSDT-IGPU.dsl
 	iasl -D HIRES $(IASLOPTS) -p $@ $^
 
-$(BUILDDIR)/SSDT-FAN-QUIET.aml : SSDT-FAN-QUIET.dsl
+$(BUILDDIR)/SSDT-FAN-QUIET.aml : hotpatch/SSDT-FAN-QUIET.dsl
 	iasl -D QUIET $(IASLOPTS) -p $@ $^
 
-$(BUILDDIR)/SSDT-FAN-MOD.aml : SSDT-FAN-QUIET.dsl
+$(BUILDDIR)/SSDT-FAN-MOD.aml : hotpatch/SSDT-FAN-QUIET.dsl
 	iasl -D REHABMAN $(IASLOPTS) -p $@ $^
 
-$(BUILDDIR)/SSDT-FAN-SMOOTH.aml : SSDT-FAN-QUIET.dsl
+$(BUILDDIR)/SSDT-FAN-SMOOTH.aml : hotpatch/SSDT-FAN-QUIET.dsl
 	iasl -D GRAPPLER $(IASLOPTS) -p $@ $^
 

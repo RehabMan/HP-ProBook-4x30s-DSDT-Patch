@@ -25,7 +25,6 @@
 		84878E3B17445FE100F82A03 /* 00_Optimize.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = 00_Optimize.txt; path = patches/00_Optimize.txt; sourceTree = "<group>"; };
 		8499C9761704B5F70066A5F3 /* NullPatch.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = NullPatch.txt; path = patches/NullPatch.txt; sourceTree = "<group>"; };
 		849EBD50170340BF007EFCFF /* xx_KeyBacklight.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = xx_KeyBacklight.txt; path = patches/xx_KeyBacklight.txt; sourceTree = "<group>"; };
-		84A520C71C166BF5006C4C64 /* SSDT-USB-4x40s.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-USB-4x40s.dsl"; sourceTree = "<group>"; };
 		84B165B81856183900C2DF39 /* 11a_Radeon_OFF_SSDT.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = 11a_Radeon_OFF_SSDT.txt; path = patches/11a_Radeon_OFF_SSDT.txt; sourceTree = "<group>"; };
 		84B165B91856187E00C2DF39 /* 11b_Radeon_OFF_DSDT.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = 11b_Radeon_OFF_DSDT.txt; path = patches/11b_Radeon_OFF_DSDT.txt; sourceTree = "<group>"; };
 		84B941FD1703347E00C5913C /* 08a_AR9285.txt */ = {isa = PBXFileReference; lastKnownFileType = text; lineEnding = 0; name = 08a_AR9285.txt; path = patches/08a_AR9285.txt; sourceTree = "<group>"; };
@@ -50,12 +49,10 @@
 		84D4D88F17025C86004FF373 /* 04c_FanSpeed.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = 04c_FanSpeed.txt; path = patches/04c_FanSpeed.txt; sourceTree = "<group>"; };
 		84DA7C6317033BC400738DC0 /* 09_USB3_4x40s_Mieze.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = 09_USB3_4x40s_Mieze.txt; path = patches/09_USB3_4x40s_Mieze.txt; sourceTree = "<group>"; };
 		84E815E21752C76500B9EF1E /* Mini-SSDT-AR9285.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "Mini-SSDT-AR9285.dsl"; path = "mini/Mini-SSDT-AR9285.dsl"; sourceTree = "<group>"; };
-		84EEDDDC1BC605BE000F5071 /* SSDT-HACK.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-HACK.dsl"; sourceTree = "<group>"; };
 		84F52D0B1709C9A3001643C8 /* Mini-SSDT-IMEI.dsl */ = {isa = PBXFileReference; lastKnownFileType = text; name = "Mini-SSDT-IMEI.dsl"; path = "mini/Mini-SSDT-IMEI.dsl"; sourceTree = "<group>"; };
 		84F616791850BC650053B76E /* 10_LPC_4x40s_Sandy_SL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = 10_LPC_4x40s_Sandy_SL.txt; path = patches/10_LPC_4x40s_Sandy_SL.txt; sourceTree = "<group>"; };
 		84FAF3521CA9FB630066178B /* config_ZBook_G2_Haswell.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_ZBook_G2_Haswell.plist; path = config/config_ZBook_G2_Haswell.plist; sourceTree = "<group>"; };
 		84FD879D18BCC6B1000BC61E /* 03c_Haswell-HDMI.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "03c_Haswell-HDMI.txt"; path = "patches/03c_Haswell-HDMI.txt"; sourceTree = "<group>"; };
-		ED1278681C1655010094A691 /* SSDT-USB-4x0s-G2.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-USB-4x0s-G2.dsl"; sourceTree = "<group>"; };
 		ED1837421C0A4B1200A5A3DA /* merge_plist.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = merge_plist.sh; sourceTree = "<group>"; };
 		ED1837431C0A4B1200A5A3DA /* mount_efi.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = mount_efi.sh; sourceTree = "<group>"; };
 		ED1837441C0A4B1200A5A3DA /* patch_hda.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = patch_hda.sh; sourceTree = "<group>"; };
@@ -66,31 +63,14 @@
 		ED1837491C0A4B1200A5A3DA /* layout13.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = layout13.plist; path = Resources_ProBook/layout13.plist; sourceTree = "<group>"; };
 		ED18374D1C0A4B1200A5A3DA /* Platforms.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Platforms.plist; path = Resources_ProBook/Platforms.plist; sourceTree = "<group>"; };
 		ED18374E1C0A4B1200A5A3DA /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.txt; path = Resources_ProBook/README.txt; sourceTree = "<group>"; };
-		ED304EF01CB95CC100780D95 /* SSDT-USB-6x60.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-USB-6x60.dsl"; sourceTree = "<group>"; };
-		ED499C5F1CBE8A6500C7C106 /* SSDT-BATT-G3.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-BATT-G3.dsl"; sourceTree = "<group>"; };
-		ED4CEBE31CBE80A100831F4D /* config_Skylake.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config_Skylake.plist; sourceTree = "<group>"; };
-		ED4F13ED1CC17FA200A00E34 /* SSDT-USB-4x0-G3.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-USB-4x0-G3.dsl"; sourceTree = "<group>"; };
-		ED511C971C062320005DAA2B /* config_ALC282.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config_ALC282.plist; sourceTree = "<group>"; };
-		ED511C981C062320005DAA2B /* config_master.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config_master.plist; sourceTree = "<group>"; };
-		ED511C991C062320005DAA2B /* config_non_Intel_USB3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config_non_Intel_USB3.plist; sourceTree = "<group>"; };
-		ED511C9A1C0623AB005DAA2B /* config_IDT76d1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config_IDT76d1.plist; sourceTree = "<group>"; };
-		ED511C9B1C0624BF005DAA2B /* config_IDT76d9.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config_IDT76d9.plist; sourceTree = "<group>"; };
-		ED53FB961CBF383B001FDA9B /* SSDT-USB-8x60.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-USB-8x60.dsl"; sourceTree = "<group>"; };
-		ED56AA131C08B10A00260DBA /* config_Broadwell.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config_Broadwell.plist; sourceTree = "<group>"; };
-		ED56AA141C08B10A00260DBA /* config_Haswell.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config_Haswell.plist; sourceTree = "<group>"; };
-		ED56AA151C08B10A00260DBA /* config_HD4000.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config_HD4000.plist; sourceTree = "<group>"; };
-		ED56AA161C08B10A00260DBA /* config_HD3000.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config_HD3000.plist; sourceTree = "<group>"; };
 		ED634E2619FD2A9B00289C54 /* 14_ProBook-102key.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "14_ProBook-102key.txt"; path = "patches/14_ProBook-102key.txt"; sourceTree = "<group>"; };
 		ED634E2719FD2B3E00289C54 /* 14_ProBook-87key.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "14_ProBook-87key.txt"; path = "patches/14_ProBook-87key.txt"; sourceTree = "<group>"; };
-		ED6CF8F31CBE8224009A49C7 /* config_CX20724.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config_CX20724.plist; sourceTree = "<group>"; };
-		ED7126761C16A6F200BBED31 /* SSDT-USB-4x30s.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-USB-4x30s.dsl"; sourceTree = "<group>"; };
 		ED72750B1BE1B1D700314108 /* config_4x30s.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_4x30s.plist; path = config/config_4x30s.plist; sourceTree = "<group>"; };
 		ED7A2ADB1CBEF56000062967 /* config_4x0s_G3_Skylake.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_4x0s_G3_Skylake.plist; path = config/config_4x0s_G3_Skylake.plist; sourceTree = "<group>"; };
 		ED7A2ADC1CBEF56000062967 /* config_6x60p.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_6x60p.plist; path = config/config_6x60p.plist; sourceTree = "<group>"; };
 		ED7A2ADD1CBEF56000062967 /* config_6x70p.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_6x70p.plist; path = config/config_6x70p.plist; sourceTree = "<group>"; };
 		ED7A2ADE1CBEF56000062967 /* config_8x60p.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_8x60p.plist; path = config/config_8x60p.plist; sourceTree = "<group>"; };
 		ED7A2ADF1CBEF56000062967 /* config_8x70p.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_8x70p.plist; path = config/config_8x70p.plist; sourceTree = "<group>"; };
-		ED85B91A1C44A2FC004A5921 /* config_ALC280.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config_ALC280.plist; sourceTree = "<group>"; };
 		ED959F4D1CC17B4B00FD2FC2 /* config_4x0s_G1_Haswell.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_4x0s_G1_Haswell.plist; path = config/config_4x0s_G1_Haswell.plist; sourceTree = "<group>"; };
 		ED97346F1C0A5F260063BCF9 /* download.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = download.sh; sourceTree = "<group>"; };
 		ED9734701C0A5F370063BCF9 /* install_downloads.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = install_downloads.sh; sourceTree = "<group>"; };
@@ -107,45 +87,67 @@
 		ED97E91C1CC75350006C757A /* layout19_HDEF.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = layout19_HDEF.asl; path = include/layout19_HDEF.asl; sourceTree = "<group>"; };
 		ED97E91D1CC75350006C757A /* disable_HECI.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = disable_HECI.asl; path = include/disable_HECI.asl; sourceTree = "<group>"; };
 		ED97E91E1CC75350006C757A /* disable_CC.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = disable_CC.asl; path = include/disable_CC.asl; sourceTree = "<group>"; };
-		ED9B77141CB2BFBC000E62FE /* SSDT-USB-6x70.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-USB-6x70.dsl"; sourceTree = "<group>"; };
-		EDA986F31CC712B100D10BEC /* SSDT-USB.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-USB.dsl"; sourceTree = "<group>"; };
-		EDA986F41CC714D100D10BEC /* SSDT-4x40s.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-4x40s.dsl"; sourceTree = "<group>"; };
-		EDA986F51CC7159900D10BEC /* SSDT-4x30s.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-4x30s.dsl"; sourceTree = "<group>"; };
-		EDA986F61CC7188800D10BEC /* SSDT-6x60.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-6x60.dsl"; sourceTree = "<group>"; };
-		EDA987011CC7208300D10BEC /* SSDT-8x60.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-8x60.dsl"; sourceTree = "<group>"; };
-		EDA987021CC7231700D10BEC /* SSDT-8x70.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-8x70.dsl"; sourceTree = "<group>"; };
-		EDA987031CC7235800D10BEC /* SSDT-6x70.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-6x70.dsl"; sourceTree = "<group>"; };
-		EDA987041CC7235800D10BEC /* SSDT-2x70.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-2x70.dsl"; sourceTree = "<group>"; };
-		EDA987051CC7239B00D10BEC /* SSDT-9x70.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-9x70.dsl"; sourceTree = "<group>"; };
-		EDA987061CC7249900D10BEC /* SSDT-1040-G1-Haswell.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-1040-G1-Haswell.dsl"; sourceTree = "<group>"; };
-		EDA987071CC724F600D10BEC /* SSDT-3x0-G1.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-3x0-G1.dsl"; sourceTree = "<group>"; };
-		EDA987081CC7254600D10BEC /* SSDT-4x0-G0.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-4x0-G0.dsl"; sourceTree = "<group>"; };
-		EDA987091CC725A700D10BEC /* SSDT-8x0-G1-Ivy.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-8x0-G1-Ivy.dsl"; sourceTree = "<group>"; };
-		EDA9870A1CC725A700D10BEC /* SSDT-4x0-G1-Ivy.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-4x0-G1-Ivy.dsl"; sourceTree = "<group>"; };
-		EDA9870B1CC7262600D10BEC /* SSDT-8x0-G1-Haswell.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-8x0-G1-Haswell.dsl"; sourceTree = "<group>"; };
-		EDA9870C1CC7262600D10BEC /* SSDT-4x0-G1-Haswell.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-4x0-G1-Haswell.dsl"; sourceTree = "<group>"; };
-		EDA9870D1CC7267700D10BEC /* SSDT-8x0-G2-Haswell.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-8x0-G2-Haswell.dsl"; sourceTree = "<group>"; };
-		EDA9870E1CC7267700D10BEC /* SSDT-4x0-G2-Haswell.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-4x0-G2-Haswell.dsl"; sourceTree = "<group>"; };
-		EDA9870F1CC7271F00D10BEC /* SSDT-8x0-G2-Broadwell.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-8x0-G2-Broadwell.dsl"; sourceTree = "<group>"; };
-		EDA987101CC7271F00D10BEC /* SSDT-4x0-G2-Broadwell.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-4x0-G2-Broadwell.dsl"; sourceTree = "<group>"; };
-		EDA987111CC7276D00D10BEC /* SSDT-ZBook-G2-Haswell.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-ZBook-G2-Haswell.dsl"; sourceTree = "<group>"; };
-		EDA987121CC727BD00D10BEC /* SSDT-4x0-G3-Skylake.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-4x0-G3-Skylake.dsl"; sourceTree = "<group>"; };
-		EDB940B71C04D11C00480024 /* SSDT-BATT.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-BATT.dsl"; sourceTree = "<group>"; };
-		EDB940B91C04D2CB00480024 /* SSDT-BATT-G2.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-BATT-G2.dsl"; sourceTree = "<group>"; };
-		EDB940BB1C04D4D400480024 /* SSDT-KEY102.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-KEY102.dsl"; sourceTree = "<group>"; };
-		EDB940BC1C04D4D400480024 /* SSDT-KEY87.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-KEY87.dsl"; sourceTree = "<group>"; };
-		EDB940BD1C04D78800480024 /* SSDT-FAN-QUIET.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-FAN-QUIET.dsl"; sourceTree = "<group>"; };
-		EDB940BE1C04D99A00480024 /* SSDT-FAN-READ.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-FAN-READ.dsl"; sourceTree = "<group>"; };
-		EDB940BF1C04D99A00480024 /* SSDT-FAN-ORIG.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-FAN-ORIG.dsl"; sourceTree = "<group>"; };
+		ED97E9201CC755BE006C757A /* config_master.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_master.plist; path = config_parts/config_master.plist; sourceTree = "<group>"; };
+		ED97E9211CC755BE006C757A /* config_Broadwell.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_Broadwell.plist; path = config_parts/config_Broadwell.plist; sourceTree = "<group>"; };
+		ED97E9221CC755BE006C757A /* config_Haswell.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_Haswell.plist; path = config_parts/config_Haswell.plist; sourceTree = "<group>"; };
+		ED97E9231CC755BE006C757A /* config_HD3000.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_HD3000.plist; path = config_parts/config_HD3000.plist; sourceTree = "<group>"; };
+		ED97E9241CC755BE006C757A /* config_HD4000.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_HD4000.plist; path = config_parts/config_HD4000.plist; sourceTree = "<group>"; };
+		ED97E9251CC755BE006C757A /* config_Skylake.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_Skylake.plist; path = config_parts/config_Skylake.plist; sourceTree = "<group>"; };
+		ED97E9261CC755BE006C757A /* config_CX20724.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_CX20724.plist; path = config_parts/config_CX20724.plist; sourceTree = "<group>"; };
+		ED97E9271CC755BE006C757A /* config_ALC280.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_ALC280.plist; path = config_parts/config_ALC280.plist; sourceTree = "<group>"; };
+		ED97E9281CC755BE006C757A /* config_ALC282.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_ALC282.plist; path = config_parts/config_ALC282.plist; sourceTree = "<group>"; };
+		ED97E9291CC755BE006C757A /* config_IDT76d1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_IDT76d1.plist; path = config_parts/config_IDT76d1.plist; sourceTree = "<group>"; };
+		ED97E92A1CC755BE006C757A /* config_IDT76d9.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_IDT76d9.plist; path = config_parts/config_IDT76d9.plist; sourceTree = "<group>"; };
+		ED97E92B1CC755BE006C757A /* config_IDT76e0.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_IDT76e0.plist; path = config_parts/config_IDT76e0.plist; sourceTree = "<group>"; };
+		ED97E92C1CC755BE006C757A /* config_IDT7605.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_IDT7605.plist; path = config_parts/config_IDT7605.plist; sourceTree = "<group>"; };
+		ED97E92D1CC755BE006C757A /* config_IDT7695.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_IDT7695.plist; path = config_parts/config_IDT7695.plist; sourceTree = "<group>"; };
+		ED97E92E1CC755BE006C757A /* config_non_Intel_USB3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_non_Intel_USB3.plist; path = config_parts/config_non_Intel_USB3.plist; sourceTree = "<group>"; };
+		ED97E92F1CC757D7006C757A /* SSDT-2x70.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-2x70.dsl"; path = "hotpatch/SSDT-2x70.dsl"; sourceTree = "<group>"; };
+		ED97E9301CC757D7006C757A /* SSDT-3x0-G1.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-3x0-G1.dsl"; path = "hotpatch/SSDT-3x0-G1.dsl"; sourceTree = "<group>"; };
+		ED97E9311CC757D7006C757A /* SSDT-4x0-G0.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-4x0-G0.dsl"; path = "hotpatch/SSDT-4x0-G0.dsl"; sourceTree = "<group>"; };
+		ED97E9321CC757D7006C757A /* SSDT-4x0-G1-Haswell.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-4x0-G1-Haswell.dsl"; path = "hotpatch/SSDT-4x0-G1-Haswell.dsl"; sourceTree = "<group>"; };
+		ED97E9331CC757D7006C757A /* SSDT-4x0-G1-Ivy.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-4x0-G1-Ivy.dsl"; path = "hotpatch/SSDT-4x0-G1-Ivy.dsl"; sourceTree = "<group>"; };
+		ED97E9341CC757D7006C757A /* SSDT-4x0-G2-Broadwell.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-4x0-G2-Broadwell.dsl"; path = "hotpatch/SSDT-4x0-G2-Broadwell.dsl"; sourceTree = "<group>"; };
+		ED97E9351CC757D7006C757A /* SSDT-4x0-G2-Haswell.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-4x0-G2-Haswell.dsl"; path = "hotpatch/SSDT-4x0-G2-Haswell.dsl"; sourceTree = "<group>"; };
+		ED97E9361CC757D7006C757A /* SSDT-4x0-G3-Skylake.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-4x0-G3-Skylake.dsl"; path = "hotpatch/SSDT-4x0-G3-Skylake.dsl"; sourceTree = "<group>"; };
+		ED97E9371CC757D7006C757A /* SSDT-4x30s.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-4x30s.dsl"; path = "hotpatch/SSDT-4x30s.dsl"; sourceTree = "<group>"; };
+		ED97E9381CC757D7006C757A /* SSDT-4x40s.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-4x40s.dsl"; path = "hotpatch/SSDT-4x40s.dsl"; sourceTree = "<group>"; };
+		ED97E9391CC757D7006C757A /* SSDT-6x60.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-6x60.dsl"; path = "hotpatch/SSDT-6x60.dsl"; sourceTree = "<group>"; };
+		ED97E93A1CC757D7006C757A /* SSDT-6x70.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-6x70.dsl"; path = "hotpatch/SSDT-6x70.dsl"; sourceTree = "<group>"; };
+		ED97E93B1CC757D7006C757A /* SSDT-8x0-G1-Haswell.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-8x0-G1-Haswell.dsl"; path = "hotpatch/SSDT-8x0-G1-Haswell.dsl"; sourceTree = "<group>"; };
+		ED97E93C1CC757D7006C757A /* SSDT-8x0-G1-Ivy.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-8x0-G1-Ivy.dsl"; path = "hotpatch/SSDT-8x0-G1-Ivy.dsl"; sourceTree = "<group>"; };
+		ED97E93D1CC757D7006C757A /* SSDT-8x0-G2-Broadwell.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-8x0-G2-Broadwell.dsl"; path = "hotpatch/SSDT-8x0-G2-Broadwell.dsl"; sourceTree = "<group>"; };
+		ED97E93E1CC757D7006C757A /* SSDT-8x0-G2-Haswell.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-8x0-G2-Haswell.dsl"; path = "hotpatch/SSDT-8x0-G2-Haswell.dsl"; sourceTree = "<group>"; };
+		ED97E93F1CC757D7006C757A /* SSDT-8x60.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-8x60.dsl"; path = "hotpatch/SSDT-8x60.dsl"; sourceTree = "<group>"; };
+		ED97E9401CC757D7006C757A /* SSDT-8x70.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-8x70.dsl"; path = "hotpatch/SSDT-8x70.dsl"; sourceTree = "<group>"; };
+		ED97E9411CC757D7006C757A /* SSDT-9x70.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-9x70.dsl"; path = "hotpatch/SSDT-9x70.dsl"; sourceTree = "<group>"; };
+		ED97E9421CC757D7006C757A /* SSDT-1040-G1-Haswell.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-1040-G1-Haswell.dsl"; path = "hotpatch/SSDT-1040-G1-Haswell.dsl"; sourceTree = "<group>"; };
+		ED97E9431CC757D7006C757A /* SSDT-ZBook-G2-Haswell.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-ZBook-G2-Haswell.dsl"; path = "hotpatch/SSDT-ZBook-G2-Haswell.dsl"; sourceTree = "<group>"; };
+		ED97E9441CC757D7006C757A /* SSDT-HACK.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-HACK.dsl"; path = "hotpatch/SSDT-HACK.dsl"; sourceTree = "<group>"; };
+		ED97E9451CC757D7006C757A /* SSDT-USB-4x0s-G2.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-USB-4x0s-G2.dsl"; path = "hotpatch/SSDT-USB-4x0s-G2.dsl"; sourceTree = "<group>"; };
+		ED97E9461CC757D7006C757A /* SSDT-USB-8x0s-G1.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-USB-8x0s-G1.dsl"; path = "hotpatch/SSDT-USB-8x0s-G1.dsl"; sourceTree = "<group>"; };
+		ED97E9471CC757D7006C757A /* SSDT-USB-820-G2.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-USB-820-G2.dsl"; path = "hotpatch/SSDT-USB-820-G2.dsl"; sourceTree = "<group>"; };
+		ED97E9481CC757D7006C757A /* SSDT-USB-840-G2.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-USB-840-G2.dsl"; path = "hotpatch/SSDT-USB-840-G2.dsl"; sourceTree = "<group>"; };
+		ED97E9491CC757D7006C757A /* SSDT-USB.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-USB.dsl"; path = "hotpatch/SSDT-USB.dsl"; sourceTree = "<group>"; };
+		ED97E94A1CC757D7006C757A /* SSDT-USB-4x0-G3.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-USB-4x0-G3.dsl"; path = "hotpatch/SSDT-USB-4x0-G3.dsl"; sourceTree = "<group>"; };
+		ED97E94B1CC757D7006C757A /* SSDT-IGPU.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-IGPU.dsl"; path = "hotpatch/SSDT-IGPU.dsl"; sourceTree = "<group>"; };
+		ED97E94C1CC757D7006C757A /* SSDT-USB-6x60.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-USB-6x60.dsl"; path = "hotpatch/SSDT-USB-6x60.dsl"; sourceTree = "<group>"; };
+		ED97E94D1CC757D7006C757A /* SSDT-USB-8x60.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-USB-8x60.dsl"; path = "hotpatch/SSDT-USB-8x60.dsl"; sourceTree = "<group>"; };
+		ED97E94E1CC757D7006C757A /* SSDT-BATT-G3.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-BATT-G3.dsl"; path = "hotpatch/SSDT-BATT-G3.dsl"; sourceTree = "<group>"; };
+		ED97E94F1CC757D7006C757A /* SSDT-USB-6x70.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-USB-6x70.dsl"; path = "hotpatch/SSDT-USB-6x70.dsl"; sourceTree = "<group>"; };
+		ED97E9501CC757D7006C757A /* SSDT-USB-4x40s.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-USB-4x40s.dsl"; path = "hotpatch/SSDT-USB-4x40s.dsl"; sourceTree = "<group>"; };
+		ED97E9511CC757D7006C757A /* SSDT-FAN-QUIET.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-FAN-QUIET.dsl"; path = "hotpatch/SSDT-FAN-QUIET.dsl"; sourceTree = "<group>"; };
+		ED97E9521CC757D7006C757A /* SSDT-BATT.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-BATT.dsl"; path = "hotpatch/SSDT-BATT.dsl"; sourceTree = "<group>"; };
+		ED97E9531CC757D7006C757A /* SSDT-BATT-G2.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-BATT-G2.dsl"; path = "hotpatch/SSDT-BATT-G2.dsl"; sourceTree = "<group>"; };
+		ED97E9541CC757D7006C757A /* SSDT-USB-4x30s.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-USB-4x30s.dsl"; path = "hotpatch/SSDT-USB-4x30s.dsl"; sourceTree = "<group>"; };
+		ED97E9551CC757D7006C757A /* SSDT-FAN-ORIG.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-FAN-ORIG.dsl"; path = "hotpatch/SSDT-FAN-ORIG.dsl"; sourceTree = "<group>"; };
+		ED97E9561CC757D7006C757A /* SSDT-FAN-READ.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-FAN-READ.dsl"; path = "hotpatch/SSDT-FAN-READ.dsl"; sourceTree = "<group>"; };
+		ED97E9571CC757D7006C757A /* SSDT-KEY87.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-KEY87.dsl"; path = "hotpatch/SSDT-KEY87.dsl"; sourceTree = "<group>"; };
+		ED97E9581CC757D7006C757A /* SSDT-KEY102.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-KEY102.dsl"; path = "hotpatch/SSDT-KEY102.dsl"; sourceTree = "<group>"; };
 		EDBC2FA01CC7062B00D9DFC5 /* config_1040_G1_Haswell.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_1040_G1_Haswell.plist; path = config/config_1040_G1_Haswell.plist; sourceTree = "<group>"; };
 		EDBC2FA11CC7062B00D9DFC5 /* config_2x70p.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_2x70p.plist; path = config/config_2x70p.plist; sourceTree = "<group>"; };
 		EDBFC62A1AC74DA600E24D1F /* 06a_Battery_PNOT.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = 06a_Battery_PNOT.txt; path = patches/06a_Battery_PNOT.txt; sourceTree = "<group>"; };
-		EDC2F47F1C87D6370009DA13 /* SSDT-USB-840-G2.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-USB-840-G2.dsl"; sourceTree = "<group>"; };
-		EDCDE4FD1CAC1A6700EBF998 /* SSDT-USB-820-G2.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-USB-820-G2.dsl"; sourceTree = "<group>"; };
 		EDD010261CC0181000D0CCF1 /* Backlight_0xad9.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Backlight_0xad9.plist; sourceTree = "<group>"; };
-		EDD44B6E1C178B17003D0CA9 /* config_IDT76e0.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config_IDT76e0.plist; sourceTree = "<group>"; };
-		EDD44B6F1C178B17003D0CA9 /* config_IDT7695.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config_IDT7695.plist; sourceTree = "<group>"; };
-		EDD44B701C178B17003D0CA9 /* config_IDT7605.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config_IDT7605.plist; sourceTree = "<group>"; };
 		EDD44B711C178DD1003D0CA9 /* config_8x0s_G2_Broadwell.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_8x0s_G2_Broadwell.plist; path = config/config_8x0s_G2_Broadwell.plist; sourceTree = "<group>"; };
 		EDD44B721C178DD1003D0CA9 /* config_4x0s_G2_Broadwell.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_4x0s_G2_Broadwell.plist; path = config/config_4x0s_G2_Broadwell.plist; sourceTree = "<group>"; };
 		EDD44B731C178DD1003D0CA9 /* config_8x0s_G2_Haswell.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_8x0s_G2_Haswell.plist; path = config/config_8x0s_G2_Haswell.plist; sourceTree = "<group>"; };
@@ -155,10 +157,8 @@
 		EDD44B791C178DD1003D0CA9 /* config_8x0s_G1_Ivy.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_8x0s_G1_Ivy.plist; path = config/config_8x0s_G1_Ivy.plist; sourceTree = "<group>"; };
 		EDD44B7A1C178DD1003D0CA9 /* config_9x70m.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_9x70m.plist; path = config/config_9x70m.plist; sourceTree = "<group>"; };
 		EDD44B7C1C178E90003D0CA9 /* config_4x0s_G0.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_4x0s_G0.plist; path = config/config_4x0s_G0.plist; sourceTree = "<group>"; };
-		EDE8FF151C18123F006FCDD1 /* SSDT-USB-8x0s-G1.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-USB-8x0s-G1.dsl"; sourceTree = "<group>"; };
 		EDEAE87C1CBEEC2E00E1DF9D /* layout5.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = layout5.plist; path = Resources_ProBook/layout5.plist; sourceTree = "<group>"; };
 		EDEC127B1C180E880080CCCA /* config_8x0s_G1_Haswell.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_8x0s_G1_Haswell.plist; path = config/config_8x0s_G1_Haswell.plist; sourceTree = "<group>"; };
-		EDF9A6211C0514C300A2E045 /* SSDT-IGPU.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SSDT-IGPU.dsl"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -309,21 +309,21 @@
 		ED97E91F1CC75441006C757A /* config parts */ = {
 			isa = PBXGroup;
 			children = (
-				ED511C981C062320005DAA2B /* config_master.plist */,
-				ED511C991C062320005DAA2B /* config_non_Intel_USB3.plist */,
-				ED511C971C062320005DAA2B /* config_ALC282.plist */,
-				ED85B91A1C44A2FC004A5921 /* config_ALC280.plist */,
-				ED6CF8F31CBE8224009A49C7 /* config_CX20724.plist */,
-				ED511C9A1C0623AB005DAA2B /* config_IDT76d1.plist */,
-				ED511C9B1C0624BF005DAA2B /* config_IDT76d9.plist */,
-				EDD44B701C178B17003D0CA9 /* config_IDT7605.plist */,
-				EDD44B6E1C178B17003D0CA9 /* config_IDT76e0.plist */,
-				EDD44B6F1C178B17003D0CA9 /* config_IDT7695.plist */,
-				ED56AA161C08B10A00260DBA /* config_HD3000.plist */,
-				ED56AA151C08B10A00260DBA /* config_HD4000.plist */,
-				ED56AA141C08B10A00260DBA /* config_Haswell.plist */,
-				ED56AA131C08B10A00260DBA /* config_Broadwell.plist */,
-				ED4CEBE31CBE80A100831F4D /* config_Skylake.plist */,
+				ED97E9201CC755BE006C757A /* config_master.plist */,
+				ED97E92E1CC755BE006C757A /* config_non_Intel_USB3.plist */,
+				ED97E9231CC755BE006C757A /* config_HD3000.plist */,
+				ED97E9241CC755BE006C757A /* config_HD4000.plist */,
+				ED97E9221CC755BE006C757A /* config_Haswell.plist */,
+				ED97E9211CC755BE006C757A /* config_Broadwell.plist */,
+				ED97E9251CC755BE006C757A /* config_Skylake.plist */,
+				ED97E9261CC755BE006C757A /* config_CX20724.plist */,
+				ED97E9271CC755BE006C757A /* config_ALC280.plist */,
+				ED97E9281CC755BE006C757A /* config_ALC282.plist */,
+				ED97E9291CC755BE006C757A /* config_IDT76d1.plist */,
+				ED97E92A1CC755BE006C757A /* config_IDT76d9.plist */,
+				ED97E92B1CC755BE006C757A /* config_IDT76e0.plist */,
+				ED97E92C1CC755BE006C757A /* config_IDT7605.plist */,
+				ED97E92D1CC755BE006C757A /* config_IDT7695.plist */,
 			);
 			name = "config parts";
 			sourceTree = "<group>";
@@ -351,49 +351,49 @@
 		EDB940BA1C04D44500480024 /* hotpatch */ = {
 			isa = PBXGroup;
 			children = (
+				ED97E9371CC757D7006C757A /* SSDT-4x30s.dsl */,
+				ED97E9381CC757D7006C757A /* SSDT-4x40s.dsl */,
+				ED97E9391CC757D7006C757A /* SSDT-6x60.dsl */,
+				ED97E93F1CC757D7006C757A /* SSDT-8x60.dsl */,
+				ED97E92F1CC757D7006C757A /* SSDT-2x70.dsl */,
+				ED97E93A1CC757D7006C757A /* SSDT-6x70.dsl */,
+				ED97E9401CC757D7006C757A /* SSDT-8x70.dsl */,
+				ED97E9411CC757D7006C757A /* SSDT-9x70.dsl */,
+				ED97E9311CC757D7006C757A /* SSDT-4x0-G0.dsl */,
+				ED97E9301CC757D7006C757A /* SSDT-3x0-G1.dsl */,
+				ED97E9331CC757D7006C757A /* SSDT-4x0-G1-Ivy.dsl */,
+				ED97E93C1CC757D7006C757A /* SSDT-8x0-G1-Ivy.dsl */,
+				ED97E9321CC757D7006C757A /* SSDT-4x0-G1-Haswell.dsl */,
+				ED97E93B1CC757D7006C757A /* SSDT-8x0-G1-Haswell.dsl */,
+				ED97E9421CC757D7006C757A /* SSDT-1040-G1-Haswell.dsl */,
+				ED97E9351CC757D7006C757A /* SSDT-4x0-G2-Haswell.dsl */,
+				ED97E93E1CC757D7006C757A /* SSDT-8x0-G2-Haswell.dsl */,
+				ED97E9341CC757D7006C757A /* SSDT-4x0-G2-Broadwell.dsl */,
+				ED97E93D1CC757D7006C757A /* SSDT-8x0-G2-Broadwell.dsl */,
+				ED97E9361CC757D7006C757A /* SSDT-4x0-G3-Skylake.dsl */,
+				ED97E9431CC757D7006C757A /* SSDT-ZBook-G2-Haswell.dsl */,
+				ED97E9441CC757D7006C757A /* SSDT-HACK.dsl */,
+				ED97E9491CC757D7006C757A /* SSDT-USB.dsl */,
+				ED97E94B1CC757D7006C757A /* SSDT-IGPU.dsl */,
+				ED97E9521CC757D7006C757A /* SSDT-BATT.dsl */,
+				ED97E9531CC757D7006C757A /* SSDT-BATT-G2.dsl */,
+				ED97E94E1CC757D7006C757A /* SSDT-BATT-G3.dsl */,
+				ED97E9561CC757D7006C757A /* SSDT-FAN-READ.dsl */,
+				ED97E9551CC757D7006C757A /* SSDT-FAN-ORIG.dsl */,
+				ED97E9511CC757D7006C757A /* SSDT-FAN-QUIET.dsl */,
+				ED97E9571CC757D7006C757A /* SSDT-KEY87.dsl */,
+				ED97E9581CC757D7006C757A /* SSDT-KEY102.dsl */,
+				ED97E9541CC757D7006C757A /* SSDT-USB-4x30s.dsl */,
+				ED97E9501CC757D7006C757A /* SSDT-USB-4x40s.dsl */,
+				ED97E94C1CC757D7006C757A /* SSDT-USB-6x60.dsl */,
+				ED97E94D1CC757D7006C757A /* SSDT-USB-8x60.dsl */,
+				ED97E94F1CC757D7006C757A /* SSDT-USB-6x70.dsl */,
+				ED97E9461CC757D7006C757A /* SSDT-USB-8x0s-G1.dsl */,
+				ED97E9451CC757D7006C757A /* SSDT-USB-4x0s-G2.dsl */,
+				ED97E9471CC757D7006C757A /* SSDT-USB-820-G2.dsl */,
+				ED97E9481CC757D7006C757A /* SSDT-USB-840-G2.dsl */,
+				ED97E94A1CC757D7006C757A /* SSDT-USB-4x0-G3.dsl */,
 				EDA987001CC71F8D00D10BEC /* include */,
-				EDA986F51CC7159900D10BEC /* SSDT-4x30s.dsl */,
-				EDA986F41CC714D100D10BEC /* SSDT-4x40s.dsl */,
-				EDA986F61CC7188800D10BEC /* SSDT-6x60.dsl */,
-				EDA987011CC7208300D10BEC /* SSDT-8x60.dsl */,
-				EDA987041CC7235800D10BEC /* SSDT-2x70.dsl */,
-				EDA987031CC7235800D10BEC /* SSDT-6x70.dsl */,
-				EDA987021CC7231700D10BEC /* SSDT-8x70.dsl */,
-				EDA987051CC7239B00D10BEC /* SSDT-9x70.dsl */,
-				EDA987061CC7249900D10BEC /* SSDT-1040-G1-Haswell.dsl */,
-				EDA987071CC724F600D10BEC /* SSDT-3x0-G1.dsl */,
-				EDA987081CC7254600D10BEC /* SSDT-4x0-G0.dsl */,
-				EDA9870A1CC725A700D10BEC /* SSDT-4x0-G1-Ivy.dsl */,
-				EDA987091CC725A700D10BEC /* SSDT-8x0-G1-Ivy.dsl */,
-				EDA9870C1CC7262600D10BEC /* SSDT-4x0-G1-Haswell.dsl */,
-				EDA9870B1CC7262600D10BEC /* SSDT-8x0-G1-Haswell.dsl */,
-				EDA9870E1CC7267700D10BEC /* SSDT-4x0-G2-Haswell.dsl */,
-				EDA9870D1CC7267700D10BEC /* SSDT-8x0-G2-Haswell.dsl */,
-				EDA987101CC7271F00D10BEC /* SSDT-4x0-G2-Broadwell.dsl */,
-				EDA9870F1CC7271F00D10BEC /* SSDT-8x0-G2-Broadwell.dsl */,
-				EDA987111CC7276D00D10BEC /* SSDT-ZBook-G2-Haswell.dsl */,
-				EDA987121CC727BD00D10BEC /* SSDT-4x0-G3-Skylake.dsl */,
-				84EEDDDC1BC605BE000F5071 /* SSDT-HACK.dsl */,
-				EDF9A6211C0514C300A2E045 /* SSDT-IGPU.dsl */,
-				EDB940B71C04D11C00480024 /* SSDT-BATT.dsl */,
-				EDB940B91C04D2CB00480024 /* SSDT-BATT-G2.dsl */,
-				ED499C5F1CBE8A6500C7C106 /* SSDT-BATT-G3.dsl */,
-				EDB940BC1C04D4D400480024 /* SSDT-KEY87.dsl */,
-				EDB940BB1C04D4D400480024 /* SSDT-KEY102.dsl */,
-				EDB940BD1C04D78800480024 /* SSDT-FAN-QUIET.dsl */,
-				EDB940BF1C04D99A00480024 /* SSDT-FAN-ORIG.dsl */,
-				EDB940BE1C04D99A00480024 /* SSDT-FAN-READ.dsl */,
-				EDA986F31CC712B100D10BEC /* SSDT-USB.dsl */,
-				ED7126761C16A6F200BBED31 /* SSDT-USB-4x30s.dsl */,
-				84A520C71C166BF5006C4C64 /* SSDT-USB-4x40s.dsl */,
-				ED1278681C1655010094A691 /* SSDT-USB-4x0s-G2.dsl */,
-				ED304EF01CB95CC100780D95 /* SSDT-USB-6x60.dsl */,
-				ED53FB961CBF383B001FDA9B /* SSDT-USB-8x60.dsl */,
-				ED9B77141CB2BFBC000E62FE /* SSDT-USB-6x70.dsl */,
-				EDE8FF151C18123F006FCDD1 /* SSDT-USB-8x0s-G1.dsl */,
-				EDCDE4FD1CAC1A6700EBF998 /* SSDT-USB-820-G2.dsl */,
-				EDC2F47F1C87D6370009DA13 /* SSDT-USB-840-G2.dsl */,
-				ED4F13ED1CC17FA200A00E34 /* SSDT-USB-4x0-G3.dsl */,
 				ED97E91F1CC75441006C757A /* config parts */,
 				ED3089661C077B9A00BAB77C /* Generated config */,
 			);
