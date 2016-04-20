@@ -39,7 +39,6 @@
 		84B9D52416FFE684002CD441 /* xx_Brightness.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = xx_Brightness.txt; path = patches/xx_Brightness.txt; sourceTree = "<group>"; };
 		84B9D52516FFE684002CD441 /* License.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = License.md; sourceTree = "<group>"; };
 		84B9D52616FFE684002CD441 /* makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; lineEnding = 0; path = makefile; sourceTree = "<group>"; usesTabs = 1; };
-		84B9D52716FFE684002CD441 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		84CF5EE71CA9DF2000FB64FA /* layout17.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = layout17.plist; path = Resources_ProBook/layout17.plist; sourceTree = "<group>"; };
 		84CF5EE81CA9DF2000FB64FA /* layout18.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = layout18.plist; path = Resources_ProBook/layout18.plist; sourceTree = "<group>"; };
 		84CF5EE91CA9DF2000FB64FA /* layout19.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = layout19.plist; path = Resources_ProBook/layout19.plist; sourceTree = "<group>"; };
@@ -152,6 +151,8 @@
 		ED97E9561CC757D7006C757A /* SSDT-FAN-READ.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-FAN-READ.dsl"; path = "hotpatch/SSDT-FAN-READ.dsl"; sourceTree = "<group>"; };
 		ED97E9571CC757D7006C757A /* SSDT-KEY87.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-KEY87.dsl"; path = "hotpatch/SSDT-KEY87.dsl"; sourceTree = "<group>"; };
 		ED97E9581CC757D7006C757A /* SSDT-KEY102.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-KEY102.dsl"; path = "hotpatch/SSDT-KEY102.dsl"; sourceTree = "<group>"; };
+		EDA152011CC82A4B0040A5C0 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		EDA152021CC82BED0040A5C0 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.txt; path = patches/README.txt; sourceTree = "<group>"; };
 		EDBC2FA01CC7062B00D9DFC5 /* config_1040_G1_Haswell.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_1040_G1_Haswell.plist; path = config/config_1040_G1_Haswell.plist; sourceTree = "<group>"; };
 		EDBC2FA11CC7062B00D9DFC5 /* config_2x70p.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_2x70p.plist; path = config/config_2x70p.plist; sourceTree = "<group>"; };
 		EDBFC62A1AC74DA600E24D1F /* 06a_Battery_PNOT.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = 06a_Battery_PNOT.txt; path = patches/06a_Battery_PNOT.txt; sourceTree = "<group>"; };
@@ -209,9 +210,10 @@
 			name = "other patches";
 			sourceTree = "<group>";
 		};
-		847F5EE11B508C2300825CE8 /* ProBook patches */ = {
+		847F5EE11B508C2300825CE8 /* legacy patches */ = {
 			isa = PBXGroup;
 			children = (
+				EDA152021CC82BED0040A5C0 /* README.txt */,
 				845FE5EF1702639F004601B0 /* .maciasl */,
 				84878E3B17445FE100F82A03 /* 00_Optimize.txt */,
 				84B9D51916FFE684002CD441 /* 01_Compilation.txt */,
@@ -243,13 +245,13 @@
 				ED634E2619FD2A9B00289C54 /* 14_ProBook-102key.txt */,
 				8499C9761704B5F70066A5F3 /* NullPatch.txt */,
 			);
-			name = "ProBook patches";
+			name = "legacy patches";
 			sourceTree = "<group>";
 		};
 		84B9D50E16FFE58F002CD441 = {
 			isa = PBXGroup;
 			children = (
-				84B9D52716FFE684002CD441 /* README.txt */,
+				EDA152011CC82A4B0040A5C0 /* README.md */,
 				84B9D52516FFE684002CD441 /* License.md */,
 				ED97346F1C0A5F260063BCF9 /* download.sh */,
 				ED9734701C0A5F370063BCF9 /* install_downloads.sh */,
@@ -262,7 +264,7 @@
 				847F5EDA1B508B0800825CE8 /* USBXHCI_4x40s.kext */,
 				847F5ED91B508AFC00825CE8 /* backlight */,
 				847F5EDF1B508B8200825CE8 /* mini-SSDTs */,
-				847F5EE11B508C2300825CE8 /* ProBook patches */,
+				847F5EE11B508C2300825CE8 /* legacy patches */,
 				847F5EE01B508C1400825CE8 /* other patches */,
 			);
 			sourceTree = "<group>";
