@@ -7,3 +7,4 @@ AppleBacklightInjector.kext
 Build/*
 !Build/readme.txt
 downloads
+config/config_*.plist
