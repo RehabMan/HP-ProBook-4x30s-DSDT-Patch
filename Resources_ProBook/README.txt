@@ -19,7 +19,7 @@ Model/Audio mapping
 
 ALC282: 4x0G2 Haswell, 8x0G2 Haswell, 4x0G2 Broadwell
 
-ALC280: Zbook G2 Haswell, HP Folio 9480m Haswell, 8x0G2 Broadwell
+ALC280: Zbook G2 Haswell/Broadwell, HP Folio 9480m Haswell, 8x0G2 Broadwell
 
 CX20724: 4x0sG3 Skylake
 

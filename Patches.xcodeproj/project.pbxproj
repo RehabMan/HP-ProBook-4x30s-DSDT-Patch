@@ -150,6 +150,8 @@
 		ED97E9561CC757D7006C757A /* SSDT-FAN-READ.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-FAN-READ.dsl"; path = "hotpatch/SSDT-FAN-READ.dsl"; sourceTree = "<group>"; };
 		ED97E9571CC757D7006C757A /* SSDT-KEY87.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-KEY87.dsl"; path = "hotpatch/SSDT-KEY87.dsl"; sourceTree = "<group>"; };
 		ED97E9581CC757D7006C757A /* SSDT-KEY102.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-KEY102.dsl"; path = "hotpatch/SSDT-KEY102.dsl"; sourceTree = "<group>"; };
+		ED9E98FA1CC905E90032E2A3 /* config_ZBook_G2_Broadwell.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_ZBook_G2_Broadwell.plist; path = config/config_ZBook_G2_Broadwell.plist; sourceTree = "<group>"; };
+		ED9E98FB1CC905FA0032E2A3 /* SSDT-ZBook-G2-Broadwell.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-ZBook-G2-Broadwell.dsl"; path = "hotpatch/SSDT-ZBook-G2-Broadwell.dsl"; sourceTree = "<group>"; };
 		EDA152011CC82A4B0040A5C0 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		EDA152021CC82BED0040A5C0 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.txt; path = patches/README.txt; sourceTree = "<group>"; };
 		EDBC2FA01CC7062B00D9DFC5 /* config_1040_G1_Haswell.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_1040_G1_Haswell.plist; path = config/config_1040_G1_Haswell.plist; sourceTree = "<group>"; };
@@ -310,6 +312,7 @@
 				EDD44B721C178DD1003D0CA9 /* config_4x0s_G2_Broadwell.plist */,
 				EDD44B711C178DD1003D0CA9 /* config_8x0s_G2_Broadwell.plist */,
 				84FAF3521CA9FB630066178B /* config_ZBook_G2_Haswell.plist */,
+				ED9E98FA1CC905E90032E2A3 /* config_ZBook_G2_Broadwell.plist */,
 				ED7A2ADB1CBEF56000062967 /* config_4x0s_G3_Skylake.plist */,
 			);
 			name = "Generated config";
@@ -381,6 +384,7 @@
 				ED97E93D1CC757D7006C757A /* SSDT-8x0-G2-Broadwell.dsl */,
 				ED97E9361CC757D7006C757A /* SSDT-4x0-G3-Skylake.dsl */,
 				ED97E9431CC757D7006C757A /* SSDT-ZBook-G2-Haswell.dsl */,
+				ED9E98FB1CC905FA0032E2A3 /* SSDT-ZBook-G2-Broadwell.dsl */,
 				ED97E9441CC757D7006C757A /* SSDT-HACK.dsl */,
 				ED16A73D1CC7B8B400EA1E82 /* SSDT-XOSI.dsl */,
 				ED16A73F1CC7B8B400EA1E82 /* SSDT-SMBUS.dsl */,

@@ -69,7 +69,7 @@ HACK:=$(HACK) $(BUILDDIR)/SSDT-4x0-G1-Ivy.aml $(BUILDDIR)/SSDT-8x0-G1-Ivy.aml
 HACK:=$(HACK) $(BUILDDIR)/SSDT-4x0-G1-Haswell.aml $(BUILDDIR)/SSDT-8x0-G1-Haswell.aml
 HACK:=$(HACK) $(BUILDDIR)/SSDT-4x0-G2-Haswell.aml $(BUILDDIR)/SSDT-8x0-G2-Haswell.aml
 HACK:=$(HACK) $(BUILDDIR)/SSDT-4x0-G2-Broadwell.aml $(BUILDDIR)/SSDT-8x0-G2-Broadwell.aml
-HACK:=$(HACK) $(BUILDDIR)/SSDT-ZBook-G2-Haswell.aml
+HACK:=$(HACK) $(BUILDDIR)/SSDT-ZBook-G2-Haswell.aml $(BUILDDIR)/SSDT-ZBook-G2-Broadwell.aml
 HACK:=$(HACK) $(BUILDDIR)/SSDT-4x0-G3-Skylake.aml
 
 # system specfic config.plist
@@ -82,7 +82,7 @@ PLIST:=$(PLIST) config/config_3x0_G1.plist
 PLIST:=$(PLIST) config/config_8x0s_G1_Haswell.plist config/config_4x0s_G1_Haswell.plist
 PLIST:=$(PLIST) config/config_4x0s_G2_Haswell.plist config/config_8x0s_G2_Haswell.plist
 PLIST:=$(PLIST) config/config_4x0s_G2_Broadwell.plist config/config_8x0s_G2_Broadwell.plist
-PLIST:=$(PLIST) config/config_ZBook_G2_Haswell.plist
+PLIST:=$(PLIST) config/config_ZBook_G2_Haswell.plist config/config_ZBook_G2_Broadwell.plist
 PLIST:=$(PLIST) config/config_4x0s_G3_Skylake.plist
 PLIST:=$(PLIST) config/config_1040_G1_Haswell.plist
 
@@ -431,6 +431,15 @@ install_ZBook_G2_haswell:
 #	cp $(BUILDDIR)/SSDT-USB-ZBook-G2.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 	cp $(BUILDDIR)/SSDT-FAN-READ.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 
+.PHONY: install_ZBook_G2_broadwell
+install_ZBook_G2_broadwell:
+	make install
+	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
+	cp $(BUILDDIR)/SSDT-ZBook-G2-Broadwell.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-KEY102.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+#	cp $(BUILDDIR)/SSDT-USB-ZBook-G2.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-FAN-READ.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+
 $(HDAINJECT): $(RESOURCES)/*.plist ./patch_hda.sh
 	./patch_hda.sh $(HDA)
 	touch $@
@@ -618,6 +627,16 @@ config/config_ZBook_G2_Haswell.plist : $(PARTS)/config_master.plist $(PARTS)/con
 	/usr/libexec/plistbuddy -c "Set KernelAndKextPatches:AsusAICPUPM false" $@
 	/usr/libexec/plistbuddy -c "Set :SMBIOS:ProductName MacBookPro11,1" $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_Haswell.plist $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_ALC280.plist $@
+	@printf "\n"
+
+# ZBook_G2_Broadwell is ALC280, Broadwell
+config/config_ZBook_G2_Broadwell.plist : $(PARTS)/config_master.plist $(PARTS)/config_ALC280.plist $(PARTS)/config_Broadwell.plist
+	@printf "!! creating $@\n"
+	cp $(PARTS)/config_master.plist $@
+	/usr/libexec/plistbuddy -c "Set KernelAndKextPatches:AsusAICPUPM false" $@
+	/usr/libexec/plistbuddy -c "Set :SMBIOS:ProductName MacBookPro11,1" $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_Broadwell.plist $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_ALC280.plist $@
 	@printf "\n"
 
