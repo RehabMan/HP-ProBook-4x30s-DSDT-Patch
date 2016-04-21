@@ -69,7 +69,6 @@
 		ED1837491C0A4B1200A5A3DA /* layout13.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = layout13.plist; path = Resources_ProBook/layout13.plist; sourceTree = "<group>"; };
 		ED18374D1C0A4B1200A5A3DA /* Platforms.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Platforms.plist; path = Resources_ProBook/Platforms.plist; sourceTree = "<group>"; };
 		ED18374E1C0A4B1200A5A3DA /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.txt; path = Resources_ProBook/README.txt; sourceTree = "<group>"; };
-		ED4145E71CC80244009A3CFA /* SSDT-USB-850-G2.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-USB-850-G2.dsl"; path = "hotpatch/SSDT-USB-850-G2.dsl"; sourceTree = "<group>"; };
 		ED634E2619FD2A9B00289C54 /* 14_ProBook-102key.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "14_ProBook-102key.txt"; path = "patches/14_ProBook-102key.txt"; sourceTree = "<group>"; };
 		ED634E2719FD2B3E00289C54 /* 14_ProBook-87key.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "14_ProBook-87key.txt"; path = "patches/14_ProBook-87key.txt"; sourceTree = "<group>"; };
 		ED72750B1BE1B1D700314108 /* config_4x30s.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_4x30s.plist; path = config/config_4x30s.plist; sourceTree = "<group>"; };
@@ -409,7 +408,6 @@
 				ED97E9451CC757D7006C757A /* SSDT-USB-4x0s-G2.dsl */,
 				ED97E9471CC757D7006C757A /* SSDT-USB-820-G2.dsl */,
 				ED97E9481CC757D7006C757A /* SSDT-USB-840-G2.dsl */,
-				ED4145E71CC80244009A3CFA /* SSDT-USB-850-G2.dsl */,
 				ED97E94A1CC757D7006C757A /* SSDT-USB-4x0-G3.dsl */,
 				EDA987001CC71F8D00D10BEC /* include */,
 				ED97E91F1CC75441006C757A /* config parts */,

@@ -1,10 +1,12 @@
 // USBInjectAll configuration/override for EliteBook 820 G2 Broadwell
+//   and EliteBook 850 G2 Broadwell
 //
 
 //REVIEW: preliminary data for G2.  Note that it has a hub on XHC, which
 //  may need further work.
 
 // Based on information provided from EliteBook Pro 820 G2
+// This same configuration is also valid for EliteBook 850 G2 Broadwell
 
 // set DISABLE_EHCI to 0 if you want to try with USB2 on XHCI routed to EHCI
 #define DISABLE_EHCI 1

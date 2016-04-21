@@ -666,3 +666,5 @@ $(BUILDDIR)/SSDT-FAN-MOD.aml : hotpatch/SSDT-FAN-QUIET.dsl
 $(BUILDDIR)/SSDT-FAN-SMOOTH.aml : hotpatch/SSDT-FAN-QUIET.dsl
 	iasl -D GRAPPLER $(IASLOPTS) -p $@ $^
 
+$(BUILDDIR)/SSDT-USB-850-G2.aml : hotpatch/SSDT-USB-820-G2.dsl
+	iasl $(IASLOPTS) -p $@ $^
