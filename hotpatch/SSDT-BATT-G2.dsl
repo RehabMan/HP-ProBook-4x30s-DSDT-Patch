@@ -199,7 +199,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "battg2", 0)
             {
                 Store (Arg0, BSEL)
                 Store (BST, Local0)
-                Store (B1B2 (BCR0, BCR1), Local3)
+                Store (B1B2 (BPR0, BPR1), Local3)
                 Store (B1B2 (BRC0, BRC1), Index (DerefOf (Index (NBST, Arg0)), 0x02))
                 Store (B1B2 (BPV0, BPV1), Index (DerefOf (Index (NBST, Arg0)), 0x03))
             }
@@ -237,12 +237,9 @@ DefinitionBlock ("", "SSDT", 2, "hack", "battg2", 0)
                     }
                 }
             }
-            Else
+            ElseIf (LEqual (And (Local0, 0x02), 0x00))
             {
-                If (LEqual (And (Local0, 0x02), 0x00))
-                {
-                    Store (0x00, Local3)
-                }
+                Store (0x00, Local3)
             }
 
             Store (Local3, Index (DerefOf (Index (NBST, Arg0)), 0x01))
@@ -628,33 +625,21 @@ DefinitionBlock ("", "SSDT", 2, "hack", "battg2", 0)
                     {
                         Store (0x00, Index (DerefOf (Index (Local0, 0x02)), 0x00))
                     }
-                    Else
+                    ElseIf (LAnd (LAnd (LAnd (LEqual (INAC, 0x00), LEqual (INCH, 0x02)), LEqual (IDIS, 0x01)), LEqual (B1B2 (AXC0, AXC1), 0x00)))
                     {
-                        If (LAnd (LAnd (LAnd (LEqual (INAC, 0x00), LEqual (INCH, 0x02)), LEqual (IDIS, 0x01)), LEqual (B1B2 (AXC0, AXC1), 0x00)))
-                        {
-                            Store (0x01, Index (DerefOf (Index (Local0, 0x02)), 0x00))
-                        }
-                        Else
-                        {
-                            If (LAnd (LEqual (INAC, 0x01), LEqual (IDIS, 0x02)))
-                            {
-                                Store (0x02, Index (DerefOf (Index (Local0, 0x02)), 0x00))
-                            }
-                            Else
-                            {
-                                If (LAnd (LAnd (LAnd (LEqual (INAC, 0x00), LEqual (INCH, 0x02)), LEqual (IDIS, 0x01)), LEqual (B1B2 (AXC0, AXC1), 0xFA)))
-                                {
-                                    Store (0x03, Index (DerefOf (Index (Local0, 0x02)), 0x00))
-                                }
-                                Else
-                                {
-                                    If (LAnd (LEqual (INAC, 0x00), LEqual (INCH, 0x03)))
-                                    {
-                                        Store (0x04, Index (DerefOf (Index (Local0, 0x02)), 0x00))
-                                    }
-                                }
-                            }
-                        }
+                        Store (0x01, Index (DerefOf (Index (Local0, 0x02)), 0x00))
+                    }
+                    ElseIf (LAnd (LEqual (INAC, 0x01), LEqual (IDIS, 0x02)))
+                    {
+                        Store (0x02, Index (DerefOf (Index (Local0, 0x02)), 0x00))
+                    }
+                    ElseIf (LAnd (LAnd (LAnd (LEqual (INAC, 0x00), LEqual (INCH, 0x02)), LEqual (IDIS, 0x01)), LEqual (B1B2 (AXC0, AXC1), 0xFA)))
+                    {
+                        Store (0x03, Index (DerefOf (Index (Local0, 0x02)), 0x00))
+                    }
+                    ElseIf (LAnd (LEqual (INAC, 0x00), LEqual (INCH, 0x03)))
+                    {
+                        Store (0x04, Index (DerefOf (Index (Local0, 0x02)), 0x00))
                     }
                 }
                 Else
@@ -670,33 +655,21 @@ DefinitionBlock ("", "SSDT", 2, "hack", "battg2", 0)
                     {
                         Store (0x00, Index (DerefOf (Index (Local0, 0x02)), 0x01))
                     }
-                    Else
+                    ElseIf (LAnd (LAnd (LAnd (LEqual (INAC, 0x00), LEqual (INCH, 0x01)), LEqual (IDIS, 0x02)), LEqual (B1B2 (AXC0, AXC1), 0x00)))
                     {
-                        If (LAnd (LAnd (LAnd (LEqual (INAC, 0x00), LEqual (INCH, 0x01)), LEqual (IDIS, 0x02)), LEqual (B1B2 (AXC0, AXC1), 0x00)))
-                        {
-                            Store (0x01, Index (DerefOf (Index (Local0, 0x02)), 0x01))
-                        }
-                        Else
-                        {
-                            If (LAnd (LEqual (INAC, 0x01), LEqual (IDIS, 0x01)))
-                            {
-                                Store (0x02, Index (DerefOf (Index (Local0, 0x02)), 0x01))
-                            }
-                            Else
-                            {
-                                If (LAnd (LAnd (LAnd (LEqual (INAC, 0x00), LEqual (INCH, 0x01)), LEqual (IDIS, 0x02)), LEqual (B1B2 (AXC0, AXC1), 0xFA)))
-                                {
-                                    Store (0x03, Index (DerefOf (Index (Local0, 0x02)), 0x01))
-                                }
-                                Else
-                                {
-                                    If (LAnd (LEqual (INAC, 0x00), LEqual (INCH, 0x03)))
-                                    {
-                                        Store (0x04, Index (DerefOf (Index (Local0, 0x02)), 0x01))
-                                    }
-                                }
-                            }
-                        }
+                        Store (0x01, Index (DerefOf (Index (Local0, 0x02)), 0x01))
+                    }
+                    ElseIf (LAnd (LEqual (INAC, 0x01), LEqual (IDIS, 0x01)))
+                    {
+                        Store (0x02, Index (DerefOf (Index (Local0, 0x02)), 0x01))
+                    }
+                    ElseIf (LAnd (LAnd (LAnd (LEqual (INAC, 0x00), LEqual (INCH, 0x01)), LEqual (IDIS, 0x02)), LEqual (B1B2 (AXC0, AXC1), 0xFA)))
+                    {
+                        Store (0x03, Index (DerefOf (Index (Local0, 0x02)), 0x01))
+                    }
+                    ElseIf (LAnd (LEqual (INAC, 0x00), LEqual (INCH, 0x03)))
+                    {
+                        Store (0x04, Index (DerefOf (Index (Local0, 0x02)), 0x01))
                     }
                 }
                 Else
