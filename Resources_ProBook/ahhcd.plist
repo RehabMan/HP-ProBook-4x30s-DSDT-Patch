@@ -18,11 +18,11 @@
 			<key>AFGLowPowerState</key>
 			<data>AwAAAA==</data>
 			<key>Codec</key>
-			<string>Mirone - Realtek ALC280</string>
+			<string>Mirone - Realtek ALC280 - combojack</string>
 			<key>CodecID</key>
 			<integer>283902592</integer>
 			<key>ConfigData</key>
-			<data>AUccEAFHHQABRx4TAUcfkAFXHCABVx0QAVceIQFXHwEBJxwwAScdAAEnHqABJx+QAaccQAGnHRABpx6BAacfAgFHDAIBVwwC</data>
+			<data>ASccEAEnHQABJx6gAScfkAFHHCABRx0AAUceFwFHH5ABVxwwAVcdEAFXHiEBVx8CAaccQAGnHRABpx6BAacfAgFHDAIBVwwC</data>
 			<key>FuncGroup</key>
 			<integer>1</integer>
 			<key>LayoutID</key>

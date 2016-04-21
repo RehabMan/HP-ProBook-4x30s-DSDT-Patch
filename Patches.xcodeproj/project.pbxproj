@@ -169,6 +169,7 @@
 		EDD44B7C1C178E90003D0CA9 /* config_4x0s_G0.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_4x0s_G0.plist; path = config/config_4x0s_G0.plist; sourceTree = "<group>"; };
 		EDEAE87C1CBEEC2E00E1DF9D /* layout5.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = layout5.plist; path = Resources_ProBook/layout5.plist; sourceTree = "<group>"; };
 		EDEC127B1C180E880080CCCA /* config_8x0s_G1_Haswell.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_8x0s_G1_Haswell.plist; path = config/config_8x0s_G1_Haswell.plist; sourceTree = "<group>"; };
+		EDEC4E3A1CC97910002AC8E5 /* ALC280_CC.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ALC280_CC.asl; path = hotpatch/include/ALC280_CC.asl; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -389,6 +390,7 @@
 		EDA987001CC71F8D00D10BEC /* include */ = {
 			isa = PBXGroup;
 			children = (
+				EDEC4E3A1CC97910002AC8E5 /* ALC280_CC.asl */,
 				ED97E91E1CC75350006C757A /* disable_CC.asl */,
 				ED97E91D1CC75350006C757A /* disable_HECI.asl */,
 				ED97E9121CC75350006C757A /* layout3_HDAU.asl */,
