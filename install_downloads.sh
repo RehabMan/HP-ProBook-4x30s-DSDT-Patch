@@ -191,8 +191,10 @@ cd ..
 
 #if [[ $MINOR_VER -ge 11 ]]; then
     # create custom AppleBacklightInjector.kext and install
+    #cd ./backlight
     #./patch_backlight.sh
     #install_kext AppleBacklightInjector.kext
+    #cd ..
     # remove ACPIBacklight.kext if it is installed (doesn't work with 10.11)
     #if [ -d $SLE/ACPIBacklight.kext ]; then
     #    $SUDO rm -Rf $SLE/ACPIBacklight.kext
