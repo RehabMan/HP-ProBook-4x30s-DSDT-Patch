@@ -10,6 +10,7 @@ BUILDDIR=./build
 HDA=ProBook
 RESOURCES=./Resources_$(HDA)
 HDAINJECT=AppleHDA_$(HDA).kext
+MINIDIR=./mini/build
 
 VERSION_ERA=$(shell ./print_version.sh)
 ifeq "$(VERSION_ERA)" "10.10-"
@@ -30,7 +31,7 @@ EHCI7 = patches/02b_EHCI_4x40s.txt
 IMEI = patches/07_MEI_4x40s_Sandy.txt
 AR9285 = patches/08_AR9285.txt
 STATIC = patches/4x30s.txt patches/4x40s_IvyBridge.txt patches/4x40s_SandyBridge.txt
-MINI = Mini-SSDT.aml Mini-SSDT-DualLink.aml Mini-SSDT-IMEI.aml Mini-SSDT-DisableGraphics.aml Mini-SSDT-AR9285.aml
+MINI = $(MINIDIR)/Mini-SSDT.aml $(MINIDIR)/Mini-SSDT-DualLink.aml $(MINIDIR)/Mini-SSDT-IMEI.aml $(MINIDIR)/Mini-SSDT-$(MINIDIR)/DisableGraphics.aml $(MINIDIR)/Mini-SSDT-AR9285.aml
 #//REVIEW: stop building MINI for now
 MINI=
 
@@ -663,7 +664,7 @@ patches/4x40s_SandyBridge.txt : $(COMMON) $(EHCI7) $(IMEI)
 
 # mini SSDTs
 
-%.aml : mini/%.dsl
+$(MINIDIR)/%.aml : mini/%.dsl
 	iasl -p $@ $<
 
 # new hotpatch SSDTs
