@@ -15,6 +15,10 @@ HDAZML=AppleHDA_$(HDA)_Resources
 
 MINIDIR=./mini/build
 
+ifeq "$(FANPREF)" ""
+FANPREF=READ
+endif
+
 VERSION_ERA=$(shell ./print_version.sh)
 ifeq "$(VERSION_ERA)" "10.10-"
 	INSTDIR=/System/Library/Extensions
@@ -110,6 +114,7 @@ install:
 	cp $(CORE) $(EFIDIR)/EFI/CLOVER/ACPI/patched
 	cp $(BUILDDIR)/SSDT-IGPU.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 	cp $(BUILDDIR)/SSDT-BATT.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-FAN-$(FANPREF).aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 
 .PHONY: install_hires # installs 'core' SSDTs (high resolution)
 install_hires:
@@ -118,6 +123,7 @@ install_hires:
 	cp $(CORE) $(EFIDIR)/EFI/CLOVER/ACPI/patched
 	cp $(BUILDDIR)/SSDT-IGPU-HIRES.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 	cp $(BUILDDIR)/SSDT-BATT.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-FAN-$(FANPREF).aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 
 .PHONY: install_batt_g2
 install_batt_g2:
@@ -139,7 +145,6 @@ install_4x30s:
 	cp $(BUILDDIR)/SSDT-4x30s.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 	cp $(BUILDDIR)/SSDT-KEY102.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 	cp $(BUILDDIR)/SSDT-USB-4x30s.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-FAN-MOD.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 
 .PHONY: install_4x30s_hires
 install_4x30s_hires:
@@ -148,7 +153,6 @@ install_4x30s_hires:
 	cp $(BUILDDIR)/SSDT-4x30s.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 	cp $(BUILDDIR)/SSDT-KEY102.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 	cp $(BUILDDIR)/SSDT-USB-4x30s.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-FAN-MOD.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 
 .PHONY: install_4x40s
 install_4x40s:
@@ -157,7 +161,6 @@ install_4x40s:
 	cp $(BUILDDIR)/SSDT-4x40s.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 	cp $(BUILDDIR)/SSDT-KEY102.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 	cp $(BUILDDIR)/SSDT-USB-4x40s.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-FAN-MOD.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 
 .PHONY: install_4x40s_hires
 install_4x40s_hires:
@@ -166,7 +169,6 @@ install_4x40s_hires:
 	cp $(BUILDDIR)/SSDT-4x40s.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 	cp $(BUILDDIR)/SSDT-KEY102.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 	cp $(BUILDDIR)/SSDT-USB-4x40s.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-FAN-MOD.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 
 .PHONY: install_6x60
 install_6x60:
@@ -175,7 +177,6 @@ install_6x60:
 	cp $(BUILDDIR)/SSDT-6x60.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 	cp $(BUILDDIR)/SSDT-KEY87.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 	cp $(BUILDDIR)/SSDT-USB-6x60.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-FAN-MOD.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 
 .PHONY: install_6x60_hires
 install_6x60_hires:
@@ -184,7 +185,6 @@ install_6x60_hires:
 	cp $(BUILDDIR)/SSDT-6x60.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 	cp $(BUILDDIR)/SSDT-KEY87.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 	cp $(BUILDDIR)/SSDT-USB-6x60.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-FAN-MOD.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 
 .PHONY: install_8x60
 install_8x60:
@@ -193,7 +193,6 @@ install_8x60:
 	cp $(BUILDDIR)/SSDT-8x60.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 	cp $(BUILDDIR)/SSDT-KEY87.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 	cp $(BUILDDIR)/SSDT-USB-8x60.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-FAN-MOD.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 
 .PHONY: install_8x60_hires
 install_8x60_hires:
@@ -202,7 +201,6 @@ install_8x60_hires:
 	cp $(BUILDDIR)/SSDT-8x60.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 	cp $(BUILDDIR)/SSDT-KEY87.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 	cp $(BUILDDIR)/SSDT-USB-8x60.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-FAN-MOD.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 
 .PHONY: install_2x70
 install_2x70:
@@ -211,7 +209,6 @@ install_2x70:
 	cp $(BUILDDIR)/SSDT-2x70.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 	cp $(BUILDDIR)/SSDT-KEY87.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 #	cp $(BUILDDIR)/SSDT-USB-2x70.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-FAN-MOD.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 
 .PHONY: install_2x70_hires
 install_2x70_hires:
@@ -220,7 +217,6 @@ install_2x70_hires:
 	cp $(BUILDDIR)/SSDT-2x70.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 	cp $(BUILDDIR)/SSDT-KEY87.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 #	cp $(BUILDDIR)/SSDT-USB-2x70.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-FAN-MOD.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 
 .PHONY: install_6x70
 install_6x70:
@@ -229,7 +225,6 @@ install_6x70:
 	cp $(BUILDDIR)/SSDT-6x70.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 	cp $(BUILDDIR)/SSDT-KEY87.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 	cp $(BUILDDIR)/SSDT-USB-6x70.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-FAN-MOD.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 
 .PHONY: install_6x70_hires
 install_6x70_hires:
@@ -238,7 +233,6 @@ install_6x70_hires:
 	cp $(BUILDDIR)/SSDT-6x70.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 	cp $(BUILDDIR)/SSDT-KEY87.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 	cp $(BUILDDIR)/SSDT-USB-6x70.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-FAN-MOD.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 
 .PHONY: install_8x70
 install_8x70:
@@ -247,7 +241,6 @@ install_8x70:
 	cp $(BUILDDIR)/SSDT-8x70.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 	cp $(BUILDDIR)/SSDT-KEY87.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 #	cp $(BUILDDIR)/SSDT-USB-8x70.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-FAN-MOD.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 
 .PHONY: install_6x70_hires
 install_8x70_hires:
@@ -256,7 +249,6 @@ install_8x70_hires:
 	cp $(BUILDDIR)/SSDT-8x70.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 	cp $(BUILDDIR)/SSDT-KEY87.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 #	cp $(BUILDDIR)/SSDT-USB-8x70.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-FAN-MOD.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 
 .PHONY: install_9x70
 install_9x70:
@@ -265,7 +257,6 @@ install_9x70:
 	cp $(BUILDDIR)/SSDT-9x70.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 	cp $(BUILDDIR)/SSDT-KEY87.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 #	cp $(BUILDDIR)/SSDT-USB-9x70.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-FAN-MOD.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 
 .PHONY: install_9x70_hires
 install_9x60_hires:
@@ -274,7 +265,6 @@ install_9x60_hires:
 	cp $(BUILDDIR)/SSDT-9x70.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 	cp $(BUILDDIR)/SSDT-KEY87.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 #	cp $(BUILDDIR)/SSDT-USB-9x70.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-FAN-MOD.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 
 .PHONY: install_4x0g0
 install_4x0g0:
@@ -283,7 +273,6 @@ install_4x0g0:
 	cp $(BUILDDIR)/SSDT-4x0-G0.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 	cp $(BUILDDIR)/SSDT-KEY87.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 #	cp $(BUILDDIR)/SSDT-USB-4x0-G0.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-FAN-MOD.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 
 .PHONY: install_4x0g0_hires
 install_4x0g0_hires:
@@ -292,7 +281,6 @@ install_4x0g0_hires:
 	cp $(BUILDDIR)/SSDT-4x0-G0.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 	cp $(BUILDDIR)/SSDT-KEY102.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 #	cp $(BUILDDIR)/SSDT-USB-4x0-G0.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-FAN-MOD.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 
 .PHONY: install_3x0g1
 install_3x0g1:
@@ -301,7 +289,6 @@ install_3x0g1:
 	cp $(BUILDDIR)/SSDT-3x0-G1.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 	cp $(BUILDDIR)/SSDT-KEY102.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 #	cp $(BUILDDIR)/SSDT-USB-3x0-G1.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-FAN-MOD.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 
 .PHONY: install_3x0g1_hires
 install_3x0g1_hires:
@@ -310,7 +297,6 @@ install_3x0g1_hires:
 	cp $(BUILDDIR)/SSDT-3x0-G1.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 	cp $(BUILDDIR)/SSDT-KEY102.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 #	cp $(BUILDDIR)/SSDT-USB-3x0-G1.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-FAN-MOD.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 
 .PHONY: install_4x0g1_ivy
 install_4x0g1_ivy:
@@ -319,7 +305,6 @@ install_4x0g1_ivy:
 	cp $(BUILDDIR)/SSDT-4x0-G1-Ivy.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 	cp $(BUILDDIR)/SSDT-KEY102.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 #	cp $(BUILDDIR)/SSDT-USB-4x0-G1-Ivy.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-FAN-MOD.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 
 .PHONY: install_4x0g1_ivy_hires
 install_4x0g1_ivy_hires:
@@ -328,7 +313,6 @@ install_4x0g1_ivy_hires:
 	cp $(BUILDDIR)/SSDT-4x0-G1-Ivy.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 	cp $(BUILDDIR)/SSDT-KEY102.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 #	cp $(BUILDDIR)/SSDT-USB-4x0-G1-Ivy.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-FAN-MOD.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 
 .PHONY: install_8x0g1_ivy
 install_8x0g1_ivy:
@@ -337,7 +321,6 @@ install_8x0g1_ivy:
 	cp $(BUILDDIR)/SSDT-8x0-G1-Ivy.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 	cp $(BUILDDIR)/SSDT-KEY102.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 	cp $(BUILDDIR)/SSDT-USB-8x0-G1.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-FAN-MOD.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 
 .PHONY: install_8x0g1_ivy_hires
 install_8x0g1_ivy_hires:
@@ -346,7 +329,6 @@ install_8x0g1_ivy_hires:
 	cp $(BUILDDIR)/SSDT-8x0-G1-Ivy.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 	cp $(BUILDDIR)/SSDT-KEY102.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 	cp $(BUILDDIR)/SSDT-USB-8x0s-G1.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-FAN-MOD.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 
 .PHONY: install_4x0g1_haswell
 install_4x0g1_haswell:
@@ -355,7 +337,6 @@ install_4x0g1_haswell:
 	cp $(BUILDDIR)/SSDT-4x0-G1-Haswell.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 	cp $(BUILDDIR)/SSDT-KEY102.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 #	cp $(BUILDDIR)/SSDT-USB-4x0-G1.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-FAN-MOD.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 
 .PHONY: install_8x0g1_haswell
 install_8x0g1_haswell:
@@ -364,7 +345,6 @@ install_8x0g1_haswell:
 	cp $(BUILDDIR)/SSDT-8x0-G1-Haswell.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 	cp $(BUILDDIR)/SSDT-KEY102.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 	cp $(BUILDDIR)/SSDT-USB-8x0s-G1.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-FAN-MOD.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 
 .PHONY: install_1040g1_haswell
 install_1040g1_haswell:
@@ -373,7 +353,6 @@ install_1040g1_haswell:
 	cp $(BUILDDIR)/SSDT-1040-G1-Haswell.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 	cp $(BUILDDIR)/SSDT-KEY102.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 #	cp $(BUILDDIR)/SSDT-USB-1040-G1.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-FAN-MOD.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 
 .PHONY: install_4x0g2_haswell
 install_4x0g2_haswell:
@@ -383,7 +362,6 @@ install_4x0g2_haswell:
 	cp $(BUILDDIR)/SSDT-4x0-G2-Haswell.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 	cp $(BUILDDIR)/SSDT-KEY102.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 	cp $(BUILDDIR)/SSDT-USB-4x0s-G2.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-FAN-MOD.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 
 .PHONY: install_8x0g2_haswell
 install_8x0g2_haswell:
@@ -393,7 +371,6 @@ install_8x0g2_haswell:
 	cp $(BUILDDIR)/SSDT-8x0-G2-Haswell.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 	cp $(BUILDDIR)/SSDT-KEY102.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 #	cp $(BUILDDIR)/SSDT-USB-8x0s-G2.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-FAN-MOD.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 
 .PHONY: install_4x0g2_broadwell
 install_4x0g2_broadwell:
@@ -403,7 +380,6 @@ install_4x0g2_broadwell:
 	cp $(BUILDDIR)/SSDT-4x0-G2-Broadwell.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 	cp $(BUILDDIR)/SSDT-KEY102.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 	cp $(BUILDDIR)/SSDT-USB-4x0s-G2.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-FAN-MOD.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 
 .PHONY: install_820g2_broadwell
 install_820g2_broadwell:
@@ -413,7 +389,6 @@ install_820g2_broadwell:
 	cp $(BUILDDIR)/SSDT-8x0-G2-Broadwell.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 	cp $(BUILDDIR)/SSDT-KEY102.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 	cp $(BUILDDIR)/SSDT-USB-820-G2.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-FAN-MOD.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 
 .PHONY: install_840g2_broadwell
 install_840g2_broadwell:
@@ -423,7 +398,6 @@ install_840g2_broadwell:
 	cp $(BUILDDIR)/SSDT-8x0-G2-Broadwell.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 	cp $(BUILDDIR)/SSDT-KEY102.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 	cp $(BUILDDIR)/SSDT-USB-840-G2.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-FAN-MOD.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 
 .PHONY: install_850g2_broadwell
 install_850g2_broadwell:
@@ -433,7 +407,6 @@ install_850g2_broadwell:
 	cp $(BUILDDIR)/SSDT-8x0-G2-Broadwell.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 	cp $(BUILDDIR)/SSDT-KEY102.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 	cp $(BUILDDIR)/SSDT-USB-850-G2.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-FAN-MOD.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 
 .PHONY: install_ZBook_G2_haswell
 install_ZBook_G2_haswell:
@@ -443,7 +416,6 @@ install_ZBook_G2_haswell:
 	cp $(BUILDDIR)/SSDT-ZBook-G2-Haswell.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 	cp $(BUILDDIR)/SSDT-KEY102.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 #	cp $(BUILDDIR)/SSDT-USB-ZBook-G2.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-FAN-READ.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 
 .PHONY: install_ZBook_G2_broadwell
 install_ZBook_G2_broadwell:
@@ -453,7 +425,6 @@ install_ZBook_G2_broadwell:
 	cp $(BUILDDIR)/SSDT-ZBook-G2-Broadwell.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 	cp $(BUILDDIR)/SSDT-KEY102.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 #	cp $(BUILDDIR)/SSDT-USB-ZBook-G2.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-FAN-READ.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 
 .PHONY: install_4x0g3_skylake
 install_4x0g3_skylake:
@@ -463,7 +434,6 @@ install_4x0g3_skylake:
 	cp $(BUILDDIR)/SSDT-4x0-G3-Skylake.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 	cp $(BUILDDIR)/SSDT-KEY102.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 	cp $(BUILDDIR)/SSDT-USB-4x0s-G3.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-FAN-READ.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 
 $(HDAINJECT) $(HDAHCDINJECT): $(RESOURCES)/*.plist ./patch_hda.sh
 	./patch_hda.sh $(HDA)

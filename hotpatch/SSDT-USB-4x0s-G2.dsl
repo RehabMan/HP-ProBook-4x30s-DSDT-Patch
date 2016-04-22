@@ -3,6 +3,9 @@
 // investigative work done by mo7a1995 (with direction from RehabMan)
 //
 
+// set DISABLE_EHCI to 0 if you want to try with USB2 on XHCI routed to EHCI
+#define DISABLE_EHCI 1
+
 DefinitionBlock ("", "SSDT", 2, "hack", "usb4x0g2", 0)
 {
 //
@@ -13,30 +16,77 @@ DefinitionBlock ("", "SSDT", 2, "hack", "usb4x0g2", 0)
         Name(_HID, "UIA00000")
         Name(RMCF, Package()
         {
-            // EH01 has no ports (XHCIMux is used to force USB3 routing OFF)
+#if !DISABLE_EHCI
+            // EHCI#1
             "EH01", Package()
             {
-                "port-count", Buffer() { 0, 0, 0, 0 },
-                "ports", Package() { },
-            },
-            "8086_9cb1", Package()
-            {
-                //"port-count", Buffer() { 0x0f, 0, 0, 0},
+                "port-count", Buffer() { 8, 0, 0, 0 },
                 "ports", Package()
                 {
-                    "HS01", Package() // USB2
+                    "PR11", Package()
                     {
-                        "UsbConnector", 0,
+                        "UsbConnector", 255,
+                        "port", Buffer() { 1, 0, 0, 0 },
+                    },
+                },
+            },
+            /// hub on port #1 EHCI#1
+            "HUB1", Package()
+            {
+                "port-count", Buffer() { 8, 0, 0, 0 },
+                "ports", Package()
+                {
+                    "HP11", Package() // USB2
+                    {
+                        //"UsbConnector", 0,
+                        "port", Buffer() { 1, 0, 0, 0 },
+                    },
+                    "HP12", Package() // HS on XHC
+                    {
+                        //"UsbConnector", 3,
+                        "port", Buffer() { 2, 0, 0, 0 },
+                    },
+                    "HP13", Package() // HS on XHC
+                    {
+                        //"UsbConnector", 255,
+                        "port", Buffer() { 3, 0, 0, 0 },
+                    },
+                    "HP14", Package() // bluetooth
+                    {
+                        //"UsbConnector", 255,
+                        "port", Buffer() { 4, 0, 0, 0 },
+                    },
+                    //HP15 finger print reader
+                    //HP16 not used
+                    "HP17", Package() // camera
+                    {
+                        //"UsbConnector", 255,
+                        "port", Buffer() { 7, 0, 0, 0 },
+                    },
+                    //HP18 not used
+                },
+            },
+#endif
+            // XHC overrides
+            "8086_9xxx", Package()
+            {
+                //"port-count", Buffer() { 0x0d, 0, 0, 0},
+                "ports", Package()
+                {
+#if DISABLE_EHCI
+                    "HS01", Package() // HS USB3
+                    {
+                        "UsbConnector", 3,
                         "port", Buffer() { 0x01, 0, 0, 0 },
                     },
-                    "HS02", Package() // HS USB3
+                    "HS02", Package() // HS USB3 
                     {
                         "UsbConnector", 3,
                         "port", Buffer() { 0x02, 0, 0, 0 },
-                    },
-                    "HS03", Package() // USB2
+                    }, 
+                    "HS03", Package() // USB2 
                     {
-                        "UsbConnector", 3,
+                        "UsbConnector", 0,
                         "port", Buffer() { 0x03, 0, 0, 0 },
                     },
                     "HS04", Package() // bluetooth
@@ -61,18 +111,23 @@ DefinitionBlock ("", "SSDT", 2, "hack", "usb4x0g2", 0)
                         "UsbConnector", 255,
                         "port", Buffer() { 0x07, 0, 0, 0 },
                     },
-                    //HS08 not used
-                    "SSP1", Package() // SS USB3
+                    "HS08", Package() // USB2 
+                    {
+                        "UsbConnector", 0,
+                        "port", Buffer() { 0x08, 0, 0, 0 },
+                    },
+#endif
+                    // SSP1/SSP2 not used
+                    "SSP3", Package() // SS USB3 
                     {
                         "UsbConnector", 3,
                         "port", Buffer() { 0x0c, 0, 0, 0 },
                     },
-                    "SSP2", Package() // SS USB3
+                    "SSP4", Package() // SS USB3 
                     {
                         "UsbConnector", 3,
                         "port", Buffer() { 0x0d, 0, 0, 0 },
                     },
-                    //SSP3/SSP4 not used
                 },
             },
         })
@@ -81,6 +136,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "usb4x0g2", 0)
 //
 // Disabling EHCI #1
 //
+#if DISABLE_EHCI
     External(_SB.PCI0, DeviceObj)
     External(_SB.PCI0.LPCB, DeviceObj)
     External(_SB.PCI0.EH01, DeviceObj)
@@ -138,6 +194,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "usb4x0g2", 0)
             "RM,pr2-force", Buffer() { 0xff, 0x3f, 0, 0 },
         })
     }
+#endif
 }
 
 //EOF
