@@ -441,7 +441,7 @@ $(HDAINJECT) $(HDAHCDINJECT): $(RESOURCES)/*.plist ./patch_hda.sh
 
 .PHONY: clean_hda
 clean_hda:
-	rm -rf $(HDAINJECT) $(HDAHCDINJECT)
+	rm -rf $(HDAINJECT) $(HDAHCDINJECT) $(HDAZML)
 
 .PHONY: hda
 hda: $(HDAINJECT) $(HDAHCDINJECT)
