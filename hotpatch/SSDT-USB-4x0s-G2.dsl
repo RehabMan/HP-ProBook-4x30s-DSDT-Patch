@@ -4,7 +4,7 @@
 //
 
 // set DISABLE_EHCI to 0 if you want to try with USB2 on XHCI routed to EHCI
-#define DISABLE_EHCI 0
+#define DISABLE_EHCI 1
 
 DefinitionBlock ("", "SSDT", 2, "hack", "usb4x0g2", 0)
 {
