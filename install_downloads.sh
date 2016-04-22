@@ -130,6 +130,17 @@ if [ "$(id -u)" != "0" ]; then
     echo "This script requires superuser access..."
 fi
 
+# unzip/install tools
+check_directory ./downloads/tools/*.zip
+if [ $? -ne 0 ]; then
+    echo Installing tools...
+    cd ./downloads/tools
+    for tool in *.zip; do
+    install $tool
+    done
+    cd ../..
+fi
+
 if [ "$1" != "toolsonly" ]; then
 
 # unzip/install kexts
@@ -192,9 +203,11 @@ $SUDO rm -Rf $KEXTDEST/AppleHDAHCD_$HDA.kext
 $SUDO rm -f $SLE/AppleHDA.kext/Contents/Resources/*.zml*
 if [[ 1 -eq 0 ]]; then
     # dummyHDA configuration
+    make AppleHDA_$HDA.kext
     install_kext AppleHDA_$HDA.kext
 else
     # alternate configuration (requires .xml.zlib .zml.zlib AppleHDA patch)
+    make AppleHDAHCD_$HDA.kext
     install_kext AppleHDAHCD_$HDA.kext
     $SUDO cp AppleHDA_${HDA}_Resources/*.zml* $SLE/AppleHDA.kext/Contents/Resources
 fi
@@ -238,15 +251,4 @@ $TAG -a Gray /Library/LaunchDaemons/org.rehabman.voodoo.driver.Daemon.plist
 cd ../../..
 
 fi # "toolsonly"
-
-# unzip/install tools
-check_directory ./downloads/tools/*.zip
-if [ $? -ne 0 ]; then
-    echo Installing tools...
-    cd ./downloads/tools
-    for tool in *.zip; do
-        install $tool
-    done
-    cd ../..
-fi
 
