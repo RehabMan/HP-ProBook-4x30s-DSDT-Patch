@@ -83,7 +83,7 @@ HACK:=$(HACK) $(BUILDDIR)/SSDT-4x0-G3-Skylake.aml
 # system specfic config.plist
 PLIST:=$(PLIST) config/config_4x30s.plist config/config_4x40s.plist
 PLIST:=$(PLIST) config/config_4x0s_G0.plist config/config_4x0s_G1_Ivy.plist
-PLIST:=$(PLIST) config/config_8x0_G1_Ivy.plist config/config_9x70m.plist
+PLIST:=$(PLIST) config/config_8x0s_G1_Ivy.plist config/config_9x70m.plist
 PLIST:=$(PLIST) config/config_6x60p.plist config/config_8x60p.plist config/config_6x70p.plist config/config_8x70p.plist
 PLIST:=$(PLIST) config/config_2x70p.plist
 PLIST:=$(PLIST) config/config_3x0_G1.plist
