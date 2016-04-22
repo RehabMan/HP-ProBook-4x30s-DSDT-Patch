@@ -196,7 +196,7 @@ if [[ 1 -eq 0 ]]; then
 else
     # alternate configuration (requires .xml.zlib .zml.zlib AppleHDA patch)
     install_kext AppleHDAHCD_$HDA.kext
-    $SUDO cp AppleHDA_$HDA_Resources/*.zml* $SLE/AppleHDA.kext/Contents/Resources
+    $SUDO cp AppleHDA_${HDA}_Resources/*.zml* $SLE/AppleHDA.kext/Contents/Resources
 fi
 
 cd kexts

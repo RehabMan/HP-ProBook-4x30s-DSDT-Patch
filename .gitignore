@@ -10,3 +10,4 @@ downloads
 config/config_*.plist
 AppleHDAHCD_ProBook.kext
 AppleHDA_ProBook.kext
+AppleHDA_ProBook_Resources

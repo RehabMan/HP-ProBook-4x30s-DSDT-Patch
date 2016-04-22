@@ -9,7 +9,7 @@
 BUILDDIR=./build
 HDA=ProBook
 RESOURCES=./Resources_$(HDA)
-#HDAINJECT=AppleHDA_$(HDA).kext
+HDAINJECT=AppleHDA_$(HDA).kext
 HDAHCDINJECT=AppleHDAHCD_$(HDA).kext
 HDAZML=AppleHDA_$(HDA)_Resources
 

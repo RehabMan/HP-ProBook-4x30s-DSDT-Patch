@@ -134,5 +134,5 @@ if [[ "$1" == "" ]]; then
     exit
 fi
 
-#createAppleHDAInjector "$1"
+createAppleHDAInjector "$1"
 createAppleHDAInjector_HCD "$1"
