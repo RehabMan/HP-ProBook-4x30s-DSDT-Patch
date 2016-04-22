@@ -279,6 +279,14 @@
 					<key>Replace</key>
 					<data>QkFUMQhfSElEDEHQDAoUI19VSUQAoBdcX09TSQ1XaW5kb3dzIDIwMTIApAoBoQSkCgIUCVhTVEEA</data>
 				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>rename BAT1._STA to BAT1.XSTA (450 G0 Ivy)</string>
+					<key>Find</key>
+					<data>QkFUMQhfSElEDEHQDAoUI19VSUQAoBdcWE9TSQ1XaW5kb3dzIDIwMTIApAoBoQSkCgIUCV9TVEEA</data>
+					<key>Replace</key>
+					<data>QkFUMQhfSElEDEHQDAoUI19VSUQAoBdcWE9TSQ1XaW5kb3dzIDIwMTIApAoBoQSkCgIUCVhTVEEA</data>
+				</dict>
 			</array>
 		</dict>
 		<key>DropTables</key>
