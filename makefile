@@ -56,7 +56,7 @@ HACK:=$(HACK) $(BUILDDIR)/SSDT-IGPU.aml $(BUILDDIR)/SSDT-IGPU-HIRES.aml
 HACK:=$(HACK) $(BUILDDIR)/SSDT-BATT.aml $(BUILDDIR)/SSDT-BATT-G2.aml $(BUILDDIR)/SSDT-BATT-G3.aml
 HACK:=$(HACK) $(BUILDDIR)/SSDT-KEY87.aml $(BUILDDIR)/SSDT-KEY102.aml
 # depends on hardware (USB optimization)
-HACK:=$(HACK) $(BUILDDIR)/SSDT-USB-4x0s-G2.aml $(BUILDDIR)/SSDT-USB-4x40s.aml $(BUILDDIR)/SSDT-USB-4x30s.aml
+HACK:=$(HACK) $(BUILDDIR)/SSDT-USB-4x0-G2.aml $(BUILDDIR)/SSDT-USB-4x40s.aml $(BUILDDIR)/SSDT-USB-4x30s.aml
 HACK:=$(HACK) $(BUILDDIR)/SSDT-USB-8x0s-G1.aml
 HACK:=$(HACK) $(BUILDDIR)/SSDT-USB-820-G2.aml $(BUILDDIR)/SSDT-USB-840-G2.aml $(BUILDDIR)/SSDT-USB-850-G2.aml
 HACK:=$(HACK) $(BUILDDIR)/SSDT-USB-6x60.aml $(BUILDDIR)/SSDT-USB-6x70.aml
@@ -361,7 +361,7 @@ install_4x0g2_haswell:
 	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
 	cp $(BUILDDIR)/SSDT-4x0-G2-Haswell.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 	cp $(BUILDDIR)/SSDT-KEY102.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-USB-4x0s-G2.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-USB-4x0-G2.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 
 .PHONY: install_8x0g2_haswell
 install_8x0g2_haswell:
@@ -379,7 +379,7 @@ install_4x0g2_broadwell:
 	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
 	cp $(BUILDDIR)/SSDT-4x0-G2-Broadwell.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 	cp $(BUILDDIR)/SSDT-KEY102.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-USB-4x0s-G2.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-USB-4x0-G2.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 
 .PHONY: install_820g2_broadwell
 install_820g2_broadwell:
@@ -433,7 +433,7 @@ install_4x0g3_skylake:
 	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
 	cp $(BUILDDIR)/SSDT-4x0-G3-Skylake.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 	cp $(BUILDDIR)/SSDT-KEY102.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-USB-4x0s-G3.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+	cp $(BUILDDIR)/SSDT-USB-4x0-G3.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 
 $(HDAINJECT) $(HDAHCDINJECT): $(RESOURCES)/*.plist ./patch_hda.sh
 	./patch_hda.sh $(HDA)
