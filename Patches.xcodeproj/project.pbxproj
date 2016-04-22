@@ -129,7 +129,7 @@
 		ED97E9421CC757D7006C757A /* SSDT-1040-G1-Haswell.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-1040-G1-Haswell.dsl"; path = "hotpatch/SSDT-1040-G1-Haswell.dsl"; sourceTree = "<group>"; };
 		ED97E9431CC757D7006C757A /* SSDT-ZBook-G2-Haswell.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-ZBook-G2-Haswell.dsl"; path = "hotpatch/SSDT-ZBook-G2-Haswell.dsl"; sourceTree = "<group>"; };
 		ED97E9441CC757D7006C757A /* SSDT-HACK.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-HACK.dsl"; path = "hotpatch/SSDT-HACK.dsl"; sourceTree = "<group>"; };
-		ED97E9451CC757D7006C757A /* SSDT-USB-4x0s-G2.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-USB-4x0s-G2.dsl"; path = "hotpatch/SSDT-USB-4x0s-G2.dsl"; sourceTree = "<group>"; };
+		ED97E9451CC757D7006C757A /* SSDT-USB-4x0-G2.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-USB-4x0-G2.dsl"; path = "hotpatch/SSDT-USB-4x0-G2.dsl"; sourceTree = "<group>"; };
 		ED97E9461CC757D7006C757A /* SSDT-USB-8x0s-G1.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-USB-8x0s-G1.dsl"; path = "hotpatch/SSDT-USB-8x0s-G1.dsl"; sourceTree = "<group>"; };
 		ED97E9471CC757D7006C757A /* SSDT-USB-820-G2.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-USB-820-G2.dsl"; path = "hotpatch/SSDT-USB-820-G2.dsl"; sourceTree = "<group>"; };
 		ED97E9481CC757D7006C757A /* SSDT-USB-840-G2.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-USB-840-G2.dsl"; path = "hotpatch/SSDT-USB-840-G2.dsl"; sourceTree = "<group>"; };
@@ -349,7 +349,7 @@
 				ED97E94D1CC757D7006C757A /* SSDT-USB-8x60.dsl */,
 				ED97E94F1CC757D7006C757A /* SSDT-USB-6x70.dsl */,
 				ED97E9461CC757D7006C757A /* SSDT-USB-8x0s-G1.dsl */,
-				ED97E9451CC757D7006C757A /* SSDT-USB-4x0s-G2.dsl */,
+				ED97E9451CC757D7006C757A /* SSDT-USB-4x0-G2.dsl */,
 				ED97E9471CC757D7006C757A /* SSDT-USB-820-G2.dsl */,
 				ED97E9481CC757D7006C757A /* SSDT-USB-840-G2.dsl */,
 				ED97E94A1CC757D7006C757A /* SSDT-USB-4x0-G3.dsl */,

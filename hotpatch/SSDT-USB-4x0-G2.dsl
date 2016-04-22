@@ -68,7 +68,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "usb4x0g2", 0)
             },
 #endif
             // XHC overrides
-            "8086_9xxx", Package()
+            "8086_9xxx", Package()  // for G2 Haswell
             {
                 //"port-count", Buffer() { 0x0d, 0, 0, 0},
                 "ports", Package()
@@ -79,12 +79,12 @@ DefinitionBlock ("", "SSDT", 2, "hack", "usb4x0g2", 0)
                         "UsbConnector", 3,
                         "port", Buffer() { 0x01, 0, 0, 0 },
                     },
-                    "HS02", Package() // HS USB3 
+                    "HS02", Package() // HS USB3
                     {
                         "UsbConnector", 3,
                         "port", Buffer() { 0x02, 0, 0, 0 },
-                    }, 
-                    "HS03", Package() // USB2 
+                    },
+                    "HS03", Package() // USB2
                     {
                         "UsbConnector", 0,
                         "port", Buffer() { 0x03, 0, 0, 0 },
@@ -111,23 +111,81 @@ DefinitionBlock ("", "SSDT", 2, "hack", "usb4x0g2", 0)
                         "UsbConnector", 255,
                         "port", Buffer() { 0x07, 0, 0, 0 },
                     },
-                    "HS08", Package() // USB2 
+                    "HS08", Package() // USB2
                     {
                         "UsbConnector", 0,
                         "port", Buffer() { 0x08, 0, 0, 0 },
                     },
 #endif
                     // SSP1/SSP2 not used
-                    "SSP3", Package() // SS USB3 
+                    "SSP3", Package() // SS USB3
                     {
                         "UsbConnector", 3,
                         "port", Buffer() { 0x0c, 0, 0, 0 },
                     },
-                    "SSP4", Package() // SS USB3 
+                    "SSP4", Package() // SS USB3
                     {
                         "UsbConnector", 3,
                         "port", Buffer() { 0x0d, 0, 0, 0 },
                     },
+                },
+            },
+            "8086_9cb1", Package() // for G2 Broadwell
+            {
+                //"port-count", Buffer() { 0x0f, 0, 0, 0},
+                "ports", Package()
+                {
+#if DISABLE_EHCI
+                    "HS01", Package() // USB2
+                    {
+                        "UsbConnector", 0,
+                        "port", Buffer() { 0x01, 0, 0, 0 },
+                    },
+                    "HS02", Package() // HS USB3
+                    {
+                        "UsbConnector", 3,
+                        "port", Buffer() { 0x02, 0, 0, 0 },
+                    },
+                    "HS03", Package() // USB2
+                    {
+                        "UsbConnector", 3,
+                        "port", Buffer() { 0x03, 0, 0, 0 },
+                    },
+                    "HS04", Package() // bluetooth
+                    {
+                        "UsbConnector", 255,
+                        "port", Buffer() { 0x04, 0, 0, 0 },
+                    },
+                    #if 0
+                    "HS05", Package() // fingerprint reader (disabled)
+                    {
+                        "UsbConnector", 255,
+                        "port", Buffer() { 0x05, 0, 0, 0 },
+                    },
+                    #endif
+                    "HS06", Package() // internal WWAN
+                    {
+                        "UsbConnector", 255,
+                        "port", Buffer() { 0x06, 0, 0, 0 },
+                    },
+                    "HS07", Package() // camera
+                    {
+                        "UsbConnector", 255,
+                        "port", Buffer() { 0x07, 0, 0, 0 },
+                    },
+                    //HS08/HS09 not used
+#endif
+                    "SSP1", Package() // SS USB3
+                    {
+                        "UsbConnector", 3,
+                        "port", Buffer() { 0x0c, 0, 0, 0 },
+                    },
+                    "SSP2", Package() // SS USB3
+                    {
+                        "UsbConnector", 3,
+                        "port", Buffer() { 0x0d, 0, 0, 0 },
+                    },
+                    //SSP3/SSP4 not used
                 },
             },
         })
