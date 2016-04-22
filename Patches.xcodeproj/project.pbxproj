@@ -18,7 +18,6 @@
 		846B57131706046600E19787 /* Mini-SSDT.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "Mini-SSDT.dsl"; path = "mini/Mini-SSDT.dsl"; sourceTree = "<group>"; };
 		8470FEA0180B7FD700FA322E /* 08b_BCM4322x.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = 08b_BCM4322x.txt; path = patches/08b_BCM4322x.txt; sourceTree = "<group>"; };
 		847F5ED81B50873A00825CE8 /* 09_USB3_4x40s_10_11.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = 09_USB3_4x40s_10_11.txt; path = patches/09_USB3_4x40s_10_11.txt; sourceTree = "<group>"; };
-		847F5EDB1B508B2C00825CE8 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = USBXHCI_4x40s.kext/Contents/Info.plist; sourceTree = "<group>"; };
 		847F5EDC1B508B4B00825CE8 /* patch_backlight.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = patch_backlight.sh; path = backlight/patch_backlight.sh; sourceTree = "<group>"; };
 		847F5EDD1B508B4B00825CE8 /* Backlight_0x710.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Backlight_0x710.plist; path = backlight/Backlight_0x710.plist; sourceTree = "<group>"; };
 		84817C301878CFE00061AF92 /* 13_Brightness.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = 13_Brightness.txt; path = patches/13_Brightness.txt; sourceTree = "<group>"; };
@@ -183,14 +182,6 @@
 			name = backlight;
 			sourceTree = "<group>";
 		};
-		847F5EDA1B508B0800825CE8 /* USBXHCI_4x40s.kext */ = {
-			isa = PBXGroup;
-			children = (
-				847F5EDB1B508B2C00825CE8 /* Info.plist */,
-			);
-			name = USBXHCI_4x40s.kext;
-			sourceTree = "<group>";
-		};
 		847F5EDF1B508B8200825CE8 /* mini-SSDTs */ = {
 			isa = PBXGroup;
 			children = (
@@ -263,7 +254,6 @@
 				ED1837431C0A4B1200A5A3DA /* mount_efi.sh */,
 				ED18374F1C0A4B5D00A5A3DA /* audio */,
 				EDB940BA1C04D44500480024 /* hotpatch */,
-				847F5EDA1B508B0800825CE8 /* USBXHCI_4x40s.kext */,
 				847F5ED91B508AFC00825CE8 /* backlight */,
 				847F5EDF1B508B8200825CE8 /* mini-SSDTs */,
 				847F5EE11B508C2300825CE8 /* legacy patches */,
