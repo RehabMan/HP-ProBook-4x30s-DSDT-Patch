@@ -9,7 +9,10 @@
 BUILDDIR=./build
 HDA=ProBook
 RESOURCES=./Resources_$(HDA)
-HDAINJECT=AppleHDA_$(HDA).kext
+#HDAINJECT=AppleHDA_$(HDA).kext
+HDAHCDINJECT=AppleHDAHCD_$(HDA).kext
+HDAZML=AppleHDA_$(HDA)_Resources
+
 MINIDIR=./mini/build
 
 VERSION_ERA=$(shell ./print_version.sh)
@@ -88,7 +91,7 @@ PLIST:=$(PLIST) config/config_4x0s_G3_Skylake.plist
 PLIST:=$(PLIST) config/config_1040_G1_Haswell.plist
 
 .PHONY: all
-all : $(STATIC) $(MINI) $(HACK) $(PLIST) $(HDAINJECT)
+all : $(STATIC) $(MINI) $(HACK) $(PLIST) $(HDAINJECT) $(HDAHCDINJECT)
 
 .PHONY: clean
 clean: 
@@ -462,27 +465,38 @@ install_4x0g3_skylake:
 	cp $(BUILDDIR)/SSDT-USB-4x0s-G3.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 	cp $(BUILDDIR)/SSDT-FAN-READ.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 
-$(HDAINJECT): $(RESOURCES)/*.plist ./patch_hda.sh
+$(HDAINJECT) $(HDAHCDINJECT): $(RESOURCES)/*.plist ./patch_hda.sh
 	./patch_hda.sh $(HDA)
 	touch $@
 
 .PHONY: clean_hda
 clean_hda:
-	rm -rf $(HDAINJECT)
+	rm -rf $(HDAINJECT) $(HDAHCDINJECT)
 
 .PHONY: hda
-hda: $(HDAINJECT)
+hda: $(HDAINJECT) $(HDAHCDINJECT)
 
 .PHONY: update_kernelcache
 update_kernelcache:
 	sudo touch $(SLE)
 	sudo kextcache -update-volume /
 
-.PHONY: install_hda
-install_hda: $(HDAINJECT)
+.PHONY: install_dummy
+install_hdadummy:
 	sudo rm -Rf $(INSTDIR)/$(HDAINJECT)
+	sudo rm -Rf $(INSTDIR)/$(HDAHCDINJECT)
 	sudo cp -R ./$(HDAINJECT) $(INSTDIR)
 	if [ "`which tag`" != "" ]; then sudo tag -a Blue $(INSTDIR)/$(HDAINJECT); fi
+	make update_kernelcache
+
+.PHONY: install_hda
+install_hda:
+	sudo rm -Rf $(INSTDIR)/$(HDAINJECT)
+	sudo rm -Rf $(INSTDIR)/$(HDAHCDINJECT)
+	sudo cp -R ./$(HDAHCDINJECT) $(INSTDIR)
+	if [ "`which tag`" != "" ]; then sudo tag -a Blue $(INSTDIR)/$(HDAHCDINJECT); fi
+	sudo cp $(HDAZML)/*.zml* $(SLE)/AppleHDA.kext/Contents/Resources
+	if [ "`which tag`" != "" ]; then sudo tag -a Blue $(SLE)/AppleHDA.kext/Contents/Resources/*.zml*; fi
 	make update_kernelcache
 
 # generated config.plist files

@@ -1,3 +1,5 @@
+#!/bin/bash
+
 #set -x
 
 SUDO=sudo
@@ -128,6 +130,8 @@ if [ "$(id -u)" != "0" ]; then
     echo "This script requires superuser access..."
 fi
 
+if [ "$1" != "toolsonly" ]; then
+
 # unzip/install kexts
 check_directory ./downloads/kexts/*.zip
 if [ $? -ne 0 ]; then
@@ -181,7 +185,20 @@ if [[ -e $SLE/USBXHCI_4x40s.kext ]]; then
 fi
 
 # install (injector) kexts in the repo itself
-install_kext AppleHDA_ProBook.kext
+# patching AppleHDA
+HDA=ProBook
+$SUDO rm -Rf $KEXTDEST/AppleHDA_$HDA.kext
+$SUDO rm -Rf $KEXTDEST/AppleHDAHCD_$HDA.kext
+$SUDO rm -f $SLE/AppleHDA.kext/Contents/Resources/*.zml*
+if [[ 1 -eq 0 ]]; then
+    # dummyHDA configuration
+    install_kext AppleHDA_$HDA.kext
+else
+    # alternate configuration (requires .xml.zlib .zml.zlib AppleHDA patch)
+    install_kext AppleHDAHCD_$HDA.kext
+    $SUDO cp AppleHDA_$HDA_Resources/*.zml* $SLE/AppleHDA.kext/Contents/Resources
+fi
+
 cd kexts
 install_kext HSSDBlockStorage.kext
 install_kext JMB38X.kext
@@ -211,6 +228,17 @@ cd ..
 # force cache rebuild with output
 $SUDO touch $SLE && $SUDO kextcache -u /
 
+# install VoodooPS2Daemon
+echo Installing VoodooPS2Daemon to /usr/bin and /Library/LaunchDaemons...
+cd ./downloads/kexts/RehabMan-Voodoo-*
+$SUDO cp ./Release/VoodooPS2Daemon /usr/bin
+$TAG -a Gray /usr/bin/VoodooPS2Daemon
+$SUDO cp ./org.rehabman.voodoo.driver.Daemon.plist /Library/LaunchDaemons
+$TAG -a Gray /Library/LaunchDaemons/org.rehabman.voodoo.driver.Daemon.plist
+cd ../../..
+
+fi # "toolsonly"
+
 # unzip/install tools
 check_directory ./downloads/tools/*.zip
 if [ $? -ne 0 ]; then
@@ -222,11 +250,3 @@ if [ $? -ne 0 ]; then
     cd ../..
 fi
 
-# install VoodooPS2Daemon
-echo Installing VoodooPS2Daemon to /usr/bin and /Library/LaunchDaemons...
-cd ./downloads/kexts/RehabMan-Voodoo-*
-$SUDO cp ./Release/VoodooPS2Daemon /usr/bin
-$TAG -a Gray /usr/bin/VoodooPS2Daemon
-$SUDO cp ./org.rehabman.voodoo.driver.Daemon.plist /Library/LaunchDaemons
-$TAG -a Gray /Library/LaunchDaemons/org.rehabman.voodoo.driver.Daemon.plist
-cd ../..
