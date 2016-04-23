@@ -95,7 +95,7 @@ PLIST:=$(PLIST) config/config_4x0s_G3_Skylake.plist
 PLIST:=$(PLIST) config/config_1040_G1_Haswell.plist
 
 .PHONY: all
-all : $(STATIC) $(MINI) $(HACK) $(PLIST) $(HDAINJECT) $(HDAHCDINJECT)
+all : $(STATIC) $(MINI) $(HACK) $(PLIST) $(HDAHCDINJECT) # $(HDAINJECT)
 
 .PHONY: clean
 clean: 
@@ -435,7 +435,8 @@ install_4x0g3_skylake:
 	cp $(BUILDDIR)/SSDT-KEY102.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 	cp $(BUILDDIR)/SSDT-USB-4x0-G3.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 
-$(HDAINJECT) $(HDAHCDINJECT): $(RESOURCES)/*.plist ./patch_hda.sh
+#$(HDAINJECT) $(HDAHCDINJECT): $(RESOURCES)/*.plist ./patch_hda.sh
+$(HDAHCDINJECT): $(RESOURCES)/*.plist ./patch_hda.sh
 	./patch_hda.sh $(HDA)
 	touch $@
 

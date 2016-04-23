@@ -463,15 +463,15 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>AppleHDA .xml.zlib to .zml.zlib</string>
+				<string>AppleHDA .xml to .zml</string>
 				<key>Disabled</key>
 				<false/>
 				<key>Find</key>
-				<data>LnhtbC56bA==</data>
+				<data>LnhtbA==</data>
 				<key>Name</key>
 				<string>AppleHDA</string>
 				<key>Replace</key>
-				<data>LnptbC56bA==</data>
+				<data>LnptbA==</data>
 			</dict>
 			<dict>
 				<key>Comment</key>

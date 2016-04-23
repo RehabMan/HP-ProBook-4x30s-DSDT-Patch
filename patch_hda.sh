@@ -32,7 +32,7 @@ function createAppleHDAInjector()
 
     # create AppleHDA .zml.zlib (or just zml) files
     rm -rf AppleHDA_$1_Resources && mkdir AppleHDA_$1_Resources
-        for xml in AppleHDA_$1.kext/Contents/Resources/*.xml; do
+    for xml in AppleHDA_$1.kext/Contents/Resources/*.xml; do
         base=$(basename $xml)
         if [[ $MINOR_VER -gt 7 ]]; then
             ./tools/zlib deflate $xml >AppleHDA_$1_Resources/${base/.xml/.zml.zlib}
@@ -74,6 +74,26 @@ if [ 0 -eq 0 ]; then
     /usr/libexec/plistbuddy -c "Merge ./Resources_$1/ahhcd.plist ':IOKitPersonalities:HDA Hardware Config Resource'" $plist
 fi
     echo " Done."
+}
+
+function createAppleHDAResources_HDC()
+{
+    rm -rf AppleHDA_$1_Resources && mkdir AppleHDA_$1_Resources
+    layouts=$(basename `ls Resources_$1/layout*.plist`)
+    for layout in $layouts; do
+        cp Resources_$1/$layout AppleHDA_$1_Resources/${layout/.plist/.zml}
+    done
+    ./tools/zlib inflate $unpatched/AppleHDA.kext/Contents/Resources/Platforms.xml.zlib >/tmp/rm_Platforms.plist
+    /usr/libexec/plistbuddy -c "Delete ':PathMaps'" /tmp/rm_Platforms.plist
+    /usr/libexec/plistbuddy -c "Merge Resources_$1/Platforms.plist" /tmp/rm_Platforms.plist
+    cp /tmp/rm_Platforms.plist AppleHDA_$1_Resources/Platforms.xml
+
+    if [[ $MINOR_VER -gt 7 ]]; then
+        for zml in AppleHDA_$1_Resources/*.zml; do
+            ./tools/zlib deflate $zml >${zml/.zml/.zml.zlib}
+            rm $zml
+       done
+    fi
 }
 
 function createAppleHDAInjector_HCD()
@@ -134,5 +154,6 @@ if [[ "$1" == "" ]]; then
     exit
 fi
 
-createAppleHDAInjector "$1"
+#createAppleHDAInjector "$1"
 createAppleHDAInjector_HCD "$1"
+createAppleHDAResources_HDC "$1"
