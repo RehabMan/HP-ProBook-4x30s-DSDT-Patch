@@ -86,7 +86,7 @@ function createAppleHDAResources_HDC()
     ./tools/zlib inflate $unpatched/AppleHDA.kext/Contents/Resources/Platforms.xml.zlib >/tmp/rm_Platforms.plist
     /usr/libexec/plistbuddy -c "Delete ':PathMaps'" /tmp/rm_Platforms.plist
     /usr/libexec/plistbuddy -c "Merge Resources_$1/Platforms.plist" /tmp/rm_Platforms.plist
-    cp /tmp/rm_Platforms.plist AppleHDA_$1_Resources/Platforms.xml
+    cp /tmp/rm_Platforms.plist AppleHDA_$1_Resources/Platforms.zml
 
     if [[ $MINOR_VER -gt 7 ]]; then
         for zml in AppleHDA_$1_Resources/*.zml; do
