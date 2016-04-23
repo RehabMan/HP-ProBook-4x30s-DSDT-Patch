@@ -136,7 +136,7 @@ if [ $? -ne 0 ]; then
     echo Installing tools...
     cd ./downloads/tools
     for tool in *.zip; do
-    install $tool
+        install $tool
     done
     cd ../..
 fi
@@ -249,6 +249,16 @@ $TAG -a Gray /usr/bin/VoodooPS2Daemon
 $SUDO cp ./org.rehabman.voodoo.driver.Daemon.plist /Library/LaunchDaemons
 $TAG -a Gray /Library/LaunchDaemons/org.rehabman.voodoo.driver.Daemon.plist
 cd ../../..
+
+# install HPFanReset.efi
+EFI=`sudo ./mount_efi.sh /`
+cd downloads/efi
+zip=`echo -n HPFanReset*.zip`
+out=${zip/.efi.zip/}
+rm -Rf $out && unzip -q -d $out $zip
+echo Installing HPFanReset.efi to $EFI/EFI/CLOVER/drivers64UEFI
+cp $out/*.efi $EFI/EFI/CLOVER/drivers64UEFI
+cd ../..
 
 fi # "toolsonly"
 
