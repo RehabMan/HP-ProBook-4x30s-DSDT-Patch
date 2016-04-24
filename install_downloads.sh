@@ -210,6 +210,7 @@ else
     make AppleHDAHCD_$HDA.kext
     install_kext AppleHDAHCD_$HDA.kext
     $SUDO cp AppleHDA_${HDA}_Resources/*.zml* $SLE/AppleHDA.kext/Contents/Resources
+    $TAG -a Gray $SLE/AppleHDA.kext
 fi
 
 cd kexts
