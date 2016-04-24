@@ -95,7 +95,7 @@ PLIST:=$(PLIST) config/config_4x0s_G3_Skylake.plist
 PLIST:=$(PLIST) config/config_1040_G1_Haswell.plist
 
 .PHONY: all
-all : $(STATIC) $(MINI) $(HACK) $(PLIST) $(HDAHCDINJECT) # $(HDAINJECT)
+all : $(STATIC) $(MINI) $(HACK) $(PLIST) $(HDAHCDINJECT) $(HDAINJECT)
 
 .PHONY: clean
 clean: 
@@ -435,8 +435,7 @@ install_4x0g3_skylake:
 	cp $(BUILDDIR)/SSDT-KEY102.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 	cp $(BUILDDIR)/SSDT-USB-4x0-G3.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 
-#$(HDAINJECT) $(HDAHCDINJECT): $(RESOURCES)/*.plist ./patch_hda.sh
-$(HDAHCDINJECT): $(RESOURCES)/*.plist ./patch_hda.sh
+$(HDAINJECT) $(HDAHCDINJECT) : $(RESOURCES)/*.plist ./patch_hda.sh
 	./patch_hda.sh $(HDA)
 	touch $@
 
@@ -452,7 +451,8 @@ update_kernelcache:
 	sudo touch $(SLE)
 	sudo kextcache -update-volume /
 
-.PHONY: install_dummy
+# install_dummy must be used on <= 10.7.5
+.PHONY: install_hdadummy
 install_hdadummy:
 	sudo rm -Rf $(INSTDIR)/$(HDAINJECT)
 	sudo rm -Rf $(INSTDIR)/$(HDAHCDINJECT)
@@ -460,6 +460,7 @@ install_hdadummy:
 	if [ "`which tag`" != "" ]; then sudo tag -a Blue $(INSTDIR)/$(HDAINJECT); fi
 	make update_kernelcache
 
+# install_hda can be used only on >= 10.8
 .PHONY: install_hda
 install_hda:
 	sudo rm -Rf $(INSTDIR)/$(HDAINJECT)
