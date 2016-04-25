@@ -12,10 +12,7 @@
 				<integer>283902592</integer>
 			</array>
 			<key>Headphone</key>
-			<dict>
-				<key>MuteGPIO</key>
-				<integer>4</integer>
-			</dict>
+			<dict/>
 			<key>Inputs</key>
 			<array>
 				<string>Mic</string>

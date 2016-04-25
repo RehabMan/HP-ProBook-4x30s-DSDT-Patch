@@ -33,3 +33,11 @@ CX20724: 4x0sG3 Skylake
 
 7695: 3x0G1,
 
+
+--
+
+Note regarding ALC280 combo jack and difference between original and for G2.
+
+From Mirone: http://www.tonymacx86.com/el-capitan-laptop-support/191207-hp-elitebook-g2-alc280-combo-jack-wip-7.html#post1242688
+
+To the kext to ALC280 of @zirkaiva I had to add in: Headphones/MuteGPIO=4 in Layout-ID, to your Headphone work, to be honest this is an exception for most the ALC codec for Laptops works without it in Layout-ID, and this is your case I should have tried the first time, When you said that ALC280_Original worked, least headphones. We have two slightly different scenarios, the first in which HP Elitebook 9480m Folio need Headphones/MuteGPIO=4 in Layout-ID, for your Headphone works and the second where HP Elitebook G2, not must have these values in its Layout-ID so your headset work correctly, RehabMan keep this in mind when updating your repository.
