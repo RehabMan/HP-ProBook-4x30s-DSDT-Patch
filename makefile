@@ -82,7 +82,7 @@ HACK:=$(HACK) $(BUILDDIR)/SSDT-4x0-G3-Skylake.aml
 
 # system specfic config.plist
 PLIST:=$(PLIST) config/config_4x30s.plist config/config_4x40s.plist
-PLIST:=$(PLIST) config/config_4x0s_G0.plist config/config_4x0s_G1_Ivy.plist
+PLIST:=$(PLIST) config/config_4x0s_G0.plist config/config_4x0s_G1_Ivy.plist config/config_ZBook_G0.plist
 PLIST:=$(PLIST) config/config_8x0s_G1_Ivy.plist config/config_9x70m.plist
 PLIST:=$(PLIST) config/config_6x60p.plist config/config_8x60p.plist config/config_6x70p.plist config/config_8x70p.plist
 PLIST:=$(PLIST) config/config_2x70p.plist
@@ -517,6 +517,12 @@ config/config_8x0s_G1_Ivy.plist: config/config_4x0s_G0.plist
 	cp config/config_4x0s_G0.plist $@
 	@printf "\n"
 
+# ZBook_G0_Ivy is same as 4x0s_G0
+config/config_ZBook_G0.plist: config/config_4x0s_G0.plist
+	@printf "!! creating $@\n"
+	cp config/config_4x0s_G0.plist $@
+	@printf "\n"
+
 # 8x0s_G1_Haswell is IDT 76e0, HD4400
 config/config_8x0s_G1_Haswell.plist : $(PARTS)/config_master.plist $(PARTS)/config_IDT76e0.plist $(PARTS)/config_Haswell.plist
 	@printf "!! creating $@\n"
@@ -628,14 +634,15 @@ config/config_8x0s_G2_Broadwell.plist : $(PARTS)/config_master.plist $(PARTS)/co
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_ALC280.plist $@
 	@printf "\n"
 
-# ZBook_G2_Haswell is ALC280, Haswell
-config/config_ZBook_G2_Haswell.plist : $(PARTS)/config_master.plist $(PARTS)/config_ALC280.plist $(PARTS)/config_Haswell.plist
+# ZBook_G2_Haswell is IDT 76e0, Haswell
+# confirmed here: http://www.tonymacx86.com/el-capitan-laptop-guides/189416-guide-hp-probook-elitebook-zbook-using-clover-uefi-hotpatch-10-11-a-76.html#post1242529
+config/config_ZBook_G2_Haswell.plist : $(PARTS)/config_master.plist $(PARTS)/config_IDT76E0.plist $(PARTS)/config_Haswell.plist
 	@printf "!! creating $@\n"
 	cp $(PARTS)/config_master.plist $@
 	/usr/libexec/plistbuddy -c "Set KernelAndKextPatches:AsusAICPUPM false" $@
 	/usr/libexec/plistbuddy -c "Set :SMBIOS:ProductName MacBookPro11,1" $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_Haswell.plist $@
-	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_ALC280.plist $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_IDT76e0.plist $@
 	@printf "\n"
 
 # ZBook_G2_Broadwell is ALC280, Broadwell
