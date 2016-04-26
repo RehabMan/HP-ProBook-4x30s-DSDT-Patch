@@ -201,7 +201,7 @@ HDA=ProBook
 $SUDO rm -Rf $KEXTDEST/AppleHDA_$HDA.kext
 $SUDO rm -Rf $KEXTDEST/AppleHDAHCD_$HDA.kext
 $SUDO rm -f $SLE/AppleHDA.kext/Contents/Resources/*.zml*
-if [[ $MINOR_VER -le 7 ]]; then
+if [[ $MINOR_VER -le 9 ]]; then
     # dummyHDA configuration
     make AppleHDA_$HDA.kext
     install_kext AppleHDA_$HDA.kext
