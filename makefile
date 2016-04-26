@@ -451,7 +451,7 @@ update_kernelcache:
 	sudo touch $(SLE)
 	sudo kextcache -update-volume /
 
-# install_dummy must be used on <= 10.7.5
+# install_hdadummy must be used on <= 10.7.5
 .PHONY: install_hdadummy
 install_hdadummy:
 	sudo rm -Rf $(INSTDIR)/$(HDAINJECT)

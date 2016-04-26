@@ -15,13 +15,21 @@ function download()
     echo
 }
 
+# extract minor version (eg. 10.9 vs. 10.10 vs. 10.11)
+MINOR_VER=$([[ "$(sw_vers -productVersion)" =~ [0-9]+\.([0-9]+) ]] && echo ${BASH_REMATCH[1]})
+
 if [ ! -d ./downloads ]; then mkdir ./downloads; fi && rm -Rf downloads/* && cd ./downloads
 
 # download kexts
 mkdir ./kexts && cd ./kexts
 download os-x-fakesmc-kozlek RehabMan-FakeSMC
 download os-x-voodoo-ps2-controller RehabMan-Voodoo
-download os-x-realtek-network RehabMan-Realtek-Network
+if [[ $MINOR_VER -le 8 ]]; then
+    # use older version of RealtekRTL8111.kext for 10.8 and older
+    download os-x-realtek-network RehabMan-Realtek-Network-2014
+else
+    download os-x-realtek-network RehabMan-Realtek-Network
+fi
 download os-x-intel-network RehabMan-IntelMausiEthernet
 #download os-x-acpi-backlight RehabMan-Backlight
 download os-x-intel-backlight RehabMan-IntelBacklight
