@@ -15,10 +15,6 @@ HDAZML=AppleHDA_$(HDA)_Resources
 
 MINIDIR=./mini/build
 
-ifeq "$(FANPREF)" ""
-FANPREF=READ
-endif
-
 VERSION_ERA=$(shell ./print_version.sh)
 ifeq "$(VERSION_ERA)" "10.10-"
 	INSTDIR=/System/Library/Extensions
@@ -27,6 +23,7 @@ else
 endif
 SLE=/System/Library/Extensions
 
+# original static patch setup
 COMMON = patches/00_Optimize.txt patches/01_Compilation.txt patches/02_DSDTPatch.txt patches/05_OSCheck.txt patches/06_Battery.txt
 FANPATCH = patches/04a_FanPatch.txt
 QUIET = patches/04b_FanQuiet.txt
@@ -44,56 +41,59 @@ MINI=
 STATIC=
 
 # core files
-HACK:=$(BUILDDIR)/SSDT-HACK.aml
-HACK:=$(HACK) $(BUILDDIR)/SSDT-USB.aml
-# core files (from hotpatch in laptop Clover guide/repo)
-HACK:=$(HACK) $(BUILDDIR)/SSDT-XOSI.aml
-HACK:=$(HACK) $(BUILDDIR)/SSDT-LPC.aml $(BUILDDIR)/SSDT-SATA.aml $(BUILDDIR)/SSDT-SMBUS.aml $(BUILDDIR)/SSDT-PNLF.aml
-HACK:=$(HACK) $(BUILDDIR)/SSDT-PRW.aml $(BUILDDIR)/SSDT-LANC_PRW.aml
-CORE:=$(HACK)
+CORE:=$(BUILDDIR)/SSDT-HACK.aml $(BUILDDIR)/SSDT-USB.aml $(BUILDDIR)/SSDT-XOSI.aml \
+	$(BUILDDIR)/SSDT-LPC.aml $(BUILDDIR)/SSDT-SATA.aml $(BUILDDIR)/SSDT-SMBUS.aml $(BUILDDIR)/SSDT-PNLF.aml \
+	$(BUILDDIR)/SSDT-PRW.aml $(BUILDDIR)/SSDT-LANC_PRW.aml
+HACK:=$(CORE)
 
 # depends on hardware
-HACK:=$(HACK) $(BUILDDIR)/SSDT-IGPU.aml $(BUILDDIR)/SSDT-IGPU-HIRES.aml
-HACK:=$(HACK) $(BUILDDIR)/SSDT-BATT.aml $(BUILDDIR)/SSDT-BATT-G2.aml $(BUILDDIR)/SSDT-BATT-G3.aml
-HACK:=$(HACK) $(BUILDDIR)/SSDT-KEY87.aml $(BUILDDIR)/SSDT-KEY102.aml
+HACK:=$(HACK) \
+	$(BUILDDIR)/SSDT-IGPU.aml $(BUILDDIR)/SSDT-IGPU-HIRES.aml \
+	$(BUILDDIR)/SSDT-BATT.aml $(BUILDDIR)/SSDT-BATT-G2.aml $(BUILDDIR)/SSDT-BATT-G3.aml \
+	$(BUILDDIR)/SSDT-KEY87.aml $(BUILDDIR)/SSDT-KEY102.aml
+
 # depends on hardware (USB optimization)
-HACK:=$(HACK) $(BUILDDIR)/SSDT-USB-4x0-G2.aml $(BUILDDIR)/SSDT-USB-4x40s.aml $(BUILDDIR)/SSDT-USB-4x30s.aml
-HACK:=$(HACK) $(BUILDDIR)/SSDT-USB-8x0-G1.aml
-HACK:=$(HACK) $(BUILDDIR)/SSDT-USB-820-G2.aml $(BUILDDIR)/SSDT-USB-840-G2.aml $(BUILDDIR)/SSDT-USB-850-G2.aml
-HACK:=$(HACK) $(BUILDDIR)/SSDT-USB-6x60.aml $(BUILDDIR)/SSDT-USB-6x70.aml
-HACK:=$(HACK) $(BUILDDIR)/SSDT-USB-8x60.aml
-HACK:=$(HACK) $(BUILDDIR)/SSDT-USB-4x0-G3.aml
+HACK:=$(HACK) \
+	$(BUILDDIR)/SSDT-USB-4x0-G2.aml $(BUILDDIR)/SSDT-USB-4x40s.aml $(BUILDDIR)/SSDT-USB-4x30s.aml \
+	$(BUILDDIR)/SSDT-USB-8x0-G1.aml \
+	$(BUILDDIR)/SSDT-USB-820-G2.aml $(BUILDDIR)/SSDT-USB-840-G2.aml $(BUILDDIR)/SSDT-USB-850-G2.aml \
+	$(BUILDDIR)/SSDT-USB-6x60.aml $(BUILDDIR)/SSDT-USB-6x70.aml\
+	$(BUILDDIR)/SSDT-USB-8x60.aml \
+	$(BUILDDIR)/SSDT-USB-4x0-G3.aml
 
 # depends on personal choices
-HACK:=$(HACK) $(BUILDDIR)/SSDT-FAN-QUIET.aml $(BUILDDIR)/SSDT-FAN-MOD.aml $(BUILDDIR)/SSDT-FAN-SMOOTH.aml $(BUILDDIR)/SSDT-FAN-ORIG.aml $(BUILDDIR)/SSDT-FAN-READ.aml
+HACK:=$(HACK) \
+	$(BUILDDIR)/SSDT-FAN-QUIET.aml $(BUILDDIR)/SSDT-FAN-MOD.aml $(BUILDDIR)/SSDT-FAN-SMOOTH.aml \
+	$(BUILDDIR)/SSDT-FAN-ORIG.aml $(BUILDDIR)/SSDT-FAN-READ.aml
 
 # system specific SSDTs
-HACK:=$(HACK) $(BUILDDIR)/SSDT-4x30s.aml $(BUILDDIR)/SSDT-4x40s.aml
-HACK:=$(HACK) $(BUILDDIR)/SSDT-6x60.aml $(BUILDDIR)/SSDT-8x60.aml
-HACK:=$(HACK) $(BUILDDIR)/SSDT-2x70.aml $(BUILDDIR)/SSDT-6x70.aml $(BUILDDIR)/SSDT-8x70.aml $(BUILDDIR)/SSDT-9x70.aml
-HACK:=$(HACK) $(BUILDDIR)/SSDT-1040-G1-Haswell.aml
-HACK:=$(HACK) $(BUILDDIR)/SSDT-3x0-G1.aml
-HACK:=$(HACK) $(BUILDDIR)/SSDT-4x0-G0.aml
-HACK:=$(HACK) $(BUILDDIR)/SSDT-4x0-G1-Ivy.aml $(BUILDDIR)/SSDT-8x0-G1-Ivy.aml
-HACK:=$(HACK) $(BUILDDIR)/SSDT-4x0-G1-Haswell.aml $(BUILDDIR)/SSDT-8x0-G1-Haswell.aml
-HACK:=$(HACK) $(BUILDDIR)/SSDT-4x0-G2-Haswell.aml $(BUILDDIR)/SSDT-8x0-G2-Haswell.aml
-HACK:=$(HACK) $(BUILDDIR)/SSDT-4x0-G2-Broadwell.aml $(BUILDDIR)/SSDT-8x0-G2-Broadwell.aml
-HACK:=$(HACK) $(BUILDDIR)/SSDT-ZBook-G2-Haswell.aml $(BUILDDIR)/SSDT-ZBook-G2-Broadwell.aml
-HACK:=$(HACK) $(BUILDDIR)/SSDT-4x0-G3-Skylake.aml
+HACK:=$(HACK) \
+	$(BUILDDIR)/SSDT-4x30s.aml $(BUILDDIR)/SSDT-4x40s.aml \
+	$(BUILDDIR)/SSDT-6x60.aml $(BUILDDIR)/SSDT-8x60.aml \
+	$(BUILDDIR)/SSDT-2x70.aml $(BUILDDIR)/SSDT-6x70.aml $(BUILDDIR)/SSDT-8x70.aml $(BUILDDIR)/SSDT-9x70.aml \
+	$(BUILDDIR)/SSDT-1040-G1-Haswell.aml \
+	$(BUILDDIR)/SSDT-3x0-G1.aml \
+	$(BUILDDIR)/SSDT-4x0-G0.aml \
+	$(BUILDDIR)/SSDT-4x0-G1-Ivy.aml $(BUILDDIR)/SSDT-8x0-G1-Ivy.aml \
+	$(BUILDDIR)/SSDT-4x0-G1-Haswell.aml $(BUILDDIR)/SSDT-8x0-G1-Haswell.aml \
+	$(BUILDDIR)/SSDT-4x0-G2-Haswell.aml $(BUILDDIR)/SSDT-8x0-G2-Haswell.aml \
+	$(BUILDDIR)/SSDT-4x0-G2-Broadwell.aml $(BUILDDIR)/SSDT-8x0-G2-Broadwell.aml \
+	$(BUILDDIR)/SSDT-ZBook-G2-Haswell.aml $(BUILDDIR)/SSDT-ZBook-G2-Broadwell.aml \
+	$(BUILDDIR)/SSDT-4x0-G3-Skylake.aml
 
 # system specfic config.plist
-PLIST:=$(PLIST) config/config_4x30s.plist config/config_4x40s.plist
-PLIST:=$(PLIST) config/config_4x0s_G0.plist config/config_4x0s_G1_Ivy.plist config/config_ZBook_G0.plist
-PLIST:=$(PLIST) config/config_8x0s_G1_Ivy.plist config/config_9x70m.plist
-PLIST:=$(PLIST) config/config_6x60p.plist config/config_8x60p.plist config/config_6x70p.plist config/config_8x70p.plist
-PLIST:=$(PLIST) config/config_2x70p.plist
-PLIST:=$(PLIST) config/config_3x0_G1.plist
-PLIST:=$(PLIST) config/config_8x0s_G1_Haswell.plist config/config_4x0s_G1_Haswell.plist
-PLIST:=$(PLIST) config/config_4x0s_G2_Haswell.plist config/config_8x0s_G2_Haswell.plist
-PLIST:=$(PLIST) config/config_4x0s_G2_Broadwell.plist config/config_8x0s_G2_Broadwell.plist
-PLIST:=$(PLIST) config/config_ZBook_G2_Haswell.plist config/config_ZBook_G2_Broadwell.plist
-PLIST:=$(PLIST) config/config_4x0s_G3_Skylake.plist
-PLIST:=$(PLIST) config/config_1040_G1_Haswell.plist
+PLIST:=config/config_4x30s.plist config/config_4x40s.plist \
+	config/config_4x0s_G0.plist config/config_4x0s_G1_Ivy.plist config/config_ZBook_G0.plist \
+	config/config_8x0s_G1_Ivy.plist config/config_9x70m.plist \
+	config/config_6x60p.plist config/config_8x60p.plist config/config_6x70p.plist config/config_8x70p.plist \
+	config/config_2x70p.plist \
+	config/config_3x0_G1.plist \
+	config/config_8x0s_G1_Haswell.plist config/config_4x0s_G1_Haswell.plist \
+	config/config_4x0s_G2_Haswell.plist config/config_8x0s_G2_Haswell.plist \
+	config/config_4x0s_G2_Broadwell.plist config/config_8x0s_G2_Broadwell.plist \
+	config/config_ZBook_G2_Haswell.plist config/config_ZBook_G2_Broadwell.plist \
+	config/config_4x0s_G3_Skylake.plist \
+	config/config_1040_G1_Haswell.plist
 
 .PHONY: all
 all : $(STATIC) $(MINI) $(HACK) $(PLIST) $(HDAHCDINJECT) $(HDAINJECT)
@@ -354,13 +354,13 @@ config/config_4x0s_G3_Skylake.plist : $(PARTS)/config_master.plist $(PARTS)/conf
 # combo patches
 
 patches/4x30s.txt : $(COMMON) $(EHCI6)
-	cat $^ >$@ 
+	cat $^ >$@
 
 patches/4x40s_IvyBridge.txt : $(COMMON) $(EHCI7)
-	cat $^ >$@ 
+	cat $^ >$@
 
 patches/4x40s_SandyBridge.txt : $(COMMON) $(EHCI7) $(IMEI)
-	cat $^ >$@ 
+	cat $^ >$@
 
 # mini SSDTs
 
