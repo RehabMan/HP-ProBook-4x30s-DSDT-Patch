@@ -2,18 +2,23 @@
 
 #set -x
 
-EFIDIR=`sudo ./mount_efi.sh /`
-#EFIDIR=./EFI
-BUILDDIR=./build
-
-source install_acpi_include.sh
-
 if [[ "$1" == "" ]]; then
     echo "Usage: ./install_acpi.sh [model] [fanpref]"
     echo "Use ./install_acpi.sh help for a listing of supported models."
     echo "fanpref is default to READ (other: MOD, ORIG, SILENT)"
     exit
 fi
+
+if [[ "$1" == "help" ]]; then
+    grep -o install_.*\) $0 | grep -v grep | tr ')' ' '
+    exit
+fi
+
+EFIDIR=`sudo ./mount_efi.sh /`
+#EFIDIR=./EFI
+BUILDDIR=./build
+
+source install_acpi_include.sh
 
 if [[ "$2" != "" ]]; then
     FANPREF=$2
@@ -22,9 +27,6 @@ else
 fi
 
 case "$1" in
-    help)
-        grep -o install_.*\) $0 | grep -v grep | tr ')' ' '
-    ;;
 # helpers
     inst_lores)
         rm -f $EFIDIR/EFI/CLOVER/ACPI/patched/SSDT-*.aml
