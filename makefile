@@ -43,7 +43,7 @@ MINI = $(MINIDIR)/Mini-SSDT.aml $(MINIDIR)/Mini-SSDT-DualLink.aml $(MINIDIR)/Min
 MINI=
 
 # core files
-HACK:=$(HACK) $(BUILDDIR)/SSDT-HACK.aml
+HACK:=$(BUILDDIR)/SSDT-HACK.aml
 HACK:=$(HACK) $(BUILDDIR)/SSDT-USB.aml
 # core files (from hotpatch in laptop Clover guide/repo)
 HACK:=$(HACK) $(BUILDDIR)/SSDT-XOSI.aml
@@ -102,342 +102,27 @@ clean:
 	rm -f $(STATIC) $(HACK) $(MINI) $(PLIST)
 	make clean_hda
 
-.PHONY: install_help # lists all the 'install' targets
-install_help:
-	@grep PHONY.*install makefile | grep -v grep
+make_config.sh: makefile
+	echo '#!/bin/bash'>$@
+	make -n -B -s $(PLIST) >>$@
+	chmod +x $@
 
-# install core SSDTs
-.PHONY: install # installs 'core' SSDTs (low resolution)
-install:
-	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
-	rm -f $(EFIDIR)/EFI/CLOVER/ACPI/patched/SSDT-*.aml
-	cp $(CORE) $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-IGPU.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-BATT.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-FAN-$(FANPREF).aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+make_acpi.sh: makefile
+	echo '#!/bin/bash'>$@
+	make -n -B -s $(HACK) >>$@
+	chmod +x $@
 
-.PHONY: install_hires # installs 'core' SSDTs (high resolution)
-install_hires:
-	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
-	rm -f $(EFIDIR)/EFI/CLOVER/ACPI/patched/SSDT-*.aml
-	cp $(CORE) $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-IGPU-HIRES.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-BATT.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-FAN-$(FANPREF).aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+install_acpi_include.sh: makefile
+	echo CORE=\"$(CORE)\">$@
+	chmod +x $@
 
-.PHONY: install_batt_g2
-install_batt_g2:
-	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
-	rm -f $(EFIDIR)/EFI/CLOVER/ACPI/patched/SSDT-BATT*.aml
-	cp $(BUILDDIR)/SSDT-BATT-G2.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-
-.PHONY: install_batt_g3
-install_batt_g3:
-	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
-	rm -f $(EFIDIR)/EFI/CLOVER/ACPI/patched/SSDT-BATT*.aml
-	cp $(BUILDDIR)/SSDT-BATT-G3.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-
-# system specfic SSDT installs
-.PHONY: install_4x30s
-install_4x30s:
-	make install
-	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
-	cp $(BUILDDIR)/SSDT-4x30s.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-KEY102.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-USB-4x30s.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-
-.PHONY: install_4x30s_hires
-install_4x30s_hires:
-	make install_hires
-	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
-	cp $(BUILDDIR)/SSDT-4x30s.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-KEY102.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-USB-4x30s.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-
-.PHONY: install_4x40s
-install_4x40s:
-	make install
-	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
-	cp $(BUILDDIR)/SSDT-4x40s.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-KEY102.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-USB-4x40s.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-
-.PHONY: install_4x40s_hires
-install_4x40s_hires:
-	make install_hires
-	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
-	cp $(BUILDDIR)/SSDT-4x40s.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-KEY102.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-USB-4x40s.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-
-.PHONY: install_6x60
-install_6x60:
-	make install
-	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
-	cp $(BUILDDIR)/SSDT-6x60.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-KEY87.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-USB-6x60.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-
-.PHONY: install_6x60_hires
-install_6x60_hires:
-	make install_hires
-	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
-	cp $(BUILDDIR)/SSDT-6x60.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-KEY87.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-USB-6x60.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-
-.PHONY: install_8x60
-install_8x60:
-	make install
-	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
-	cp $(BUILDDIR)/SSDT-8x60.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-KEY87.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-USB-8x60.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-
-.PHONY: install_8x60_hires
-install_8x60_hires:
-	make install_hires
-	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
-	cp $(BUILDDIR)/SSDT-8x60.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-KEY87.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-USB-8x60.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-
-.PHONY: install_2x70
-install_2x70:
-	make install
-	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
-	cp $(BUILDDIR)/SSDT-2x70.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-KEY87.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-#	cp $(BUILDDIR)/SSDT-USB-2x70.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-
-.PHONY: install_2x70_hires
-install_2x70_hires:
-	make install_hires
-	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
-	cp $(BUILDDIR)/SSDT-2x70.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-KEY87.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-#	cp $(BUILDDIR)/SSDT-USB-2x70.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-
-.PHONY: install_6x70
-install_6x70:
-	make install
-	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
-	cp $(BUILDDIR)/SSDT-6x70.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-KEY87.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-USB-6x70.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-
-.PHONY: install_6x70_hires
-install_6x70_hires:
-	make install_hires
-	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
-	cp $(BUILDDIR)/SSDT-6x70.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-KEY87.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-USB-6x70.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-
-.PHONY: install_8x70
-install_8x70:
-	make install
-	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
-	cp $(BUILDDIR)/SSDT-8x70.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-KEY87.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-#	cp $(BUILDDIR)/SSDT-USB-8x70.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-
-.PHONY: install_6x70_hires
-install_8x70_hires:
-	make install_hires
-	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
-	cp $(BUILDDIR)/SSDT-8x70.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-KEY87.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-#	cp $(BUILDDIR)/SSDT-USB-8x70.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-
-.PHONY: install_9x70
-install_9x70:
-	make install
-	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
-	cp $(BUILDDIR)/SSDT-9x70.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-KEY87.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-#	cp $(BUILDDIR)/SSDT-USB-9x70.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-
-.PHONY: install_9x70_hires
-install_9x60_hires:
-	make install_hires
-	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
-	cp $(BUILDDIR)/SSDT-9x70.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-KEY87.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-#	cp $(BUILDDIR)/SSDT-USB-9x70.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-
-.PHONY: install_4x0g0
-install_4x0g0:
-	make install
-	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
-	cp $(BUILDDIR)/SSDT-4x0-G0.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-KEY87.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-#	cp $(BUILDDIR)/SSDT-USB-4x0-G0.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-
-.PHONY: install_4x0g0_hires
-install_4x0g0_hires:
-	make install_hires
-	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
-	cp $(BUILDDIR)/SSDT-4x0-G0.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-KEY102.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-#	cp $(BUILDDIR)/SSDT-USB-4x0-G0.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-
-.PHONY: install_3x0g1
-install_3x0g1:
-	make install
-	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
-	cp $(BUILDDIR)/SSDT-3x0-G1.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-KEY102.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-#	cp $(BUILDDIR)/SSDT-USB-3x0-G1.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-
-.PHONY: install_3x0g1_hires
-install_3x0g1_hires:
-	make install_hires
-	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
-	cp $(BUILDDIR)/SSDT-3x0-G1.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-KEY102.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-#	cp $(BUILDDIR)/SSDT-USB-3x0-G1.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-
-.PHONY: install_4x0g1_ivy
-install_4x0g1_ivy:
-	make install
-	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
-	cp $(BUILDDIR)/SSDT-4x0-G1-Ivy.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-KEY102.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-#	cp $(BUILDDIR)/SSDT-USB-4x0-G1-Ivy.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-
-.PHONY: install_4x0g1_ivy_hires
-install_4x0g1_ivy_hires:
-	make install_hires
-	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
-	cp $(BUILDDIR)/SSDT-4x0-G1-Ivy.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-KEY102.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-#	cp $(BUILDDIR)/SSDT-USB-4x0-G1-Ivy.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-
-.PHONY: install_8x0g1_ivy
-install_8x0g1_ivy:
-	make install
-	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
-	cp $(BUILDDIR)/SSDT-8x0-G1-Ivy.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-KEY102.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-USB-8x0-G1.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-
-.PHONY: install_8x0g1_ivy_hires
-install_8x0g1_ivy_hires:
-	make install_hires
-	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
-	cp $(BUILDDIR)/SSDT-8x0-G1-Ivy.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-KEY102.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-USB-8x0-G1.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-
-.PHONY: install_4x0g1_haswell
-install_4x0g1_haswell:
-	make install
-	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
-	cp $(BUILDDIR)/SSDT-4x0-G1-Haswell.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-KEY102.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-#	cp $(BUILDDIR)/SSDT-USB-4x0-G1.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-
-.PHONY: install_8x0g1_haswell
-install_8x0g1_haswell:
-	make install
-	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
-	cp $(BUILDDIR)/SSDT-8x0-G1-Haswell.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-KEY102.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-USB-8x0s-G1.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-
-.PHONY: install_1040g1_haswell
-install_1040g1_haswell:
-	make install
-	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
-	cp $(BUILDDIR)/SSDT-1040-G1-Haswell.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-KEY102.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-#	cp $(BUILDDIR)/SSDT-USB-1040-G1.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-
-.PHONY: install_4x0g2_haswell
-install_4x0g2_haswell:
-	make install
-	make install_batt_g2
-	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
-	cp $(BUILDDIR)/SSDT-4x0-G2-Haswell.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-KEY102.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-USB-4x0-G2.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-
-.PHONY: install_8x0g2_haswell
-install_8x0g2_haswell:
-	make install
-	make install_batt_g2
-	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
-	cp $(BUILDDIR)/SSDT-8x0-G2-Haswell.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-KEY102.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-#	cp $(BUILDDIR)/SSDT-USB-8x0s-G2.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-
-.PHONY: install_4x0g2_broadwell
-install_4x0g2_broadwell:
-	make install
-	make install_batt_g2
-	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
-	cp $(BUILDDIR)/SSDT-4x0-G2-Broadwell.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-KEY102.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-USB-4x0-G2.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-
-.PHONY: install_820g2_broadwell
-install_820g2_broadwell:
-	make install
-	make install_batt_g2
-	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
-	cp $(BUILDDIR)/SSDT-8x0-G2-Broadwell.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-KEY102.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-USB-820-G2.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-
-.PHONY: install_840g2_broadwell
-install_840g2_broadwell:
-	make install
-	make install_batt_g2
-	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
-	cp $(BUILDDIR)/SSDT-8x0-G2-Broadwell.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-KEY102.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-USB-840-G2.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-
-.PHONY: install_850g2_broadwell
-install_850g2_broadwell:
-	make install
-	make install_batt_g2
-	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
-	cp $(BUILDDIR)/SSDT-8x0-G2-Broadwell.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-KEY102.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-USB-850-G2.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-
-.PHONY: install_ZBook_G2_haswell
-install_ZBook_G2_haswell:
-	make install
-	make install_batt_g2
-	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
-	cp $(BUILDDIR)/SSDT-ZBook-G2-Haswell.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-KEY102.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-#	cp $(BUILDDIR)/SSDT-USB-ZBook-G2.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-
-.PHONY: install_ZBook_G2_broadwell
-install_ZBook_G2_broadwell:
-	make install
-	make install_batt_g2
-	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
-	cp $(BUILDDIR)/SSDT-ZBook-G2-Broadwell.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-KEY102.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-#	cp $(BUILDDIR)/SSDT-USB-ZBook-G2.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-
-.PHONY: install_4x0g3_skylake
-install_4x0g3_skylake:
-	make install
-	make install_batt_g3
-	$(eval EFIDIR:=$(shell sudo ./mount_efi.sh /))
-	cp $(BUILDDIR)/SSDT-4x0-G3-Skylake.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-KEY102.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(BUILDDIR)/SSDT-USB-4x0-G3.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
+.PHONY: force_update
+force_update:
+	make -B make_config.sh make_acpi.sh
+	make -B install_acpi_include.sh
 
 $(HDAINJECT) $(HDAHCDINJECT) : $(RESOURCES)/*.plist ./patch_hda.sh
 	./patch_hda.sh $(HDA)
-	touch $@
 
 .PHONY: clean_hda
 clean_hda:
@@ -517,7 +202,7 @@ config/config_8x0s_G1_Ivy.plist: config/config_4x0s_G0.plist
 	cp config/config_4x0s_G0.plist $@
 	@printf "\n"
 
-# ZBook_G0_Ivy is same as 4x0s_G0
+# ZBook_G0 is same as 4x0s_G0
 config/config_ZBook_G0.plist: config/config_4x0s_G0.plist
 	@printf "!! creating $@\n"
 	cp config/config_4x0s_G0.plist $@
