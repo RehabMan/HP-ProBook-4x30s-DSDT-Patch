@@ -41,6 +41,7 @@ STATIC = patches/4x30s.txt patches/4x40s_IvyBridge.txt patches/4x40s_SandyBridge
 MINI = $(MINIDIR)/Mini-SSDT.aml $(MINIDIR)/Mini-SSDT-DualLink.aml $(MINIDIR)/Mini-SSDT-IMEI.aml $(MINIDIR)/Mini-SSDT-$(MINIDIR)/DisableGraphics.aml $(MINIDIR)/Mini-SSDT-AR9285.aml
 #//REVIEW: stop building MINI for now
 MINI=
+STATIC=
 
 # core files
 HACK:=$(BUILDDIR)/SSDT-HACK.aml

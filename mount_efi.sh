@@ -37,7 +37,7 @@ EFIIndex=$(LC_ALL=C /usr/sbin/gpt -r show "/dev/$DiskDevice" 2>/dev/null | awk '
 EFIDevice="${DiskDevice}s$EFIIndex"
 
 # Get the EFI mount point if the partition is currently mounted
-EFIMountPoint=$(LC_ALL=C mount | grep "$EFIDevice" | cut -f 3 -d ' ')
+EFIMountPoint=$(LC_ALL=C mount | grep "$EFIDevice on" | cut -f 3 -d ' ')
 
 code=0
 if [ ! "$EFIMountPoint" ]; then
