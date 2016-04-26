@@ -36,7 +36,7 @@ case "$1" in
     inst_hires)
         rm -f $EFIDIR/EFI/CLOVER/ACPI/patched/SSDT-*.aml
         cp $CORE $EFIDIR/EFI/CLOVER/ACPI/patched
-        cp $BUILDDIR/SSDT-IGPU.aml $EFIDIR/EFI/CLOVER/ACPI/patched
+        cp $BUILDDIR/SSDT-IGPU-HIRES.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         cp $BUILDDIR/SSDT-BATT.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         cp $BUILDDIR/SSDT-FAN-$FANPREF.aml $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
@@ -49,7 +49,7 @@ case "$1" in
         cp $BUILDDIR/SSDT-BATT-G3.aml $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
     install_4x30s)
-        $0 inst_lores
+        $0 inst_lores $2
         cp $BUILDDIR/SSDT-4x30s.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         cp $BUILDDIR/SSDT-KEY102.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         cp $BUILDDIR/SSDT-USB-4x30s.aml $EFIDIR/EFI/CLOVER/ACPI/patched
@@ -57,189 +57,189 @@ case "$1" in
     ;;
 # model specific scripts
     install_4x30s_hires)
-        $0 inst_hires
+        $0 inst_hires $2
         cp $BUILDDIR/SSDT-4x30s.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         cp $BUILDDIR/SSDT-KEY102.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         cp $BUILDDIR/SSDT-USB-4x30s.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         ls $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
     install_4x40s)
-        $0 inst_lores
+        $0 inst_lores $2
         cp $BUILDDIR/SSDT-4x40s.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         cp $BUILDDIR/SSDT-KEY102.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         cp $BUILDDIR/SSDT-USB-4x40s.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         ls $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
     install_4x40s_hires)
-        $0 inst_hires
+        $0 inst_hires $2
         cp $BUILDDIR/SSDT-4x40s.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         cp $BUILDDIR/SSDT-KEY102.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         cp $BUILDDIR/SSDT-USB-4x40s.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         ls $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
     install_6x60)
-        $0 inst_lores
+        $0 inst_lores $2
         cp $BUILDDIR/SSDT-6x60.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         cp $BUILDDIR/SSDT-KEY87.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         cp $BUILDDIR/SSDT-USB-6x60.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         ls $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
     install_6x60_hires)
-        $0 inst_hires
+        $0 inst_hires $2
         cp $BUILDDIR/SSDT-6x60.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         cp $BUILDDIR/SSDT-KEY87.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         cp $BUILDDIR/SSDT-USB-6x60.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         ls $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
     install_8x60)
-        $0 inst_lores
+        $0 inst_lores $2
         cp $BUILDDIR/SSDT-8x60.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         cp $BUILDDIR/SSDT-KEY87.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         cp $BUILDDIR/SSDT-USB-8x60.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         ls $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
     install_8x60_hires)
-        $0 inst_hires
+        $0 inst_hires $2
         cp $BUILDDIR/SSDT-8x60.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         cp $BUILDDIR/SSDT-KEY87.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         cp $BUILDDIR/SSDT-USB-8x60.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         ls $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
     install_2x70)
-        $0 inst_lores
+        $0 inst_lores $2
         cp $BUILDDIR/SSDT-2x70.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         cp $BUILDDIR/SSDT-KEY87.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         #cp $BUILDDIR/SSDT-USB-2x70.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         ls $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
     install_2x70_hires)
-        $0 inst_hires
+        $0 inst_hires $2
         cp $BUILDDIR/SSDT-2x70.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         cp $BUILDDIR/SSDT-KEY87.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         #cp $BUILDDIR/SSDT-USB-2x70.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         ls $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
     install_6x70)
-        $0 inst_lores
+        $0 inst_lores $2
         cp $BUILDDIR/SSDT-6x70.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         cp $BUILDDIR/SSDT-KEY87.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         cp $BUILDDIR/SSDT-USB-6x70.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         ls $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
     install_6x70_hires)
-        $0 inst_hires
+        $0 inst_hires $2
         cp $BUILDDIR/SSDT-6x70.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         cp $BUILDDIR/SSDT-KEY87.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         cp $BUILDDIR/SSDT-USB-6x70.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         ls $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
     install_8x70)
-        $0 inst_lores
+        $0 inst_lores $2
         cp $BUILDDIR/SSDT-8x70.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         cp $BUILDDIR/SSDT-KEY87.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         #cp $BUILDDIR/SSDT-USB-8x70.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         ls $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
     install_8x70_hires)
-        $0 inst_hires
+        $0 inst_hires $2
         cp $BUILDDIR/SSDT-8x70.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         cp $BUILDDIR/SSDT-KEY87.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         #cp $BUILDDIR/SSDT-USB-8x70.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         ls $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
     install_9x70)
-        $0 inst_lores
+        $0 inst_lores $2
         cp $BUILDDIR/SSDT-9x70.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         cp $BUILDDIR/SSDT-KEY87.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         #cp $BUILDDIR/SSDT-USB-9x70.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         ls $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
     install_9x70_hires)
-        $0 inst_hires
+        $0 inst_hires $2
         cp $BUILDDIR/SSDT-9x70.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         cp $BUILDDIR/SSDT-KEY87.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         #cp $BUILDDIR/SSDT-USB-9x70.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         ls $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
     install_4x0g0)
-        $0 inst_hires
+        $0 inst_hires $2
         cp $BUILDDIR/SSDT-4x0-G0.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         cp $BUILDDIR/SSDT-KEY87.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         #cp $BUILDDIR/SSDT-USB-4x0-G0.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         ls $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
     install_4x0g0_hires)
-        $0 inst_hires
+        $0 inst_hires $2
         cp $BUILDDIR/SSDT-4x0-G0.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         cp $BUILDDIR/SSDT-KEY87.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         #cp $BUILDDIR/SSDT-USB-4x0-G0.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         ls $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
     install_3x0g1)
-        $0 inst_lores
+        $0 inst_lores $2
         cp $BUILDDIR/SSDT-3x0-G1.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         cp $BUILDDIR/SSDT-KEY87.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         #cp $BUILDDIR/SSDT-USB-3x0-G1.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         ls $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
     install_3x0g1_hires)
-        $0 inst_hires
+        $0 inst_hires $2
         cp $BUILDDIR/SSDT-3x0-G1.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         cp $BUILDDIR/SSDT-KEY87.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         #cp $BUILDDIR/SSDT-USB-3x0-G1.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         ls $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
     install_4x0g1_ivy)
-        $0 inst_lores
+        $0 inst_lores $2
         cp $BUILDDIR/SSDT-4x0-G1-Ivy.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         cp $BUILDDIR/SSDT-KEY87.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         #cp $BUILDDIR/SSDT-USB-4x0-G1-Ivy.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         ls $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
     install_4x0g1_ivy_hires)
-        $0 inst_hires
+        $0 inst_hires $2
         cp $BUILDDIR/SSDT-4x0-G1-Ivy.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         cp $BUILDDIR/SSDT-KEY87.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         #cp $BUILDDIR/SSDT-USB-4x0-G1-Ivy.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         ls $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
     install_8x0g1_ivy)
-        $0 inst_lores
+        $0 inst_lores $2
         cp $BUILDDIR/SSDT-8x0-G1-Ivy.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         cp $BUILDDIR/SSDT-KEY102.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         cp $BUILDDIR/SSDT-USB-8x0-G1.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         ls $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
     install_8x0g1_ivy_hires)
-        $0 inst_hires
+        $0 inst_hires $2
         cp $BUILDDIR/SSDT-8x0-G1-Ivy.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         cp $BUILDDIR/SSDT-KEY102.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         cp $BUILDDIR/SSDT-USB-8x0-G1.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         ls $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
     install_4x0g1_haswell)
-        $0 inst_lores
+        $0 inst_lores $2
         cp $BUILDDIR/SSDT-4x0-G1-Haswell.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         cp $BUILDDIR/SSDT-KEY102.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         #cp $BUILDDIR/SSDT-USB-4x0-G1.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         ls $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
     install_8x0g1_haswell)
-        $0 inst_lores
+        $0 inst_lores $2
         cp $BUILDDIR/SSDT-8x0-G1-Haswell.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         cp $BUILDDIR/SSDT-KEY102.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         cp $BUILDDIR/SSDT-USB-8x0s-G1.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         ls $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
     install_1040g1_haswell)
-        $0 inst_lores
+        $0 inst_lores $2
         cp $BUILDDIR/SSDT-1040-G1-Haswell.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         cp $BUILDDIR/SSDT-KEY102.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         #cp $BUILDDIR/SSDT-USB-1040-G1.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         ls $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
     install_4x0g2_haswell)
-        $0 inst_lores
+        $0 inst_lores $2
         $0 inst_batt_g2
         cp $BUILDDIR/SSDT-4x0-G2-Haswell.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         cp $BUILDDIR/SSDT-KEY102.aml $EFIDIR/EFI/CLOVER/ACPI/patched
@@ -247,7 +247,7 @@ case "$1" in
         ls $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
     install_8x0g2_haswell)
-        $0 inst_lores
+        $0 inst_lores $2
         $0 inst_batt_g2
         cp $BUILDDIR/SSDT-8x0-G2-Haswell.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         cp $BUILDDIR/SSDT-KEY102.aml $EFIDIR/EFI/CLOVER/ACPI/patched
@@ -255,7 +255,7 @@ case "$1" in
         ls $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
     install_4x0g2_broadwell)
-        $0 inst_lores
+        $0 inst_lores $2
         $0 inst_batt_g2
         cp $BUILDDIR/SSDT-4x0-G2-Broadwell.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         cp $BUILDDIR/SSDT-KEY102.aml $EFIDIR/EFI/CLOVER/ACPI/patched
@@ -263,7 +263,7 @@ case "$1" in
         ls $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
     install_820g2_broadwell)
-        $0 inst_lores
+        $0 inst_lores $2
         $0 inst_batt_g2
         cp $BUILDDIR/SSDT-8x0-G2-Broadwell.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         cp $BUILDDIR/SSDT-KEY102.aml $EFIDIR/EFI/CLOVER/ACPI/patched
@@ -271,7 +271,7 @@ case "$1" in
         ls $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
     install_840g2_broadwell)
-        $0 inst_lores
+        $0 inst_lores $2
         $0 inst_batt_g2
         cp $BUILDDIR/SSDT-8x0-G2-Broadwell.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         cp $BUILDDIR/SSDT-KEY102.aml $EFIDIR/EFI/CLOVER/ACPI/patched
@@ -287,7 +287,7 @@ case "$1" in
         ls $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
     install_ZBook_G2_haswell)
-        $0 inst_lores
+        $0 inst_lores $2
         $0 inst_batt_g2
         cp $BUILDDIR/SSDT-ZBook-G2-Haswell.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         cp $BUILDDIR/SSDT-KEY102.aml $EFIDIR/EFI/CLOVER/ACPI/patched
@@ -295,7 +295,7 @@ case "$1" in
         ls $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
     install_ZBook_G2_broadwell)
-        $0 inst_lores
+        $0 inst_lores $2
         $0 inst_batt_g2
         cp $BUILDDIR/SSDT-ZBook-G2-Broadwell.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         cp $BUILDDIR/SSDT-KEY102.aml $EFIDIR/EFI/CLOVER/ACPI/patched
@@ -303,7 +303,7 @@ case "$1" in
         ls $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
     install_4x0g3_skylake)
-        $0 inst_lores
+        $0 inst_lores $2
         $0 inst_batt_g3
         cp $BUILDDIR/SSDT-4x0-G3-Skylake.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         cp $BUILDDIR/SSDT-KEY102.aml $EFIDIR/EFI/CLOVER/ACPI/patched
