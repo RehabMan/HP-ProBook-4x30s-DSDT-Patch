@@ -369,7 +369,7 @@ $(MINIDIR)/%.aml : mini/%.dsl
 
 # new hotpatch SSDTs
 
-IASLOPTS=-vw 2095 -vw 2146 -vw 2089
+IASLOPTS=-vw 2095 -vw 2146 -vw 2089 -oe
 
 $(BUILDDIR)/%.aml : hotpatch/%.dsl
 	iasl $(IASLOPTS) -p $@ $^
