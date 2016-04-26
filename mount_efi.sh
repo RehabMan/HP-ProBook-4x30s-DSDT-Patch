@@ -37,14 +37,14 @@ EFIIndex=$(LC_ALL=C /usr/sbin/gpt -r show "/dev/$DiskDevice" 2>/dev/null | awk '
 EFIDevice="${DiskDevice}s$EFIIndex"
 
 # Get the EFI mount point if the partition is currently mounted
-EFIMountPoint=$(LC_ALL=C diskutil info "$EFIDevice" 2>/dev/null | sed -n 's/.*Mount Point: *//p')
+EFIMountPoint=$(LC_ALL=C mount | grep "$EFIDevice" | cut -f 3 -d ' ')
 
 code=0
 if [ ! "$EFIMountPoint" ]; then
     # try to mount the EFI partition
     EFIMountPoint="/Volumes/EFI"
     [ ! -d "$EFIMountPoint" ] && mkdir -p "$EFIMountPoint"
-    diskutil mount -mountPoint "$EFIMountPoint" /dev/$EFIDevice >/dev/null 2>&1
+    mount -t msdos /dev/$EFIDevice "$EFIMountPoint" >/dev/null 2>&1
     code=$?
 fi
 echo $EFIMountPoint
