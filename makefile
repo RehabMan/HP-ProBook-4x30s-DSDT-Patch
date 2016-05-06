@@ -55,6 +55,7 @@ HACK:=$(HACK) \
 # depends on hardware (USB optimization)
 HACK:=$(HACK) \
 	$(BUILDDIR)/SSDT-USB-4x0-G2.aml $(BUILDDIR)/SSDT-USB-4x40s.aml $(BUILDDIR)/SSDT-USB-4x30s.aml \
+	$(BUILDDIR)/SSDT-USB-9x70.aml \
 	$(BUILDDIR)/SSDT-USB-8x0-G1.aml \
 	$(BUILDDIR)/SSDT-USB-820-G2.aml $(BUILDDIR)/SSDT-USB-840-G2.aml $(BUILDDIR)/SSDT-USB-850-G2.aml \
 	$(BUILDDIR)/SSDT-USB-6x60.aml $(BUILDDIR)/SSDT-USB-6x70.aml\
@@ -209,6 +210,12 @@ config/config_ZBook_G0.plist: config/config_4x0s_G0.plist
 	cp config/config_4x0s_G0.plist $@
 	@printf "\n"
 
+# 9x70m is same as 4x0s_G0
+config/config_9x70m.plist : config/config_4x0s_G0.plist
+	@printf "!! creating $@\n"
+	cp config/config_4x0s_G0.plist $@
+	@printf "\n"
+
 # 8x0s_G1_Haswell is IDT 76e0, HD4400
 config/config_8x0s_G1_Haswell.plist : $(PARTS)/config_master.plist $(PARTS)/config_IDT76e0.plist $(PARTS)/config_Haswell.plist
 	@printf "!! creating $@\n"
@@ -229,12 +236,6 @@ config/config_4x0s_G1_Haswell.plist : config/config_8x0s_G1_Haswell.plist
 config/config_1040_G1_Haswell.plist : config/config_8x0s_G1_Haswell.plist
 	@printf "!! creating $@\n"
 	cp config/config_8x0s_G1_Haswell.plist $@
-	@printf "\n"
-
-# 9x70m is same as 4x0s_G0
-config/config_9x70m.plist : config/config_4x0s_G0.plist
-	@printf "!! creating $@\n"
-	cp config/config_4x0s_G0.plist $@
 	@printf "\n"
 
 # 6x60p is IDT7605, HD3000, non-Intel USB3
@@ -369,6 +370,7 @@ $(MINIDIR)/%.aml : mini/%.dsl
 
 # new hotpatch SSDTs
 
+# note: "-oe" is undocumented flag to turn off external opcode in iasl AML compilation result
 IASLOPTS=-vw 2095 -vw 2146 -vw 2089 -oe
 
 $(BUILDDIR)/%.aml : hotpatch/%.dsl
