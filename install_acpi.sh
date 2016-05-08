@@ -268,7 +268,7 @@ case "$1" in
         $0 inst_lores $2
         $0 inst_batt_g2
         cp $BUILDDIR/SSDT-8x0-G2-Broadwell.aml $EFIDIR/EFI/CLOVER/ACPI/patched
-        cp $BUILDDIR/SSDT-KEY102.aml $EFIDIR/EFI/CLOVER/ACPI/patched
+        cp $BUILDDIR/SSDT-KEY87.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         cp $BUILDDIR/SSDT-USB-820-G2.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         ls $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
@@ -276,7 +276,7 @@ case "$1" in
         $0 inst_lores $2
         $0 inst_batt_g2
         cp $BUILDDIR/SSDT-8x0-G2-Broadwell.aml $EFIDIR/EFI/CLOVER/ACPI/patched
-        cp $BUILDDIR/SSDT-KEY102.aml $EFIDIR/EFI/CLOVER/ACPI/patched
+        cp $BUILDDIR/SSDT-KEY87.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         cp $BUILDDIR/SSDT-USB-840-G2.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         ls $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
@@ -284,7 +284,7 @@ case "$1" in
         $0 install
         $0 inst_batt_g2
         cp $BUILDDIR/SSDT-8x0-G2-Broadwell.aml $EFIDIR/EFI/CLOVER/ACPI/patched
-        cp $BUILDDIR/SSDT-KEY102.aml $EFIDIR/EFI/CLOVER/ACPI/patched
+        cp $BUILDDIR/SSDT-KEY87.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         cp $BUILDDIR/SSDT-USB-850-G2.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         ls $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
