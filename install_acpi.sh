@@ -292,7 +292,7 @@ case "$1" in
         $0 inst_lores $2
         $0 inst_batt_g2
         cp $BUILDDIR/SSDT-ZBook-G2-Haswell.aml $EFIDIR/EFI/CLOVER/ACPI/patched
-        cp $BUILDDIR/SSDT-KEY102.aml $EFIDIR/EFI/CLOVER/ACPI/patched
+        cp $BUILDDIR/SSDT-KEY87.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         #cp $BUILDDIR/SSDT-USB-ZBook-G2.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         ls $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
@@ -300,7 +300,7 @@ case "$1" in
         $0 inst_lores $2
         $0 inst_batt_g2
         cp $BUILDDIR/SSDT-ZBook-G2-Broadwell.aml $EFIDIR/EFI/CLOVER/ACPI/patched
-        cp $BUILDDIR/SSDT-KEY102.aml $EFIDIR/EFI/CLOVER/ACPI/patched
+        cp $BUILDDIR/SSDT-KEY87.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         #cp $BUILDDIR/SSDT-USB-ZBook-G2.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         ls $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
