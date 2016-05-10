@@ -2,7 +2,7 @@ LayoutID and PathMapID mappings for AppleHDA_ProBook.kext
 
 ALC282: 3
 ALC280: 4
-CX20724: 5 (reserved... not currently in the file)
+CX20724: 5
 
 IDT_76d1: 12
 IDT_76d9: 13
