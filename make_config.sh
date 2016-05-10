@@ -102,6 +102,9 @@ cp config_parts/config_master.plist config/config_ZBook_G2_Haswell.plist
 ./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_parts/config_Haswell.plist config/config_ZBook_G2_Haswell.plist
 ./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_parts/config_IDT76e0.plist config/config_ZBook_G2_Haswell.plist
 printf "\n"
+printf "!! creating config/config_ZBook_G1_Haswell.plist\n"
+cp config/config_ZBook_G2_Haswell.plist config/config_ZBook_G1_Haswell.plist
+printf "\n"
 printf "!! creating config/config_ZBook_G2_Broadwell.plist\n"
 cp config_parts/config_master.plist config/config_ZBook_G2_Broadwell.plist
 /usr/libexec/plistbuddy -c "Set KernelAndKextPatches:AsusAICPUPM false" config/config_ZBook_G2_Broadwell.plist

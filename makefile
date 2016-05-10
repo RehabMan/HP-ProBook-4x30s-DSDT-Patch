@@ -60,7 +60,8 @@ HACK:=$(HACK) \
 	$(BUILDDIR)/SSDT-USB-820-G2.aml $(BUILDDIR)/SSDT-USB-840-G2.aml $(BUILDDIR)/SSDT-USB-850-G2.aml \
 	$(BUILDDIR)/SSDT-USB-6x60.aml $(BUILDDIR)/SSDT-USB-6x70.aml\
 	$(BUILDDIR)/SSDT-USB-8x60.aml \
-	$(BUILDDIR)/SSDT-USB-4x0-G3.aml
+	$(BUILDDIR)/SSDT-USB-4x0-G3.aml \
+	$(BUILDDIR)/SSDT-USB-ZBook-G1.aml
 
 # depends on personal choices
 HACK:=$(HACK) \
@@ -92,7 +93,7 @@ PLIST:=config/config_4x30s.plist config/config_4x40s.plist \
 	config/config_8x0s_G1_Haswell.plist config/config_4x0s_G1_Haswell.plist \
 	config/config_4x0s_G2_Haswell.plist config/config_8x0s_G2_Haswell.plist \
 	config/config_4x0s_G2_Broadwell.plist config/config_8x0s_G2_Broadwell.plist \
-	config/config_ZBook_G2_Haswell.plist config/config_ZBook_G2_Broadwell.plist \
+	config/config_ZBook_G1_Haswell.plist config/config_ZBook_G2_Haswell.plist config/config_ZBook_G2_Broadwell.plist \
 	config/config_4x0s_G3_Skylake.plist \
 	config/config_1040_G1_Haswell.plist
 
@@ -330,6 +331,12 @@ config/config_ZBook_G2_Haswell.plist : $(PARTS)/config_master.plist $(PARTS)/con
 	/usr/libexec/plistbuddy -c "Set :SMBIOS:ProductName MacBookPro11,1" $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_Haswell.plist $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_IDT76e0.plist $@
+	@printf "\n"
+
+# ZBook_G1_Haswell is same as ZBook_G2_Haswell
+config/config_ZBook_G1_Haswell.plist : config/config_ZBook_G2_Haswell.plist
+	@printf "!! creating $@\n"
+	cp config/config_ZBook_G2_Haswell.plist $@
 	@printf "\n"
 
 # ZBook_G2_Broadwell is ALC280, Broadwell

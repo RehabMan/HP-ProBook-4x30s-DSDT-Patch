@@ -69,9 +69,11 @@
 		ED18374D1C0A4B1200A5A3DA /* Platforms.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Platforms.plist; path = Resources_ProBook/Platforms.plist; sourceTree = "<group>"; };
 		ED18374E1C0A4B1200A5A3DA /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.txt; path = Resources_ProBook/README.txt; sourceTree = "<group>"; };
 		ED507CCE1CDCDAF400E14F67 /* SSDT-USB-9x70.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-USB-9x70.dsl"; path = "hotpatch/SSDT-USB-9x70.dsl"; sourceTree = "<group>"; };
+		ED5F0FDA1CE218160097FADC /* SSDT-ZBook-G1-Haswell.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-ZBook-G1-Haswell.dsl"; path = "hotpatch/SSDT-ZBook-G1-Haswell.dsl"; sourceTree = "<group>"; };
 		ED634E2619FD2A9B00289C54 /* 14_ProBook-102key.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "14_ProBook-102key.txt"; path = "patches/14_ProBook-102key.txt"; sourceTree = "<group>"; };
 		ED634E2719FD2B3E00289C54 /* 14_ProBook-87key.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "14_ProBook-87key.txt"; path = "patches/14_ProBook-87key.txt"; sourceTree = "<group>"; };
 		ED72750B1BE1B1D700314108 /* config_4x30s.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_4x30s.plist; path = config/config_4x30s.plist; sourceTree = "<group>"; };
+		ED7697A81CE1106D00DA0993 /* SSDT-USB-ZBook-G1.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-USB-ZBook-G1.dsl"; path = "hotpatch/SSDT-USB-ZBook-G1.dsl"; sourceTree = "<group>"; };
 		ED7A2ADB1CBEF56000062967 /* config_4x0s_G3_Skylake.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_4x0s_G3_Skylake.plist; path = config/config_4x0s_G3_Skylake.plist; sourceTree = "<group>"; };
 		ED7A2ADC1CBEF56000062967 /* config_6x60p.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_6x60p.plist; path = config/config_6x60p.plist; sourceTree = "<group>"; };
 		ED7A2ADD1CBEF56000062967 /* config_6x70p.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_6x70p.plist; path = config/config_6x70p.plist; sourceTree = "<group>"; };
@@ -355,6 +357,7 @@
 				ED97E9341CC757D7006C757A /* SSDT-4x0-G2-Broadwell.dsl */,
 				ED97E93D1CC757D7006C757A /* SSDT-8x0-G2-Broadwell.dsl */,
 				ED97E9361CC757D7006C757A /* SSDT-4x0-G3-Skylake.dsl */,
+				ED5F0FDA1CE218160097FADC /* SSDT-ZBook-G1-Haswell.dsl */,
 				ED97E9431CC757D7006C757A /* SSDT-ZBook-G2-Haswell.dsl */,
 				ED9E98FB1CC905FA0032E2A3 /* SSDT-ZBook-G2-Broadwell.dsl */,
 			);
@@ -375,6 +378,7 @@
 				ED97E9471CC757D7006C757A /* SSDT-USB-820-G2.dsl */,
 				ED97E9481CC757D7006C757A /* SSDT-USB-840-G2.dsl */,
 				ED97E94A1CC757D7006C757A /* SSDT-USB-4x0-G3.dsl */,
+				ED7697A81CE1106D00DA0993 /* SSDT-USB-ZBook-G1.dsl */,
 			);
 			name = "usb customization";
 			sourceTree = "<group>";
