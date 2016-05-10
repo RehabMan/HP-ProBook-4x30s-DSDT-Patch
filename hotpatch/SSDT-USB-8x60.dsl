@@ -30,13 +30,11 @@ DefinitionBlock ("", "SSDT", 2, "hack", "usb6x60", 0)
                 "port-count", Buffer() { 8, 0, 0, 0 },
                 "ports", Package()
                 {
-                    #if 0
                     "HP11", Package()   // USB2 near left
                     {
                         //"UsbConnector", 0,
                         "port", Buffer() { 1, 0, 0, 0 },
                     },
-                    #endif
                     "HP12", Package()   // USB2 near right
                     {
                         //"UsbConnector", 0,
