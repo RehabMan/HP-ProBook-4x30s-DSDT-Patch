@@ -10,3 +10,5 @@
             "hda-gfx", Buffer() { "onboard-1" },
         })
     }
+
+//EOF
