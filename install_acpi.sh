@@ -164,7 +164,7 @@ case "$1" in
         ls $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
     install_4x0g0)
-        $0 inst_hires $2
+        $0 inst_lores $2
         cp $BUILDDIR/SSDT-4x0-G0.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         cp $BUILDDIR/SSDT-KEY87.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         #cp $BUILDDIR/SSDT-USB-4x0-G0.aml $EFIDIR/EFI/CLOVER/ACPI/patched
