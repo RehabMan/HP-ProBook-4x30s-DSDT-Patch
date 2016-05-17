@@ -1,6 +1,7 @@
 // USBInjectAll configuration/override for ZBook G1 Haswell
 //
 // Based on secret-sounds' HP ZBook 17 G1 (Haswell)
+// Also based on matrining's ZBook 14 G1 (Haswell) (8086:9c31)
 
 DefinitionBlock ("", "SSDT", 2, "hack", "usbzbg1", 0)
 {
@@ -78,6 +79,59 @@ DefinitionBlock ("", "SSDT", 2, "hack", "usbzbg1", 0)
                     },
                 },
             },
+            "8086_9c31", Package()
+            {
+                //"port-count", Buffer() { 13, 0, 0, 0 },
+                "ports", Package()
+                {
+                    // HS01 not used
+                    "HS02", Package()
+                    {
+                        "UsbConnector", 3,
+                        "port", Buffer() { 2, 0, 0, 0 },
+                    },
+                    "HS03", Package()   // internal USB2 hub
+                    {
+                        "UsbConnector", 255,
+                        "port", Buffer() { 3, 0, 0, 0 },
+                    },
+                    "HS04", Package()
+                    {
+                        "UsbConnector", 3,
+                        "port", Buffer() { 4, 0, 0, 0 },
+                    },
+                    #if 0   // finger print reader (disabled)
+                    "HS05", Package()
+                    {
+                        "UsbConnector", 3,
+                        "port", Buffer() { 5, 0, 0, 0 },
+                    },
+                    #endif
+                    // HS06 not used
+                    "HS07", Package()   // camera
+                    {
+                        "UsbConnector", 255,
+                        "port", Buffer() { 7, 0, 0, 0 },
+                    },
+                    // HS08/HS09 not used
+                    // SSP1 not used
+                    "SSP2", Package()
+                    {
+                        "UsbConnector", 3,
+                        "port", Buffer() { 11, 0, 0, 0 },
+                    },
+                    "SSP3", Package()   // internal USB3 hub
+                    {
+                        "UsbConnector", 255,
+                        "port", Buffer() { 12, 0, 0, 0 },
+                    },
+                    "SSP4", Package()
+                    {
+                        "UsbConnector", 3,
+                        "port", Buffer() { 13, 0, 0, 0 },
+                    },
+                },
+            },
         })
     }
 
@@ -127,19 +181,6 @@ DefinitionBlock ("", "SSDT", 2, "hack", "usbzbg1", 0)
                 ^^LPCB.FDE1 = 1
             }
         }
-    }
-
-//
-// Configure FakePCIID_XHCIMux.kext to handle USB2 on XHC
-//
-    External(_SB.PCI0.XHC, DeviceObj)
-    Method(_SB.PCI0.XHC._DSM, 4)
-    {
-        If (!Arg2) { Return (Buffer() { 0x03 } ) }
-        Return (Package()
-        {
-            "RM,pr2-force", Buffer() { 0xff, 0x3f, 0, 0 },
-        })
     }
 }
 
