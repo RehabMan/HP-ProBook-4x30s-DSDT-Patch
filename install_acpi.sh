@@ -281,7 +281,7 @@ case "$1" in
         ls $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
     install_850g2_broadwell)
-        $0 install
+        $0 inst_lores
         $0 inst_batt_g2
         cp $BUILDDIR/SSDT-8x0-G2-Broadwell.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         cp $BUILDDIR/SSDT-KEY87.aml $EFIDIR/EFI/CLOVER/ACPI/patched
