@@ -52,6 +52,11 @@ DefinitionBlock ("", "SSDT", 2, "hack", "usb9x70", 0)
                         //"UsbConnector", 255,
                         "port", Buffer() { 6, 0, 0, 0 },
                     },
+                    "HP18", Package()   // smartcard reader (wi-fi's Folio 9470m)
+                    {
+                        //"UsbConnector", 255,
+                        "port", Buffer() { 8, 0, 0, 0 },
+                    },
                 },
             },
             // EHCI#2
