@@ -198,8 +198,8 @@ fi
 # install (injector) kexts in the repo itself
 # patching AppleHDA
 HDA=ProBook
-$SUDO rm -Rf $KEXTDEST/AppleHDA_$HDA.kext
-$SUDO rm -Rf $KEXTDEST/AppleHDAHCD_$HDA.kext
+$SUDO rm -Rf $KEXTDEST/AppleHDA_$HDA.kext $SLE/AppleHDA_$HDA.kext
+$SUDO rm -Rf $KEXTDEST/AppleHDAHCD_$HDA.kext $SLE/AppleHDAHCD_$HDA.kext
 $SUDO rm -f $SLE/AppleHDA.kext/Contents/Resources/*.zml*
 if [[ ! -e AppleHDA_$HDA.kext ]]; then
     ./patch_hda.sh $HDA
