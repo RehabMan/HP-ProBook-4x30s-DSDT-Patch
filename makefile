@@ -71,7 +71,7 @@ HACK:=$(HACK) \
 # system specific SSDTs
 HACK:=$(HACK) \
 	$(BUILDDIR)/SSDT-4x30s.aml $(BUILDDIR)/SSDT-4x40s.aml \
-	$(BUILDDIR)/SSDT-6x60.aml $(BUILDDIR)/SSDT-8x60.aml \
+	$(BUILDDIR)/SSDT-6x60.aml $(BUILDDIR)/SSDT-8x60.aml $(BUILDDIR)/SSDT-5x30.aml \
 	$(BUILDDIR)/SSDT-2x70.aml $(BUILDDIR)/SSDT-6x70.aml $(BUILDDIR)/SSDT-8x70.aml $(BUILDDIR)/SSDT-9x70.aml \
 	$(BUILDDIR)/SSDT-1040-G1-Haswell.aml \
 	$(BUILDDIR)/SSDT-3x0-G1.aml \
@@ -87,8 +87,8 @@ HACK:=$(HACK) \
 PLIST:=config/config_4x30s.plist config/config_4x40s.plist \
 	config/config_4x0s_G0.plist config/config_4x0s_G1_Ivy.plist config/config_ZBook_G0.plist \
 	config/config_8x0s_G1_Ivy.plist config/config_9x70m.plist \
-	config/config_6x60p.plist config/config_8x60p.plist config/config_6x70p.plist config/config_8x70p.plist \
-	config/config_2x70p.plist \
+	config/config_6x60p.plist config/config_8x60p.plist config/config_5x30m.plist \
+	config/config_6x70p.plist config/config_8x70p.plist config/config_2x70p.plist \
 	config/config_3x0_G1.plist \
 	config/config_8x0s_G1_Haswell.plist config/config_4x0s_G1_Haswell.plist \
 	config/config_4x0s_G2_Haswell.plist config/config_8x0s_G2_Haswell.plist \
@@ -252,6 +252,12 @@ config/config_6x60p.plist : $(PARTS)/config_master.plist $(PARTS)/config_IDT7605
 
 # 8x60p is same as 6x60p
 config/config_8x60p.plist : config/config_6x60p.plist
+	@printf "!! creating $@\n"
+	cp config/config_6x60p.plist $@
+	@printf "\n"
+
+# 5x30m is same as 6x60p
+config/config_5x30m.plist : config/config_6x60p.plist
 	@printf "!! creating $@\n"
 	cp config/config_6x60p.plist $@
 	@printf "\n"

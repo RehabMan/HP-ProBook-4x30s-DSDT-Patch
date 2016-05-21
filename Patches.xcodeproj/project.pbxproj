@@ -163,6 +163,7 @@
 		ED9E98FB1CC905FA0032E2A3 /* SSDT-ZBook-G2-Broadwell.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-ZBook-G2-Broadwell.dsl"; path = "hotpatch/SSDT-ZBook-G2-Broadwell.dsl"; sourceTree = "<group>"; };
 		EDA152011CC82A4B0040A5C0 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		EDA152021CC82BED0040A5C0 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.txt; path = patches/README.txt; sourceTree = "<group>"; };
+		EDA70AD21CEFEE6B009D2AA7 /* SSDT-5x30.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-5x30.dsl"; path = "hotpatch/SSDT-5x30.dsl"; sourceTree = "<group>"; };
 		EDBC2FA01CC7062B00D9DFC5 /* config_1040_G1_Haswell.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_1040_G1_Haswell.plist; path = config/config_1040_G1_Haswell.plist; sourceTree = "<group>"; };
 		EDBC2FA11CC7062B00D9DFC5 /* config_2x70p.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_2x70p.plist; path = config/config_2x70p.plist; sourceTree = "<group>"; };
 		EDBFC62A1AC74DA600E24D1F /* 06a_Battery_PNOT.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = 06a_Battery_PNOT.txt; path = patches/06a_Battery_PNOT.txt; sourceTree = "<group>"; };
@@ -339,6 +340,7 @@
 			children = (
 				ED97E9371CC757D7006C757A /* SSDT-4x30s.dsl */,
 				ED97E9381CC757D7006C757A /* SSDT-4x40s.dsl */,
+				EDA70AD21CEFEE6B009D2AA7 /* SSDT-5x30.dsl */,
 				ED97E9391CC757D7006C757A /* SSDT-6x60.dsl */,
 				ED97E93F1CC757D7006C757A /* SSDT-8x60.dsl */,
 				ED97E92F1CC757D7006C757A /* SSDT-2x70.dsl */,
