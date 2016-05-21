@@ -43,6 +43,9 @@ printf "\n"
 printf "!! creating config/config_8x60p.plist\n"
 cp config/config_6x60p.plist config/config_8x60p.plist
 printf "\n"
+printf "!! creating config/config_5x30m.plist\n"
+cp config/config_6x60p.plist config/config_5x30m.plist
+printf "\n"
 printf "!! creating config/config_6x70p.plist\n"
 cp config_parts/config_master.plist config/config_6x70p.plist
 /usr/libexec/plistbuddy -c "Set :SMBIOS:ProductName MacBookPro9,2" config/config_6x70p.plist

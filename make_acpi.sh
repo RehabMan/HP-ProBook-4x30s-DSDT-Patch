@@ -37,6 +37,7 @@ iasl -vw 2095 -vw 2146 -vw 2089 -oe -p build/SSDT-4x30s.aml hotpatch/SSDT-4x30s.
 iasl -vw 2095 -vw 2146 -vw 2089 -oe -p build/SSDT-4x40s.aml hotpatch/SSDT-4x40s.dsl
 iasl -vw 2095 -vw 2146 -vw 2089 -oe -p build/SSDT-6x60.aml hotpatch/SSDT-6x60.dsl
 iasl -vw 2095 -vw 2146 -vw 2089 -oe -p build/SSDT-8x60.aml hotpatch/SSDT-8x60.dsl
+iasl -vw 2095 -vw 2146 -vw 2089 -oe -p build/SSDT-5x30.aml hotpatch/SSDT-5x30.dsl
 iasl -vw 2095 -vw 2146 -vw 2089 -oe -p build/SSDT-2x70.aml hotpatch/SSDT-2x70.dsl
 iasl -vw 2095 -vw 2146 -vw 2089 -oe -p build/SSDT-6x70.aml hotpatch/SSDT-6x70.dsl
 iasl -vw 2095 -vw 2146 -vw 2089 -oe -p build/SSDT-8x70.aml hotpatch/SSDT-8x70.dsl
