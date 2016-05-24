@@ -8,13 +8,15 @@
 		<array>
 			<dict>
 				<key>Comment</key>
-				<string>Enable 9MB cursor bytes, 0x0a260006, vbo</string>
+				<string>HDMI-audio HD4000 0x01660003/0004, port 0406 (order dependency HDMI-video 0x01660004 above)</string>
+				<key>Disabled</key>
+				<false/>
 				<key>Name</key>
-				<string>AppleIntelFramebufferAzul</string>
+				<string>AppleIntelFramebufferCapri</string>
 				<key>Find</key>
-				<data>BgAmCgEDAwMAAAACAAAwAQAAYAA=</data>
+				<data>BAYAAAAEAACBAAAA</data>
 				<key>Replace</key>
-				<data>BgAmCgEDAwMAAAACAAAwAQAAkAA=</data>
+				<data>BAYAAAAIAAAGAAAA</data>
 			</dict>
 		</array>
 	</dict>

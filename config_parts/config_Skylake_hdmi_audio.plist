@@ -8,25 +8,27 @@
 		<array>
 			<dict>
 				<key>Comment</key>
-				<string>HDMI-video, 64MB BIOS, HD4000 0x01660004 #1 of 2</string>
+				<string>HDMI-audio, port 0105, 0x19160000</string>
+				<key>Disabled</key>
+				<false/>
 				<key>Name</key>
-				<string>AppleIntelFramebufferCapri</string>
+				<string>AppleIntelSKLGraphicsFramebuffer</string>
 				<key>Find</key>
-				<data>BABmAQEDAQEAAAAC</data>
+				<data>AQUJAAAEAACHAQAA</data>
 				<key>Replace</key>
-				<data>BABmAQECBAIAAAAE</data>
+				<data>AQUJAAAIAACHAQAA</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>HDMI-video, 64MB BIOS, HD4000 0x01660004 #2 of 2 (order dependency, port 0406 patch)</string>
+				<string>HDMI-audio, port 0204, 0x19160000</string>
 				<key>Disabled</key>
-				<true/>
+				<false/>
 				<key>Name</key>
-				<string>AppleIntelFramebufferCapri</string>
+				<string>AppleIntelSKLGraphicsFramebuffer</string>
 				<key>Find</key>
-				<data>MAIAAAAAAAABAAAAQAAAAAAAAAABAAAAQAAAAAAAAAABAAAAQAAAAAAAAAAAAAAA</data>
+				<data>AgQKAAAEAACHAQAA</data>
 				<key>Replace</key>
-				<data>MAIAAAIFAAAABAAABwQAAAMEAAAABAAAgQAAAAQGAAAABAAAgQAAAAAAAAAAAgAR</data>
+				<data>AgQKAAAIAACHAQAA</data>
 			</dict>
 		</array>
 	</dict>

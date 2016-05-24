@@ -68,6 +68,11 @@
 		ED1837491C0A4B1200A5A3DA /* layout13.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = layout13.plist; path = Resources_ProBook/layout13.plist; sourceTree = "<group>"; };
 		ED18374D1C0A4B1200A5A3DA /* Platforms.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Platforms.plist; path = Resources_ProBook/Platforms.plist; sourceTree = "<group>"; };
 		ED18374E1C0A4B1200A5A3DA /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.txt; path = Resources_ProBook/README.txt; sourceTree = "<group>"; };
+		ED407DA41CF4FBA900A03010 /* config_HD4000_hdmi_audio.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_HD4000_hdmi_audio.plist; path = config_parts/config_HD4000_hdmi_audio.plist; sourceTree = "<group>"; };
+		ED407DA51CF4FC8B00A03010 /* config_Skylake_hdmi_audio.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_Skylake_hdmi_audio.plist; path = config_parts/config_Skylake_hdmi_audio.plist; sourceTree = "<group>"; };
+		ED407DA61CF4FC8B00A03010 /* config_Broadwell_hdmi_audio.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_Broadwell_hdmi_audio.plist; path = config_parts/config_Broadwell_hdmi_audio.plist; sourceTree = "<group>"; };
+		ED407DA71CF4FC8B00A03010 /* config_Haswell_hdmi_audio.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_Haswell_hdmi_audio.plist; path = config_parts/config_Haswell_hdmi_audio.plist; sourceTree = "<group>"; };
+		ED407DA81CF4FCFA00A03010 /* config_HD3000.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_HD3000.plist; path = config_parts/config_HD3000.plist; sourceTree = "<group>"; };
 		ED507CCE1CDCDAF400E14F67 /* SSDT-USB-9x70.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-USB-9x70.dsl"; path = "hotpatch/SSDT-USB-9x70.dsl"; sourceTree = "<group>"; };
 		ED5F0FDA1CE218160097FADC /* SSDT-ZBook-G1-Haswell.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-ZBook-G1-Haswell.dsl"; path = "hotpatch/SSDT-ZBook-G1-Haswell.dsl"; sourceTree = "<group>"; };
 		ED634E2619FD2A9B00289C54 /* 14_ProBook-102key.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "14_ProBook-102key.txt"; path = "patches/14_ProBook-102key.txt"; sourceTree = "<group>"; };
@@ -104,7 +109,7 @@
 		ED97E9201CC755BE006C757A /* config_master.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_master.plist; path = config_parts/config_master.plist; sourceTree = "<group>"; };
 		ED97E9211CC755BE006C757A /* config_Broadwell.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_Broadwell.plist; path = config_parts/config_Broadwell.plist; sourceTree = "<group>"; };
 		ED97E9221CC755BE006C757A /* config_Haswell.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_Haswell.plist; path = config_parts/config_Haswell.plist; sourceTree = "<group>"; };
-		ED97E9231CC755BE006C757A /* config_HD3000.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_HD3000.plist; path = config_parts/config_HD3000.plist; sourceTree = "<group>"; };
+		ED97E9231CC755BE006C757A /* config_HD3000_hdmi_audio.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_HD3000_hdmi_audio.plist; path = config_parts/config_HD3000_hdmi_audio.plist; sourceTree = "<group>"; };
 		ED97E9241CC755BE006C757A /* config_HD4000.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_HD4000.plist; path = config_parts/config_HD4000.plist; sourceTree = "<group>"; };
 		ED97E9251CC755BE006C757A /* config_Skylake.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_Skylake.plist; path = config_parts/config_Skylake.plist; sourceTree = "<group>"; };
 		ED97E9261CC755BE006C757A /* config_CX20724.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_CX20724.plist; path = config_parts/config_CX20724.plist; sourceTree = "<group>"; };
@@ -177,6 +182,8 @@
 		EDD44B791C178DD1003D0CA9 /* config_8x0s_G1_Ivy.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_8x0s_G1_Ivy.plist; path = config/config_8x0s_G1_Ivy.plist; sourceTree = "<group>"; };
 		EDD44B7A1C178DD1003D0CA9 /* config_9x70m.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_9x70m.plist; path = config/config_9x70m.plist; sourceTree = "<group>"; };
 		EDD44B7C1C178E90003D0CA9 /* config_4x0s_G0.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_4x0s_G0.plist; path = config/config_4x0s_G0.plist; sourceTree = "<group>"; };
+		EDDD91531CF5039C00A70550 /* config_5x30m.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_5x30m.plist; path = config/config_5x30m.plist; sourceTree = "<group>"; };
+		EDDD91541CF5039C00A70550 /* config_ZBook_G1_Haswell.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_ZBook_G1_Haswell.plist; path = config/config_ZBook_G1_Haswell.plist; sourceTree = "<group>"; };
 		EDEAE87C1CBEEC2E00E1DF9D /* layout5.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = layout5.plist; path = Resources_ProBook/layout5.plist; sourceTree = "<group>"; };
 		EDEC127B1C180E880080CCCA /* config_8x0s_G1_Haswell.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_8x0s_G1_Haswell.plist; path = config/config_8x0s_G1_Haswell.plist; sourceTree = "<group>"; };
 		EDEC4E3A1CC97910002AC8E5 /* ALC280_CC.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ALC280_CC.asl; path = hotpatch/include/ALC280_CC.asl; sourceTree = "<group>"; };
@@ -301,12 +308,12 @@
 				ED72750B1BE1B1D700314108 /* config_4x30s.plist */,
 				84144E971BC64063004DF673 /* config_4x40s.plist */,
 				ED7A2ADC1CBEF56000062967 /* config_6x60p.plist */,
+				EDDD91531CF5039C00A70550 /* config_5x30m.plist */,
 				ED7A2ADE1CBEF56000062967 /* config_8x60p.plist */,
 				EDBC2FA11CC7062B00D9DFC5 /* config_2x70p.plist */,
 				ED7A2ADD1CBEF56000062967 /* config_6x70p.plist */,
 				ED7A2ADF1CBEF56000062967 /* config_8x70p.plist */,
 				EDD44B7A1C178DD1003D0CA9 /* config_9x70m.plist */,
-				EDBC2FA01CC7062B00D9DFC5 /* config_1040_G1_Haswell.plist */,
 				EDD44B741C178DD1003D0CA9 /* config_3x0_G1.plist */,
 				EDD44B7C1C178E90003D0CA9 /* config_4x0s_G0.plist */,
 				ED824E1F1CCFC46D00EFDDF2 /* config_ZBook_G0.plist */,
@@ -316,6 +323,8 @@
 				EDEC127B1C180E880080CCCA /* config_8x0s_G1_Haswell.plist */,
 				EDD44B761C178DD1003D0CA9 /* config_4x0s_G2_Haswell.plist */,
 				EDD44B731C178DD1003D0CA9 /* config_8x0s_G2_Haswell.plist */,
+				EDBC2FA01CC7062B00D9DFC5 /* config_1040_G1_Haswell.plist */,
+				EDDD91541CF5039C00A70550 /* config_ZBook_G1_Haswell.plist */,
 				EDD44B721C178DD1003D0CA9 /* config_4x0s_G2_Broadwell.plist */,
 				EDD44B711C178DD1003D0CA9 /* config_8x0s_G2_Broadwell.plist */,
 				84FAF3521CA9FB630066178B /* config_ZBook_G2_Haswell.plist */,
@@ -390,11 +399,16 @@
 			children = (
 				ED97E9201CC755BE006C757A /* config_master.plist */,
 				ED97E92E1CC755BE006C757A /* config_non_Intel_USB3.plist */,
-				ED97E9231CC755BE006C757A /* config_HD3000.plist */,
+				ED407DA81CF4FCFA00A03010 /* config_HD3000.plist */,
+				ED97E9231CC755BE006C757A /* config_HD3000_hdmi_audio.plist */,
 				ED97E9241CC755BE006C757A /* config_HD4000.plist */,
+				ED407DA41CF4FBA900A03010 /* config_HD4000_hdmi_audio.plist */,
 				ED97E9221CC755BE006C757A /* config_Haswell.plist */,
+				ED407DA71CF4FC8B00A03010 /* config_Haswell_hdmi_audio.plist */,
 				ED97E9211CC755BE006C757A /* config_Broadwell.plist */,
+				ED407DA61CF4FC8B00A03010 /* config_Broadwell_hdmi_audio.plist */,
 				ED97E9251CC755BE006C757A /* config_Skylake.plist */,
+				ED407DA51CF4FC8B00A03010 /* config_Skylake_hdmi_audio.plist */,
 				ED97E9261CC755BE006C757A /* config_CX20724.plist */,
 				ED97E9271CC755BE006C757A /* config_ALC280.plist */,
 				ED97E9281CC755BE006C757A /* config_ALC282.plist */,
