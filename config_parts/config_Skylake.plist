@@ -5,32 +5,7 @@
 	<key>KernelAndKextPatches</key>
 	<dict>
 		<key>KextsToPatch</key>
-		<array>
-			<dict>
-				<key>Comment</key>
-				<string>HDMI-audio, port 0105, 0x19160000</string>
-				<key>Disabled</key>
-				<true/>
-				<key>Name</key>
-				<string>AppleIntelSKLGraphicsFramebuffer</string>
-				<key>Find</key>
-				<data>AQUJAAAEAACHAQAA</data>
-				<key>Replace</key>
-				<data>AQUJAAAIAACHAQAA</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>HDMI-audio, port 0204, 0x19160000</string>
-				<key>Disabled</key>
-				<true/>
-				<key>Name</key>
-				<string>AppleIntelSKLGraphicsFramebuffer</string>
-				<key>Find</key>
-				<data>AgQKAAAEAACHAQAA</data>
-				<key>Replace</key>
-				<data>AgQKAAAIAACHAQAA</data>
-			</dict>
-		</array>
+		<array/>
 	</dict>
 </dict>
 </plist>

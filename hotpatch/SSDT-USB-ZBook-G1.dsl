@@ -1,17 +1,12 @@
-// USBInjectAll configuration/override for EliteBook 820 G2 Broadwell
-//   and EliteBook 850 G2 Broadwell
+// USBInjectAll configuration/override for ZBook G1 Haswell
 //
-
-//REVIEW: preliminary data for G2.  Note that it has a hub on XHC, which
-//  may need further work.
-
-// Based on information provided from EliteBook Pro 820 G2
-// This same configuration is also valid for EliteBook 850 G2 Broadwell
+// Based on secret-sounds' HP ZBook 17 G1 (Haswell)
+// Also based on matrining's ZBook 14 G1 (Haswell) (8086:9c31)
 
 // set DISABLE_EHCI to 0 if you want to try with USB2 on XHCI routed to EHCI
 #define DISABLE_EHCI 1
 
-DefinitionBlock ("", "SSDT", 2, "hack", "usb820g2", 0)
+DefinitionBlock ("", "SSDT", 2, "hack", "usbzbg1", 0)
 {
 //
 // Override for USBInjectAll.kext
@@ -22,6 +17,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "usb820g2", 0)
         Name(RMCF, Package()
         {
 #if !DISABLE_EHCI
+// Note: NOT CORRECT (was copied from USB-820-G2)
             // EHCI#1
             "EH01", Package()
             {
@@ -68,50 +64,118 @@ DefinitionBlock ("", "SSDT", 2, "hack", "usb820g2", 0)
                 },
             },
 #endif
+
             // XHC overrides
-            "8086_9cb1", Package()
+            "8086_8c31", Package()
             {
-                //"port-count", Buffer() { 0x0f, 0, 0, 0},
+                //"port-count", Buffer() { 0x0d, 0, 0, 0},
                 "ports", Package()
                 {
-#if DISABLE_EHCI
                     // HS01 not used
-                    "HS02", Package() // USB2 (SSP2 is USB3)
+                    "HS02", Package() // HS on USB3 port SSP2
                     {
-                        "UsbConnector", 0,
+                        "UsbConnector", 3,
                         "port", Buffer() { 0x02, 0, 0, 0 },
                     },
-                    "HS03", Package() // internal 4-port USB2 hub (SSP3 is USB3)
+                    // HS03,HS04,HS05 not used
+                    "HS06", Package() // USB2, left back
                     {
-                        "UsbConnector", 255,
-                        "port", Buffer() { 0x03, 0, 0, 0 },
+                        "UsbConnector", 0,
+                        "port", Buffer() { 0x06, 0, 0, 0 },
                     },
-                    "HS04", Package() // bluetooth
-                    {
-                        "UsbConnector", 255,
-                        "port", Buffer() { 0x04, 0, 0, 0 },
-                    },
-                    //HS05 is fingerprint reader (disabled)
-                    //HS06 not used
                     "HS07", Package() // camera
                     {
                         "UsbConnector", 255,
                         "port", Buffer() { 0x07, 0, 0, 0 },
                     },
-                    // HS08/HS09/HS10/HS11 not used
-#endif
-                    // SSP1 not used
-                    "SSP2", Package() // SS USB3 port
+                    // HS08 not used
+                    "HS09", Package() // HS on USB3 port SSP5
                     {
                         "UsbConnector", 3,
-                        "port", Buffer() { 0x0d, 0, 0, 0 },
+                        "port", Buffer() { 0x09, 0, 0, 0 },
                     },
-                    "SSP3", Package() // SS USB3 hub (HS03.port2 is USB2?)
+                    "HS10", Package() // HS on USB3 port SSP6
+                    {
+                        "UsbConnector", 3,
+                        "port", Buffer() { 0x0a, 0, 0, 0 },
+                    },
+                    // HS11 not used
+                    "HS12", Package() // bluetooth
                     {
                         "UsbConnector", 255,
-                        "port", Buffer() { 0x0e, 0, 0, 0 },
+                        "port", Buffer() { 0x0c, 0, 0, 0 },
                     },
-                    // SSP4 not used
+                    // HS13,HS14 not used
+                    // SSP1 not used
+                    "SSP2", Package() // USB3, right front
+                    {
+                        "UsbConnector", 3,
+                        "port", Buffer() { 0x11, 0, 0, 0 },
+                    },
+                    // SSP3/SSP4 not used
+                    "SSP5", Package() // USB3, right back
+                    {
+                        "UsbConnector", 3,
+                        "port", Buffer() { 0x14, 0, 0, 0 },
+                    },
+                    "SSP6", Package() // USB3, left back
+                    {
+                        "UsbConnector", 3,
+                        "port", Buffer() { 0x15, 0, 0, 0 },
+                    },
+                },
+            },
+            "8086_9c31", Package()
+            {
+                //"port-count", Buffer() { 13, 0, 0, 0 },
+                "ports", Package()
+                {
+                    // HS01 not used
+                    "HS02", Package()
+                    {
+                        "UsbConnector", 3,
+                        "port", Buffer() { 2, 0, 0, 0 },
+                    },
+                    "HS03", Package()   // internal USB2 hub
+                    {
+                        "UsbConnector", 255,
+                        "port", Buffer() { 3, 0, 0, 0 },
+                    },
+                    "HS04", Package()
+                    {
+                        "UsbConnector", 3,
+                        "port", Buffer() { 4, 0, 0, 0 },
+                    },
+                    #if 0   // finger print reader (disabled)
+                    "HS05", Package()
+                    {
+                        "UsbConnector", 3,
+                        "port", Buffer() { 5, 0, 0, 0 },
+                    },
+                    #endif
+                    // HS06 not used
+                    "HS07", Package()   // camera
+                    {
+                        "UsbConnector", 255,
+                        "port", Buffer() { 7, 0, 0, 0 },
+                    },
+                    // HS08/HS09 not used
+                    // SSP1 not used
+                    "SSP2", Package()
+                    {
+                        "UsbConnector", 3,
+                        "port", Buffer() { 11, 0, 0, 0 },
+                    },
+                    "SSP3", Package()   // internal USB3 hub
+                    {
+                        "UsbConnector", 255,
+                        "port", Buffer() { 12, 0, 0, 0 },
+                    },
+                    "SSP4", Package()
+                    {
+                        "UsbConnector", 3,
+                        "port", Buffer() { 13, 0, 0, 0 },
+                    },
                 },
             },
         })
