@@ -3,6 +3,9 @@
 // Based on secret-sounds' HP ZBook 17 G1 (Haswell)
 // Also based on matrining's ZBook 14 G1 (Haswell) (8086:9c31)
 
+// set DISABLE_EHCI to 0 if you want to try with USB2 on XHCI routed to EHCI
+#define DISABLE_EHCI 1
+
 DefinitionBlock ("", "SSDT", 2, "hack", "usbzbg1", 0)
 {
 //
@@ -13,12 +16,55 @@ DefinitionBlock ("", "SSDT", 2, "hack", "usbzbg1", 0)
         Name(_HID, "UIA00000")
         Name(RMCF, Package()
         {
-            // EH01 has no ports (XHCIMux is used to force USB3 routing OFF)
+#if !DISABLE_EHCI
+// Note: NOT CORRECT (was copied from USB-820-G2)
+            // EHCI#1
             "EH01", Package()
             {
-                "port-count", Buffer() { 0, 0, 0, 0 },
-                "ports", Package() { },
+                "port-count", Buffer() { 8, 0, 0, 0 },
+                "ports", Package()
+                {
+                    "PR11", Package()
+                    {
+                        "UsbConnector", 255,
+                        "port", Buffer() { 1, 0, 0, 0 },
+                    },
+                },
             },
+            /// hub on port #1 EHCI#1
+            "HUB1", Package()
+            {
+                "port-count", Buffer() { 8, 0, 0, 0 },
+                "ports", Package()
+                {
+                    //HP11 not used
+                    "HP12", Package()
+                    {
+                        //"UsbConnector", 3,
+                        "port", Buffer() { 2, 0, 0, 0 },
+                    },
+                    "HP13", Package() // USB2 hub (related SSP3 hub)
+                    {
+                        //"UsbConnector", 255,
+                        "port", Buffer() { 3, 0, 0, 0 },
+                    },
+                    "HP14", Package() // bluetooth
+                    {
+                        //"UsbConnector", 255,
+                        "port", Buffer() { 4, 0, 0, 0 },
+                    },
+                    //HP15 finger print reader
+                    //HP16 not used
+                    "HP17", Package() // camera
+                    {
+                        //"UsbConnector", 255,
+                        "port", Buffer() { 7, 0, 0, 0 },
+                    },
+                    //HP18 not used
+                },
+            },
+#endif
+
             // XHC overrides
             "8086_8c31", Package()
             {
@@ -138,6 +184,8 @@ DefinitionBlock ("", "SSDT", 2, "hack", "usbzbg1", 0)
 //
 // Disabling EHCI #1
 //
+
+#if DISABLE_EHCI
     External(_SB.PCI0, DeviceObj)
     External(_SB.PCI0.LPCB, DeviceObj)
     External(_SB.PCI0.EH01, DeviceObj)
@@ -182,6 +230,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "usbzbg1", 0)
             }
         }
     }
+#endif
 }
 
 //EOF
