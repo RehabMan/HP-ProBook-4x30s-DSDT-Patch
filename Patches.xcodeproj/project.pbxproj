@@ -68,6 +68,9 @@
 		ED1837491C0A4B1200A5A3DA /* layout13.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = layout13.plist; path = Resources_ProBook/layout13.plist; sourceTree = "<group>"; };
 		ED18374D1C0A4B1200A5A3DA /* Platforms.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Platforms.plist; path = Resources_ProBook/Platforms.plist; sourceTree = "<group>"; };
 		ED18374E1C0A4B1200A5A3DA /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.txt; path = Resources_ProBook/README.txt; sourceTree = "<group>"; };
+		ED2500551CF67CE6006A5FB7 /* SSDT-XHC.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-XHC.dsl"; path = "hotpatch/SSDT-XHC.dsl"; sourceTree = "<group>"; };
+		ED2500561CF67CE6006A5FB7 /* SSDT-EH01.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-EH01.dsl"; path = "hotpatch/SSDT-EH01.dsl"; sourceTree = "<group>"; };
+		ED2500571CF67CE6006A5FB7 /* SSDT-EH02.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-EH02.dsl"; path = "hotpatch/SSDT-EH02.dsl"; sourceTree = "<group>"; };
 		ED407DA41CF4FBA900A03010 /* config_HD4000_hdmi_audio.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_HD4000_hdmi_audio.plist; path = config_parts/config_HD4000_hdmi_audio.plist; sourceTree = "<group>"; };
 		ED407DA51CF4FC8B00A03010 /* config_Skylake_hdmi_audio.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_Skylake_hdmi_audio.plist; path = config_parts/config_Skylake_hdmi_audio.plist; sourceTree = "<group>"; };
 		ED407DA61CF4FC8B00A03010 /* config_Broadwell_hdmi_audio.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_Broadwell_hdmi_audio.plist; path = config_parts/config_Broadwell_hdmi_audio.plist; sourceTree = "<group>"; };
@@ -147,7 +150,6 @@
 		ED97E9461CC757D7006C757A /* SSDT-USB-8x0-G1.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-USB-8x0-G1.dsl"; path = "hotpatch/SSDT-USB-8x0-G1.dsl"; sourceTree = "<group>"; };
 		ED97E9471CC757D7006C757A /* SSDT-USB-820-G2.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-USB-820-G2.dsl"; path = "hotpatch/SSDT-USB-820-G2.dsl"; sourceTree = "<group>"; };
 		ED97E9481CC757D7006C757A /* SSDT-USB-840-G2.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-USB-840-G2.dsl"; path = "hotpatch/SSDT-USB-840-G2.dsl"; sourceTree = "<group>"; };
-		ED97E9491CC757D7006C757A /* SSDT-USB.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-USB.dsl"; path = "hotpatch/SSDT-USB.dsl"; sourceTree = "<group>"; };
 		ED97E94A1CC757D7006C757A /* SSDT-USB-4x0-G3.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-USB-4x0-G3.dsl"; path = "hotpatch/SSDT-USB-4x0-G3.dsl"; sourceTree = "<group>"; };
 		ED97E94B1CC757D7006C757A /* SSDT-IGPU.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-IGPU.dsl"; path = "hotpatch/SSDT-IGPU.dsl"; sourceTree = "<group>"; };
 		ED97E94C1CC757D7006C757A /* SSDT-USB-6x60.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-USB-6x60.dsl"; path = "hotpatch/SSDT-USB-6x60.dsl"; sourceTree = "<group>"; };
@@ -450,10 +452,12 @@
 				ED923A2A1CC9407E00BD18E2 /* usb customization */,
 				ED97E9441CC757D7006C757A /* SSDT-HACK.dsl */,
 				ED16A73D1CC7B8B400EA1E82 /* SSDT-XOSI.dsl */,
+				ED2500561CF67CE6006A5FB7 /* SSDT-EH01.dsl */,
+				ED2500571CF67CE6006A5FB7 /* SSDT-EH02.dsl */,
+				ED2500551CF67CE6006A5FB7 /* SSDT-XHC.dsl */,
 				ED16A73F1CC7B8B400EA1E82 /* SSDT-SMBUS.dsl */,
 				ED16A7401CC7B8B400EA1E82 /* SSDT-SATA.dsl */,
 				ED16A7411CC7B8B400EA1E82 /* SSDT-LPC.dsl */,
-				ED97E9491CC757D7006C757A /* SSDT-USB.dsl */,
 				ED16A7421CC7B93200EA1E82 /* SSDT-PRW.dsl */,
 				ED16A7431CC7B9FD00EA1E82 /* SSDT-LANC_PRW.dsl */,
 				ED97E94B1CC757D7006C757A /* SSDT-IGPU.dsl */,

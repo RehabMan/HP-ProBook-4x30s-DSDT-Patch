@@ -1,7 +1,9 @@
 #!/bin/bash
 iasl -vw 2095 -vw 2146 -vw 2089 -oe -p build/SSDT-HACK.aml hotpatch/SSDT-HACK.dsl
-iasl -vw 2095 -vw 2146 -vw 2089 -oe -p build/SSDT-USB.aml hotpatch/SSDT-USB.dsl
 iasl -vw 2095 -vw 2146 -vw 2089 -oe -p build/SSDT-XOSI.aml hotpatch/SSDT-XOSI.dsl
+iasl -vw 2095 -vw 2146 -vw 2089 -oe -p build/SSDT-EH01.aml hotpatch/SSDT-EH01.dsl
+iasl -vw 2095 -vw 2146 -vw 2089 -oe -p build/SSDT-EH02.aml hotpatch/SSDT-EH02.dsl
+iasl -vw 2095 -vw 2146 -vw 2089 -oe -p build/SSDT-XHC.aml hotpatch/SSDT-XHC.dsl
 iasl -vw 2095 -vw 2146 -vw 2089 -oe -p build/SSDT-LPC.aml hotpatch/SSDT-LPC.dsl
 iasl -vw 2095 -vw 2146 -vw 2089 -oe -p build/SSDT-SATA.aml hotpatch/SSDT-SATA.dsl
 iasl -vw 2095 -vw 2146 -vw 2089 -oe -p build/SSDT-SMBUS.aml hotpatch/SSDT-SMBUS.dsl
