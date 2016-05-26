@@ -2,6 +2,7 @@
 //
 // investigative work done by mo7a1995 (with direction from RehabMan)
 //
+// added HS08 for USB2 port reported not working by daniela-sammartino
 
 // set DISABLE_EHCI to 0 if you want to try with USB2 on XHCI routed to EHCI
 #define DISABLE_EHCI 1
@@ -173,7 +174,12 @@ DefinitionBlock ("", "SSDT", 2, "hack", "usb4x0g2", 0)
                         "UsbConnector", 255,
                         "port", Buffer() { 0x07, 0, 0, 0 },
                     },
-                    //HS08/HS09 not used
+                    "HS08", Package() // USB2 port
+                    {
+                        "UsbConnector", 0,
+                        "port", Buffer() { 0x08, 0, 0, 0 },
+                    },
+                    //HS09 not used
 #endif
                     "SSP1", Package() // SS USB3
                     {
