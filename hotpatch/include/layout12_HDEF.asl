@@ -31,15 +31,15 @@
             {
                 "Custom Commands", Package()
                 {
-                    Package(){}, // signifies Array instead of Dictionary
+                    Package(){},
                     Package()
                     {
-                        // set pin configs for IDT 76d1
+                        "LayoutID", 12,
                         "Command", Buffer()
                         {
-                            0x00, 0xc7, 0x1e, 0x81, 0x00, 0xc7, 0x1f, 0x03
+                            0x00, 0xc7, 0x1e, 0x81,
+                            0x00, 0xc7, 0x1f, 0x03
                         },
-                        "On Probe", ">y",
                     },
                 },
             },

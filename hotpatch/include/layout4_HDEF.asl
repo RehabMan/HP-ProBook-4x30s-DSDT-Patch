@@ -21,21 +21,33 @@
             "Version", 0x020600,
             "10ec_0280", Package()
             {
-                "Custom Commands", Package()
+                "PinConfigDefault", Package()
                 {
-                    Package(){}, // signifies Array instead of Dictionary
+                    Package(){},
                     Package()
                     {
-                        // set pin configs for ALC280
+                        "LayoutID", 4,
+                        "PinConfigs", Package()
+                        {
+                            Package(){},
+                            0x12, 0x90a00010,
+                            0x14, 0x90170020,
+                            0x15, 0x02211030,
+                            0x1a, 0x02811040,
+                        },
+                    },
+                },
+                "Custom Commands", Package()
+                {
+                    Package(){},
+                    Package()
+                    {
+                        "LayoutID", 4,
                         "Command", Buffer()
                         {
-                            0x01, 0x27, 0x1c, 0x10, 0x01, 0x27, 0x1d, 0x00, 0x01, 0x27, 0x1e, 0xa0, 0x01, 0x27, 0x1f, 0x90,
-                            0x01, 0x47, 0x1c, 0x20, 0x01, 0x47, 0x1d, 0x00, 0x01, 0x47, 0x1e, 0x17, 0x01, 0x47, 0x1f, 0x90,
-                            0x01, 0x57, 0x1c, 0x30, 0x01, 0x57, 0x1d, 0x10, 0x01, 0x57, 0x1e, 0x21, 0x01, 0x57, 0x1f, 0x02,
-                            0x01, 0xa7, 0x1c, 0x40, 0x01, 0xa7, 0x1d, 0x10, 0x01, 0xa7, 0x1e, 0x81, 0x01, 0xa7, 0x1f, 0x02,
-                            0x01, 0x47, 0x0c, 0x02, 0x01, 0x57, 0x0c, 0x02
+                            0x01, 0x47, 0x0c, 0x02,
+                            0x01, 0x57, 0x0c, 0x02
                         },
-                        "On Probe", ">y",
                     },
                 },
             },

@@ -108,7 +108,6 @@
 		ED97E91B1CC75350006C757A /* layout18_HDEF.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = layout18_HDEF.asl; path = hotpatch/include/layout18_HDEF.asl; sourceTree = "<group>"; };
 		ED97E91C1CC75350006C757A /* layout19_HDEF.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = layout19_HDEF.asl; path = hotpatch/include/layout19_HDEF.asl; sourceTree = "<group>"; };
 		ED97E91D1CC75350006C757A /* disable_HECI.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = disable_HECI.asl; path = hotpatch/include/disable_HECI.asl; sourceTree = "<group>"; };
-		ED97E91E1CC75350006C757A /* disable_CC.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = disable_CC.asl; path = hotpatch/include/disable_CC.asl; sourceTree = "<group>"; };
 		ED97E9201CC755BE006C757A /* config_master.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_master.plist; path = config_parts/config_master.plist; sourceTree = "<group>"; };
 		ED97E9211CC755BE006C757A /* config_Broadwell.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_Broadwell.plist; path = config_parts/config_Broadwell.plist; sourceTree = "<group>"; };
 		ED97E9221CC755BE006C757A /* config_Haswell.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_Haswell.plist; path = config_parts/config_Haswell.plist; sourceTree = "<group>"; };
@@ -188,7 +187,6 @@
 		EDDD91541CF5039C00A70550 /* config_ZBook_G1_Haswell.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_ZBook_G1_Haswell.plist; path = config/config_ZBook_G1_Haswell.plist; sourceTree = "<group>"; };
 		EDEAE87C1CBEEC2E00E1DF9D /* layout5.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = layout5.plist; path = Resources_ProBook/layout5.plist; sourceTree = "<group>"; };
 		EDEC127B1C180E880080CCCA /* config_8x0s_G1_Haswell.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_8x0s_G1_Haswell.plist; path = config/config_8x0s_G1_Haswell.plist; sourceTree = "<group>"; };
-		EDEC4E3A1CC97910002AC8E5 /* ALC280_CC.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ALC280_CC.asl; path = hotpatch/include/ALC280_CC.asl; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -426,8 +424,6 @@
 		EDA987001CC71F8D00D10BEC /* include */ = {
 			isa = PBXGroup;
 			children = (
-				EDEC4E3A1CC97910002AC8E5 /* ALC280_CC.asl */,
-				ED97E91E1CC75350006C757A /* disable_CC.asl */,
 				ED97E91D1CC75350006C757A /* disable_HECI.asl */,
 				ED97E9121CC75350006C757A /* layout3_HDAU.asl */,
 				ED97E9131CC75350006C757A /* layout3_HDEF.asl */,
