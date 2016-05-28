@@ -31,8 +31,8 @@ function createAppleHDAInjector()
     else
         cp $unpatched/AppleHDA.kext/Contents/Resources/Platforms.xml /tmp/rm_Platforms.plist
     fi
-    /usr/libexec/plistbuddy -c "Delete ':PathMaps'" /tmp/rm_Platforms.plist
-    /usr/libexec/plistbuddy -c "Merge Resources_$1/Platforms.plist" /tmp/rm_Platforms.plist
+    /usr/libexec/PlistBuddy -c "Delete ':PathMaps'" /tmp/rm_Platforms.plist
+    /usr/libexec/PlistBuddy -c "Merge Resources_$1/Platforms.plist" /tmp/rm_Platforms.plist
     cp /tmp/rm_Platforms.plist AppleHDA_$1.kext/Contents/Resources/Platforms.xml
 
     # create AppleHDA .zml.zlib (or just zml) files
@@ -57,26 +57,26 @@ function createAppleHDAInjector()
     plist=AppleHDA_$1.kext/Contents/Info.plist
     pattern='s/(\d*\.\d*(\.\d*)?)/9\1/'
     if [[ $MINOR_VER -ge 10 ]]; then
-        replace=`/usr/libexec/plistbuddy -c "Print :NSHumanReadableCopyright" $plist | perl -p -e $pattern`
-        /usr/libexec/plistbuddy -c "Set :NSHumanReadableCopyright '$replace'" $plist
+        replace=`/usr/libexec/PlistBuddy -c "Print :NSHumanReadableCopyright" $plist | perl -p -e $pattern`
+        /usr/libexec/PlistBuddy -c "Set :NSHumanReadableCopyright '$replace'" $plist
     fi
-    replace=`/usr/libexec/plistbuddy -c "Print :CFBundleGetInfoString" $plist | perl -p -e $pattern`
-    /usr/libexec/plistbuddy -c "Set :CFBundleGetInfoString '$replace'" $plist
-    replace=`/usr/libexec/plistbuddy -c "Print :CFBundleVersion" $plist | perl -p -e $pattern`
-    /usr/libexec/plistbuddy -c "Set :CFBundleVersion '$replace'" $plist
-    replace=`/usr/libexec/plistbuddy -c "Print :CFBundleShortVersionString" $plist | perl -p -e $pattern`
-    /usr/libexec/plistbuddy -c "Set :CFBundleShortVersionString '$replace'" $plist
+    replace=`/usr/libexec/PlistBuddy -c "Print :CFBundleGetInfoString" $plist | perl -p -e $pattern`
+    /usr/libexec/PlistBuddy -c "Set :CFBundleGetInfoString '$replace'" $plist
+    replace=`/usr/libexec/PlistBuddy -c "Print :CFBundleVersion" $plist | perl -p -e $pattern`
+    /usr/libexec/PlistBuddy -c "Set :CFBundleVersion '$replace'" $plist
+    replace=`/usr/libexec/PlistBuddy -c "Print :CFBundleShortVersionString" $plist | perl -p -e $pattern`
+    /usr/libexec/PlistBuddy -c "Set :CFBundleShortVersionString '$replace'" $plist
 if [ 0 -eq 0 ]; then
     # create AppleHDAHardwareConfigDriver overrides (injector personality)
-    /usr/libexec/plistbuddy -c "Add ':HardwareConfigDriver_Temp' dict" $plist
-    /usr/libexec/plistbuddy -c "Merge $unpatched/AppleHDA.kext/Contents/PlugIns/AppleHDAHardwareConfigDriver.kext/Contents/Info.plist ':HardwareConfigDriver_Temp'" $plist
-    /usr/libexec/plistbuddy -c "Copy ':HardwareConfigDriver_Temp:IOKitPersonalities:HDA Hardware Config Resource' ':IOKitPersonalities:HDA Hardware Config Resource'" $plist
-    /usr/libexec/plistbuddy -c "Delete ':HardwareConfigDriver_Temp'" $plist
-    /usr/libexec/plistbuddy -c "Delete ':IOKitPersonalities:HDA Hardware Config Resource:HDAConfigDefault'" $plist
-    /usr/libexec/plistbuddy -c "Delete ':IOKitPersonalities:HDA Hardware Config Resource:PostConstructionInitialization'" $plist
-    /usr/libexec/plistbuddy -c "Add ':IOKitPersonalities:HDA Hardware Config Resource:IOProbeScore' integer" $plist
-    /usr/libexec/plistbuddy -c "Set ':IOKitPersonalities:HDA Hardware Config Resource:IOProbeScore' 2000" $plist
-    /usr/libexec/plistbuddy -c "Merge ./Resources_$1/ahhcd.plist ':IOKitPersonalities:HDA Hardware Config Resource'" $plist
+    /usr/libexec/PlistBuddy -c "Add ':HardwareConfigDriver_Temp' dict" $plist
+    /usr/libexec/PlistBuddy -c "Merge $unpatched/AppleHDA.kext/Contents/PlugIns/AppleHDAHardwareConfigDriver.kext/Contents/Info.plist ':HardwareConfigDriver_Temp'" $plist
+    /usr/libexec/PlistBuddy -c "Copy ':HardwareConfigDriver_Temp:IOKitPersonalities:HDA Hardware Config Resource' ':IOKitPersonalities:HDA Hardware Config Resource'" $plist
+    /usr/libexec/PlistBuddy -c "Delete ':HardwareConfigDriver_Temp'" $plist
+    /usr/libexec/PlistBuddy -c "Delete ':IOKitPersonalities:HDA Hardware Config Resource:HDAConfigDefault'" $plist
+    /usr/libexec/PlistBuddy -c "Delete ':IOKitPersonalities:HDA Hardware Config Resource:PostConstructionInitialization'" $plist
+    /usr/libexec/PlistBuddy -c "Add ':IOKitPersonalities:HDA Hardware Config Resource:IOProbeScore' integer" $plist
+    /usr/libexec/PlistBuddy -c "Set ':IOKitPersonalities:HDA Hardware Config Resource:IOProbeScore' 2000" $plist
+    /usr/libexec/PlistBuddy -c "Merge ./Resources_$1/ahhcd.plist ':IOKitPersonalities:HDA Hardware Config Resource'" $plist
 fi
     echo " Done."
 }
@@ -93,8 +93,8 @@ function createAppleHDAResources_HDC()
     else
         cp $unpatched/AppleHDA.kext/Contents/Resources/Platforms.xml /tmp/rm_Platforms.plist
     fi
-    /usr/libexec/plistbuddy -c "Delete ':PathMaps'" /tmp/rm_Platforms.plist
-    /usr/libexec/plistbuddy -c "Merge Resources_$1/Platforms.plist" /tmp/rm_Platforms.plist
+    /usr/libexec/PlistBuddy -c "Delete ':PathMaps'" /tmp/rm_Platforms.plist
+    /usr/libexec/PlistBuddy -c "Merge Resources_$1/Platforms.plist" /tmp/rm_Platforms.plist
     cp /tmp/rm_Platforms.plist AppleHDA_$1_Resources/Platforms.zml
 
     if [[ $MINOR_VER -gt 7 ]]; then
@@ -117,15 +117,15 @@ function createAppleHDAInjector_HCD()
     plist=AppleHDAHCD_$1.kext/Contents/Info.plist
     pattern='s/(\d*\.\d*(\.\d*)?)/9\1/'
     if [[ $MINOR_VER -ge 10 ]]; then
-        replace=`/usr/libexec/plistbuddy -c "Print :NSHumanReadableCopyright" $plist | perl -p -e $pattern`
-        /usr/libexec/plistbuddy -c "Set :NSHumanReadableCopyright '$replace'" $plist
+        replace=`/usr/libexec/PlistBuddy -c "Print :NSHumanReadableCopyright" $plist | perl -p -e $pattern`
+        /usr/libexec/PlistBuddy -c "Set :NSHumanReadableCopyright '$replace'" $plist
     fi
-    replace=`/usr/libexec/plistbuddy -c "Print :CFBundleGetInfoString" $plist | perl -p -e $pattern`
-    /usr/libexec/plistbuddy -c "Set :CFBundleGetInfoString '$replace'" $plist
-    replace=`/usr/libexec/plistbuddy -c "Print :CFBundleVersion" $plist | perl -p -e $pattern`
-    /usr/libexec/plistbuddy -c "Set :CFBundleVersion '$replace'" $plist
-    replace=`/usr/libexec/plistbuddy -c "Print :CFBundleShortVersionString" $plist | perl -p -e $pattern`
-    /usr/libexec/plistbuddy -c "Set :CFBundleShortVersionString '$replace'" $plist
+    replace=`/usr/libexec/PlistBuddy -c "Print :CFBundleGetInfoString" $plist | perl -p -e $pattern`
+    /usr/libexec/PlistBuddy -c "Set :CFBundleGetInfoString '$replace'" $plist
+    replace=`/usr/libexec/PlistBuddy -c "Print :CFBundleVersion" $plist | perl -p -e $pattern`
+    /usr/libexec/PlistBuddy -c "Set :CFBundleVersion '$replace'" $plist
+    replace=`/usr/libexec/PlistBuddy -c "Print :CFBundleShortVersionString" $plist | perl -p -e $pattern`
+    /usr/libexec/PlistBuddy -c "Set :CFBundleShortVersionString '$replace'" $plist
 
     # create AppleHDAHardwareConfigDriver overrides (injector personality)
     /usr/libexec/PlistBuddy -c "Delete ':BuildMachineOSBuild'" $plist
@@ -144,16 +144,16 @@ function createAppleHDAInjector_HCD()
     /usr/libexec/PlistBuddy -c "Set ':CFBundleVersion' '0.9.0'" $plist
     /usr/libexec/PlistBuddy -c "Set ':CFBundleGetInfoString' '0.9.0, Copyright(GPLv2) 2016 RehabMan. All rights reserved.'" $plist
     /usr/libexec/PlistBuddy -c "Set ':NSHumanReadableCopyright' \"AppleHDAHCD_$1 0.9.0. Copyright 2016(GPLv2) RehabMan. All rights reserved.\"" $plist
-    /usr/libexec/plistbuddy -c "Add ':HardwareConfigDriver_Temp' dict" $plist
-    /usr/libexec/plistbuddy -c "Merge $unpatched/AppleHDA.kext/Contents/PlugIns/AppleHDAHardwareConfigDriver.kext/Contents/Info.plist ':HardwareConfigDriver_Temp'" $plist
-    /usr/libexec/plistbuddy -c "Delete ':IOKitPersonalities:HDA Hardware Config Resource'" $plist
-    /usr/libexec/plistbuddy -c "Copy ':HardwareConfigDriver_Temp:IOKitPersonalities:HDA Hardware Config Resource' ':IOKitPersonalities:HDA Hardware Config Resource'" $plist
-    /usr/libexec/plistbuddy -c "Delete ':HardwareConfigDriver_Temp'" $plist
-    /usr/libexec/plistbuddy -c "Delete ':IOKitPersonalities:HDA Hardware Config Resource:HDAConfigDefault'" $plist
-    /usr/libexec/plistbuddy -c "Delete ':IOKitPersonalities:HDA Hardware Config Resource:PostConstructionInitialization'" $plist
-    /usr/libexec/plistbuddy -c "Add ':IOKitPersonalities:HDA Hardware Config Resource:IOProbeScore' integer" $plist
-    /usr/libexec/plistbuddy -c "Set ':IOKitPersonalities:HDA Hardware Config Resource:IOProbeScore' 2000" $plist
-    /usr/libexec/plistbuddy -c "Merge ./Resources_$1/ahhcd.plist ':IOKitPersonalities:HDA Hardware Config Resource'" $plist
+    /usr/libexec/PlistBuddy -c "Add ':HardwareConfigDriver_Temp' dict" $plist
+    /usr/libexec/PlistBuddy -c "Merge $unpatched/AppleHDA.kext/Contents/PlugIns/AppleHDAHardwareConfigDriver.kext/Contents/Info.plist ':HardwareConfigDriver_Temp'" $plist
+    /usr/libexec/PlistBuddy -c "Delete ':IOKitPersonalities:HDA Hardware Config Resource'" $plist
+    /usr/libexec/PlistBuddy -c "Copy ':HardwareConfigDriver_Temp:IOKitPersonalities:HDA Hardware Config Resource' ':IOKitPersonalities:HDA Hardware Config Resource'" $plist
+    /usr/libexec/PlistBuddy -c "Delete ':HardwareConfigDriver_Temp'" $plist
+    /usr/libexec/PlistBuddy -c "Delete ':IOKitPersonalities:HDA Hardware Config Resource:HDAConfigDefault'" $plist
+    /usr/libexec/PlistBuddy -c "Delete ':IOKitPersonalities:HDA Hardware Config Resource:PostConstructionInitialization'" $plist
+    /usr/libexec/PlistBuddy -c "Add ':IOKitPersonalities:HDA Hardware Config Resource:IOProbeScore' integer" $plist
+    /usr/libexec/PlistBuddy -c "Set ':IOKitPersonalities:HDA Hardware Config Resource:IOProbeScore' 2000" $plist
+    /usr/libexec/PlistBuddy -c "Merge ./Resources_$1/ahhcd.plist ':IOKitPersonalities:HDA Hardware Config Resource'" $plist
     echo " Done."
 }
 
