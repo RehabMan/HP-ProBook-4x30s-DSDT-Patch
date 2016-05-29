@@ -413,7 +413,7 @@ $(MINIDIR)/%.aml : mini/%.dsl
 # new hotpatch SSDTs
 
 # note: "-oe" is undocumented flag to turn off external opcode in iasl AML compilation result
-IASLOPTS=-vw 2095 -vw 2146 -vw 2089 -oe
+IASLOPTS=-vw 2095 -vw 2146 -vw 2089 -vr -oe
 
 $(BUILDDIR)/%.aml : hotpatch/%.dsl
 	iasl $(IASLOPTS) -p $@ $^
