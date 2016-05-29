@@ -52,6 +52,19 @@ DefinitionBlock ("", "SSDT", 2, "hack", "hack", 0)
         Name(SHUT, 1)
     }
 
+    External(\_SB.PCI0.LPCB.PS2K, DeviceObj)
+    Scope (\_SB.PCI0.LPCB.PS2K)
+    {
+        // overrides for VoodooPS2 configuration...
+        Name(RMCF, Package()
+        {
+            "Synaptics TouchPad", Package()
+            {
+                "DynamicEWMode", ">y",
+            },
+        })
+    }
+
     // In DSDT, native _PTS and _WAK are renamed ZPTS/ZWAK
     // As a result, calls to these methods land here.
     Method(_PTS, 1)
