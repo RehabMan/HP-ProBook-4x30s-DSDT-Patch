@@ -497,13 +497,23 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>AirPortBrcm4360 whitelist patch (board-id), credit RehabMan</string>
+				<string>AirPortBrcm4360 whitelist patch (board-id), 10.11.x, credit RehabMan</string>
 				<key>Name</key>
 				<string>AirPortBrcm4360</string>
 				<key>Find</key>
 				<data>MdtMO2XYdRI=</data>
 				<key>Replace</key>
 				<data>Mdv/w5CQkJA=</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>AirPortBrcm4360 whitelist patch (board-id), 10.10.5, credit RehabMan</string>
+				<key>Name</key>
+				<string>AirPortBrcm4360</string>
+				<key>Find</key>
+				<data>MdtJiwQkSDtF2HUS</data>
+				<key>Replace</key>
+				<data>Mdv/w5CQkJCQkJCQ</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
