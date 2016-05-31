@@ -75,6 +75,7 @@ HACK:=$(HACK) \
 	$(BUILDDIR)/SSDT-6x60.aml $(BUILDDIR)/SSDT-8x60.aml $(BUILDDIR)/SSDT-5x30.aml \
 	$(BUILDDIR)/SSDT-2x70.aml $(BUILDDIR)/SSDT-6x70.aml $(BUILDDIR)/SSDT-8x70.aml $(BUILDDIR)/SSDT-9x70.aml \
 	$(BUILDDIR)/SSDT-1040-G1-Haswell.aml \
+	$(BUILDDIR)/SSDT-6x0-G1-Haswell.aml \
 	$(BUILDDIR)/SSDT-3x0-G1.aml \
 	$(BUILDDIR)/SSDT-4x0-G0.aml \
 	$(BUILDDIR)/SSDT-4x0-G1-Ivy.aml $(BUILDDIR)/SSDT-8x0-G1-Ivy.aml \
@@ -96,7 +97,7 @@ PLIST:=config/config_4x30s.plist config/config_4x40s.plist \
 	config/config_4x0s_G2_Broadwell.plist config/config_8x0s_G2_Broadwell.plist \
 	config/config_ZBook_G1_Haswell.plist config/config_ZBook_G2_Haswell.plist config/config_ZBook_G2_Broadwell.plist \
 	config/config_4x0s_G3_Skylake.plist \
-	config/config_1040_G1_Haswell.plist
+	config/config_1040_G1_Haswell.plist config/config_6x0s_G1_Haswell.plist
 
 .PHONY: all
 all : $(STATIC) $(MINI) $(HACK) $(PLIST) $(HDAHCDINJECT) $(HDAINJECT)
@@ -247,6 +248,12 @@ config/config_8x0s_G1_Haswell.plist : $(PARTS)/config_master.plist $(PARTS)/conf
 	/usr/libexec/PlistBuddy -c "Set :SMBIOS:ProductName MacBookAir6,2" $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_Haswell.plist $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_IDT76e0.plist $@
+	@printf "\n"
+
+# 6x0s_G1_Haswell is same as 8x0s_G1_Haswell
+config/config_6x0s_G1_Haswell.plist : config/config_8x0s_G1_Haswell.plist
+	@printf "!! creating $@\n"
+	cp config/config_8x0s_G1_Haswell.plist $@
 	@printf "\n"
 
 # 1040_G1_Haswell is same as 8x0s_G1_Haswell

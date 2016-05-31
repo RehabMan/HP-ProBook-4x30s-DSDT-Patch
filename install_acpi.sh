@@ -242,6 +242,13 @@ case "$1" in
         #cp $BUILDDIR/SSDT-USB-4x0-G1.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         ls $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
+    install_6x0g1_haswell)
+        $0 inst_lores $2
+        cp $BUILDDIR/SSDT-1040-G1-Haswell.aml $EFIDIR/EFI/CLOVER/ACPI/patched
+        cp $BUILDDIR/SSDT-KEY102.aml $EFIDIR/EFI/CLOVER/ACPI/patched
+        #cp $BUILDDIR/SSDT-USB-6x0s-G1.aml $EFIDIR/EFI/CLOVER/ACPI/patched
+        ls $EFIDIR/EFI/CLOVER/ACPI/patched
+    ;;
     install_8x0g1_haswell)
         $0 inst_lores $2
         cp $BUILDDIR/SSDT-8x0-G1-Haswell.aml $EFIDIR/EFI/CLOVER/ACPI/patched

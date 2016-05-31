@@ -153,3 +153,6 @@ printf "\n"
 printf "!! creating config/config_1040_G1_Haswell.plist\n"
 cp config/config_8x0s_G1_Haswell.plist config/config_1040_G1_Haswell.plist
 printf "\n"
+printf "!! creating config/config_6x0s_G1_Haswell.plist\n"
+cp config/config_8x0s_G1_Haswell.plist config/config_6x0s_G1_Haswell.plist
+printf "\n"
