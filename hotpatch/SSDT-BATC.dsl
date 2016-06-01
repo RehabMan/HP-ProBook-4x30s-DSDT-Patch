@@ -130,9 +130,9 @@ DefinitionBlock ("", "SSDT", 2, "hack", "BATC", 0)
                     // Note: Depends on _BIF being called before _BST to set B0CO and B1CO
 
                     // _BST 1 - Battery Present Rate - Add BAT0 and BAT1 values
-                    Local0[1] = CVWA(DerefOf(Local0[1]), B0DV, B0CO) + CVWA(DerefOf(Local3[1]), B1DV, B1CO)
+                    Local0[1] = CVWA(DerefOf(Local0[1]), B0DV, B0CO) + CVWA(DerefOf(Local1[1]), B1DV, B1CO)
                     // _BST 2 - Battery Remaining Capacity - Add BAT0 and BAT1 values
-                    Local0[2] = CVWA(DerefOf(Local0[2]), B0DV, B0CO) + CVWA(DerefOf(Local3[2]), B1DV, B1CO)
+                    Local0[2] = CVWA(DerefOf(Local0[2]), B0DV, B0CO) + CVWA(DerefOf(Local1[2]), B1DV, B1CO)
                     // _BST 3 - Battery Present Voltage - Average BAT0 and BAT1 values
                     Local0[3] = (DerefOf(Local0[3]) + DerefOf(Local1[3])) / 2
                 }
