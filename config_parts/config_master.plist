@@ -223,6 +223,22 @@
 					<key>Replace</key>
 					<data>hlwuX1NCX0JBVEM=</data>
 				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>change Notify(BAT0,...) to Notify(BATC,...)</string>
+					<key>Find</key>
+					<data>hkJBVDA=</data>
+					<key>Replace</key>
+					<data>hkJBVEM=</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>change Notify(BAT1,...) to Notify(BATC,...)</string>
+					<key>Find</key>
+					<data>hkJBVDE=</data>
+					<key>Replace</key>
+					<data>hkJBVEM=</data>
+				</dict>
 			</array>
 		</dict>
 		<key>DropTables</key>
