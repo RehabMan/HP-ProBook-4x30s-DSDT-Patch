@@ -10,6 +10,7 @@ iasl -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-SMBUS.aml hotpatch/SSDT-SM
 iasl -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-PNLF.aml hotpatch/SSDT-PNLF.dsl
 iasl -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-PRW.aml hotpatch/SSDT-PRW.dsl
 iasl -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-LANC_PRW.aml hotpatch/SSDT-LANC_PRW.dsl
+iasl -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-BATC.aml hotpatch/SSDT-BATC.dsl
 iasl -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-IGPU.aml hotpatch/SSDT-IGPU.dsl
 iasl -D HIRES -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-IGPU-HIRES.aml hotpatch/SSDT-IGPU.dsl
 iasl -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-BATT.aml hotpatch/SSDT-BATT.dsl

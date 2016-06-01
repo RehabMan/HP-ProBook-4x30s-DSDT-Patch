@@ -6,11 +6,6 @@ DefinitionBlock ("", "SSDT", 2, "hack", "batt", 0)
     External(\_SB.PCI0.LPCB, DeviceObj)
     External(\_SB.PCI0.LPCB.EC0, DeviceObj)
 
-    //REVIEW: perhaps this can be done in the ACPIBatteryManager.kext instead
-    // Disable the secondary battery object
-    External(_SB.BAT1, DeviceObj)
-    Name(_SB.BAT1._STA, 0)
-
     Scope(\_SB.PCI0.LPCB.EC0)
     {
         // This is an override for battery methods that access EC fields
