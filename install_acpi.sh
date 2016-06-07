@@ -246,7 +246,7 @@ case "$1" in
         $0 inst_lores $2
         cp $BUILDDIR/SSDT-6x0-G1-Haswell.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         cp $BUILDDIR/SSDT-KEY87.aml $EFIDIR/EFI/CLOVER/ACPI/patched
-        #cp $BUILDDIR/SSDT-USB-6x0s-G1.aml $EFIDIR/EFI/CLOVER/ACPI/patched
+        cp $BUILDDIR/SSDT-USB-6x0-G1.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         ls $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
     install_8x0g1_haswell)

@@ -137,17 +137,17 @@ DefinitionBlock ("", "SSDT", 2, "hack", "usb4x0g2", 0)
                 "ports", Package()
                 {
 #if DISABLE_EHCI
-                    "HS01", Package() // USB2
+                    "HS01", Package() // USB2 (right back)
                     {
                         "UsbConnector", 0,
                         "port", Buffer() { 0x01, 0, 0, 0 },
                     },
-                    "HS02", Package() // HS USB3
+                    "HS02", Package() // HS USB3 (left front?)
                     {
                         "UsbConnector", 3,
                         "port", Buffer() { 0x02, 0, 0, 0 },
                     },
-                    "HS03", Package() // USB2
+                    "HS03", Package() // HS USB3 (left back)
                     {
                         "UsbConnector", 3,
                         "port", Buffer() { 0x03, 0, 0, 0 },
@@ -174,19 +174,19 @@ DefinitionBlock ("", "SSDT", 2, "hack", "usb4x0g2", 0)
                         "UsbConnector", 255,
                         "port", Buffer() { 0x07, 0, 0, 0 },
                     },
-                    "HS08", Package() // USB2 port
+                    "HS08", Package() // USB2 port (right front)
                     {
                         "UsbConnector", 0,
                         "port", Buffer() { 0x08, 0, 0, 0 },
                     },
                     //HS09 not used
 #endif
-                    "SSP1", Package() // SS USB3
+                    "SSP1", Package() // SS USB3 (left front)
                     {
                         "UsbConnector", 3,
                         "port", Buffer() { 0x0c, 0, 0, 0 },
                     },
-                    "SSP2", Package() // SS USB3
+                    "SSP2", Package() // SS USB3 (left back)
                     {
                         "UsbConnector", 3,
                         "port", Buffer() { 0x0d, 0, 0, 0 },

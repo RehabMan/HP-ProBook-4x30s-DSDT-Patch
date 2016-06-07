@@ -60,6 +60,7 @@
 		ED16A7411CC7B8B400EA1E82 /* SSDT-LPC.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-LPC.dsl"; path = "hotpatch/SSDT-LPC.dsl"; sourceTree = "<group>"; };
 		ED16A7421CC7B93200EA1E82 /* SSDT-PRW.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-PRW.dsl"; path = "hotpatch/SSDT-PRW.dsl"; sourceTree = "<group>"; };
 		ED16A7431CC7B9FD00EA1E82 /* SSDT-LANC_PRW.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-LANC_PRW.dsl"; path = "hotpatch/SSDT-LANC_PRW.dsl"; sourceTree = "<group>"; };
+		ED17156E1D070F3C00219AC6 /* SSDT-USB-6x0-G1.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-USB-6x0-G1.dsl"; path = "hotpatch/SSDT-USB-6x0-G1.dsl"; sourceTree = "<group>"; };
 		ED1837421C0A4B1200A5A3DA /* merge_plist.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = merge_plist.sh; sourceTree = "<group>"; };
 		ED1837431C0A4B1200A5A3DA /* mount_efi.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = mount_efi.sh; sourceTree = "<group>"; };
 		ED1837441C0A4B1200A5A3DA /* patch_hda.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = patch_hda.sh; sourceTree = "<group>"; };
@@ -387,6 +388,7 @@
 				ED97E94D1CC757D7006C757A /* SSDT-USB-8x60.dsl */,
 				ED97E94F1CC757D7006C757A /* SSDT-USB-6x70.dsl */,
 				ED507CCE1CDCDAF400E14F67 /* SSDT-USB-9x70.dsl */,
+				ED17156E1D070F3C00219AC6 /* SSDT-USB-6x0-G1.dsl */,
 				ED97E9461CC757D7006C757A /* SSDT-USB-8x0-G1.dsl */,
 				ED97E9451CC757D7006C757A /* SSDT-USB-4x0-G2.dsl */,
 				ED97E9471CC757D7006C757A /* SSDT-USB-820-G2.dsl */,
