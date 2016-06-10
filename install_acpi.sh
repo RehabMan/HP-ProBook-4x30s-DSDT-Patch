@@ -311,6 +311,13 @@ case "$1" in
         cp $BUILDDIR/SSDT-USB-850-G2.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         ls $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
+    install_1020g1_broadwell)
+        $0 inst_lores $2
+        cp $BUILDDIR/SSDT-1020-G1-Broadwell.aml $EFIDIR/EFI/CLOVER/ACPI/patched
+        cp $BUILDDIR/SSDT-KEY87.aml $EFIDIR/EFI/CLOVER/ACPI/patched
+        #cp $BUILDDIR/SSDT-USB-1020-G1.aml $EFIDIR/EFI/CLOVER/ACPI/patched
+        ls $EFIDIR/EFI/CLOVER/ACPI/patched
+    ;;
     install_ZBook_G2_haswell)
         $0 inst_lores $2
         $0 inst_batt_g2

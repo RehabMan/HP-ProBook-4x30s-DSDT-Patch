@@ -3,6 +3,7 @@ LayoutID and PathMapID mappings for AppleHDA_ProBook.kext
 ALC282: 3
 ALC280: 4
 CX20724: 5
+ALC286: 6
 
 IDT_76d1: 12
 IDT_76d9: 13
@@ -20,6 +21,8 @@ Model/Audio mapping
 ALC282: 4x0G2 Haswell, 8x0G2 Haswell, 4x0G2 Broadwell
 
 ALC280: Zbook G2 Haswell/Broadwell, HP Folio 9480m Haswell, 8x0G2 Broadwell
+
+ALC286: EliteBook Folio 1020 G1/Broadwell
 
 CX20724: 4x0sG3 Skylake
 

@@ -41,6 +41,20 @@
 			<integer>5</integer>
 		</dict>
 		<dict>
+			<key>AFGLowPowerState</key>
+			<data>AwAAAA==</data>
+			<key>CodecID</key>
+			<integer>283902598</integer>
+			<key>CodecName</key>
+			<string>Mirone - ALC286</string>
+			<key>ConfigData</key>
+			<data>ASccEAEnHQABJx6mAScfsAFHHCABRx0AAUceFwFHH5ABhxwwAYcdEAGHHosBhx8EAhccQAIXHRACFx4rAhcfBAFHDAI=</data>
+			<key>FuncGroup</key>
+			<integer>1</integer>
+			<key>LayoutID</key>
+			<integer>6</integer>
+		</dict>
+		<dict>
 			<key>CodecID</key>
 			<integer>287143633</integer>
 			<key>ConfigData</key>

@@ -125,6 +125,14 @@ cp config_parts/config_master.plist config/config_8x0s_G2_Broadwell.plist
 ./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_parts/config_Broadwell.plist config/config_8x0s_G2_Broadwell.plist
 ./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_parts/config_ALC280.plist config/config_8x0s_G2_Broadwell.plist
 printf "\n"
+printf "!! creating config/config_1020_G1_Broadwell.plist\n"
+cp config_parts/config_master.plist config/config_1020_G1_Broadwell.plist
+/usr/libexec/PlistBuddy -c "Set KernelAndKextPatches:AsusAICPUPM false" config/config_1020_G1_Broadwell.plist
+/usr/libexec/PlistBuddy -c "Set :SMBIOS:ProductName MacBookAir7,2" config/config_1020_G1_Broadwell.plist
+./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_parts/config_Broadwell.plist config/config_1020_G1_Broadwell.plist
+./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_parts/config_Broadwell_hdmi_audio.plist config/config_1020_G1_Broadwell.plist
+./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_parts/config_ALC286.plist config/config_1020_G1_Broadwell.plist
+printf "\n"
 printf "!! creating config/config_ZBook_G2_Haswell.plist\n"
 cp config_parts/config_master.plist config/config_ZBook_G2_Haswell.plist
 /usr/libexec/PlistBuddy -c "Set KernelAndKextPatches:AsusAICPUPM false" config/config_ZBook_G2_Haswell.plist

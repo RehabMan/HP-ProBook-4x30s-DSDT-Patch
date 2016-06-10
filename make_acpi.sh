@@ -58,6 +58,7 @@ iasl -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-4x0-G2-Haswell.aml hotpatc
 iasl -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-8x0-G2-Haswell.aml hotpatch/SSDT-8x0-G2-Haswell.dsl
 iasl -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-4x0-G2-Broadwell.aml hotpatch/SSDT-4x0-G2-Broadwell.dsl
 iasl -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-8x0-G2-Broadwell.aml hotpatch/SSDT-8x0-G2-Broadwell.dsl
+iasl -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-1020-G1-Broadwell.aml hotpatch/SSDT-1020-G1-Broadwell.dsl
 iasl -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-ZBook-G2-Haswell.aml hotpatch/SSDT-ZBook-G2-Haswell.dsl
 iasl -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-ZBook-G2-Broadwell.aml hotpatch/SSDT-ZBook-G2-Broadwell.dsl
 iasl -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-4x0-G3-Skylake.aml hotpatch/SSDT-4x0-G3-Skylake.dsl

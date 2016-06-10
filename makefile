@@ -84,6 +84,7 @@ HACK:=$(HACK) \
 	$(BUILDDIR)/SSDT-4x0-G1-Haswell.aml $(BUILDDIR)/SSDT-8x0-G1-Haswell.aml \
 	$(BUILDDIR)/SSDT-4x0-G2-Haswell.aml $(BUILDDIR)/SSDT-8x0-G2-Haswell.aml \
 	$(BUILDDIR)/SSDT-4x0-G2-Broadwell.aml $(BUILDDIR)/SSDT-8x0-G2-Broadwell.aml \
+	$(BUILDDIR)/SSDT-1020-G1-Broadwell.aml \
 	$(BUILDDIR)/SSDT-ZBook-G2-Haswell.aml $(BUILDDIR)/SSDT-ZBook-G2-Broadwell.aml \
 	$(BUILDDIR)/SSDT-4x0-G3-Skylake.aml
 
@@ -97,6 +98,7 @@ PLIST:=config/config_4x30s.plist config/config_4x40s.plist \
 	config/config_8x0s_G1_Haswell.plist config/config_4x0s_G1_Haswell.plist \
 	config/config_4x0s_G2_Haswell.plist config/config_8x0s_G2_Haswell.plist \
 	config/config_4x0s_G2_Broadwell.plist config/config_8x0s_G2_Broadwell.plist \
+	config/config_1020_G1_Broadwell.plist \
 	config/config_ZBook_G1_Haswell.plist config/config_ZBook_G2_Haswell.plist config/config_ZBook_G2_Broadwell.plist \
 	config/config_4x0s_G3_Skylake.plist \
 	config/config_1040_G1_Haswell.plist config/config_6x0s_G1_Haswell.plist
@@ -363,6 +365,17 @@ config/config_8x0s_G2_Broadwell.plist : $(PARTS)/config_master.plist $(PARTS)/co
 	/usr/libexec/PlistBuddy -c "Set :SMBIOS:ProductName MacBookAir7,2" $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_Broadwell.plist $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_ALC280.plist $@
+	@printf "\n"
+
+# 1020_G1_Broadwell is ALC286, Broadwell, HDMI
+config/config_1020_G1_Broadwell.plist : $(PARTS)/config_master.plist $(PARTS)/config_ALC286.plist $(PARTS)/config_Broadwell.plist $(PARTS)/config_Broadwell_hdmi_audio.plist
+	@printf "!! creating $@\n"
+	cp $(PARTS)/config_master.plist $@
+	/usr/libexec/PlistBuddy -c "Set KernelAndKextPatches:AsusAICPUPM false" $@
+	/usr/libexec/PlistBuddy -c "Set :SMBIOS:ProductName MacBookAir7,2" $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_Broadwell.plist $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_Broadwell_hdmi_audio.plist $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_ALC286.plist $@
 	@printf "\n"
 
 # ZBook_G2_Haswell is IDT 76e0, Haswell, DP
