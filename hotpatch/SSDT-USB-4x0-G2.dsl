@@ -4,9 +4,6 @@
 //
 // added HS08 for USB2 port reported not working by daniela-sammartino
 
-// set DISABLE_EHCI to 0 if you want to try with USB2 on XHCI routed to EHCI
-#define DISABLE_EHCI 1
-
 DefinitionBlock ("", "SSDT", 2, "hack", "usb4x0g2", 0)
 {
 //
@@ -17,64 +14,12 @@ DefinitionBlock ("", "SSDT", 2, "hack", "usb4x0g2", 0)
         Name(_HID, "UIA00000")
         Name(RMCF, Package()
         {
-#if !DISABLE_EHCI
-            // EHCI#1
-            "EH01", Package()
-            {
-                "port-count", Buffer() { 8, 0, 0, 0 },
-                "ports", Package()
-                {
-                    "PR11", Package()
-                    {
-                        "UsbConnector", 255,
-                        "port", Buffer() { 1, 0, 0, 0 },
-                    },
-                },
-            },
-            /// hub on port #1 EHCI#1
-            "HUB1", Package()
-            {
-                "port-count", Buffer() { 8, 0, 0, 0 },
-                "ports", Package()
-                {
-                    "HP11", Package() // USB2
-                    {
-                        //"UsbConnector", 0,
-                        "port", Buffer() { 1, 0, 0, 0 },
-                    },
-                    "HP12", Package() // HS on XHC
-                    {
-                        //"UsbConnector", 3,
-                        "port", Buffer() { 2, 0, 0, 0 },
-                    },
-                    "HP13", Package() // HS on XHC
-                    {
-                        //"UsbConnector", 255,
-                        "port", Buffer() { 3, 0, 0, 0 },
-                    },
-                    "HP14", Package() // bluetooth
-                    {
-                        //"UsbConnector", 255,
-                        "port", Buffer() { 4, 0, 0, 0 },
-                    },
-                    //HP15 finger print reader
-                    //HP16 not used
-                    "HP17", Package() // camera
-                    {
-                        //"UsbConnector", 255,
-                        "port", Buffer() { 7, 0, 0, 0 },
-                    },
-                    //HP18 not used
-                },
-            },
-#endif
             // XHC overrides
             "8086_9xxx", Package()  // for G2 Haswell
             {
                 //"port-count", Buffer() { 0x0d, 0, 0, 0},
                 "ports", Package()
                 {
-#if DISABLE_EHCI
                     "HS01", Package() // HS USB3
                     {
                         "UsbConnector", 3,
@@ -117,7 +62,6 @@ DefinitionBlock ("", "SSDT", 2, "hack", "usb4x0g2", 0)
                         "UsbConnector", 0,
                         "port", Buffer() { 0x08, 0, 0, 0 },
                     },
-#endif
                     // SSP1/SSP2 not used
                     "SSP3", Package() // SS USB3
                     {
@@ -136,7 +80,6 @@ DefinitionBlock ("", "SSDT", 2, "hack", "usb4x0g2", 0)
                 //"port-count", Buffer() { 0x0f, 0, 0, 0},
                 "ports", Package()
                 {
-#if DISABLE_EHCI
                     "HS01", Package() // USB2 (right back)
                     {
                         "UsbConnector", 0,
@@ -180,7 +123,6 @@ DefinitionBlock ("", "SSDT", 2, "hack", "usb4x0g2", 0)
                         "port", Buffer() { 0x08, 0, 0, 0 },
                     },
                     //HS09 not used
-#endif
                     "SSP1", Package() // SS USB3 (left front)
                     {
                         "UsbConnector", 3,
@@ -200,7 +142,6 @@ DefinitionBlock ("", "SSDT", 2, "hack", "usb4x0g2", 0)
 //
 // Disabling EHCI #1
 //
-#if DISABLE_EHCI
     External(_SB.PCI0, DeviceObj)
     External(_SB.PCI0.LPCB, DeviceObj)
     External(_SB.PCI0.EH01, DeviceObj)
@@ -245,7 +186,6 @@ DefinitionBlock ("", "SSDT", 2, "hack", "usb4x0g2", 0)
             }
         }
     }
-#endif
 }
 
 //EOF
