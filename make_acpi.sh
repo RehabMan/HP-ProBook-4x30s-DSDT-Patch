@@ -24,6 +24,7 @@ iasl -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-USB-4x30s.aml hotpatch/SSD
 iasl -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-USB-9x70.aml hotpatch/SSDT-USB-9x70.dsl
 iasl -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-USB-6x0-G1.aml hotpatch/SSDT-USB-6x0-G1.dsl
 iasl -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-USB-8x0-G1.aml hotpatch/SSDT-USB-8x0-G1.dsl
+iasl -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-USB-1020-G1.aml hotpatch/SSDT-USB-1020-G1.dsl
 iasl -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-USB-820-G2.aml hotpatch/SSDT-USB-820-G2.dsl
 iasl -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-USB-840-G2.aml hotpatch/SSDT-USB-840-G2.dsl
 iasl -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-USB-850-G2.aml hotpatch/SSDT-USB-820-G2.dsl

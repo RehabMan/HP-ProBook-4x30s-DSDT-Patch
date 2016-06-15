@@ -1,10 +1,9 @@
-// USBInjectAll configuration/override for EliteBook 8x0s G1 Haswell
+// USBInjectAll configuration/override for EliteBook Folio 1020 G1
+//
+// ports here are based on ioreg from corem's HP EliteBook Folio 1020 G1
 //
 
-//REVIEW: preliminary data for G1.  Note that it has a hub on XHC, which
-//  may need further work.
-
-DefinitionBlock ("", "SSDT", 2, "hack", "usb8x0g1", 0)
+DefinitionBlock ("", "SSDT", 2, "hack", "usb1020g1", 0)
 {
 //
 // Override for USBInjectAll.kext
@@ -15,34 +14,32 @@ DefinitionBlock ("", "SSDT", 2, "hack", "usb8x0g1", 0)
         Name(RMCF, Package()
         {
             // XHC overrides
-            "8086_9xxx", Package()
+            "8086_9cb1", Package()
             {
-                //"port-count", Buffer() { 0x0d, 0, 0, 0},
+                //"port-count", Buffer() { 0x0f, 0, 0, 0},
                 "ports", Package()
                 {
-                    // HS01 not used
-                    "HS02", Package() // USB2
+                    "HS01", Package() // HS USB3 (hub on dock)
                     {
-                        "UsbConnector", 0,
+                        "UsbConnector", 3,
+                        "port", Buffer() { 0x01, 0, 0, 0 },
+                    },
+                    "HS02", Package() // HS USB3 left
+                    {
+                        "UsbConnector", 3,
                         "port", Buffer() { 0x02, 0, 0, 0 },
-                    }, 
-                    "HS03", Package() // internal 4-port USB2 hub (SSP3 is USB3)
+                    },
+                    "HS03", Package() // HS USB3 right
                     {
-                        "UsbConnector", 255,
+                        "UsbConnector", 3,
                         "port", Buffer() { 0x03, 0, 0, 0 },
                     },
-                    "HS04", Package() // SS USB2 (SSP4 is USB3)
-                    {
-                        "UsbConnector", 0,
-                        "port", Buffer() { 0x04, 0, 0, 0 },
-                    },
-                    #if 0
-                    "HS05", Package() // fingerprint reader (disabled)
+                    "HS04", Package() // bluetooth
                     {
                         "UsbConnector", 255,
-                        "port", Buffer() { 0x05, 0, 0, 0 },
+                        "port", Buffer() { 0x04, 0, 0, 0 },
                     },
-                    #endif
+                    //HS05 is finger print reader (disabled)
                     "HS06", Package() // internal WWAN
                     {
                         "UsbConnector", 255,
@@ -53,19 +50,28 @@ DefinitionBlock ("", "SSDT", 2, "hack", "usb8x0g1", 0)
                         "UsbConnector", 255,
                         "port", Buffer() { 0x07, 0, 0, 0 },
                     },
-                    // HS08/HS09 not used
-                    // SSP1/SSP2 not used
-                    "SSP3", Package() // internal 4-port USB3 hub (HS03 is USB2)
+                    "HS08", Package() // touch screen
                     {
                         "UsbConnector", 255,
+                        "port", Buffer() { 0x08, 0, 0, 0 },
+                    },
+                    //HS09,HS10,HS11 not used
+                    "SSP1", Package() // SS USB3 (hub on dock)
+                    {
+                        "UsbConnector", 3,
                         "port", Buffer() { 0x0c, 0, 0, 0 },
                     },
-                    "SSP4", Package() // SS USB3 (HS04 is USB2)
+                    "SSP2", Package() // SS USB3 left
                     {
                         "UsbConnector", 3,
                         "port", Buffer() { 0x0d, 0, 0, 0 },
                     },
-                    //REVIEW: what port is bluetooth?
+                    "SSP3", Package() // SS USB3 right
+                    {
+                        "UsbConnector", 3,
+                        "port", Buffer() { 0x0e, 0, 0, 0 },
+                    },
+                    //SSP4 not used
                 },
             },
         })

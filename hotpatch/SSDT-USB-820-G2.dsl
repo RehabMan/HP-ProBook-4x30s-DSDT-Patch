@@ -8,9 +8,6 @@
 // Based on information provided from EliteBook Pro 820 G2
 // This same configuration is also valid for EliteBook 850 G2 Broadwell
 
-// set DISABLE_EHCI to 0 if you want to try with USB2 on XHCI routed to EHCI
-#define DISABLE_EHCI 1
-
 DefinitionBlock ("", "SSDT", 2, "hack", "usb820g2", 0)
 {
 //
@@ -21,60 +18,12 @@ DefinitionBlock ("", "SSDT", 2, "hack", "usb820g2", 0)
         Name(_HID, "UIA00000")
         Name(RMCF, Package()
         {
-#if !DISABLE_EHCI
-            // EHCI#1
-            "EH01", Package()
-            {
-                "port-count", Buffer() { 8, 0, 0, 0 },
-                "ports", Package()
-                {
-                    "PR11", Package()
-                    {
-                        "UsbConnector", 255,
-                        "port", Buffer() { 1, 0, 0, 0 },
-                    },
-                },
-            },
-            /// hub on port #1 EHCI#1
-            "HUB1", Package()
-            {
-                "port-count", Buffer() { 8, 0, 0, 0 },
-                "ports", Package()
-                {
-                    //HP11 not used
-                    "HP12", Package()
-                    {
-                        //"UsbConnector", 3,
-                        "port", Buffer() { 2, 0, 0, 0 },
-                    },
-                    "HP13", Package() // USB2 hub (related SSP3 hub)
-                    {
-                        //"UsbConnector", 255,
-                        "port", Buffer() { 3, 0, 0, 0 },
-                    },
-                    "HP14", Package() // bluetooth
-                    {
-                        //"UsbConnector", 255,
-                        "port", Buffer() { 4, 0, 0, 0 },
-                    },
-                    //HP15 finger print reader
-                    //HP16 not used
-                    "HP17", Package() // camera
-                    {
-                        //"UsbConnector", 255,
-                        "port", Buffer() { 7, 0, 0, 0 },
-                    },
-                    //HP18 not used
-                },
-            },
-#endif
             // XHC overrides
             "8086_9cb1", Package()
             {
                 //"port-count", Buffer() { 0x0f, 0, 0, 0},
                 "ports", Package()
                 {
-#if DISABLE_EHCI
                     // HS01 not used
                     "HS02", Package() // USB2 (SSP2 is USB3)
                     {
@@ -99,7 +48,6 @@ DefinitionBlock ("", "SSDT", 2, "hack", "usb820g2", 0)
                         "port", Buffer() { 0x07, 0, 0, 0 },
                     },
                     // HS08/HS09/HS10/HS11 not used
-#endif
                     // SSP1 not used
                     "SSP2", Package() // SS USB3 port
                     {
@@ -120,8 +68,6 @@ DefinitionBlock ("", "SSDT", 2, "hack", "usb820g2", 0)
 //
 // Disabling EHCI #1
 //
-
-#if DISABLE_EHCI
     External(_SB.PCI0, DeviceObj)
     External(_SB.PCI0.LPCB, DeviceObj)
     External(_SB.PCI0.EH01, DeviceObj)
@@ -166,7 +112,6 @@ DefinitionBlock ("", "SSDT", 2, "hack", "usb820g2", 0)
             }
         }
     }
-#endif
 }
 
 //EOF
