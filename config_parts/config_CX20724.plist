@@ -8,7 +8,7 @@
 		<array>
 			<dict>
 				<key>Comment</key>
-				<string>CX20724  #1 of 3</string>
+				<string>CX20724  #1 of 4</string>
 				<key>Name</key>
 				<string>AppleHDA</string>
 				<key>Find</key>
@@ -18,7 +18,7 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>CX20724 #2 of 3</string>
+				<string>CX20724 #2 of 4</string>
 				<key>Name</key>
 				<string>AppleHDA</string>
 				<key>Find</key>
@@ -28,11 +28,21 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>CX20724 #3 of 3</string>
+				<string>CX20724 #3 of 4</string>
 				<key>Name</key>
 				<string>AppleHDA</string>
 				<key>Find</key>
 				<data>PYMZ1BE=</data>
+				<key>Replace</key>
+				<data>PQAAAAA=</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>CX20724 #4 of 4</string>
+				<key>Find</key>
+				<data>PYoZ1BE=</data>
+				<key>Name</key>
+				<string>AppleHDA</string>
 				<key>Replace</key>
 				<data>PQAAAAA=</data>
 			</dict>

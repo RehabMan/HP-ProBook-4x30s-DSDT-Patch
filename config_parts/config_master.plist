@@ -444,6 +444,16 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
+				<string>Boot graphics glitch, 10.12.dp1 (credit denskop)</string>
+				<key>Find</key>
+				<data>AQAAdSU=</data>
+				<key>Name</key>
+				<string>IOGraphicsFamily</string>
+				<key>Replace</key>
+				<data>AQAA6yU=</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
 				<string>Boot graphics glitch, 10.10.x/10.11.x (credit lisai9093, cecekpawon)</string>
 				<key>Name</key>
 				<string>IOGraphicsFamily</string>
@@ -451,6 +461,16 @@
 				<data>AQAAdRc=</data>
 				<key>Replace</key>
 				<data>AQAA6xc=</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>AirPortBrcm4360 whitelist patch (board-id), 10.12.dp1, credit RehabMan</string>
+				<key>Find</key>
+				<data>MdtMO33YdRI=</data>
+				<key>Name</key>
+				<string>AirPortBrcm4360</string>
+				<key>Replace</key>
+				<data>Mdv/w5CQkJA=</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
