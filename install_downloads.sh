@@ -154,6 +154,7 @@ if [ $? -ne 0 ]; then
     if [[ $MINOR_VER -ge 11 ]]; then
         # 10.11 needs BrcmPatchRAM2.kext
         cd RehabMan-BrcmPatchRAM*/Release && install_kext BrcmPatchRAM2.kext && cd ../..
+        cd RehabMan-BrcmPatchRAM*/Release && install_kext BrcmNonPatchRAM2.kext && cd ../..
         # 10.11 needs USBInjectAll.kext
         cd RehabMan-USBInjectAll*/Release && install_kext USBInjectAll.kext && cd ../..
         # remove BrcPatchRAM.kext just in case
@@ -163,6 +164,7 @@ if [ $? -ne 0 ]; then
     else
         # prior to 10.11, need BrcmPatchRAM.kext
         cd RehabMan-BrcmPatchRAM*/Release && install_kext BrcmPatchRAM.kext && cd ../..
+        cd RehabMan-BrcmPatchRAM*/Release && install_kext BrcmNonPatchRAM.kext && cd ../..
         # remove BrcPatchRAM2.kext just in case
         $SUDO rm -Rf $SLE/BrcmPatchRAM2.kext $KEXTDEST/BrcmPatchRAM2.kext
         # remove injector just in case
