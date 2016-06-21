@@ -32,6 +32,7 @@ iasl -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-USB-6x60.aml hotpatch/SSDT
 iasl -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-USB-6x70.aml hotpatch/SSDT-USB-6x70.dsl
 iasl -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-USB-8x60.aml hotpatch/SSDT-USB-8x60.dsl
 iasl -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-USB-4x0-G3.aml hotpatch/SSDT-USB-4x0-G3.dsl
+iasl -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-USB-8x0-G3.aml hotpatch/SSDT-USB-8x0-G3.dsl
 iasl -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-USB-ZBook-G1.aml hotpatch/SSDT-USB-ZBook-G1.dsl
 iasl -D QUIET -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-FAN-QUIET.aml hotpatch/SSDT-FAN-QUIET.dsl
 iasl -D REHABMAN -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-FAN-MOD.aml hotpatch/SSDT-FAN-QUIET.dsl
@@ -63,3 +64,4 @@ iasl -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-1020-G1-Broadwell.aml hotp
 iasl -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-ZBook-G2-Haswell.aml hotpatch/SSDT-ZBook-G2-Haswell.dsl
 iasl -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-ZBook-G2-Broadwell.aml hotpatch/SSDT-ZBook-G2-Broadwell.dsl
 iasl -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-4x0-G3-Skylake.aml hotpatch/SSDT-4x0-G3-Skylake.dsl
+iasl -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-8x0-G3-Skylake.aml hotpatch/SSDT-8x0-G3-Skylake.dsl
