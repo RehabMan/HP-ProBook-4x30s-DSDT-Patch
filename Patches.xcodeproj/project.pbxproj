@@ -194,6 +194,7 @@
 		EDD44B7C1C178E90003D0CA9 /* config_4x0s_G0.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_4x0s_G0.plist; path = config/config_4x0s_G0.plist; sourceTree = "<group>"; };
 		EDDD91531CF5039C00A70550 /* config_5x30m.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_5x30m.plist; path = config/config_5x30m.plist; sourceTree = "<group>"; };
 		EDDD91541CF5039C00A70550 /* config_ZBook_G1_Haswell.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_ZBook_G1_Haswell.plist; path = config/config_ZBook_G1_Haswell.plist; sourceTree = "<group>"; };
+		EDE939211D1AF9F0009B5E36 /* SSDT-USB-8x70.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-USB-8x70.dsl"; path = "hotpatch/SSDT-USB-8x70.dsl"; sourceTree = "<group>"; };
 		EDEAE87C1CBEEC2E00E1DF9D /* layout5.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = layout5.plist; path = Resources_ProBook/layout5.plist; sourceTree = "<group>"; };
 		EDEC127B1C180E880080CCCA /* config_8x0s_G1_Haswell.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_8x0s_G1_Haswell.plist; path = config/config_8x0s_G1_Haswell.plist; sourceTree = "<group>"; };
 		EDFC50DC1D199FBA0053A9FC /* SSDT-8x0-G3-Skylake.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-8x0-G3-Skylake.dsl"; path = "hotpatch/SSDT-8x0-G3-Skylake.dsl"; sourceTree = "<group>"; };
@@ -396,6 +397,7 @@
 				ED97E94C1CC757D7006C757A /* SSDT-USB-6x60.dsl */,
 				ED97E94D1CC757D7006C757A /* SSDT-USB-8x60.dsl */,
 				ED97E94F1CC757D7006C757A /* SSDT-USB-6x70.dsl */,
+				EDE939211D1AF9F0009B5E36 /* SSDT-USB-8x70.dsl */,
 				ED507CCE1CDCDAF400E14F67 /* SSDT-USB-9x70.dsl */,
 				ED17156E1D070F3C00219AC6 /* SSDT-USB-6x0-G1.dsl */,
 				ED97E9461CC757D7006C757A /* SSDT-USB-8x0-G1.dsl */,
