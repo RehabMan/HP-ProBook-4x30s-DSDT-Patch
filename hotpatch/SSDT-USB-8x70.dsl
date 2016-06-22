@@ -32,12 +32,12 @@ DefinitionBlock ("", "SSDT", 2, "hack", "usb8x70", 0)
                 "ports", Package()
                 {
                     //HP11/HP12 not used
-                    "HP13", Package()   // HS USB3 right near hinge
+                    "HP13", Package()   // HS USB3 left
                     {
                         //"UsbConnector", 3,
                         "port", Buffer() { 3, 0, 0, 0 },
                     },
-                    "HP14", Package()   // HS USB3 right far from hinge
+                    "HP14", Package()   // HS USB3 left
                     {
                         //"UsbConnector", 0,
                         "port", Buffer() { 4, 0, 0, 0 },
@@ -75,7 +75,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "usb8x70", 0)
                         "port", Buffer() { 1, 0, 0, 0 },
                     },
                     #endif
-                    "HP22", Package()   // USB2 left middle (near power button)
+                    "HP22", Package()   // USB2 right
                     {
                         //"UsbConnector", 0,
                         "port", Buffer() { 2, 0, 0, 0 },
@@ -101,12 +101,12 @@ DefinitionBlock ("", "SSDT", 2, "hack", "usb8x70", 0)
                     // HS03 HS USB3 far left
                     // HS04 USB2 far right
                     // SS05/SS06 not used
-                    "SS07", Package()   // SS USB3 right near hinge
+                    "SS07", Package()   // SS USB3 left
                     {
                         "UsbConnector", 3,
                         "port", Buffer() { 7, 0, 0, 0 },
                     },
-                    "SS08", Package()   // SS USB3 right far from hinge
+                    "SS08", Package()   // SS USB3 left
                     {
                         "UsbConnector", 3,
                         "port", Buffer() { 8, 0, 0, 0 },
