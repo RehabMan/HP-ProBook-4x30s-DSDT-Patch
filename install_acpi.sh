@@ -358,6 +358,14 @@ case "$1" in
         cp $BUILDDIR/SSDT-USB-8x0-G3.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         ls $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
+    install_6x0g2_skylake)
+        $0 inst_lores $2
+        $0 inst_batt_g3
+        cp $BUILDDIR/SSDT-6x0-G2-Skylake.aml $EFIDIR/EFI/CLOVER/ACPI/patched
+        cp $BUILDDIR/SSDT-KEY87.aml $EFIDIR/EFI/CLOVER/ACPI/patched
+        #cp $BUILDDIR/SSDT-USB-6x0-G2.aml $EFIDIR/EFI/CLOVER/ACPI/patched
+        ls $EFIDIR/EFI/CLOVER/ACPI/patched
+    ;;
 
 # unknown models
     *)
