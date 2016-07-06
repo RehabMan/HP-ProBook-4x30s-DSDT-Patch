@@ -1,7 +1,5 @@
 // USBInjectAll configuration/override for EliteBook 8x0 G3 (Skylake)
 //
-//REVIEW: this is currently wrong (copied from ProBook 4x0 G3)
-
 // Based on information provided from kartoffelsalat_reloaded's Skylake EliteBook 840 G3
 
 DefinitionBlock ("", "SSDT", 2, "hack", "usb8x0g3", 0)
@@ -30,31 +28,19 @@ DefinitionBlock ("", "SSDT", 2, "hack", "usb8x0g3", 0)
                         "UsbConnector", 3,
                         "port", Buffer() { 2, 0, 0, 0 },
                     },
-                    //HS03 not used
-                    "HS04", Package()   // USB2 port
-                    {
-                        "UsbConnector", 0,
-                        "port", Buffer() { 4, 0, 0, 0 },
-                    },
-                    //HS05 not used
-                    "HS06", Package()   // camera
-                    {
-                        "UsbConnector", 255,
-                        "port", Buffer() { 6, 0, 0, 0 },
-                    },
+                    //HS03-HS06 not used
                     "HS07", Package()   // bluetooth
                     {
                         "UsbConnector", 255,
                         "port", Buffer() { 7, 0, 0, 0 },
                     },
-                    #if 0
-                    "HS08", Package()   // finger print reader (disabled)
+                    //HS08 is fingerprint reader (disabled)
+                    "HS09", Package()   // camera
                     {
                         "UsbConnector", 255,
-                        "port", Buffer() { 8, 0, 0, 0 },
+                        "port", Buffer() { 9, 0, 0, 0 },
                     },
-                    #endif
-                    //HS09/HS10 not used
+                    //HS10 not used
                     "SS01", Package()
                     {
                         "UsbConnector", 3,
