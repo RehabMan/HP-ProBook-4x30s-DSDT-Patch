@@ -93,6 +93,11 @@ DefinitionBlock ("", "SSDT", 2, "hack", "usb6x60", 0)
                         //"UsbConnector", 0,
                         "port", Buffer() { 3, 0, 0, 0 },
                     },
+                    "HP25", Package()   // extra USB2 on 6560b
+                    {
+                        //"UsbConnector", 0,
+                        "port", Buffer() { 5, 0, 0, 0 },
+                    },
                 },
             },
         })
