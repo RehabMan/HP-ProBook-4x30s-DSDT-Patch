@@ -88,6 +88,14 @@ case "$1" in
         cp $BUILDDIR/SSDT-USB-6x60.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         ls $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
+    # 2x60 is very similar to 6x60 (but uses KEY102)
+    install_2x60)
+        $0 inst_lores $2
+        cp $BUILDDIR/SSDT-6x60.aml $EFIDIR/EFI/CLOVER/ACPI/patched/SSDT-2x60.aml
+        cp $BUILDDIR/SSDT-KEY102.aml $EFIDIR/EFI/CLOVER/ACPI/patched
+        cp $BUILDDIR/SSDT-USB-6x60.aml $EFIDIR/EFI/CLOVER/ACPI/patched/SSDT-USB-2x60.aml
+        ls $EFIDIR/EFI/CLOVER/ACPI/patched
+    ;;
     install_6x60_hires)
         $0 inst_hires $2
         cp $BUILDDIR/SSDT-6x60.aml $EFIDIR/EFI/CLOVER/ACPI/patched
