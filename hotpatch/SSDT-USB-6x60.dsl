@@ -55,11 +55,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "usb6x60", 0)
                         //"UsbConnector", 255,
                         "port", Buffer() { 6, 0, 0, 0 },
                     },
-                    "HP18", Package()   // smart card reader
-                    {
-                        //"UsbConnector", 255,
-                        "port", Buffer() { 8, 0, 0, 0 },
-                    },
+                    //HP18 is smart card reader (disabled)
                 },
             },
             // EHCI#2
