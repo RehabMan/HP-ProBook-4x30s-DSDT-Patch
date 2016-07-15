@@ -371,7 +371,7 @@ case "$1" in
         $0 inst_batt_g3
         cp $BUILDDIR/SSDT-6x0-G2-Skylake.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         cp $BUILDDIR/SSDT-KEY102.aml $EFIDIR/EFI/CLOVER/ACPI/patched
-        #cp $BUILDDIR/SSDT-USB-6x0-G2.aml $EFIDIR/EFI/CLOVER/ACPI/patched
+        cp $BUILDDIR/SSDT-USB-640-G2.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         ls $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
 
