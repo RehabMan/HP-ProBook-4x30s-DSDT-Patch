@@ -84,6 +84,9 @@
 		ED5F0FDA1CE218160097FADC /* SSDT-ZBook-G1-Haswell.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-ZBook-G1-Haswell.dsl"; path = "hotpatch/SSDT-ZBook-G1-Haswell.dsl"; sourceTree = "<group>"; };
 		ED634E2619FD2A9B00289C54 /* 14_ProBook-102key.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "14_ProBook-102key.txt"; path = "patches/14_ProBook-102key.txt"; sourceTree = "<group>"; };
 		ED634E2719FD2B3E00289C54 /* 14_ProBook-87key.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "14_ProBook-87key.txt"; path = "patches/14_ProBook-87key.txt"; sourceTree = "<group>"; };
+		ED6354D21D38643B00C77357 /* key86_data.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = key86_data.asl; path = hotpatch/include/key86_data.asl; sourceTree = "<group>"; };
+		ED6354D31D38643B00C77357 /* standard_PS2K_data.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = standard_PS2K_data.asl; path = hotpatch/include/standard_PS2K_data.asl; sourceTree = "<group>"; };
+		ED6354D41D38643B00C77357 /* standard_PS2K.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = standard_PS2K.asl; path = hotpatch/include/standard_PS2K.asl; sourceTree = "<group>"; };
 		ED6E36F91D0AFC8E00610C26 /* config_ALC286.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_ALC286.plist; path = config_parts/config_ALC286.plist; sourceTree = "<group>"; };
 		ED6E36FA1D0AFCE900610C26 /* SSDT-1020-G1-Broadwell.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-1020-G1-Broadwell.dsl"; path = "hotpatch/SSDT-1020-G1-Broadwell.dsl"; sourceTree = "<group>"; };
 		ED6E36FB1D0AFD8700610C26 /* layout6_HDAU.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = layout6_HDAU.asl; path = hotpatch/include/layout6_HDAU.asl; sourceTree = "<group>"; };
@@ -445,6 +448,9 @@
 		EDA987001CC71F8D00D10BEC /* include */ = {
 			isa = PBXGroup;
 			children = (
+				ED6354D41D38643B00C77357 /* standard_PS2K.asl */,
+				ED6354D31D38643B00C77357 /* standard_PS2K_data.asl */,
+				ED6354D21D38643B00C77357 /* key86_data.asl */,
 				ED97E91D1CC75350006C757A /* disable_HECI.asl */,
 				ED97E9121CC75350006C757A /* layout3_HDAU.asl */,
 				ED97E9131CC75350006C757A /* layout3_HDEF.asl */,

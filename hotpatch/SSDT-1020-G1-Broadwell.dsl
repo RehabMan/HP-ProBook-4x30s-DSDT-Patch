@@ -2,9 +2,7 @@
 
 DefinitionBlock ("", "SSDT", 2, "hack", "1020g1b", 0)
 {
-    Include("include/layout6_HDEF.asl")
-    Include("include/layout6_HDAU.asl")
-
+    //#include "include/standard_PS2K.asl"
     External(_SB.PCI0.LPCB.PS2K, DeviceObj)
     Scope (_SB.PCI0.LPCB.PS2K)
     {
@@ -18,8 +16,12 @@ DefinitionBlock ("", "SSDT", 2, "hack", "1020g1b", 0)
             "Synaptics TouchPad", Package()
             {
                 "ForceSynapticsDetect", ">y",
+                "DynamicEWMode", ">n",
             },
         })
     }
+
+    Include("include/layout6_HDEF.asl")
+    Include("include/layout6_HDAU.asl")
 }
 //EOF

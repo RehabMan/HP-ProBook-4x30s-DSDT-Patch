@@ -2,6 +2,7 @@
 
 DefinitionBlock ("", "SSDT", 2, "hack", "4x0g3s", 0)
 {
+    #include "include/standard_PS2K.asl"
     Include("include/disable_HECI.asl")
     Include("include/layout5_HDEF.asl")
 
