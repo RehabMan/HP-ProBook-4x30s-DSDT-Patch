@@ -1,6 +1,7 @@
 // USBInjectAll configuration/override for EliteBook 8x0 G3 (Skylake)
 //
 // Based on information provided from kartoffelsalat_reloaded's Skylake EliteBook 840 G3
+// modifications based on Titanious 840 G3 Skylake.
 
 DefinitionBlock ("", "SSDT", 2, "hack", "usb8x0g3", 0)
 {
@@ -18,17 +19,28 @@ DefinitionBlock ("", "SSDT", 2, "hack", "usb8x0g3", 0)
                 "port-count", Buffer() { 18, 0, 0, 0 },
                 "ports", Package()
                 {
-                    "HS01", Package()   // HS component of SS port
+                    "HS01", Package()   // HS component of SS port, right
                     {
                         "UsbConnector", 3,
                         "port", Buffer() { 1, 0, 0, 0 },
                     },
-                    "HS02", Package()   // HS component of SS port
+                    "HS02", Package()   // HS component of SS port, left
                     {
                         "UsbConnector", 3,
                         "port", Buffer() { 2, 0, 0, 0 },
                     },
-                    //HS03-HS06 not used
+                    //HS03 not used
+                    "HS04", Package()   // docking station hub
+                    {
+                        "UsbConnector", 3,
+                        "port", Buffer() { 4, 0, 0, 0 },
+                    },
+                    "HS05", Package()   // USB-C with SS, no switch, right
+                    {
+                        "UsbConnector", 10,
+                        "port", Buffer() { 5, 0, 0, 0 },
+                    },
+                    //HS06 not used
                     "HS07", Package()   // bluetooth
                     {
                         "UsbConnector", 255,
@@ -40,18 +52,29 @@ DefinitionBlock ("", "SSDT", 2, "hack", "usb8x0g3", 0)
                         "UsbConnector", 255,
                         "port", Buffer() { 9, 0, 0, 0 },
                     },
-                    //HS10 not used
-                    "SS01", Package()
+                    //HS10 smart card reader (disabled)
+                    "SS01", Package()   // SS, right
                     {
                         "UsbConnector", 3,
                         "port", Buffer() { 13, 0, 0, 0 },
                     },
-                    "SS02", Package()
+                    "SS02", Package()   // SS, left
                     {
                         "UsbConnector", 3,
                         "port", Buffer() { 14, 0, 0, 0 },
                     },
-                    //SS03-SS06 not used
+                    //SS03 not used
+                    "SS04", Package()   // docking station hub
+                    {
+                        "UsbConnector", 3,
+                        "port", Buffer() { 16, 0, 0, 0 },
+                    },
+                    "SS05", Package()   // USB-C with SS, no switch, right
+                    {
+                        "UsbConnector", 10,
+                        "port", Buffer() { 17, 0, 0, 0 },
+                    },
+                    //SS06 not used
                     //USR1/USR2 not used
                 },
             },
@@ -59,5 +82,4 @@ DefinitionBlock ("", "SSDT", 2, "hack", "usb8x0g3", 0)
         })
     }
 }
-
 //EOF
