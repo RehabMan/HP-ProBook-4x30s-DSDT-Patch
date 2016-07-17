@@ -2,7 +2,18 @@
 
 DefinitionBlock ("", "SSDT", 2, "hack", "8x0g3s", 0)
 {
-    #include "include/standard_PS2K.asl"
+    //#include "include/standard_PS2K.asl"
+    External(\_SB.PCI0.LPCB.PS2K, DeviceObj)
+    Scope (\_SB.PCI0.LPCB.PS2K)
+    {
+        // overrides for VoodooPS2 configuration...
+        Name(RMCF, Package()
+        {
+            #include "include/standard_PS2K_data.asl"
+            #include "include/key86_data.asl"
+        })
+    }
+
     Include("include/disable_HECI.asl")
     Include("include/layout5_HDEF.asl")
 
