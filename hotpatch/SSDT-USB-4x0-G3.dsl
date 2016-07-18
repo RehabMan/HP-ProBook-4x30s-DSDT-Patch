@@ -1,7 +1,7 @@
 // USBInjectAll configuration/override for Probook 4x0 G3 (Skylake)
 //
-
 // Based on information provided from bran1m1r's Skylake ProBook 440 G3
+// HS05 port added for Skylake ProBook 450 G3 (per data from mo7a1995)
 
 DefinitionBlock ("", "SSDT", 2, "hack", "usb4x0g3", 0)
 {
@@ -35,7 +35,11 @@ DefinitionBlock ("", "SSDT", 2, "hack", "usb4x0g3", 0)
                         "UsbConnector", 0,
                         "port", Buffer() { 4, 0, 0, 0 },
                     },
-                    //HS05 not used
+                    "HS05", Package()   // USB2 port
+                    {
+                        "UsbConnector", 0,
+                        "port", Buffer() { 5, 0, 0, 0 },
+                    },
                     "HS06", Package()   // camera
                     {
                         "UsbConnector", 255,
