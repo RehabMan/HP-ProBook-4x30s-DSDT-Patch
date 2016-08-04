@@ -187,6 +187,13 @@ case "$1" in
         cp $BUILDDIR/SSDT-USB-9x70.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         ls $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
+    install_9x80)
+        $0 inst_lores $2
+        cp $BUILDDIR/SSDT-9x80.aml $EFIDIR/EFI/CLOVER/ACPI/patched
+        cp $BUILDDIR/SSDT-KEY87.aml $EFIDIR/EFI/CLOVER/ACPI/patched
+        cp $BUILDDIR/SSDT-USB-9x80.aml $EFIDIR/EFI/CLOVER/ACPI/patched
+        ls $EFIDIR/EFI/CLOVER/ACPI/patched
+    ;;
     install_4x0g0)
         $0 inst_lores $2
         cp $BUILDDIR/SSDT-4x0-G0.aml $EFIDIR/EFI/CLOVER/ACPI/patched

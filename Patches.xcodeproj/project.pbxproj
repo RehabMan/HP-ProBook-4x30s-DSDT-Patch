@@ -91,6 +91,8 @@
 		ED6E36FA1D0AFCE900610C26 /* SSDT-1020-G1-Broadwell.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-1020-G1-Broadwell.dsl"; path = "hotpatch/SSDT-1020-G1-Broadwell.dsl"; sourceTree = "<group>"; };
 		ED6E36FB1D0AFD8700610C26 /* layout6_HDAU.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = layout6_HDAU.asl; path = hotpatch/include/layout6_HDAU.asl; sourceTree = "<group>"; };
 		ED6E36FC1D0AFD8700610C26 /* layout6_HDEF.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = layout6_HDEF.asl; path = hotpatch/include/layout6_HDEF.asl; sourceTree = "<group>"; };
+		ED71FE551D53978500EEF9F9 /* SSDT-9x80.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-9x80.dsl"; path = "hotpatch/SSDT-9x80.dsl"; sourceTree = "<group>"; };
+		ED71FE561D53981100EEF9F9 /* SSDT-USB-9x80.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-USB-9x80.dsl"; path = "hotpatch/SSDT-USB-9x80.dsl"; sourceTree = "<group>"; };
 		ED72750B1BE1B1D700314108 /* config_4x30s.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_4x30s.plist; path = config/config_4x30s.plist; sourceTree = "<group>"; };
 		ED7697A81CE1106D00DA0993 /* SSDT-USB-ZBook-G1.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-USB-ZBook-G1.dsl"; path = "hotpatch/SSDT-USB-ZBook-G1.dsl"; sourceTree = "<group>"; };
 		ED7A2ADB1CBEF56000062967 /* config_4x0s_G3_Skylake.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_4x0s_G3_Skylake.plist; path = config/config_4x0s_G3_Skylake.plist; sourceTree = "<group>"; };
@@ -373,6 +375,7 @@
 				ED97E93A1CC757D7006C757A /* SSDT-6x70.dsl */,
 				ED97E9401CC757D7006C757A /* SSDT-8x70.dsl */,
 				ED97E9411CC757D7006C757A /* SSDT-9x70.dsl */,
+				ED71FE551D53978500EEF9F9 /* SSDT-9x80.dsl */,
 				ED97E9311CC757D7006C757A /* SSDT-4x0-G0.dsl */,
 				ED97E9301CC757D7006C757A /* SSDT-3x0-G1.dsl */,
 				ED97E9331CC757D7006C757A /* SSDT-4x0-G1-Ivy.dsl */,
@@ -406,6 +409,7 @@
 				ED97E94F1CC757D7006C757A /* SSDT-USB-6x70.dsl */,
 				EDE939211D1AF9F0009B5E36 /* SSDT-USB-8x70.dsl */,
 				ED507CCE1CDCDAF400E14F67 /* SSDT-USB-9x70.dsl */,
+				ED71FE561D53981100EEF9F9 /* SSDT-USB-9x80.dsl */,
 				EDEED57B1D412694005A5AC2 /* SSDT-USB-4x0-G1.dsl */,
 				ED17156E1D070F3C00219AC6 /* SSDT-USB-6x0-G1.dsl */,
 				ED97E9461CC757D7006C757A /* SSDT-USB-8x0-G1.dsl */,

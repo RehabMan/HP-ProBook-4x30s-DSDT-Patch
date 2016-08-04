@@ -58,6 +58,7 @@ HACK:=$(HACK) \
 HACK:=$(HACK) \
 	$(BUILDDIR)/SSDT-USB-4x0-G2.aml $(BUILDDIR)/SSDT-USB-4x40s.aml $(BUILDDIR)/SSDT-USB-4x30s.aml \
 	$(BUILDDIR)/SSDT-USB-9x70.aml \
+	$(BUILDDIR)/SSDT-USB-9x80.aml \
 	$(BUILDDIR)/SSDT-USB-4x0-G1.aml \
 	$(BUILDDIR)/SSDT-USB-6x0-G1.aml \
 	$(BUILDDIR)/SSDT-USB-8x0-G1.aml \
@@ -79,6 +80,7 @@ HACK:=$(HACK) \
 	$(BUILDDIR)/SSDT-4x30s.aml $(BUILDDIR)/SSDT-4x40s.aml \
 	$(BUILDDIR)/SSDT-6x60.aml $(BUILDDIR)/SSDT-8x60.aml $(BUILDDIR)/SSDT-5x30.aml \
 	$(BUILDDIR)/SSDT-2x70.aml $(BUILDDIR)/SSDT-6x70.aml $(BUILDDIR)/SSDT-8x70.aml $(BUILDDIR)/SSDT-9x70.aml \
+	$(BUILDDIR)/SSDT-9x80.aml \
 	$(BUILDDIR)/SSDT-1040-G1-Haswell.aml \
 	$(BUILDDIR)/SSDT-6x0-G1-Haswell.aml \
 	$(BUILDDIR)/SSDT-3x0-G1.aml \
@@ -96,6 +98,7 @@ HACK:=$(HACK) \
 PLIST:=config/config_4x30s.plist config/config_4x40s.plist \
 	config/config_4x0s_G0.plist config/config_4x0s_G1_Ivy.plist config/config_ZBook_G0.plist \
 	config/config_8x0s_G1_Ivy.plist config/config_9x70m.plist \
+	config/config_9x80m.plist \
 	config/config_6x60p.plist config/config_8x60p.plist config/config_5x30m.plist \
 	config/config_6x70p.plist config/config_8x70p.plist config/config_2x70p.plist \
 	config/config_3x0_G1.plist \
@@ -230,13 +233,22 @@ config/config_ZBook_G0.plist: config/config_8x0s_G1_Ivy.plist
 	cp config/config_8x0s_G1_Ivy.plist $@
 	@printf "\n"
 
-# 9x70m is is IDT 76e0, HD4000, DP
+# 9x70m is IDT 76e0, HD4000, DP
 config/config_9x70m.plist : $(PARTS)/config_master.plist $(PARTS)/config_IDT76e0.plist $(PARTS)/config_HD4000.plist
 	@printf "!! creating $@\n"
 	cp $(PARTS)/config_master.plist $@
 	/usr/libexec/PlistBuddy -c "Set :SMBIOS:ProductName MacBookPro9,2" $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_HD4000.plist $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_IDT76e0.plist $@
+	@printf "\n"
+
+# 9x80m is ALC280, HD4400, DP
+config/config_9x80m.plist : $(PARTS)/config_master.plist $(PARTS)/config_ALC280.plist $(PARTS)/config_Haswell.plist
+	@printf "!! creating $@\n"
+	cp $(PARTS)/config_master.plist $@
+	/usr/libexec/PlistBuddy -c "Set :SMBIOS:ProductName MacBookAir6,2" $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_Haswell.plist $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_ALC280.plist $@
 	@printf "\n"
 
 # 4x0s_G1_Haswell is IDT 76e0, HD4400, HDMI

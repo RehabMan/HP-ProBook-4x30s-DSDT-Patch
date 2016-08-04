@@ -42,6 +42,12 @@ cp config_parts/config_master.plist config/config_9x70m.plist
 ./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_parts/config_HD4000.plist config/config_9x70m.plist
 ./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_parts/config_IDT76e0.plist config/config_9x70m.plist
 printf "\n"
+printf "!! creating config/config_9x80m.plist\n"
+cp config_parts/config_master.plist config/config_9x80m.plist
+/usr/libexec/PlistBuddy -c "Set :SMBIOS:ProductName MacBookAir6,2" config/config_9x80m.plist
+./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_parts/config_Haswell.plist config/config_9x80m.plist
+./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_parts/config_ALC280.plist config/config_9x80m.plist
+printf "\n"
 printf "!! creating config/config_6x60p.plist\n"
 cp config_parts/config_master.plist config/config_6x60p.plist
 /usr/libexec/PlistBuddy -c "Set KernelAndKextPatches:KernelPm false" config/config_6x60p.plist
