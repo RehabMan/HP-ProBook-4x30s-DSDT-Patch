@@ -24,7 +24,7 @@
                 "PinConfigDefault", Package()
                 {
                     Package(){},
-                    Package()
+                    Package()   // Mirone version
                     {
                         "LayoutID", 5,
                         "PinConfigs", Package()
@@ -34,6 +34,18 @@
                             0x17, 0x91170020,
                             0x19, 0x02811030,
                             0x1a, 0x90a60040,
+                        },
+                    },
+                    Package()   // alternate layout-id=7, InsanelyDeepak version
+                    {
+                        "LayoutID", 7,
+                        "PinConfigs", Package()
+                        {
+                            Package(){},
+                            0x17, 0x91170110,
+                            0x19, 0x048b1030,
+                            0x1a, 0x95a00120,
+                            0x1d, 0x042b1040,
                         },
                     },
                 },

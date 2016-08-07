@@ -75,6 +75,8 @@
 		ED2500551CF67CE6006A5FB7 /* SSDT-XHC.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-XHC.dsl"; path = "hotpatch/SSDT-XHC.dsl"; sourceTree = "<group>"; };
 		ED2500561CF67CE6006A5FB7 /* SSDT-EH01.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-EH01.dsl"; path = "hotpatch/SSDT-EH01.dsl"; sourceTree = "<group>"; };
 		ED2500571CF67CE6006A5FB7 /* SSDT-EH02.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-EH02.dsl"; path = "hotpatch/SSDT-EH02.dsl"; sourceTree = "<group>"; };
+		ED3717731D578CD700FC4CC3 /* layout7.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = layout7.plist; path = Resources_ProBook/layout7.plist; sourceTree = "<group>"; };
+		ED3717741D578CD700FC4CC3 /* layout6.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = layout6.plist; path = Resources_ProBook/layout6.plist; sourceTree = "<group>"; };
 		ED407DA41CF4FBA900A03010 /* config_HD4000_hdmi_audio.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_HD4000_hdmi_audio.plist; path = config_parts/config_HD4000_hdmi_audio.plist; sourceTree = "<group>"; };
 		ED407DA51CF4FC8B00A03010 /* config_Skylake_hdmi_audio.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_Skylake_hdmi_audio.plist; path = config_parts/config_Skylake_hdmi_audio.plist; sourceTree = "<group>"; };
 		ED407DA61CF4FC8B00A03010 /* config_Broadwell_hdmi_audio.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_Broadwell_hdmi_audio.plist; path = config_parts/config_Broadwell_hdmi_audio.plist; sourceTree = "<group>"; };
@@ -312,6 +314,8 @@
 				ED1837471C0A4B1200A5A3DA /* layout3.plist */,
 				84CF5EEA1CA9DF3200FB64FA /* layout4.plist */,
 				EDEAE87C1CBEEC2E00E1DF9D /* layout5.plist */,
+				ED3717741D578CD700FC4CC3 /* layout6.plist */,
+				ED3717731D578CD700FC4CC3 /* layout7.plist */,
 				ED1837481C0A4B1200A5A3DA /* layout12.plist */,
 				ED1837491C0A4B1200A5A3DA /* layout13.plist */,
 				84CF5EE71CA9DF2000FB64FA /* layout17.plist */,

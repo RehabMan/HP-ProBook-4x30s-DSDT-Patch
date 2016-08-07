@@ -31,6 +31,8 @@
 		<dict>
 			<key>AFGLowPowerState</key>
 			<data>AwAAAA==</data>
+			<key>Codec</key>
+			<string>Mirone - Conexant CX20724</string>
 			<key>CodecID</key>
 			<integer>351359220</integer>
 			<key>ConfigData</key>
@@ -53,6 +55,20 @@
 			<integer>1</integer>
 			<key>LayoutID</key>
 			<integer>6</integer>
+		</dict>
+		<dict>
+			<key>AFGLowPowerState</key>
+			<data>AwAAAA==</data>
+			<key>Codec</key>
+			<string>InsanelyDeepak - Conexant CX20724</string>
+			<key>CodecID</key>
+			<integer>351359220</integer>
+			<key>ConfigData</key>
+			<data>AXccEAF3HQEBdx4XAXcfkQGnHCABpx0BAaceoAGnH5UBlxwwAZcdEAGXHosBlx8EAdccQAHXHRAB1x4rAdcfBA==</data>
+			<key>FuncGroup</key>
+			<integer>1</integer>
+			<key>LayoutID</key>
+			<integer>7</integer>
 		</dict>
 		<dict>
 			<key>CodecID</key>
