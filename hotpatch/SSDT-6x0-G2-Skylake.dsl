@@ -15,7 +15,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "6x0g2s", 0)
     }
 
     Include("include/disable_HECI.asl")
-    Include("include/layout5_HDEF.asl")
+    Include("include/layout7_HDEF.asl")
 
     // This USWE code is specific to the Skylake G3 (maybe Skylake G2?)
     External(USWE, FieldUnitObj)

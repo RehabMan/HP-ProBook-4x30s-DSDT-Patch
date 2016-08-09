@@ -116,7 +116,7 @@
 		ED97E9131CC75350006C757A /* layout3_HDEF.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = layout3_HDEF.asl; path = hotpatch/include/layout3_HDEF.asl; sourceTree = "<group>"; };
 		ED97E9141CC75350006C757A /* layout4_HDAU.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = layout4_HDAU.asl; path = hotpatch/include/layout4_HDAU.asl; sourceTree = "<group>"; };
 		ED97E9151CC75350006C757A /* layout4_HDEF.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = layout4_HDEF.asl; path = hotpatch/include/layout4_HDEF.asl; sourceTree = "<group>"; };
-		ED97E9161CC75350006C757A /* layout5_HDEF.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = layout5_HDEF.asl; path = hotpatch/include/layout5_HDEF.asl; sourceTree = "<group>"; };
+		ED97E9161CC75350006C757A /* layout7_HDEF.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = layout7_HDEF.asl; path = hotpatch/include/layout7_HDEF.asl; sourceTree = "<group>"; };
 		ED97E9171CC75350006C757A /* layout12_HDEF.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = layout12_HDEF.asl; path = hotpatch/include/layout12_HDEF.asl; sourceTree = "<group>"; };
 		ED97E9181CC75350006C757A /* layout13_HDEF.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = layout13_HDEF.asl; path = hotpatch/include/layout13_HDEF.asl; sourceTree = "<group>"; };
 		ED97E9191CC75350006C757A /* layout17_HDAU.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = layout17_HDAU.asl; path = hotpatch/include/layout17_HDAU.asl; sourceTree = "<group>"; };
@@ -468,9 +468,9 @@
 				ED97E9131CC75350006C757A /* layout3_HDEF.asl */,
 				ED97E9141CC75350006C757A /* layout4_HDAU.asl */,
 				ED97E9151CC75350006C757A /* layout4_HDEF.asl */,
-				ED97E9161CC75350006C757A /* layout5_HDEF.asl */,
 				ED6E36FC1D0AFD8700610C26 /* layout6_HDEF.asl */,
 				ED6E36FB1D0AFD8700610C26 /* layout6_HDAU.asl */,
+				ED97E9161CC75350006C757A /* layout7_HDEF.asl */,
 				ED97E9171CC75350006C757A /* layout12_HDEF.asl */,
 				ED97E9181CC75350006C757A /* layout13_HDEF.asl */,
 				ED97E9191CC75350006C757A /* layout17_HDAU.asl */,

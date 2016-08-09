@@ -6,7 +6,7 @@
         If (!Arg2) { Return (Buffer() { 0x03 } ) }
         Return(Package()
         {
-            "layout-id", Buffer(4) { 5, 0, 0, 0 },
+            "layout-id", Buffer(4) { 7, 0, 0, 0 },
             "hda-gfx", Buffer() { "onboard-1" },
             "PinConfigurations", Buffer() { },
         })
@@ -24,7 +24,7 @@
                 "PinConfigDefault", Package()
                 {
                     Package(){},
-                    Package()   // Mirone version
+                    Package()   // alternate layout-id=5, Mirone version
                     {
                         "LayoutID", 5,
                         "PinConfigs", Package()
@@ -36,7 +36,7 @@
                             0x1a, 0x90a60040,
                         },
                     },
-                    Package()   // alternate layout-id=7, InsanelyDeepak version
+                    Package()   // InsanelyDeepak version
                     {
                         "LayoutID", 7,
                         "PinConfigs", Package()
