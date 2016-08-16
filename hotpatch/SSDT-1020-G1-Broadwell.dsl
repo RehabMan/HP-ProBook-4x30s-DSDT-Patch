@@ -13,11 +13,13 @@ DefinitionBlock ("", "SSDT", 2, "hack", "1020g1b", 0)
             {
                 "DisableDevice", ">n",
             },
+            #if 0
             "Synaptics TouchPad", Package()
             {
                 "ForceSynapticsDetect", ">y",
                 "DynamicEWMode", ">n",
             },
+            #endif
         })
     }
 

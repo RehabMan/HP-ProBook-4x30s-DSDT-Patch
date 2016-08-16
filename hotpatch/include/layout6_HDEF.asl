@@ -18,11 +18,11 @@
     {
         "CodecCommander", Package()
         {
-            "Disable", ">y",
+            "Disable", ">n",
         },
         "CodecCommanderPowerHook", Package()
         {
-            "Disable", ">y",
+            "Disable", ">n",
         },
         "CodecCommanderProbeInit", Package()
         {
