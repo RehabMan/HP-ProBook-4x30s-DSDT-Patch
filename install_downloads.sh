@@ -216,6 +216,22 @@ else
     $TAG -a Gray $SLE/AppleHDA.kext
 fi
 
+# install NVMeGeneric.kext if it is found in Clover/kexts
+# patch it so it is marked OSBundleRequired=Root
+EFI=`sudo ./mount_efi.sh /`
+if [[ -e "$EFI/EFI/CLOVER/kexts/Other/NVMeGeneric.kext" ]]; then
+    cp -R "$EFI/EFI/CLOVER/kexts/Other/NVMeGeneric.kext" /tmp/NVMeGeneric.kext
+    /usr/libexec/PlistBuddy -c "Add :OSBundleRequired string" /tmp/NVMeGeneric.kext/Contents/Info.plist
+    /usr/libexec/PlistBuddy -c "Set :OSBundleRequired Root" /tmp/NVMeGeneric.kext/Contents/Info.plist
+    install_kext /tmp/NVMeGeneric.kext
+fi
+# install HackrNVMEFamily-.* if it is found in Clover/kexts
+kext=`echo "$EFI"/EFI/CLOVER/kexts/Other/HackrNVMeFamily-*.kext`
+if [[ -e "$kext" ]]; then
+    install_kext "$kext"
+fi
+
+# install kexts for JMicron card reader and supported Atheros WiFi
 cd kexts
 install_kext HSSDBlockStorage.kext
 install_kext JMB38X.kext
