@@ -1,7 +1,7 @@
 // USBInjectAll configuration/override for ProBook 4x0 G1 Haswell
 //
-// Based on information provided from ProBook 440 G1 Haswell (from diptaks)
-// Note: comments regarding port locations are probably wrong
+// Based on information provided from ProBook 450 G1 Haswell (from Titanius)
+//
 
 DefinitionBlock ("", "SSDT", 2, "hack", "usb4x0g1", 0)
 {
@@ -20,23 +20,23 @@ DefinitionBlock ("", "SSDT", 2, "hack", "usb4x0g1", 0)
                 "ports", Package()
                 {
                     //HS01 not used
-                    "HS02", Package()   // HS USB3 right back
+                    "HS02", Package()   // HS USB3 left back
                     {
                         "UsbConnector", 3,
                         "port", Buffer() { 2, 0, 0, 0 },
                     },
-                    "HS03", Package()   // HS USB3 right front
+                    "HS03", Package()   // HS USB3 left front
                     {
                         "UsbConnector", 3,
                         "port", Buffer() { 3, 0, 0, 0 },
                     },
-                    "HS04", Package()   // USB2
+                    "HS04", Package()   // USB2 right front
                     {
                         "UsbConnector", 0,
                         "port", Buffer() { 4, 0, 0, 0 },
                     },
                     //HS05 is finger print reader (disabled)
-                    "HS06", Package()   // USB2
+                    "HS06", Package()   // USB2 right back
                     {
                         "UsbConnector", 0,
                         "port", Buffer() { 6, 0, 0, 0 },
@@ -55,12 +55,12 @@ DefinitionBlock ("", "SSDT", 2, "hack", "usb4x0g1", 0)
                     //HS13/HS14 not used
                     //HS15 is phantom port (port address 15 not used)
                     //SSP1 not used
-                    "SSP2", Package()   // SS USB3 right back
+                    "SSP2", Package()   // SS USB3 left back
                     {
                         "UsbConnector", 3,
                         "port", Buffer() { 17, 0, 0, 0 },
                     },
-                    "SSP3", Package()   // SS USB3 right front
+                    "SSP3", Package()   // SS USB3 left front
                     {
                         "UsbConnector", 3,
                         "port", Buffer() { 18, 0, 0, 0 },
