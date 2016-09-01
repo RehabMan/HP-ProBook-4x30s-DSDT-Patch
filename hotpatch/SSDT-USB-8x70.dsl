@@ -31,7 +31,12 @@ DefinitionBlock ("", "SSDT", 2, "hack", "usb8x70", 0)
                 "port-count", Buffer() { 8, 0, 0, 0 },
                 "ports", Package()
                 {
-                    //HP11/HP12 not used
+                    "HP11", Package()   // unknown USB2 (on dock?)
+                    {
+                        //"UsbConnector", 3,
+                        "port", Buffer() { 1, 0, 0, 0 },
+                    },
+                    //HP12 not used
                     "HP13", Package()   // HS USB3 left
                     {
                         //"UsbConnector", 3,
@@ -86,7 +91,16 @@ DefinitionBlock ("", "SSDT", 2, "hack", "usb8x70", 0)
                         "portType", 4,  // fix for camera after sleep?
                         "port", Buffer() { 3, 0, 0, 0 },
                     },
-                    //HP26 not used
+                    "HP24", Package()   // unknown USB2 port with hub (dock?)
+                    {
+                        //"UsbConnector", 255,
+                        "port", Buffer() { 4, 0, 0, 0 },
+                    },
+                    "HP26", Package()   // unknown USB2 port (dock?)
+                    {
+                        //"UsbConnector", 255,
+                        "port", Buffer() { 6, 0, 0, 0 },
+                    },
                 },
             },
             // XHC
