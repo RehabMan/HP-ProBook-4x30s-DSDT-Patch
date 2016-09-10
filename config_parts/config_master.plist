@@ -411,6 +411,8 @@
 				<string>change 15 port limit to 26 in XHCI kext (100-series)</string>
 				<key>Disabled</key>
 				<true/>
+				<key>MatchOS</key>
+				<string>10.11.x</string>
 				<key>Name</key>
 				<string>AppleUSBXHCIPCI</string>
 				<key>Find</key>
@@ -421,8 +423,8 @@
 			<dict>
 				<key>Comment</key>
 				<string>AppleHDA .xml.zl to .zml.zl</string>
-				<key>Disabled</key>
-				<false/>
+				<key>MatchOS</key>
+				<string>10.10.x,10.11.x,10.12.x</string>
 				<key>Find</key>
 				<data>LnhtbC56bA==</data>
 				<key>Name</key>
@@ -445,6 +447,8 @@
 			<dict>
 				<key>Comment</key>
 				<string>Boot graphics glitch, 10.12.dp1 (credit denskop)</string>
+				<key>MatchOS</key>
+				<string>10.12.x</string>
 				<key>Find</key>
 				<data>AQAAdSU=</data>
 				<key>Name</key>
@@ -455,6 +459,8 @@
 			<dict>
 				<key>Comment</key>
 				<string>Boot graphics glitch, 10.10.x/10.11.x (credit lisai9093, cecekpawon)</string>
+				<key>MatchOS</key>
+				<string>10.10.x,10.11.x</string>
 				<key>Name</key>
 				<string>IOGraphicsFamily</string>
 				<key>Find</key>
@@ -465,6 +471,8 @@
 			<dict>
 				<key>Comment</key>
 				<string>AirPortBrcm4360 whitelist patch (board-id), 10.12.dp1, credit RehabMan</string>
+				<key>MatchOS</key>
+				<string>10.12.x</string>
 				<key>Find</key>
 				<data>MdtMO33YdRI=</data>
 				<key>Name</key>
@@ -475,6 +483,8 @@
 			<dict>
 				<key>Comment</key>
 				<string>AirPortBrcm4360 whitelist patch (board-id), 10.11.x, credit RehabMan</string>
+				<key>MatchOS</key>
+				<string>10.11.x</string>
 				<key>Name</key>
 				<string>AirPortBrcm4360</string>
 				<key>Find</key>
@@ -485,6 +495,8 @@
 			<dict>
 				<key>Comment</key>
 				<string>AirPortBrcm4360 whitelist patch (board-id), 10.10.5, credit RehabMan</string>
+				<key>MatchOS</key>
+				<string>10.10.5</string>
 				<key>Name</key>
 				<string>AirPortBrcm4360</string>
 				<key>Find</key>
@@ -495,6 +507,8 @@
 			<dict>
 				<key>Comment</key>
 				<string>10.9.5 5Ghz US FCC, svko</string>
+				<key>MatchOS</key>
+				<string>10.9.5</string>
 				<key>Name</key>
 				<string>AirPortBrcm4360</string>
 				<key>Find</key>
@@ -505,6 +519,8 @@
 			<dict>
 				<key>Comment</key>
 				<string>10.10.2+ 5Ghz US FCC, the-darkvoid</string>
+				<key>MatchOS</key>
+				<string>10.10.x,10.11.x,10.12.x</string>
 				<key>Name</key>
 				<string>AirPortBrcm4360</string>
 				<key>Find</key>
@@ -514,7 +530,21 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
+				<string>AirPortBrcm4360 - fcvo, 10.12.x (credit the-darkvoid)</string>
+				<key>Find</key>
+				<data>gflSqgAAdSk=</data>
+				<key>MatchOS</key>
+				<string>10.12.x</string>
+				<key>Name</key>
+				<string>AirPortBrcm4360</string>
+				<key>Replace</key>
+				<data>gflSqgAAZpA=</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
 				<string>10.10.2+ BT4LE-Handoff-Hotspot, Dokterdok</string>
+				<key>MatchOS</key>
+				<string>10.10.x</string>
 				<key>Name</key>
 				<string>IOBluetoothFamily</string>
 				<key>Find</key>
@@ -525,6 +555,8 @@
 			<dict>
 				<key>Comment</key>
 				<string>10.11.dp1+ BT4LE-Handoff-Hotspot, credit RehabMan based on Dokterdok original</string>
+				<key>MatchOS</key>
+				<string>10.11.x,10.12.x</string>
 				<key>Name</key>
 				<string>IOBluetoothFamily</string>
 				<key>Find</key>
