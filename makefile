@@ -183,7 +183,7 @@ config/config_4x30s.plist : $(PARTS)/config_master.plist $(PARTS)/config_IDT76d1
 	@printf "!! creating $@\n"
 	cp $(PARTS)/config_master.plist $@
 	/usr/libexec/PlistBuddy -c "Set KernelAndKextPatches:KernelPm false" $@
-	/usr/libexec/PlistBuddy -c "Set SMBIOS:ProductName MacBookPro8,2" $@
+	/usr/libexec/PlistBuddy -c "Set SMBIOS:ProductName MacBookPro8,1" $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_HD3000.plist $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_HD3000_hdmi_audio.plist $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_IDT76d1.plist $@
@@ -289,7 +289,7 @@ config/config_6x60p.plist : $(PARTS)/config_master.plist $(PARTS)/config_IDT7605
 	@printf "!! creating $@\n"
 	cp $(PARTS)/config_master.plist $@
 	/usr/libexec/PlistBuddy -c "Set KernelAndKextPatches:KernelPm false" $@
-	/usr/libexec/PlistBuddy -c "Set SMBIOS:ProductName MacBookPro8,2" $@
+	/usr/libexec/PlistBuddy -c "Set SMBIOS:ProductName MacBookPro8,1" $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_HD3000.plist $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_IDT7605.plist $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_non_Intel_USB3.plist $@
@@ -306,7 +306,7 @@ config/config_5x30m.plist : $(PARTS)/config_master.plist $(PARTS)/config_IDT7605
 	@printf "!! creating $@\n"
 	cp $(PARTS)/config_master.plist $@
 	/usr/libexec/PlistBuddy -c "Set KernelAndKextPatches:KernelPm false" $@
-	/usr/libexec/PlistBuddy -c "Set SMBIOS:ProductName MacBookPro8,2" $@
+	/usr/libexec/PlistBuddy -c "Set SMBIOS:ProductName MacBookPro8,1" $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_HD3000.plist $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_IDT7605.plist $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_non_Intel_USB3.plist $@
