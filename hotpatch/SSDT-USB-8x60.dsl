@@ -1,7 +1,7 @@
-// USB configuration for EliteBook 6x60
-// Based on information from EliteBook 6460p
+// USB configuration for EliteBook 8x60
+// Based on information from EliteBook 8560p + docking station (anx-v)
 
-DefinitionBlock ("", "SSDT", 2, "hack", "usb6x60", 0)
+DefinitionBlock ("", "SSDT", 2, "hack", "usb8x60", 0)
 {
 //
 // Override for USBInjectAll.kext
@@ -97,6 +97,17 @@ DefinitionBlock ("", "SSDT", 2, "hack", "usb6x60", 0)
                         "port", Buffer() { 3, 0, 0, 0 },
                     },
                     #endif
+                    "HP24", Package()   // USB on docking station
+                    {
+                        //"UsbConnector", 0,
+                        "port", Buffer() { 4, 0, 0, 0 },
+                    },
+                    "HP26", Package()   // USB on docking station
+                    {
+                        //"UsbConnector", 0,
+                        "port", Buffer() { 6, 0, 0, 0 },
+                    },
+
                 },
             },
         })
