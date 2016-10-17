@@ -207,6 +207,8 @@
 		EDEAE87C1CBEEC2E00E1DF9D /* layout5.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = layout5.plist; path = Resources_ProBook/layout5.plist; sourceTree = "<group>"; };
 		EDEC127B1C180E880080CCCA /* config_8x0s_G1_Haswell.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_8x0s_G1_Haswell.plist; path = config/config_8x0s_G1_Haswell.plist; sourceTree = "<group>"; };
 		EDEED57B1D412694005A5AC2 /* SSDT-USB-4x0-G1.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-USB-4x0-G1.dsl"; path = "hotpatch/SSDT-USB-4x0-G1.dsl"; sourceTree = "<group>"; };
+		EDF5303F1DB5766700CAE028 /* SSDT-USB-1040-G3.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-USB-1040-G3.dsl"; path = "hotpatch/SSDT-USB-1040-G3.dsl"; sourceTree = "<group>"; };
+		EDF530401DB578C000CAE028 /* SSDT-1040-G3-Skylake.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-1040-G3-Skylake.dsl"; path = "hotpatch/SSDT-1040-G3-Skylake.dsl"; sourceTree = "<group>"; };
 		EDFC50DC1D199FBA0053A9FC /* SSDT-8x0-G3-Skylake.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-8x0-G3-Skylake.dsl"; path = "hotpatch/SSDT-8x0-G3-Skylake.dsl"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -393,6 +395,7 @@
 				ED97E9341CC757D7006C757A /* SSDT-4x0-G2-Broadwell.dsl */,
 				ED97E93D1CC757D7006C757A /* SSDT-8x0-G2-Broadwell.dsl */,
 				ED6E36FA1D0AFCE900610C26 /* SSDT-1020-G1-Broadwell.dsl */,
+				EDF530401DB578C000CAE028 /* SSDT-1040-G3-Skylake.dsl */,
 				ED97E9361CC757D7006C757A /* SSDT-4x0-G3-Skylake.dsl */,
 				EDA9D5501D2D48C600DA4204 /* SSDT-6x0-G2-Skylake.dsl */,
 				EDFC50DC1D199FBA0053A9FC /* SSDT-8x0-G3-Skylake.dsl */,
@@ -425,6 +428,7 @@
 				EDAB27061D3953E800FD5D06 /* SSDT-USB-640-G2.dsl */,
 				ED7697A81CE1106D00DA0993 /* SSDT-USB-ZBook-G1.dsl */,
 				845E536C1D0D34880069A1F9 /* SSDT-USB-1020-G1.dsl */,
+				EDF5303F1DB5766700CAE028 /* SSDT-USB-1040-G3.dsl */,
 			);
 			name = "usb customization";
 			sourceTree = "<group>";

@@ -68,7 +68,8 @@ HACK:=$(HACK) \
 	$(BUILDDIR)/SSDT-USB-8x60.aml \
 	$(BUILDDIR)/SSDT-USB-4x0-G3.aml $(BUILDDIR)/SSDT-USB-8x0-G3.aml \
 	$(BUILDDIR)/SSDT-USB-640-G2.aml \
-	$(BUILDDIR)/SSDT-USB-ZBook-G1.aml
+	$(BUILDDIR)/SSDT-USB-ZBook-G1.aml \
+	$(BUILDDIR)/SSDT-USB-1040-G3.aml
 
 # depends on personal choices
 HACK:=$(HACK) \
@@ -92,7 +93,8 @@ HACK:=$(HACK) \
 	$(BUILDDIR)/SSDT-1020-G1-Broadwell.aml \
 	$(BUILDDIR)/SSDT-ZBook-G2-Haswell.aml $(BUILDDIR)/SSDT-ZBook-G2-Broadwell.aml \
 	$(BUILDDIR)/SSDT-4x0-G3-Skylake.aml $(BUILDDIR)/SSDT-8x0-G3-Skylake.aml \
-	$(BUILDDIR)/SSDT-6x0-G2-Skylake.aml
+	$(BUILDDIR)/SSDT-6x0-G2-Skylake.aml \
+	$(BUILDDIR)/SSDT-1040-G3-Skylake.aml
 
 # system specfic config.plist
 PLIST:=config/config_4x30s.plist config/config_4x40s.plist \
@@ -110,7 +112,8 @@ PLIST:=config/config_4x30s.plist config/config_4x40s.plist \
 	config/config_4x0s_G3_Skylake.plist \
 	config/config_8x0_G3_Skylake.plist \
 	config/config_6x0_G2_Skylake.plist \
-	config/config_1040_G1_Haswell.plist config/config_6x0s_G1_Haswell.plist
+	config/config_1040_G1_Haswell.plist config/config_6x0s_G1_Haswell.plist \
+	config/config_1040_G3_Skylake.plist
 
 .PHONY: all
 all : $(STATIC) $(MINI) $(HACK) $(PLIST) $(HDAHCDINJECT) $(HDAINJECT)
@@ -444,8 +447,19 @@ config/config_8x0_G3_Skylake.plist : $(PARTS)/config_master.plist $(PARTS)/confi
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_CX20724.plist $@
 	@printf "\n"
 
+
 # ProBook_6x0s_G2_Skylake is CX20724, Skylake, DP
 config/config_6x0_G2_Skylake.plist : $(PARTS)/config_master.plist $(PARTS)/config_CX20724.plist $(PARTS)/config_Skylake.plist
+	@printf "!! creating $@\n"
+	cp $(PARTS)/config_master.plist $@
+	/usr/libexec/PlistBuddy -c "Set KernelAndKextPatches:AsusAICPUPM false" $@
+	/usr/libexec/PlistBuddy -c "Set :SMBIOS:ProductName MacBookPro11,1" $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_Skylake.plist $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_CX20724.plist $@
+	@printf "\n"
+
+# EliteBook 1040_G3_Skylake is CX20724, Skylake, DP
+config/config_1040_G3_Skylake.plist : $(PARTS)/config_master.plist $(PARTS)/config_CX20724.plist $(PARTS)/config_Skylake.plist
 	@printf "!! creating $@\n"
 	cp $(PARTS)/config_master.plist $@
 	/usr/libexec/PlistBuddy -c "Set KernelAndKextPatches:AsusAICPUPM false" $@
