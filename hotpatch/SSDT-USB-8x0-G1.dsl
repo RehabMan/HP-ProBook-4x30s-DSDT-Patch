@@ -1,8 +1,8 @@
 // USBInjectAll configuration/override for EliteBook 8x0s G1 Haswell
 //
 
-//REVIEW: preliminary data for G1.  Note that it has a hub on XHC, which
-//  may need further work.
+// Current data includes HS01/SSP1 from the optional docking station.
+// still missing a port for bluetooth
 
 DefinitionBlock ("", "SSDT", 2, "hack", "usb8x0g1", 0)
 {
@@ -20,20 +20,24 @@ DefinitionBlock ("", "SSDT", 2, "hack", "usb8x0g1", 0)
                 //"port-count", Buffer() { 0x0d, 0, 0, 0},
                 "ports", Package()
                 {
-                    // HS01 not used
+                    "HS01", Package() // HS componnent of SSP1 (dock)
+                    {
+                        "UsbConnector", 3,
+                        "port", Buffer() { 0x01, 0, 0, 0 },
+                    },
                     "HS02", Package() // USB2
                     {
                         "UsbConnector", 0,
                         "port", Buffer() { 0x02, 0, 0, 0 },
-                    }, 
+                    },
                     "HS03", Package() // internal 4-port USB2 hub (SSP3 is USB3)
                     {
                         "UsbConnector", 255,
                         "port", Buffer() { 0x03, 0, 0, 0 },
                     },
-                    "HS04", Package() // SS USB2 (SSP4 is USB3)
+                    "HS04", Package() // HS component of SSP4
                     {
-                        "UsbConnector", 0,
+                        "UsbConnector", 3,
                         "port", Buffer() { 0x04, 0, 0, 0 },
                     },
                     #if 0
@@ -54,7 +58,12 @@ DefinitionBlock ("", "SSDT", 2, "hack", "usb8x0g1", 0)
                         "port", Buffer() { 0x07, 0, 0, 0 },
                     },
                     // HS08/HS09 not used
-                    // SSP1/SSP2 not used
+                    "SSP1", Package() // SS component on dock USB3
+                    {
+                        "UsbConnector", 3,
+                        "port", Buffer() { 0x0a, 0, 0, 0 },
+                    },
+                    // SSP2 not used
                     "SSP3", Package() // internal 4-port USB3 hub (HS03 is USB2)
                     {
                         "UsbConnector", 255,
