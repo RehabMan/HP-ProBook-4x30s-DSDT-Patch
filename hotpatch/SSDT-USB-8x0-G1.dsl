@@ -25,9 +25,9 @@ DefinitionBlock ("", "SSDT", 2, "hack", "usb8x0g1", 0)
                         "UsbConnector", 3,
                         "port", Buffer() { 0x01, 0, 0, 0 },
                     },
-                    "HS02", Package() // USB2
+                    "HS02", Package() // HS component of SSP2
                     {
-                        "UsbConnector", 0,
+                        "UsbConnector", 3,
                         "port", Buffer() { 0x02, 0, 0, 0 },
                     },
                     "HS03", Package() // internal 4-port USB2 hub (SSP3 is USB3)
@@ -63,7 +63,11 @@ DefinitionBlock ("", "SSDT", 2, "hack", "usb8x0g1", 0)
                         "UsbConnector", 3,
                         "port", Buffer() { 0x0a, 0, 0, 0 },
                     },
-                    // SSP2 not used
+                    "SSP2", Package() // left side USB3
+                    {
+                        "UsbConnector", 3,
+                        "port", Buffer() { 0x0b, 0, 0, 0 },
+                    },
                     "SSP3", Package() // internal 4-port USB3 hub (HS03 is USB2)
                     {
                         "UsbConnector", 255,
