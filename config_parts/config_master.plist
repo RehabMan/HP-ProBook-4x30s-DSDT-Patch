@@ -414,7 +414,7 @@
 				<key>Disabled</key>
 				<true/>
 				<key>Name</key>
-				<string>AppleUSBXHCIPCI</string>
+				<string>com.apple.driver.usb.AppleUSBXHCIPCI</string>
 				<key>Find</key>
 				<data>g72M/v//EA==</data>
 				<key>Replace</key>
@@ -430,7 +430,7 @@
 				<key>Find</key>
 				<data>g710////EA==</data>
 				<key>Name</key>
-				<string>AppleUSBXHCIPCI</string>
+				<string>com.apple.driver.usb.AppleUSBXHCIPCI</string>
 				<key>Replace</key>
 				<data>g710////Gw==</data>
 			</dict>
@@ -442,7 +442,7 @@
 				<key>Find</key>
 				<data>LnhtbC56bA==</data>
 				<key>Name</key>
-				<string>AppleHDA</string>
+				<string>com.apple.driver.AppleHDA</string>
 				<key>Replace</key>
 				<data>LnptbC56bA==</data>
 			</dict>
@@ -452,7 +452,7 @@
 				<key>Disabled</key>
 				<false/>
 				<key>Name</key>
-				<string>IOAHCIBlockStorage</string>
+				<string>com.apple.iokit.IOAHCIBlockStorage</string>
 				<key>Find</key>
 				<data>AEFQUExFIFNTRAA=</data>
 				<key>Replace</key>
@@ -464,7 +464,7 @@
 				<key>MatchOS</key>
 				<string>10.10.x,10.11.x</string>
 				<key>Name</key>
-				<string>IOGraphicsFamily</string>
+				<string>com.apple.iokit.IOGraphicsFamily</string>
 				<key>Find</key>
 				<data>AQAAdRc=</data>
 				<key>Replace</key>
@@ -478,7 +478,7 @@
 				<key>Find</key>
 				<data>AQAAdSU=</data>
 				<key>Name</key>
-				<string>IOGraphicsFamily</string>
+				<string>com.apple.iokit.IOGraphicsFamily</string>
 				<key>Replace</key>
 				<data>AQAA6yU=</data>
 			</dict>
@@ -490,7 +490,7 @@
 				<key>Find</key>
 				<data>MdtMO33YdRI=</data>
 				<key>Name</key>
-				<string>AirPortBrcm4360</string>
+				<string>com.apple.driver.AirPort.Brcm4360</string>
 				<key>Replace</key>
 				<data>Mdv/w5CQkJA=</data>
 			</dict>
@@ -500,7 +500,7 @@
 				<key>MatchOS</key>
 				<string>10.11.x</string>
 				<key>Name</key>
-				<string>AirPortBrcm4360</string>
+				<string>com.apple.driver.AirPort.Brcm4360</string>
 				<key>Find</key>
 				<data>MdtMO2XYdRI=</data>
 				<key>Replace</key>
@@ -512,7 +512,7 @@
 				<key>MatchOS</key>
 				<string>10.10.5</string>
 				<key>Name</key>
-				<string>AirPortBrcm4360</string>
+				<string>com.apple.driver.AirPort.Brcm4360</string>
 				<key>Find</key>
 				<data>MdtJiwQkSDtF2HUS</data>
 				<key>Replace</key>
@@ -524,7 +524,7 @@
 				<key>MatchOS</key>
 				<string>10.9.5</string>
 				<key>Name</key>
-				<string>AirPortBrcm4360</string>
+				<string>com.apple.driver.AirPort.Brcm4360</string>
 				<key>Find</key>
 				<data>WFQAIBcnIAAA</data>
 				<key>Replace</key>
@@ -534,9 +534,9 @@
 				<key>Comment</key>
 				<string>10.10.2+ 5Ghz US FCC, the-darkvoid</string>
 				<key>MatchOS</key>
-				<string>10.10.x,10.11.x,10.12.x</string>
+				<string>10.10.x,10.11.x</string>
 				<key>Name</key>
-				<string>AirPortBrcm4360</string>
+				<string>com.apple.driver.AirPort.Brcm4360</string>
 				<key>Find</key>
 				<data>QYP8/3QsSA==</data>
 				<key>Replace</key>
@@ -550,7 +550,7 @@
 				<key>Find</key>
 				<data>gflSqgAAdSk=</data>
 				<key>Name</key>
-				<string>AirPortBrcm4360</string>
+				<string>com.apple.driver.AirPort.Brcm4360</string>
 				<key>Replace</key>
 				<data>gflSqgAAZpA=</data>
 			</dict>
@@ -560,7 +560,7 @@
 				<key>MatchOS</key>
 				<string>10.10.x</string>
 				<key>Name</key>
-				<string>IOBluetoothFamily</string>
+				<string>com.apple.iokit.IOBluetoothFamily</string>
 				<key>Find</key>
 				<data>SIXAdFwPt0g=</data>
 				<key>Replace</key>
@@ -572,7 +572,7 @@
 				<key>MatchOS</key>
 				<string>10.11.x,10.12.x</string>
 				<key>Name</key>
-				<string>IOBluetoothFamily</string>
+				<string>com.apple.iokit.IOBluetoothFamily</string>
 				<key>Find</key>
 				<data>SIX/dEdIiwc=</data>
 				<key>Replace</key>

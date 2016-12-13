@@ -12,7 +12,7 @@
 				<key>Disabled</key>
 				<false/>
 				<key>Name</key>
-				<string>AppleIntelSKLGraphicsFramebuffer</string>
+				<string>com.apple.driver.AppleIntelSKLGraphicsFramebuffer</string>
 				<key>Find</key>
 				<data>AQUJAAAEAACHAQAA</data>
 				<key>Replace</key>
@@ -24,7 +24,7 @@
 				<key>Disabled</key>
 				<false/>
 				<key>Name</key>
-				<string>AppleIntelSKLGraphicsFramebuffer</string>
+				<string>com.apple.driver.AppleIntelSKLGraphicsFramebuffer</string>
 				<key>Find</key>
 				<data>AgQKAAAEAACHAQAA</data>
 				<key>Replace</key>

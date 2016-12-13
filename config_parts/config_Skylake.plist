@@ -11,10 +11,10 @@
 				<string>Intel HD 530 - 0306 - Port 7 as HDMI</string>
 				<key>Disabled</key>
 				<false/>
+				<key>Name</key>
+				<string>com.apple.driver.AppleIntelSKLGraphicsFramebuffer</string>
 				<key>Find</key>
 				<data>/wAAAAEAAAAgAAAA</data>
-				<key>Name</key>
-				<string>AppleIntelSKLGraphicsFramebuffer</string>
 				<key>Replace</key>
 				<data>AwYKAAAIAACHAQAA</data>
 			</dict>
@@ -23,10 +23,10 @@
 				<string>10.11.4+-SKL-1912000-4_displays</string>
 				<key>Disabled</key>
 				<false/>
+				<key>Name</key>
+				<string>com.apple.driver.AppleIntelSKLGraphicsFramebuffer</string>
 				<key>Find</key>
 				<data>AQMDAw==</data>
-				<key>Name</key>
-				<string>AppleIntelSKLGraphicsFramebuffer</string>
 				<key>Replace</key>
 				<data>AQMEAw==</data>
 			</dict>

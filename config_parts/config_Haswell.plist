@@ -10,7 +10,7 @@
 				<key>Comment</key>
 				<string>Enable 9MB cursor bytes, 0x0a260006, vbo</string>
 				<key>Name</key>
-				<string>AppleIntelFramebufferAzul</string>
+				<string>com.apple.driver.AppleIntelFramebufferAzul</string>
 				<key>Find</key>
 				<data>BgAmCgEDAwMAAAACAAAwAQAAYAA=</data>
 				<key>Replace</key>

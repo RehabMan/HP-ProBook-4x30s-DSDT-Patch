@@ -12,7 +12,7 @@
 				<key>MatchOS</key>
 				<string>10.9.x</string>
 				<key>Name</key>
-				<string>AppleUSBXHCI</string>
+				<string>com.apple.driver.AppleUSBXHCI</string>
 				<key>Find</key>
 				<data>9oDUAAAAgHU6</data>
 				<key>Replace</key>
@@ -24,7 +24,7 @@
 				<key>MatchOS</key>
 				<string>10.10.x</string>
 				<key>Name</key>
-				<string>AppleUSBXHCI</string>
+				<string>com.apple.driver.AppleUSBXHCI</string>
 				<key>Find</key>
 				<data>9oDUAAAAgHU0</data>
 				<key>Replace</key>
@@ -36,7 +36,7 @@
 				<key>MatchOS</key>
 				<string>10.9.x</string>
 				<key>Name</key>
-				<string>AppleUSBXHCI</string>
+				<string>com.apple.driver.AppleUSBXHCI</string>
 				<key>Find</key>
 				<data>Zj0AAQ==</data>
 				<key>Replace</key>
@@ -48,7 +48,7 @@
 				<key>MatchOS</key>
 				<string>10.10.x</string>
 				<key>Name</key>
-				<string>AppleUSBXHCI</string>
+				<string>com.apple.driver.AppleUSBXHCI</string>
 				<key>Find</key>
 				<data>QbzHAgDgPQABAAA=</data>
 				<key>Replace</key>
@@ -60,7 +60,7 @@
 				<key>MatchOS</key>
 				<string>10.9.x,10.10.x</string>
 				<key>Name</key>
-				<string>AppleUSBXHCI</string>
+				<string>com.apple.driver.AppleUSBXHCI</string>
 				<key>Find</key>
 				<data>gUkIAABAAA==</data>
 				<key>Replace</key>
@@ -72,7 +72,7 @@
 				<key>MatchOS</key>
 				<string>10.9.x,10.10.x</string>
 				<key>Name</key>
-				<string>AppleUSBXHCI</string>
+				<string>com.apple.driver.AppleUSBXHCI</string>
 				<key>Find</key>
 				<data>QcdHCAAAQAA=</data>
 				<key>Replace</key>
@@ -84,7 +84,7 @@
 				<key>MatchOS</key>
 				<string>10.9.x,10.10.x</string>
 				<key>Name</key>
-				<string>AppleUSBXHCI</string>
+				<string>com.apple.driver.AppleUSBXHCI</string>
 				<key>Find</key>
 				<data>dU1Ii7voAQAA</data>
 				<key>Replace</key>

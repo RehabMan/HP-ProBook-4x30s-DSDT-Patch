@@ -10,7 +10,7 @@
 				<key>Comment</key>
 				<string>IDT 7605 #1 of 4</string>
 				<key>Name</key>
-				<string>AppleHDA</string>
+				<string>com.apple.driver.AppleHDA</string>
 				<key>Find</key>
 				<data>PYsZ1BE=</data>
 				<key>Replace</key>
@@ -20,7 +20,7 @@
 				<key>Comment</key>
 				<string>IDT 7605 #2 of 4</string>
 				<key>Name</key>
-				<string>AppleHDA</string>
+				<string>com.apple.driver.AppleHDA</string>
 				<key>Find</key>
 				<data>PYQZ1BE=</data>
 				<key>Replace</key>
@@ -30,7 +30,7 @@
 				<key>Comment</key>
 				<string>IDT 7605 #3 of 4</string>
 				<key>Name</key>
-				<string>AppleHDA</string>
+				<string>com.apple.driver.AppleHDA</string>
 				<key>Find</key>
 				<data>PYMZ1BE=</data>
 				<key>Replace</key>
@@ -39,10 +39,10 @@
 			<dict>
 				<key>Comment</key>
 				<string>IDT 7605 #4 of 4</string>
+				<key>Name</key>
+				<string>com.apple.driver.AppleHDA</string>
 				<key>Find</key>
 				<data>PYoZ1BE=</data>
-				<key>Name</key>
-				<string>AppleHDA</string>
 				<key>Replace</key>
 				<data>PQAAAAA=</data>
 			</dict>
