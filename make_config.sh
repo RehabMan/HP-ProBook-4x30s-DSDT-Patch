@@ -64,6 +64,7 @@ cp config_parts/config_master.plist config/config_5x30m.plist
 /usr/libexec/PlistBuddy -c "Set KernelAndKextPatches:KernelPm false" config/config_5x30m.plist
 /usr/libexec/PlistBuddy -c "Set SMBIOS:ProductName MacBookPro8,1" config/config_5x30m.plist
 ./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_parts/config_HD3000.plist config/config_5x30m.plist
+./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_parts/config_HD3000_hdmi_audio.plist config/config_5x30m.plist
 ./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_parts/config_IDT7605.plist config/config_5x30m.plist
 ./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_parts/config_non_Intel_USB3.plist config/config_5x30m.plist
 printf "\n"
