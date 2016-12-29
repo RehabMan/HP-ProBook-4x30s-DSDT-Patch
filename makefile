@@ -68,7 +68,7 @@ HACK:=$(HACK) \
 	$(BUILDDIR)/SSDT-USB-8x60.aml \
 	$(BUILDDIR)/SSDT-USB-4x0-G3.aml $(BUILDDIR)/SSDT-USB-8x0-G3.aml \
 	$(BUILDDIR)/SSDT-USB-640-G2.aml \
-	$(BUILDDIR)/SSDT-USB-ZBook-G1.aml \
+	$(BUILDDIR)/SSDT-USB-ZBook-G1.aml $(BUILDDIR)/SSDT-USB-ZBook-G2.aml \
 	$(BUILDDIR)/SSDT-USB-1040-G3.aml
 
 # depends on personal choices
