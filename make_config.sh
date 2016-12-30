@@ -56,6 +56,9 @@ cp config_parts/config_master.plist config/config_6x60p.plist
 ./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_parts/config_IDT7605.plist config/config_6x60p.plist
 ./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_parts/config_non_Intel_USB3.plist config/config_6x60p.plist
 printf "\n"
+printf "!! creating config/config_2x60p.plist\n"
+cp config/config_6x60p.plist config/config_2x60p.plist
+printf "\n"
 printf "!! creating config/config_8x60p.plist\n"
 cp config/config_6x60p.plist config/config_8x60p.plist
 printf "\n"
