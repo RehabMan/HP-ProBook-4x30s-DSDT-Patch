@@ -68,7 +68,7 @@ HACK:=$(HACK) \
 	$(BUILDDIR)/SSDT-USB-8x60.aml \
 	$(BUILDDIR)/SSDT-USB-4x0-G3.aml $(BUILDDIR)/SSDT-USB-8x0-G3.aml \
 	$(BUILDDIR)/SSDT-USB-640-G2.aml \
-	$(BUILDDIR)/SSDT-USB-ZBook-G1.aml $(BUILDDIR)/SSDT-USB-ZBook-G2.aml \
+	$(BUILDDIR)/SSDT-USB-ZBook-G1.aml $(BUILDDIR)/SSDT-USB-ZBook-G2.aml $(BUILDDIR)/SSDT-USB-ZBook-G3.aml \
 	$(BUILDDIR)/SSDT-USB-1040-G3.aml
 
 # depends on personal choices
@@ -109,6 +109,7 @@ PLIST:=config/config_4x30s.plist config/config_4x40s.plist \
 	config/config_4x0s_G2_Broadwell.plist config/config_8x0s_G2_Broadwell.plist \
 	config/config_1020_G1_Broadwell.plist \
 	config/config_ZBook_G1_Haswell.plist config/config_ZBook_G2_Haswell.plist config/config_ZBook_G2_Broadwell.plist \
+	config/config_ZBook_G3_Skylake.plist \
 	config/config_4x0s_G3_Skylake.plist \
 	config/config_8x0_G3_Skylake.plist \
 	config/config_6x0_G2_Skylake.plist \
@@ -454,6 +455,10 @@ config/config_8x0_G3_Skylake.plist : $(PARTS)/config_master.plist $(PARTS)/confi
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_CX20724.plist $@
 	@printf "\n"
 
+# ZBook_G3_Skylake is same as 8x0_G3_Skylake
+config/config_ZBook_G3_Skylake.plist : config/config_8x0_G3_Skylake.plist
+	@printf "!! creating $@\n"
+	cp config/config_8x0_G3_Skylake.plist $@
 
 # ProBook_6x0s_G2_Skylake is CX20724, Skylake, DP
 config/config_6x0_G2_Skylake.plist : $(PARTS)/config_master.plist $(PARTS)/config_CX20724.plist $(PARTS)/config_Skylake.plist

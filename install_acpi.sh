@@ -356,6 +356,14 @@ case "$1" in
         cp $BUILDDIR/SSDT-USB-ZBook-G2.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         ls $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
+    install_ZBook_G3_skylake)
+        $0 inst_lores $2
+        $0 inst_batt_g3
+        cp $BUILDDIR/SSDT-ZBook-G3-Skylake.aml $EFIDIR/EFI/CLOVER/ACPI/patched
+        cp $BUILDDIR/SSDT-KEY87.aml $EFIDIR/EFI/CLOVER/ACPI/patched
+        cp $BUILDDIR/SSDT-USB-ZBook-G3.aml $EFIDIR/EFI/CLOVER/ACPI/patched
+        ls $EFIDIR/EFI/CLOVER/ACPI/patched
+    ;;
     install_4x0g3_skylake)
         $0 inst_lores $2
         $0 inst_batt_g3
