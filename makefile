@@ -91,7 +91,7 @@ HACK:=$(HACK) \
 	$(BUILDDIR)/SSDT-4x0-G2-Haswell.aml $(BUILDDIR)/SSDT-8x0-G2-Haswell.aml \
 	$(BUILDDIR)/SSDT-4x0-G2-Broadwell.aml $(BUILDDIR)/SSDT-8x0-G2-Broadwell.aml \
 	$(BUILDDIR)/SSDT-1020-G1-Broadwell.aml \
-	$(BUILDDIR)/SSDT-ZBook-G2-Haswell.aml $(BUILDDIR)/SSDT-ZBook-G2-Broadwell.aml \
+	$(BUILDDIR)/SSDT-ZBook-G2-Haswell.aml $(BUILDDIR)/SSDT-ZBook-G2-Broadwell.aml $(BUILDDIR)/SSDT-ZBook-G3-Skylake.aml \
 	$(BUILDDIR)/SSDT-4x0-G3-Skylake.aml $(BUILDDIR)/SSDT-8x0-G3-Skylake.aml \
 	$(BUILDDIR)/SSDT-6x0-G2-Skylake.aml \
 	$(BUILDDIR)/SSDT-1040-G3-Skylake.aml
