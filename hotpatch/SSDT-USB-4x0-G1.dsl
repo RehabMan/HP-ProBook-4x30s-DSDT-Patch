@@ -72,24 +72,14 @@ DefinitionBlock ("", "SSDT", 2, "hack", "usb4x0g1", 0)
     }
 
 //
-// Disabling EHCI #1 and #2
+// Disabling EHCI #1
 //
     External(_SB.PCI0, DeviceObj)
     External(_SB.PCI0.EH01, DeviceObj)
-    External(_SB.PCI0.EH02, DeviceObj)
     External(_SB.PCI0.LPCB, DeviceObj)
 
     // registers needed for disabling EHC#1
     Scope(_SB.PCI0.EH01)
-    {
-        OperationRegion(RMP1, PCI_Config, 0x54, 2)
-        Field(RMP1, WordAcc, NoLock, Preserve)
-        {
-            PSTE, 2  // bits 2:0 are power state
-        }
-    }
-    // registers needed for disabling EHC#1
-    Scope(_SB.PCI0.EH02)
     {
         OperationRegion(RMP1, PCI_Config, 0x54, 2)
         Field(RMP1, WordAcc, NoLock, Preserve)
@@ -126,12 +116,6 @@ DefinitionBlock ("", "SSDT", 2, "hack", "usb4x0g1", 0)
                 ^^EH01.PSTE = 3
                 // disable EHCI#1 PCI space
                 ^^LPCB.FDE1 = 1
-
-                // disable EHCI#2
-                // put EHCI#2 in D3hot (sleep mode)
-                ^^EH02.PSTE = 3
-                // disable EHCI#2 PCI space
-                ^^LPCB.FDE2 = 1
             }
         }
     }
