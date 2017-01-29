@@ -9,7 +9,7 @@
             "layout-id", Buffer(4) { 7, 0, 0, 0 },
             "hda-gfx", Buffer() { "onboard-1" },
             "PinConfigurations", Buffer() { },
-            "RM,disable_FakePCIIID", 1,
+            "RM,disable_FakePCIID", 1,
         })
     }
 
