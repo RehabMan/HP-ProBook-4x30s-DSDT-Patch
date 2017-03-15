@@ -5,6 +5,7 @@ ALC280: 4
 CX20724: 5 (Mirone version)
 ALC286: 6
 CX20724: 7 (InsanelyDeepak version, extracted from AppleALC)
+CX8200: 20 (extracted from AppleALC)
 
 IDT_76d1: 12
 IDT_76d9: 13
@@ -36,6 +37,8 @@ CX20724: 4x0sG3 Skylake
 7605: 6x60s, 6x70s, 6x70AMD, 6x60wAMD, 6x60wNVIDIA, 8x70p, 2x70
 
 7695: 3x0G1,
+
+CX8200: 4x0s G4 Kabylake
 
 
 --

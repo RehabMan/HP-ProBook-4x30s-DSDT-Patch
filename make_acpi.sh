@@ -1,5 +1,6 @@
 #!/bin/bash
 iasl -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-HACK.aml hotpatch/SSDT-HACK.dsl
+iasl -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-EC_REG.aml hotpatch/SSDT-EC_REG.dsl
 iasl -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-XOSI.aml hotpatch/SSDT-XOSI.dsl
 iasl -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-EH01.aml hotpatch/SSDT-EH01.dsl
 iasl -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-EH02.aml hotpatch/SSDT-EH02.dsl
@@ -16,8 +17,11 @@ iasl -D HIRES -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-IGPU-HIRES.aml ho
 iasl -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-BATT.aml hotpatch/SSDT-BATT.dsl
 iasl -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-BATT-G2.aml hotpatch/SSDT-BATT-G2.dsl
 iasl -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-BATT-G3.aml hotpatch/SSDT-BATT-G3.dsl
+iasl -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-BATT-G4.aml hotpatch/SSDT-BATT-G4.dsl
 iasl -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-KEY87.aml hotpatch/SSDT-KEY87.dsl
 iasl -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-KEY102.aml hotpatch/SSDT-KEY102.dsl
+iasl -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-RP01_PEGP_RDSS.aml hotpatch/SSDT-RP01_PEGP_RDSS.dsl
+iasl -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-RP05_DGFX_RDSS.aml hotpatch/SSDT-RP05_DGFX_RDSS.dsl
 iasl -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-USB-4x0-G2.aml hotpatch/SSDT-USB-4x0-G2.dsl
 iasl -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-USB-4x40s.aml hotpatch/SSDT-USB-4x40s.dsl
 iasl -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-USB-4x30s.aml hotpatch/SSDT-USB-4x30s.dsl
@@ -76,3 +80,4 @@ iasl -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-4x0-G3-Skylake.aml hotpatc
 iasl -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-8x0-G3-Skylake.aml hotpatch/SSDT-8x0-G3-Skylake.dsl
 iasl -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-6x0-G2-Skylake.aml hotpatch/SSDT-6x0-G2-Skylake.dsl
 iasl -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-1040-G3-Skylake.aml hotpatch/SSDT-1040-G3-Skylake.dsl
+iasl -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-4x0-G4-Kabylake.aml hotpatch/SSDT-4x0-G4-Kabylake.dsl

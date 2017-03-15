@@ -120,6 +120,20 @@
 			<key>LayoutID</key>
 			<integer>19</integer>
 		</dict>
+		<dict>
+			<key>AFGLowPowerState</key>
+			<data>AwAAAA==</data>
+			<key>Codec</key>
+			<string>Mirone - Conexant CX8200</string>
+			<key>CodecID</key>
+			<integer>351346696</integer>
+			<key>ConfigData</key>
+			<data>AXccEAF3HQABdx4XAXcfkAGnHCABpx0AAaceoAGnH5ABlxwwAZcdEAGXHosBlx8BAWccQAFnHRABZx4rAWcfAQF3DAIBZwwC</data>
+			<key>FuncGroup</key>
+			<integer>1</integer>
+			<key>LayoutID</key>
+			<integer>20</integer>
+		</dict>
 	</array>
 </dict>
 </plist>

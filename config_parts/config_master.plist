@@ -201,6 +201,14 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
+					<string>change Method(ITLB,0,NotSerialized) to ITL1 (for G4)</string>
+					<key>Find</key>
+					<data>SVRMQgA=</data>
+					<key>Replace</key>
+					<data>SVRMMQA=</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
 					<string>change Name(NBTI,..) to NBT5</string>
 					<key>Find</key>
 					<data>CE5CVEk=</data>
@@ -238,6 +246,30 @@
 					<data>hkJBVDE=</data>
 					<key>Replace</key>
 					<data>hkJBVEM=</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>change Method(RDSS,1,S) to XDSS</string>
+					<key>Find</key>
+					<data>UkRTUwk=</data>
+					<key>Replace</key>
+					<data>WERTUwk=</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>change EC Method(_REG,2,N) to XREG, 4x40s, 4x30s</string>
+					<key>Find</key>
+					<data>X1JFRwKgKJNoCgM=</data>
+					<key>Replace</key>
+					<data>WFJFRwKgKJNoCgM=</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>change EC Method(_REG,2,N) to XREG, 4x0 G3 Skylake</string>
+					<key>Find</key>
+					<data>X1JFRwKgFJNoCgM=</data>
+					<key>Replace</key>
+					<data>WFJFRwKgFJNoCgM=</data>
 				</dict>
 			</array>
 		</dict>

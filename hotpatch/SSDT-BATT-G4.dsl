@@ -1,4 +1,4 @@
-// battery status patched for ProBook G3 (Skylake) laptops
+// battery status patched for ProBook G4 (KabyLake) laptops
 
 DefinitionBlock ("", "SSDT", 2, "hack", "battg2", 0)
 {
@@ -103,8 +103,13 @@ DefinitionBlock ("", "SSDT", 2, "hack", "battg2", 0)
         External(\_SB.PCI0.LPCB.EC0.BRCC, FieldUnitObj)
         External(\_SB.PCI0.LPCB.EC0.BRCV, FieldUnitObj)
         External(\_SB.PCI0.LPCB.EC0.BATN, FieldUnitObj)
-        
-        // BTIF/BTST methods are renamed in native DSDT, so calls land here...
+        External(\_SB.PCI0.LPCB.EC0.NLO2, IntObj)
+        External(\_SB.PCI0.LPCB.EC0.LB1, FieldUnitObj)
+        External(\_SB.PCI0.LPCB.EC0.LB2, FieldUnitObj)
+
+        // Methods BTIF, BTST, ITLB, GBTI, GBTC are renamed in native DSDT
+        // calls from DSDT land here in the patched methods...
+
         Method (BTIF, 1, Serialized)
         {
             ShiftLeft (One, Arg0, Local7)
@@ -134,20 +139,25 @@ DefinitionBlock ("", "SSDT", 2, "hack", "battg2", 0)
                 Store (Local0, Index (DerefOf (Index (NBTI, Arg0)), One))
                 Store (Local0, Index (DerefOf (Index (NBTI, Arg0)), 0x02))
                 Store (B1B2 (BDV0, BDV1), Index (DerefOf (Index (NBTI, Arg0)), 0x04))
-                Store (NLB1, Index (DerefOf (Index (NBTI, Arg0)), 0x05))
-                Store (NLB2, Index (DerefOf (Index (NBTI, Arg0)), 0x06))
+                Multiply (B1B2 (BFC0, BFC1), NLB1, Local0)
+                Divide (Local0, 0x64, /*Local3*/, Local4)
+                Store (Local4, Index (DerefOf (Index (NBTI, Arg0)), 0x05))
+                Multiply (B1B2 (BFC0, BFC1), NLO2, Local0)
+                Divide (Local0, 0x64, /*Local3*/, Local4)
+                Store (Local4, Index (DerefOf (Index (NBTI, Arg0)), 0x06))
                 Store (B1B2 (BSN0, BSN1), Local0)
                 Store (B1B2 (BDA0, BDA1), Local1)
                 // battery cycle count
                 Store (B1B2 (BCC0, BCC1), Index (DerefOf (Index (NBTI, Arg0)), 0x0D))
                 // battery temperature
+                // battery temperature
+                //Store (\_TZ.GTTP (0x04, 0x05, Zero, Zero, 0x7F), Local2)
                 Acquire (\_SB.PCI0.LPCB.EC0.ECMX, 0xFFFF)
                 Store (5, \_SB.PCI0.LPCB.EC0.CRZN)
                 Store (\_SB.PCI0.LPCB.EC0.TEMP, Local2)
                 Release (\_SB.PCI0.LPCB.EC0.ECMX)
                 Add (Multiply (Local2, 10), 2732, Local2) // Celsius to .1K
                 Store (Local2, Index (DerefOf (Index (NBTI, Arg0)), 0x0E))
-
             }
 
             Release (ECMX)
@@ -243,7 +253,234 @@ DefinitionBlock ("", "SSDT", 2, "hack", "battg2", 0)
             Return (Zero)
         }
 
-        // SBTC is renamed in native DSDT so calls land here
+        Method (ITLB, 0, NotSerialized)
+        {
+            Multiply (B1B2 (BFC0, BFC1), NLB1, Local0)
+            Divide (Local0, 0x64, /*Local3*/, Local4)
+            Divide (Add (Local4, 0x09), 0x0A, Local0, Local1)
+            Multiply (B1B2 (BFC0, BFC1), NLB2, Local0)
+            Divide (Local0, 0x64, /*Local3*/, Local4)
+            Divide (Add (Local4, 0x09), 0x0A, Local0, Local2)
+            If (ECRG)
+            {
+                Store (Local1, LB1)
+                Store (Local2, LB2)
+            }
+        }
+
+        Method (GBTI, 1, NotSerialized)
+        {
+            Store ("Enter getbattinfo", Debug)
+            Acquire (ECMX, 0xFFFF)
+            If (ECRG)
+            {
+                If (And (BATP, ShiftLeft (One, Arg0)))
+                {
+                    Store (Arg0, BSEL)
+                    Store (Package (0x02)
+                    {
+                        Zero,
+                        Buffer (0x6B) {}
+                    }, Local0)
+                    Store (B1B2 (BDC0, BDC1), Index (DerefOf (Index (Local0, One)), Zero))
+                    Store (ShiftRight (B1B2 (BDC0, BDC1), 0x08), Index (DerefOf (Index (Local0, One)), One))
+                    Store (B1B2 (BFC0, BFC1), Index (DerefOf (Index (Local0, One)), 0x02))
+                    Store (ShiftRight (B1B2 (BFC0, BFC1), 0x08), Index (DerefOf (Index (Local0, One)), 0x03))
+                    Store (B1B2 (BRC0, BRC1), Index (DerefOf (Index (Local0, One)), 0x04))
+                    Store (ShiftRight (B1B2 (BRC0, BRC1), 0x08), Index (DerefOf (Index (Local0, One)), 0x05))
+                    Store (B1B2 (BME0, BME1), Index (DerefOf (Index (Local0, One)), 0x06))
+                    Store (ShiftRight (B1B2 (BME0, BME1), 0x08), Index (DerefOf (Index (Local0, One)), 0x07))
+                    Store (B1B2 (BCC0, BCC1), Index (DerefOf (Index (Local0, One)), 0x08))
+                    Store (ShiftRight (B1B2 (BCC0, BCC1), 0x08), Index (DerefOf (Index (Local0, One)), 0x09))
+                    Store (B1B2 (CBT0, CBT1), Local1)
+                    Subtract (Local1, 0x0AAC, Local1)
+                    Divide (Local1, 0x0A, Local2, Local3)
+                    Store (Local3, Index (DerefOf (Index (Local0, One)), 0x0A))
+                    Store (ShiftRight (Local3, 0x08), Index (DerefOf (Index (Local0, One)), 0x0B))
+                    Store (B1B2 (BPV0, BPV1), Index (DerefOf (Index (Local0, One)), 0x0C))
+                    Store (ShiftRight (B1B2 (BPV0, BPV1), 0x08), Index (DerefOf (Index (Local0, One)), 0x0D))
+                    Store (B1B2 (BPR0, BPR1), Local1)
+                    If (Local1)
+                    {
+                        If (And (B1B2 (BST0, BST1), 0x40))
+                        {
+                            Add (Not (Local1), One, Local1)
+                            And (Local1, 0xFFFF, Local1)
+                        }
+                    }
+
+                    Store (Local1, Index (DerefOf (Index (Local0, One)), 0x0E))
+                    Store (ShiftRight (Local1, 0x08), Index (DerefOf (Index (Local0, One)), 0x0F))
+                    Store (B1B2 (BDV0, BDV1), Index (DerefOf (Index (Local0, One)), 0x10))
+                    Store (ShiftRight (B1B2 (BDV0, BDV1), 0x08), Index (DerefOf (Index (Local0, One)), 0x11))
+                    Store (B1B2 (BST0, BST1), Index (DerefOf (Index (Local0, One)), 0x12))
+                    Store (ShiftRight (B1B2 (BST0, BST1), 0x08), Index (DerefOf (Index (Local0, One)), 0x13))
+                    Store (B1B2 (BCX0, BCX1), Index (DerefOf (Index (Local0, One)), 0x14))
+                    Store (ShiftRight (B1B2 (BCX0, BCX1), 0x08), Index (DerefOf (Index (Local0, One)), 0x15))
+                    Store (B1B2 (BCA0, BCA1), Index (DerefOf (Index (Local0, One)), 0x16))
+                    Store (ShiftRight (B1B2 (BCA0, BCA1), 0x08), Index (DerefOf (Index (Local0, One)), 0x17))
+                    Store (B1B2 (BCB0, BCB1), Index (DerefOf (Index (Local0, One)), 0x18))
+                    Store (ShiftRight (B1B2 (BCB0, BCB1), 0x08), Index (DerefOf (Index (Local0, One)), 0x19))
+                    Store (B1B2 (BCP0, BCP1), Index (DerefOf (Index (Local0, One)), 0x1A))
+                    Store (ShiftRight (B1B2 (BCP0, BCP1), 0x08), Index (DerefOf (Index (Local0, One)), 0x1B))
+                    CreateField (DerefOf (Index (Local0, One)), 0xE0, 0x80, BTSN)
+                    Store (GBSS (B1B2 (BSN0, BSN1), B1B2 (BDA0, BDA1)), BTSN)
+
+                    Store (GBMF (), Local1)
+                    Store (SizeOf (Local1), Local2)
+                    CreateField (DerefOf (Index (Local0, One)), 0x0160, Multiply (Local2, 0x08), BMAN)
+                    Store (Local1, BMAN)
+                    Add (Local2, 0x2C, Local2)
+                    CreateField (DerefOf (Index (Local0, One)), Multiply (Local2, 0x08), 0x80, CLBL)
+                    Store (GCTL (Zero), CLBL)
+                    Add (Local2, 0x11, Local2)
+                    CreateField (DerefOf (Index (Local0, One)), Multiply (Local2, 0x08), 0x38, DNAM)
+                    Store (GDNM (Zero), DNAM)
+                    Add (Local2, 0x07, Local2)
+                    CreateField (DerefOf (Index (Local0, One)), Multiply (Local2, 0x08), 0x20, DCHE)
+                    Store (GDCH (Zero), DCHE)
+                    Add (Local2, 0x04, Local2)
+                    CreateField (DerefOf (Index (Local0, One)), Multiply (Local2, 0x08), 0x10, BMAC)
+                    Store (Zero, BMAC)
+                    Add (Local2, 0x02, Local2)
+                    CreateField (DerefOf (Index (Local0, One)), Multiply (Local2, 0x08), 0x10, BMAD)
+                    Store (B1B2 (BDA0, BDA1), BMAD)
+                    Add (Local2, 0x02, Local2)
+                    CreateField (DerefOf (Index (Local0, One)), Multiply (Local2, 0x08), 0x10, BCCU)
+                    Store (BRCC, BCCU)
+                    Add (Local2, 0x02, Local2)
+                    CreateField (DerefOf (Index (Local0, One)), Multiply (Local2, 0x08), 0x10, BCVO)
+                    Store (BRCV, BCVO)
+                    Add (Local2, 0x02, Local2)
+                    CreateField (DerefOf (Index (Local0, One)), Multiply (Local2, 0x08), 0x10, BAVC)
+                    Store (B1B2 (BCR0, BCR1), Local1)
+                    If (Local1)
+                    {
+                        If (And (B1B2 (BST0, BST1), 0x40))
+                        {
+                            Add (Not (Local1), One, Local1)
+                            And (Local1, 0xFFFF, Local1)
+                        }
+                    }
+
+                    Store (Local1, BAVC)
+                    Add (Local2, 0x02, Local2)
+                    CreateField (DerefOf (Index (Local0, One)), Multiply (Local2, 0x08), 0x10, RTTE)
+                    Store (B1B2 (RTE0, RTE1), RTTE)
+                    Add (Local2, 0x02, Local2)
+                    CreateField (DerefOf (Index (Local0, One)), Multiply (Local2, 0x08), 0x10, ATTE)
+                    Store (B1B2 (ATE0, ATE1), RTTE)
+                    Add (Local2, 0x02, Local2)
+                    CreateField (DerefOf (Index (Local0, One)), Multiply (Local2, 0x08), 0x10, ATTF)
+                    Store (B1B2 (ATF0, ATF1), RTTE)
+                    Add (Local2, 0x02, Local2)
+                    CreateField (DerefOf (Index (Local0, One)), Multiply (Local2, 0x08), 0x08, NOBS)
+                    Store (BATN, NOBS)
+                }
+                Else
+                {
+                    Store (Package (0x01)
+                    {
+                        0x34
+                    }, Local0)
+                }
+            }
+            Else
+            {
+                Store (Package (0x01)
+                {
+                    0x0D
+                }, Local0)
+            }
+
+            Release (ECMX)
+            Return (Local0)
+        }
+
+        Method (GBTC, 0, NotSerialized)
+        {
+            Store ("Enter GetBatteryControl", Debug)
+            Acquire (ECMX, 0xFFFF)
+            If (ECRG)
+            {
+                Store (Package (0x02)
+                {
+                    Zero,
+                    Buffer (0x04) {}
+                }, Local0)
+                If (And (BATP, One))
+                {
+                    Store (Zero, BSEL)
+                    Store (Zero, Index (DerefOf (Index (Local0, One)), Zero))
+                    If (LAnd (LAnd (LEqual (INAC, Zero), LEqual (INCH, Zero)), LEqual (IDIS, Zero)))
+                    {
+                        Store (Zero, Index (DerefOf (Index (Local0, One)), Zero))
+                    }
+                    ElseIf (LAnd (LAnd (LAnd (LEqual (INAC, Zero), LEqual (INCH, 0x02)), LEqual (IDIS, One)), LEqual (B1B2 (AXC0, AXC1), Zero)))
+                    {
+                        Store (One, Index (DerefOf (Index (Local0, One)), Zero))
+                    }
+                    ElseIf (LAnd (LEqual (INAC, One), LEqual (IDIS, 0x02)))
+                    {
+                        Store (0x02, Index (DerefOf (Index (Local0, One)), Zero))
+                    }
+                    ElseIf (LAnd (LAnd (LAnd (LEqual (INAC, Zero), LEqual (INCH, 0x02)), LEqual (IDIS, One)), LEqual (B1B2 (AXC0, AXC1), 0xFA)))
+                    {
+                        Store (0x03, Index (DerefOf (Index (Local0, One)), Zero))
+                    }
+                    ElseIf (LAnd (LEqual (INAC, Zero), LEqual (INCH, 0x03)))
+                    {
+                        Store (0x04, Index (DerefOf (Index (Local0, One)), Zero))
+                    }
+                }
+                Else
+                {
+                    Store (0xFF, Index (DerefOf (Index (Local0, One)), Zero))
+                }
+
+                If (And (BATP, 0x02))
+                {
+                    Store (One, BSEL)
+                    Store (Zero, Index (DerefOf (Index (Local0, One)), One))
+                    If (LAnd (LAnd (LEqual (INAC, Zero), LEqual (INCH, Zero)), LEqual (IDIS, Zero)))
+                    {
+                        Store (Zero, Index (DerefOf (Index (Local0, One)), One))
+                    }
+                    ElseIf (LAnd (LAnd (LAnd (LEqual (INAC, Zero), LEqual (INCH, One)), LEqual (IDIS, 0x02)), LEqual (B1B2 (AXC0, AXC1), Zero)))
+                    {
+                        Store (One, Index (DerefOf (Index (Local0, One)), One))
+                    }
+                    ElseIf (LAnd (LEqual (INAC, One), LEqual (IDIS, One)))
+                    {
+                        Store (0x02, Index (DerefOf (Index (Local0, One)), One))
+                    }
+                    ElseIf (LAnd (LAnd (LAnd (LEqual (INAC, Zero), LEqual (INCH, One)), LEqual (IDIS, 0x02)), LEqual (B1B2 (AXC0, AXC1), 0xFA)))
+                    {
+                        Store (0x03, Index (DerefOf (Index (Local0, One)), One))
+                    }
+                    ElseIf (LAnd (LEqual (INAC, Zero), LEqual (INCH, 0x03)))
+                    {
+                        Store (0x04, Index (DerefOf (Index (Local0, One)), One))
+                    }
+                }
+                Else
+                {
+                    Store (0xFF, Index (DerefOf (Index (Local0, One)), One))
+                }
+            }
+            Else
+            {
+                Store (Package (0x02)
+                {
+                    0x35,
+                    Zero
+                }, Local0)
+            }
+
+            Release (ECMX)
+            Return (Local0)
+        }
+
         Method (SBTC, 3, NotSerialized)
         {
             Store ("Enter SetBatteryControl", Debug)
@@ -441,221 +678,6 @@ DefinitionBlock ("", "SSDT", 2, "hack", "battg2", 0)
 
             Release (ECMX)
             Return (Local4)
-        }
-
-        // GBTI is renamed in native DSDT so calls land here
-        Method (GBTI, 1, NotSerialized)
-        {
-            Store ("Enter getbattinfo", Debug)
-            Acquire (ECMX, 0xFFFF)
-            If (ECRG)
-            {
-                If (And (BATP, ShiftLeft (One, Arg0)))
-                {
-                    Store (Arg0, BSEL)
-                    Store (Package (0x02)
-                    {
-                        Zero,
-                        Buffer (0x6B) {}
-                    }, Local0)
-                    Store (B1B2 (BDC0, BDC1), Index (DerefOf (Index (Local0, One)), Zero))
-                    Store (ShiftRight (B1B2 (BDC0, BDC1), 0x08), Index (DerefOf (Index (Local0, One)), One))
-                    Store (B1B2 (BFC0, BFC1), Index (DerefOf (Index (Local0, One)), 0x02))
-                    Store (ShiftRight (B1B2 (BFC0, BFC1), 0x08), Index (DerefOf (Index (Local0, One)), 0x03))
-                    Store (B1B2 (BRC0, BRC1), Index (DerefOf (Index (Local0, One)), 0x04))
-                    Store (ShiftRight (B1B2 (BRC0, BRC1), 0x08), Index (DerefOf (Index (Local0, One)), 0x05))
-                    Store (B1B2 (BME0, BME1), Index (DerefOf (Index (Local0, One)), 0x06))
-                    Store (ShiftRight (B1B2 (BME0, BME1), 0x08), Index (DerefOf (Index (Local0, One)), 0x07))
-                    Store (B1B2 (BCC0, BCC1), Index (DerefOf (Index (Local0, One)), 0x08))
-                    Store (ShiftRight (B1B2 (BCC0, BCC1), 0x08), Index (DerefOf (Index (Local0, One)), 0x09))
-                    Store (B1B2 (CBT0, CBT1), Local1)
-                    Subtract (Local1, 0x0AAC, Local1)
-                    Divide (Local1, 0x0A, Local2, Local3)
-                    Store (Local3, Index (DerefOf (Index (Local0, One)), 0x0A))
-                    Store (ShiftRight (Local3, 0x08), Index (DerefOf (Index (Local0, One)), 0x0B))
-                    Store (B1B2 (BPV0, BPV1), Index (DerefOf (Index (Local0, One)), 0x0C))
-                    Store (ShiftRight (B1B2 (BPV0, BPV1), 0x08), Index (DerefOf (Index (Local0, One)), 0x0D))
-                    Store (B1B2 (BPR0, BPR1), Local1)
-                    If (Local1)
-                    {
-                        If (And (B1B2 (BST0, BST1), 0x40))
-                        {
-                            Add (Not (Local1), One, Local1)
-                            And (Local1, 0xFFFF, Local1)
-                        }
-                    }
-
-                    Store (Local1, Index (DerefOf (Index (Local0, One)), 0x0E))
-                    Store (ShiftRight (Local1, 0x08), Index (DerefOf (Index (Local0, One)), 0x0F))
-                    Store (B1B2 (BDV0, BDV1), Index (DerefOf (Index (Local0, One)), 0x10))
-                    Store (ShiftRight (B1B2 (BDV0, BDV1), 0x08), Index (DerefOf (Index (Local0, One)), 0x11))
-                    Store (B1B2 (BST0, BST1), Index (DerefOf (Index (Local0, One)), 0x12))
-                    Store (ShiftRight (B1B2 (BST0, BST1), 0x08), Index (DerefOf (Index (Local0, One)), 0x13))
-                    Store (B1B2 (BCX0, BCX1), Index (DerefOf (Index (Local0, One)), 0x14))
-                    Store (ShiftRight (B1B2 (BCX0, BCX1), 0x08), Index (DerefOf (Index (Local0, One)), 0x15))
-                    Store (B1B2 (BCA0, BCA1), Index (DerefOf (Index (Local0, One)), 0x16))
-                    Store (ShiftRight (B1B2 (BCA0, BCA1), 0x08), Index (DerefOf (Index (Local0, One)), 0x17))
-                    Store (B1B2 (BCB0, BCB1), Index (DerefOf (Index (Local0, One)), 0x18))
-                    Store (ShiftRight (B1B2 (BCB0, BCB1), 0x08), Index (DerefOf (Index (Local0, One)), 0x19))
-                    Store (B1B2 (BCP0, BCP1), Index (DerefOf (Index (Local0, One)), 0x1A))
-                    Store (ShiftRight (B1B2 (BCP0, BCP1), 0x08), Index (DerefOf (Index (Local0, One)), 0x1B))
-                    CreateField (DerefOf (Index (Local0, One)), 0xE0, 0x80, BTSN)
-                    Store (GBSS (B1B2 (BSN0, BSN1), B1B2 (BDA0, BDA1)), BTSN)
-
-                    Store (GBMF (), Local1)
-                    Store (SizeOf (Local1), Local2)
-                    CreateField (DerefOf (Index (Local0, One)), 0x0160, Multiply (Local2, 0x08), BMAN)
-                    Store (Local1, BMAN)
-                    Add (Local2, 0x2C, Local2)
-                    CreateField (DerefOf (Index (Local0, One)), Multiply (Local2, 0x08), 0x80, CLBL)
-                    Store (GCTL (Zero), CLBL)
-                    Add (Local2, 0x11, Local2)
-                    CreateField (DerefOf (Index (Local0, One)), Multiply (Local2, 0x08), 0x38, DNAM)
-                    Store (GDNM (Zero), DNAM)
-                    Add (Local2, 0x07, Local2)
-                    CreateField (DerefOf (Index (Local0, One)), Multiply (Local2, 0x08), 0x20, DCHE)
-                    Store (GDCH (Zero), DCHE)
-                    Add (Local2, 0x04, Local2)
-                    CreateField (DerefOf (Index (Local0, One)), Multiply (Local2, 0x08), 0x10, BMAC)
-                    Store (Zero, BMAC)
-                    Add (Local2, 0x02, Local2)
-                    CreateField (DerefOf (Index (Local0, One)), Multiply (Local2, 0x08), 0x10, BMAD)
-                    Store (B1B2 (BDA0, BDA1), BMAD)
-                    Add (Local2, 0x02, Local2)
-                    CreateField (DerefOf (Index (Local0, One)), Multiply (Local2, 0x08), 0x10, BCCU)
-                    Store (BRCC, BCCU)
-                    Add (Local2, 0x02, Local2)
-                    CreateField (DerefOf (Index (Local0, One)), Multiply (Local2, 0x08), 0x10, BCVO)
-                    Store (BRCV, BCVO)
-                    Add (Local2, 0x02, Local2)
-                    CreateField (DerefOf (Index (Local0, One)), Multiply (Local2, 0x08), 0x10, BAVC)
-                    Store (B1B2 (BCR0, BCR1), Local1)
-                    If (Local1)
-                    {
-                        If (And (B1B2 (BST0, BST1), 0x40))
-                        {
-                            Add (Not (Local1), One, Local1)
-                            And (Local1, 0xFFFF, Local1)
-                        }
-                    }
-
-                    Store (Local1, BAVC)
-                    Add (Local2, 0x02, Local2)
-                    CreateField (DerefOf (Index (Local0, One)), Multiply (Local2, 0x08), 0x10, RTTE)
-                    Store (B1B2 (RTE0, RTE1), RTTE)
-                    Add (Local2, 0x02, Local2)
-                    CreateField (DerefOf (Index (Local0, One)), Multiply (Local2, 0x08), 0x10, ATTE)
-                    Store (B1B2 (ATE0, ATE1), RTTE)
-                    Add (Local2, 0x02, Local2)
-                    CreateField (DerefOf (Index (Local0, One)), Multiply (Local2, 0x08), 0x10, ATTF)
-                    Store (B1B2 (ATF0, ATF1), RTTE)
-                    Add (Local2, 0x02, Local2)
-                    CreateField (DerefOf (Index (Local0, One)), Multiply (Local2, 0x08), 0x08, NOBS)
-                    Store (BATN, NOBS)
-                }
-                Else
-                {
-                    Store (Package (0x01)
-                    {
-                        0x34
-                    }, Local0)
-                }
-            }
-            Else
-            {
-                Store (Package (0x01)
-                {
-                    0x0D
-                }, Local0)
-            }
-
-            Release (ECMX)
-            Return (Local0)
-        }
-
-        // GBTC is renamed in native DSDT, so calls land here
-        Method (GBTC, 0, NotSerialized)
-        {
-            Store ("Enter GetBatteryControl", Debug)
-            Acquire (ECMX, 0xFFFF)
-            If (ECRG)
-            {
-                Store (Package (0x02)
-                {
-                    Zero,
-                    Buffer (0x04) {}
-                }, Local0)
-                If (And (BATP, One))
-                {
-                    Store (Zero, BSEL)
-                    Store (Zero, Index (DerefOf (Index (Local0, One)), Zero))
-                    If (LAnd (LAnd (LEqual (INAC, Zero), LEqual (INCH, Zero)), LEqual (IDIS, Zero)))
-                    {
-                        Store (Zero, Index (DerefOf (Index (Local0, One)), Zero))
-                    }
-                    ElseIf (LAnd (LAnd (LAnd (LEqual (INAC, Zero), LEqual (INCH, 0x02)), LEqual (IDIS, One)), LEqual (B1B2 (AXC0, AXC1), Zero)))
-                    {
-                        Store (One, Index (DerefOf (Index (Local0, One)), Zero))
-                    }
-                    ElseIf (LAnd (LEqual (INAC, One), LEqual (IDIS, 0x02)))
-                    {
-                        Store (0x02, Index (DerefOf (Index (Local0, One)), Zero))
-                    }
-                    ElseIf (LAnd (LAnd (LAnd (LEqual (INAC, Zero), LEqual (INCH, 0x02)), LEqual (IDIS, One)), LEqual (B1B2 (AXC0, AXC1), 0xFA)))
-                    {
-                        Store (0x03, Index (DerefOf (Index (Local0, One)), Zero))
-                    }
-                    ElseIf (LAnd (LEqual (INAC, Zero), LEqual (INCH, 0x03)))
-                    {
-                        Store (0x04, Index (DerefOf (Index (Local0, One)), Zero))
-                    }
-                }
-                Else
-                {
-                    Store (0xFF, Index (DerefOf (Index (Local0, One)), Zero))
-                }
-
-                If (And (BATP, 0x02))
-                {
-                    Store (One, BSEL)
-                    Store (Zero, Index (DerefOf (Index (Local0, One)), One))
-                    If (LAnd (LAnd (LEqual (INAC, Zero), LEqual (INCH, Zero)), LEqual (IDIS, Zero)))
-                    {
-                        Store (Zero, Index (DerefOf (Index (Local0, One)), One))
-                    }
-                    ElseIf (LAnd (LAnd (LAnd (LEqual (INAC, Zero), LEqual (INCH, One)), LEqual (IDIS, 0x02)), LEqual (B1B2 (AXC0, AXC1), Zero)))
-                    {
-                        Store (One, Index (DerefOf (Index (Local0, One)), One))
-                    }
-                    ElseIf (LAnd (LEqual (INAC, One), LEqual (IDIS, One)))
-                    {
-                        Store (0x02, Index (DerefOf (Index (Local0, One)), One))
-                    }
-                    ElseIf (LAnd (LAnd (LAnd (LEqual (INAC, Zero), LEqual (INCH, One)), LEqual (IDIS, 0x02)), LEqual (B1B2 (AXC0, AXC1), 0xFA)))
-                    {
-                        Store (0x03, Index (DerefOf (Index (Local0, One)), One))
-                    }
-                    ElseIf (LAnd (LEqual (INAC, Zero), LEqual (INCH, 0x03)))
-                    {
-                        Store (0x04, Index (DerefOf (Index (Local0, One)), One))
-                    }
-                }
-                Else
-                {
-                    Store (0xFF, Index (DerefOf (Index (Local0, One)), One))
-                }
-            }
-            Else
-            {
-                Store (Package (0x02)
-                {
-                    0x35,
-                    Zero
-                }, Local0)
-            }
-
-            Release (ECMX)
-            Return (Local0)
         }
     }
 

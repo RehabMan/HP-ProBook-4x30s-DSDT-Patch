@@ -41,7 +41,7 @@ MINI=
 STATIC=
 
 # core files
-CORE:=$(BUILDDIR)/SSDT-HACK.aml $(BUILDDIR)/SSDT-XOSI.aml \
+CORE:=$(BUILDDIR)/SSDT-HACK.aml $(BUILDDIR)/SSDT-EC_REG.aml $(BUILDDIR)/SSDT-XOSI.aml \
 	$(BUILDDIR)/SSDT-EH01.aml $(BUILDDIR)/SSDT-EH02.aml $(BUILDDIR)/SSDT-XHC.aml \
 	$(BUILDDIR)/SSDT-LPC.aml $(BUILDDIR)/SSDT-SATA.aml $(BUILDDIR)/SSDT-SMBUS.aml $(BUILDDIR)/SSDT-PNLF.aml \
 	$(BUILDDIR)/SSDT-PRW.aml $(BUILDDIR)/SSDT-LANC_PRW.aml \
@@ -51,8 +51,9 @@ HACK:=$(CORE)
 # depends on hardware
 HACK:=$(HACK) \
 	$(BUILDDIR)/SSDT-IGPU.aml $(BUILDDIR)/SSDT-IGPU-HIRES.aml \
-	$(BUILDDIR)/SSDT-BATT.aml $(BUILDDIR)/SSDT-BATT-G2.aml $(BUILDDIR)/SSDT-BATT-G3.aml \
-	$(BUILDDIR)/SSDT-KEY87.aml $(BUILDDIR)/SSDT-KEY102.aml
+	$(BUILDDIR)/SSDT-BATT.aml $(BUILDDIR)/SSDT-BATT-G2.aml $(BUILDDIR)/SSDT-BATT-G3.aml $(BUILDDIR)/SSDT-BATT-G4.aml \
+	$(BUILDDIR)/SSDT-KEY87.aml $(BUILDDIR)/SSDT-KEY102.aml \
+    $(BUILDDIR)/SSDT-RP01_PEGP_RDSS.aml $(BUILDDIR)/SSDT-RP05_DGFX_RDSS.aml
 
 # depends on hardware (USB optimization)
 HACK:=$(HACK) \
@@ -94,7 +95,8 @@ HACK:=$(HACK) \
 	$(BUILDDIR)/SSDT-ZBook-G2-Haswell.aml $(BUILDDIR)/SSDT-ZBook-G2-Broadwell.aml $(BUILDDIR)/SSDT-ZBook-G3-Skylake.aml \
 	$(BUILDDIR)/SSDT-4x0-G3-Skylake.aml $(BUILDDIR)/SSDT-8x0-G3-Skylake.aml \
 	$(BUILDDIR)/SSDT-6x0-G2-Skylake.aml \
-	$(BUILDDIR)/SSDT-1040-G3-Skylake.aml
+	$(BUILDDIR)/SSDT-1040-G3-Skylake.aml \
+	$(BUILDDIR)/SSDT-4x0-G4-Kabylake.aml
 
 # system specfic config.plist
 PLIST:=config/config_4x30s.plist config/config_4x40s.plist \
@@ -114,7 +116,8 @@ PLIST:=config/config_4x30s.plist config/config_4x40s.plist \
 	config/config_8x0_G3_Skylake.plist \
 	config/config_6x0_G2_Skylake.plist \
 	config/config_1040_G1_Haswell.plist config/config_6x0s_G1_Haswell.plist \
-	config/config_1040_G3_Skylake.plist
+	config/config_1040_G3_Skylake.plist \
+	config/config_4x0s_G4_Kabylake.plist
 
 .PHONY: all
 all : $(STATIC) $(MINI) $(HACK) $(PLIST) $(HDAHCDINJECT) $(HDAINJECT)
@@ -479,6 +482,19 @@ config/config_1040_G3_Skylake.plist : $(PARTS)/config_master.plist $(PARTS)/conf
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_Skylake.plist $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_CX20724.plist $@
 	@printf "\n"
+
+# ProBook_4x0s_G4_Kabylake is CX8200, Kabylake (Skylake graphics spoofed), HDMI
+config/config_4x0s_G4_Kabylake.plist : $(PARTS)/config_master.plist $(PARTS)/config_CX20724.plist $(PARTS)/config_Skylake.plist $(PARTS)/config_Skylake_hdmi_audio.plist
+	@printf "!! creating $@\n"
+	cp $(PARTS)/config_master.plist $@
+	/usr/libexec/PlistBuddy -c "Set KernelAndKextPatches:AsusAICPUPM false" $@
+	/usr/libexec/PlistBuddy -c "Set :SMBIOS:ProductName MacBookPro11,1" $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_Skylake.plist $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_Skylake_hdmi_audio.plist $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_CX8200.plist $@
+	./merge_plist.sh "KernelAndKextPatches" $(PARTS)/config_Kabylake.plist $@
+	@printf "\n"
+
 
 # combo patches
 

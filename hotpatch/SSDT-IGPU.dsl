@@ -122,6 +122,22 @@ DefinitionBlock ("", "SSDT", 2, "hack", "igpu", 0)
                 "AAPL,ig-platform-id", Buffer() { 0x00, 0x00, 0x1b, 0x19 },
                 "AAPL,GfxYTile", Buffer() { 1, 0, 0, 0 },
             },
+            // Kaby Lake/HD620
+            0x5916, 0, Package()
+            {
+                "AAPL,ig-platform-id", Buffer() { 0x00, 0x00, 0x1b, 0x19 },
+                "model", Buffer() { "Intel HD Graphics 620" },
+                "device-id", Buffer() { 0x1b, 0x19, 0x00, 0x00 },
+                "hda-gfx", Buffer() { "onboard-1" },
+            },
+            // Kaby Lake/HD630
+            0x5912, 0x591b, 0, Package()
+            {
+                "AAPL,ig-platform-id", Buffer() { 0x00, 0x00, 0x1b, 0x19 },
+                "model", Buffer() { "Intel HD Graphics 630" },
+                "device-id", Buffer() { 0x1b, 0x19, 0x00, 0x00 },
+                "hda-gfx", Buffer() { "onboard-1" },
+            },
         })
 
         // inject properties for integrated graphics on IGPU

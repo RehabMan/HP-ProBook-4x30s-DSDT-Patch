@@ -15,6 +15,8 @@ DefinitionBlock ("", "SSDT", 2, "hack", "hack", 0)
     External(\_SB_.PCI0.PEG0.PEGP._ON, MethodObj)
     External(\_SB_.PCI0.RP05.DGFX._OFF, MethodObj)
     External(\_SB_.PCI0.RP05.DGFX._ON, MethodObj)
+    External(\_SB_.PCI0.RP01.PEGP._OFF, MethodObj)
+    External(\_SB_.PCI0.RP01.PEGP._ON, MethodObj)
 
     Device(RMCF)
     {
@@ -62,6 +64,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "hack", 0)
             If (CondRefOf(\_SB_.PCI0.PEGP.DGFX._ON)) { \_SB_.PCI0.PEGP.DGFX._ON() }
             If (CondRefOf(\_SB_.PCI0.PEG0.PEGP._ON)) { \_SB_.PCI0.PEG0.PEGP._ON() }
             If (CondRefOf(\_SB_.PCI0.RP05.DGFX._ON)) { \_SB_.PCI0.RP05.DGFX._ON() }
+            If (CondRefOf(\_SB_.PCI0.RP01.PEGP._ON)) { \_SB_.PCI0.RP01.PEGP._ON() }
         }
         External(\ZPTS, MethodObj)
         ZPTS(Arg0)
@@ -76,6 +79,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "hack", 0)
             If (CondRefOf(\_SB_.PCI0.PEGP.DGFX._OFF)) { \_SB_.PCI0.PEGP.DGFX._OFF() }
             If (CondRefOf(\_SB_.PCI0.PEG0.PEGP._OFF)) { \_SB_.PCI0.PEG0.PEGP._OFF() }
             If (CondRefOf(\_SB_.PCI0.RP05.DGFX._OFF)) { \_SB_.PCI0.RP05.DGFX._OFF() }
+            If (CondRefOf(\_SB_.PCI0.RP01.PEGP._OFF)) { \_SB_.PCI0.RP01.PEGP._OFF() }
         }
         Return(Local0)
     }
@@ -90,6 +94,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "hack", 0)
                 If (CondRefOf(\_SB.PCI0.PEGP.DGFX._OFF)) { \_SB.PCI0.PEGP.DGFX._OFF() }
                 If (CondRefOf(\_SB.PCI0.PEG0.PEGP._OFF)) { \_SB.PCI0.PEG0.PEGP._OFF() }
                 If (CondRefOf(\_SB.PCI0.RP05.DGFX._OFF)) { \_SB.PCI0.RP05.DGFX._OFF() }
+                If (CondRefOf(\_SB.PCI0.RP01.PEGP._OFF)) { \_SB.PCI0.RP01.PEGP._OFF() }
             }
         }
     }
