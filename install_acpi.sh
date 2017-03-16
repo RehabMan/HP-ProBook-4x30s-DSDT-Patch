@@ -52,6 +52,10 @@ case "$1" in
         rm -f $EFIDIR/EFI/CLOVER/ACPI/patched/SSDT-BATT*.aml
         cp $BUILDDIR/SSDT-BATT-G3.aml $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
+    inst_batt_g4)
+        rm -f $EFIDIR/EFI/CLOVER/ACPI/patched/SSDT-BATT*.aml
+        cp $BUILDDIR/SSDT-BATT-G4.aml $EFIDIR/EFI/CLOVER/ACPI/patched
+    ;;
     install_4x30s)
         $0 inst_lores $2
         cp $BUILDDIR/SSDT-4x30s.aml $EFIDIR/EFI/CLOVER/ACPI/patched
@@ -402,7 +406,7 @@ case "$1" in
         $0 inst_lores $2
         $0 inst_batt_g4
         cp $BUILDDIR/SSDT-4x0-G4-Kabylake.aml $EFIDIR/EFI/CLOVER/ACPI/patched
-        cp $BUILDDIR/SSDT-KEY87.aml $EFIDIR/EFI/CLOVER/ACPI/patched
+        cp $BUILDDIR/SSDT-KEY102.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         #cp $BUILDDIR/SSDT-USB-4x0-G4.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         cp $BUILDDIR/SSDT-RP01_PEGP_RDSS.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         ls $EFIDIR/EFI/CLOVER/ACPI/patched
