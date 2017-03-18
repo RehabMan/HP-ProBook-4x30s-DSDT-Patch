@@ -273,6 +273,7 @@ case "$1" in
         cp $BUILDDIR/SSDT-8x0-G1-Haswell.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         cp $BUILDDIR/SSDT-KEY87.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         cp $BUILDDIR/SSDT-USB-8x0-G1.aml $EFIDIR/EFI/CLOVER/ACPI/patched
+        cp $BUILDDIR/SSDT-RP05_DGFX_RDSS.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         ls $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
     install_1040g1_haswell)
@@ -296,6 +297,7 @@ case "$1" in
         cp $BUILDDIR/SSDT-8x0-G2-Haswell.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         cp $BUILDDIR/SSDT-KEY102.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         #cp $BUILDDIR/SSDT-USB-8x0-G2.aml $EFIDIR/EFI/CLOVER/ACPI/patched
+        cp $BUILDDIR/SSDT-RP05_DGFX_RDSS.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         ls $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
     install_4x0g2_broadwell)
