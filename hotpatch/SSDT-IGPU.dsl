@@ -127,7 +127,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "igpu", 0)
             {
                 "model", Buffer() { "Intel HD Graphics 620" },
                 "device-id", Buffer() { 0x1b, 0x19, 0x00, 0x00 },
-                "hda-gfx", Buffer() { "onboard-1" },
+                //"hda-gfx", Buffer() { "onboard-1" },
                 "AAPL,ig-platform-id", Buffer() { 0x00, 0x00, 0x1b, 0x19 },
                 "AAPL,GfxYTile", Buffer() { 1, 0, 0, 0 },
             },
@@ -136,7 +136,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "igpu", 0)
             {
                 "model", Buffer() { "Intel HD Graphics 630" },
                 "device-id", Buffer() { 0x1b, 0x19, 0x00, 0x00 },
-                "hda-gfx", Buffer() { "onboard-1" },
+                //"hda-gfx", Buffer() { "onboard-1" },
                 "AAPL,ig-platform-id", Buffer() { 0x00, 0x00, 0x1b, 0x19 },
                 "AAPL,GfxYTile", Buffer() { 1, 0, 0, 0 },
             },
