@@ -39,7 +39,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "hack", 0)
         //
         // 0: Using IntelBacklight.kext
         // 1: Using AppleBacklight.kext + AppleBacklightInjector.kext
-        Name(BKLT, 0)
+        Name(BKLT, 1)
 
         // LMAX: Backlight PWM MAX.  Must match framebuffer in use.
         //

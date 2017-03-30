@@ -3,7 +3,7 @@ DerivedData/
 Patches.xcodeproj/project.xcworkspace/xcuserdata/
 Patches.xcodeproj/project.xcworkspace/xcshareddata/
 Patches.xcodeproj/xcuserdata/
-AppleBacklightInjector.kext
+backlight/AppleBacklightInjector.kext
 Build/*
 !Build/readme.txt
 downloads

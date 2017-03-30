@@ -23,6 +23,7 @@
 		8431A7801CFE697A0097D9EE /* SSDT-BATC.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-BATC.dsl"; path = "hotpatch/SSDT-BATC.dsl"; sourceTree = "<group>"; };
 		843DA4791706024900E87F04 /* Mini-SSDT-DualLink.dsl */ = {isa = PBXFileReference; lastKnownFileType = text; lineEnding = 0; name = "Mini-SSDT-DualLink.dsl"; path = "mini/Mini-SSDT-DualLink.dsl"; sourceTree = "<group>"; };
 		8456BC3D1752A827008F4353 /* Mini-SSDT-DisableGraphics.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "Mini-SSDT-DisableGraphics.dsl"; path = "mini/Mini-SSDT-DisableGraphics.dsl"; sourceTree = "<group>"; };
+		84596D2A1E8CBD980005C4DB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = kexts/AppleBacklightInjector.kext/Contents/Info.plist; sourceTree = "<group>"; };
 		845A57FA1733114800E882FA /* 04b_FanQuietMod.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = 04b_FanQuietMod.txt; path = patches/04b_FanQuietMod.txt; sourceTree = "<group>"; };
 		845E536C1D0D34880069A1F9 /* SSDT-USB-1020-G1.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-USB-1020-G1.dsl"; path = "hotpatch/SSDT-USB-1020-G1.dsl"; sourceTree = "<group>"; };
 		845FE5EF1702639F004601B0 /* .maciasl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .maciasl; sourceTree = "<group>"; usesTabs = 1; };
@@ -60,6 +61,7 @@
 		84D4D88F17025C86004FF373 /* 04c_FanSpeed.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = 04c_FanSpeed.txt; path = patches/04c_FanSpeed.txt; sourceTree = "<group>"; };
 		84DA7C6317033BC400738DC0 /* 09_USB3_4x40s_Mieze.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = 09_USB3_4x40s_Mieze.txt; path = patches/09_USB3_4x40s_Mieze.txt; sourceTree = "<group>"; };
 		84E815E21752C76500B9EF1E /* Mini-SSDT-AR9285.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "Mini-SSDT-AR9285.dsl"; path = "mini/Mini-SSDT-AR9285.dsl"; sourceTree = "<group>"; };
+		84EC4C841E8CADB60097C736 /* Backlight_0x56c.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Backlight_0x56c.plist; path = backlight/Backlight_0x56c.plist; sourceTree = "<group>"; };
 		84F52D0B1709C9A3001643C8 /* Mini-SSDT-IMEI.dsl */ = {isa = PBXFileReference; lastKnownFileType = text; name = "Mini-SSDT-IMEI.dsl"; path = "mini/Mini-SSDT-IMEI.dsl"; sourceTree = "<group>"; };
 		84F616791850BC650053B76E /* 10_LPC_4x40s_Sandy_SL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = 10_LPC_4x40s_Sandy_SL.txt; path = patches/10_LPC_4x40s_Sandy_SL.txt; sourceTree = "<group>"; };
 		84F681FC1E74CDD30097D85D /* SSDT-BATT-G4.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-BATT-G4.dsl"; path = "hotpatch/SSDT-BATT-G4.dsl"; sourceTree = "<group>"; };
@@ -234,12 +236,22 @@
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
+		84596D291E8CBD780005C4DB /* AppleBacklightInjector.kext */ = {
+			isa = PBXGroup;
+			children = (
+				84596D2A1E8CBD980005C4DB /* Info.plist */,
+			);
+			name = AppleBacklightInjector.kext;
+			sourceTree = "<group>";
+		};
 		847F5ED91B508AFC00825CE8 /* backlight */ = {
 			isa = PBXGroup;
 			children = (
+				84596D291E8CBD780005C4DB /* AppleBacklightInjector.kext */,
 				847F5EDC1B508B4B00825CE8 /* patch_backlight.sh */,
 				847F5EDD1B508B4B00825CE8 /* Backlight_0x710.plist */,
 				EDD010261CC0181000D0CCF1 /* Backlight_0xad9.plist */,
+				84EC4C841E8CADB60097C736 /* Backlight_0x56c.plist */,
 			);
 			name = backlight;
 			sourceTree = "<group>";
