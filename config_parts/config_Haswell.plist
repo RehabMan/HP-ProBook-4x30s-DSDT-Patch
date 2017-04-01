@@ -16,6 +16,26 @@
 				<key>Replace</key>
 				<data>BgAmCgEDAwMAAAACAAAwAQAAkAA=</data>
 			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Enable fourth connector by changing port count, 0x0a260006, RehabMan</string>
+				<key>Name</key>
+				<string>com.apple.driver.AppleIntelFramebufferAzul</string>
+				<key>Find</key>
+				<data>BgAmCgEDAwM=</data>
+				<key>Replace</key>
+				<data>BgAmCgEDBAM=</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Add missing 0306 DP connector</string>
+				<key>Name</key>
+				<string>com.apple.driver.AppleIntelFramebufferAzul</string>
+				<key>Find</key>
+				<data>/wAAAAEAAABAAAAA</data>
+				<key>Replace</key>
+				<data>AwYDAAAEAACHAAAA</data>
+			</dict>
 		</array>
 	</dict>
 </dict>
