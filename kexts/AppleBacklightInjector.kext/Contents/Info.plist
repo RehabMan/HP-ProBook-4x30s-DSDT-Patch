@@ -32,9 +32,15 @@
 			<dict>
 				<key>F10Txxxx</key>
 				<data>ABEAAAA0AFIAcwCUAL4A+gE2AXIBxQIvArkDYAQaBQoGDgcQ</data>
+				<key>F10Pxxxx</key>
+				<data>ABEAAAA0AFIAcwCUAL4A+gE2AXIBxQIvArkDYAQaBQoGDgcQ</data>
 				<key>F11Txxxx</key>
 				<data>ABEAAAA2AFQAfQCyAPUBSQGxAisCuANZBBME7AXzBzQIrwrZ</data>
+				<key>F11Pxxxx</key>
+				<data>ABEAAAA2AFQAfQCyAPUBSQGxAisCuANZBBME7AXzBzQIrwrZ</data>
 				<key>F12Txxxx</key>
+				<data>ABEAAAAYACcAOgBSAHEAlgDEAPwBQAGTAfYCbgL+A6oEeAVs</data>
+				<key>F12Pxxxx</key>
 				<data>ABEAAAAYACcAOgBSAHEAlgDEAPwBQAGTAfYCbgL+A6oEeAVs</data>
 			</dict>
 			<key>CFBundleIdentifier</key>
