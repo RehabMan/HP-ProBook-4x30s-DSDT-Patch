@@ -65,7 +65,7 @@
 		84F52D0B1709C9A3001643C8 /* Mini-SSDT-IMEI.dsl */ = {isa = PBXFileReference; lastKnownFileType = text; name = "Mini-SSDT-IMEI.dsl"; path = "mini/Mini-SSDT-IMEI.dsl"; sourceTree = "<group>"; };
 		84F616791850BC650053B76E /* 10_LPC_4x40s_Sandy_SL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = 10_LPC_4x40s_Sandy_SL.txt; path = patches/10_LPC_4x40s_Sandy_SL.txt; sourceTree = "<group>"; };
 		84F681FC1E74CDD30097D85D /* SSDT-BATT-G4.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-BATT-G4.dsl"; path = "hotpatch/SSDT-BATT-G4.dsl"; sourceTree = "<group>"; };
-		84F681FD1E74D52C0097D85D /* config_KabyLake.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_KabyLake.plist; path = config_parts/config_KabyLake.plist; sourceTree = "<group>"; };
+		84F681FD1E74D52C0097D85D /* config_Kabylake.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_Kabylake.plist; path = config_parts/config_Kabylake.plist; sourceTree = "<group>"; };
 		84F681FE1E74D62A0097D85D /* config_CX8200.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_CX8200.plist; path = config_parts/config_CX8200.plist; sourceTree = "<group>"; };
 		84F681FF1E74D6D80097D85D /* SSDT-4x0-G4-Kabylake.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-4x0-G4-Kabylake.dsl"; path = "hotpatch/SSDT-4x0-G4-Kabylake.dsl"; sourceTree = "<group>"; };
 		84F682001E74DC9F0097D85D /* layout20_HDEF.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = layout20_HDEF.asl; path = hotpatch/include/layout20_HDEF.asl; sourceTree = "<group>"; };
@@ -484,7 +484,7 @@
 			isa = PBXGroup;
 			children = (
 				ED97E9201CC755BE006C757A /* config_master.plist */,
-				84F681FD1E74D52C0097D85D /* config_KabyLake.plist */,
+				84F681FD1E74D52C0097D85D /* config_Kabylake.plist */,
 				ED97E92E1CC755BE006C757A /* config_non_Intel_USB3.plist */,
 				ED407DA81CF4FCFA00A03010 /* config_HD3000.plist */,
 				ED97E9231CC755BE006C757A /* config_HD3000_hdmi_audio.plist */,
