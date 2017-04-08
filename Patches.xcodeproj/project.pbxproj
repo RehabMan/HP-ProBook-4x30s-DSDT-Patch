@@ -210,6 +210,7 @@
 		EDA70AD21CEFEE6B009D2AA7 /* SSDT-5x30.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-5x30.dsl"; path = "hotpatch/SSDT-5x30.dsl"; sourceTree = "<group>"; };
 		EDA9D5501D2D48C600DA4204 /* SSDT-6x0-G2-Skylake.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-6x0-G2-Skylake.dsl"; path = "hotpatch/SSDT-6x0-G2-Skylake.dsl"; sourceTree = "<group>"; };
 		EDAB27061D3953E800FD5D06 /* SSDT-USB-640-G2.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-USB-640-G2.dsl"; path = "hotpatch/SSDT-USB-640-G2.dsl"; sourceTree = "<group>"; };
+		EDBB1BE71E993AAA00F49BDE /* SSDT-USB-4x0-G4.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-USB-4x0-G4.dsl"; path = "hotpatch/SSDT-USB-4x0-G4.dsl"; sourceTree = "<group>"; };
 		EDBC2FA01CC7062B00D9DFC5 /* config_1040_G1_Haswell.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_1040_G1_Haswell.plist; path = config/config_1040_G1_Haswell.plist; sourceTree = "<group>"; };
 		EDBC2FA11CC7062B00D9DFC5 /* config_2x70p.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_2x70p.plist; path = config/config_2x70p.plist; sourceTree = "<group>"; };
 		EDBFC62A1AC74DA600E24D1F /* 06a_Battery_PNOT.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = 06a_Battery_PNOT.txt; path = patches/06a_Battery_PNOT.txt; sourceTree = "<group>"; };
@@ -476,6 +477,7 @@
 				ED8D01121E18596D009A8C63 /* SSDT-USB-ZBook-G3.dsl */,
 				845E536C1D0D34880069A1F9 /* SSDT-USB-1020-G1.dsl */,
 				EDF5303F1DB5766700CAE028 /* SSDT-USB-1040-G3.dsl */,
+				EDBB1BE71E993AAA00F49BDE /* SSDT-USB-4x0-G4.dsl */,
 			);
 			name = "usb customization";
 			sourceTree = "<group>";

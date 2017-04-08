@@ -1,6 +1,6 @@
 // battery status patched for ProBook G4 (KabyLake) laptops
 
-DefinitionBlock ("", "SSDT", 2, "hack", "battg2", 0)
+DefinitionBlock ("", "SSDT", 2, "hack", "battg4", 0)
 {
     External(\_SB.PCI0, DeviceObj)
     External(\_SB.PCI0.LPCB, DeviceObj)

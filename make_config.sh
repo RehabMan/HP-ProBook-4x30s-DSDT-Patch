@@ -169,6 +169,7 @@ cp config_parts/config_master.plist config/config_8x0_G3_Skylake.plist
 printf "\n"
 printf "!! creating config/config_ZBook_G3_Skylake.plist\n"
 cp config/config_8x0_G3_Skylake.plist config/config_ZBook_G3_Skylake.plist
+printf "\n"
 printf "!! creating config/config_4x0s_G3_Skylake.plist\n"
 cp config_parts/config_master.plist config/config_4x0s_G3_Skylake.plist
 /usr/libexec/PlistBuddy -c "Set KernelAndKextPatches:AsusAICPUPM false" config/config_4x0s_G3_Skylake.plist
