@@ -35,7 +35,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "usb8x0g3", 0)
                         "UsbConnector", 3,
                         "port", Buffer() { 4, 0, 0, 0 },
                     },
-                    "HS05", Package()   // USB-C with SS, no switch, right
+                    "HS05", Package()   // HS component of USB-C, right
                     {
                         "UsbConnector", 10,
                         "port", Buffer() { 5, 0, 0, 0 },
@@ -63,13 +63,17 @@ DefinitionBlock ("", "SSDT", 2, "hack", "usb8x0g3", 0)
                         "UsbConnector", 3,
                         "port", Buffer() { 14, 0, 0, 0 },
                     },
-                    //SS03 not used
+                    "SS03", Package()   // SS1 component of USB-C, no switch, right
+                    {
+                        "UsbConnector", 10,
+                        "port", Buffer() { 15, 0, 0, 0 },
+                    },
                     "SS04", Package()   // docking station hub
                     {
                         "UsbConnector", 3,
                         "port", Buffer() { 16, 0, 0, 0 },
                     },
-                    "SS05", Package()   // USB-C with SS, no switch, right
+                    "SS05", Package()   // SS2 component of USB-C, no switch, right
                     {
                         "UsbConnector", 10,
                         "port", Buffer() { 17, 0, 0, 0 },
