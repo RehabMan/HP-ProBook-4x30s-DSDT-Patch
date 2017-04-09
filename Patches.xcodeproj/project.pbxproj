@@ -36,6 +36,7 @@
 		84878E3B17445FE100F82A03 /* 00_Optimize.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = 00_Optimize.txt; path = patches/00_Optimize.txt; sourceTree = "<group>"; };
 		8499C9761704B5F70066A5F3 /* NullPatch.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = NullPatch.txt; path = patches/NullPatch.txt; sourceTree = "<group>"; };
 		849EBD50170340BF007EFCFF /* xx_KeyBacklight.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = xx_KeyBacklight.txt; path = patches/xx_KeyBacklight.txt; sourceTree = "<group>"; };
+		84AB159A1E9AF5AD005206A1 /* SSDT-RP01_PXSX_RDSS.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-RP01_PXSX_RDSS.dsl"; path = "hotpatch/SSDT-RP01_PXSX_RDSS.dsl"; sourceTree = "<group>"; };
 		84B165B81856183900C2DF39 /* 11a_Radeon_OFF_SSDT.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = 11a_Radeon_OFF_SSDT.txt; path = patches/11a_Radeon_OFF_SSDT.txt; sourceTree = "<group>"; };
 		84B165B91856187E00C2DF39 /* 11b_Radeon_OFF_DSDT.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = 11b_Radeon_OFF_DSDT.txt; path = patches/11b_Radeon_OFF_DSDT.txt; sourceTree = "<group>"; };
 		84B941FD1703347E00C5913C /* 08a_AR9285.txt */ = {isa = PBXFileReference; lastKnownFileType = text; lineEnding = 0; name = 08a_AR9285.txt; path = patches/08a_AR9285.txt; sourceTree = "<group>"; };
@@ -547,6 +548,7 @@
 				ED2793E21E4A33E900F643AE /* SSDT-EC_REG.dsl */,
 				84D207AD1E64F63F0083EC17 /* SSDT-RP01_PEGP_RDSS.dsl */,
 				84D207AE1E64F63F0083EC17 /* SSDT-RP05_DGFX_RDSS.dsl */,
+				84AB159A1E9AF5AD005206A1 /* SSDT-RP01_PXSX_RDSS.dsl */,
 				ED16A73D1CC7B8B400EA1E82 /* SSDT-XOSI.dsl */,
 				ED2500561CF67CE6006A5FB7 /* SSDT-EH01.dsl */,
 				ED2500571CF67CE6006A5FB7 /* SSDT-EH02.dsl */,

@@ -22,6 +22,7 @@ iasl -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-KEY87.aml hotpatch/SSDT-KE
 iasl -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-KEY102.aml hotpatch/SSDT-KEY102.dsl
 iasl -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-RP01_PEGP_RDSS.aml hotpatch/SSDT-RP01_PEGP_RDSS.dsl
 iasl -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-RP05_DGFX_RDSS.aml hotpatch/SSDT-RP05_DGFX_RDSS.dsl
+iasl -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-RP01_PXSX_RDSS.aml hotpatch/SSDT-RP01_PXSX_RDSS.dsl
 iasl -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-USB-4x0-G2.aml hotpatch/SSDT-USB-4x0-G2.dsl
 iasl -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-USB-4x40s.aml hotpatch/SSDT-USB-4x40s.dsl
 iasl -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-USB-4x30s.aml hotpatch/SSDT-USB-4x30s.dsl
