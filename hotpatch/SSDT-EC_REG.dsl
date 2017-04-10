@@ -4,6 +4,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "EC_REG", 0)
     External(_SB.PCI0.LPCB.EC0.XREG, MethodObj)
     External(_SB.PCI0.RP01.PEGP.RDSS, MethodObj)
     External(_SB.PCI0.RP05.DGFX.RDSS, MethodObj)
+    External(_SB.PCI0.RP01.PXSX.RDSS, MethodObj)
 
     // original _REG is renamed to XREG
     Scope(_SB.PCI0.LPCB.EC0)
@@ -19,6 +20,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "EC_REG", 0)
             {
                 If (CondRefOf(\_SB.PCI0.RP01.PEGP.RDSS)) { \_SB.PCI0.RP01.PEGP.RDSS(0) }
                 If (CondRefOf(\_SB.PCI0.RP05.DGFX.RDSS)) { \_SB.PCI0.RP05.DGFX.RDSS(0) }
+                If (CondRefOf(\_SB.PCI0.RP01.PXSX.RDSS)) { \_SB.PCI0.RP01.PXSX.RDSS(0) }
             }
         }
     }
