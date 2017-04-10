@@ -1,17 +1,8 @@
 #!/bin/bash
 iasl -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-HACK.aml hotpatch/SSDT-HACK.dsl
-iasl -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-EC_REG.aml hotpatch/SSDT-EC_REG.dsl
-iasl -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-XOSI.aml hotpatch/SSDT-XOSI.dsl
 iasl -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-EH01.aml hotpatch/SSDT-EH01.dsl
 iasl -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-EH02.aml hotpatch/SSDT-EH02.dsl
 iasl -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-XHC.aml hotpatch/SSDT-XHC.dsl
-iasl -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-LPC.aml hotpatch/SSDT-LPC.dsl
-iasl -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-SATA.aml hotpatch/SSDT-SATA.dsl
-iasl -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-SMBUS.aml hotpatch/SSDT-SMBUS.dsl
-iasl -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-PNLF.aml hotpatch/SSDT-PNLF.dsl
-iasl -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-PRW.aml hotpatch/SSDT-PRW.dsl
-iasl -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-LANC_PRW.aml hotpatch/SSDT-LANC_PRW.dsl
-iasl -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-BATC.aml hotpatch/SSDT-BATC.dsl
 iasl -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-IGPU.aml hotpatch/SSDT-IGPU.dsl
 iasl -D HIRES -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-IGPU-HIRES.aml hotpatch/SSDT-IGPU.dsl
 iasl -vw 2095 -vw 2146 -vw 2089 -vr -oe -p build/SSDT-BATT.aml hotpatch/SSDT-BATT.dsl
