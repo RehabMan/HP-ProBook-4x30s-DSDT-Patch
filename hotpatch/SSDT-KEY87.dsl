@@ -1,7 +1,7 @@
 // for laptops that need 87-key layout
 
-DefinitionBlock ("", "SSDT", 2, "hack", "key87", 0)
-{
+//DefinitionBlock ("", "SSDT", 2, "hack", "key87", 0)
+//{
     External(\_SB.PCI0, DeviceObj)
     External(\_SB.PCI0.LPCB, DeviceObj)
 
@@ -19,6 +19,6 @@ DefinitionBlock ("", "SSDT", 2, "hack", "key87", 0)
             })
         }
     }
-}
+//}
 
 //EOF

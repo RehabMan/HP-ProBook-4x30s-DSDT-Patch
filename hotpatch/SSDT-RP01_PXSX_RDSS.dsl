@@ -1,5 +1,5 @@
-DefinitionBlock ("", "SSDT", 2, "hack", "PXSX_RDSS", 0)
-{
+//DefinitionBlock ("", "SSDT", 2, "hack", "PXSX_RDSS", 0)
+//{
     External(_SB.PCI0.RP01.PXSX, DeviceObj)
     External(_SB.PCI0.RP01.PXSX.XDSS, MethodObj)
     External(_SB.PCI0.LPCB.EC0.ECRG, IntObj)
@@ -15,5 +15,5 @@ DefinitionBlock ("", "SSDT", 2, "hack", "PXSX_RDSS", 0)
             XDSS(Arg0)
         }
     }
-}
+//}
 //EOF

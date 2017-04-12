@@ -2,6 +2,10 @@
 
 DefinitionBlock ("", "SSDT", 2, "hack", "1020g1b", 0)
 {
+    #include "SSDT-HACK.dsl"
+    #include "include/layout6_HDEF.asl"
+    #include "include/layout6_HDAU.asl"
+
     //#include "include/standard_PS2K.asl"
     External(_SB.PCI0.LPCB.PS2K, DeviceObj)
     Scope (_SB.PCI0.LPCB.PS2K)
@@ -23,7 +27,10 @@ DefinitionBlock ("", "SSDT", 2, "hack", "1020g1b", 0)
         })
     }
 
-    Include("include/layout6_HDEF.asl")
-    Include("include/layout6_HDAU.asl")
+    #include "SSDT-KEY87.dsl"
+    #include "SSDT-USB-1020-G1.dsl"
+    #include "SSDT-XHC.dsl"
+    #include "SSDT-BATT-G2.dsl"
+    #include "SSDT-RP05_DGFX_RDSS.dsl"
 }
 //EOF

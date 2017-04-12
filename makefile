@@ -13,8 +13,6 @@ HDAINJECT=AppleHDA_$(HDA).kext
 HDAHCDINJECT=AppleHDAHCD_$(HDA).kext
 HDAZML=AppleHDA_$(HDA)_Resources
 
-MINIDIR=./mini/build
-
 VERSION_ERA=$(shell ./print_version.sh)
 ifeq "$(VERSION_ERA)" "10.10-"
 	INSTDIR=/System/Library/Extensions
@@ -23,77 +21,12 @@ else
 endif
 SLE=/System/Library/Extensions
 
-# original static patch setup
-COMMON = patches/00_Optimize.txt patches/01_Compilation.txt patches/02_DSDTPatch.txt patches/05_OSCheck.txt patches/06_Battery.txt
-FANPATCH = patches/04a_FanPatch.txt
-QUIET = patches/04b_FanQuiet.txt
-FANREAD = patches/04c_FanSpeed.txt
-HDMI = patches/03a_HDMI.txt
-HDMIDUAL = patches/03b_1080p+HDMI.txt
-EHCI6 = patches/02a_EHCI_4x30s.txt
-EHCI7 = patches/02b_EHCI_4x40s.txt
-IMEI = patches/07_MEI_4x40s_Sandy.txt
-AR9285 = patches/08_AR9285.txt
-STATIC = patches/4x30s.txt patches/4x40s_IvyBridge.txt patches/4x40s_SandyBridge.txt
-MINI = $(MINIDIR)/Mini-SSDT.aml $(MINIDIR)/Mini-SSDT-DualLink.aml $(MINIDIR)/Mini-SSDT-IMEI.aml $(MINIDIR)/Mini-SSDT-$(MINIDIR)/DisableGraphics.aml $(MINIDIR)/Mini-SSDT-AR9285.aml
-#//REVIEW: stop building MINI for now
-MINI=
-STATIC=
+HOTPATCH=./hotpatch
 
-# core files
-CORE:=$(BUILDDIR)/SSDT-HACK.aml $(BUILDDIR)/SSDT-EH01.aml $(BUILDDIR)/SSDT-EH02.aml $(BUILDDIR)/SSDT-XHC.aml
-HACK:=$(CORE)
+HACK=$(wildcard $(HOTPATCH)/*.dsl)
+HACK:=$(subst $(HOTPATCH),$(BUILDDIR),$(HACK))
+HACK:=$(subst .dsl,.aml,$(HACK))
 
-# depends on hardware
-HACK:=$(HACK) \
-	$(BUILDDIR)/SSDT-IGPU.aml $(BUILDDIR)/SSDT-IGPU-HIRES.aml \
-	$(BUILDDIR)/SSDT-BATT.aml $(BUILDDIR)/SSDT-BATT-G2.aml $(BUILDDIR)/SSDT-BATT-G3.aml $(BUILDDIR)/SSDT-BATT-G4.aml \
-	$(BUILDDIR)/SSDT-KEY87.aml $(BUILDDIR)/SSDT-KEY102.aml \
-    $(BUILDDIR)/SSDT-RP01_PEGP_RDSS.aml $(BUILDDIR)/SSDT-RP05_DGFX_RDSS.aml $(BUILDDIR)/SSDT-RP01_PXSX_RDSS.aml
-
-# depends on hardware (USB optimization)
-HACK:=$(HACK) \
-	$(BUILDDIR)/SSDT-USB-4x0-G2.aml $(BUILDDIR)/SSDT-USB-4x40s.aml $(BUILDDIR)/SSDT-USB-4x30s.aml \
-	$(BUILDDIR)/SSDT-USB-9x70.aml \
-	$(BUILDDIR)/SSDT-USB-9x80.aml \
-	$(BUILDDIR)/SSDT-USB-4x0-G1.aml \
-	$(BUILDDIR)/SSDT-USB-6x0-G1.aml \
-	$(BUILDDIR)/SSDT-USB-8x0-G1.aml \
-	$(BUILDDIR)/SSDT-USB-1020-G1.aml \
-	$(BUILDDIR)/SSDT-USB-820-G2.aml $(BUILDDIR)/SSDT-USB-840-G2.aml $(BUILDDIR)/SSDT-USB-850-G2.aml \
-	$(BUILDDIR)/SSDT-USB-6x60.aml $(BUILDDIR)/SSDT-USB-6x70.aml $(BUILDDIR)/SSDT-USB-8x70.aml \
-	$(BUILDDIR)/SSDT-USB-8x60.aml \
-	$(BUILDDIR)/SSDT-USB-4x0-G3.aml $(BUILDDIR)/SSDT-USB-8x0-G3.aml \
-	$(BUILDDIR)/SSDT-USB-640-G2.aml \
-	$(BUILDDIR)/SSDT-USB-ZBook-G1.aml $(BUILDDIR)/SSDT-USB-ZBook-G2.aml $(BUILDDIR)/SSDT-USB-ZBook-G3.aml \
-	$(BUILDDIR)/SSDT-USB-1040-G3.aml \
-	$(BUILDDIR)/SSDT-USB-4x0-G4.aml
-
-# depends on personal choices
-HACK:=$(HACK) \
-	$(BUILDDIR)/SSDT-FAN-QUIET.aml $(BUILDDIR)/SSDT-FAN-MOD.aml $(BUILDDIR)/SSDT-FAN-SMOOTH.aml \
-	$(BUILDDIR)/SSDT-FAN-ORIG.aml $(BUILDDIR)/SSDT-FAN-READ.aml
-
-# system specific SSDTs
-HACK:=$(HACK) \
-	$(BUILDDIR)/SSDT-4x30s.aml $(BUILDDIR)/SSDT-4x40s.aml \
-	$(BUILDDIR)/SSDT-6x60.aml $(BUILDDIR)/SSDT-8x60.aml $(BUILDDIR)/SSDT-5x30.aml \
-	$(BUILDDIR)/SSDT-2x70.aml $(BUILDDIR)/SSDT-6x70.aml $(BUILDDIR)/SSDT-8x70.aml $(BUILDDIR)/SSDT-9x70.aml \
-	$(BUILDDIR)/SSDT-9x80.aml \
-	$(BUILDDIR)/SSDT-1040-G1-Haswell.aml \
-	$(BUILDDIR)/SSDT-6x0-G1-Haswell.aml \
-	$(BUILDDIR)/SSDT-3x0-G1.aml \
-	$(BUILDDIR)/SSDT-4x0-G0.aml \
-	$(BUILDDIR)/SSDT-4x0-G1-Ivy.aml $(BUILDDIR)/SSDT-8x0-G1-Ivy.aml \
-	$(BUILDDIR)/SSDT-4x0-G1-Haswell.aml $(BUILDDIR)/SSDT-8x0-G1-Haswell.aml \
-	$(BUILDDIR)/SSDT-4x0-G2-Haswell.aml $(BUILDDIR)/SSDT-8x0-G2-Haswell.aml \
-	$(BUILDDIR)/SSDT-4x0-G2-Broadwell.aml $(BUILDDIR)/SSDT-8x0-G2-Broadwell.aml \
-	$(BUILDDIR)/SSDT-1020-G1-Broadwell.aml \
-	$(BUILDDIR)/SSDT-ZBook-G2-Haswell.aml $(BUILDDIR)/SSDT-ZBook-G2-Broadwell.aml $(BUILDDIR)/SSDT-ZBook-G3-Skylake.aml \
-	$(BUILDDIR)/SSDT-4x0-G3-Skylake.aml $(BUILDDIR)/SSDT-8x0-G3-Skylake.aml \
-	$(BUILDDIR)/SSDT-6x0-G2-Skylake.aml \
-	$(BUILDDIR)/SSDT-1040-G3-Skylake.aml \
-	$(BUILDDIR)/SSDT-4x0-G4-Kabylake.aml
 
 # system specfic config.plist
 PLIST:=config/config_4x30s.plist config/config_4x40s.plist \
@@ -117,11 +50,11 @@ PLIST:=config/config_4x30s.plist config/config_4x40s.plist \
 	config/config_4x0s_G4_Kabylake.plist
 
 .PHONY: all
-all : $(STATIC) $(MINI) $(HACK) $(PLIST) $(HDAHCDINJECT) $(HDAINJECT)
+all : $(HACK) $(PLIST) $(HDAHCDINJECT) $(HDAINJECT)
 
 .PHONY: clean
 clean: 
-	rm -f $(STATIC) $(HACK) $(MINI) $(PLIST)
+	rm -f $(HACK) $(PLIST)
 	make clean_hda
 
 make_config.sh: makefile
@@ -493,27 +426,11 @@ config/config_4x0s_G4_Kabylake.plist : $(PARTS)/config_master.plist $(PARTS)/con
 	./merge_plist.sh "KernelAndKextPatches" $(PARTS)/config_Kabylake.plist $@
 	@printf "\n"
 
-
-# combo patches
-
-patches/4x30s.txt : $(COMMON) $(EHCI6)
-	cat $^ >$@
-
-patches/4x40s_IvyBridge.txt : $(COMMON) $(EHCI7)
-	cat $^ >$@
-
-patches/4x40s_SandyBridge.txt : $(COMMON) $(EHCI7) $(IMEI)
-	cat $^ >$@
-
-# mini SSDTs
-
-$(MINIDIR)/%.aml : mini/%.dsl
-	iasl -p $@ $<
-
 # new hotpatch SSDTs
 
 # note: "-oe" is undocumented flag to turn off external opcode in iasl AML compilation result
-IASLOPTS=-vw 2095 -vw 2146 -vw 2089 -vr -oe
+IASLOPTS=-vw 2095 -vw 2146 -vw 2089 -vr
+#IASLOPTS:=$(IASLOPTS) -oe
 
 $(BUILDDIR)/%.aml : hotpatch/%.dsl
 	iasl $(IASLOPTS) -p $@ $^
@@ -530,6 +447,4 @@ $(BUILDDIR)/SSDT-FAN-MOD.aml : hotpatch/SSDT-FAN-QUIET.dsl
 $(BUILDDIR)/SSDT-FAN-SMOOTH.aml : hotpatch/SSDT-FAN-QUIET.dsl
 	iasl -D GRAPPLER $(IASLOPTS) -p $@ $^
 
-$(BUILDDIR)/SSDT-USB-850-G2.aml : hotpatch/SSDT-USB-820-G2.dsl
-	iasl $(IASLOPTS) -p $@ $^
 

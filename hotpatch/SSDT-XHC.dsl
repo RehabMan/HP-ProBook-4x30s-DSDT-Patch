@@ -1,7 +1,7 @@
 // Automatic injection of XHC properties
 
-DefinitionBlock("", "SSDT", 2, "hack", "XHC", 0)
-{
+//DefinitionBlock("", "SSDT", 2, "hack", "XHC", 0)
+//{
     External(_SB.PCI0.XHC, DeviceObj)
 
     // inject properties for XHCI
@@ -29,5 +29,5 @@ DefinitionBlock("", "SSDT", 2, "hack", "XHC", 0)
             Return(Local0)
         }
     }
-}
+//}
 //EOF

@@ -1,7 +1,7 @@
 // Automatic injection of EH01 properties
 
-DefinitionBlock("", "SSDT", 2, "hack", "EH01", 0)
-{
+//DefinitionBlock("", "SSDT", 2, "hack", "EH01", 0)
+//{
     External(_SB.PCI0.EH01, DeviceObj)
 
     // inject properties for ECHI#1
@@ -21,5 +21,5 @@ DefinitionBlock("", "SSDT", 2, "hack", "EH01", 0)
             })
         }
     }
-}
+//}
 //EOF

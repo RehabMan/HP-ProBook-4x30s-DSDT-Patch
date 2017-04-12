@@ -3,8 +3,8 @@
 // Data provided by wi-fi from EliteBook Folio 9470m
 // Note: It did not have bluetooth hardware installed, so the bluetooth port HP16 is a guess
 
-DefinitionBlock ("", "SSDT", 2, "hack", "usb9x70", 0)
-{
+//DefinitionBlock ("", "SSDT", 2, "hack", "usb9x70", 0)
+//{
 //
 // Override for USBInjectAll.kext
 //
@@ -125,6 +125,6 @@ DefinitionBlock ("", "SSDT", 2, "hack", "usb9x70", 0)
             },
         })
     }
-}
+//}
 
 //EOF

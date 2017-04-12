@@ -2,22 +2,17 @@
 
 DefinitionBlock ("", "SSDT", 2, "hack", "4x0g4k", 0)
 {
-    //#include "include/standard_PS2K.asl"
-    External(\_SB.PCI0.LPCB.PS2K, DeviceObj)
-    Scope (\_SB.PCI0.LPCB.PS2K)
-    {
-        // overrides for VoodooPS2 configuration...
-        Name(RMCF, Package()
-        {
-            #include "include/standard_PS2K_data.asl"
-            #include "include/key86_data.asl"
-        })
-    }
+    #include "SSDT-HACK.dsl"
+    #include "include/disable_HECI.asl"
+    #include "include/layout20_HDEF.asl"
+    #include "include/key86_PS2K.asl"
+    #include "SSDT-KEY87.dsl"
+    #include "SSDT-USB-4x0-G4.dsl"
+    #include "SSDT-XHC.dsl"
+    #include "SSDT-BATT-G4.dsl"
+    #include "SSDT-RP01_PXSX_RDSS.dsl"
 
-    Include("include/disable_HECI.asl")
-    Include("include/layout20_HDEF.asl")
-
-    // This USWE code is specific to the Skylake G3 (and now Kabylake G4)
+    // This USWE code is specific to the Skylake G3
     External(USWE, FieldUnitObj)
     Device(RMD3)
     {

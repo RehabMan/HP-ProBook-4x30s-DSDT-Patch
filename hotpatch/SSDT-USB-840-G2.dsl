@@ -6,8 +6,10 @@
 
 // Based on information provided from EliteBook Pro 840 G2
 
-DefinitionBlock ("", "SSDT", 2, "hack", "usb840g2", 0)
-{
+//REVIEW: not used. moved to SSDT-USB-820-G2.dsl (and it needs renaming to SSDT-USB-8x0-G2.dsl)
+
+//DefinitionBlock ("", "SSDT", 2, "hack", "usb840g2", 0)
+//{
 //
 // Override for USBInjectAll.kext
 //
@@ -103,6 +105,6 @@ DefinitionBlock ("", "SSDT", 2, "hack", "usb840g2", 0)
             }
         }
     }
-}
+//}
 
 //EOF

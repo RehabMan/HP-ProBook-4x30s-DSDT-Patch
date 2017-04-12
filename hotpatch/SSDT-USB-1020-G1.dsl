@@ -3,8 +3,8 @@
 // ports here are based on ioreg from corem's HP EliteBook Folio 1020 G1
 //
 
-DefinitionBlock ("", "SSDT", 2, "hack", "usb1020g1", 0)
-{
+//DefinitionBlock ("", "SSDT", 2, "hack", "usb1020g1", 0)
+//{
 //
 // Override for USBInjectAll.kext
 //
@@ -124,6 +124,6 @@ DefinitionBlock ("", "SSDT", 2, "hack", "usb1020g1", 0)
             }
         }
     }
-}
+//}
 
 //EOF

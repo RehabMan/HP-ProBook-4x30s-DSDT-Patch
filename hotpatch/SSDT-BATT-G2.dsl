@@ -1,7 +1,7 @@
 // battery status patched for ProBook G2 laptops
 
-DefinitionBlock ("", "SSDT", 2, "hack", "battg2", 0)
-{
+//DefinitionBlock ("", "SSDT", 2, "hack", "battg2", 0)
+//{
     External(\_SB.PCI0, DeviceObj)
     External(\_SB.PCI0.LPCB, DeviceObj)
     External(\_SB.PCI0.LPCB.EC0, DeviceObj)
@@ -737,6 +737,6 @@ DefinitionBlock ("", "SSDT", 2, "hack", "battg2", 0)
         Or (Arg0, Local0, Local0)
         Return (Local0)
     }
-}
+//}
 
 //EOF

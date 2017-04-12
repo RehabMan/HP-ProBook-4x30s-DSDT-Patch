@@ -33,6 +33,8 @@
 		847F5EDD1B508B4B00825CE8 /* Backlight_0x710.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Backlight_0x710.plist; path = backlight/Backlight_0x710.plist; sourceTree = "<group>"; };
 		84817C301878CFE00061AF92 /* 13_Brightness.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = 13_Brightness.txt; path = patches/13_Brightness.txt; sourceTree = "<group>"; };
 		84878E3B17445FE100F82A03 /* 00_Optimize.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = 00_Optimize.txt; path = patches/00_Optimize.txt; sourceTree = "<group>"; };
+		8497866A1E9DBFBB0020BEF8 /* SSDT-2x60.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-2x60.dsl"; path = "hotpatch/SSDT-2x60.dsl"; sourceTree = "<group>"; };
+		8497866B1E9DC69F0020BEF8 /* key86_PS2K.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = key86_PS2K.asl; path = hotpatch/include/key86_PS2K.asl; sourceTree = "<group>"; };
 		8499C9761704B5F70066A5F3 /* NullPatch.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = NullPatch.txt; path = patches/NullPatch.txt; sourceTree = "<group>"; };
 		849EBD50170340BF007EFCFF /* xx_KeyBacklight.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = xx_KeyBacklight.txt; path = patches/xx_KeyBacklight.txt; sourceTree = "<group>"; };
 		84AB159A1E9AF5AD005206A1 /* SSDT-RP01_PXSX_RDSS.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-RP01_PXSX_RDSS.dsl"; path = "hotpatch/SSDT-RP01_PXSX_RDSS.dsl"; sourceTree = "<group>"; };
@@ -411,6 +413,7 @@
 				ED97E9371CC757D7006C757A /* SSDT-4x30s.dsl */,
 				ED97E9381CC757D7006C757A /* SSDT-4x40s.dsl */,
 				EDA70AD21CEFEE6B009D2AA7 /* SSDT-5x30.dsl */,
+				8497866A1E9DBFBB0020BEF8 /* SSDT-2x60.dsl */,
 				ED97E9391CC757D7006C757A /* SSDT-6x60.dsl */,
 				ED97E93F1CC757D7006C757A /* SSDT-8x60.dsl */,
 				ED97E92F1CC757D7006C757A /* SSDT-2x70.dsl */,
@@ -508,6 +511,7 @@
 			isa = PBXGroup;
 			children = (
 				ED6354D41D38643B00C77357 /* standard_PS2K.asl */,
+				8497866B1E9DC69F0020BEF8 /* key86_PS2K.asl */,
 				ED6354D31D38643B00C77357 /* standard_PS2K_data.asl */,
 				ED6354D21D38643B00C77357 /* key86_data.asl */,
 				ED97E91D1CC75350006C757A /* disable_HECI.asl */,

@@ -3,8 +3,8 @@
 
 // Based on information provided from an EliteBook 9480m Haswell
 
-DefinitionBlock ("", "SSDT", 2, "hack", "usb9x80", 0)
-{
+//DefinitionBlock ("", "SSDT", 2, "hack", "usb9x80", 0)
+//{
 //
 // Override for USBInjectAll.kext
 //
@@ -107,6 +107,6 @@ DefinitionBlock ("", "SSDT", 2, "hack", "usb9x80", 0)
             }
         }
     }
-}
+//}
 
 //EOF

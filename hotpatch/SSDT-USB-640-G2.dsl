@@ -2,8 +2,10 @@
 //
 // Based on information provided from chezyann's ProBook 640 G2 Skylake
 
-DefinitionBlock ("", "SSDT", 2, "hack", "usb640g2s", 0)
-{
+//REVIEW: rename to SSDT-USB-6x0-G2.dsl
+
+//DefinitionBlock ("", "SSDT", 2, "hack", "usb640g2s", 0)
+//{
     //
     // Override for USBInjectAll.kext
     //
@@ -58,6 +60,6 @@ DefinitionBlock ("", "SSDT", 2, "hack", "usb640g2s", 0)
 
         })
     }
-}
+//}
 
 //EOF
