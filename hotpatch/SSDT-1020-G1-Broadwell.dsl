@@ -2,7 +2,7 @@
 
 DefinitionBlock ("", "SSDT", 2, "hack", "1020g1b", 0)
 {
-    #include "SSDT-HACK.dsl"
+    #include "SSDT-HACK.asl"
     #include "include/layout6_HDEF.asl"
     #include "include/layout6_HDAU.asl"
 
@@ -27,10 +27,10 @@ DefinitionBlock ("", "SSDT", 2, "hack", "1020g1b", 0)
         })
     }
 
-    #include "SSDT-KEY87.dsl"
-    #include "SSDT-USB-1020-G1.dsl"
-    #include "SSDT-XHC.dsl"
-    #include "SSDT-BATT-G2.dsl"
-    #include "SSDT-RP05_DGFX_RDSS.dsl"
+    #include "SSDT-KEY87.asl"
+    #include "SSDT-USB-1020-G1.asl"
+    #include "SSDT-XHC.asl"
+    #include "SSDT-BATT-G2.asl"
+    #include "SSDT-RP05_DGFX_RDSS.asl"
 }
 //EOF

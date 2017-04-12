@@ -2,15 +2,15 @@
 
 DefinitionBlock ("", "SSDT", 2, "hack", "4x0g3s", 0)
 {
-    #include "SSDT-HACK.dsl"
+    #include "SSDT-HACK.asl"
     #include "include/layout7_HDEF.asl"
     #include "include/disable_HECI.asl"
     #include "include/standard_PS2K.asl"
-    #include "SSDT-KEY102.dsl"
-    #include "SSDT-USB-4x0-G3.dsl"
-    #include "SSDT-XHC.dsl"
-    #include "SSDT-BATT-G3.dsl"
-    #include "SSDT-RP01_PEGP_RDSS.dsl"
+    #include "SSDT-KEY102.asl"
+    #include "SSDT-USB-4x0-G3.asl"
+    #include "SSDT-XHC.asl"
+    #include "SSDT-BATT-G3.asl"
+    #include "SSDT-RP01_PEGP_RDSS.asl"
 
     // This USWE code is specific to the Skylake G3
     External(USWE, FieldUnitObj)
