@@ -89,6 +89,8 @@
     External(\_SB_.PCI0.RP01.PEGP._ON, MethodObj)
     External(\_SB_.PCI0.RP01.PXSX._OFF, MethodObj)
     External(\_SB_.PCI0.RP01.PXSX._ON, MethodObj)
+    External(\_SB_.PCI0.RP05.PEGP._OFF, MethodObj)
+    External(\_SB_.PCI0.RP05.PEGP._ON, MethodObj)
 
     // In DSDT, native _PTS and _WAK are renamed ZPTS/ZWAK
     // As a result, calls to these methods land here.
@@ -102,6 +104,7 @@
             If (CondRefOf(\_SB_.PCI0.RP05.DGFX._ON)) { \_SB_.PCI0.RP05.DGFX._ON() }
             If (CondRefOf(\_SB_.PCI0.RP01.PEGP._ON)) { \_SB_.PCI0.RP01.PEGP._ON() }
             If (CondRefOf(\_SB_.PCI0.RP01.PXSX._ON)) { \_SB_.PCI0.RP01.PXSX._ON() }
+            If (CondRefOf(\_SB_.PCI0.RP05.PEGP._ON)) { \_SB_.PCI0.RP05.PEGP._ON() }
         }
         External(\ZPTS, MethodObj)
         ZPTS(Arg0)
@@ -118,6 +121,7 @@
             If (CondRefOf(\_SB_.PCI0.RP05.DGFX._OFF)) { \_SB_.PCI0.RP05.DGFX._OFF() }
             If (CondRefOf(\_SB_.PCI0.RP01.PEGP._OFF)) { \_SB_.PCI0.RP01.PEGP._OFF() }
             If (CondRefOf(\_SB_.PCI0.RP01.PXSX._OFF)) { \_SB_.PCI0.RP01.PXSX._OFF() }
+            If (CondRefOf(\_SB_.PCI0.RP05.DGFX._OFF)) { \_SB_.PCI0.RP05.PEGP._OFF() }
         }
         Return(Local0)
     }
@@ -134,6 +138,7 @@
                 If (CondRefOf(\_SB.PCI0.RP05.DGFX._OFF)) { \_SB.PCI0.RP05.DGFX._OFF() }
                 If (CondRefOf(\_SB.PCI0.RP01.PEGP._OFF)) { \_SB.PCI0.RP01.PEGP._OFF() }
                 If (CondRefOf(\_SB.PCI0.RP01.PXSX._OFF)) { \_SB.PCI0.RP01.PXSX._OFF() }
+                If (CondRefOf(\_SB.PCI0.RP05.DGFX._OFF)) { \_SB.PCI0.RP05.PEGP._OFF() }
             }
         }
     }
@@ -143,6 +148,7 @@
     External(_SB.PCI0.RP01.PEGP.RDSS, MethodObj)
     External(_SB.PCI0.RP05.DGFX.RDSS, MethodObj)
     External(_SB.PCI0.RP01.PXSX.RDSS, MethodObj)
+    External(_SB.PCI0.RP05.PEGP.RDSS, MethodObj)
 
     // original _REG is renamed to XREG
     Scope(_SB.PCI0.LPCB.EC0)
@@ -159,6 +165,7 @@
                 If (CondRefOf(\_SB.PCI0.RP01.PEGP.RDSS)) { \_SB.PCI0.RP01.PEGP.RDSS(0) }
                 If (CondRefOf(\_SB.PCI0.RP05.DGFX.RDSS)) { \_SB.PCI0.RP05.DGFX.RDSS(0) }
                 If (CondRefOf(\_SB.PCI0.RP01.PXSX.RDSS)) { \_SB.PCI0.RP01.PXSX.RDSS(0) }
+                If (CondRefOf(\_SB.PCI0.RP05.DGFX.RDSS)) { \_SB.PCI0.RP05.PEGP.RDSS(0) }
             }
         }
     }

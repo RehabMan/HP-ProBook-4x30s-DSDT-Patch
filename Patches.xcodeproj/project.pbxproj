@@ -18,6 +18,7 @@
 		8405D11C1E78B179008FE0DC /* config_ZBook_G3_Skylake.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_ZBook_G3_Skylake.plist; path = config/config_ZBook_G3_Skylake.plist; sourceTree = "<group>"; };
 		84144E971BC64063004DF673 /* config_4x40s.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_4x40s.plist; path = config/config_4x40s.plist; sourceTree = "<group>"; };
 		8418ECBF17025DF5007A25C4 /* 07_MEI_4x40s_Sandy.txt */ = {isa = PBXFileReference; lastKnownFileType = text; lineEnding = 0; name = 07_MEI_4x40s_Sandy.txt; path = patches/07_MEI_4x40s_Sandy.txt; sourceTree = "<group>"; };
+		841F11E31E9FA7B000BE33AF /* SSDT-RP05_PEGP_RDSS.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-RP05_PEGP_RDSS.asl"; path = "hotpatch/SSDT-RP05_PEGP_RDSS.asl"; sourceTree = "<group>"; };
 		842CC2BE189750A4008240D1 /* 04b_FanSmooth.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = 04b_FanSmooth.txt; path = patches/04b_FanSmooth.txt; sourceTree = "<group>"; };
 		842F94371858FA4400BAF14B /* 12_Brightness.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = 12_Brightness.txt; path = patches/12_Brightness.txt; sourceTree = "<group>"; };
 		843DA4791706024900E87F04 /* Mini-SSDT-DualLink.dsl */ = {isa = PBXFileReference; lastKnownFileType = text; lineEnding = 0; name = "Mini-SSDT-DualLink.dsl"; path = "mini/Mini-SSDT-DualLink.dsl"; sourceTree = "<group>"; };
@@ -541,6 +542,7 @@
 				ED8D4ED41E9C39C700F87978 /* SSDT-IGPU.dsl */,
 				84D207AD1E64F63F0083EC17 /* SSDT-RP01_PEGP_RDSS.asl */,
 				84D207AE1E64F63F0083EC17 /* SSDT-RP05_DGFX_RDSS.asl */,
+				841F11E31E9FA7B000BE33AF /* SSDT-RP05_PEGP_RDSS.asl */,
 				84AB159A1E9AF5AD005206A1 /* SSDT-RP01_PXSX_RDSS.asl */,
 				ED2500561CF67CE6006A5FB7 /* SSDT-EH01.asl */,
 				ED2500571CF67CE6006A5FB7 /* SSDT-EH02.asl */,
