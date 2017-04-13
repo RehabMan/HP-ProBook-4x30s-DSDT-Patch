@@ -31,8 +31,8 @@ case "$1" in
     inst_lores)
         rm -f $EFIDIR/EFI/CLOVER/ACPI/patched/DSDT.aml
         rm -f $EFIDIR/EFI/CLOVER/ACPI/patched/SSDT-*.aml
-        cp $CORE $EFIDIR/EFI/CLOVER/ACPI/patched
-        #cp $BUILDDIR/SSDT-IGPU.aml $EFIDIR/EFI/CLOVER/ACPI/patched
+        #cp $CORE $EFIDIR/EFI/CLOVER/ACPI/patched
+        cp $BUILDDIR/SSDT-IGPU.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         cp $BUILDDIR/SSDT-FAN-$FANPREF.aml $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
     inst_hires)
