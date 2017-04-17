@@ -79,18 +79,18 @@
 //
 // DGPU disable (and related shutdown fix)
 //
-    External(\_SB_.PCI0.PEGP.DGFX._OFF, MethodObj)
-    External(\_SB_.PCI0.PEGP.DGFX._ON, MethodObj)
-    External(\_SB_.PCI0.PEG0.PEGP._OFF, MethodObj)
-    External(\_SB_.PCI0.PEG0.PEGP._ON, MethodObj)
-    External(\_SB_.PCI0.RP05.DGFX._OFF, MethodObj)
-    External(\_SB_.PCI0.RP05.DGFX._ON, MethodObj)
-    External(\_SB_.PCI0.RP01.PEGP._OFF, MethodObj)
-    External(\_SB_.PCI0.RP01.PEGP._ON, MethodObj)
-    External(\_SB_.PCI0.RP01.PXSX._OFF, MethodObj)
-    External(\_SB_.PCI0.RP01.PXSX._ON, MethodObj)
-    External(\_SB_.PCI0.RP05.PEGP._OFF, MethodObj)
-    External(\_SB_.PCI0.RP05.PEGP._ON, MethodObj)
+    External(\_SB.PCI0.PEGP.DGFX._OFF, MethodObj)
+    External(\_SB.PCI0.PEGP.DGFX._ON, MethodObj)
+    External(\_SB.PCI0.PEG0.PEGP._OFF, MethodObj)
+    External(\_SB.PCI0.PEG0.PEGP._ON, MethodObj)
+    External(\_SB.PCI0.RP05.DGFX._OFF, MethodObj)
+    External(\_SB.PCI0.RP05.DGFX._ON, MethodObj)
+    External(\_SB.PCI0.RP01.PEGP._OFF, MethodObj)
+    External(\_SB.PCI0.RP01.PEGP._ON, MethodObj)
+    External(\_SB.PCI0.RP01.PXSX._OFF, MethodObj)
+    External(\_SB.PCI0.RP01.PXSX._ON, MethodObj)
+    External(\_SB.PCI0.RP05.PEGP._OFF, MethodObj)
+    External(\_SB.PCI0.RP05.PEGP._ON, MethodObj)
 
     // In DSDT, native _PTS and _WAK are renamed ZPTS/ZWAK
     // As a result, calls to these methods land here.
@@ -99,12 +99,12 @@
         If (\RMCF.SHUT && 5 == Arg0) { Return }
         If (1 == \RMCF.DGPU)
         {
-            If (CondRefOf(\_SB_.PCI0.PEGP.DGFX._ON)) { \_SB_.PCI0.PEGP.DGFX._ON() }
-            If (CondRefOf(\_SB_.PCI0.PEG0.PEGP._ON)) { \_SB_.PCI0.PEG0.PEGP._ON() }
-            If (CondRefOf(\_SB_.PCI0.RP05.DGFX._ON)) { \_SB_.PCI0.RP05.DGFX._ON() }
-            If (CondRefOf(\_SB_.PCI0.RP01.PEGP._ON)) { \_SB_.PCI0.RP01.PEGP._ON() }
-            If (CondRefOf(\_SB_.PCI0.RP01.PXSX._ON)) { \_SB_.PCI0.RP01.PXSX._ON() }
-            If (CondRefOf(\_SB_.PCI0.RP05.PEGP._ON)) { \_SB_.PCI0.RP05.PEGP._ON() }
+            If (CondRefOf(\_SB.PCI0.PEGP.DGFX._ON)) { \_SB.PCI0.PEGP.DGFX._ON() }
+            If (CondRefOf(\_SB.PCI0.PEG0.PEGP._ON)) { \_SB.PCI0.PEG0.PEGP._ON() }
+            If (CondRefOf(\_SB.PCI0.RP05.DGFX._ON)) { \_SB.PCI0.RP05.DGFX._ON() }
+            If (CondRefOf(\_SB.PCI0.RP01.PEGP._ON)) { \_SB.PCI0.RP01.PEGP._ON() }
+            If (CondRefOf(\_SB.PCI0.RP01.PXSX._ON)) { \_SB.PCI0.RP01.PXSX._ON() }
+            If (CondRefOf(\_SB.PCI0.RP05.PEGP._ON)) { \_SB.PCI0.RP05.PEGP._ON() }
         }
         External(\ZPTS, MethodObj)
         ZPTS(Arg0)
@@ -116,12 +116,12 @@
         Local0 = ZWAK(Arg0)
         If (1 == \RMCF.DGPU)
         {
-            If (CondRefOf(\_SB_.PCI0.PEGP.DGFX._OFF)) { \_SB_.PCI0.PEGP.DGFX._OFF() }
-            If (CondRefOf(\_SB_.PCI0.PEG0.PEGP._OFF)) { \_SB_.PCI0.PEG0.PEGP._OFF() }
-            If (CondRefOf(\_SB_.PCI0.RP05.DGFX._OFF)) { \_SB_.PCI0.RP05.DGFX._OFF() }
-            If (CondRefOf(\_SB_.PCI0.RP01.PEGP._OFF)) { \_SB_.PCI0.RP01.PEGP._OFF() }
-            If (CondRefOf(\_SB_.PCI0.RP01.PXSX._OFF)) { \_SB_.PCI0.RP01.PXSX._OFF() }
-            If (CondRefOf(\_SB_.PCI0.RP05.DGFX._OFF)) { \_SB_.PCI0.RP05.PEGP._OFF() }
+            If (CondRefOf(\_SB.PCI0.PEGP.DGFX._OFF)) { \_SB.PCI0.PEGP.DGFX._OFF() }
+            If (CondRefOf(\_SB.PCI0.PEG0.PEGP._OFF)) { \_SB.PCI0.PEG0.PEGP._OFF() }
+            If (CondRefOf(\_SB.PCI0.RP05.DGFX._OFF)) { \_SB.PCI0.RP05.DGFX._OFF() }
+            If (CondRefOf(\_SB.PCI0.RP01.PEGP._OFF)) { \_SB.PCI0.RP01.PEGP._OFF() }
+            If (CondRefOf(\_SB.PCI0.RP01.PXSX._OFF)) { \_SB.PCI0.RP01.PXSX._OFF() }
+            If (CondRefOf(\_SB.PCI0.RP05.DGFX._OFF)) { \_SB.PCI0.RP05.PEGP._OFF() }
         }
         Return(Local0)
     }
