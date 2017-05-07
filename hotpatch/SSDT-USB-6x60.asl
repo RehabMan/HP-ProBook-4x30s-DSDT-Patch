@@ -94,6 +94,11 @@
                         //"UsbConnector", 0,
                         "port", Buffer() { 3, 0, 0, 0 },
                     },
+                    "HP24", Package()   // USB2 4-port hub on docking station
+                    {
+                        //"UsbConnector", 0,
+                        "port", Buffer() { 4, 0, 0, 0 },
+                    },
                     "HP25", Package()   // extra USB2 on 6560b
                     {
                         //"UsbConnector", 0,
