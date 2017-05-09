@@ -2,9 +2,10 @@
 
 DefinitionBlock ("", "SSDT", 2, "hack", "4x0g4k", 0)
 {
+    #include "SSDT-PluginType1.asl"
     #include "SSDT-HACK.asl"
-    #include "include/disable_HECI.asl"
     #include "include/layout20_HDEF.asl"
+    #include "include/disable_HECI.asl"
     #include "include/key86_PS2K.asl"
     #include "SSDT-KEY87.asl"
     #include "SSDT-USB-4x0-G4.asl"

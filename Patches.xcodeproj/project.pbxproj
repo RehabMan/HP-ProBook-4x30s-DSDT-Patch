@@ -76,6 +76,7 @@
 		84FAF3521CA9FB630066178B /* config_ZBook_G2_Haswell.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_ZBook_G2_Haswell.plist; path = config/config_ZBook_G2_Haswell.plist; sourceTree = "<group>"; };
 		84FD879D18BCC6B1000BC61E /* 03c_Haswell-HDMI.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "03c_Haswell-HDMI.txt"; path = "patches/03c_Haswell-HDMI.txt"; sourceTree = "<group>"; };
 		ED023EB31CFDC75C00C5F3A2 /* SSDT-6x0-G1-Haswell.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-6x0-G1-Haswell.dsl"; path = "hotpatch/SSDT-6x0-G1-Haswell.dsl"; sourceTree = "<group>"; };
+		ED083BA91EC2644E00CEA724 /* SSDT-PluginType1.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-PluginType1.asl"; path = "hotpatch/SSDT-PluginType1.asl"; sourceTree = "<group>"; };
 		ED17156E1D070F3C00219AC6 /* SSDT-USB-6x0-G1.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-USB-6x0-G1.asl"; path = "hotpatch/SSDT-USB-6x0-G1.asl"; sourceTree = "<group>"; };
 		ED1837421C0A4B1200A5A3DA /* merge_plist.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = merge_plist.sh; sourceTree = "<group>"; };
 		ED1837431C0A4B1200A5A3DA /* mount_efi.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = mount_efi.sh; sourceTree = "<group>"; };
@@ -539,6 +540,7 @@
 				EDA987001CC71F8D00D10BEC /* include */,
 				ED923A2A1CC9407E00BD18E2 /* usb customization */,
 				ED97E9441CC757D7006C757A /* SSDT-HACK.asl */,
+				ED083BA91EC2644E00CEA724 /* SSDT-PluginType1.asl */,
 				ED8D4ED41E9C39C700F87978 /* SSDT-IGPU.dsl */,
 				84D207AD1E64F63F0083EC17 /* SSDT-RP01_PEGP_RDSS.asl */,
 				84D207AE1E64F63F0083EC17 /* SSDT-RP05_DGFX_RDSS.asl */,

@@ -42,6 +42,11 @@ case "$1" in
         cp $BUILDDIR/SSDT-IGPU-HIRES.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         cp $BUILDDIR/SSDT-FAN-$FANPREF.aml $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
+    inst_xcpm)
+        $0 inst_lores $2
+        # Haswell/Broadwell/Skylake/KabyLake all use XCPM only for CPU PM
+        rm -f $EFIDIR/EFI/CLOVER/ACPI/patched/SSDT.aml
+    ;;
 # model specific scripts
     install_4x30s)
         $0 inst_lores $2
@@ -185,97 +190,97 @@ case "$1" in
         ls $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
     install_4x0g1_haswell)
-        $0 inst_lores $2
+        $0 inst_xcpm $2
         cp $BUILDDIR/SSDT-4x0-G1-Haswell.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         ls $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
     install_6x0g1_haswell)
-        $0 inst_lores $2
+        $0 inst_xcpm $2
         cp $BUILDDIR/SSDT-6x0-G1-Haswell.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         ls $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
     install_8x0g1_haswell)
-        $0 inst_lores $2
+        $0 inst_xcpm $2
         cp $BUILDDIR/SSDT-8x0-G1-Haswell.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         ls $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
     install_1040g1_haswell)
-        $0 inst_lores $2
+        $0 inst_xcpm $2
         cp $BUILDDIR/SSDT-1040-G1-Haswell.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         ls $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
     install_4x0g2_haswell)
-        $0 inst_lores $2
+        $0 inst_xcpm $2
         cp $BUILDDIR/SSDT-4x0-G2-Haswell.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         ls $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
     install_8x0g2_haswell)
-        $0 inst_lores $2
+        $0 inst_xcpm $2
         cp $BUILDDIR/SSDT-8x0-G2-Haswell.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         ls $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
     install_4x0g2_broadwell)
-        $0 inst_lores $2
+        $0 inst_xcpm $2
         cp $BUILDDIR/SSDT-4x0-G2-Broadwell.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         ls $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
     install_820g2_broadwell)
-        $0 inst_lores $2
+        $0 inst_xcpm $2
         cp $BUILDDIR/SSDT-8x0-G2-Broadwell.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         ls $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
     install_840g2_broadwell)
-        $0 inst_lores $2
+        $0 inst_xcpm $2
         cp $BUILDDIR/SSDT-8x0-G2-Broadwell.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         ls $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
     install_850g2_broadwell)
-        $0 inst_lores
+        $0 inst_xcpm
         cp $BUILDDIR/SSDT-8x0-G2-Broadwell.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         ls $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
     install_1020g1_broadwell)
-        $0 inst_lores $2
+        $0 inst_xcpm $2
         cp $BUILDDIR/SSDT-1020-G1-Broadwell.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         ls $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
     install_ZBook_G2_haswell)
-        $0 inst_lores $2
+        $0 inst_xcpm $2
         cp $BUILDDIR/SSDT-ZBook-G2-Haswell.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         ls $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
     install_ZBook_G1_haswell)
-        $0 inst_lores $2
+        $0 inst_xcpm $2
         cp $BUILDDIR/SSDT-ZBook-G2-Haswell.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         ls $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
     install_ZBook_G2_broadwell)
-        $0 inst_lores $2
+        $0 inst_xcpm $2
         cp $BUILDDIR/SSDT-ZBook-G2-Broadwell.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         ls $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
     install_ZBook_G3_skylake)
-        $0 inst_lores $2
+        $0 inst_xcpm $2
         cp $BUILDDIR/SSDT-ZBook-G3-Skylake.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         ls $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
     install_4x0g3_skylake)
-        $0 inst_lores $2
+        $0 inst_xcpm $2
         cp $BUILDDIR/SSDT-4x0-G3-Skylake.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         ls $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
     install_8x0g3_skylake)
-        $0 inst_lores $2
+        $0 inst_xcpm $2
         cp $BUILDDIR/SSDT-8x0-G3-Skylake.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         ls $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
     install_6x0g2_skylake)
-        $0 inst_lores $2
+        $0 inst_xcpm $2
         cp $BUILDDIR/SSDT-6x0-G2-Skylake.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         ls $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
     install_4x0g4_kabylake)
-        $0 inst_lores $2
+        $0 inst_xcpm $2
         cp $BUILDDIR/SSDT-4x0-G4-Kabylake.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         ls $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;

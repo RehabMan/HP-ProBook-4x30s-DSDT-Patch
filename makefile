@@ -111,6 +111,76 @@ install_hda:
 	if [ "`which tag`" != "" ]; then sudo tag -a Blue $(SLE)/AppleHDA.kext/Contents/Resources/*.zml*; fi
 	make update_kernelcache
 
+# dependencies for model specific SSDTs
+
+$(BUILDDIR)/SSDT-4x30s.aml: $(HOTPATCH)/SSDT-HACK.asl $(HOTPATCH)/include/layout12_HDEF.asl $(HOTPATCH)/include/standard_PS2K.asl $(HOTPATCH)/SSDT-KEY102.asl $(HOTPATCH)/SSDT-USB-4x30s.asl $(HOTPATCH)/SSDT-EH01.asl $(HOTPATCH)/SSDT-EH02.asl $(HOTPATCH)/SSDT-BATT.asl
+
+$(BUILDDIR)/SSDT-4x40s.aml: $(HOTPATCH)/SSDT-HACK.asl $(HOTPATCH)/include/layout12_HDEF.asl $(HOTPATCH)/include/standard_PS2K.asl $(HOTPATCH)/SSDT-KEY102.asl $(HOTPATCH)/SSDT-USB-4x40s.asl $(HOTPATCH)/SSDT-EH01.asl $(HOTPATCH)/SSDT-EH02.asl $(HOTPATCH)/SSDT-BATT.asl
+
+$(BUILDDIR)/SSDT-5x30s.aml: $(HOTPATCH)/SSDT-HACK.asl $(HOTPATCH)/include/layout18_HDEF.asl $(HOTPATCH)/include/standard_PS2K.asl $(HOTPATCH)/SSDT-KEY87.asl $(HOTPATCH)/SSDT-EH01.asl $(HOTPATCH)/SSDT-EH02.asl $(HOTPATCH)/SSDT-BATT.asl
+
+$(BUILDDIR)/SSDT-2x60.aml: $(HOTPATCH)/SSDT-HACK.asl $(HOTPATCH)/include/layout18_HDEF.asl $(HOTPATCH)/include/standard_PS2K.asl $(HOTPATCH)/SSDT-KEY102.asl $(HOTPATCH)/SSDT-USB-6x60.asl $(HOTPATCH)/SSDT-EH01.asl $(HOTPATCH)/SSDT-EH02.asl $(HOTPATCH)/SSDT-BATT.asl
+
+$(BUILDDIR)/SSDT-6x60.aml: $(HOTPATCH)/SSDT-HACK.asl $(HOTPATCH)/include/layout18_HDEF.asl $(HOTPATCH)/include/standard_PS2K.asl $(HOTPATCH)/SSDT-KEY87.asl $(HOTPATCH)/SSDT-USB-6x60.asl $(HOTPATCH)/SSDT-EH01.asl $(HOTPATCH)/SSDT-EH02.asl $(HOTPATCH)/SSDT-BATT.asl
+
+$(BUILDDIR)/SSDT-8x60.aml: $(HOTPATCH)/SSDT-HACK.asl $(HOTPATCH)/include/layout18_HDEF.asl $(HOTPATCH)/include/standard_PS2K.asl $(HOTPATCH)/SSDT-KEY87.asl $(HOTPATCH)/SSDT-USB-8x60.asl $(HOTPATCH)/SSDT-EH01.asl $(HOTPATCH)/SSDT-EH02.asl $(HOTPATCH)/SSDT-BATT.asl
+
+$(BUILDDIR)/SSDT-2x70.aml: $(HOTPATCH)/SSDT-HACK.asl $(HOTPATCH)/include/layout18_HDEF.asl $(HOTPATCH)/include/standard_PS2K.asl $(HOTPATCH)/SSDT-KEY87.asl $(HOTPATCH)/SSDT-EH01.asl $(HOTPATCH)/SSDT-EH02.asl $(HOTPATCH)/SSDT-XHC.asl $(HOTPATCH)/SSDT-BATT.asl
+
+$(BUILDDIR)/SSDT-6x70.aml: $(HOTPATCH)/SSDT-HACK.asl $(HOTPATCH)/include/layout18_HDEF.asl $(HOTPATCH)/include/standard_PS2K.asl $(HOTPATCH)/SSDT-KEY87.asl $(HOTPATCH)/SSDT-USB-6x70.asl $(HOTPATCH)/SSDT-EH01.asl $(HOTPATCH)/SSDT-EH02.asl $(HOTPATCH)/SSDT-XHC.asl $(HOTPATCH)/SSDT-BATT.asl
+
+$(BUILDDIR)/SSDT-8x70.aml: $(HOTPATCH)/SSDT-HACK.asl $(HOTPATCH)/include/layout18_HDEF.asl $(HOTPATCH)/include/standard_PS2K.asl $(HOTPATCH)/SSDT-KEY87.asl $(HOTPATCH)/SSDT-USB-8x70.asl $(HOTPATCH)/SSDT-EH01.asl $(HOTPATCH)/SSDT-EH02.asl $(HOTPATCH)/SSDT-XHC.asl $(HOTPATCH)/SSDT-BATT.asl
+
+$(BUILDDIR)/SSDT-9x70.aml: $(HOTPATCH)/SSDT-HACK.asl $(HOTPATCH)/include/layout17_HDEF.asl $(HOTPATCH)/include/standard_PS2K.asl $(HOTPATCH)/SSDT-KEY87.asl $(HOTPATCH)/SSDT-USB-9x70.asl $(HOTPATCH)/SSDT-EH01.asl $(HOTPATCH)/SSDT-EH02.asl $(HOTPATCH)/SSDT-XHC.asl $(HOTPATCH)/SSDT-BATT.asl
+
+$(BUILDDIR)/SSDT-9x80.aml: $(HOTPATCH)/SSDT-HACK.asl $(HOTPATCH)/include/layout4_HDEF.asl $(HOTPATCH)/include/layout4_HDAU.asl $(HOTPATCH)/include/standard_PS2K.asl $(HOTPATCH)/SSDT-KEY87.asl $(HOTPATCH)/SSDT-USB-9x80.asl $(HOTPATCH)/SSDT-EH01.asl $(HOTPATCH)/SSDT-EH02.asl $(HOTPATCH)/SSDT-XHC.asl $(HOTPATCH)/SSDT-BATT.asl
+
+$(BUILDDIR)/SSDT-4x0-G0.aml: $(HOTPATCH)/SSDT-HACK.asl $(HOTPATCH)/include/layout17_HDEF.asl $(HOTPATCH)/include/standard_PS2K.asl $(HOTPATCH)/SSDT-KEY87.asl $(HOTPATCH)/SSDT-EH01.asl $(HOTPATCH)/SSDT-EH02.asl $(HOTPATCH)/SSDT-XHC.asl $(HOTPATCH)/SSDT-BATT.asl
+
+$(BUILDDIR)/SSDT-3x0-G1.aml: $(HOTPATCH)/SSDT-HACK.asl $(HOTPATCH)/include/layout19_HDEF.asl $(HOTPATCH)/include/standard_PS2K.asl $(HOTPATCH)/SSDT-KEY87.asl $(HOTPATCH)/SSDT-EH01.asl $(HOTPATCH)/SSDT-EH02.asl $(HOTPATCH)/SSDT-XHC.asl $(HOTPATCH)/SSDT-BATT.asl
+
+$(BUILDDIR)/SSDT-4x0-G1-Ivy.aml: $(HOTPATCH)/SSDT-HACK.asl $(HOTPATCH)/include/layout17_HDEF.asl $(HOTPATCH)/include/standard_PS2K.asl $(HOTPATCH)/SSDT-KEY87.asl $(HOTPATCH)/SSDT-EH01.asl $(HOTPATCH)/SSDT-EH02.asl $(HOTPATCH)/SSDT-XHC.asl $(HOTPATCH)/SSDT-BATT.asl
+
+$(BUILDDIR)/SSDT-8x0-G1-Ivy.aml: $(HOTPATCH)/SSDT-HACK.asl $(HOTPATCH)/include/layout17_HDEF.asl $(HOTPATCH)/include/standard_PS2K.asl $(HOTPATCH)/SSDT-KEY102.asl $(HOTPATCH)/SSDT-EH01.asl $(HOTPATCH)/SSDT-EH02.asl $(HOTPATCH)/SSDT-XHC.asl $(HOTPATCH)/SSDT-BATT.asl
+
+$(BUILDDIR)/SSDT-4x0-G1-Haswell.aml: $(HOTPATCH)/SSDT-PluginType1.asl $(HOTPATCH)/SSDT-HACK.asl $(HOTPATCH)/include/layout17_HDEF.asl $(HOTPATCH)/include/layout17_HDAU.asl $(HOTPATCH)/include/standard_PS2K.asl $(HOTPATCH)/SSDT-KEY87.asl $(HOTPATCH)/SSDT-USB-4x0-G1.asl $(HOTPATCH)/SSDT-XHC.asl $(HOTPATCH)/SSDT-BATT.asl
+
+$(BUILDDIR)/SSDT-6x0-G1-Haswell.aml: $(HOTPATCH)/SSDT-PluginType1.asl $(HOTPATCH)/SSDT-HACK.asl $(HOTPATCH)/include/layout17_HDEF.asl $(HOTPATCH)/include/layout17_HDAU.asl $(HOTPATCH)/include/standard_PS2K.asl $(HOTPATCH)/SSDT-KEY87.asl $(HOTPATCH)/SSDT-USB-6x0-G1.asl $(HOTPATCH)/SSDT-XHC.asl $(HOTPATCH)/SSDT-BATT.asl
+
+$(BUILDDIR)/SSDT-8x0-G1-Haswell.aml: $(HOTPATCH)/SSDT-PluginType1.asl $(HOTPATCH)/SSDT-HACK.asl $(HOTPATCH)/include/layout17_HDEF.asl $(HOTPATCH)/include/layout17_HDAU.asl $(HOTPATCH)/include/standard_PS2K.asl $(HOTPATCH)/SSDT-KEY87.asl $(HOTPATCH)/SSDT-USB-8x0-G1.asl $(HOTPATCH)/SSDT-XHC.asl $(HOTPATCH)/SSDT-BATT.asl $(HOTPATCH)/SSDT-RP05_DGFX_RDSS.asl
+
+$(BUILDDIR)/SSDT-1040-G1-Haswell.aml: $(HOTPATCH)/SSDT-PluginType1.asl $(HOTPATCH)/SSDT-HACK.asl $(HOTPATCH)/include/layout17_HDEF.asl $(HOTPATCH)/include/layout17_HDAU.asl $(HOTPATCH)/include/standard_PS2K.asl $(HOTPATCH)/SSDT-KEY102.asl $(HOTPATCH)/SSDT-EH01.asl $(HOTPATCH)/SSDT-EH02.asl $(HOTPATCH)/SSDT-XHC.asl $(HOTPATCH)/SSDT-BATT.asl
+
+$(BUILDDIR)/SSDT-4x0-G2-Haswell.aml: $(HOTPATCH)/SSDT-PluginType1.asl $(HOTPATCH)/SSDT-HACK.asl $(HOTPATCH)/include/layout3_HDEF.asl $(HOTPATCH)/include/layout3_HDAU.asl $(HOTPATCH)/include/standard_PS2K.asl $(HOTPATCH)/SSDT-KEY87.asl $(HOTPATCH)/SSDT-USB-4x0-G2.asl $(HOTPATCH)/SSDT-XHC.asl $(HOTPATCH)/SSDT-BATT-G2.asl $(HOTPATCH)/SSDT-RP05_DGFX_RDSS.asl
+
+$(BUILDDIR)/SSDT-4x0-G2-Haswell.aml: $(HOTPATCH)/SSDT-PluginType1.asl $(HOTPATCH)/SSDT-HACK.asl $(HOTPATCH)/include/layout3_HDEF.asl $(HOTPATCH)/include/layout3_HDAU.asl $(HOTPATCH)/include/standard_PS2K.asl $(HOTPATCH)/SSDT-KEY87.asl $(HOTPATCH)/SSDT-USB-4x0-G2.asl $(HOTPATCH)/SSDT-XHC.asl $(HOTPATCH)/SSDT-BATT-G2.asl $(HOTPATCH)/SSDT-RP05_DGFX_RDSS.asl
+
+$(BUILDDIR)/SSDT-8x0-G2-Haswell.aml: $(HOTPATCH)/SSDT-PluginType1.asl $(HOTPATCH)/SSDT-HACK.asl $(HOTPATCH)/include/layout3_HDEF.asl $(HOTPATCH)/include/layout3_HDAU.asl $(HOTPATCH)/include/standard_PS2K.asl $(HOTPATCH)/SSDT-KEY102.asl $(HOTPATCH)/SSDT-USB-8x0-G2.asl $(HOTPATCH)/SSDT-XHC.asl $(HOTPATCH)/SSDT-BATT-G2.asl $(HOTPATCH)/SSDT-RP05_DGFX_RDSS.asl
+
+$(BUILDDIR)/SSDT-4x0-G2-Broadwell.aml: $(HOTPATCH)/SSDT-PluginType1.asl $(HOTPATCH)/SSDT-HACK.asl $(HOTPATCH)/include/layout3_HDEF.asl $(HOTPATCH)/include/layout3_HDAU.asl $(HOTPATCH)/include/standard_PS2K.asl $(HOTPATCH)/SSDT-KEY87.asl $(HOTPATCH)/SSDT-USB-4x0-G2.asl $(HOTPATCH)/SSDT-XHC.asl $(HOTPATCH)/SSDT-BATT-G2.asl $(HOTPATCH)/SSDT-RP05_DGFX_RDSS.asl
+
+$(BUILDDIR)/SSDT-8x0-G2-Broadwell.aml: $(HOTPATCH)/SSDT-PluginType1.asl $(HOTPATCH)/SSDT-HACK.asl $(HOTPATCH)/include/layout4_HDEF.asl $(HOTPATCH)/include/layout4_HDAU.asl $(HOTPATCH)/include/standard_PS2K.asl $(HOTPATCH)/SSDT-KEY87.asl $(HOTPATCH)/SSDT-USB-8x0-G2.asl $(HOTPATCH)/SSDT-XHC.asl $(HOTPATCH)/SSDT-BATT-G2.asl $(HOTPATCH)/SSDT-RP05_DGFX_RDSS.asl
+
+$(BUILDDIR)/SSDT-1020-G1-Broadwell.aml: $(HOTPATCH)/SSDT-PluginType1.asl $(HOTPATCH)/SSDT-HACK.asl $(HOTPATCH)/include/layout6_HDEF.asl $(HOTPATCH)/include/layout6_HDAU.asl $(HOTPATCH)/include/standard_PS2K.asl $(HOTPATCH)/SSDT-KEY87.asl $(HOTPATCH)/SSDT-USB-1020-G1.asl $(HOTPATCH)/SSDT-XHC.asl $(HOTPATCH)/SSDT-BATT-G2.asl $(HOTPATCH)/SSDT-RP05_DGFX_RDSS.asl
+
+$(BUILDDIR)/SSDT-4x0-G3-Skylake.aml: $(HOTPATCH)/SSDT-PluginType1.asl $(HOTPATCH)/SSDT-HACK.asl $(HOTPATCH)/include/layout7_HDEF.asl $(HOTPATCH)/include/disable_HECI.asl $(HOTPATCH)/include/standard_PS2K.asl $(HOTPATCH)/SSDT-KEY102.asl $(HOTPATCH)/SSDT-USB-4x0-G3.asl $(HOTPATCH)/SSDT-XHC.asl $(HOTPATCH)/SSDT-BATT-G3.asl $(HOTPATCH)/SSDT-RP01_PEGP_RDSS.asl
+
+$(BUILDDIR)/SSDT-6x0-G2-Skylake.aml: $(HOTPATCH)/SSDT-PluginType1.asl $(HOTPATCH)/SSDT-HACK.asl $(HOTPATCH)/include/layout7_HDEF.asl $(HOTPATCH)/include/disable_HECI.asl $(HOTPATCH)/include/key86_PS2K.asl $(HOTPATCH)/SSDT-KEY102.asl $(HOTPATCH)/SSDT-USB-640-G2.asl $(HOTPATCH)/SSDT-XHC.asl $(HOTPATCH)/SSDT-BATT-G2.asl $(HOTPATCH)/SSDT-RP05_PEGP_RDSS.asl
+
+$(BUILDDIR)/SSDT-8x0-G3-Skylake.aml: $(HOTPATCH)/SSDT-PluginType1.asl $(HOTPATCH)/SSDT-HACK.asl $(HOTPATCH)/include/layout7_HDEF.asl $(HOTPATCH)/include/disable_HECI.asl $(HOTPATCH)/include/key86_PS2K.asl $(HOTPATCH)/SSDT-KEY102.asl $(HOTPATCH)/SSDT-USB-8x0-G3.asl $(HOTPATCH)/SSDT-XHC.asl $(HOTPATCH)/SSDT-BATT-G3.asl $(HOTPATCH)/SSDT-RP05_PEGP_RDSS.asl
+
+$(BUILDDIR)/SSDT-1040-G3-Skylake.aml: $(HOTPATCH)/SSDT-PluginType1.asl $(HOTPATCH)/SSDT-HACK.asl $(HOTPATCH)/include/layout7_HDEF.asl $(HOTPATCH)/include/disable_HECI.asl $(HOTPATCH)/include/key86_PS2K.asl $(HOTPATCH)/SSDT-KEY102.asl $(HOTPATCH)/SSDT-USB-1040-G3.asl $(HOTPATCH)/SSDT-XHC.asl $(HOTPATCH)/SSDT-BATT-G3.asl
+
+$(BUILDDIR)/SSDT-ZBook-G1-Haswell.aml: $(HOTPATCH)/SSDT-PluginType1.asl $(HOTPATCH)/SSDT-HACK.asl $(HOTPATCH)/include/layout17_HDEF.asl $(HOTPATCH)/include/layout17_HDAU.asl $(HOTPATCH)/include/standard_PS2K.asl $(HOTPATCH)/SSDT-KEY87.asl $(HOTPATCH)/SSDT-USB-ZBook-G1.asl $(HOTPATCH)/SSDT-XHC.asl $(HOTPATCH)/SSDT-BATT.asl
+
+$(BUILDDIR)/SSDT-ZBook-G2-Haswell.aml: $(HOTPATCH)/SSDT-PluginType1.asl $(HOTPATCH)/SSDT-HACK.asl $(HOTPATCH)/include/layout17_HDEF.asl $(HOTPATCH)/include/layout17_HDAU.asl $(HOTPATCH)/include/standard_PS2K.asl $(HOTPATCH)/SSDT-KEY87.asl $(HOTPATCH)/SSDT-USB-ZBook-G2.asl $(HOTPATCH)/SSDT-XHC.asl $(HOTPATCH)/SSDT-BATT-G2.asl
+
+$(BUILDDIR)/SSDT-ZBook-G2-Broadwell.aml: $(HOTPATCH)/SSDT-PluginType1.asl $(HOTPATCH)/SSDT-HACK.asl $(HOTPATCH)/include/layout4_HDEF.asl $(HOTPATCH)/include/layout4_HDAU.asl $(HOTPATCH)/include/standard_PS2K.asl $(HOTPATCH)/SSDT-KEY87.asl $(HOTPATCH)/SSDT-USB-ZBook-G2.asl $(HOTPATCH)/SSDT-XHC.asl $(HOTPATCH)/SSDT-BATT-G2.asl $(HOTPATCH)/SSDT-RP05_DGFX_RDSS.asl
+
+$(BUILDDIR)/SSDT-ZBook-G3-Skylake.aml: $(HOTPATCH)/SSDT-PluginType1.asl $(HOTPATCH)/SSDT-HACK.asl $(HOTPATCH)/include/layout7_HDEF.asl $(HOTPATCH)/include/disable_HECI.asl $(HOTPATCH)/include/key86_PS2K.asl $(HOTPATCH)/SSDT-KEY87.asl $(HOTPATCH)/SSDT-USB-ZBook-G3.asl $(HOTPATCH)/SSDT-XHC.asl $(HOTPATCH)/SSDT-BATT-G3.asl $(HOTPATCH)/SSDT-RP01_PEGP_RDSS.asl
+
+$(BUILDDIR)/SSDT-4x0-G4-Kabylake.aml: $(HOTPATCH)/SSDT-PluginType1.asl $(HOTPATCH)/SSDT-HACK.asl $(HOTPATCH)/include/layout20_HDEF.asl $(HOTPATCH)/include/disable_HECI.asl $(HOTPATCH)/include/key86_PS2K.asl $(HOTPATCH)/SSDT-KEY87.asl $(HOTPATCH)/SSDT-USB-4x0-G4.asl $(HOTPATCH)/SSDT-XHC.asl $(HOTPATCH)/SSDT-BATT-G4.asl $(HOTPATCH)/SSDT-RP01_PXSX_RDSS.asl
+
 # generated config.plist files
 
 PARTS=config_parts
@@ -434,19 +504,19 @@ IASLOPTS=-vw 2095 -vw 2146 -vw 2089 -vr
 # Snow Leopard cannot handle SSDTs with the external opcode, so Snow Leopard users must enable this flag
 #IASLOPTS:=$(IASLOPTS) -oe
 
-$(BUILDDIR)/%.aml : hotpatch/%.dsl
-	iasl $(IASLOPTS) -p $@ $^
+$(BUILDDIR)/%.aml : $(HOTPATCH)/%.dsl
+	iasl $(IASLOPTS) -p $@ $<
 
-$(BUILDDIR)/SSDT-IGPU-HIRES.aml : hotpatch/SSDT-IGPU.dsl
-	iasl -D HIRES $(IASLOPTS) -p $@ $^
+$(BUILDDIR)/SSDT-IGPU-HIRES.aml : $(HOTPATCH)/SSDT-IGPU.dsl
+	iasl -D HIRES $(IASLOPTS) -p $@ $<
 
-$(BUILDDIR)/SSDT-FAN-QUIET.aml : hotpatch/SSDT-FAN-QUIET.dsl
-	iasl -D QUIET $(IASLOPTS) -p $@ $^
+$(BUILDDIR)/SSDT-FAN-QUIET.aml : $(HOTPATCH)/SSDT-FAN-QUIET.dsl
+	iasl -D QUIET $(IASLOPTS) -p $@ $<
 
-$(BUILDDIR)/SSDT-FAN-MOD.aml : hotpatch/SSDT-FAN-QUIET.dsl
-	iasl -D REHABMAN $(IASLOPTS) -p $@ $^
+$(BUILDDIR)/SSDT-FAN-MOD.aml : $(HOTPATCH)/SSDT-FAN-QUIET.dsl
+	iasl -D REHABMAN $(IASLOPTS) -p $@ $<
 
-$(BUILDDIR)/SSDT-FAN-SMOOTH.aml : hotpatch/SSDT-FAN-QUIET.dsl
-	iasl -D GRAPPLER $(IASLOPTS) -p $@ $^
+$(BUILDDIR)/SSDT-FAN-SMOOTH.aml : $(HOTPATCH)/SSDT-FAN-QUIET.dsl
+	iasl -D GRAPPLER $(IASLOPTS) -p $@ $<
 
 

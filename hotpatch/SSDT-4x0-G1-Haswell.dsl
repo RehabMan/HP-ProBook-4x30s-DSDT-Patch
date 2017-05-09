@@ -2,6 +2,7 @@
 
 DefinitionBlock ("", "SSDT", 2, "hack", "4x0g1h", 0)
 {
+    #include "SSDT-PluginType1.asl"
     #include "SSDT-HACK.asl"
     #include "include/layout17_HDEF.asl"
     #include "include/layout17_HDAU.asl"

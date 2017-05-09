@@ -271,6 +271,14 @@
 					<key>Replace</key>
 					<data>WFJFRwKgFJNoCgM=</data>
 				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>RTC fix</string>
+					<key>Find</key>
+					<data>RwFwAHAAAQg=</data>
+					<key>Replace</key>
+					<data>RwFwAHAAAQI=</data>
+				</dict>
 			</array>
 		</dict>
 		<key>DropTables</key>
