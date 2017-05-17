@@ -12,6 +12,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "4x0g4k", 0)
     #include "SSDT-XHC.asl"
     #include "SSDT-BATT-G4.asl"
     #include "SSDT-RP01_PXSX_RDSS.asl"
+    #include "SSDT-USBX.asl"
 
     // This USWE code is specific to the Skylake G3
     External(USWE, FieldUnitObj)
