@@ -4,18 +4,18 @@ DefinitionBlock ("", "SSDT", 2, "hack", "fan", 0)
 {
     External(\_SB.PCI0, DeviceObj)
     External(\_SB.PCI0.LPCB, DeviceObj)
-    External(\_SB.PCI0.LPCB.EC0, DeviceObj)
-    External(\_SB.PCI0.LPCB.EC0.ECMX, MutexObj)
-    External(\_SB.PCI0.LPCB.EC0.CRZN, FieldUnitObj)
-    External(\_SB.PCI0.LPCB.EC0.TEMP, FieldUnitObj)
+    External(\_SB.PCI0.LPCB.EC, DeviceObj)
+    External(\_SB.PCI0.LPCB.EC.ECMX, MutexObj)
+    External(\_SB.PCI0.LPCB.EC.CRZN, FieldUnitObj)
+    External(\_SB.PCI0.LPCB.EC.TEMP, FieldUnitObj)
 
     // This is created by 04b_FanQuietMod.txt
     // It is my preferred Fan patch
     Device (SMCD)
     {
-        External(\_SB.PCI0.LPCB.EC0.FRDC, FieldUnitObj)
-        External(\_SB.PCI0.LPCB.EC0.DTMP, FieldUnitObj)
-        External(\_SB.PCI0.LPCB.EC0.FTGC, FieldUnitObj)
+        External(\_SB.PCI0.LPCB.EC.FRDC, FieldUnitObj)
+        External(\_SB.PCI0.LPCB.EC.DTMP, FieldUnitObj)
+        External(\_SB.PCI0.LPCB.EC.FTGC, FieldUnitObj)
         
         Name (_HID, "FAN00000") // _HID: Hardware ID
         // ACPISensors.kext configuration
@@ -35,25 +35,25 @@ DefinitionBlock ("", "SSDT", 2, "hack", "fan", 0)
         // Actual methods to implement fan/temp readings/control
         Method (FAN0, 0, Serialized)
         {
-            Local0 = \_SB.PCI0.LPCB.EC0.FRDC
+            Local0 = \_SB.PCI0.LPCB.EC.FRDC
             If (Local0) { Divide (Add(0x3C000, ShiftRight(Local0,1)), Local0,, Local0) }
             If (0x03C4 == Local0) { Return (Zero) }
             Return (Local0)
         }
         Method (TCPU, 0, Serialized)
         {
-            Acquire (\_SB.PCI0.LPCB.EC0.ECMX, 0xFFFF)
-            \_SB.PCI0.LPCB.EC0.CRZN = 1
-            Local0 = \_SB.PCI0.LPCB.EC0.DTMP
-            Release (\_SB.PCI0.LPCB.EC0.ECMX)
+            Acquire (\_SB.PCI0.LPCB.EC.ECMX, 0xFFFF)
+            \_SB.PCI0.LPCB.EC.CRZN = 1
+            Local0 = \_SB.PCI0.LPCB.EC.DTMP
+            Release (\_SB.PCI0.LPCB.EC.ECMX)
             Return (Local0)
         }
         Method (TAMB, 0, Serialized)
         {
-            Acquire (\_SB.PCI0.LPCB.EC0.ECMX, 0xFFFF)
-            \_SB.PCI0.LPCB.EC0.CRZN = 4
-            Local0 = \_SB.PCI0.LPCB.EC0.TEMP
-            Release (\_SB.PCI0.LPCB.EC0.ECMX)
+            Acquire (\_SB.PCI0.LPCB.EC.ECMX, 0xFFFF)
+            \_SB.PCI0.LPCB.EC.CRZN = 4
+            Local0 = \_SB.PCI0.LPCB.EC.TEMP
+            Release (\_SB.PCI0.LPCB.EC.ECMX)
             Return (Local0)
         }
 #ifdef DEBUG
@@ -130,17 +130,17 @@ DefinitionBlock ("", "SSDT", 2, "hack", "fan", 0)
         // Fan control for CPU -- expects to be evaluated 1-per second
         Method(FCPU, 0)
         {
-            Acquire(\_SB.PCI0.LPCB.EC0.ECMX, 0xFFFF)
+            Acquire(\_SB.PCI0.LPCB.EC.ECMX, 0xFFFF)
             // setup fake temperature (this is the key to controlling the fan!)
-            \_SB.PCI0.LPCB.EC0.CRZN = 1  // select CPU temp
-            \_SB.PCI0.LPCB.EC0.TEMP = 31 // write fake value there (31C)
+            \_SB.PCI0.LPCB.EC.CRZN = 1  // select CPU temp
+            \_SB.PCI0.LPCB.EC.TEMP = 31 // write fake value there (31C)
             // get current temp into Local0 for eventual return
             // Note: reading from DTMP here instead of TEMP because we wrote
             //  a fake temp to TEMP to trick the system into running the fan
             //	at a lower speed than it otherwise would.
-            \_SB.PCI0.LPCB.EC0.CRZN = 1  // select CPU temp
-            Local0 = \_SB.PCI0.LPCB.EC0.DTMP // Local0 is current temp
-            Release(\_SB.PCI0.LPCB.EC0.ECMX)
+            \_SB.PCI0.LPCB.EC.CRZN = 1  // select CPU temp
+            Local0 = \_SB.PCI0.LPCB.EC.DTMP // Local0 is current temp
+            Release(\_SB.PCI0.LPCB.EC.ECMX)
 
             // calculate average temperature
             Local1 = Local0 + FSUM
@@ -196,7 +196,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "fan", 0)
                 {
                     // timeout expired, so set new fan speed
                     FLST = Local2
-                    \_SB.PCI0.LPCB.EC0.FTGC = DerefOf(FTA2[Local2])
+                    \_SB.PCI0.LPCB.EC.FTGC = DerefOf(FTA2[Local2])
                     FCNT = 0
                 }
             }

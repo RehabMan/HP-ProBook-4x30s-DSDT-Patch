@@ -143,15 +143,15 @@
         }
     }
 
-    External(_SB.PCI0.LPCB.EC0, DeviceObj)
-    External(_SB.PCI0.LPCB.EC0.XREG, MethodObj)
+    External(_SB.PCI0.LPCB.EC, DeviceObj)
+    External(_SB.PCI0.LPCB.EC.XREG, MethodObj)
     External(_SB.PCI0.RP01.PEGP.RDSS, MethodObj)
     External(_SB.PCI0.RP05.DGFX.RDSS, MethodObj)
     External(_SB.PCI0.RP01.PXSX.RDSS, MethodObj)
     External(_SB.PCI0.RP05.PEGP.RDSS, MethodObj)
 
     // original _REG is renamed to XREG
-    Scope(_SB.PCI0.LPCB.EC0)
+    Scope(_SB.PCI0.LPCB.EC)
     {
         OperationRegion(ECR3, EmbeddedControl, 0x00, 0xFF)
         Method(_REG, 2)
