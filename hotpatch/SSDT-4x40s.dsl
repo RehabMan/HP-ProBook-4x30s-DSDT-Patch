@@ -2,6 +2,7 @@
 
 DefinitionBlock ("", "SSDT", 2, "hack", "4x40", 0)
 {
+    #include "SSDT-RMCF.asl"
     #include "SSDT-HACK.asl"
     #include "include/layout13_HDEF.asl"
     #include "include/standard_PS2K.asl"

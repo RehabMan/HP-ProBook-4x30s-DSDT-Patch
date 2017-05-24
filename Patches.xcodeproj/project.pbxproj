@@ -124,6 +124,8 @@
 		ED824E1C1CCFC43500EFDDF2 /* make_config.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = make_config.sh; sourceTree = "<group>"; };
 		ED824E1D1CCFC43500EFDDF2 /* build.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = build.sh; sourceTree = "<group>"; };
 		ED824E1F1CCFC46D00EFDDF2 /* config_ZBook_G0.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_ZBook_G0.plist; path = config/config_ZBook_G0.plist; sourceTree = "<group>"; };
+		ED841A011ED636A800A0B6BB /* xhc_pmee.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = xhc_pmee.asl; path = hotpatch/include/xhc_pmee.asl; sourceTree = "<group>"; };
+		ED841A021ED637AB00A0B6BB /* SSDT-RMCF.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-RMCF.asl"; path = "hotpatch/SSDT-RMCF.asl"; sourceTree = "<group>"; };
 		ED8D01121E18596D009A8C63 /* SSDT-USB-ZBook-G3.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-USB-ZBook-G3.asl"; path = "hotpatch/SSDT-USB-ZBook-G3.asl"; sourceTree = "<group>"; };
 		ED8D01131E185D62009A8C63 /* SSDT-ZBook-G3-Skylake.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-ZBook-G3-Skylake.dsl"; path = "hotpatch/SSDT-ZBook-G3-Skylake.dsl"; sourceTree = "<group>"; };
 		ED8D4ED41E9C39C700F87978 /* SSDT-IGPU.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-IGPU.dsl"; path = "hotpatch/SSDT-IGPU.dsl"; sourceTree = "<group>"; };
@@ -516,6 +518,7 @@
 				ED6354D31D38643B00C77357 /* standard_PS2K_data.asl */,
 				ED6354D21D38643B00C77357 /* key86_data.asl */,
 				ED97E91D1CC75350006C757A /* disable_HECI.asl */,
+				ED841A011ED636A800A0B6BB /* xhc_pmee.asl */,
 				ED97E9121CC75350006C757A /* layout3_HDAU.asl */,
 				ED97E9131CC75350006C757A /* layout3_HDEF.asl */,
 				ED97E9141CC75350006C757A /* layout4_HDAU.asl */,
@@ -541,6 +544,7 @@
 				EDA987001CC71F8D00D10BEC /* include */,
 				ED923A2A1CC9407E00BD18E2 /* usb customization */,
 				ED97E9441CC757D7006C757A /* SSDT-HACK.asl */,
+				ED841A021ED637AB00A0B6BB /* SSDT-RMCF.asl */,
 				ED083BA91EC2644E00CEA724 /* SSDT-PluginType1.asl */,
 				ED8D4ED41E9C39C700F87978 /* SSDT-IGPU.dsl */,
 				84D207AD1E64F63F0083EC17 /* SSDT-RP01_PEGP_RDSS.asl */,
