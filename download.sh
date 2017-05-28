@@ -40,6 +40,8 @@ download os-x-brcmpatchram RehabMan-BrcmPatchRAM
 download os-x-atheros-3k-firmware RehabMan-Atheros
 download os-x-acpi-poller RehabMan-Poller
 download os-x-usb-inject-all RehabMan-USBInjectAll
+download lilu RehabMan-Lilu
+download intelgraphicsfixup RehabMan-IntelGraphicsFixup
 #download os-x-acpi-debug RehabMan-Debug
 cd ..
 
