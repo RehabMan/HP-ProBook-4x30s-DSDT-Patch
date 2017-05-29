@@ -8,21 +8,6 @@
 		<string>Kaby Lake CPU supportable by using CPUID from Skylake</string>
 		<key>FakeCPUID</key>
 		<string>0x0506e3</string>
-		<key>KernelToPatch</key>
-		<array>
-			<dict>
-				<key>Comment</key>
-				<string>MSR 0xE2 _xcpm_idle instant reboot(c) Pike R. Alpha</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>ILniAAAADzA=</data>
-				<key>MatchOS</key>
-				<string>10.12.x</string>
-				<key>Replace</key>
-				<data>ILniAAAAkJA=</data>
-			</dict>
-		</array>
 	</dict>
 </dict>
 </plist>

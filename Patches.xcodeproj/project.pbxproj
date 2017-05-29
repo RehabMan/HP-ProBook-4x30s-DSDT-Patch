@@ -484,7 +484,6 @@
 			isa = PBXGroup;
 			children = (
 				ED97E9201CC755BE006C757A /* config_master.plist */,
-				84F681FD1E74D52C0097D85D /* config_Kabylake.plist */,
 				ED97E92E1CC755BE006C757A /* config_non_Intel_USB3.plist */,
 				ED407DA81CF4FCFA00A03010 /* config_HD3000.plist */,
 				ED97E9231CC755BE006C757A /* config_HD3000_hdmi_audio.plist */,
@@ -495,6 +494,7 @@
 				ED97E9211CC755BE006C757A /* config_Broadwell.plist */,
 				ED407DA61CF4FC8B00A03010 /* config_Broadwell_hdmi_audio.plist */,
 				ED97E9251CC755BE006C757A /* config_Skylake.plist */,
+				84F681FD1E74D52C0097D85D /* config_Kabylake.plist */,
 				ED407DA51CF4FC8B00A03010 /* config_Skylake_hdmi_audio.plist */,
 				ED97E9261CC755BE006C757A /* config_CX20724.plist */,
 				84F681FE1E74D62A0097D85D /* config_CX8200.plist */,
