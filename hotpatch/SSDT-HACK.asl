@@ -41,18 +41,12 @@
 //
 // DGPU disable (and related shutdown fix)
 //
-    External(\_SB.PCI0.PEGP.DGFX._OFF, MethodObj)
-    External(\_SB.PCI0.PEGP.DGFX._ON, MethodObj)
-    External(\_SB.PCI0.PEG0.PEGP._OFF, MethodObj)
-    External(\_SB.PCI0.PEG0.PEGP._ON, MethodObj)
-    External(\_SB.PCI0.RP05.DGFX._OFF, MethodObj)
-    External(\_SB.PCI0.RP05.DGFX._ON, MethodObj)
-    External(\_SB.PCI0.RP01.PEGP._OFF, MethodObj)
-    External(\_SB.PCI0.RP01.PEGP._ON, MethodObj)
-    External(\_SB.PCI0.RP01.PXSX._OFF, MethodObj)
-    External(\_SB.PCI0.RP01.PXSX._ON, MethodObj)
-    External(\_SB.PCI0.RP05.PEGP._OFF, MethodObj)
-    External(\_SB.PCI0.RP05.PEGP._ON, MethodObj)
+    External(\_SB.PCI0.PEGP.DGFX._OFF, MethodObj) External(\_SB.PCI0.PEGP.DGFX._ON, MethodObj)
+    External(\_SB.PCI0.PEG0.PEGP._OFF, MethodObj) External(\_SB.PCI0.PEG0.PEGP._ON, MethodObj)
+    External(\_SB.PCI0.RP05.DGFX._OFF, MethodObj) External(\_SB.PCI0.RP05.DGFX._ON, MethodObj)
+    External(\_SB.PCI0.RP01.PEGP._OFF, MethodObj) External(\_SB.PCI0.RP01.PEGP._ON, MethodObj)
+    External(\_SB.PCI0.RP01.PXSX._OFF, MethodObj) External(\_SB.PCI0.RP01.PXSX._ON, MethodObj)
+    External(\_SB.PCI0.RP05.PEGP._OFF, MethodObj) External(\_SB.PCI0.RP05.PEGP._ON, MethodObj)
 
     // In DSDT, native _PTS and _WAK are renamed ZPTS/ZWAK
     // As a result, calls to these methods land here.
@@ -60,7 +54,9 @@
     {
         // Disable XHC PMEE if XPEE is specified 1
         // This fixes "auto restart after shutdown" with USB devices connected
+#ifndef DEFINED_RMCF_XPEE
         External(\RMCF.XPEE, IntObj)
+#endif
         If (CondRefOf(\RMCF.XPEE))
         {
             If (1 == \RMCF.XPEE && 5 == Arg0)
@@ -118,10 +114,18 @@
 
     External(_SB.PCI0.LPCB.EC, DeviceObj)
     External(_SB.PCI0.LPCB.EC.XREG, MethodObj)
+#ifndef DEFINED_RP01_PEGP_RDSS
     External(_SB.PCI0.RP01.PEGP.RDSS, MethodObj)
+#endif
+#ifndef DEFINED_RP05_DGFX_RDSS
     External(_SB.PCI0.RP05.DGFX.RDSS, MethodObj)
+#endif
+#ifndef DEFINED_RP01_PXSX_RDSS
     External(_SB.PCI0.RP01.PXSX.RDSS, MethodObj)
+#endif
+#ifndef DEFINED_RP05_PEGP_RDSS
     External(_SB.PCI0.RP05.PEGP.RDSS, MethodObj)
+#endif
 
     // original _REG is renamed to XREG
     Scope(_SB.PCI0.LPCB.EC)

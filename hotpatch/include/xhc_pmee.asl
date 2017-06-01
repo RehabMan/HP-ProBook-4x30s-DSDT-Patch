@@ -1,3 +1,5 @@
+#define DEFINED_RMCF_XPEE
+
 // Usually used on Skylake/KabyLake to disable XHC.PMEE on shutdown
 // include only after SSDT-RMCF.asl
 

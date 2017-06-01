@@ -1,3 +1,5 @@
+#define DEFINED_RP01_PXSX_RDSS
+
 //DefinitionBlock ("", "SSDT", 2, "hack", "01PXSX", 0)
 //{
     External(_SB.PCI0.RP01.PXSX, DeviceObj)

@@ -5,6 +5,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "zbg3s", 0)
     #include "SSDT-RMCF.asl"
     #include "include/xhc_pmee.asl"
     #include "SSDT-PluginType1.asl"
+    #include "SSDT-RP01_PEGP_RDSS.asl"
     #include "SSDT-HACK.asl"
     #include "include/layout7_HDEF.asl"
     #include "include/disable_HECI.asl"
@@ -13,7 +14,6 @@ DefinitionBlock ("", "SSDT", 2, "hack", "zbg3s", 0)
     #include "SSDT-USB-ZBook-G3.asl"
     #include "SSDT-XHC.asl"
     #include "SSDT-BATT-G3.asl"
-    #include "SSDT-RP01_PEGP_RDSS.asl"
     #include "SSDT-USBX.asl"
 
     // This USWE code is specific to the Skylake G3

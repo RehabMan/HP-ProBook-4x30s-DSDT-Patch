@@ -4,6 +4,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "1020g1b", 0)
 {
     #include "SSDT-RMCF.asl"
     #include "SSDT-PluginType1.asl"
+    #include "SSDT-RP05_DGFX_RDSS.asl"
     #include "SSDT-HACK.asl"
     #include "include/layout6_HDEF.asl"
     #include "include/layout6_HDAU.asl"
@@ -33,6 +34,5 @@ DefinitionBlock ("", "SSDT", 2, "hack", "1020g1b", 0)
     #include "SSDT-USB-1020-G1.asl"
     #include "SSDT-XHC.asl"
     #include "SSDT-BATT-G2.asl"
-    #include "SSDT-RP05_DGFX_RDSS.asl"
 }
 //EOF

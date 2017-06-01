@@ -1,3 +1,5 @@
+#define DEFINED_RP05_DGFX_RDSS
+
 //DefinitionBlock ("", "SSDT", 2, "hack", "05DGFX", 0)
 //{
     External(_SB.PCI0.RP05.DGFX, DeviceObj)
