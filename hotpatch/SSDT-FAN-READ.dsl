@@ -10,6 +10,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "fan", 0)
     External(\_SB.PCI0.LPCB.EC.TEMP, FieldUnitObj)
     External(\_SB.PCI0.LPCB.EC.FRDC, FieldUnitObj)
     External(\_SB.PCI0.LPCB.EC.DTMP, FieldUnitObj)    
+    External(\_SB.PCI0.LPCB.EC.ECRG, IntObj)
 
     // This is created by 04c_FanSpeed.txt
     Device (SMCD)
@@ -30,6 +31,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "fan", 0)
         // Actual methods to implement fan/temp readings/control
         Method (FAN0, 0, Serialized)
         {
+            If (!\_SB.PCI0.LPCB.EC.ECRG) { Return(0) }
             Local0 = \_SB.PCI0.LPCB.EC.FRDC
             If (Local0) { Local0 = (0x3C000 + (Local0 >> 1)) / Local0 }
             If (0x03C4 == Local0) { Return (0) }
@@ -37,6 +39,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "fan", 0)
         }
         Method (TCPU, 0, Serialized)
         {
+            If (!\_SB.PCI0.LPCB.EC.ECRG) { Return(0) }
             Acquire (\_SB.PCI0.LPCB.EC.ECMX, 0xFFFF)
             \_SB.PCI0.LPCB.EC.CRZN = 1
             Local0 = \_SB.PCI0.LPCB.EC.DTMP
@@ -45,6 +48,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "fan", 0)
         }
         Method (TAMB, 0, Serialized)
         {
+            If (!\_SB.PCI0.LPCB.EC.ECRG) { Return(0) }
             Acquire (\_SB.PCI0.LPCB.EC.ECMX, 0xFFFF)
             \_SB.PCI0.LPCB.EC.CRZN = 4
             Local0 = \_SB.PCI0.LPCB.EC.TEMP

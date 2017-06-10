@@ -16,6 +16,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "fan", 0)
         External(\_SB.PCI0.LPCB.EC.FRDC, FieldUnitObj)
         External(\_SB.PCI0.LPCB.EC.DTMP, FieldUnitObj)
         External(\_SB.PCI0.LPCB.EC.FTGC, FieldUnitObj)
+        External(\_SB.PCI0.LPCB.EC.ECRG, IntObj)
         
         Name (_HID, "FAN00000") // _HID: Hardware ID
         // ACPISensors.kext configuration
@@ -35,6 +36,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "fan", 0)
         // Actual methods to implement fan/temp readings/control
         Method (FAN0, 0, Serialized)
         {
+            If (!\_SB.PCI0.LPCB.EC.ECRG) { Return(0) }
             Local0 = \_SB.PCI0.LPCB.EC.FRDC
             If (Local0) { Divide (Add(0x3C000, ShiftRight(Local0,1)), Local0,, Local0) }
             If (0x03C4 == Local0) { Return (Zero) }
@@ -42,6 +44,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "fan", 0)
         }
         Method (TCPU, 0, Serialized)
         {
+            If (!\_SB.PCI0.LPCB.EC.ECRG) { Return(0) }
             Acquire (\_SB.PCI0.LPCB.EC.ECMX, 0xFFFF)
             \_SB.PCI0.LPCB.EC.CRZN = 1
             Local0 = \_SB.PCI0.LPCB.EC.DTMP
@@ -50,6 +53,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "fan", 0)
         }
         Method (TAMB, 0, Serialized)
         {
+            If (!\_SB.PCI0.LPCB.EC.ECRG) { Return(0) }
             Acquire (\_SB.PCI0.LPCB.EC.ECMX, 0xFFFF)
             \_SB.PCI0.LPCB.EC.CRZN = 4
             Local0 = \_SB.PCI0.LPCB.EC.TEMP
@@ -130,6 +134,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "fan", 0)
         // Fan control for CPU -- expects to be evaluated 1-per second
         Method(FCPU, 0)
         {
+            If (!\_SB.PCI0.LPCB.EC.ECRG) { Return(0) }
             Acquire(\_SB.PCI0.LPCB.EC.ECMX, 0xFFFF)
             // setup fake temperature (this is the key to controlling the fan!)
             \_SB.PCI0.LPCB.EC.CRZN = 1  // select CPU temp
