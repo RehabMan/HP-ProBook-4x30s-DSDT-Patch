@@ -105,6 +105,10 @@
         External(\_SB.PCI0.LPCB.EC.BATN, FieldUnitObj)
         External(\PRDT, FieldUnitObj)
         
+        // ITLB is renamed to ITL1 for other models... delegation necessary
+        External(\_SB.PCI0.LPCB.EC.ITL1, MethodObj)
+        Method(ITLB, 0) { ITL1() }
+
         // BTIF/BTST methods are renamed in native DSDT, so calls land here...
         Method (BTIF, 1, Serialized)
         {
