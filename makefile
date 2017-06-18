@@ -159,7 +159,7 @@ $(BUILDDIR)/SSDT-8x0-G2-Haswell.aml: $(HOTPATCH)/SSDT-PluginType1.asl $(HOTPATCH
 
 $(BUILDDIR)/SSDT-4x0-G2-Broadwell.aml: $(HOTPATCH)/SSDT-PluginType1.asl $(HOTPATCH)/SSDT-RMCF.asl $(HOTPATCH)/SSDT-HACK.asl $(HOTPATCH)/include/layout3_HDEF.asl $(HOTPATCH)/include/layout3_HDAU.asl $(HOTPATCH)/include/standard_PS2K.asl $(HOTPATCH)/SSDT-KEY87.asl $(HOTPATCH)/SSDT-USB-4x0-G2.asl $(HOTPATCH)/SSDT-XHC.asl $(HOTPATCH)/SSDT-BATT-G2.asl $(HOTPATCH)/SSDT-RP05_DGFX_RDSS.asl
 
-$(BUILDDIR)/SSDT-8x0-G2-Broadwell.aml: $(HOTPATCH)/SSDT-PluginType1.asl $(HOTPATCH)/SSDT-RMCF.asl $(HOTPATCH)/SSDT-HACK.asl $(HOTPATCH)/include/layout4_HDEF.asl $(HOTPATCH)/include/layout4_HDAU.asl $(HOTPATCH)/include/standard_PS2K.asl $(HOTPATCH)/SSDT-KEY87.asl $(HOTPATCH)/SSDT-USB-8x0-G2.asl $(HOTPATCH)/SSDT-XHC.asl $(HOTPATCH)/SSDT-BATT-G2.asl $(HOTPATCH)/SSDT-RP05_DGFX_RDSS.asl
+$(BUILDDIR)/SSDT-8x0-G2-Broadwell.aml: $(HOTPATCH)/SSDT-PluginType1.asl $(HOTPATCH)/SSDT-RMCF.asl $(HOTPATCH)/include/xhc_pmee.asl $(HOTPATCH)/SSDT-HACK.asl $(HOTPATCH)/include/layout4_HDEF.asl $(HOTPATCH)/include/layout4_HDAU.asl $(HOTPATCH)/include/standard_PS2K.asl $(HOTPATCH)/SSDT-KEY87.asl $(HOTPATCH)/SSDT-USB-8x0-G2.asl $(HOTPATCH)/SSDT-XHC.asl $(HOTPATCH)/SSDT-BATT-G2.asl $(HOTPATCH)/SSDT-RP05_DGFX_RDSS.asl
 
 $(BUILDDIR)/SSDT-1020-G1-Broadwell.aml: $(HOTPATCH)/SSDT-PluginType1.asl $(HOTPATCH)/SSDT-RMCF.asl $(HOTPATCH)/SSDT-HACK.asl $(HOTPATCH)/include/layout6_HDEF.asl $(HOTPATCH)/include/layout6_HDAU.asl $(HOTPATCH)/include/standard_PS2K.asl $(HOTPATCH)/SSDT-KEY87.asl $(HOTPATCH)/SSDT-USB-1020-G1.asl $(HOTPATCH)/SSDT-XHC.asl $(HOTPATCH)/SSDT-BATT-G2.asl $(HOTPATCH)/SSDT-RP05_DGFX_RDSS.asl
 
