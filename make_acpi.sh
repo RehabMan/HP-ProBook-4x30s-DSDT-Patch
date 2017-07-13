@@ -38,3 +38,4 @@ iasl -vw 2095 -vw 2146 -vw 2089 -vr -p build/SSDT-ZBook-G2-Haswell.aml hotpatch/
 iasl -vw 2095 -vw 2146 -vw 2089 -vr -p build/SSDT-ZBook-G3-Skylake.aml hotpatch/SSDT-ZBook-G3-Skylake.dsl
 iasl -D HIRES -vw 2095 -vw 2146 -vw 2089 -vr -p build/SSDT-IGPU-HIRES.aml hotpatch/SSDT-IGPU.dsl
 iasl -D REHABMAN -vw 2095 -vw 2146 -vw 2089 -vr -p build/SSDT-FAN-MOD.aml hotpatch/SSDT-FAN-QUIET.dsl
+iasl -D GRAPPLER -vw 2095 -vw 2146 -vw 2089 -vr -p build/SSDT-FAN-SMOOTH.aml hotpatch/SSDT-FAN-QUIET.dsl

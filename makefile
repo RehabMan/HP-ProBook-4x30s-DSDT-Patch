@@ -26,7 +26,7 @@ HACK=$(wildcard $(HOTPATCH)/*.dsl)
 HACK:=$(subst $(HOTPATCH),$(BUILDDIR),$(HACK))
 HACK:=$(subst .dsl,.aml,$(HACK))
 HACK:=$(HACK) $(BUILDDIR)/SSDT-IGPU-HIRES.aml
-HACK:=$(HACK) $(BUILDDIR)/SSDT-FAN-QUIET.aml $(BUILDDIR)/SSDT-FAN-MOD.aml
+HACK:=$(HACK) $(BUILDDIR)/SSDT-FAN-QUIET.aml $(BUILDDIR)/SSDT-FAN-MOD.aml $(BUILDDIR)/SSDT-FAN-SMOOTH.aml
 
 # system specfic config.plist
 PLIST:=config/config_4x30s.plist config/config_4x40s.plist \
