@@ -200,6 +200,7 @@
 		ED97E9571CC757D7006C757A /* SSDT-KEY87.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-KEY87.asl"; path = "hotpatch/SSDT-KEY87.asl"; sourceTree = "<group>"; };
 		ED97E9581CC757D7006C757A /* SSDT-KEY102.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-KEY102.asl"; path = "hotpatch/SSDT-KEY102.asl"; sourceTree = "<group>"; };
 		ED9C6C2F1CCA74D0000A578F /* install_tools.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = install_tools.sh; sourceTree = "<group>"; };
+		ED9CD3A61F376730004C5906 /* SSDT-USB-4x0-G0.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-USB-4x0-G0.asl"; path = "hotpatch/SSDT-USB-4x0-G0.asl"; sourceTree = "<group>"; };
 		ED9E98FA1CC905E90032E2A3 /* config_ZBook_G2_Broadwell.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_ZBook_G2_Broadwell.plist; path = config/config_ZBook_G2_Broadwell.plist; sourceTree = "<group>"; };
 		ED9E98FB1CC905FA0032E2A3 /* SSDT-ZBook-G2-Broadwell.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-ZBook-G2-Broadwell.dsl"; path = "hotpatch/SSDT-ZBook-G2-Broadwell.dsl"; sourceTree = "<group>"; };
 		EDA152011CC82A4B0040A5C0 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -462,6 +463,7 @@
 				EDE939211D1AF9F0009B5E36 /* SSDT-USB-8x70.asl */,
 				ED507CCE1CDCDAF400E14F67 /* SSDT-USB-9x70.asl */,
 				ED71FE561D53981100EEF9F9 /* SSDT-USB-9x80.asl */,
+				ED9CD3A61F376730004C5906 /* SSDT-USB-4x0-G0.asl */,
 				EDEED57B1D412694005A5AC2 /* SSDT-USB-4x0-G1.asl */,
 				ED17156E1D070F3C00219AC6 /* SSDT-USB-6x0-G1.asl */,
 				ED97E9461CC757D7006C757A /* SSDT-USB-8x0-G1.asl */,
