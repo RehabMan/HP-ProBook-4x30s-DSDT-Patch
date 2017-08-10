@@ -126,6 +126,7 @@
 		ED824E1F1CCFC46D00EFDDF2 /* config_ZBook_G0.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_ZBook_G0.plist; path = config/config_ZBook_G0.plist; sourceTree = "<group>"; };
 		ED841A011ED636A800A0B6BB /* xhc_pmee.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = xhc_pmee.asl; path = hotpatch/include/xhc_pmee.asl; sourceTree = "<group>"; };
 		ED841A021ED637AB00A0B6BB /* SSDT-RMCF.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-RMCF.asl"; path = "hotpatch/SSDT-RMCF.asl"; sourceTree = "<group>"; };
+		ED89CD261F393FDC00D752F9 /* config_Kabylake_hdmi_audio.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_Kabylake_hdmi_audio.plist; path = config_parts/config_Kabylake_hdmi_audio.plist; sourceTree = "<group>"; };
 		ED8D01121E18596D009A8C63 /* SSDT-USB-ZBook-G3.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-USB-ZBook-G3.asl"; path = "hotpatch/SSDT-USB-ZBook-G3.asl"; sourceTree = "<group>"; };
 		ED8D01131E185D62009A8C63 /* SSDT-ZBook-G3-Skylake.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-ZBook-G3-Skylake.dsl"; path = "hotpatch/SSDT-ZBook-G3-Skylake.dsl"; sourceTree = "<group>"; };
 		ED8D4ED41E9C39C700F87978 /* SSDT-IGPU.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-IGPU.dsl"; path = "hotpatch/SSDT-IGPU.dsl"; sourceTree = "<group>"; };
@@ -496,8 +497,9 @@
 				ED97E9211CC755BE006C757A /* config_Broadwell.plist */,
 				ED407DA61CF4FC8B00A03010 /* config_Broadwell_hdmi_audio.plist */,
 				ED97E9251CC755BE006C757A /* config_Skylake.plist */,
-				84F681FD1E74D52C0097D85D /* config_Kabylake.plist */,
 				ED407DA51CF4FC8B00A03010 /* config_Skylake_hdmi_audio.plist */,
+				84F681FD1E74D52C0097D85D /* config_Kabylake.plist */,
+				ED89CD261F393FDC00D752F9 /* config_Kabylake_hdmi_audio.plist */,
 				ED97E9261CC755BE006C757A /* config_CX20724.plist */,
 				84F681FE1E74D62A0097D85D /* config_CX8200.plist */,
 				ED97E9271CC755BE006C757A /* config_ALC280.plist */,

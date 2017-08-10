@@ -128,19 +128,23 @@ DefinitionBlock ("", "SSDT", 2, "hack", "igpu", 0)
             0x5916, 0, Package()
             {
                 "model", Buffer() { "Intel HD Graphics 620" },
-                "device-id", Buffer() { 0x1b, 0x19, 0x00, 0x00 },
-                //"hda-gfx", Buffer() { "onboard-1" },
-                "AAPL,ig-platform-id", Buffer() { 0x00, 0x00, 0x1b, 0x19 },
-                "AAPL,GfxYTile", Buffer() { 1, 0, 0, 0 },
+                //SKL spoof: "device-id", Buffer() { 0x1b, 0x19, 0x00, 0x00 },
+                //"device-id", Buffer() { 0x16, 0x59, 0x00, 0x00 },
+                "hda-gfx", Buffer() { "onboard-1" },
+                //SKL spoof: "AAPL,ig-platform-id", Buffer() { 0x00, 0x00, 0x1b, 0x19 },
+                "AAPL,ig-platform-id", Buffer() { 0x00, 0x00, 0x16, 0x59 },
+                //SKL spoof: "AAPL,GfxYTile", Buffer() { 1, 0, 0, 0 },
             },
             // Kaby Lake/HD630
             0x5912, 0x591b, 0, Package()
             {
                 "model", Buffer() { "Intel HD Graphics 630" },
-                "device-id", Buffer() { 0x1b, 0x19, 0x00, 0x00 },
-                //"hda-gfx", Buffer() { "onboard-1" },
-                "AAPL,ig-platform-id", Buffer() { 0x00, 0x00, 0x1b, 0x19 },
-                "AAPL,GfxYTile", Buffer() { 1, 0, 0, 0 },
+                //SKL spoof: "device-id", Buffer() { 0x1b, 0x19, 0x00, 0x00 },
+                //"device-id", Buffer() { 0x1b, 0x59, 0x00, 0x00 },
+                "hda-gfx", Buffer() { "onboard-1" },
+                //SKL spoof: "AAPL,ig-platform-id", Buffer() { 0x00, 0x00, 0x1b, 0x19 },
+                "AAPL,ig-platform-id", Buffer() { 0x00, 0x00, 0x16, 0x59 },
+                //SKL spoof: "AAPL,GfxYTile", Buffer() { 1, 0, 0, 0 },
             },
         })
 

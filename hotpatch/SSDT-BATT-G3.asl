@@ -1,5 +1,8 @@
 // battery status patched for ProBook G3 (Skylake) laptops
 
+//REVIEW: currently not used, as BIOS seems to be updated to the SSDT-BATT-G4.asl code
+// This file can eventually be removed.
+
 //DefinitionBlock ("", "SSDT", 2, "hack", "battg3", 0)
 //{
     External(\_SB.PCI0, DeviceObj)

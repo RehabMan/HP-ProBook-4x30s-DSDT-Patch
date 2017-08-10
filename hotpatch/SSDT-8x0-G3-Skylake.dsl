@@ -13,7 +13,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "8x0g3s", 0)
     #include "SSDT-KEY102.asl"
     #include "SSDT-USB-8x0-G3.asl"
     #include "SSDT-XHC.asl"
-    #include "SSDT-BATT-G3.asl"
+    #include "SSDT-BATT-G4.asl" //REVIEW: using SSDT-BATT-G4 instead of SSDT-BATT-G3
     #include "SSDT-USBX.asl"
 
     // This USWE code is specific to the Skylake G3

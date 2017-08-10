@@ -3,7 +3,7 @@
 
     "Keyboard", Package()
     {
-        "Function Keys Standard", Package()
+        "Function Keys Special", Package()
         {
             Package(){},
             "3b=3b",    // F1
@@ -31,7 +31,7 @@
                         //Fn+F11=F11
                         //Fn+F12=F12
         },
-        "Function Keys Special", Package()
+        "Function Keys Standard", Package()
         {
             Package(){},
             "3b=e05f",  // F1

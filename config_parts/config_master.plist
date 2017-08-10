@@ -448,6 +448,8 @@
 		<true/>
 		<key>AsusAICPUPM</key>
 		<true/>
+		<key>KernelIvyXCPM</key>
+		<false/>
 		<key>KernelLapic</key>
 		<false/>
 		<key>KernelPm</key>

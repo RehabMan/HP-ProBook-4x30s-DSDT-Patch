@@ -163,13 +163,13 @@ $(BUILDDIR)/SSDT-8x0-G2-Broadwell.aml: $(HOTPATCH)/SSDT-PluginType1.asl $(HOTPAT
 
 $(BUILDDIR)/SSDT-1020-G1-Broadwell.aml: $(HOTPATCH)/SSDT-PluginType1.asl $(HOTPATCH)/SSDT-RMCF.asl $(HOTPATCH)/SSDT-HACK.asl $(HOTPATCH)/include/layout6_HDEF.asl $(HOTPATCH)/include/layout6_HDAU.asl $(HOTPATCH)/include/standard_PS2K.asl $(HOTPATCH)/SSDT-KEY87.asl $(HOTPATCH)/SSDT-USB-1020-G1.asl $(HOTPATCH)/SSDT-XHC.asl $(HOTPATCH)/SSDT-BATT-G2.asl $(HOTPATCH)/SSDT-RP05_DGFX_RDSS.asl
 
-$(BUILDDIR)/SSDT-4x0-G3-Skylake.aml: $(HOTPATCH)/SSDT-PluginType1.asl $(HOTPATCH)/SSDT-RMCF.asl $(HOTPATCH)/include/xhc_pmee.asl $(HOTPATCH)/SSDT-HACK.asl $(HOTPATCH)/include/layout7_HDEF.asl $(HOTPATCH)/include/disable_HECI.asl $(HOTPATCH)/include/standard_PS2K.asl $(HOTPATCH)/SSDT-KEY102.asl $(HOTPATCH)/SSDT-USB-4x0-G3.asl $(HOTPATCH)/SSDT-XHC.asl $(HOTPATCH)/SSDT-BATT-G3.asl $(HOTPATCH)/SSDT-RP01_PEGP_RDSS.asl $(HOTPATCH)/SSDT-USBX.asl
+$(BUILDDIR)/SSDT-4x0-G3-Skylake.aml: $(HOTPATCH)/SSDT-PluginType1.asl $(HOTPATCH)/SSDT-RMCF.asl $(HOTPATCH)/include/xhc_pmee.asl $(HOTPATCH)/SSDT-HACK.asl $(HOTPATCH)/include/layout7_HDEF.asl $(HOTPATCH)/include/disable_HECI.asl $(HOTPATCH)/include/key86_PS2K.asl $(HOTPATCH)/SSDT-KEY102.asl $(HOTPATCH)/SSDT-USB-4x0-G3.asl $(HOTPATCH)/SSDT-XHC.asl $(HOTPATCH)/SSDT-BATT-G4.asl $(HOTPATCH)/SSDT-RP01_PEGP_RDSS.asl $(HOTPATCH)/SSDT-USBX.asl
 
 $(BUILDDIR)/SSDT-6x0-G2-Skylake.aml: $(HOTPATCH)/SSDT-PluginType1.asl $(HOTPATCH)/SSDT-RMCF.asl $(HOTPATCH)/include/xhc_pmee.asl $(HOTPATCH)/SSDT-HACK.asl $(HOTPATCH)/include/layout7_HDEF.asl $(HOTPATCH)/include/disable_HECI.asl $(HOTPATCH)/include/key86_PS2K.asl $(HOTPATCH)/SSDT-KEY102.asl $(HOTPATCH)/SSDT-USB-640-G2.asl $(HOTPATCH)/SSDT-XHC.asl $(HOTPATCH)/SSDT-BATT-G2.asl $(HOTPATCH)/SSDT-RP05_PEGP_RDSS.asl $(HOTPATCH)/SSDT-USBX.asl
 
-$(BUILDDIR)/SSDT-8x0-G3-Skylake.aml: $(HOTPATCH)/SSDT-PluginType1.asl $(HOTPATCH)/SSDT-RMCF.asl $(HOTPATCH)/include/xhc_pmee.asl $(HOTPATCH)/SSDT-HACK.asl $(HOTPATCH)/include/layout7_HDEF.asl $(HOTPATCH)/include/disable_HECI.asl $(HOTPATCH)/include/key86_PS2K.asl $(HOTPATCH)/SSDT-KEY102.asl $(HOTPATCH)/SSDT-USB-8x0-G3.asl $(HOTPATCH)/SSDT-XHC.asl $(HOTPATCH)/SSDT-BATT-G3.asl $(HOTPATCH)/SSDT-RP05_PEGP_RDSS.asl $(HOTPATCH)/SSDT-USBX.asl
+$(BUILDDIR)/SSDT-8x0-G3-Skylake.aml: $(HOTPATCH)/SSDT-PluginType1.asl $(HOTPATCH)/SSDT-RMCF.asl $(HOTPATCH)/include/xhc_pmee.asl $(HOTPATCH)/SSDT-HACK.asl $(HOTPATCH)/include/layout7_HDEF.asl $(HOTPATCH)/include/disable_HECI.asl $(HOTPATCH)/include/key86_PS2K.asl $(HOTPATCH)/SSDT-KEY102.asl $(HOTPATCH)/SSDT-USB-8x0-G3.asl $(HOTPATCH)/SSDT-XHC.asl $(HOTPATCH)/SSDT-BATT-G4.asl $(HOTPATCH)/SSDT-RP05_PEGP_RDSS.asl $(HOTPATCH)/SSDT-USBX.asl
 
-$(BUILDDIR)/SSDT-1040-G3-Skylake.aml: $(HOTPATCH)/SSDT-PluginType1.asl $(HOTPATCH)/SSDT-RMCF.asl $(HOTPATCH)/include/xhc_pmee.asl $(HOTPATCH)/SSDT-HACK.asl $(HOTPATCH)/include/layout7_HDEF.asl $(HOTPATCH)/include/disable_HECI.asl $(HOTPATCH)/include/key86_PS2K.asl $(HOTPATCH)/SSDT-KEY102.asl $(HOTPATCH)/SSDT-USB-1040-G3.asl $(HOTPATCH)/SSDT-XHC.asl $(HOTPATCH)/SSDT-BATT-G3.asl $(HOTPATCH)/SSDT-USBX.asl
+$(BUILDDIR)/SSDT-1040-G3-Skylake.aml: $(HOTPATCH)/SSDT-PluginType1.asl $(HOTPATCH)/SSDT-RMCF.asl $(HOTPATCH)/include/xhc_pmee.asl $(HOTPATCH)/SSDT-HACK.asl $(HOTPATCH)/include/layout7_HDEF.asl $(HOTPATCH)/include/disable_HECI.asl $(HOTPATCH)/include/key86_PS2K.asl $(HOTPATCH)/SSDT-KEY102.asl $(HOTPATCH)/SSDT-USB-1040-G3.asl $(HOTPATCH)/SSDT-XHC.asl $(HOTPATCH)/SSDT-BATT-G4.asl $(HOTPATCH)/SSDT-USBX.asl
 
 $(BUILDDIR)/SSDT-ZBook-G1-Haswell.aml: $(HOTPATCH)/SSDT-PluginType1.asl $(HOTPATCH)/SSDT-RMCF.asl $(HOTPATCH)/SSDT-HACK.asl $(HOTPATCH)/include/layout17_HDEF.asl $(HOTPATCH)/include/layout17_HDAU.asl $(HOTPATCH)/include/standard_PS2K.asl $(HOTPATCH)/SSDT-KEY87.asl $(HOTPATCH)/SSDT-USB-ZBook-G1.asl $(HOTPATCH)/SSDT-XHC.asl $(HOTPATCH)/SSDT-BATT.asl
 
@@ -177,7 +177,7 @@ $(BUILDDIR)/SSDT-ZBook-G2-Haswell.aml: $(HOTPATCH)/SSDT-PluginType1.asl $(HOTPAT
 
 $(BUILDDIR)/SSDT-ZBook-G2-Broadwell.aml: $(HOTPATCH)/SSDT-PluginType1.asl $(HOTPATCH)/SSDT-RMCF.asl $(HOTPATCH)/SSDT-HACK.asl $(HOTPATCH)/include/layout4_HDEF.asl $(HOTPATCH)/include/layout4_HDAU.asl $(HOTPATCH)/include/standard_PS2K.asl $(HOTPATCH)/SSDT-KEY87.asl $(HOTPATCH)/SSDT-USB-ZBook-G2.asl $(HOTPATCH)/SSDT-XHC.asl $(HOTPATCH)/SSDT-BATT-G2.asl $(HOTPATCH)/SSDT-RP05_DGFX_RDSS.asl
 
-$(BUILDDIR)/SSDT-ZBook-G3-Skylake.aml: $(HOTPATCH)/SSDT-PluginType1.asl $(HOTPATCH)/SSDT-RMCF.asl $(HOTPATCH)/include/xhc_pmee.asl $(HOTPATCH)/SSDT-HACK.asl $(HOTPATCH)/include/layout7_HDEF.asl $(HOTPATCH)/include/disable_HECI.asl $(HOTPATCH)/include/key86_PS2K.asl $(HOTPATCH)/SSDT-KEY87.asl $(HOTPATCH)/SSDT-USB-ZBook-G3.asl $(HOTPATCH)/SSDT-XHC.asl $(HOTPATCH)/SSDT-BATT-G3.asl $(HOTPATCH)/SSDT-RP01_PEGP_RDSS.asl $(HOTPATCH)/SSDT-USBX.asl
+$(BUILDDIR)/SSDT-ZBook-G3-Skylake.aml: $(HOTPATCH)/SSDT-PluginType1.asl $(HOTPATCH)/SSDT-RMCF.asl $(HOTPATCH)/include/xhc_pmee.asl $(HOTPATCH)/SSDT-HACK.asl $(HOTPATCH)/include/layout7_HDEF.asl $(HOTPATCH)/include/disable_HECI.asl $(HOTPATCH)/include/key86_PS2K.asl $(HOTPATCH)/SSDT-KEY87.asl $(HOTPATCH)/SSDT-USB-ZBook-G3.asl $(HOTPATCH)/SSDT-XHC.asl $(HOTPATCH)/SSDT-BATT-G4.asl $(HOTPATCH)/SSDT-RP01_PEGP_RDSS.asl $(HOTPATCH)/SSDT-USBX.asl
 
 $(BUILDDIR)/SSDT-4x0-G4-Kabylake.aml: $(HOTPATCH)/SSDT-PluginType1.asl $(HOTPATCH)/SSDT-RMCF.asl $(HOTPATCH)/include/xhc_pmee.asl $(HOTPATCH)/SSDT-HACK.asl $(HOTPATCH)/include/layout20_HDEF.asl $(HOTPATCH)/include/disable_HECI.asl $(HOTPATCH)/include/key86_PS2K.asl $(HOTPATCH)/SSDT-KEY87.asl $(HOTPATCH)/SSDT-USB-4x0-G4.asl $(HOTPATCH)/SSDT-XHC.asl $(HOTPATCH)/SSDT-BATT-G4.asl $(HOTPATCH)/SSDT-RP01_PXSX_RDSS.asl $(HOTPATCH)/SSDT-USBX.asl
 
@@ -488,8 +488,8 @@ config/config_1040_G3_Skylake.plist : $(PARTS)/config_master.plist $(PARTS)/conf
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_CX20724.plist $@
 	@printf "\n"
 
-# ProBook_4x0s_G4_Kabylake is CX8200, Kabylake (Skylake graphics spoofed), HDMI
-config/config_4x0s_G4_Kabylake.plist : $(PARTS)/config_master.plist $(PARTS)/config_CX20724.plist $(PARTS)/config_Skylake.plist $(PARTS)/config_Skylake_hdmi_audio.plist
+# ProBook_4x0s_G4_Kabylake is CX8200, Kabylake (or spoofed Skylake), HDMI
+config/config_4x0s_G4_Kabylake.plist : $(PARTS)/config_master.plist $(PARTS)/config_CX20724.plist $(PARTS)/config_Skylake.plist $(PARTS)/config_Kabylake.plist $(PARTS)/config_Kabylake_hdmi_audio.plist
 	@printf "!! creating $@\n"
 	cp $(PARTS)/config_master.plist $@
 	/usr/libexec/PlistBuddy -c "Set KernelAndKextPatches:AsusAICPUPM false" $@
@@ -498,6 +498,7 @@ config/config_4x0s_G4_Kabylake.plist : $(PARTS)/config_master.plist $(PARTS)/con
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_Skylake.plist $@
 	./merge_plist.sh "KernelAndKextPatches:KernelToPatch" $(PARTS)/config_Skylake.plist $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_Skylake_hdmi_audio.plist $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_Kabylake_hdmi_audio.plist $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_CX8200.plist $@
 	@printf "\n"
 

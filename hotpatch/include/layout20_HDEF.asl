@@ -9,6 +9,7 @@
             "layout-id", Buffer(4) { 20, 0, 0, 0 },
             "hda-gfx", Buffer() { "onboard-1" },
             "PinConfigurations", Buffer() { },
+            "RM,disable_FakePCIID", 1,  //SKL spoof: remove or set zero
         })
     }
 
