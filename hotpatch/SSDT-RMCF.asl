@@ -8,12 +8,20 @@
         Name(_ADR, 0)   // do not remove
         Method(HELP)
         {
+            Store("IGPI overrides ig-platform-id or snb-platform-id", Debug)
             Store("DGPU indicates whether discrete GPU should be disabled. 1: yes, 0: no", Debug)
             Store("BKLT indicates the type of backlight control. 0: IntelBacklight, 1: AppleBacklight", Debug)
             Store("LMAX indicates max for IGPU PWM backlight. Ones: Use default, other values must match framebuffer", Debug)
             Store("SHUT enables shutdown fix. 1: disables _PTS code when Arg0==5", Debug)
             Store("XPEE enables xHCI PMEE fix. 1: disable xHCI PMEE on _PTS when Arg0==5, 0: do not mess with XHC.PMEE", Debug)
         }
+
+        // IGPI: Override for ig-platform-id (or snb-platform-id).  Will be used if non-zero.
+        // For example, if you wanted to inject a bogus id, 0x12345678
+        //    Name(IGPI, 0x12345678)
+        // You can also set it to Ones to disable IGPU injection
+        //    Name(IGPI, Ones)
+        //Name(IGPI, 0)
 
         // DGPU: Controls whether the DGPU is disabled via ACPI or not
         // 1: (default) DGPU is disabled at startup, enabled in _PTS, disabled in _WAK

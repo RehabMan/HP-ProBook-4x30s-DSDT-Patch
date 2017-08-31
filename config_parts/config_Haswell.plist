@@ -36,6 +36,26 @@
 				<key>Replace</key>
 				<data>AwYDAAAEAACHAAAA</data>
 			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Adjust 0x0d260007 PWMMax from 0x07a1 to 0x0ad9</string>
+				<key>Name</key>
+				<string>com.apple.driver.AppleIntelFramebufferAzul</string>
+				<key>Find</key>
+				<data>oQcAAKEHAAA=</data>
+				<key>Replace</key>
+				<data>2QoAANkKAAA=</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>DP port 0306, 0x0d260007</string>
+				<key>Name</key>
+				<string>com.apple.driver.AppleIntelFramebufferAzul</string>
+				<key>Find</key>
+				<data>AwYDAAAIAAAGAAAA</data>
+				<key>Replace</key>
+				<data>AwYDAAAEAAAGAAAA</data>
+			</dict>
 		</array>
 	</dict>
 </dict>

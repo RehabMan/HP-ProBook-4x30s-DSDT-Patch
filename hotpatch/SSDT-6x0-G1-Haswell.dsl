@@ -3,6 +3,7 @@
 DefinitionBlock ("", "SSDT", 2, "hack", "6x0g1h", 0)
 {
     #include "SSDT-RMCF.asl"
+    #include "include/ig_0d260007.asl"
     #include "SSDT-PluginType1.asl"
     #include "SSDT-HACK.asl"
     #include "include/layout17_HDEF.asl"

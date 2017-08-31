@@ -99,6 +99,7 @@
 		ED407DA71CF4FC8B00A03010 /* config_Haswell_hdmi_audio.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_Haswell_hdmi_audio.plist; path = config_parts/config_Haswell_hdmi_audio.plist; sourceTree = "<group>"; };
 		ED407DA81CF4FCFA00A03010 /* config_HD3000.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_HD3000.plist; path = config_parts/config_HD3000.plist; sourceTree = "<group>"; };
 		ED507CCE1CDCDAF400E14F67 /* SSDT-USB-9x70.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-USB-9x70.asl"; path = "hotpatch/SSDT-USB-9x70.asl"; sourceTree = "<group>"; };
+		ED5282A81F3E0CA7007CCC1B /* ig_0d260007.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ig_0d260007.asl; path = hotpatch/include/ig_0d260007.asl; sourceTree = "<group>"; };
 		ED5F0FDA1CE218160097FADC /* SSDT-ZBook-G1-Haswell.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-ZBook-G1-Haswell.dsl"; path = "hotpatch/SSDT-ZBook-G1-Haswell.dsl"; sourceTree = "<group>"; };
 		ED634E2619FD2A9B00289C54 /* 14_ProBook-102key.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "14_ProBook-102key.txt"; path = "patches/14_ProBook-102key.txt"; sourceTree = "<group>"; };
 		ED634E2719FD2B3E00289C54 /* 14_ProBook-87key.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "14_ProBook-87key.txt"; path = "patches/14_ProBook-87key.txt"; sourceTree = "<group>"; };
@@ -429,12 +430,12 @@
 				ED71FE551D53978500EEF9F9 /* SSDT-9x80.dsl */,
 				ED97E9311CC757D7006C757A /* SSDT-4x0-G0.dsl */,
 				ED97E9301CC757D7006C757A /* SSDT-3x0-G1.dsl */,
-				ED97E9421CC757D7006C757A /* SSDT-1040-G1-Haswell.dsl */,
 				ED97E9331CC757D7006C757A /* SSDT-4x0-G1-Ivy.dsl */,
 				ED97E93C1CC757D7006C757A /* SSDT-8x0-G1-Ivy.dsl */,
 				ED97E9321CC757D7006C757A /* SSDT-4x0-G1-Haswell.dsl */,
 				ED023EB31CFDC75C00C5F3A2 /* SSDT-6x0-G1-Haswell.dsl */,
 				ED97E93B1CC757D7006C757A /* SSDT-8x0-G1-Haswell.dsl */,
+				ED97E9421CC757D7006C757A /* SSDT-1040-G1-Haswell.dsl */,
 				ED97E9351CC757D7006C757A /* SSDT-4x0-G2-Haswell.dsl */,
 				ED97E93E1CC757D7006C757A /* SSDT-8x0-G2-Haswell.dsl */,
 				ED97E9341CC757D7006C757A /* SSDT-4x0-G2-Broadwell.dsl */,
@@ -523,6 +524,7 @@
 				ED6354D21D38643B00C77357 /* key86_data.asl */,
 				ED97E91D1CC75350006C757A /* disable_HECI.asl */,
 				ED841A011ED636A800A0B6BB /* xhc_pmee.asl */,
+				ED5282A81F3E0CA7007CCC1B /* ig_0d260007.asl */,
 				ED97E9121CC75350006C757A /* layout3_HDAU.asl */,
 				ED97E9131CC75350006C757A /* layout3_HDEF.asl */,
 				ED97E9141CC75350006C757A /* layout4_HDAU.asl */,
