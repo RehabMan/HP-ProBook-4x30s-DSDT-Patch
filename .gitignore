@@ -4,8 +4,8 @@ Patches.xcodeproj/project.xcworkspace/xcuserdata/
 Patches.xcodeproj/project.xcworkspace/xcshareddata/
 Patches.xcodeproj/xcuserdata/
 backlight/AppleBacklightInjector.kext
-Build/*
-!Build/readme.txt
+build/*
+!build/readme.txt
 downloads
 config/config_*.plist
 AppleHDAHCD_ProBook.kext
