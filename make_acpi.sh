@@ -24,6 +24,7 @@ iasl -vw 2095 -vw 2146 -vw 2089 -vr -p build/SSDT-8x0-G1-Ivy.aml hotpatch/SSDT-8
 iasl -vw 2095 -vw 2146 -vw 2089 -vr -p build/SSDT-8x0-G2-Broadwell.aml hotpatch/SSDT-8x0-G2-Broadwell.dsl
 iasl -vw 2095 -vw 2146 -vw 2089 -vr -p build/SSDT-8x0-G2-Haswell.aml hotpatch/SSDT-8x0-G2-Haswell.dsl
 iasl -vw 2095 -vw 2146 -vw 2089 -vr -p build/SSDT-8x0-G3-Skylake.aml hotpatch/SSDT-8x0-G3-Skylake.dsl
+iasl -vw 2095 -vw 2146 -vw 2089 -vr -p build/SSDT-8x0-G4-Kabylake.aml hotpatch/SSDT-8x0-G4-Kabylake.dsl
 iasl -vw 2095 -vw 2146 -vw 2089 -vr -p build/SSDT-8x60.aml hotpatch/SSDT-8x60.dsl
 iasl -vw 2095 -vw 2146 -vw 2089 -vr -p build/SSDT-8x70.aml hotpatch/SSDT-8x70.dsl
 iasl -vw 2095 -vw 2146 -vw 2089 -vr -p build/SSDT-9x70.aml hotpatch/SSDT-9x70.dsl

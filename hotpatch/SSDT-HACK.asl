@@ -46,6 +46,7 @@
     External(\_SB.PCI0.RP05.DGFX._OFF, MethodObj) External(\_SB.PCI0.RP05.DGFX._ON, MethodObj)
     External(\_SB.PCI0.RP01.PEGP._OFF, MethodObj) External(\_SB.PCI0.RP01.PEGP._ON, MethodObj)
     External(\_SB.PCI0.RP01.PXSX._OFF, MethodObj) External(\_SB.PCI0.RP01.PXSX._ON, MethodObj)
+    External(\_SB.PCI0.RP05.PXSX._OFF, MethodObj) External(\_SB.PCI0.RP05.PXSX._ON, MethodObj)
     External(\_SB.PCI0.RP05.PEGP._OFF, MethodObj) External(\_SB.PCI0.RP05.PEGP._ON, MethodObj)
 
     // In DSDT, native _PTS and _WAK are renamed ZPTS/ZWAK
@@ -73,6 +74,7 @@
             If (CondRefOf(\_SB.PCI0.RP05.DGFX._ON)) { \_SB.PCI0.RP05.DGFX._ON() }
             If (CondRefOf(\_SB.PCI0.RP01.PEGP._ON)) { \_SB.PCI0.RP01.PEGP._ON() }
             If (CondRefOf(\_SB.PCI0.RP01.PXSX._ON)) { \_SB.PCI0.RP01.PXSX._ON() }
+            If (CondRefOf(\_SB.PCI0.RP05.PXSX._ON)) { \_SB.PCI0.RP05.PXSX._ON() }
             If (CondRefOf(\_SB.PCI0.RP05.PEGP._ON)) { \_SB.PCI0.RP05.PEGP._ON() }
         }
         External(\ZPTS, MethodObj)
@@ -90,6 +92,7 @@
             If (CondRefOf(\_SB.PCI0.RP05.DGFX._OFF)) { \_SB.PCI0.RP05.DGFX._OFF() }
             If (CondRefOf(\_SB.PCI0.RP01.PEGP._OFF)) { \_SB.PCI0.RP01.PEGP._OFF() }
             If (CondRefOf(\_SB.PCI0.RP01.PXSX._OFF)) { \_SB.PCI0.RP01.PXSX._OFF() }
+            If (CondRefOf(\_SB.PCI0.RP05.PXSX._OFF)) { \_SB.PCI0.RP05.PXSX._OFF() }
             If (CondRefOf(\_SB.PCI0.RP05.DGFX._OFF)) { \_SB.PCI0.RP05.PEGP._OFF() }
         }
         Return(Local0)
@@ -107,6 +110,7 @@
                 If (CondRefOf(\_SB.PCI0.RP05.DGFX._OFF)) { \_SB.PCI0.RP05.DGFX._OFF() }
                 If (CondRefOf(\_SB.PCI0.RP01.PEGP._OFF)) { \_SB.PCI0.RP01.PEGP._OFF() }
                 If (CondRefOf(\_SB.PCI0.RP01.PXSX._OFF)) { \_SB.PCI0.RP01.PXSX._OFF() }
+                If (CondRefOf(\_SB.PCI0.RP05.PXSX._OFF)) { \_SB.PCI0.RP05.PXSX._OFF() }
                 If (CondRefOf(\_SB.PCI0.RP05.DGFX._OFF)) { \_SB.PCI0.RP05.PEGP._OFF() }
             }
         }
@@ -122,6 +126,9 @@
 #endif
 #ifndef DEFINED_RP01_PXSX_RDSS
     External(_SB.PCI0.RP01.PXSX.RDSS, MethodObj)
+#endif
+#ifndef DEFINED_RP05_PXSX_RDSS
+    External(_SB.PCI0.RP05.PXSX.RDSS, MethodObj)
 #endif
 #ifndef DEFINED_RP05_PEGP_RDSS
     External(_SB.PCI0.RP05.PEGP.RDSS, MethodObj)
@@ -140,6 +147,7 @@
             If (3 == Arg0 && 1 == Arg1)
             {
                 If (CondRefOf(\_SB.PCI0.RP01.PEGP.RDSS)) { \_SB.PCI0.RP01.PEGP.RDSS(0) }
+                If (CondRefOf(\_SB.PCI0.RP05.PEGP.RDSS)) { \_SB.PCI0.RP05.PEGP.RDSS(0) }
                 If (CondRefOf(\_SB.PCI0.RP05.DGFX.RDSS)) { \_SB.PCI0.RP05.DGFX.RDSS(0) }
                 If (CondRefOf(\_SB.PCI0.RP01.PXSX.RDSS)) { \_SB.PCI0.RP01.PXSX.RDSS(0) }
                 If (CondRefOf(\_SB.PCI0.RP05.DGFX.RDSS)) { \_SB.PCI0.RP05.PEGP.RDSS(0) }

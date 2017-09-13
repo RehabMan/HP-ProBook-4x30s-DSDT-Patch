@@ -47,7 +47,7 @@ PLIST:=config/config_4x30s.plist config/config_4x40s.plist \
 	config/config_6x0_G2_Skylake.plist \
 	config/config_1040_G1_Haswell.plist config/config_6x0s_G1_Haswell.plist \
 	config/config_1040_G3_Skylake.plist \
-	config/config_4x0s_G4_Kabylake.plist
+	config/config_4x0s_G4_Kabylake.plist config/config_8x0_G4_Kabylake.plist
 
 .PHONY: all
 all : $(HACK) $(PLIST) $(HDAHCDINJECT) $(HDAINJECT)
@@ -180,6 +180,8 @@ $(BUILDDIR)/SSDT-ZBook-G2-Broadwell.aml: $(HOTPATCH)/SSDT-PluginType1.asl $(HOTP
 $(BUILDDIR)/SSDT-ZBook-G3-Skylake.aml: $(HOTPATCH)/SSDT-PluginType1.asl $(HOTPATCH)/SSDT-RMCF.asl $(HOTPATCH)/include/xhc_pmee.asl $(HOTPATCH)/SSDT-HACK.asl $(HOTPATCH)/include/layout7_HDEF.asl $(HOTPATCH)/include/disable_HECI.asl $(HOTPATCH)/include/key86_PS2K.asl $(HOTPATCH)/SSDT-KEY87.asl $(HOTPATCH)/SSDT-USB-ZBook-G3.asl $(HOTPATCH)/SSDT-XHC.asl $(HOTPATCH)/SSDT-BATT-G4.asl $(HOTPATCH)/SSDT-RP01_PEGP_RDSS.asl $(HOTPATCH)/SSDT-USBX.asl
 
 $(BUILDDIR)/SSDT-4x0-G4-Kabylake.aml: $(HOTPATCH)/SSDT-PluginType1.asl $(HOTPATCH)/SSDT-RMCF.asl $(HOTPATCH)/include/xhc_pmee.asl $(HOTPATCH)/SSDT-HACK.asl $(HOTPATCH)/include/layout20_HDEF.asl $(HOTPATCH)/include/disable_HECI.asl $(HOTPATCH)/include/key86_PS2K.asl $(HOTPATCH)/SSDT-KEY87.asl $(HOTPATCH)/SSDT-USB-4x0-G4.asl $(HOTPATCH)/SSDT-XHC.asl $(HOTPATCH)/SSDT-BATT-G4.asl $(HOTPATCH)/SSDT-RP01_PXSX_RDSS.asl $(HOTPATCH)/SSDT-USBX.asl
+
+$(BUILDDIR)/SSDT-8x0-G4-Kabylake.aml: $(HOTPATCH)/SSDT-PluginType1.asl $(HOTPATCH)/SSDT-RMCF.asl $(HOTPATCH)/include/xhc_pmee.asl $(HOTPATCH)/SSDT-HACK.asl $(HOTPATCH)/include/layout20_HDEF.asl $(HOTPATCH)/include/disable_HECI.asl $(HOTPATCH)/include/key86_PS2K.asl $(HOTPATCH)/SSDT-KEY87.asl $(HOTPATCH)/SSDT-USB-8x0-G4.asl $(HOTPATCH)/SSDT-XHC.asl $(HOTPATCH)/SSDT-BATT-G4.asl $(HOTPATCH)/SSDT-RP01_PXSX_RDSS.asl $(HOTPATCH)/SSDT-USBX.asl
 
 # generated config.plist files
 
@@ -489,7 +491,7 @@ config/config_1040_G3_Skylake.plist : $(PARTS)/config_master.plist $(PARTS)/conf
 	@printf "\n"
 
 # ProBook_4x0s_G4_Kabylake is CX8200, Kabylake (or spoofed Skylake), HDMI
-config/config_4x0s_G4_Kabylake.plist : $(PARTS)/config_master.plist $(PARTS)/config_CX20724.plist $(PARTS)/config_Skylake.plist $(PARTS)/config_Kabylake.plist $(PARTS)/config_Kabylake_hdmi_audio.plist
+config/config_4x0s_G4_Kabylake.plist : $(PARTS)/config_master.plist $(PARTS)/config_CX20724.plist $(PARTS)/config_Skylake.plist $(PARTS)/config_Kabylake.plist $(PARTS)/config_Skylake_hdmi_audio.plist $(PARTS)/config_Kabylake_hdmi_audio.plist
 	@printf "!! creating $@\n"
 	cp $(PARTS)/config_master.plist $@
 	/usr/libexec/PlistBuddy -c "Set KernelAndKextPatches:AsusAICPUPM false" $@
@@ -502,6 +504,17 @@ config/config_4x0s_G4_Kabylake.plist : $(PARTS)/config_master.plist $(PARTS)/con
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_CX8200.plist $@
 	@printf "\n"
 
+# EliteBook_8x0_G4_Kabylake is CX8200, Kabylake (or spoofed Skylake), DP
+config/config_8x0_G4_Kabylake.plist : $(PARTS)/config_master.plist $(PARTS)/config_CX20724.plist $(PARTS)/config_Skylake.plist $(PARTS)/config_Kabylake.plist
+	@printf "!! creating $@\n"
+	cp $(PARTS)/config_master.plist $@
+	/usr/libexec/PlistBuddy -c "Set KernelAndKextPatches:AsusAICPUPM false" $@
+	/usr/libexec/PlistBuddy -c "Set :SMBIOS:ProductName MacBookPro11,1" $@
+	./merge_plist.sh "KernelAndKextPatches" $(PARTS)/config_Kabylake.plist $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_Skylake.plist $@
+	./merge_plist.sh "KernelAndKextPatches:KernelToPatch" $(PARTS)/config_Skylake.plist $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_CX8200.plist $@
+	@printf "\n"
 
 # new hotpatch SSDTs
 

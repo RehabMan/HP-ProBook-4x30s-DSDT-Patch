@@ -210,6 +210,9 @@
 		EDA70AD21CEFEE6B009D2AA7 /* SSDT-5x30.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-5x30.dsl"; path = "hotpatch/SSDT-5x30.dsl"; sourceTree = "<group>"; };
 		EDA9D5501D2D48C600DA4204 /* SSDT-6x0-G2-Skylake.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-6x0-G2-Skylake.dsl"; path = "hotpatch/SSDT-6x0-G2-Skylake.dsl"; sourceTree = "<group>"; };
 		EDAB27061D3953E800FD5D06 /* SSDT-USB-640-G2.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-USB-640-G2.asl"; path = "hotpatch/SSDT-USB-640-G2.asl"; sourceTree = "<group>"; };
+		EDB4C8A91F69720900DC39F3 /* SSDT-8x0-G4-Kabylake.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-8x0-G4-Kabylake.dsl"; path = "hotpatch/SSDT-8x0-G4-Kabylake.dsl"; sourceTree = "<group>"; };
+		EDB4C8AB1F6972A500DC39F3 /* SSDT-USB-8x0-G4.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-USB-8x0-G4.asl"; path = "hotpatch/SSDT-USB-8x0-G4.asl"; sourceTree = "<group>"; };
+		EDB4C8AC1F69738900DC39F3 /* SSDT-RP05_PXSX_RDSS.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-RP05_PXSX_RDSS.asl"; path = "hotpatch/SSDT-RP05_PXSX_RDSS.asl"; sourceTree = "<group>"; };
 		EDB9A1031ECCE6FE002297BB /* SSDT-USBX.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-USBX.asl"; path = "hotpatch/SSDT-USBX.asl"; sourceTree = "<group>"; };
 		EDBB1BE71E993AAA00F49BDE /* SSDT-USB-4x0-G4.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-USB-4x0-G4.asl"; path = "hotpatch/SSDT-USB-4x0-G4.asl"; sourceTree = "<group>"; };
 		EDBC2FA01CC7062B00D9DFC5 /* config_1040_G1_Haswell.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_1040_G1_Haswell.plist; path = config/config_1040_G1_Haswell.plist; sourceTree = "<group>"; };
@@ -450,6 +453,7 @@
 				ED9E98FB1CC905FA0032E2A3 /* SSDT-ZBook-G2-Broadwell.dsl */,
 				ED8D01131E185D62009A8C63 /* SSDT-ZBook-G3-Skylake.dsl */,
 				84F681FF1E74D6D80097D85D /* SSDT-4x0-G4-Kabylake.dsl */,
+				EDB4C8A91F69720900DC39F3 /* SSDT-8x0-G4-Kabylake.dsl */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -480,6 +484,7 @@
 				845E536C1D0D34880069A1F9 /* SSDT-USB-1020-G1.asl */,
 				EDF5303F1DB5766700CAE028 /* SSDT-USB-1040-G3.asl */,
 				EDBB1BE71E993AAA00F49BDE /* SSDT-USB-4x0-G4.asl */,
+				EDB4C8AB1F6972A500DC39F3 /* SSDT-USB-8x0-G4.asl */,
 			);
 			name = "usb customization";
 			sourceTree = "<group>";
@@ -553,10 +558,11 @@
 				ED841A021ED637AB00A0B6BB /* SSDT-RMCF.asl */,
 				ED083BA91EC2644E00CEA724 /* SSDT-PluginType1.asl */,
 				ED8D4ED41E9C39C700F87978 /* SSDT-IGPU.dsl */,
-				84D207AD1E64F63F0083EC17 /* SSDT-RP01_PEGP_RDSS.asl */,
 				84D207AE1E64F63F0083EC17 /* SSDT-RP05_DGFX_RDSS.asl */,
-				84AB159A1E9AF5AD005206A1 /* SSDT-RP01_PXSX_RDSS.asl */,
+				84D207AD1E64F63F0083EC17 /* SSDT-RP01_PEGP_RDSS.asl */,
 				841F11E31E9FA7B000BE33AF /* SSDT-RP05_PEGP_RDSS.asl */,
+				84AB159A1E9AF5AD005206A1 /* SSDT-RP01_PXSX_RDSS.asl */,
+				EDB4C8AC1F69738900DC39F3 /* SSDT-RP05_PXSX_RDSS.asl */,
 				ED2500561CF67CE6006A5FB7 /* SSDT-EH01.asl */,
 				ED2500571CF67CE6006A5FB7 /* SSDT-EH02.asl */,
 				ED2500551CF67CE6006A5FB7 /* SSDT-XHC.asl */,

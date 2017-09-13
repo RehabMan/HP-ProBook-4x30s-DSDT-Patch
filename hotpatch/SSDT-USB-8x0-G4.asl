@@ -1,13 +1,13 @@
-// USBInjectAll configuration/override for Probook 4x0 G4 (Skylake)
+// USBInjectAll configuration/override for EliteBook 8x0 G4 (Skylake)
 //
-// Based on information provided from Mario's KabyLake ProBook 440 G4
-// HS05 port added for Skylake ProBook 450 G3 (per data from mo7a1995)
+// No data provided yet.
 
-//DefinitionBlock ("", "SSDT", 2, "hack", "usb4x0g4", 0)
+//DefinitionBlock ("", "SSDT", 2, "hack", "usb8x0g4", 0)
 //{
 //
 // Override for USBInjectAll.kext
 //
+#if 0
     Device(UIAC)
     {
         Name(_HID, "UIA00000")
@@ -80,6 +80,7 @@
 
         })
     }
+#endif
 //}
 
 //EOF
