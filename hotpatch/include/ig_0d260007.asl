@@ -6,6 +6,7 @@
     Scope(RMCF)
     {
         Name(IGPI, 0x0d260007)
+        Name(LMAX, 0x07a1)
     }
 
 //EOF

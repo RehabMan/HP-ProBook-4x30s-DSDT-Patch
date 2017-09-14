@@ -147,7 +147,7 @@ $(BUILDDIR)/SSDT-4x0-G1-Haswell.aml: $(HOTPATCH)/SSDT-PluginType1.asl $(HOTPATCH
 
 $(BUILDDIR)/SSDT-6x0-G1-Haswell.aml: $(HOTPATCH)/SSDT-PluginType1.asl $(HOTPATCH)/SSDT-RMCF.asl $(HOTPATCH)/include/ig_0d260007.asl $(HOTPATCH)/SSDT-HACK.asl $(HOTPATCH)/include/layout17_HDEF.asl $(HOTPATCH)/include/layout17_HDAU.asl $(HOTPATCH)/include/standard_PS2K.asl $(HOTPATCH)/SSDT-KEY87.asl $(HOTPATCH)/SSDT-USB-6x0-G1.asl $(HOTPATCH)/SSDT-XHC.asl $(HOTPATCH)/SSDT-BATT.asl
 
-$(BUILDDIR)/SSDT-8x0-G1-Haswell.aml: $(HOTPATCH)/SSDT-PluginType1.asl $(HOTPATCH)/SSDT-RMCF.asl $(HOTPATCH)/include/ig_0d260007.asl $(HOTPATCH)/SSDT-HACK.asl $(HOTPATCH)/include/layout17_HDEF.asl $(HOTPATCH)/include/layout17_HDAU.asl $(HOTPATCH)/include/standard_PS2K.asl $(HOTPATCH)/SSDT-KEY87.asl $(HOTPATCH)/SSDT-USB-8x0-G1.asl $(HOTPATCH)/SSDT-XHC.asl $(HOTPATCH)/SSDT-BATT.asl $(HOTPATCH)/SSDT-RP05_DGFX_RDSS.asl
+$(BUILDDIR)/SSDT-8x0-G1-Haswell.aml: $(HOTPATCH)/SSDT-PluginType1.asl $(HOTPATCH)/SSDT-RMCF.asl $(HOTPATCH)/include/ig_04260000.asl $(HOTPATCH)/SSDT-HACK.asl $(HOTPATCH)/include/layout17_HDEF.asl $(HOTPATCH)/include/layout17_HDAU.asl $(HOTPATCH)/include/standard_PS2K.asl $(HOTPATCH)/SSDT-KEY87.asl $(HOTPATCH)/SSDT-USB-8x0-G1.asl $(HOTPATCH)/SSDT-XHC.asl $(HOTPATCH)/SSDT-BATT.asl $(HOTPATCH)/SSDT-RP05_DGFX_RDSS.asl
 
 $(BUILDDIR)/SSDT-1040-G1-Haswell.aml: $(HOTPATCH)/SSDT-PluginType1.asl $(HOTPATCH)/SSDT-RMCF.asl $(HOTPATCH)/SSDT-HACK.asl $(HOTPATCH)/include/layout17_HDEF.asl $(HOTPATCH)/include/layout17_HDAU.asl $(HOTPATCH)/include/standard_PS2K.asl $(HOTPATCH)/SSDT-KEY102.asl $(HOTPATCH)/SSDT-EH01.asl $(HOTPATCH)/SSDT-EH02.asl $(HOTPATCH)/SSDT-XHC.asl $(HOTPATCH)/SSDT-BATT.asl
 

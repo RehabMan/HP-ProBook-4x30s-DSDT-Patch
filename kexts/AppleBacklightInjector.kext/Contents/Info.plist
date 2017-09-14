@@ -36,6 +36,10 @@
 				<data>ABEAAAA2AFQAfQCyAPUBSQGxAisCuANZBBME7AXzBzQIrwrZ</data>
 				<key>F16Txxxx</key>
 				<data>ABEAAAAYACcAOgBSAHEAlgDEAPwBQAGTAfYCbgL+A6oEeAVs</data>
+				<key>F17Txxxx</key>
+				<data>ABEAAAAfADQATwBxAJsAzwEOAV0BuwIvArkDYAQpBR4GRAeh</data>
+				<key>F18Txxxx</key>
+				<data>ABEAAABTAIwA1QExAaICLgLYA64BuwSsB1kJHAs7DdAQ6hSZ</data>
 			</dict>
 			<key>CFBundleIdentifier</key>
 			<string>com.apple.driver.AppleBacklight</string>

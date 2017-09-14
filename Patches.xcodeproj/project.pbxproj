@@ -207,6 +207,7 @@
 		ED9E98FB1CC905FA0032E2A3 /* SSDT-ZBook-G2-Broadwell.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-ZBook-G2-Broadwell.dsl"; path = "hotpatch/SSDT-ZBook-G2-Broadwell.dsl"; sourceTree = "<group>"; };
 		EDA152011CC82A4B0040A5C0 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		EDA152021CC82BED0040A5C0 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.txt; path = patches/README.txt; sourceTree = "<group>"; };
+		EDA15FB61F69EFD9000CEFCA /* ig_04260000.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ig_04260000.asl; path = hotpatch/include/ig_04260000.asl; sourceTree = "<group>"; };
 		EDA70AD21CEFEE6B009D2AA7 /* SSDT-5x30.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-5x30.dsl"; path = "hotpatch/SSDT-5x30.dsl"; sourceTree = "<group>"; };
 		EDA9D5501D2D48C600DA4204 /* SSDT-6x0-G2-Skylake.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-6x0-G2-Skylake.dsl"; path = "hotpatch/SSDT-6x0-G2-Skylake.dsl"; sourceTree = "<group>"; };
 		EDAB27061D3953E800FD5D06 /* SSDT-USB-640-G2.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-USB-640-G2.asl"; path = "hotpatch/SSDT-USB-640-G2.asl"; sourceTree = "<group>"; };
@@ -530,6 +531,7 @@
 				ED97E91D1CC75350006C757A /* disable_HECI.asl */,
 				ED841A011ED636A800A0B6BB /* xhc_pmee.asl */,
 				ED5282A81F3E0CA7007CCC1B /* ig_0d260007.asl */,
+				EDA15FB61F69EFD9000CEFCA /* ig_04260000.asl */,
 				ED97E9121CC75350006C757A /* layout3_HDAU.asl */,
 				ED97E9131CC75350006C757A /* layout3_HDEF.asl */,
 				ED97E9141CC75350006C757A /* layout4_HDAU.asl */,

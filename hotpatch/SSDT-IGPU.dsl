@@ -216,6 +216,8 @@ DefinitionBlock ("", "SSDT", 2, "hack", "igpu", 0)
 #define SANDYIVY_PWMMAX 0x710
 #define HASWELL_PWMMAX 0xad9
 #define SKYLAKE_PWMMAX 0x56c
+#define CUSTOM_PWMMAX_07a1 0x07a1
+#define CUSTOM_PWMMAX_1499 0x1499
 
     External(RMCF.BKLT, IntObj)
     External(RMCF.LMAX, IntObj)
@@ -356,6 +358,8 @@ DefinitionBlock ("", "SSDT", 2, "hack", "igpu", 0)
             If (Local2 == SANDYIVY_PWMMAX) { _UID = 14 }
             ElseIf (Local2 == HASWELL_PWMMAX) { _UID = 15 }
             ElseIf (Local2 == SKYLAKE_PWMMAX) { _UID = 16 }
+            ElseIf (Local2 == CUSTOM_PWMMAX_07a1) { _UID = 17 }
+            ElseIf (Local2 == CUSTOM_PWMMAX_1499) { _UID = 18 }
             Else { _UID = 99 }
         }
     }

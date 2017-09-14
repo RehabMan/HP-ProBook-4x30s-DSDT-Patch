@@ -38,7 +38,7 @@
         //
         // Ones: Default will be used (0x710 for Ivy/Sandy, 0xad9 for Haswell/Broadwell)
         // Other values: must match framebuffer
-        Name(LMAX, Ones)
+        //Name(LMAX, Ones)
 
         // SHUT: Shutdown fix, disable _PTS code when Arg0==5 (shutdown)
         //

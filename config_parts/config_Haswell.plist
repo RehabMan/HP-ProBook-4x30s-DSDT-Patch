@@ -39,6 +39,8 @@
 			<dict>
 				<key>Comment</key>
 				<string>Adjust 0x0d260007 PWMMax from 0x07a1 to 0x0ad9</string>
+				<key>Disabled</key>
+				<true/>
 				<key>Name</key>
 				<string>com.apple.driver.AppleIntelFramebufferAzul</string>
 				<key>Find</key>
