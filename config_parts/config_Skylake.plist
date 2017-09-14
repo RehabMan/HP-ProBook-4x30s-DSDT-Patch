@@ -20,15 +20,15 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>10.11.4+-SKL-1912000-4_displays</string>
+				<string>10.11.4+-SKL-1912000-safe 4_displays</string>
 				<key>Disabled</key>
 				<false/>
 				<key>Name</key>
 				<string>com.apple.driver.AppleIntelSKLGraphicsFramebuffer</string>
 				<key>Find</key>
-				<data>AQMDAw==</data>
+				<data>AQMDAwAAIAI=</data>
 				<key>Replace</key>
-				<data>AQMEAw==</data>
+				<data>AQMEAwAAIAI=</data>
 			</dict>
 		</array>
 		<key>KernelToPatch</key>
