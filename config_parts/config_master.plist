@@ -355,6 +355,12 @@
 				<false/>
 				<key>PStates</key>
 				<false/>
+				<key>APSN</key>
+				<false/>
+				<key>APLF</key>
+				<false/>
+				<key>PluginType</key>
+				<false/>
 			</dict>
 		</dict>
 	</dict>
@@ -521,30 +527,6 @@
 				<data>AEFQUExFIFNTRAA=</data>
 				<key>Replace</key>
 				<data>AAAAAAAAAAAAAAA=</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Boot graphics glitch, 10.10.x/10.11.x (credit lisai9093, cecekpawon)</string>
-				<key>MatchOS</key>
-				<string>10.10.x,10.11.x</string>
-				<key>Name</key>
-				<string>com.apple.iokit.IOGraphicsFamily</string>
-				<key>Find</key>
-				<data>AQAAdRc=</data>
-				<key>Replace</key>
-				<data>AQAA6xc=</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Boot graphics glitch, 10.12.dp1 (credit denskop)</string>
-				<key>MatchOS</key>
-				<string>10.12.x</string>
-				<key>Find</key>
-				<data>AQAAdSU=</data>
-				<key>Name</key>
-				<string>com.apple.iokit.IOGraphicsFamily</string>
-				<key>Replace</key>
-				<data>AQAA6yU=</data>
 			</dict>
 			<dict>
 				<key>Comment</key>

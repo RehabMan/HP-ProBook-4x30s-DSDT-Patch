@@ -518,7 +518,7 @@ config/config_8x0_G4_Kabylake.plist : $(PARTS)/config_master.plist $(PARTS)/conf
 
 # new hotpatch SSDTs
 
-IASLOPTS=-vw 2095 -vw 2146 -vw 2089 -vr
+IASLOPTS=-vw 2095 -vw 2146 -vw 2089 -vw 4089 -vi -vr
 # note: "-oe" is undocumented flag to turn off external opcode in iasl AML compilation result
 # Snow Leopard cannot handle SSDTs with the external opcode, so Snow Leopard users must enable this flag
 #IASLOPTS:=$(IASLOPTS) -oe
