@@ -77,6 +77,7 @@
                     "HP21", Package()   // fingerprint reader (disabled)
                     {
                         //"UsbConnector", 255,
+                        "portType", 2,
                         "port", Buffer() { 1, 0, 0, 0 },
                     },
                     #endif
@@ -88,7 +89,8 @@
                     "HP23", Package()   // camera
                     {
                         //"UsbConnector", 255,
-                        "portType", 2,  // fix for camera after sleep?
+                        "portType", 2,
+                        //"portType", 4,  // fix for camera after sleep?
                         "port", Buffer() { 3, 0, 0, 0 },
                     },
                 },

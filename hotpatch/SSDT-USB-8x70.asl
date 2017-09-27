@@ -50,6 +50,7 @@
                     "HP16", Package()   // bluetooth
                     {
                         //"UsbConnector", 255,
+                        "portType", 2,
                         "port", Buffer() { 6, 0, 0, 0 },
                     },
                 },
@@ -77,6 +78,7 @@
                     "HP21", Package()   // fingerprint reader (disabled)
                     {
                         //"UsbConnector", 255,
+                        "portType", 2,
                         "port", Buffer() { 1, 0, 0, 0 },
                     },
                     #endif
@@ -88,17 +90,18 @@
                     "HP23", Package()   // camera
                     {
                         //"UsbConnector", 255,
-                        "portType", 4,  // fix for camera after sleep?
+                        "portType", 2,
+                        //"portType", 4,  // fix for camera after sleep?
                         "port", Buffer() { 3, 0, 0, 0 },
                     },
                     "HP24", Package()   // unknown USB2 port with hub (dock?)
                     {
-                        //"UsbConnector", 255,
+                        //"UsbConnector", 0,
                         "port", Buffer() { 4, 0, 0, 0 },
                     },
                     "HP26", Package()   // unknown USB2 port (dock?)
                     {
-                        //"UsbConnector", 255,
+                        //"UsbConnector", 0,
                         "port", Buffer() { 6, 0, 0, 0 },
                     },
                 },

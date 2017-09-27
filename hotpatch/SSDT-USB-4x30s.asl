@@ -47,11 +47,13 @@
                     "HP14", Package()   // camera
                     {
                         //"UsbConnector", 255,
+                        "portType", 2,
                         "port", Buffer() { 4, 0, 0, 0 },
                     },
                     "HP16", Package()   // bluetooth
                     {
                         //"UsbConnector", 255,
+                        "portType", 2,
                         "port", Buffer() { 6, 0, 0, 0 },
                     },
                 },
@@ -79,6 +81,7 @@
                     "HP21", Package()   // fingerprint reader (disabled)
                     {
                         //"UsbConnector", 255,
+                        "portType", 2,
                         "port", Buffer() { 1, 0, 0, 0 },
                     },
                     #endif
