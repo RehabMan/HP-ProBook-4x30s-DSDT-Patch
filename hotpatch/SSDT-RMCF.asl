@@ -44,6 +44,6 @@
         //
         //  0: does not affect _PTS behavior during shutdown
         //  1: disables _PTS code during shutdown
-        Name(SHUT, 1)
+        Name(SHUT, 0)
     }
 //}
