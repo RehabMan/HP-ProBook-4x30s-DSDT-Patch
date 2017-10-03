@@ -499,7 +499,7 @@
 				<key>Comment</key>
 				<string>Enable TRIM for non-Apple SSDs</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Name</key>
 				<string>com.apple.iokit.IOAHCIBlockStorage</string>
 				<key>Find</key>
