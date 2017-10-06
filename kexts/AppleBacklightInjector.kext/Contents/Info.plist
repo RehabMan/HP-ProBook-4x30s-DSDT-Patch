@@ -39,7 +39,7 @@
 				<key>F17Txxxx</key>
 				<data>ABEAAAAfADQATwBxAJsAzwEOAV0BuwIvArkDYAQpBR4GRAeh</data>
 				<key>F18Txxxx</key>
-				<data>ABEAAABTAIwA1QExAaICLgLYA64BuwSsB1kJHAs7DdAQ6hSZ</data>
+				<data>ABEAAABTAIwA1QExAaICLgLYA64ErAXlB1kJHAs7DdAQ6hSZ</data>
 			</dict>
 			<key>CFBundleIdentifier</key>
 			<string>com.apple.driver.AppleBacklight</string>
