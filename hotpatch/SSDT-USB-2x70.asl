@@ -44,6 +44,7 @@
                     "HP16", Package()   // bluetooth
                     {
                         //"UsbConnector", 255,
+                        "portType", 2,
                         "port", Buffer() { 6, 0, 0, 0 },
                     },
                 },
@@ -71,6 +72,7 @@
                     "HP21", Package()   // fingerprint reader (disabled)
                     {
                         //"UsbConnector", 255,
+                        "portType", 2,
                         "port", Buffer() { 1, 0, 0, 0 },
                     },
                     #endif
@@ -82,7 +84,8 @@
                     "HP23", Package()   // camera
                     {
                         //"UsbConnector", 255,
-                        "portType", 4,  // fix for camera after sleep?
+                        //"portType", 4,  // fix for camera after sleep?
+                        "portType", 2,
                         "port", Buffer() { 3, 0, 0, 0 },
                     },
                 },
@@ -93,8 +96,7 @@
                 "port-count", Buffer() { 8, 0, 0, 0 },
                 "ports", Package()
                 {
-                    // HS01 not used
-                    // HS02-HS04 not used due to FakePCIID_XHCIMux
+                    // HS01-HS04 not used due to FakePCIID_XHCIMux
                     // SS05/SS06 not used
                     "SS07", Package()   // SS USB3 right side
                     {

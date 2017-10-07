@@ -98,6 +98,7 @@
 		ED407DA61CF4FC8B00A03010 /* config_Broadwell_hdmi_audio.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_Broadwell_hdmi_audio.plist; path = config_parts/config_Broadwell_hdmi_audio.plist; sourceTree = "<group>"; };
 		ED407DA71CF4FC8B00A03010 /* config_Haswell_hdmi_audio.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_Haswell_hdmi_audio.plist; path = config_parts/config_Haswell_hdmi_audio.plist; sourceTree = "<group>"; };
 		ED407DA81CF4FCFA00A03010 /* config_HD3000.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_HD3000.plist; path = config_parts/config_HD3000.plist; sourceTree = "<group>"; };
+		ED464EDD1F89103C00592EC5 /* SSDT-USB-2x70.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-USB-2x70.asl"; path = "hotpatch/SSDT-USB-2x70.asl"; sourceTree = "<group>"; };
 		ED507CCE1CDCDAF400E14F67 /* SSDT-USB-9x70.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-USB-9x70.asl"; path = "hotpatch/SSDT-USB-9x70.asl"; sourceTree = "<group>"; };
 		ED5282A81F3E0CA7007CCC1B /* ig_0d260007.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ig_0d260007.asl; path = hotpatch/include/ig_0d260007.asl; sourceTree = "<group>"; };
 		ED5F0FDA1CE218160097FADC /* SSDT-ZBook-G1-Haswell.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-ZBook-G1-Haswell.dsl"; path = "hotpatch/SSDT-ZBook-G1-Haswell.dsl"; sourceTree = "<group>"; };
@@ -466,6 +467,7 @@
 				ED97E9501CC757D7006C757A /* SSDT-USB-4x40s.asl */,
 				ED97E94C1CC757D7006C757A /* SSDT-USB-6x60.asl */,
 				ED97E94D1CC757D7006C757A /* SSDT-USB-8x60.asl */,
+				ED464EDD1F89103C00592EC5 /* SSDT-USB-2x70.asl */,
 				ED97E94F1CC757D7006C757A /* SSDT-USB-6x70.asl */,
 				EDE939211D1AF9F0009B5E36 /* SSDT-USB-8x70.asl */,
 				ED507CCE1CDCDAF400E14F67 /* SSDT-USB-9x70.asl */,
