@@ -118,11 +118,17 @@
 
     External(_SB.PCI0.LPCB.EC, DeviceObj)
     External(_SB.PCI0.LPCB.EC.XREG, MethodObj)
-#ifndef DEFINED_RP01_PEGP_RDSS
-    External(_SB.PCI0.RP01.PEGP.RDSS, MethodObj)
+#ifndef DEFINED_PEGP_DGFX_RDSS
+    External(_SB.PCI0.PEGP.DGFX.RDSS, MethodObj)
+#endif
+#ifndef DEFINED_PEG0_PEGP_RDSS
+    External(_SB.PCI0.PEG0.PEGP.RDSS, MethodObj)
 #endif
 #ifndef DEFINED_RP05_DGFX_RDSS
     External(_SB.PCI0.RP05.DGFX.RDSS, MethodObj)
+#endif
+#ifndef DEFINED_RP01_PEGP_RDSS
+    External(_SB.PCI0.RP01.PEGP.RDSS, MethodObj)
 #endif
 #ifndef DEFINED_RP01_PXSX_RDSS
     External(_SB.PCI0.RP01.PXSX.RDSS, MethodObj)
@@ -132,9 +138,6 @@
 #endif
 #ifndef DEFINED_RP05_PEGP_RDSS
     External(_SB.PCI0.RP05.PEGP.RDSS, MethodObj)
-#endif
-#ifndef DEFINED_PEG0_PEGP_RDSS
-    External(_SB.PCI0.PEG0.PEGP.RDSS, MethodObj)
 #endif
 
     // original _REG is renamed to XREG
