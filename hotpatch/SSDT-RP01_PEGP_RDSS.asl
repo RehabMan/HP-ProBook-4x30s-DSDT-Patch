@@ -1,6 +1,6 @@
 #define DEFINED_RP01_PEGP_RDSS
 
-//DefinitionBlock ("", "SSDT", 2, "hack", "01PEGP", 0)
+//DefinitionBlock ("", "SSDT", 2, "hack", "RP01PEGP", 0)
 //{
     External(_SB.PCI0.RP01.PEGP, DeviceObj)
     External(_SB.PCI0.RP01.PEGP.XDSS, MethodObj)

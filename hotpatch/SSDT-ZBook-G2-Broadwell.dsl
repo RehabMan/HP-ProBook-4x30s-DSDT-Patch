@@ -2,6 +2,7 @@
 
 DefinitionBlock ("", "SSDT", 2, "hack", "zbg2b", 0)
 {
+    //#define NO_DISABLE_DGPU
     #include "SSDT-RMCF.asl"
     #include "SSDT-PluginType1.asl"
     #include "SSDT-RP05_DGFX_RDSS.asl"

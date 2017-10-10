@@ -91,6 +91,7 @@
 		ED2500551CF67CE6006A5FB7 /* SSDT-XHC.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-XHC.asl"; path = "hotpatch/SSDT-XHC.asl"; sourceTree = "<group>"; };
 		ED2500561CF67CE6006A5FB7 /* SSDT-EH01.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-EH01.asl"; path = "hotpatch/SSDT-EH01.asl"; sourceTree = "<group>"; };
 		ED2500571CF67CE6006A5FB7 /* SSDT-EH02.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-EH02.asl"; path = "hotpatch/SSDT-EH02.asl"; sourceTree = "<group>"; };
+		ED334FFB1F8D3ED100202D59 /* SSDT-PEG0_PEGP_RDSS.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-PEG0_PEGP_RDSS.asl"; path = "hotpatch/SSDT-PEG0_PEGP_RDSS.asl"; sourceTree = "<group>"; };
 		ED3717731D578CD700FC4CC3 /* layout7.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = layout7.plist; path = Resources_ProBook/layout7.plist; sourceTree = "<group>"; };
 		ED3717741D578CD700FC4CC3 /* layout6.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = layout6.plist; path = Resources_ProBook/layout6.plist; sourceTree = "<group>"; };
 		ED407DA41CF4FBA900A03010 /* config_HD4000_hdmi_audio.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_HD4000_hdmi_audio.plist; path = config_parts/config_HD4000_hdmi_audio.plist; sourceTree = "<group>"; };
@@ -567,6 +568,7 @@
 				841F11E31E9FA7B000BE33AF /* SSDT-RP05_PEGP_RDSS.asl */,
 				84AB159A1E9AF5AD005206A1 /* SSDT-RP01_PXSX_RDSS.asl */,
 				EDB4C8AC1F69738900DC39F3 /* SSDT-RP05_PXSX_RDSS.asl */,
+				ED334FFB1F8D3ED100202D59 /* SSDT-PEG0_PEGP_RDSS.asl */,
 				ED2500561CF67CE6006A5FB7 /* SSDT-EH01.asl */,
 				ED2500571CF67CE6006A5FB7 /* SSDT-EH02.asl */,
 				ED2500551CF67CE6006A5FB7 /* SSDT-XHC.asl */,

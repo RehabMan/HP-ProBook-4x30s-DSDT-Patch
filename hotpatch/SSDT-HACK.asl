@@ -133,6 +133,9 @@
 #ifndef DEFINED_RP05_PEGP_RDSS
     External(_SB.PCI0.RP05.PEGP.RDSS, MethodObj)
 #endif
+#ifndef DEFINED_PEG0_PEGP_RDSS
+    External(_SB.PCI0.PEG0.PEGP.RDSS, MethodObj)
+#endif
 
     // original _REG is renamed to XREG
     Scope(_SB.PCI0.LPCB.EC)

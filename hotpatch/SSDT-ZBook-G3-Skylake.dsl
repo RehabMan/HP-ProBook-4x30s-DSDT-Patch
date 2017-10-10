@@ -2,10 +2,11 @@
 
 DefinitionBlock ("", "SSDT", 2, "hack", "zbg3s", 0)
 {
+    //#define NO_DISABLE_DGPU
     #include "SSDT-RMCF.asl"
     #include "include/xhc_pmee.asl"
     #include "SSDT-PluginType1.asl"
-    #include "SSDT-RP01_PEGP_RDSS.asl"
+    #include "SSDT-PEG0_PEGP_RDSS.asl"
     #include "SSDT-HACK.asl"
     #include "include/layout7_HDEF.asl"
     #include "include/disable_HECI.asl"

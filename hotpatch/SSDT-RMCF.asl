@@ -26,7 +26,11 @@
         // DGPU: Controls whether the DGPU is disabled via ACPI or not
         // 1: (default) DGPU is disabled at startup, enabled in _PTS, disabled in _WAK
         // 0: DGPU is not manipulated
+#ifdef NO_DISABLE_DGPU
+        Name(DGPU, 0)
+#else
         Name(DGPU, 1)
+#endif
 
         // BKLT: Backlight control type
         //
