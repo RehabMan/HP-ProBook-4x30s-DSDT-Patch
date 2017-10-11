@@ -22,7 +22,7 @@
     Scope(RMCF)
     {
         Method(RMOF) { If (1 == DGPU && CondRefOf(\_SB.PCI0.RP05.DGFX._OFF)) { \_SB.PCI0.RP05.DGFX._OFF() } }
-        Method(RMON) { If (1 == DGPU && CondRefOf(\_SB.PCI0.RP05.DGFX._OFF)) { \_SB.PCI0.RP05.DGFX._ON() } }
+        Method(RMON) { If (1 == DGPU && CondRefOf(\_SB.PCI0.RP05.DGFX._ON)) { \_SB.PCI0.RP05.DGFX._ON() } }
         Method(RDSS, 1) { If (CondRefOf(\_SB.PCI0.RP05.DGFX.RDSS)) { \_SB.PCI0.RP05.DGFX.RDSS(Arg0) } }
     }
 //}

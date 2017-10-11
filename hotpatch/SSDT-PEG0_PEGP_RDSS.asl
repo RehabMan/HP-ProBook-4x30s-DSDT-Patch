@@ -22,7 +22,7 @@
     Scope(RMCF)
     {
         Method(RMOF) { If (1 == DGPU && CondRefOf(\_SB.PCI0.PEG0.PEGP._OFF)) { \_SB.PCI0.PEG0.PEGP._OFF() } }
-        Method(RMON) { If (1 == DGPU && CondRefOf(\_SB.PCI0.PEG0.PEGP._OFF)) { \_SB.PCI0.PEG0.PEGP._ON() } }
+        Method(RMON) { If (1 == DGPU && CondRefOf(\_SB.PCI0.PEG0.PEGP._ON)) { \_SB.PCI0.PEG0.PEGP._ON() } }
         Method(RDSS, 1) { If (CondRefOf(\_SB.PCI0.PEG0.PEGP.RDSS)) { \_SB.PCI0.PEG0.PEGP.RDSS(Arg0) } }
     }
 //}
