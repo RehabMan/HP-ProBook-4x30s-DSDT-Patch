@@ -180,13 +180,15 @@
                 "device-id", Buffer() { 0x4b, 0x8c, 0, 0 },
                 "compatible", Buffer() { "pci8086,8c4b" },
             },
+#if 0 //REVIEW: 100-series and later may not need AppleLPC
             // list of 100-series LPC device-ids not natively supported (partial list)
-            0x9d48, 0xa14e, 0,
+            0x9d48, 0xa14e, 0xa150, 0,
             Package()
             {
                 "device-id", Buffer() { 0xc1, 0x9c, 0, 0 },
                 "compatible", Buffer() { "pci8086,9cc1" },
             },
+#endif
         })
         Method(_DSM, 4)
         {
