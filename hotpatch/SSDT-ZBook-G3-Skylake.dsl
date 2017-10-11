@@ -2,9 +2,8 @@
 
 DefinitionBlock ("", "SSDT", 2, "hack", "zbg3s", 0)
 {
-    //#define NO_DISABLE_DGPU
+    #define OVERRIDE_XPEE 1
     #include "SSDT-RMCF.asl"
-    #include "include/xhc_pmee.asl"
     #include "SSDT-PluginType1.asl"
     #include "SSDT-PEG0_PEGP_RDSS.asl"
     #include "SSDT-HACK.asl"

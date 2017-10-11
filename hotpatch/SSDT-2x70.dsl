@@ -3,6 +3,7 @@
 DefinitionBlock ("", "SSDT", 2, "hack", "2x70", 0)
 {
     #include "SSDT-RMCF.asl"
+    #include "SSDT-PEGP_DGFX_RDSS.asl"
     #include "SSDT-HACK.asl"
     #include "include/layout18_HDEF.asl"
     #include "include/standard_PS2K.asl"

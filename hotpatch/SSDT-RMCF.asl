@@ -21,33 +21,59 @@
         //    Name(IGPI, 0x12345678)
         // You can also set it to Ones to disable IGPU injection
         //    Name(IGPI, Ones)
-        //Name(IGPI, 0)
+#ifndef OVERRIDE_IGPI
+        Name(IGPI, 0)
+#else
+        Name(IGPI, OVERRIDE_IGPI)
+#endif
+
+        // LMAX: Backlight PWM MAX.  Must match framebuffer in use.
+        //
+        // Ones: Default will be used (0x710 for Ivy/Sandy, 0xad9 for Haswell/Broadwell)
+        // Other values: must match framebuffer
+#ifndef OVERRIDE_LMAX
+        Name(LMAX, Ones)
+#else
+        Name(LMAX, OVERRIDE_LMAX)
+#endif
 
         // DGPU: Controls whether the DGPU is disabled via ACPI or not
         // 1: (default) DGPU is disabled at startup, enabled in _PTS, disabled in _WAK
         // 0: DGPU is not manipulated
-#ifdef NO_DISABLE_DGPU
-        Name(DGPU, 0)
-#else
+#ifndef OVERRIDE_DGPU
         Name(DGPU, 1)
+#else
+        Name(DGPU, OVERRIDE_DGPU)
 #endif
 
         // BKLT: Backlight control type
         //
         // 0: Using IntelBacklight.kext
         // 1: Using AppleBacklight.kext + AppleBacklightInjector.kext
+#ifndef OVERRIDE_BLKT
         Name(BKLT, 1)
-
-        // LMAX: Backlight PWM MAX.  Must match framebuffer in use.
-        //
-        // Ones: Default will be used (0x710 for Ivy/Sandy, 0xad9 for Haswell/Broadwell)
-        // Other values: must match framebuffer
-        //Name(LMAX, Ones)
+#else
+        Name(BLKT, OVERRIDE_BKLT)
+#endif
 
         // SHUT: Shutdown fix, disable _PTS code when Arg0==5 (shutdown)
         //
         //  0: does not affect _PTS behavior during shutdown
         //  1: disables _PTS code during shutdown
+#ifndef OVERRIDE_SHUT
         Name(SHUT, 0)
+#else
+        Name(SHUT, OVERRIDE_SHUT)
+#endif
+
+        // XPEE
+        //
+        // 0: do not manipulate XHC.PMEE during shutdown
+        // 1: disable XHC.PMEE during shutdown
+#ifndef OVERRIDE_XPEE
+        Name(XPEE, 0)
+#else
+        Name(XPEE, OVERRIDE_XPEE)
+#endif
     }
 //}

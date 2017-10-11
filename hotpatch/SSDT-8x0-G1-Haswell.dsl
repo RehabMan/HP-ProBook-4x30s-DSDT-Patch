@@ -2,8 +2,9 @@
 
 DefinitionBlock ("", "SSDT", 2, "hack", "8x0g1h", 0)
 {
+    #define OVERRIDE_IGPI 0x04260000
+    #define OVERRIDE_LMAX 0x1499
     #include "SSDT-RMCF.asl"
-    #include "include/ig_04260000.asl"
     #include "SSDT-PluginType1.asl"
     #include "SSDT-RP05_DGFX_RDSS.asl"
     #include "SSDT-HACK.asl"
