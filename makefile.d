@@ -1,4 +1,5 @@
-generated with: ./find_dependencies.sh
+# generated with: ./find_dependencies.sh
+
 build/SSDT-1020-G1-Broadwell.aml : hotpatch/SSDT-1020-G1-Broadwell.dsl hotpatch/SSDT-RMCF.asl hotpatch/SSDT-PluginType1.asl hotpatch/SSDT-RP05_DGFX_RDSS.asl hotpatch/SSDT-HACK.asl hotpatch/include/layout6_HDEF.asl hotpatch/include/layout6_HDAU.asl hotpatch/include/standard_PS2K.asl hotpatch/include/standard_PS2K_data.asl hotpatch/SSDT-KEY87.asl hotpatch/SSDT-USB-1020-G1.asl hotpatch/SSDT-XHC.asl hotpatch/SSDT-BATT-G2.asl
 
 build/SSDT-1040-G1-Haswell.aml : hotpatch/SSDT-1040-G1-Haswell.dsl hotpatch/SSDT-RMCF.asl hotpatch/SSDT-PluginType1.asl hotpatch/SSDT-RP05_DGFX_RDSS.asl hotpatch/SSDT-HACK.asl hotpatch/include/layout17_HDEF.asl hotpatch/include/layout17_HDAU.asl hotpatch/include/standard_PS2K.asl hotpatch/include/standard_PS2K_data.asl hotpatch/SSDT-KEY102.asl hotpatch/SSDT-XHC.asl hotpatch/SSDT-BATT.asl hotpatch/SSDT-EH01.asl hotpatch/SSDT-EH02.asl

@@ -16,7 +16,8 @@ function print_dependencies()
     fi
 }
 
-echo generated with: $0 "$@"
+echo "#" generated with: $0 $@
+echo
 for f in $(ls hotpatch/*.dsl); do
     deps=$(print_dependencies "$f" hotpatch/)
     if [[ ! -z "$deps" ]]; then
