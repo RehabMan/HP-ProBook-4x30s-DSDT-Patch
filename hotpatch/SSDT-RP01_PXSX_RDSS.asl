@@ -21,8 +21,8 @@
     }
     Scope(RMCF)
     {
-        Method(RMOF) { If (1 == DGPU && CondRefOf(\_SB.PCI0.RP01.PXSX._OFF)) { \_SB.PCI0.RP01.PXSX._OFF() } }
-        Method(RMON) { If (1 == DGPU && CondRefOf(\_SB.PCI0.RP01.PXSX._ON)) { \_SB.PCI0.RP01.PXSX._ON() } }
+        Method(RMOF) { If (CondRefOf(\_SB.PCI0.RP01.PXSX._OFF)) { \_SB.PCI0.RP01.PXSX._OFF() } }
+        Method(RMON) { If (CondRefOf(\_SB.PCI0.RP01.PXSX._ON)) { \_SB.PCI0.RP01.PXSX._ON() } }
         Method(RDSS, 1) { If (CondRefOf(\_SB.PCI0.RP01.PXSX.RDSS)) { \_SB.PCI0.RP01.PXSX.RDSS(Arg0) } }
     }
 //}

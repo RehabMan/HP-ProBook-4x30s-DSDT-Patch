@@ -9,7 +9,7 @@
         Method(HELP)
         {
             Store("IGPI overrides ig-platform-id or snb-platform-id", Debug)
-            Store("DGPU indicates whether discrete GPU should be disabled. 1: yes, 0: no", Debug)
+            Store("DGPU indicates whether discrete GPU should be disabled. bit0: startup, bit1: _PTS/_WAK", Debug)
             Store("BKLT indicates the type of backlight control. 0: IntelBacklight, 1: AppleBacklight", Debug)
             Store("LMAX indicates max for IGPU PWM backlight. Ones: Use default, other values must match framebuffer", Debug)
             Store("SHUT enables shutdown fix. 1: disables _PTS code when Arg0==5", Debug)
@@ -38,10 +38,11 @@
 #endif
 
         // DGPU: Controls whether the DGPU is disabled via ACPI or not
-        // 1: (default) DGPU is disabled at startup, enabled in _PTS, disabled in _WAK
-        // 0: DGPU is not manipulated
+        // bit 0: DGPU disabled at startup
+        // bit 1: DGPU enabled in _PTS, disabled in _WAK
+        // default is 3
 #ifndef OVERRIDE_DGPU
-        Name(DGPU, 1)
+        Name(DGPU, 3)
 #else
         Name(DGPU, OVERRIDE_DGPU)
 #endif

@@ -53,7 +53,7 @@
             If (CondRefOf(\_SB.PCI0.XHC.PMEE)) { \_SB.PCI0.XHC.PMEE = 0 }
         }
         If (\RMCF.SHUT && 5 == Arg0) { Return }
-        \RMCF.RMON()
+        If (\RMCF.DGPU & 2) { \RMCF.RMON() }
         External(\ZPTS, MethodObj)
         ZPTS(Arg0)
     }
@@ -62,7 +62,7 @@
         If (Arg0 < 1 || Arg0 > 5) { Arg0 = 3 }
         External(\ZWAK, MethodObj)
         Local0 = ZWAK(Arg0)
-        \RMCF.RMOF()
+        If (\RMCF.DGPU & 2) { \RMCF.RMOF() }
         Return(Local0)
     }
     Device(RMD1)
@@ -87,7 +87,7 @@
             XREG(Arg0, Arg1)
 
             // call RDSS(0) for _OFF/HGOF
-            If (3 == Arg0 && 1 == Arg1 && 1 == \RMCF.DGPU) { \RMCF.RDSS(0) }
+            If (3 == Arg0 && 1 == Arg1 && \RMCF.DGPU & 1) { \RMCF.RDSS(0) }
         }
     }
 
