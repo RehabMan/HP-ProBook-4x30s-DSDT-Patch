@@ -70,7 +70,7 @@
         Name(_HID, "RMD10000")
         Method(_INI)
         {
-            \RMCF.RMOF()
+            If (\RMCF.DGPU & 1) { \RMCF.RMOF() }
         }
     }
 
