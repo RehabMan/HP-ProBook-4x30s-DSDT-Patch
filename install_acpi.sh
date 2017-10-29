@@ -58,6 +58,11 @@ case "$1" in
         cp $BUILDDIR/SSDT-4x30s.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         ls $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
+    install_4x30s)
+        $0 inst_lores $2
+        cp $BUILDDIR/SSDT-4230s.aml $EFIDIR/EFI/CLOVER/ACPI/patched
+        ls $EFIDIR/EFI/CLOVER/ACPI/patched
+    ;;
     install_4x40s)
         $0 inst_lores $2
         cp $BUILDDIR/SSDT-4x40s.aml $EFIDIR/EFI/CLOVER/ACPI/patched
@@ -247,6 +252,11 @@ case "$1" in
     install_ZBook_G2_haswell)
         $0 inst_xcpm $2
         cp $BUILDDIR/SSDT-ZBook-G2-Haswell.aml $EFIDIR/EFI/CLOVER/ACPI/patched
+        ls $EFIDIR/EFI/CLOVER/ACPI/patched
+    ;;
+    install_ZBook_G2_haswell_alc280)
+        $0 inst_xcpm $2
+        cp $BUILDDIR/SSDT-ZBook-G2-Haswell-ALC280.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         ls $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
     install_ZBook_G1_haswell)

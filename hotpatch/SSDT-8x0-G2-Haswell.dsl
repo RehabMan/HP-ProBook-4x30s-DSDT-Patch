@@ -13,5 +13,6 @@ DefinitionBlock ("", "SSDT", 2, "hack", "8x0g2h", 0)
     #include "SSDT-USB-8x0-G2.asl"
     #include "SSDT-XHC.asl"
     #include "SSDT-BATT-G2.asl"
+    #include "include/disable_EH01.asl"
 }
 //EOF

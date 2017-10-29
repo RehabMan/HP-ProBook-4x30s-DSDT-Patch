@@ -1,6 +1,6 @@
-// SSDT for ZBook G2 (Broadwell)
+// SSDT for ZBook G2 (Haswell)
 
-DefinitionBlock ("", "SSDT", 2, "hack", "zbg2b", 0)
+DefinitionBlock ("", "SSDT", 2, "hack", "zbg2ha", 0)
 {
     #include "SSDT-RMCF.asl"
     #include "SSDT-PluginType1.asl"
@@ -13,6 +13,6 @@ DefinitionBlock ("", "SSDT", 2, "hack", "zbg2b", 0)
     #include "SSDT-USB-ZBook-G2.asl"
     #include "SSDT-XHC.asl"
     #include "SSDT-BATT-G2.asl"
-    #include "include/disable_EH01.asl"
+    #include "include/disable_EH01-EH02.asl"
 }
 //EOF

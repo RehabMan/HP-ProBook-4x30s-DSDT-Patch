@@ -34,5 +34,6 @@ DefinitionBlock ("", "SSDT", 2, "hack", "1020g1b", 0)
     #include "SSDT-USB-1020-G1.asl"
     #include "SSDT-XHC.asl"
     #include "SSDT-BATT-G2.asl"
+    #include "include/disable_EH01.asl"
 }
 //EOF

@@ -13,5 +13,6 @@ DefinitionBlock ("", "SSDT", 2, "hack", "zbg2h", 0)
     #include "SSDT-USB-ZBook-G2.asl"
     #include "SSDT-XHC.asl"
     #include "SSDT-BATT-G2.asl"
+    #include "include/disable_EH01.asl"
 }
 //EOF

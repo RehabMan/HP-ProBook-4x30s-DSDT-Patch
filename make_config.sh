@@ -160,6 +160,13 @@ cp config_parts/config_master.plist config/config_ZBook_G2_Broadwell.plist
 ./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_parts/config_Broadwell.plist config/config_ZBook_G2_Broadwell.plist
 ./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_parts/config_ALC280.plist config/config_ZBook_G2_Broadwell.plist
 printf "\n"
+printf "!! creating config/config_ZBook_G2_Haswell_ALC280.plist\n"
+cp config_parts/config_master.plist config/config_ZBook_G2_Haswell_ALC280.plist
+/usr/libexec/PlistBuddy -c "Set KernelAndKextPatches:AsusAICPUPM false" config/config_ZBook_G2_Haswell_ALC280.plist
+/usr/libexec/PlistBuddy -c "Set :SMBIOS:ProductName MacBookPro11,1" config/config_ZBook_G2_Haswell_ALC280.plist
+./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_parts/config_Haswell.plist config/config_ZBook_G2_Haswell_ALC280.plist
+./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_parts/config_ALC280.plist config/config_ZBook_G2_Haswell_ALC280.plist
+printf "\n"
 printf "!! creating config/config_8x0_G3_Skylake.plist\n"
 cp config_parts/config_master.plist config/config_8x0_G3_Skylake.plist
 /usr/libexec/PlistBuddy -c "Set KernelAndKextPatches:AsusAICPUPM false" config/config_8x0_G3_Skylake.plist

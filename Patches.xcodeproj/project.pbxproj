@@ -93,6 +93,7 @@
 		ED2500571CF67CE6006A5FB7 /* SSDT-EH02.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-EH02.asl"; path = "hotpatch/SSDT-EH02.asl"; sourceTree = "<group>"; };
 		ED334FFB1F8D3ED100202D59 /* SSDT-PEG0_PEGP_RDSS.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-PEG0_PEGP_RDSS.asl"; path = "hotpatch/SSDT-PEG0_PEGP_RDSS.asl"; sourceTree = "<group>"; };
 		ED334FFC1F8D474E00202D59 /* SSDT-PEGP_DGFX_RDSS.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-PEGP_DGFX_RDSS.asl"; path = "hotpatch/SSDT-PEGP_DGFX_RDSS.asl"; sourceTree = "<group>"; };
+		ED341D5F1FA370BC00455E78 /* SSDT-4230s.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-4230s.dsl"; path = "hotpatch/SSDT-4230s.dsl"; sourceTree = "<group>"; };
 		ED3717731D578CD700FC4CC3 /* layout7.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = layout7.plist; path = Resources_ProBook/layout7.plist; sourceTree = "<group>"; };
 		ED3717741D578CD700FC4CC3 /* layout6.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = layout6.plist; path = Resources_ProBook/layout6.plist; sourceTree = "<group>"; };
 		ED407DA41CF4FBA900A03010 /* config_HD4000_hdmi_audio.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_HD4000_hdmi_audio.plist; path = config_parts/config_HD4000_hdmi_audio.plist; sourceTree = "<group>"; };
@@ -121,6 +122,9 @@
 		ED7A2ADD1CBEF56000062967 /* config_6x70p.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_6x70p.plist; path = config/config_6x70p.plist; sourceTree = "<group>"; };
 		ED7A2ADE1CBEF56000062967 /* config_8x60p.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_8x60p.plist; path = config/config_8x60p.plist; sourceTree = "<group>"; };
 		ED7A2ADF1CBEF56000062967 /* config_8x70p.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_8x70p.plist; path = config/config_8x70p.plist; sourceTree = "<group>"; };
+		ED815B7D1F9B7CDF005EBCA9 /* SSDT-ZBook-G2-Haswell-ALC280.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-ZBook-G2-Haswell-ALC280.dsl"; path = "hotpatch/SSDT-ZBook-G2-Haswell-ALC280.dsl"; sourceTree = "<group>"; };
+		ED815B7E1F9B7E68005EBCA9 /* disable_EH01.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = disable_EH01.asl; path = hotpatch/include/disable_EH01.asl; sourceTree = "<group>"; };
+		ED815B7F1F9B7E68005EBCA9 /* disable_EH01-EH02.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "disable_EH01-EH02.asl"; path = "hotpatch/include/disable_EH01-EH02.asl"; sourceTree = "<group>"; };
 		ED824E191CCFC43500EFDDF2 /* install_acpi.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = install_acpi.sh; sourceTree = "<group>"; };
 		ED824E1A1CCFC43500EFDDF2 /* install_acpi_include.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = install_acpi_include.sh; sourceTree = "<group>"; };
 		ED824E1B1CCFC43500EFDDF2 /* make_acpi.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = make_acpi.sh; sourceTree = "<group>"; };
@@ -426,6 +430,7 @@
 			isa = PBXGroup;
 			children = (
 				ED97E9371CC757D7006C757A /* SSDT-4x30s.dsl */,
+				ED341D5F1FA370BC00455E78 /* SSDT-4230s.dsl */,
 				ED97E9381CC757D7006C757A /* SSDT-4x40s.dsl */,
 				EDA70AD21CEFEE6B009D2AA7 /* SSDT-5x30.dsl */,
 				8497866A1E9DBFBB0020BEF8 /* SSDT-2x60.dsl */,
@@ -455,6 +460,7 @@
 				EDF530401DB578C000CAE028 /* SSDT-1040-G3-Skylake.dsl */,
 				ED5F0FDA1CE218160097FADC /* SSDT-ZBook-G1-Haswell.dsl */,
 				ED97E9431CC757D7006C757A /* SSDT-ZBook-G2-Haswell.dsl */,
+				ED815B7D1F9B7CDF005EBCA9 /* SSDT-ZBook-G2-Haswell-ALC280.dsl */,
 				ED9E98FB1CC905FA0032E2A3 /* SSDT-ZBook-G2-Broadwell.dsl */,
 				ED8D01131E185D62009A8C63 /* SSDT-ZBook-G3-Skylake.dsl */,
 				84F681FF1E74D6D80097D85D /* SSDT-4x0-G4-Kabylake.dsl */,
@@ -529,6 +535,8 @@
 		EDA987001CC71F8D00D10BEC /* include */ = {
 			isa = PBXGroup;
 			children = (
+				ED815B7F1F9B7E68005EBCA9 /* disable_EH01-EH02.asl */,
+				ED815B7E1F9B7E68005EBCA9 /* disable_EH01.asl */,
 				ED6354D41D38643B00C77357 /* standard_PS2K.asl */,
 				8497866B1E9DC69F0020BEF8 /* key86_PS2K.asl */,
 				ED6354D31D38643B00C77357 /* standard_PS2K_data.asl */,

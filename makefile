@@ -41,6 +41,7 @@ PLIST:=config/config_4x30s.plist config/config_4x40s.plist \
 	config/config_4x0s_G2_Broadwell.plist config/config_8x0s_G2_Broadwell.plist \
 	config/config_1020_G1_Broadwell.plist \
 	config/config_ZBook_G1_Haswell.plist config/config_ZBook_G2_Haswell.plist config/config_ZBook_G2_Broadwell.plist \
+	config/config_ZBook_G2_Haswell_ALC280.plist \
 	config/config_ZBook_G3_Skylake.plist \
 	config/config_4x0s_G3_Skylake.plist \
 	config/config_8x0_G3_Skylake.plist \
@@ -359,6 +360,16 @@ config/config_ZBook_G2_Haswell.plist : $(PARTS)/config_master.plist $(PARTS)/con
 config/config_ZBook_G1_Haswell.plist : config/config_ZBook_G2_Haswell.plist
 	@printf "!! creating $@\n"
 	cp config/config_ZBook_G2_Haswell.plist $@
+	@printf "\n"
+
+# ZBook_G2_Haswell_ALC280 is ALC280, Haswell, DP
+config/config_ZBook_G2_Haswell_ALC280.plist : $(PARTS)/config_master.plist $(PARTS)/config_ALC280.plist $(PARTS)/config_Haswell.plist
+	@printf "!! creating $@\n"
+	cp $(PARTS)/config_master.plist $@
+	/usr/libexec/PlistBuddy -c "Set KernelAndKextPatches:AsusAICPUPM false" $@
+	/usr/libexec/PlistBuddy -c "Set :SMBIOS:ProductName MacBookPro11,1" $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_Haswell.plist $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_ALC280.plist $@
 	@printf "\n"
 
 # ZBook_G2_Broadwell is ALC280, Broadwell, DP
