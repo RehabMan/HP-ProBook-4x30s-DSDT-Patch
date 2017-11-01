@@ -499,6 +499,26 @@
             Return (Local0)
         }
 
+        Method (GBAW, 0, NotSerialized)
+        {
+            Store (Zero, Local0)
+            Acquire (ECMX, 0xFFFF)
+            If (ECRG)
+            {
+                Store (B1B2(BDV0,BDV1), Local1)
+                Store (B1B2(BDC0,BDC1), Local2)
+                Multiply (Local1, Local2, Local0)
+                Divide (Local0, 0x000F4240, Local3, Local0)
+                If (LGreaterEqual (Local3, 0x0007A120))
+                {
+                    Increment (Local0)
+                }
+            }
+
+            Release (ECMX)
+            Return (Local0)
+        }
+
         Method (SBTC, 3, NotSerialized)
         {
             Store ("Enter SetBatteryControl", Debug)

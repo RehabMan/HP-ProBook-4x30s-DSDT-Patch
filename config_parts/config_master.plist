@@ -225,6 +225,14 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
+					<string>change Method(GBAW,0,NotSerialized) to XBAW (for G4 latest BIOS)</string>
+					<key>Find</key>
+					<data>R0JBVwA=</data>
+					<key>Replace</key>
+					<data>WEJBVwA=</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
 					<string>change Name(NBTI,..) to NBT5</string>
 					<key>Find</key>
 					<data>CE5CVEk=</data>
