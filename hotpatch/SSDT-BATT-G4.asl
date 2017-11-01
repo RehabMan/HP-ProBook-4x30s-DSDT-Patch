@@ -71,6 +71,11 @@
                 Offset(0xe0),
             CBT0, 8, CBT1, 8,
             //...
+            Offset (0xF6),
+            ,8,//AAPI,   8,
+            ,8,//ACSE,   8,
+            ,8,//ACIX,   8,
+            ACP0,8,ACP1,8,//ACPR,   16,
         }
         
         External(\_SB.PCI0.LPCB.EC.BTDR, MethodObj)
@@ -475,6 +480,19 @@
                     0x35,
                     Zero
                 }, Local0)
+            }
+
+            Release (ECMX)
+            Return (Local0)
+        }
+
+        Method (GACW, 0, NotSerialized)
+        {
+            Store (Zero, Local0)
+            Acquire (ECMX, 0xFFFF)
+            If (ECRG)
+            {
+                Store (B1B2(ACP0,ACP1), Local0)
             }
 
             Release (ECMX)
