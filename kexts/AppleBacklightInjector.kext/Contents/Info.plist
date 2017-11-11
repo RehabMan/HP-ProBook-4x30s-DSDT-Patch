@@ -31,15 +31,15 @@
 			<key>ApplePanels</key>
 			<dict>
 				<key>F14Txxxx</key>
-				<data>ABEAAAA0AFIAcwCUAL4A+gE2AXIBxQIvArkDYAQaBQoGDgcQ</data>
+				<data>ABEAAQA0AFIAcwCUAL4A+gE2AXIBxQIvArkDYAQaBQoGDgcQ</data>
 				<key>F15Txxxx</key>
-				<data>ABEAAAA2AFQAfQCyAPUBSQGxAisCuANZBBME7AXzBzQIrwrZ</data>
+				<data>ABEAAQA2AFQAfQCyAPUBSQGxAisCuANZBBME7AXzBzQIrwrZ</data>
 				<key>F16Txxxx</key>
-				<data>ABEAAAAYACcAOgBSAHEAlgDEAPwBQAGTAfYCbgL+A6oEeAVs</data>
+				<data>ABEAAQAYACcAOgBSAHEAlgDEAPwBQAGTAfYCbgL+A6oEeAVs</data>
 				<key>F17Txxxx</key>
-				<data>ABEAAAAfADQATwBxAJsAzwEOAV0BuwIvArkDYAQpBR4GRAeh</data>
+				<data>ABEAAQAfADQATwBxAJsAzwEOAV0BuwIvArkDYAQpBR4GRAeh</data>
 				<key>F18Txxxx</key>
-				<data>ABEAAABTAIwA1QExAaICLgLYA64ErAXlB1kJHAs7DdAQ6hSZ</data>
+				<data>ABEAAQBTAIwA1QExAaICLgLYA64ErAXlB1kJHAs7DdAQ6hSZ</data>
 			</dict>
 			<key>CFBundleIdentifier</key>
 			<string>com.apple.driver.AppleBacklight</string>
