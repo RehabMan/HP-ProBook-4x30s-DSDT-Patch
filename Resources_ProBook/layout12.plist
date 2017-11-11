@@ -33,9 +33,14 @@
 				<integer>0</integer>
 			</dict>
 			<key>LineIn</key>
-			<dict/>
+			<dict>
+				<key>MuteGPIO</key>
+				<integer>1342242828</integer>
+			</dict>
 			<key>Mic</key>
 			<dict>
+				<key>MuteGPIO</key>
+				<integer>0</integer>
 				<key>SignalProcessing</key>
 				<dict>
 					<key>SoftwareDSP</key>
