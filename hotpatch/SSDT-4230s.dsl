@@ -2,6 +2,7 @@
 
 DefinitionBlock ("", "SSDT", 2, "hack", "4230", 0)
 {
+    #define OVERRIDE_BUID 24
     #include "SSDT-RMCF.asl"
     #include "SSDT-PEGP_DGFX_RDSS.asl"
     #include "SSDT-HACK.asl"

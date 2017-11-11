@@ -37,6 +37,14 @@
         Name(LMAX, OVERRIDE_LMAX)
 #endif
 
+        // BUID: Backlight _UID.  _UID is matched against AppleBacklightInjector profiles
+        // 0: Use default based on LMAX
+        // Other values: customized, but must match a backlight profile
+#ifndef OVERRIDE_BUID
+        Name(BUID, 0)
+#else
+        Name(BUID, OVERRIDE_BUID)
+#endif
         // DGPU: Controls whether the DGPU is disabled via ACPI or not
         // bit 0: DGPU disabled at startup
         // bit 1: DGPU enabled in _PTS, disabled in _WAK

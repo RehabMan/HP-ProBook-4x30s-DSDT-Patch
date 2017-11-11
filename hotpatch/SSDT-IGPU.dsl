@@ -224,6 +224,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "igpu", 0)
 
     External(RMCF.BKLT, IntObj)
     External(RMCF.LMAX, IntObj)
+    External(RMCF.BUID, IntObj)
     External(_SB.PCI0.IGPU, DeviceObj)
     Scope(_SB.PCI0.IGPU)
     {
@@ -356,14 +357,25 @@ DefinitionBlock ("", "SSDT", 2, "hack", "igpu", 0)
                 }
             }
 
-            // Now Local2 is the new PWMMax, set _UID accordingly
             // The _UID selects the correct entry in AppleBacklightInjector.kext
-            If (Local2 == SANDYIVY_PWMMAX) { _UID = 14 }
-            ElseIf (Local2 == HASWELL_PWMMAX) { _UID = 15 }
-            ElseIf (Local2 == SKYLAKE_PWMMAX) { _UID = 16 }
-            ElseIf (Local2 == CUSTOM_PWMMAX_07a1) { _UID = 17 }
-            ElseIf (Local2 == CUSTOM_PWMMAX_1499) { _UID = 18 }
-            Else { _UID = 99 }
+            // RMCF.BUID can be set to override automatic _UID selection
+            Local0 = 0
+            If (CondRefOf(\RMCF.BUID)) { Local0 = \RMCF.BUID }
+            If (0 != Local0)
+            {
+                // use specified _UID
+                _UID = \RMCF.BUID
+            }
+            Else
+            {
+                // Now Local2 is the new PWMMax, set _UID accordingly
+                If (Local2 == SANDYIVY_PWMMAX) { _UID = 14 }
+                ElseIf (Local2 == HASWELL_PWMMAX) { _UID = 15 }
+                ElseIf (Local2 == SKYLAKE_PWMMAX) { _UID = 16 }
+                ElseIf (Local2 == CUSTOM_PWMMAX_07a1) { _UID = 17 }
+                ElseIf (Local2 == CUSTOM_PWMMAX_1499) { _UID = 18 }
+                Else { _UID = 99 }
+            }
         }
     }
 }
