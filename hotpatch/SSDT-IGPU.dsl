@@ -99,6 +99,15 @@ DefinitionBlock ("", "SSDT", 2, "hack", "igpu", 0)
                 "AAPL,ig-platform-id", Buffer() { 0x06, 0x00, 0x26, 0x16 },
                 "hda-gfx", Buffer() { "onboard-1" },
             },
+            // Skylake/HD515
+            0x191e, 0, Package()
+            {
+                "AAPL,ig-platform-id", Buffer() { 0x00, 0x00, 0x1e, 0x19 },
+                "model", Buffer() { "Intel HD Graphics 515" },
+                "hda-gfx", Buffer() { "onboard-1" },
+                "AAPL,GfxYTile", Buffer() { 1, 0, 0, 0 },
+                "RM,device-id", Buffer() { 0x1e, 0x19, 0x00, 0x00 },
+            },
             // Skylake/HD520
             0x1916, 0, Package()
             {

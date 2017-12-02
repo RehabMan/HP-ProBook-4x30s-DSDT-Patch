@@ -1,5 +1,6 @@
 #!/bin/bash
 iasl -vw 2095 -vw 2146 -vw 2089 -vw 4089 -vi -vr -p build/SSDT-1020-G1-Broadwell.aml hotpatch/SSDT-1020-G1-Broadwell.dsl
+iasl -vw 2095 -vw 2146 -vw 2089 -vw 4089 -vi -vr -p build/SSDT-1030-G1-Skylake.aml hotpatch/SSDT-1030-G1-Skylake.dsl
 iasl -vw 2095 -vw 2146 -vw 2089 -vw 4089 -vi -vr -p build/SSDT-1040-G1-Haswell.aml hotpatch/SSDT-1040-G1-Haswell.dsl
 iasl -vw 2095 -vw 2146 -vw 2089 -vw 4089 -vi -vr -p build/SSDT-1040-G3-Skylake.aml hotpatch/SSDT-1040-G3-Skylake.dsl
 iasl -vw 2095 -vw 2146 -vw 2089 -vw 4089 -vi -vr -p build/SSDT-2x60.aml hotpatch/SSDT-2x60.dsl

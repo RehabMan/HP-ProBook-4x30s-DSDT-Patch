@@ -45,6 +45,7 @@ PLIST:=config/config_4x30s.plist config/config_4x40s.plist \
 	config/config_ZBook_G3_Skylake.plist \
 	config/config_4x0s_G3_Skylake.plist \
 	config/config_8x0_G3_Skylake.plist \
+	config/config_1030_G1_Skylake.plist \
 	config/config_6x0_G2_Skylake.plist \
 	config/config_1040_G1_Haswell.plist config/config_6x0s_G1_Haswell.plist \
 	config/config_1040_G3_Skylake.plist \
@@ -403,6 +404,12 @@ config/config_8x0_G3_Skylake.plist : $(PARTS)/config_master.plist $(PARTS)/confi
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_Skylake.plist $@
 	./merge_plist.sh "KernelAndKextPatches:KernelToPatch" $(PARTS)/config_Skylake.plist $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_CX20724.plist $@
+	@printf "\n"
+
+# EliteBook 1030_G1_Skylakek is same as 8x0_G3_Skylake
+config/config_1030_G1_Skylake.plist : config/config_8x0_G3_Skylake.plist
+	@printf "!! creating $@\n"
+	cp config/config_8x0_G3_Skylake.plist $@
 	@printf "\n"
 
 # ZBook_G3_Skylake is same as 8x0_G3_Skylake
