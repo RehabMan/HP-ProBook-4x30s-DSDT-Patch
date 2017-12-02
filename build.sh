@@ -9,5 +9,6 @@ read in
 if [ $in == "y" ]; then
 	SOURCE="${BASH_SOURCE[0]}"
 	cp -r $SOURCE/kexts/AppleALC.kext /Volumes/EFI/EFI/CLOVER/kexts/Other/AppleALC.kext
-fi
+else
 ./patch_hda.sh ProBook
+fi
