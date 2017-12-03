@@ -8,15 +8,13 @@
 		<dict>
 			<key>Fixes</key>
 			<dict>
-				<key>NewWay_80000000</key>
+				<key>FixTMR</key>
 				<true/>
-				<key>FIX_TMR_40000</key>
+				<key>FixRTC</key>
 				<true/>
-				<key>FIX_RTC_20000</key>
+				<key>FixIPIC</key>
 				<true/>
-				<key>FixIPIC_0040</key>
-				<true/>
-				<key>FixHPET_0010</key>
+				<key>FixHPET</key>
 				<true/>
 			</dict>
 			<key>Patches</key>
@@ -413,17 +411,23 @@
 			<key>Entries</key>
 			<array>
 				<dict>
-					<key>FullTitle</key>
-					<string>UEFI Internal</string>
 					<key>Hidden</key>
-					<string>Always</string>
-					<key>Disabled</key>
-					<false/>
+					<true/>
 					<key>Type</key>
-					<string>Other</string>
+					<string>OSXRecovery</string>
+				</dict>
+				<dict>
+					<key>Type</key>
+					<string>Windows</string>
+					<key>Title</key>
+					<string>Windows</string>
 				</dict>
 			</array>
 		</dict>
+		<key>Hide</key>
+		<array>
+			<string>Preboot</string>
+		</array>
 		<key>Mouse</key>
 		<dict>
 			<key>Enabled</key>
