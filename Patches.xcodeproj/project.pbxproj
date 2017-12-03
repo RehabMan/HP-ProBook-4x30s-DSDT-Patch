@@ -236,6 +236,7 @@
 		EDD44B7C1C178E90003D0CA9 /* config_4x0s_G0.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_4x0s_G0.plist; path = config/config_4x0s_G0.plist; sourceTree = "<group>"; };
 		EDD906B81F8DC3700044EC08 /* makefile.d */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.dtrace; path = makefile.d; sourceTree = "<group>"; };
 		EDD906B91F8DC3BE0044EC08 /* find_dependencies.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = find_dependencies.sh; sourceTree = "<group>"; };
+		EDDC92011FD44C040071D2C2 /* SSDT-ALS0.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-ALS0.asl"; path = "hotpatch/SSDT-ALS0.asl"; sourceTree = "<group>"; };
 		EDDD91531CF5039C00A70550 /* config_5x30m.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_5x30m.plist; path = config/config_5x30m.plist; sourceTree = "<group>"; };
 		EDDD91541CF5039C00A70550 /* config_ZBook_G1_Haswell.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_ZBook_G1_Haswell.plist; path = config/config_ZBook_G1_Haswell.plist; sourceTree = "<group>"; };
 		EDE939211D1AF9F0009B5E36 /* SSDT-USB-8x70.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-USB-8x70.asl"; path = "hotpatch/SSDT-USB-8x70.asl"; sourceTree = "<group>"; };
@@ -572,6 +573,7 @@
 				ED841A021ED637AB00A0B6BB /* SSDT-RMCF.asl */,
 				ED083BA91EC2644E00CEA724 /* SSDT-PluginType1.asl */,
 				ED8D4ED41E9C39C700F87978 /* SSDT-IGPU.dsl */,
+				EDDC92011FD44C040071D2C2 /* SSDT-ALS0.asl */,
 				ED334FFC1F8D474E00202D59 /* SSDT-PEGP_DGFX_RDSS.asl */,
 				ED334FFB1F8D3ED100202D59 /* SSDT-PEG0_PEGP_RDSS.asl */,
 				84D207AE1E64F63F0083EC17 /* SSDT-RP05_DGFX_RDSS.asl */,
