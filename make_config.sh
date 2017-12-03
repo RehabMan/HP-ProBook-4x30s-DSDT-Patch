@@ -187,6 +187,9 @@ cp config_parts/config_master.plist config/config_4x0s_G3_Skylake.plist
 ./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_parts/config_Skylake_hdmi_audio.plist config/config_4x0s_G3_Skylake.plist
 ./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_parts/config_CX20724.plist config/config_4x0s_G3_Skylake.plist
 printf "\n"
+printf "!! creating config/config_1030_G1_Skylake.plist\n"
+cp config/config_8x0_G3_Skylake.plist config/config_1030_G1_Skylake.plist
+printf "\n"
 printf "!! creating config/config_6x0_G2_Skylake.plist\n"
 cp config_parts/config_master.plist config/config_6x0_G2_Skylake.plist
 /usr/libexec/PlistBuddy -c "Set KernelAndKextPatches:AsusAICPUPM false" config/config_6x0_G2_Skylake.plist
