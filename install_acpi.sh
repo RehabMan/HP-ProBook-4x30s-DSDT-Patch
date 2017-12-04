@@ -14,7 +14,7 @@ if [[ "$1" == "help" ]]; then
     exit
 fi
 
-EFIDIR=`sudo ./mount_efi.sh /`
+EFIDIR=`./mount_efi.sh`
 #EFIDIR=./EFI
 BUILDDIR=./build
 
