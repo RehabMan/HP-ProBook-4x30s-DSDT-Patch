@@ -16,14 +16,8 @@
 
     Name(_SB.PCI0.HDEF.RMCF, Package()
     {
-        "CodecCommander", Package()
-        {
-            "Disable", ">y",
-        },
-        "CodecCommanderPowerHook", Package()
-        {
-            "Disable", ">y",
-        },
+        "CodecCommander", Package() { "Disable", ">y", },
+        "CodecCommanderPowerHook", Package() { "Disable", ">y", },
         "CodecCommanderProbeInit", Package()
         {
             "Version", 0x020600,

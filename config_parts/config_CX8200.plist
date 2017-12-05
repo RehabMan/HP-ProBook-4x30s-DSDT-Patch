@@ -44,7 +44,7 @@
 				<key>Comment</key>
 				<string>volume slider sync, by wern</string>
 				<key>Disabled</key>
-				<true/>
+				<false/>
 				<key>Find</key>
 				<data>a3Bzaes=</data>
 				<key>Name</key>
