@@ -9,7 +9,17 @@ DefinitionBlock ("", "SSDT", 2, "hack", "1040g3s", 0)
     #include "SSDT-HACK.asl"
     #include "include/layout7_HDEF.asl"
     #include "include/disable_HECI.asl"
-    #include "include/key86_PS2K.asl"
+    //#include "include/standard_PS2K.asl"
+    External(_SB.PCI0.LPCB.PS2K, DeviceObj)
+    Scope (_SB.PCI0.LPCB.PS2K)
+    {
+        Name(RMCF, Package()
+        {
+            #include "include/standard_PS2K_data.asl"
+            #include "include/enable_mouse.asl"
+            #include "include/key86_data.asl"
+        })
+    }
     #include "SSDT-KEY102.asl"
     #include "SSDT-USB-1040-G3.asl"
     #include "SSDT-XHC.asl"

@@ -7,6 +7,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "igpu", 0)
 // From SSDT-IGPU.dsl
 //
     External(_SB.PCI0.IGPU, DeviceObj)
+    External(RMCF.IGPI, IntObj)
     Scope(_SB.PCI0.IGPU)
     {
         // need the device-id from PCI_config to inject correct properties
@@ -169,25 +170,20 @@ DefinitionBlock ("", "SSDT", 2, "hack", "igpu", 0)
             If (!Arg2) { Return (Buffer() { 0x03 } ) }
             // search for matching device-id in device-id list
             Local0 = Match(GIDL, MEQ, GDID, MTR, 0, 0)
-            If (Ones != Local0)
+            // unrecognized device... inject nothing in this case
+            If (Ones == Local0) { Return (Package() { }) }
+            // start search for zero-terminator (prefix to injection package)
+            Local0 = DerefOf(GIDL[Match(GIDL, MEQ, 0, MTR, 0, Local0+1)+1])
+            // the user can provide an override of ig-platform-id (or snb-platform-id) in RMCF.IGPI
+            If (CondRefOf(\RMCF.IGPI))
             {
-                // start search for zero-terminator (prefix to injection package)
-                Local0 = Match(GIDL, MEQ, 0, MTR, 0, Local0+1)
-                Local0 = DerefOf(GIDL[Local0+1])
-                // the user can provide an override of ig-platform-id (or snb-platform-id) in RMCF.IGPI
-                External(\RMCF.IGPI, IntObj)
-                If (CondRefOf(\RMCF.IGPI))
+                if (0 != \RMCF.IGPI)
                 {
-                    if (0 != \RMCF.IGPI)
-                    {
-                        CreateDWordField(DerefOf(Local0[1]), 0, IGPI)
-                        IGPI = \RMCF.IGPI
-                    }
+                    CreateDWordField(DerefOf(Local0[1]), 0, IGPI)
+                    IGPI = \RMCF.IGPI
                 }
-                Return (Local0)
             }
-            // should never happen, but inject nothing in this case
-            Return (Package() { })
+            Return (Local0)
         }
     }
 
