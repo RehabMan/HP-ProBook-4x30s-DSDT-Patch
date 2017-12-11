@@ -9,28 +9,16 @@ DefinitionBlock ("", "SSDT", 2, "hack", "1030g1s", 0)
     #include "SSDT-HACK.asl"
     #include "include/layout7_HDEF.asl"
     #include "include/disable_HECI.asl"
-
     //#include "include/standard_PS2K.asl"
     External(_SB.PCI0.LPCB.PS2K, DeviceObj)
     Scope (_SB.PCI0.LPCB.PS2K)
     {
-        // overrides for VoodooPS2 configuration...
         Name(RMCF, Package()
         {
-            "Mouse", Package()
-            {
-                "DisableDevice", ">n",
-            },
-            #if 0
-            "Synaptics TouchPad", Package()
-            {
-                "ForceSynapticsDetect", ">y",
-                "DynamicEWMode", ">n",
-            },
-            #endif
+            #include "include/standard_PS2K_data.asl"
+            #include "include/enable_mouse.asl"
         })
     }
-
     #include "SSDT-KEY87.asl"
     #include "SSDT-USB-1030-G1.asl"
     #include "SSDT-XHC.asl"

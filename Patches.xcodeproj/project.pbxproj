@@ -110,6 +110,7 @@
 		ED6354D21D38643B00C77357 /* key86_data.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = key86_data.asl; path = hotpatch/include/key86_data.asl; sourceTree = "<group>"; };
 		ED6354D31D38643B00C77357 /* standard_PS2K_data.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = standard_PS2K_data.asl; path = hotpatch/include/standard_PS2K_data.asl; sourceTree = "<group>"; };
 		ED6354D41D38643B00C77357 /* standard_PS2K.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = standard_PS2K.asl; path = hotpatch/include/standard_PS2K.asl; sourceTree = "<group>"; };
+		ED63DC271FDED5310001E2F4 /* enable_mouse.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = enable_mouse.asl; path = hotpatch/include/enable_mouse.asl; sourceTree = "<group>"; };
 		ED6E36F91D0AFC8E00610C26 /* config_ALC286.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_ALC286.plist; path = config_parts/config_ALC286.plist; sourceTree = "<group>"; };
 		ED6E36FA1D0AFCE900610C26 /* SSDT-1020-G1-Broadwell.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-1020-G1-Broadwell.dsl"; path = "hotpatch/SSDT-1020-G1-Broadwell.dsl"; sourceTree = "<group>"; };
 		ED6E36FB1D0AFD8700610C26 /* layout6_HDAU.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = layout6_HDAU.asl; path = hotpatch/include/layout6_HDAU.asl; sourceTree = "<group>"; };
@@ -456,10 +457,10 @@
 				ED97E93E1CC757D7006C757A /* SSDT-8x0-G2-Haswell.dsl */,
 				ED97E9341CC757D7006C757A /* SSDT-4x0-G2-Broadwell.dsl */,
 				ED97E93D1CC757D7006C757A /* SSDT-8x0-G2-Broadwell.dsl */,
-				ED6E36FA1D0AFCE900610C26 /* SSDT-1020-G1-Broadwell.dsl */,
 				ED97E9361CC757D7006C757A /* SSDT-4x0-G3-Skylake.dsl */,
 				EDA9D5501D2D48C600DA4204 /* SSDT-6x0-G2-Skylake.dsl */,
 				EDFC50DC1D199FBA0053A9FC /* SSDT-8x0-G3-Skylake.dsl */,
+				ED6E36FA1D0AFCE900610C26 /* SSDT-1020-G1-Broadwell.dsl */,
 				ED45A34D1FD2E9FA001FA163 /* SSDT-1030-G1-Skylake.dsl */,
 				EDF530401DB578C000CAE028 /* SSDT-1040-G3-Skylake.dsl */,
 				ED5F0FDA1CE218160097FADC /* SSDT-ZBook-G1-Haswell.dsl */,
@@ -546,6 +547,7 @@
 				8497866B1E9DC69F0020BEF8 /* key86_PS2K.asl */,
 				ED6354D31D38643B00C77357 /* standard_PS2K_data.asl */,
 				ED6354D21D38643B00C77357 /* key86_data.asl */,
+				ED63DC271FDED5310001E2F4 /* enable_mouse.asl */,
 				ED97E91D1CC75350006C757A /* disable_HECI.asl */,
 				ED97E9121CC75350006C757A /* layout3_HDAU.asl */,
 				ED97E9131CC75350006C757A /* layout3_HDEF.asl */,
