@@ -396,6 +396,10 @@
 			<false/>
 		</dict>
 	</dict>
+	<key>DisableDrivers</key>
+	<array>
+		<string>VBoxHfs</string>
+	</array>
 	<key>Graphics</key>
 	<dict>
 		<key>Inject</key>
