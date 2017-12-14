@@ -15,6 +15,7 @@
             // XHC overrides
             "8086_9d2f", Package()
             {
+                "Disabled", ">y",   // data is incomplete (no dock ports), so disabled for now
                 //"port-count", Buffer() { 18, 0, 0, 0 },
                 "ports", Package()
                 {

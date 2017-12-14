@@ -148,6 +148,7 @@ cp config_parts/config_master.plist config/config_ZBook_G2_Haswell.plist
 /usr/libexec/PlistBuddy -c "Set KernelAndKextPatches:AsusAICPUPM false" config/config_ZBook_G2_Haswell.plist
 /usr/libexec/PlistBuddy -c "Set :SMBIOS:ProductName MacBookPro11,1" config/config_ZBook_G2_Haswell.plist
 ./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_parts/config_Haswell.plist config/config_ZBook_G2_Haswell.plist
+./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_parts/config_Haswell_no_hdmi_dp.plist config/config_ZBook_G2_Haswell.plist
 ./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_parts/config_IDT76e0.plist config/config_ZBook_G2_Haswell.plist
 printf "\n"
 printf "!! creating config/config_ZBook_G1_Haswell.plist\n"

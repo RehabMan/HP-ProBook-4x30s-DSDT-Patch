@@ -91,6 +91,7 @@
 		ED2500551CF67CE6006A5FB7 /* SSDT-XHC.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-XHC.asl"; path = "hotpatch/SSDT-XHC.asl"; sourceTree = "<group>"; };
 		ED2500561CF67CE6006A5FB7 /* SSDT-EH01.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-EH01.asl"; path = "hotpatch/SSDT-EH01.asl"; sourceTree = "<group>"; };
 		ED2500571CF67CE6006A5FB7 /* SSDT-EH02.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-EH02.asl"; path = "hotpatch/SSDT-EH02.asl"; sourceTree = "<group>"; };
+		ED2C0E751FE2D81000EFE2D5 /* SSDT-USB-Unknown.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-USB-Unknown.asl"; path = "hotpatch/SSDT-USB-Unknown.asl"; sourceTree = "<group>"; };
 		ED334FFB1F8D3ED100202D59 /* SSDT-PEG0_PEGP_RDSS.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-PEG0_PEGP_RDSS.asl"; path = "hotpatch/SSDT-PEG0_PEGP_RDSS.asl"; sourceTree = "<group>"; };
 		ED334FFC1F8D474E00202D59 /* SSDT-PEGP_DGFX_RDSS.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-PEGP_DGFX_RDSS.asl"; path = "hotpatch/SSDT-PEGP_DGFX_RDSS.asl"; sourceTree = "<group>"; };
 		ED341D5F1FA370BC00455E78 /* SSDT-4230s.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-4230s.dsl"; path = "hotpatch/SSDT-4230s.dsl"; sourceTree = "<group>"; };
@@ -220,6 +221,7 @@
 		EDB4C8A91F69720900DC39F3 /* SSDT-8x0-G4-Kabylake.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-8x0-G4-Kabylake.dsl"; path = "hotpatch/SSDT-8x0-G4-Kabylake.dsl"; sourceTree = "<group>"; };
 		EDB4C8AB1F6972A500DC39F3 /* SSDT-USB-8x0-G4.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-USB-8x0-G4.asl"; path = "hotpatch/SSDT-USB-8x0-G4.asl"; sourceTree = "<group>"; };
 		EDB4C8AC1F69738900DC39F3 /* SSDT-RP05_PXSX_RDSS.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-RP05_PXSX_RDSS.asl"; path = "hotpatch/SSDT-RP05_PXSX_RDSS.asl"; sourceTree = "<group>"; };
+		EDB7D5AE1FE014E500D6DF39 /* config_Haswell_no_hdmi_dp.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_Haswell_no_hdmi_dp.plist; path = config_parts/config_Haswell_no_hdmi_dp.plist; sourceTree = "<group>"; };
 		EDB9A1031ECCE6FE002297BB /* SSDT-USBX.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-USBX.asl"; path = "hotpatch/SSDT-USBX.asl"; sourceTree = "<group>"; };
 		EDBB1BE71E993AAA00F49BDE /* SSDT-USB-4x0-G4.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-USB-4x0-G4.asl"; path = "hotpatch/SSDT-USB-4x0-G4.asl"; sourceTree = "<group>"; };
 		EDBB3F8D1FDAD6AC00CF45FC /* SSDT-USB-1030-G1.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-USB-1030-G1.asl"; path = "hotpatch/SSDT-USB-1030-G1.asl"; sourceTree = "<group>"; };
@@ -477,6 +479,7 @@
 		ED923A2A1CC9407E00BD18E2 /* usb customization */ = {
 			isa = PBXGroup;
 			children = (
+				ED2C0E751FE2D81000EFE2D5 /* SSDT-USB-Unknown.asl */,
 				ED97E9541CC757D7006C757A /* SSDT-USB-4x30s.asl */,
 				ED97E9501CC757D7006C757A /* SSDT-USB-4x40s.asl */,
 				ED97E94C1CC757D7006C757A /* SSDT-USB-6x60.asl */,
@@ -518,6 +521,7 @@
 				ED407DA41CF4FBA900A03010 /* config_HD4000_hdmi_audio.plist */,
 				ED97E9221CC755BE006C757A /* config_Haswell.plist */,
 				ED407DA71CF4FC8B00A03010 /* config_Haswell_hdmi_audio.plist */,
+				EDB7D5AE1FE014E500D6DF39 /* config_Haswell_no_hdmi_dp.plist */,
 				ED97E9211CC755BE006C757A /* config_Broadwell.plist */,
 				ED407DA61CF4FC8B00A03010 /* config_Broadwell_hdmi_audio.plist */,
 				ED97E9251CC755BE006C757A /* config_Skylake.plist */,
