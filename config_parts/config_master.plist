@@ -362,7 +362,18 @@
 		<key>SSDT</key>
 		<dict>
 			<key>Generate</key>
-			<false/>
+			<dict>
+				<key>CStates</key>
+				<false/>
+				<key>PStates</key>
+				<false/>
+				<key>APSN</key>
+				<false/>
+				<key>APLF</key>
+				<false/>
+				<key>PluginType</key>
+				<false/>
+			</dict>
 		</dict>
 	</dict>
 	<key>Boot</key>
@@ -455,9 +466,9 @@
 	<dict>
 		<key>AppleRTC</key>
 		<true/>
-		<key>AsusAICPUPM</key>
+		<key>AppleIntelCPUPM</key>
 		<true/>
-		<key>KernelIvyXCPM</key>
+		<key>KernelXCPM</key>
 		<false/>
 		<key>KernelLapic</key>
 		<false/>

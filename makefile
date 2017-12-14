@@ -198,7 +198,7 @@ config/config_9x80m.plist : $(PARTS)/config_master.plist $(PARTS)/config_ALC280.
 config/config_4x0s_G1_Haswell.plist : $(PARTS)/config_master.plist $(PARTS)/config_IDT76e0.plist $(PARTS)/config_Haswell.plist $(PARTS)/config_Haswell_hdmi_audio.plist
 	@printf "!! creating $@\n"
 	cp $(PARTS)/config_master.plist $@
-	/usr/libexec/PlistBuddy -c "Set KernelAndKextPatches:AsusAICPUPM false" $@
+	/usr/libexec/PlistBuddy -c "Set KernelAndKextPatches:AppleIntelCPUPM false" $@
 	/usr/libexec/PlistBuddy -c "Set :SMBIOS:ProductName MacBookAir6,2" $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_Haswell.plist $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_Haswell_hdmi_audio.plist $@
@@ -209,7 +209,7 @@ config/config_4x0s_G1_Haswell.plist : $(PARTS)/config_master.plist $(PARTS)/conf
 config/config_8x0s_G1_Haswell.plist : $(PARTS)/config_master.plist $(PARTS)/config_IDT76e0.plist $(PARTS)/config_Haswell.plist
 	@printf "!! creating $@\n"
 	cp $(PARTS)/config_master.plist $@
-	/usr/libexec/PlistBuddy -c "Set KernelAndKextPatches:AsusAICPUPM false" $@
+	/usr/libexec/PlistBuddy -c "Set KernelAndKextPatches:AppleIntelCPUPM false" $@
 	/usr/libexec/PlistBuddy -c "Set :SMBIOS:ProductName MacBookAir6,2" $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_Haswell.plist $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_IDT76e0.plist $@
@@ -297,7 +297,7 @@ config/config_3x0_G1.plist : $(PARTS)/config_master.plist $(PARTS)/config_IDT769
 config/config_4x0s_G2_Haswell.plist : $(PARTS)/config_master.plist $(PARTS)/config_ALC282.plist $(PARTS)/config_Haswell.plist $(PARTS)/config_Haswell_hdmi_audio.plist
 	@printf "!! creating $@\n"
 	cp $(PARTS)/config_master.plist $@
-	/usr/libexec/PlistBuddy -c "Set KernelAndKextPatches:AsusAICPUPM false" $@
+	/usr/libexec/PlistBuddy -c "Set KernelAndKextPatches:AppleIntelCPUPM false" $@
 	/usr/libexec/PlistBuddy -c "Set :SMBIOS:ProductName MacBookAir6,2" $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_Haswell.plist $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_Haswell_hdmi_audio.plist $@
@@ -308,7 +308,7 @@ config/config_4x0s_G2_Haswell.plist : $(PARTS)/config_master.plist $(PARTS)/conf
 config/config_8x0s_G2_Haswell.plist: $(PARTS)/config_master.plist $(PARTS)/config_ALC282.plist $(PARTS)/config_Haswell.plist
 	@printf "!! creating $@\n"
 	cp $(PARTS)/config_master.plist $@
-	/usr/libexec/PlistBuddy -c "Set KernelAndKextPatches:AsusAICPUPM false" $@
+	/usr/libexec/PlistBuddy -c "Set KernelAndKextPatches:AppleIntelCPUPM false" $@
 	/usr/libexec/PlistBuddy -c "Set :SMBIOS:ProductName MacBookAir6,2" $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_Haswell.plist $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_ALC282.plist $@
@@ -318,7 +318,7 @@ config/config_8x0s_G2_Haswell.plist: $(PARTS)/config_master.plist $(PARTS)/confi
 config/config_4x0s_G2_Broadwell.plist : $(PARTS)/config_master.plist $(PARTS)/config_ALC282.plist $(PARTS)/config_Broadwell.plist $(PARTS)/config_Broadwell_hdmi_audio.plist
 	@printf "!! creating $@\n"
 	cp $(PARTS)/config_master.plist $@
-	/usr/libexec/PlistBuddy -c "Set KernelAndKextPatches:AsusAICPUPM false" $@
+	/usr/libexec/PlistBuddy -c "Set KernelAndKextPatches:AppleIntelCPUPM false" $@
 	/usr/libexec/PlistBuddy -c "Set :SMBIOS:ProductName MacBookAir7,2" $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_Broadwell.plist $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_Broadwell_hdmi_audio.plist $@
@@ -329,7 +329,7 @@ config/config_4x0s_G2_Broadwell.plist : $(PARTS)/config_master.plist $(PARTS)/co
 config/config_8x0s_G2_Broadwell.plist : $(PARTS)/config_master.plist $(PARTS)/config_ALC280.plist $(PARTS)/config_Broadwell.plist
 	@printf "!! creating $@\n"
 	cp $(PARTS)/config_master.plist $@
-	/usr/libexec/PlistBuddy -c "Set KernelAndKextPatches:AsusAICPUPM false" $@
+	/usr/libexec/PlistBuddy -c "Set KernelAndKextPatches:AppleIntelCPUPM false" $@
 	/usr/libexec/PlistBuddy -c "Set :SMBIOS:ProductName MacBookAir7,2" $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_Broadwell.plist $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_ALC280.plist $@
@@ -339,7 +339,7 @@ config/config_8x0s_G2_Broadwell.plist : $(PARTS)/config_master.plist $(PARTS)/co
 config/config_1020_G1_Broadwell.plist : $(PARTS)/config_master.plist $(PARTS)/config_ALC286.plist $(PARTS)/config_Broadwell.plist $(PARTS)/config_Broadwell_hdmi_audio.plist
 	@printf "!! creating $@\n"
 	cp $(PARTS)/config_master.plist $@
-	/usr/libexec/PlistBuddy -c "Set KernelAndKextPatches:AsusAICPUPM false" $@
+	/usr/libexec/PlistBuddy -c "Set KernelAndKextPatches:AppleIntelCPUPM false" $@
 	/usr/libexec/PlistBuddy -c "Set :SMBIOS:ProductName MacBookAir7,2" $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_Broadwell.plist $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_Broadwell_hdmi_audio.plist $@
@@ -351,7 +351,7 @@ config/config_1020_G1_Broadwell.plist : $(PARTS)/config_master.plist $(PARTS)/co
 config/config_ZBook_G2_Haswell.plist : $(PARTS)/config_master.plist $(PARTS)/config_IDT76e0.plist $(PARTS)/config_Haswell.plist $(PARTS)/config_Haswell_no_hdmi_dp.plist
 	@printf "!! creating $@\n"
 	cp $(PARTS)/config_master.plist $@
-	/usr/libexec/PlistBuddy -c "Set KernelAndKextPatches:AsusAICPUPM false" $@
+	/usr/libexec/PlistBuddy -c "Set KernelAndKextPatches:AppleIntelCPUPM false" $@
 	/usr/libexec/PlistBuddy -c "Set :SMBIOS:ProductName MacBookPro11,1" $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_Haswell.plist $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_Haswell_no_hdmi_dp.plist $@
@@ -368,7 +368,7 @@ config/config_ZBook_G1_Haswell.plist : config/config_ZBook_G2_Haswell.plist
 config/config_ZBook_G2_Haswell_ALC280.plist : $(PARTS)/config_master.plist $(PARTS)/config_ALC280.plist $(PARTS)/config_Haswell.plist
 	@printf "!! creating $@\n"
 	cp $(PARTS)/config_master.plist $@
-	/usr/libexec/PlistBuddy -c "Set KernelAndKextPatches:AsusAICPUPM false" $@
+	/usr/libexec/PlistBuddy -c "Set KernelAndKextPatches:AppleIntelCPUPM false" $@
 	/usr/libexec/PlistBuddy -c "Set :SMBIOS:ProductName MacBookPro11,1" $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_Haswell.plist $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_ALC280.plist $@
@@ -378,7 +378,7 @@ config/config_ZBook_G2_Haswell_ALC280.plist : $(PARTS)/config_master.plist $(PAR
 config/config_ZBook_G2_Broadwell.plist : $(PARTS)/config_master.plist $(PARTS)/config_ALC280.plist $(PARTS)/config_Broadwell.plist
 	@printf "!! creating $@\n"
 	cp $(PARTS)/config_master.plist $@
-	/usr/libexec/PlistBuddy -c "Set KernelAndKextPatches:AsusAICPUPM false" $@
+	/usr/libexec/PlistBuddy -c "Set KernelAndKextPatches:AppleIntelCPUPM false" $@
 	/usr/libexec/PlistBuddy -c "Set :SMBIOS:ProductName MacBookPro11,1" $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_Broadwell.plist $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_ALC280.plist $@
@@ -388,7 +388,7 @@ config/config_ZBook_G2_Broadwell.plist : $(PARTS)/config_master.plist $(PARTS)/c
 config/config_4x0s_G3_Skylake.plist : $(PARTS)/config_master.plist $(PARTS)/config_CX20724.plist $(PARTS)/config_Skylake.plist $(PARTS)/config_Skylake_hdmi_audio.plist
 	@printf "!! creating $@\n"
 	cp $(PARTS)/config_master.plist $@
-	/usr/libexec/PlistBuddy -c "Set KernelAndKextPatches:AsusAICPUPM false" $@
+	/usr/libexec/PlistBuddy -c "Set KernelAndKextPatches:AppleIntelCPUPM false" $@
 	/usr/libexec/PlistBuddy -c "Set :SMBIOS:ProductName MacBookPro11,1" $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_Skylake.plist $@
 	./merge_plist.sh "KernelAndKextPatches:KernelToPatch" $(PARTS)/config_Skylake.plist $@
@@ -400,7 +400,7 @@ config/config_4x0s_G3_Skylake.plist : $(PARTS)/config_master.plist $(PARTS)/conf
 config/config_8x0_G3_Skylake.plist : $(PARTS)/config_master.plist $(PARTS)/config_CX20724.plist $(PARTS)/config_Skylake.plist
 	@printf "!! creating $@\n"
 	cp $(PARTS)/config_master.plist $@
-	/usr/libexec/PlistBuddy -c "Set KernelAndKextPatches:AsusAICPUPM false" $@
+	/usr/libexec/PlistBuddy -c "Set KernelAndKextPatches:AppleIntelCPUPM false" $@
 	/usr/libexec/PlistBuddy -c "Set :SMBIOS:ProductName MacBookPro11,1" $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_Skylake.plist $@
 	./merge_plist.sh "KernelAndKextPatches:KernelToPatch" $(PARTS)/config_Skylake.plist $@
@@ -423,7 +423,7 @@ config/config_ZBook_G3_Skylake.plist : config/config_8x0_G3_Skylake.plist
 config/config_6x0_G2_Skylake.plist : $(PARTS)/config_master.plist $(PARTS)/config_CX20724.plist $(PARTS)/config_Skylake.plist
 	@printf "!! creating $@\n"
 	cp $(PARTS)/config_master.plist $@
-	/usr/libexec/PlistBuddy -c "Set KernelAndKextPatches:AsusAICPUPM false" $@
+	/usr/libexec/PlistBuddy -c "Set KernelAndKextPatches:AppleIntelCPUPM false" $@
 	/usr/libexec/PlistBuddy -c "Set :SMBIOS:ProductName MacBookPro11,1" $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_Skylake.plist $@
 	./merge_plist.sh "KernelAndKextPatches:KernelToPatch" $(PARTS)/config_Skylake.plist $@
@@ -434,7 +434,7 @@ config/config_6x0_G2_Skylake.plist : $(PARTS)/config_master.plist $(PARTS)/confi
 config/config_1040_G3_Skylake.plist : $(PARTS)/config_master.plist $(PARTS)/config_CX20724.plist $(PARTS)/config_Skylake.plist
 	@printf "!! creating $@\n"
 	cp $(PARTS)/config_master.plist $@
-	/usr/libexec/PlistBuddy -c "Set KernelAndKextPatches:AsusAICPUPM false" $@
+	/usr/libexec/PlistBuddy -c "Set KernelAndKextPatches:AppleIntelCPUPM false" $@
 	/usr/libexec/PlistBuddy -c "Set :SMBIOS:ProductName MacBookPro11,1" $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_Skylake.plist $@
 	./merge_plist.sh "KernelAndKextPatches:KernelToPatch" $(PARTS)/config_Skylake.plist $@
@@ -445,7 +445,7 @@ config/config_1040_G3_Skylake.plist : $(PARTS)/config_master.plist $(PARTS)/conf
 config/config_4x0s_G4_Kabylake.plist : $(PARTS)/config_master.plist $(PARTS)/config_CX20724.plist $(PARTS)/config_Skylake.plist $(PARTS)/config_Kabylake.plist $(PARTS)/config_Skylake_hdmi_audio.plist $(PARTS)/config_Kabylake_hdmi_audio.plist
 	@printf "!! creating $@\n"
 	cp $(PARTS)/config_master.plist $@
-	/usr/libexec/PlistBuddy -c "Set KernelAndKextPatches:AsusAICPUPM false" $@
+	/usr/libexec/PlistBuddy -c "Set KernelAndKextPatches:AppleIntelCPUPM false" $@
 	/usr/libexec/PlistBuddy -c "Set :SMBIOS:ProductName MacBookPro11,1" $@
 	./merge_plist.sh "KernelAndKextPatches" $(PARTS)/config_Kabylake.plist $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_Skylake.plist $@
@@ -459,7 +459,7 @@ config/config_4x0s_G4_Kabylake.plist : $(PARTS)/config_master.plist $(PARTS)/con
 config/config_8x0_G4_Kabylake.plist : $(PARTS)/config_master.plist $(PARTS)/config_CX20724.plist $(PARTS)/config_Skylake.plist $(PARTS)/config_Kabylake.plist
 	@printf "!! creating $@\n"
 	cp $(PARTS)/config_master.plist $@
-	/usr/libexec/PlistBuddy -c "Set KernelAndKextPatches:AsusAICPUPM false" $@
+	/usr/libexec/PlistBuddy -c "Set KernelAndKextPatches:AppleIntelCPUPM false" $@
 	/usr/libexec/PlistBuddy -c "Set :SMBIOS:ProductName MacBookPro11,1" $@
 	./merge_plist.sh "KernelAndKextPatches" $(PARTS)/config_Kabylake.plist $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_Skylake.plist $@
