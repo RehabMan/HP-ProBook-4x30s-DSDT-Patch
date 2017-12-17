@@ -64,7 +64,7 @@
                     {
                         // 0x1a SET_PIN_WIDGET_CONTROL 0x25
                         // Node 0x1a - Pin Control (In Enable / VRefEn)
-                        "Command", Buffer() { 0x01, 0x1a, 0x07, 0x25 },
+                        "Command", Buffer() { 0x01, 0xa7, 0x07, 0x25 },
                         "On Init", ">y",
                         "On Sleep", ">n",
                         "On Wake", ">y",
