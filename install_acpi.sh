@@ -199,6 +199,11 @@ case "$1" in
         cp $BUILDDIR/SSDT-4x0-G1-Haswell.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         ls $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
+    install_450g1_haswell)
+        $0 inst_xcpm $2
+        cp $BUILDDIR/SSDT-450-G1-Haswell.aml $EFIDIR/EFI/CLOVER/ACPI/patched
+        ls $EFIDIR/EFI/CLOVER/ACPI/patched
+    ;;
     install_6x0g1_haswell)
         $0 inst_xcpm $2
         cp $BUILDDIR/SSDT-6x0-G1-Haswell.aml $EFIDIR/EFI/CLOVER/ACPI/patched

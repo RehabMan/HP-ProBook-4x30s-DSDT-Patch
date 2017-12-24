@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXFileReference section */
+		8404DCC01FEFF6D20073E620 /* SSDT-450-G1-Haswell.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-450-G1-Haswell.dsl"; path = "hotpatch/SSDT-450-G1-Haswell.dsl"; sourceTree = "<group>"; };
 		8405D1141E78B179008FE0DC /* config_2x60p.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_2x60p.plist; path = config/config_2x60p.plist; sourceTree = "<group>"; };
 		8405D1151E78B179008FE0DC /* config_4x0s_G4_Kabylake.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_4x0s_G4_Kabylake.plist; path = config/config_4x0s_G4_Kabylake.plist; sourceTree = "<group>"; };
 		8405D1161E78B179008FE0DC /* config_6x0_G2_Skylake.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_6x0_G2_Skylake.plist; path = config/config_6x0_G2_Skylake.plist; sourceTree = "<group>"; };
@@ -452,6 +453,7 @@
 				ED97E9331CC757D7006C757A /* SSDT-4x0-G1-Ivy.dsl */,
 				ED97E93C1CC757D7006C757A /* SSDT-8x0-G1-Ivy.dsl */,
 				ED97E9321CC757D7006C757A /* SSDT-4x0-G1-Haswell.dsl */,
+				8404DCC01FEFF6D20073E620 /* SSDT-450-G1-Haswell.dsl */,
 				ED023EB31CFDC75C00C5F3A2 /* SSDT-6x0-G1-Haswell.dsl */,
 				ED97E93B1CC757D7006C757A /* SSDT-8x0-G1-Haswell.dsl */,
 				ED97E9421CC757D7006C757A /* SSDT-1040-G1-Haswell.dsl */,

@@ -16,9 +16,11 @@ build/SSDT-3x0-G1.aml : hotpatch/SSDT-3x0-G1.dsl hotpatch/SSDT-RMCF.asl hotpatch
 
 build/SSDT-4230s.aml : hotpatch/SSDT-4230s.dsl hotpatch/SSDT-RMCF.asl hotpatch/SSDT-PEGP_DGFX_RDSS.asl hotpatch/SSDT-HACK.asl hotpatch/include/layout12_HDEF.asl hotpatch/include/standard_PS2K.asl hotpatch/include/standard_PS2K_data.asl hotpatch/SSDT-KEY87.asl hotpatch/SSDT-USB-4x30s.asl hotpatch/SSDT-EH01.asl hotpatch/SSDT-EH02.asl hotpatch/SSDT-BATT.asl
 
+build/SSDT-450-G1-Haswell.aml : hotpatch/SSDT-450-G1-Haswell.dsl hotpatch/SSDT-RMCF.asl hotpatch/SSDT-PluginType1.asl hotpatch/SSDT-PEGP_DGFX_RDSS.asl hotpatch/SSDT-HACK.asl hotpatch/include/layout17_HDEF.asl hotpatch/include/layout17_HDAU.asl hotpatch/include/standard_PS2K.asl hotpatch/include/standard_PS2K_data.asl hotpatch/SSDT-KEY87.asl hotpatch/SSDT-USB-4x0-G1.asl hotpatch/SSDT-XHC.asl hotpatch/SSDT-BATT.asl hotpatch/include/disable_EH01-EH02.asl
+
 build/SSDT-4x0-G0.aml : hotpatch/SSDT-4x0-G0.dsl hotpatch/SSDT-RMCF.asl hotpatch/SSDT-PEGP_DGFX_RDSS.asl hotpatch/SSDT-HACK.asl hotpatch/include/layout17_HDEF.asl hotpatch/include/standard_PS2K.asl hotpatch/include/standard_PS2K_data.asl hotpatch/SSDT-KEY87.asl hotpatch/SSDT-USB-4x0-G0.asl hotpatch/SSDT-EH01.asl hotpatch/SSDT-EH02.asl hotpatch/SSDT-XHC.asl hotpatch/SSDT-BATT.asl
 
-build/SSDT-4x0-G1-Haswell.aml : hotpatch/SSDT-4x0-G1-Haswell.dsl hotpatch/SSDT-RMCF.asl hotpatch/SSDT-PluginType1.asl hotpatch/SSDT-PEGP_DGFX_RDSS.asl hotpatch/SSDT-HACK.asl hotpatch/include/layout17_HDEF.asl hotpatch/include/layout17_HDAU.asl hotpatch/include/standard_PS2K.asl hotpatch/include/standard_PS2K_data.asl hotpatch/SSDT-KEY87.asl hotpatch/SSDT-USB-4x0-G1.asl hotpatch/SSDT-XHC.asl hotpatch/SSDT-BATT.asl hotpatch/include/disable_EH01-EH02.asl
+build/SSDT-4x0-G1-Haswell.aml : hotpatch/SSDT-4x0-G1-Haswell.dsl hotpatch/SSDT-RMCF.asl hotpatch/SSDT-PluginType1.asl hotpatch/SSDT-PEGP_DGFX_RDSS.asl hotpatch/SSDT-HACK.asl hotpatch/include/layout17_HDEF.asl hotpatch/include/layout17_HDAU.asl hotpatch/include/standard_PS2K.asl hotpatch/include/standard_PS2K_data.asl hotpatch/SSDT-KEY87.asl hotpatch/SSDT-USB-4x0-G1.asl hotpatch/SSDT-XHC.asl hotpatch/SSDT-BATT.asl hotpatch/include/disable_EH01.asl
 
 build/SSDT-4x0-G1-Ivy.aml : hotpatch/SSDT-4x0-G1-Ivy.dsl hotpatch/SSDT-RMCF.asl hotpatch/SSDT-PEGP_DGFX_RDSS.asl hotpatch/SSDT-HACK.asl hotpatch/include/layout17_HDEF.asl hotpatch/include/standard_PS2K.asl hotpatch/include/standard_PS2K_data.asl hotpatch/SSDT-KEY87.asl hotpatch/SSDT-XHC.asl hotpatch/SSDT-BATT.asl hotpatch/SSDT-EH01.asl hotpatch/SSDT-EH02.asl
 

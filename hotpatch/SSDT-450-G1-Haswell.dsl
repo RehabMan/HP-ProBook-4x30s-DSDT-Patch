@@ -1,6 +1,6 @@
-// SSDT for 4x0 G1 Haswell
+// SSDT for 450 G1 Haswell
 
-DefinitionBlock ("", "SSDT", 2, "hack", "4x0g1h", 0)
+DefinitionBlock ("", "SSDT", 2, "hack", "450g1h", 0)
 {
     #define OVERRIDE_IGPI 0x0d260007
     #define OVERRIDE_LMAX 0x07a1
@@ -15,6 +15,6 @@ DefinitionBlock ("", "SSDT", 2, "hack", "4x0g1h", 0)
     #include "SSDT-USB-4x0-G1.asl"
     #include "SSDT-XHC.asl"
     #include "SSDT-BATT.asl"
-    #include "include/disable_EH01.asl"
+    #include "include/disable_EH01-EH02.asl"
 }
 //EOF
