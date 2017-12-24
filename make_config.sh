@@ -78,7 +78,7 @@ cp config_parts/config_master.plist config/config_6x70p.plist
 ./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_parts/config_IDT7605.plist config/config_6x70p.plist
 printf "\n"
 printf "!! creating config/config_8x70p.plist\n"
-cp config/config_6x70p.plist config/config_8x70p.plist
+cp config_parts/ugly/8x70.plist config/config_8x70p.plist
 printf "\n"
 printf "!! creating config/config_2x70p.plist\n"
 cp config/config_6x70p.plist config/config_2x70p.plist
