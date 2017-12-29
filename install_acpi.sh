@@ -271,7 +271,7 @@ case "$1" in
     ;;
     install_ZBook_G1_haswell)
         $0 inst_xcpm $2
-        cp $BUILDDIR/SSDT-ZBook-G2-Haswell.aml $EFIDIR/EFI/CLOVER/ACPI/patched
+        cp $BUILDDIR/SSDT-ZBook-G1-Haswell.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         ls $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
     install_ZBook_G2_broadwell)
