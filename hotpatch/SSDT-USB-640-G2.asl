@@ -1,6 +1,7 @@
 // USBInjectAll configuration/override for ProBook 640 G2 Skylake
 //
 // Based on information provided from chezyann's ProBook 640 G2 Skylake
+// USB-C port info provided by Las_Vegas (also a 640 G2 Skylake)
 
 //REVIEW: rename to SSDT-USB-6x0-G2.dsl
 
@@ -20,17 +21,23 @@
                 "port-count", Buffer() { 18, 0, 0, 0 },
                 "ports", Package()
                 {
-                    "HS01", Package()   // HS component of SS port
+                    "HS01", Package()   // HS component of SS02 port
                     {
                         "UsbConnector", 3,
                         "port", Buffer() { 1, 0, 0, 0 },
                     },
-                    "HS02", Package()   // HS component of SS port
+                    "HS02", Package()   // HS component of SS01 port
                     {
                         "UsbConnector", 3,
                         "port", Buffer() { 2, 0, 0, 0 },
                     },
-                    //HS03-HS06 not used
+                    //HS03-HS04 not used
+                    "HS05", Package()   // HS component of C port
+                    {
+                        "UsbConnector", 10,
+                        "port", Buffer() { 5, 0, 0, 0 },
+                    },
+                    //HS06 not used
                     "HS07", Package()   // bluetooth
                     {
                         "UsbConnector", 255,
@@ -53,7 +60,18 @@
                         "UsbConnector", 3,
                         "port", Buffer() { 14, 0, 0, 0 },
                     },
-                    //SS03-SS06 not used
+                    "SS03", Package()    // C port
+                    {
+                        "UsbConnector", 10,
+                        "port", Buffer() { 15, 0, 0, 0 },
+                    },
+                    //SS04 not used
+                    "SS05", Package()    // C port inverted
+                    {
+                        "UsbConnector", 10,
+                        "port", Buffer() { 17, 0, 0, 0 },
+                    },
+                    //SS06 not used
                     //USR1/USR2 not used
                 },
             },
