@@ -96,6 +96,14 @@
                         //"portType", 4,  // fix for camera after sleep?
                         "port", Buffer() { 3, 0, 0, 0 },
                     },
+                    //HP24 not used
+                    "HP25", Package()   // WWAN
+                    {
+                        //"UsbConnector", 255,
+                        "portType", 2,
+                        "port", Buffer() { 5, 0, 0, 0 },
+                    },
+                    //HP26 HP27 HP28 not used
                 },
             },
             // XHC
