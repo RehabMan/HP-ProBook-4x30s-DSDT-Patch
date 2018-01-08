@@ -1,6 +1,7 @@
 // USB configuration for Folio 9x70
 //
 // Data provided by wi-fi from EliteBook Folio 9470m
+// Additional data for docking station provided by mayonaise1091
 // Note: It did not have bluetooth hardware installed, so the bluetooth port HP16 is a guess
 
 //DefinitionBlock ("", "SSDT", 2, "hack", "usb9x70", 0)
@@ -32,6 +33,11 @@
                 "port-count", Buffer() { 8, 0, 0, 0 },
                 "ports", Package()
                 {
+                    "HP11", Package()   // HS USB3 dock
+                    {
+                        //"UsbConnector", 3,
+                        "port", Buffer() { 1, 0, 0, 0 },
+                    },
                     "HP12", Package()   // HS USB3 near left
                     {
                         //"UsbConnector", 3,
@@ -117,7 +123,11 @@
                     // HS02 HS USB3 near left
                     // HS03 HS USB3 far left
                     // HS04 USB2 far right
-                    // SS05 not used
+                    "SS05", Package()   // SS USB3 on dock
+                    {
+                        "UsbConnector", 3,
+                        "port", Buffer() { 5, 0, 0, 0 },
+                    },
                     "SS06", Package()   // SS USB3 near left
                     {
                         "UsbConnector", 3,
