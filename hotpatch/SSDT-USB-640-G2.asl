@@ -1,7 +1,7 @@
 // USBInjectAll configuration/override for ProBook 640 G2 Skylake
 //
 // Based on information provided from chezyann's ProBook 640 G2 Skylake
-// USB-C port info provided by Las_Vegas (also a 640 G2 Skylake)
+// USB-C port and dock USB3 info provided by Las_Vegas (also a 640 G2 Skylake)
 
 //REVIEW: rename to SSDT-USB-6x0-G2.dsl
 
@@ -31,7 +31,12 @@
                         "UsbConnector", 3,
                         "port", Buffer() { 2, 0, 0, 0 },
                     },
-                    //HS03-HS04 not used
+                    //HS03 not used
+                    "HS04", Package()   // HS component of Dock
+                    {
+                        "UsbConnector", 3,
+                        "port", Buffer() { 4, 0, 0, 0 },
+                    },
                     "HS05", Package()   // HS component of C port
                     {
                         "UsbConnector", 10,
@@ -65,7 +70,11 @@
                         "UsbConnector", 10,
                         "port", Buffer() { 15, 0, 0, 0 },
                     },
-                    //SS04 not used
+                    "SS04", Package()    // Dock Extension
+                    {
+                        "UsbConnector", 3,
+                        "port", Buffer() { 16, 0, 0, 0 },
+                    },
                     "SS05", Package()    // C port inverted
                     {
                         "UsbConnector", 10,
