@@ -10,6 +10,7 @@ TAGCMD=`pwd`/tools/tag
 SLE=/System/Library/Extensions
 LE=/Library/Extensions
 EXCEPTIONS="Sensors|FakePCIID_BCM57XX|FakePCIID_AR9280|FakePCIID_Intel_GbX|BrcmPatchRAM|BrcmBluetoothInjector|BrcmFirmwareData|BrcmNonPatchRAM|USBInjectAll|Lilu|IntelGraphicsFixup"
+ESSENTIAL="FakeSMC.kext SATA-100-series-unsupported.kext IntelMausiEthernet.kext RealtekRTL8111.kext USBInjectAll.kext Lilu.kext IntelGraphicsFixup.kext AppleBacklightInjector.kext IntelBacklight.kext VoodooPS2Controller.kext"
 
 # extract minor version (eg. 10.9 vs. 10.10 vs. 10.11)
 MINOR_VER=$([[ "$(sw_vers -productVersion)" =~ [0-9]+\.([0-9]+) ]] && echo ${BASH_REMATCH[1]})
@@ -50,7 +51,7 @@ function install_kext
     if [ "$1" != "" ]; then
         echo installing $1 to $KEXTDEST
         $SUDO rm -Rf $SLE/`basename $1` $KEXTDEST/`basename $1`
-        $SUDO cp -Rf $1 $KEXTDEST
+        $SUDO cp -Rfp $1 $KEXTDEST
         $TAG -a Gray $KEXTDEST/`basename $1`
     fi
 }
@@ -60,7 +61,7 @@ function install_app
     if [ "$1" != "" ]; then
         echo installing $1 to /Applications
         $SUDO rm -Rf /Applications/`basename $1`
-        $SUDO cp -Rf $1 /Applications
+        $SUDO cp -Rfp $1 /Applications
         $TAG -a Gray /Applications/`basename $1`
     fi
 }
@@ -70,7 +71,7 @@ function install_binary
     if [ "$1" != "" ]; then
         echo installing $1 to /usr/bin
         $SUDO rm -f /usr/bin/`basename $1`
-        $SUDO cp -f $1 /usr/bin
+        $SUDO cp -fp $1 /usr/bin
         $TAG -a Gray /usr/bin/`basename $1`
     fi
 }
@@ -225,7 +226,7 @@ fi
 # patch it so it is marked OSBundleRequired=Root
 EFI=`./mount_efi.sh`
 if [[ -e "$EFI/EFI/CLOVER/kexts/Other/NVMeGeneric.kext" ]]; then
-    cp -R "$EFI/EFI/CLOVER/kexts/Other/NVMeGeneric.kext" /tmp/NVMeGeneric.kext
+    cp -Rfp "$EFI/EFI/CLOVER/kexts/Other/NVMeGeneric.kext" /tmp/NVMeGeneric.kext
     /usr/libexec/PlistBuddy -c "Add :OSBundleRequired string" /tmp/NVMeGeneric.kext/Contents/Info.plist
     /usr/libexec/PlistBuddy -c "Set :OSBundleRequired Root" /tmp/NVMeGeneric.kext/Contents/Info.plist
     install_kext /tmp/NVMeGeneric.kext
@@ -238,6 +239,7 @@ fi
 
 # install kexts for JMicron card reader and supported Atheros WiFi
 cd kexts
+install_kext SATA-100-series-unsupported.kext
 install_kext HSSDBlockStorage.kext
 install_kext JMB38X.kext
 install_kext JMicronATA.kext
@@ -284,6 +286,16 @@ rm -Rf $out && unzip -q -d $out $zip
 echo Installing HPFanReset.efi to $EFI/EFI/CLOVER/drivers64UEFI
 cp $out/*.efi $EFI/EFI/CLOVER/drivers64UEFI
 cd ../..
+
+# install/update kexts on EFI/Clover/kexts/Other
+EFI=`./mount_efi.sh`
+echo Updating kexts at EFI/Clover/kexts/Other
+for kext in $ESSENTIAL; do
+    if [[ -e $KEXTDEST/$kext ]]; then
+        echo updating $EFI/EFI/CLOVER/kexts/Other/$kext
+        cp -Rfp $KEXTDEST/$kext $EFI/EFI/CLOVER/kexts/Other
+    fi
+done
 
 fi # "toolsonly"
 
