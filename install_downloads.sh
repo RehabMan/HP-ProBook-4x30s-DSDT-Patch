@@ -51,7 +51,7 @@ function install_kext
     if [ "$1" != "" ]; then
         echo installing $1 to $KEXTDEST
         $SUDO rm -Rf $SLE/`basename $1` $KEXTDEST/`basename $1`
-        $SUDO cp -Rfp $1 $KEXTDEST
+        $SUDO cp -Rf $1 $KEXTDEST
         $TAG -a Gray $KEXTDEST/`basename $1`
     fi
 }
@@ -61,7 +61,7 @@ function install_app
     if [ "$1" != "" ]; then
         echo installing $1 to /Applications
         $SUDO rm -Rf /Applications/`basename $1`
-        $SUDO cp -Rfp $1 /Applications
+        $SUDO cp -Rf $1 /Applications
         $TAG -a Gray /Applications/`basename $1`
     fi
 }
@@ -71,7 +71,7 @@ function install_binary
     if [ "$1" != "" ]; then
         echo installing $1 to /usr/bin
         $SUDO rm -f /usr/bin/`basename $1`
-        $SUDO cp -fp $1 /usr/bin
+        $SUDO cp -f $1 /usr/bin
         $TAG -a Gray /usr/bin/`basename $1`
     fi
 }
@@ -226,7 +226,7 @@ fi
 # patch it so it is marked OSBundleRequired=Root
 EFI=`./mount_efi.sh`
 if [[ -e "$EFI/EFI/CLOVER/kexts/Other/NVMeGeneric.kext" ]]; then
-    cp -Rfp "$EFI/EFI/CLOVER/kexts/Other/NVMeGeneric.kext" /tmp/NVMeGeneric.kext
+    cp -Rf "$EFI/EFI/CLOVER/kexts/Other/NVMeGeneric.kext" /tmp/NVMeGeneric.kext
     /usr/libexec/PlistBuddy -c "Add :OSBundleRequired string" /tmp/NVMeGeneric.kext/Contents/Info.plist
     /usr/libexec/PlistBuddy -c "Set :OSBundleRequired Root" /tmp/NVMeGeneric.kext/Contents/Info.plist
     install_kext /tmp/NVMeGeneric.kext
@@ -293,7 +293,7 @@ echo Updating kexts at EFI/Clover/kexts/Other
 for kext in $ESSENTIAL; do
     if [[ -e $KEXTDEST/$kext ]]; then
         echo updating $EFI/EFI/CLOVER/kexts/Other/$kext
-        cp -Rfp $KEXTDEST/$kext $EFI/EFI/CLOVER/kexts/Other
+        cp -Rf $KEXTDEST/$kext $EFI/EFI/CLOVER/kexts/Other
     fi
 done
 
