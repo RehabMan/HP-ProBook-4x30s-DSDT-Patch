@@ -372,7 +372,7 @@
 				<key>APLF</key>
 				<false/>
 				<key>PluginType</key>
-				<false/>
+				<true/>
 			</dict>
 		</dict>
 	</dict>

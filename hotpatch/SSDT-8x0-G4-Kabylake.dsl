@@ -4,7 +4,6 @@ DefinitionBlock ("", "SSDT", 2, "hack", "8x0g4k", 0)
 {
     #define OVERRIDE_XPEE 1
     #include "SSDT-RMCF.asl"
-    #include "SSDT-PluginType1.asl"
     #include "SSDT-RP05_PXSX_RDSS.asl"
     #include "SSDT-HACK.asl"
     #include "include/layout20_HDEF.asl"
