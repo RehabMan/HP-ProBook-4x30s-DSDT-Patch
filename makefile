@@ -465,6 +465,12 @@ config/config_4x0s_G4_Kabylake.plist : $(PARTS)/config_master.plist $(PARTS)/con
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_CX8200.plist $@
 	@printf "\n"
 
+# ProBook_4x0s_G5_Kabylake-R is same as 4x0s_G4_Kabylake
+config/config_4x0s_G4_Kabylake-R.plist : config/config_4x0s_G4_Kabylake.plist
+	@printf "!! creating $@\n"
+	config/config_4x0s_G4_Kabylake.plist $@
+	@printf "\n"
+
 # EliteBook_8x0_G4_Kabylake is CX8200, Kabylake (or spoofed Skylake), DP
 config/config_8x0_G4_Kabylake.plist : $(PARTS)/config_master.plist $(PARTS)/config_CX20724.plist $(PARTS)/config_Skylake.plist $(PARTS)/config_Kabylake.plist
 	@printf "!! creating $@\n"
