@@ -26,7 +26,11 @@
                 //"port-count", Buffer() { 0x0f, 0, 0, 0},
                 "ports", Package()
                 {
-                    // HS01 not used
+                    "HS01", Package() // 4-port USB2 hub (dockingstation)
+                    {
+                        "UsbConnector", 3,
+                        "port", Buffer() { 0x01, 0, 0, 0 },
+                    },
                     "HS02", Package() // USB2 (SSP2 is USB3)
                     {
                         "UsbConnector", 0,
@@ -50,7 +54,11 @@
                         "port", Buffer() { 0x07, 0, 0, 0 },
                     },
                     // HS08/HS09/HS10/HS11 not used
-                    // SSP1 not used
+                    "SSP1", Package() // 4-port USB3 hub (dockingstation)
+                    {
+                        "UsbConnector", 3,
+                        "port", Buffer() { 0x0c, 0, 0, 0 },
+                    },
                     "SSP2", Package() // SS USB3 port
                     {
                         "UsbConnector", 3,
