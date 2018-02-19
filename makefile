@@ -49,7 +49,7 @@ PLIST:=config/config_4x30s.plist config/config_4x40s.plist \
 	config/config_6x0_G2_Skylake.plist \
 	config/config_1040_G1_Haswell.plist config/config_6x0s_G1_Haswell.plist \
 	config/config_1040_G3_Skylake.plist \
-	config/config_4x0s_G4_Kabylake.plist config/config_8x0_G4_Kabylake.plist
+	config/config_4x0s_G4_Kabylake.plist config/config_4x0s_G5_Kabylake-R.plist config/config_8x0_G4_Kabylake.plist
 
 .PHONY: all
 all : $(HACK) $(PLIST) $(HDAHCDINJECT) $(HDAINJECT)
@@ -466,9 +466,9 @@ config/config_4x0s_G4_Kabylake.plist : $(PARTS)/config_master.plist $(PARTS)/con
 	@printf "\n"
 
 # ProBook_4x0s_G5_Kabylake-R is same as 4x0s_G4_Kabylake
-config/config_4x0s_G4_Kabylake-R.plist : config/config_4x0s_G4_Kabylake.plist
+config/config_4x0s_G5_Kabylake-R.plist : config/config_4x0s_G4_Kabylake.plist
 	@printf "!! creating $@\n"
-	config/config_4x0s_G4_Kabylake.plist $@
+	cp config/config_4x0s_G4_Kabylake.plist $@
 	@printf "\n"
 
 # EliteBook_8x0_G4_Kabylake is CX8200, Kabylake (or spoofed Skylake), DP
