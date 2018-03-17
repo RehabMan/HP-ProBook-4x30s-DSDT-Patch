@@ -40,11 +40,13 @@
                         "port", Buffer() { 0x04, 0, 0, 0 },
                     },
                     //HS05 is finger print reader (disabled)
+#if 0
                     "HS06", Package() // internal WWAN
                     {
                         "UsbConnector", 255,
                         "port", Buffer() { 0x06, 0, 0, 0 },
                     },
+#endif
                     "HS07", Package() // camera
                     {
                         "UsbConnector", 255,
