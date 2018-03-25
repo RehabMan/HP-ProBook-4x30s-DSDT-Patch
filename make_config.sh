@@ -228,6 +228,7 @@ cp config_parts/config_master.plist config/config_4x0s_G4_Kabylake.plist
 /usr/libexec/PlistBuddy -c "Set KernelAndKextPatches:AppleIntelCPUPM false" config/config_4x0s_G4_Kabylake.plist
 /usr/libexec/PlistBuddy -c "Set :SMBIOS:ProductName MacBookPro11,1" config/config_4x0s_G4_Kabylake.plist
 ./merge_plist.sh "KernelAndKextPatches" config_parts/config_Kabylake.plist config/config_4x0s_G4_Kabylake.plist
+./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_parts/config_Kabylake.plist config/config_4x0s_G4_Kabylake.plist
 ./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_parts/config_Skylake.plist config/config_4x0s_G4_Kabylake.plist
 ./merge_plist.sh "KernelAndKextPatches:KernelToPatch" config_parts/config_Skylake.plist config/config_4x0s_G4_Kabylake.plist
 ./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_parts/config_Skylake_hdmi_audio.plist config/config_4x0s_G4_Kabylake.plist
@@ -242,6 +243,7 @@ cp config_parts/config_master.plist config/config_8x0_G4_Kabylake.plist
 /usr/libexec/PlistBuddy -c "Set KernelAndKextPatches:AppleIntelCPUPM false" config/config_8x0_G4_Kabylake.plist
 /usr/libexec/PlistBuddy -c "Set :SMBIOS:ProductName MacBookPro11,1" config/config_8x0_G4_Kabylake.plist
 ./merge_plist.sh "KernelAndKextPatches" config_parts/config_Kabylake.plist config/config_8x0_G4_Kabylake.plist
+./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_parts/config_Kabylake.plist config/config_8x0_G4_Kabylake.plist
 ./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_parts/config_Skylake.plist config/config_8x0_G4_Kabylake.plist
 ./merge_plist.sh "KernelAndKextPatches:KernelToPatch" config_parts/config_Skylake.plist config/config_8x0_G4_Kabylake.plist
 ./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_parts/config_CX8200.plist config/config_8x0_G4_Kabylake.plist
