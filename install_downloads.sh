@@ -173,8 +173,8 @@ if [ $? -ne 0 ]; then
     fi
     if [[ $MINOR_VER -ge 12 ]]; then
         #10.12 needs Lilu.kext and IntelGraphicsFixup.kext
-        cd RehabMan-Lilu*/Release && install_kext Lilu.kext && cd ../..
-        cd RehabMan-IntelGraphicsFixup*/Release && install_kext IntelGraphicsFixup.kext && cd ../..
+        cd nbb_vit9696-Lilu* && install_kext Lilu.kext && cd ..
+        cd nbb_lvs1974-IntelGraphicsFixup* && install_kext IntelGraphicsFixup.kext && cd ..
     fi
     # this guide does not use BrcmFirmwareData.kext
     $SUDO rm -Rf $SLE/BrcmFirmwareData.kext $KEXTDEST/BrcmFirmwareData.kext
