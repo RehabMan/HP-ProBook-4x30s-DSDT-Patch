@@ -309,6 +309,11 @@ case "$1" in
         cp $BUILDDIR/SSDT-4x0-G4-Kabylake.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         ls $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
+    install_8x0g4_kabylake)
+        $0 inst_xcpm $2
+        cp $BUILDDIR/SSDT-8x0-G4-Kabylake.aml $EFIDIR/EFI/CLOVER/ACPI/patched
+        ls $EFIDIR/EFI/CLOVER/ACPI/patched
+    ;;
     install_4x0g5_kabylake-r)
         $0 inst_xcpm $2
         cp $BUILDDIR/SSDT-4x0-G4-Kabylake.aml $EFIDIR/EFI/CLOVER/ACPI/patched/SSDT-4x0-G5-Kabylake-R.aml
