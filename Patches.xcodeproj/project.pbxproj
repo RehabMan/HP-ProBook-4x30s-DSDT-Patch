@@ -97,6 +97,7 @@
 		ED341D5F1FA370BC00455E78 /* SSDT-4230s.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-4230s.dsl"; path = "hotpatch/SSDT-4230s.dsl"; sourceTree = "<group>"; };
 		ED3717731D578CD700FC4CC3 /* layout7.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = layout7.plist; path = Resources_ProBook/layout7.plist; sourceTree = "<group>"; };
 		ED3717741D578CD700FC4CC3 /* layout6.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = layout6.plist; path = Resources_ProBook/layout6.plist; sourceTree = "<group>"; };
+		ED3BFB6620992CB9007D8439 /* disable_trackpad.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = disable_trackpad.asl; path = hotpatch/include/disable_trackpad.asl; sourceTree = "<group>"; };
 		ED407DA41CF4FBA900A03010 /* config_HD4000_hdmi_audio.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_HD4000_hdmi_audio.plist; path = config_parts/config_HD4000_hdmi_audio.plist; sourceTree = "<group>"; };
 		ED407DA51CF4FC8B00A03010 /* config_Skylake_hdmi_audio.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_Skylake_hdmi_audio.plist; path = config_parts/config_Skylake_hdmi_audio.plist; sourceTree = "<group>"; };
 		ED407DA61CF4FC8B00A03010 /* config_Broadwell_hdmi_audio.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_Broadwell_hdmi_audio.plist; path = config_parts/config_Broadwell_hdmi_audio.plist; sourceTree = "<group>"; };
@@ -557,6 +558,7 @@
 				ED6354D31D38643B00C77357 /* standard_PS2K_data.asl */,
 				ED6354D21D38643B00C77357 /* key86_data.asl */,
 				ED63DC271FDED5310001E2F4 /* enable_mouse.asl */,
+				ED3BFB6620992CB9007D8439 /* disable_trackpad.asl */,
 				ED97E91D1CC75350006C757A /* disable_HECI.asl */,
 				ED97E9121CC75350006C757A /* layout3_HDAU.asl */,
 				ED97E9131CC75350006C757A /* layout3_HDEF.asl */,
