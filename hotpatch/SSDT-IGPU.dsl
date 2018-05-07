@@ -1,6 +1,10 @@
 // IGPU injections for Intel graphics
 
-DefinitionBlock ("", "SSDT", 2, "hack", "igpu", 0)
+#ifndef HIRES
+DefinitionBlock("", "SSDT", 2, "hack", "_IGPU", 0)
+#else
+DefinitionBlock("", "SSDT", 2, "hack", "_IGPUH", 0)
+#endif
 {
 //
 // IGPU injection

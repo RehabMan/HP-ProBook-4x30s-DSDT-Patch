@@ -1,7 +1,7 @@
 // USB configuration that disables USBInjectAll.kext
 // This can be used for models which have correct ACPI for USB (_UPC/_PLD)
 
-//DefinitionBlock ("", "SSDT", 2, "hack", "usbunk", 0)
+//DefinitionBlock("", "SSDT", 2, "hack", "usbunk", 0)
 //{
 //
 // Override for USBInjectAll.kext

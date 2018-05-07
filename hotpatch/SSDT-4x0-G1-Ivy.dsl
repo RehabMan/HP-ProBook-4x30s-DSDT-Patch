@@ -1,6 +1,6 @@
 // SSDT for 4x0 G1 Ivy
 
-DefinitionBlock ("", "SSDT", 2, "hack", "4x0g1i", 0)
+DefinitionBlock("", "SSDT", 2, "hack", "_4x0G1i", 0)
 {
     #include "SSDT-RMCF.asl"
     #include "SSDT-PEGP_DGFX_RDSS.asl"

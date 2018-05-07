@@ -1,6 +1,6 @@
 // SSDT for ProBook 4x0 G3 (Skylake)
 
-DefinitionBlock ("", "SSDT", 2, "hack", "4x0g3s", 0)
+DefinitionBlock("", "SSDT", 2, "hack", "_4x0G3s", 0)
 {
     #define OVERRIDE_XPEE 1
     #include "SSDT-RMCF.asl"

@@ -1,6 +1,6 @@
 // SSDT for 8x0 G2 Haswell
 
-DefinitionBlock ("", "SSDT", 2, "hack", "8x0g2h", 0)
+DefinitionBlock("", "SSDT", 2, "hack", "_8x0G2h", 0)
 {
     #include "SSDT-RMCF.asl"
     #include "SSDT-RP05_DGFX_RDSS.asl"

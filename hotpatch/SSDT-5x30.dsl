@@ -1,6 +1,6 @@
 // SSDT for ProBook 5x30
 
-DefinitionBlock ("", "SSDT", 2, "hack", "5x30", 0)
+DefinitionBlock("", "SSDT", 2, "hack", "_5x30", 0)
 {
     #include "SSDT-RMCF.asl"
     #include "SSDT-PEGP_DGFX_RDSS.asl"

@@ -1,6 +1,6 @@
 // fan/temperature readings only (fan behavior is BIOS)
 
-DefinitionBlock ("", "SSDT", 2, "hack", "fan", 0)
+DefinitionBlock("", "SSDT", 2, "hack", "_FANREAD", 0)
 {
     External(\_SB.PCI0, DeviceObj)
     External(\_SB.PCI0.LPCB, DeviceObj)

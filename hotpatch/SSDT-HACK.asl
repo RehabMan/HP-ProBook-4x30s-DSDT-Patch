@@ -4,7 +4,7 @@
 // A bit experimental, and a bit more difficult with laptops, but
 // still possible.
 
-//DefinitionBlock ("", "SSDT", 2, "hack", "hack", 0)
+//DefinitionBlock("", "SSDT", 2, "hack", "hack", 0)
 //{
     External(\_SB.PCI0, DeviceObj)
 

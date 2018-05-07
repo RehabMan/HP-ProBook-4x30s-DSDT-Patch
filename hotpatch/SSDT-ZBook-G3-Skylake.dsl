@@ -1,6 +1,6 @@
 // SSDT for ZBook G3 (Skylake)
 
-DefinitionBlock ("", "SSDT", 2, "hack", "zbg3s", 0)
+DefinitionBlock("", "SSDT", 2, "hack", "_zbG3s", 0)
 {
     #define OVERRIDE_XPEE 1
     #include "SSDT-RMCF.asl"

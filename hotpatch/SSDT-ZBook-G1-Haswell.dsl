@@ -1,6 +1,6 @@
 // SSDT for ZBook G1 (Haswell)
 
-DefinitionBlock ("", "SSDT", 2, "hack", "zbg1h", 0)
+DefinitionBlock("", "SSDT", 2, "hack", "_zbG1h", 0)
 {
     #include "SSDT-RMCF.asl"
     #include "SSDT-PEGP_DGFX_RDSS.asl"

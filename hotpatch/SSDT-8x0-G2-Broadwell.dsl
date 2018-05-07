@@ -1,6 +1,6 @@
 // SSDT for 8x0 G2 Broadwell
 
-DefinitionBlock ("", "SSDT", 2, "hack", "8x0g2b", 0)
+DefinitionBlock("", "SSDT", 2, "hack", "_8x0G2b", 0)
 {
     #define OVERRIDE_XPEE 1
     #include "SSDT-RMCF.asl"

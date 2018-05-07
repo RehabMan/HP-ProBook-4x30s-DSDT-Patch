@@ -1,6 +1,6 @@
 // SSDT for 1040 G1 (Haswell)
 
-DefinitionBlock ("", "SSDT", 2, "hack", "1040g1h", 0)
+DefinitionBlock("", "SSDT", 2, "hack", "_1040G1h", 0)
 {
     #include "SSDT-RMCF.asl"
     #include "SSDT-RP05_DGFX_RDSS.asl"

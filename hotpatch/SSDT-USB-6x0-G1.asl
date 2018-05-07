@@ -3,7 +3,7 @@
 
 // Based on information provided from ProBook 650 G1
 
-//DefinitionBlock ("", "SSDT", 2, "hack", "usb6x0g1", 0)
+//DefinitionBlock("", "SSDT", 2, "hack", "usb6x0g1", 0)
 //{
 //
 // Override for USBInjectAll.kext

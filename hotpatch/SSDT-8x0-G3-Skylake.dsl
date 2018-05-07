@@ -1,6 +1,6 @@
 // SSDT for EliteBook 8x0 G3 (Skylake)
 
-DefinitionBlock ("", "SSDT", 2, "hack", "8x0g3s", 0)
+DefinitionBlock("", "SSDT", 2, "hack", "_8x0G3s", 0)
 {
     #define OVERRIDE_XPEE 1
     #include "SSDT-RMCF.asl"

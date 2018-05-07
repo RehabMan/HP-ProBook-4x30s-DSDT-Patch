@@ -1,6 +1,6 @@
 // SSDT for 3x0 G1
 
-DefinitionBlock ("", "SSDT", 2, "hack", "3x0g1", 0)
+DefinitionBlock("", "SSDT", 2, "hack", "_3x0G1", 0)
 {
     #include "SSDT-RMCF.asl"
     #include "SSDT-PEGP_DGFX_RDSS.asl"

@@ -1,6 +1,6 @@
 // SSDT for EliteBook 1030 G1 (Skylake)
 
-DefinitionBlock ("", "SSDT", 2, "hack", "1030g1s", 0)
+DefinitionBlock("", "SSDT", 2, "hack", "_1030G1s", 0)
 {
     #define OVERRIDE_XPEE 1
     #include "SSDT-RMCF.asl"

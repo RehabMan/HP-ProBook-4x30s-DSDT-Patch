@@ -1,6 +1,6 @@
 // SSDT for 4x0 G2 Broadwell
 
-DefinitionBlock ("", "SSDT", 2, "hack", "4x0g2b", 0)
+DefinitionBlock("", "SSDT", 2, "hack", "_4x0G2b", 0)
 {
     #include "SSDT-RMCF.asl"
     #include "SSDT-RP05_DGFX_RDSS.asl"

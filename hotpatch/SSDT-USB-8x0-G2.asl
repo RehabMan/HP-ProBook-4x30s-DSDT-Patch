@@ -10,7 +10,7 @@
 
 //REVIEW: rename to SSDT-USB-8x0-G2
 
-//DefinitionBlock ("", "SSDT", 2, "hack", "usb820g2", 0)
+//DefinitionBlock("", "SSDT", 2, "hack", "usb820g2", 0)
 //{
 //
 // Override for USBInjectAll.kext

@@ -1,6 +1,6 @@
 // "quiet" fan patch
 
-DefinitionBlock ("", "SSDT", 2, "hack", "fan", 0)
+DefinitionBlock("", "SSDT", 2, "hack", "_FANQ", 0)
 {
     External(\_SB.PCI0, DeviceObj)
     External(\_SB.PCI0.LPCB, DeviceObj)

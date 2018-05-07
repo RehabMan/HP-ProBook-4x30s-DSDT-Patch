@@ -1,6 +1,6 @@
 // SSDT for 4230s
 
-DefinitionBlock ("", "SSDT", 2, "hack", "4230", 0)
+DefinitionBlock("", "SSDT", 2, "hack", "_4230", 0)
 {
     #define OVERRIDE_BUID 24
     #include "SSDT-RMCF.asl"

@@ -1,6 +1,6 @@
-// SSDT for ZBook G2 (Haswell)
+// SSDT for ZBook G2 (Haswell) with ALC280
 
-DefinitionBlock ("", "SSDT", 2, "hack", "zbg2ha", 0)
+DefinitionBlock("", "SSDT", 2, "hack", "_zbG2hA", 0)
 {
     #include "SSDT-RMCF.asl"
     #include "SSDT-RP05_DGFX_RDSS.asl"

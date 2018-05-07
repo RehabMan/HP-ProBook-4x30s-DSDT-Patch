@@ -3,7 +3,7 @@
 // Based on information provided from kartoffelsalat_reloaded's Skylake EliteBook 840 G3
 // modifications based on Titanious 840 G3 Skylake.
 
-//DefinitionBlock ("", "SSDT", 2, "hack", "usb8x0g3", 0)
+//DefinitionBlock("", "SSDT", 2, "hack", "usb8x0g3", 0)
 //{
     //
     // Override for USBInjectAll.kext

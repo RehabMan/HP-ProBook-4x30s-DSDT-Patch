@@ -1,6 +1,6 @@
 // SSDT for 9x80m Haswell
 
-DefinitionBlock ("", "SSDT", 2, "hack", "9x80", 0)
+DefinitionBlock("", "SSDT", 2, "hack", "_9x80", 0)
 {
     #include "SSDT-RMCF.asl"
     #include "SSDT-RP05_DGFX_RDSS.asl"

@@ -1,6 +1,6 @@
 // SSDT for EliteBook Folio 1020 G1 (Broadwell)
 
-DefinitionBlock ("", "SSDT", 2, "hack", "1020g1b", 0)
+DefinitionBlock("", "SSDT", 2, "hack", "_1020G1b", 0)
 {
     #include "SSDT-RMCF.asl"
     #include "SSDT-RP05_DGFX_RDSS.asl"

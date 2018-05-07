@@ -1,6 +1,6 @@
 // SSDT for 8x60
 
-DefinitionBlock ("", "SSDT", 2, "hack", "8x60", 0)
+DefinitionBlock("", "SSDT", 2, "hack", "_8x60", 0)
 {
     #include "SSDT-RMCF.asl"
     #include "SSDT-PEGP_DGFX_RDSS.asl"

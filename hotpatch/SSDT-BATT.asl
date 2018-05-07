@@ -1,6 +1,6 @@
 // battery status patched for earlier ProBooks
 
-//DefinitionBlock ("", "SSDT", 2, "hack", "batt", 0)
+//DefinitionBlock("", "SSDT", 2, "hack", "batt", 0)
 //{
     External(\_SB.PCI0, DeviceObj)
     External(\_SB.PCI0.LPCB, DeviceObj)

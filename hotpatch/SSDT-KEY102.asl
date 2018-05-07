@@ -1,6 +1,6 @@
 // for laptops that need 102-key layout
 
-//DefinitionBlock ("", "SSDT", 2, "hack", "key102", 0)
+//DefinitionBlock("", "SSDT", 2, "hack", "key102", 0)
 //{
     External(\_SB.PCI0, DeviceObj)
     External(\_SB.PCI0.LPCB, DeviceObj)

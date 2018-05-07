@@ -1,4 +1,4 @@
-//DefinitionBlock ("", "SSDT", 2, "hack", "RP05PEGP", 0)
+//DefinitionBlock("", "SSDT", 2, "hack", "RP05PEGP", 0)
 //{
     External(_SB.PCI0.RP05.PEGP, DeviceObj)
     External(_SB.PCI0.RP05.PEGP.XDSS, MethodObj)

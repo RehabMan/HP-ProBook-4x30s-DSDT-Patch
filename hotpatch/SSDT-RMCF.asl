@@ -1,4 +1,4 @@
-//DefinitionBlock ("", "SSDT", 2, "hack", "hack", 0)
+//DefinitionBlock("", "SSDT", 2, "hack", "hack", 0)
 //{
 //
 // Configuration data

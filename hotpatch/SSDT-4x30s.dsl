@@ -1,6 +1,6 @@
 // SSDT for 4x30s
 
-DefinitionBlock ("", "SSDT", 2, "hack", "4x30", 0)
+DefinitionBlock("", "SSDT", 2, "hack", "_4x30", 0)
 {
     #include "SSDT-RMCF.asl"
     #include "SSDT-PEGP_DGFX_RDSS.asl"

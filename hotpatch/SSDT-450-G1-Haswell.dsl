@@ -1,6 +1,6 @@
 // SSDT for 450 G1 Haswell
 
-DefinitionBlock ("", "SSDT", 2, "hack", "450g1h", 0)
+DefinitionBlock("", "SSDT", 2, "hack", "_450G1h", 0)
 {
     #define OVERRIDE_IGPI 0x0d260007
     #define OVERRIDE_LMAX 0x07a1
