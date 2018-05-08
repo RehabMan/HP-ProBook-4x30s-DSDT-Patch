@@ -4,10 +4,10 @@
 DefinitionBlock("", "SSDT", 2, "hack", "_FANQ", 0)
 #endif
 #ifdef REHABMAN
-DefinitionBlock("", "SSDT", 2, "hack", "_FANMOD", 0)
+DefinitionBlock("", "SSDT", 2, "hack", "_FANRM", 0)
 #endif
 #ifdef GRAPPLER
-DefinitionBlock("", "SSDT", 2, "hack", "_FANSMOO", 0)
+DefinitionBlock("", "SSDT", 2, "hack", "_FANGRAP", 0)
 #endif
 {
     External(\_SB.PCI0, DeviceObj)

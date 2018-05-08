@@ -42,5 +42,5 @@ iasl -vw 2095 -vw 2146 -vw 2089 -vw 4089 -vi -vr -p build/SSDT-zbG2h.aml hotpatc
 iasl -vw 2095 -vw 2146 -vw 2089 -vw 4089 -vi -vr -p build/SSDT-zbG2hA.aml hotpatch/SSDT-zbG2hA.dsl
 iasl -vw 2095 -vw 2146 -vw 2089 -vw 4089 -vi -vr -p build/SSDT-zbG3s.aml hotpatch/SSDT-zbG3s.dsl
 iasl -D HIRES -vw 2095 -vw 2146 -vw 2089 -vw 4089 -vi -vr -p build/SSDT-IGPUH.aml hotpatch/SSDT-IGPU.dsl
-iasl -D REHABMAN -vw 2095 -vw 2146 -vw 2089 -vw 4089 -vi -vr -p build/SSDT-FANMOD.aml hotpatch/SSDT-FANQ.dsl
-iasl -D GRAPPLER -vw 2095 -vw 2146 -vw 2089 -vw 4089 -vi -vr -p build/SSDT-FANSMOO.aml hotpatch/SSDT-FANQ.dsl
+iasl -D REHABMAN -vw 2095 -vw 2146 -vw 2089 -vw 4089 -vi -vr -p build/SSDT-FANRM.aml hotpatch/SSDT-FANQ.dsl
+iasl -D GRAPPLER -vw 2095 -vw 2146 -vw 2089 -vw 4089 -vi -vr -p build/SSDT-FANGRAP.aml hotpatch/SSDT-FANQ.dsl

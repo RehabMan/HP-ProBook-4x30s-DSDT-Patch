@@ -5,7 +5,7 @@
 if [[ "$1" == "" ]]; then
     echo "Usage: ./install_acpi.sh [model] [fanpref]"
     echo "Use ./install_acpi.sh help for a listing of supported models."
-    echo "fanpref is default to READ (other: Q, MOD, ORIG, SMOO)"
+    echo "fanpref is default to READ (other: Q, RM, ORIG, GRAP)"
     exit
 fi
 
