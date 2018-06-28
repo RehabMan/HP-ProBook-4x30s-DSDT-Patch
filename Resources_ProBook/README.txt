@@ -1,19 +1,23 @@
 LayoutID and PathMapID mappings for AppleHDA_ProBook.kext
 
-ALC282: 3
+ALC282: 33 (was 3 prior to 10.14)
 ALC280: 4
 CX20724: 5 (Mirone version)
 ALC286: 6
 CX20724: 7 (InsanelyDeepak version, extracted from AppleALC)
 CX8200: 20 (extracted from AppleALC)
 
-IDT_76d1: 12
-IDT_76d9: 13
+IDT_76d1: 122 (was 12 prior to 10.14)
+IDT_76d9: 123 (was 13 prior to 10.14)
 IDT_76e0: 17
-IDT_7605: 18
+IDT_7605: 128 (was 18 prior to 10.14)
 IDT_7695: 19
 
 Note: Layout-id 14,15,16 may not be able to be used due to AppleHDA not using them (there may be a whitelist)
+
+Note: macOS Mojave removes layout-id that were used: 3, 12, 13, 18.
+
+
 
 --
 

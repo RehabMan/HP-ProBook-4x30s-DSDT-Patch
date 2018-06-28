@@ -55,7 +55,7 @@
 		84B9D52516FFE684002CD441 /* License.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = License.md; sourceTree = "<group>"; };
 		84B9D52616FFE684002CD441 /* makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; lineEnding = 0; path = makefile; sourceTree = "<group>"; usesTabs = 1; };
 		84CF5EE71CA9DF2000FB64FA /* layout17.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = layout17.plist; path = Resources_ProBook/layout17.plist; sourceTree = "<group>"; };
-		84CF5EE81CA9DF2000FB64FA /* layout18.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = layout18.plist; path = Resources_ProBook/layout18.plist; sourceTree = "<group>"; };
+		84CF5EE81CA9DF2000FB64FA /* layout128.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = layout128.plist; path = Resources_ProBook/layout128.plist; sourceTree = "<group>"; };
 		84CF5EE91CA9DF2000FB64FA /* layout19.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = layout19.plist; path = Resources_ProBook/layout19.plist; sourceTree = "<group>"; };
 		84CF5EEA1CA9DF3200FB64FA /* layout4.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = layout4.plist; path = Resources_ProBook/layout4.plist; sourceTree = "<group>"; };
 		84D207AD1E64F63F0083EC17 /* SSDT-RP01_PEGP_RDSS.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-RP01_PEGP_RDSS.asl"; path = "hotpatch/SSDT-RP01_PEGP_RDSS.asl"; sourceTree = "<group>"; };
@@ -83,9 +83,9 @@
 		ED1837441C0A4B1200A5A3DA /* patch_hda.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = patch_hda.sh; sourceTree = "<group>"; };
 		ED1837451C0A4B1200A5A3DA /* print_version.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = print_version.sh; sourceTree = "<group>"; };
 		ED1837461C0A4B1200A5A3DA /* ahhcd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = ahhcd.plist; path = Resources_ProBook/ahhcd.plist; sourceTree = "<group>"; };
-		ED1837471C0A4B1200A5A3DA /* layout3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = layout3.plist; path = Resources_ProBook/layout3.plist; sourceTree = "<group>"; };
-		ED1837481C0A4B1200A5A3DA /* layout12.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = layout12.plist; path = Resources_ProBook/layout12.plist; sourceTree = "<group>"; };
-		ED1837491C0A4B1200A5A3DA /* layout13.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = layout13.plist; path = Resources_ProBook/layout13.plist; sourceTree = "<group>"; };
+		ED1837471C0A4B1200A5A3DA /* layout33.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = layout33.plist; path = Resources_ProBook/layout33.plist; sourceTree = "<group>"; };
+		ED1837481C0A4B1200A5A3DA /* layout122.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = layout122.plist; path = Resources_ProBook/layout122.plist; sourceTree = "<group>"; };
+		ED1837491C0A4B1200A5A3DA /* layout123.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = layout123.plist; path = Resources_ProBook/layout123.plist; sourceTree = "<group>"; };
 		ED18374D1C0A4B1200A5A3DA /* Platforms.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Platforms.plist; path = Resources_ProBook/Platforms.plist; sourceTree = "<group>"; };
 		ED18374E1C0A4B1200A5A3DA /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.txt; path = Resources_ProBook/README.txt; sourceTree = "<group>"; };
 		ED2500551CF67CE6006A5FB7 /* SSDT-XHC.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-XHC.asl"; path = "hotpatch/SSDT-XHC.asl"; sourceTree = "<group>"; };
@@ -145,16 +145,16 @@
 		ED959F4D1CC17B4B00FD2FC2 /* config_4x0s_G1_Haswell.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_4x0s_G1_Haswell.plist; path = config/config_4x0s_G1_Haswell.plist; sourceTree = "<group>"; };
 		ED97346F1C0A5F260063BCF9 /* download.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = download.sh; sourceTree = "<group>"; };
 		ED9734701C0A5F370063BCF9 /* install_downloads.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = install_downloads.sh; sourceTree = "<group>"; };
-		ED97E9121CC75350006C757A /* layout3_HDAU.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = layout3_HDAU.asl; path = hotpatch/include/layout3_HDAU.asl; sourceTree = "<group>"; };
-		ED97E9131CC75350006C757A /* layout3_HDEF.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = layout3_HDEF.asl; path = hotpatch/include/layout3_HDEF.asl; sourceTree = "<group>"; };
+		ED97E9121CC75350006C757A /* layout33_HDAU.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = layout33_HDAU.asl; path = hotpatch/include/layout33_HDAU.asl; sourceTree = "<group>"; };
+		ED97E9131CC75350006C757A /* layout33_HDEF.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = layout33_HDEF.asl; path = hotpatch/include/layout33_HDEF.asl; sourceTree = "<group>"; };
 		ED97E9141CC75350006C757A /* layout4_HDAU.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = layout4_HDAU.asl; path = hotpatch/include/layout4_HDAU.asl; sourceTree = "<group>"; };
 		ED97E9151CC75350006C757A /* layout4_HDEF.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = layout4_HDEF.asl; path = hotpatch/include/layout4_HDEF.asl; sourceTree = "<group>"; };
 		ED97E9161CC75350006C757A /* layout7_HDEF.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = layout7_HDEF.asl; path = hotpatch/include/layout7_HDEF.asl; sourceTree = "<group>"; };
-		ED97E9171CC75350006C757A /* layout12_HDEF.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = layout12_HDEF.asl; path = hotpatch/include/layout12_HDEF.asl; sourceTree = "<group>"; };
-		ED97E9181CC75350006C757A /* layout13_HDEF.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = layout13_HDEF.asl; path = hotpatch/include/layout13_HDEF.asl; sourceTree = "<group>"; };
+		ED97E9171CC75350006C757A /* layout122_HDEF.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = layout122_HDEF.asl; path = hotpatch/include/layout122_HDEF.asl; sourceTree = "<group>"; };
+		ED97E9181CC75350006C757A /* layout123_HDEF.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = layout123_HDEF.asl; path = hotpatch/include/layout123_HDEF.asl; sourceTree = "<group>"; };
 		ED97E9191CC75350006C757A /* layout17_HDAU.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = layout17_HDAU.asl; path = hotpatch/include/layout17_HDAU.asl; sourceTree = "<group>"; };
 		ED97E91A1CC75350006C757A /* layout17_HDEF.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = layout17_HDEF.asl; path = hotpatch/include/layout17_HDEF.asl; sourceTree = "<group>"; };
-		ED97E91B1CC75350006C757A /* layout18_HDEF.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = layout18_HDEF.asl; path = hotpatch/include/layout18_HDEF.asl; sourceTree = "<group>"; };
+		ED97E91B1CC75350006C757A /* layout128_HDEF.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = layout128_HDEF.asl; path = hotpatch/include/layout128_HDEF.asl; sourceTree = "<group>"; };
 		ED97E91C1CC75350006C757A /* layout19_HDEF.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = layout19_HDEF.asl; path = hotpatch/include/layout19_HDEF.asl; sourceTree = "<group>"; };
 		ED97E91D1CC75350006C757A /* disable_HECI.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = disable_HECI.asl; path = hotpatch/include/disable_HECI.asl; sourceTree = "<group>"; };
 		ED97E9201CC755BE006C757A /* config_master.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_master.plist; path = config_parts/config_master.plist; sourceTree = "<group>"; };
@@ -368,15 +368,15 @@
 				ED1837441C0A4B1200A5A3DA /* patch_hda.sh */,
 				ED1837461C0A4B1200A5A3DA /* ahhcd.plist */,
 				ED18374D1C0A4B1200A5A3DA /* Platforms.plist */,
-				ED1837471C0A4B1200A5A3DA /* layout3.plist */,
+				ED1837471C0A4B1200A5A3DA /* layout33.plist */,
 				84CF5EEA1CA9DF3200FB64FA /* layout4.plist */,
 				EDEAE87C1CBEEC2E00E1DF9D /* layout5.plist */,
 				ED3717741D578CD700FC4CC3 /* layout6.plist */,
 				ED3717731D578CD700FC4CC3 /* layout7.plist */,
-				ED1837481C0A4B1200A5A3DA /* layout12.plist */,
-				ED1837491C0A4B1200A5A3DA /* layout13.plist */,
+				ED1837481C0A4B1200A5A3DA /* layout122.plist */,
+				ED1837491C0A4B1200A5A3DA /* layout123.plist */,
 				84CF5EE71CA9DF2000FB64FA /* layout17.plist */,
-				84CF5EE81CA9DF2000FB64FA /* layout18.plist */,
+				84CF5EE81CA9DF2000FB64FA /* layout128.plist */,
 				84CF5EE91CA9DF2000FB64FA /* layout19.plist */,
 				84F682011E74E0380097D85D /* layout20.plist */,
 			);
@@ -558,18 +558,18 @@
 				ED6354D21D38643B00C77357 /* key86_data.asl */,
 				ED63DC271FDED5310001E2F4 /* enable_mouse.asl */,
 				ED97E91D1CC75350006C757A /* disable_HECI.asl */,
-				ED97E9121CC75350006C757A /* layout3_HDAU.asl */,
-				ED97E9131CC75350006C757A /* layout3_HDEF.asl */,
+				ED97E9121CC75350006C757A /* layout33_HDAU.asl */,
+				ED97E9131CC75350006C757A /* layout33_HDEF.asl */,
 				ED97E9141CC75350006C757A /* layout4_HDAU.asl */,
 				ED97E9151CC75350006C757A /* layout4_HDEF.asl */,
 				ED6E36FC1D0AFD8700610C26 /* layout6_HDEF.asl */,
 				ED6E36FB1D0AFD8700610C26 /* layout6_HDAU.asl */,
 				ED97E9161CC75350006C757A /* layout7_HDEF.asl */,
-				ED97E9171CC75350006C757A /* layout12_HDEF.asl */,
-				ED97E9181CC75350006C757A /* layout13_HDEF.asl */,
+				ED97E9171CC75350006C757A /* layout122_HDEF.asl */,
+				ED97E9181CC75350006C757A /* layout123_HDEF.asl */,
 				ED97E9191CC75350006C757A /* layout17_HDAU.asl */,
 				ED97E91A1CC75350006C757A /* layout17_HDEF.asl */,
-				ED97E91B1CC75350006C757A /* layout18_HDEF.asl */,
+				ED97E91B1CC75350006C757A /* layout128_HDEF.asl */,
 				ED97E91C1CC75350006C757A /* layout19_HDEF.asl */,
 				84F682001E74DC9F0097D85D /* layout20_HDEF.asl */,
 			);

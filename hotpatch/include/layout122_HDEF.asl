@@ -6,7 +6,7 @@
         If (!Arg2) { Return (Buffer() { 0x03 } ) }
         Return(Package()
         {
-            "layout-id", Buffer(4) { 18, 0, 0, 0 },
+            "layout-id", Buffer(4) { 122, 0, 0, 0 },
             "hda-gfx", Buffer() { "onboard-1" },
             "PinConfigurations", Buffer() { },
         })
@@ -21,20 +21,18 @@
         "CodecCommanderProbeInit", Package()
         {
             "Version", 0x020600,
-            "111d_7605", Package()
+            "111d_76d1", Package()
             {
                 "Custom Commands", Package()
                 {
                     Package(){},
                     Package()
                     {
-                        "LayoutID", 18,
+                        "LayoutID", 122,
                         "Command", Buffer()
                         {
                             0x00, 0xc7, 0x1e, 0x81,
-                            0x00, 0xc7, 0x1f, 0x03,
-                            0x01, 0x17, 0x1e, 0xa0,
-                            0x01, 0x17, 0x1f, 0x90
+                            0x00, 0xc7, 0x1f, 0x03
                         },
                     },
                 },

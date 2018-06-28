@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>LayoutID</key>
-	<integer>18</integer>
+	<integer>128</integer>
 	<key>PathMapRef</key>
 	<array>
 		<dict>
@@ -229,7 +229,7 @@
 				<string>Headphone</string>
 			</array>
 			<key>PathMapID</key>
-			<integer>18</integer>
+			<integer>128</integer>
 		</dict>
 	</array>
 </dict>

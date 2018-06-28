@@ -12,7 +12,7 @@
 			<key>FuncGroup</key>
 			<integer>1</integer>
 			<key>LayoutID</key>
-			<integer>3</integer>
+			<integer>33</integer>
 		</dict>
 		<dict>
 			<key>AFGLowPowerState</key>
@@ -78,7 +78,7 @@
 			<key>FuncGroup</key>
 			<integer>1</integer>
 			<key>LayoutID</key>
-			<integer>12</integer>
+			<integer>122</integer>
 		</dict>
 		<dict>
 			<key>CodecID</key>
@@ -88,7 +88,7 @@
 			<key>FuncGroup</key>
 			<integer>1</integer>
 			<key>LayoutID</key>
-			<integer>13</integer>
+			<integer>123</integer>
 		</dict>
 		<dict>
 			<key>CodecID</key>
@@ -108,7 +108,7 @@
 			<key>FuncGroup</key>
 			<integer>1</integer>
 			<key>LayoutID</key>
-			<integer>18</integer>
+			<integer>128</integer>
 		</dict>
 		<dict>
 			<key>CodecID</key>
