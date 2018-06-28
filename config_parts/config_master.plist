@@ -381,7 +381,7 @@
 	<key>Boot</key>
 	<dict>
 		<key>Arguments</key>
-		<string>kext-dev-mode=1 dart=0 -disablegfxfirmware</string>
+		<string>kext-dev-mode=1 dart=0 -disablegfxfirmware -lilubeta -igfxbeta</string>
 		<key>NeverHibernate</key>
 		<true/>
 		<key>Secure</key>
