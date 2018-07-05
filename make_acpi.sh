@@ -3,6 +3,7 @@ iasl -vw 2095 -vw 2146 -vw 2089 -vw 4089 -vi -vr -p build/SSDT-1020G1b.aml hotpa
 iasl -vw 2095 -vw 2146 -vw 2089 -vw 4089 -vi -vr -p build/SSDT-1030G1s.aml hotpatch/SSDT-1030G1s.dsl
 iasl -vw 2095 -vw 2146 -vw 2089 -vw 4089 -vi -vr -p build/SSDT-1040G1h.aml hotpatch/SSDT-1040G1h.dsl
 iasl -vw 2095 -vw 2146 -vw 2089 -vw 4089 -vi -vr -p build/SSDT-1040G3s.aml hotpatch/SSDT-1040G3s.dsl
+iasl -vw 2095 -vw 2146 -vw 2089 -vw 4089 -vi -vr -p build/SSDT-1050G1k.aml hotpatch/SSDT-1050G1k.dsl
 iasl -vw 2095 -vw 2146 -vw 2089 -vw 4089 -vi -vr -p build/SSDT-2x60.aml hotpatch/SSDT-2x60.dsl
 iasl -vw 2095 -vw 2146 -vw 2089 -vw 4089 -vi -vr -p build/SSDT-2x70.aml hotpatch/SSDT-2x70.dsl
 iasl -vw 2095 -vw 2146 -vw 2089 -vw 4089 -vi -vr -p build/SSDT-3x0G1.aml hotpatch/SSDT-3x0G1.dsl

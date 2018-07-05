@@ -49,7 +49,7 @@ PLIST:= \
 	config/config_1030_G1_Skylake.plist \
 	config/config_6x0_G2_Skylake.plist \
 	config/config_1040_G1_Haswell.plist config/config_6x0_G1_Haswell.plist \
-	config/config_1040_G3_Skylake.plist \
+	config/config_1040_G3_Skylake.plist config/config_1050_G1_KabyLake-R.plist \
 	config/config_4x0_G4_Kabylake.plist config/config_4x0_G5_Kabylake-R.plist config/config_8x0_G4_Kabylake.plist
 
 .PHONY: all
@@ -447,6 +447,19 @@ config/config_1040_G3_Skylake.plist : $(PARTS)/config_master.plist $(PARTS)/conf
 	cp $(PARTS)/config_master.plist $@
 	/usr/libexec/PlistBuddy -c "Set KernelAndKextPatches:AppleIntelCPUPM false" $@
 	/usr/libexec/PlistBuddy -c "Set :SMBIOS:ProductName MacBookPro11,1" $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_Skylake.plist $@
+	./merge_plist.sh "KernelAndKextPatches:KernelToPatch" $(PARTS)/config_Skylake.plist $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_CX20724.plist $@
+	@printf "\n"
+
+#REVIEW: CX20724 is nto correct for the 1050 (it uses a new audio codec)
+# EliteBook 1050_G1_KabyLake-R is CX20724, KabyLake-R, DP
+config/config_1050_G1_KabyLake-R.plist : $(PARTS)/config_master.plist $(PARTS)/config_CX20724.plist $(PARTS)/config_Skylake.plist $(PARTS)/config_Kabylake.plist
+	@printf "!! creating $@\n"
+	cp $(PARTS)/config_master.plist $@
+	/usr/libexec/PlistBuddy -c "Set KernelAndKextPatches:AppleIntelCPUPM false" $@
+	/usr/libexec/PlistBuddy -c "Set :SMBIOS:ProductName MacBookPro11,1" $@
+	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_Kabylake.plist $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_Skylake.plist $@
 	./merge_plist.sh "KernelAndKextPatches:KernelToPatch" $(PARTS)/config_Skylake.plist $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_CX20724.plist $@

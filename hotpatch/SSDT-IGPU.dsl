@@ -174,6 +174,17 @@ DefinitionBlock("", "SSDT", 2, "hack", "_IGPUH", 0)
                 "hda-gfx", Buffer() { "onboard-1" },
                 //SKL spoof: "AAPL,GfxYTile", Buffer() { 1, 0, 0, 0 },
             },
+            // Kaby Lake-R/UHD630
+            0x3e9b, 0, Package()
+            {
+                //SKL spoof: "AAPL,ig-platform-id", Buffer() { 0x00, 0x00, 0x1b, 0x19 },
+                "AAPL,ig-platform-id", Buffer() { 0x00, 0x00, 0x1b, 0x59 },
+                "model", Buffer() { "Intel UHD Graphics 630" },
+                "hda-gfx", Buffer() { "onboard-1" },
+                //SKL spoof: "device-id", Buffer() { 0x1b, 0x19, 0x00, 0x00 },
+                "device-id", Buffer() { 0x1b, 0x59, 0x00, 0x00 },
+                //SKL spoof: "AAPL,GfxYTile", Buffer() { 1, 0, 0, 0 },
+            },
         })
 
         // inject properties for integrated graphics on IGPU

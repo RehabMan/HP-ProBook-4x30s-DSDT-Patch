@@ -224,6 +224,11 @@ case "$1" in
         cp $BUILDDIR/SSDT-1040G3s.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         ls $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
+    install_1050g1_kabylake-r)
+        $0 inst_xcpm $2
+        cp $BUILDDIR/SSDT-1050G1k.aml $EFIDIR/EFI/CLOVER/ACPI/patched
+        ls $EFIDIR/EFI/CLOVER/ACPI/patched
+    ;;
     install_4x0g2_haswell)
         $0 inst_xcpm $2
         cp $BUILDDIR/SSDT-4x0G2h.aml $EFIDIR/EFI/CLOVER/ACPI/patched

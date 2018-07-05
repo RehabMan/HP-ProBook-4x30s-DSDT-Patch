@@ -238,8 +238,10 @@ if [[ -e "$kext" ]]; then
 fi
 
 # install kexts for JMicron card reader and supported Atheros WiFi
+# and unsupported SATA and XHCI
 cd kexts
-install_kext SATA-100-series-unsupported.kext
+install_kext SATA-unsupported.kext
+install_kext XHCI-300-series-injector.kext
 install_kext HSSDBlockStorage.kext
 install_kext JMB38X.kext
 install_kext JMicronATA.kext

@@ -223,6 +223,15 @@ cp config_parts/config_master.plist config/config_1040_G3_Skylake.plist
 ./merge_plist.sh "KernelAndKextPatches:KernelToPatch" config_parts/config_Skylake.plist config/config_1040_G3_Skylake.plist
 ./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_parts/config_CX20724.plist config/config_1040_G3_Skylake.plist
 printf "\n"
+printf "!! creating config/config_1050_G1_KabyLake-R.plist\n"
+cp config_parts/config_master.plist config/config_1050_G1_KabyLake-R.plist
+/usr/libexec/PlistBuddy -c "Set KernelAndKextPatches:AppleIntelCPUPM false" config/config_1050_G1_KabyLake-R.plist
+/usr/libexec/PlistBuddy -c "Set :SMBIOS:ProductName MacBookPro11,1" config/config_1050_G1_KabyLake-R.plist
+./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_parts/config_Kabylake.plist config/config_1050_G1_KabyLake-R.plist
+./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_parts/config_Skylake.plist config/config_1050_G1_KabyLake-R.plist
+./merge_plist.sh "KernelAndKextPatches:KernelToPatch" config_parts/config_Skylake.plist config/config_1050_G1_KabyLake-R.plist
+./merge_plist.sh "KernelAndKextPatches:KextsToPatch" config_parts/config_CX20724.plist config/config_1050_G1_KabyLake-R.plist
+printf "\n"
 printf "!! creating config/config_4x0_G4_Kabylake.plist\n"
 cp config_parts/config_master.plist config/config_4x0_G4_Kabylake.plist
 /usr/libexec/PlistBuddy -c "Set KernelAndKextPatches:AppleIntelCPUPM false" config/config_4x0_G4_Kabylake.plist

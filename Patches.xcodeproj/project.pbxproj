@@ -104,8 +104,10 @@
 		ED407DA81CF4FCFA00A03010 /* config_HD3000.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_HD3000.plist; path = config_parts/config_HD3000.plist; sourceTree = "<group>"; };
 		ED45A34D1FD2E9FA001FA163 /* SSDT-1030G1s.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-1030G1s.dsl"; path = "hotpatch/SSDT-1030G1s.dsl"; sourceTree = "<group>"; };
 		ED464EDD1F89103C00592EC5 /* SSDT-USB-2x70.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-USB-2x70.asl"; path = "hotpatch/SSDT-USB-2x70.asl"; sourceTree = "<group>"; };
+		ED4FCB5A20EE7F5700528938 /* SSDT-USB-1050-G1.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-USB-1050-G1.asl"; path = "hotpatch/SSDT-USB-1050-G1.asl"; sourceTree = "<group>"; };
 		ED507CCE1CDCDAF400E14F67 /* SSDT-USB-9x70.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-USB-9x70.asl"; path = "hotpatch/SSDT-USB-9x70.asl"; sourceTree = "<group>"; };
 		ED5F0FDA1CE218160097FADC /* SSDT-zbG1h.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-zbG1h.dsl"; path = "hotpatch/SSDT-zbG1h.dsl"; sourceTree = "<group>"; };
+		ED607C7620ED491300846672 /* SSDT-1050G1k.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-1050G1k.dsl"; path = "hotpatch/SSDT-1050G1k.dsl"; sourceTree = "<group>"; };
 		ED634E2619FD2A9B00289C54 /* 14_ProBook-102key.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "14_ProBook-102key.txt"; path = "patches/14_ProBook-102key.txt"; sourceTree = "<group>"; };
 		ED634E2719FD2B3E00289C54 /* 14_ProBook-87key.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "14_ProBook-87key.txt"; path = "patches/14_ProBook-87key.txt"; sourceTree = "<group>"; };
 		ED6354D21D38643B00C77357 /* key86_data.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = key86_data.asl; path = hotpatch/include/key86_data.asl; sourceTree = "<group>"; };
@@ -470,6 +472,7 @@
 				ED6E36FA1D0AFCE900610C26 /* SSDT-1020G1b.dsl */,
 				ED45A34D1FD2E9FA001FA163 /* SSDT-1030G1s.dsl */,
 				EDF530401DB578C000CAE028 /* SSDT-1040G3s.dsl */,
+				ED607C7620ED491300846672 /* SSDT-1050G1k.dsl */,
 				ED5F0FDA1CE218160097FADC /* SSDT-zbG1h.dsl */,
 				ED97E9431CC757D7006C757A /* SSDT-zbG2h.dsl */,
 				ED815B7D1F9B7CDF005EBCA9 /* SSDT-zbG2hA.dsl */,
@@ -509,6 +512,7 @@
 				845E536C1D0D34880069A1F9 /* SSDT-USB-1020-G1.asl */,
 				EDBB3F8D1FDAD6AC00CF45FC /* SSDT-USB-1030-G1.asl */,
 				EDF5303F1DB5766700CAE028 /* SSDT-USB-1040-G3.asl */,
+				ED4FCB5A20EE7F5700528938 /* SSDT-USB-1050-G1.asl */,
 				EDBB1BE71E993AAA00F49BDE /* SSDT-USB-4x0-G4.asl */,
 				EDB4C8AB1F6972A500DC39F3 /* SSDT-USB-8x0-G4.asl */,
 			);
