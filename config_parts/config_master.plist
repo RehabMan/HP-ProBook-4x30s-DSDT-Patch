@@ -97,14 +97,6 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>change SAT0 to SATA</string>
-					<key>Find</key>
-					<data>U0FUMA==</data>
-					<key>Replace</key>
-					<data>U0FUQQ==</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
 					<string>change Method(UPRW,2,S) to XPRW</string>
 					<key>Find</key>
 					<data>VVBSVwpwEg==</data>
