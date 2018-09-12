@@ -79,7 +79,7 @@ code=0
 EFIMountPoint=$(LC_ALL=C diskutil info "$EFIDevice" 2>/dev/null | sed -n 's/.*Mount Point: *//p')
 if [[ -z "$EFIMountPoint" ]]; then
     # try to mount the EFI partition
-    diskutil mount /dev/$EFIDevice >/dev/null 2>&1
+    sudo diskutil mount /dev/$EFIDevice >/dev/null 2>&1
     EFIMountPoint=$(LC_ALL=C diskutil info "$EFIDevice" 2>/dev/null | sed -n 's/.*Mount Point: *//p')
     code=$?
 fi
