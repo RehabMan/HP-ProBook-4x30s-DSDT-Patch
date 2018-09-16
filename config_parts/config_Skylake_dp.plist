@@ -10,12 +10,12 @@
 			<dict>
 				<key>framebuffer-patch-enable</key>
 				<integer>1</integer>
-				<key>framebuffer-cursormem</key>
-				<data>AACQAA==</data>
 				<key>framebuffer-portcount</key>
+				<integer>4</integer>
+				<key>framebuffer-con3-enable</key>
 				<integer>1</integer>
-				<key>framebuffer-memorycount</key>
-				<integer>1</integer>
+				<key>framebuffer-con3-alldata</key>
+				<data>AwYKAAAIAACHAQAA</data>
 			</dict>
 		</dict>
 	</dict>

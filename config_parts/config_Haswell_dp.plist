@@ -13,9 +13,17 @@
 				<key>framebuffer-cursormem</key>
 				<data>AACQAA==</data>
 				<key>framebuffer-portcount</key>
+				<integer>4</integer>
+				<key>framebuffer-con2-enable</key>
 				<integer>1</integer>
-				<key>framebuffer-memorycount</key>
+				<key>framebuffer-con2-0d260007-alldata</key>
+				<data>/wAAAAEAAABAAAAA</data>
+				<key>framebuffer-con3-enable</key>
 				<integer>1</integer>
+				<key>framebuffer-con3-0a260006-alldata</key>
+				<data>AwYDAAAEAACHAAAA</data>
+				<key>framebuffer-con3-0d260007-alldata</key>
+				<data>/wAAAAEAAABAAAAA</data>
 			</dict>
 		</dict>
 	</dict>

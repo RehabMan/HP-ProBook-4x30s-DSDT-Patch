@@ -373,7 +373,7 @@
 	<key>Boot</key>
 	<dict>
 		<key>Arguments</key>
-		<string>kext-dev-mode=1 dart=0 -disablegfxfirmware -lilubeta -igfxbeta</string>
+		<string>kext-dev-mode=1 dart=0 -disablegfxfirmware -igfxnohdmi -lilubetaall</string>
 		<key>NeverHibernate</key>
 		<true/>
 		<key>Secure</key>
@@ -388,6 +388,8 @@
 			<key>Inject</key>
 			<integer>0</integer>
 		</dict>
+		<key>Properties</key>
+		<dict/>
 		<key>USB</key>
 		<dict>
 			<key>Inject</key>
@@ -465,45 +467,15 @@
 		<array>
 			<dict>
 				<key>Comment</key>
-				<string>change 15 port limit to 26 in XHCI kext</string>
-				<key>MatchOS</key>
-				<string>10.11.x</string>
+				<string>Enable TRIM for non-Apple SSDs</string>
 				<key>Disabled</key>
 				<true/>
 				<key>Name</key>
-				<string>com.apple.driver.usb.AppleUSBXHCIPCI</string>
+				<string>com.apple.iokit.IOAHCIBlockStorage</string>
 				<key>Find</key>
-				<data>g72M/v//EA==</data>
+				<data>AEFQUExFIFNTRAA=</data>
 				<key>Replace</key>
-				<data>g72M/v//Gw==</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>change 15 port limit to 26 in XHCI kext</string>
-				<key>MatchOS</key>
-				<string>10.12.x</string>
-				<key>Disabled</key>
-				<true/>
-				<key>Name</key>
-				<string>com.apple.driver.usb.AppleUSBXHCIPCI</string>
-				<key>Find</key>
-				<data>g710////EA==</data>
-				<key>Replace</key>
-				<data>g710////Gw==</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>change 15 port limit to 26 in XHCI kext</string>
-				<key>MatchOS</key>
-				<string>10.13.x</string>
-				<key>Disabled</key>
-				<true/>
-				<key>Name</key>
-				<string>com.apple.driver.usb.AppleUSBXHCIPCI</string>
-				<key>Find</key>
-				<data>g32MEA==</data>
-				<key>Replace</key>
-				<data>g32MGw==</data>
+				<data>AAAAAAAAAAAAAAA=</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
@@ -516,18 +488,6 @@
 				<data>LnhtbC56bA==</data>
 				<key>Replace</key>
 				<data>LnptbC56bA==</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Enable TRIM for non-Apple SSDs</string>
-				<key>Disabled</key>
-				<true/>
-				<key>Name</key>
-				<string>com.apple.iokit.IOAHCIBlockStorage</string>
-				<key>Find</key>
-				<data>AEFQUExFIFNTRAA=</data>
-				<key>Replace</key>
-				<data>AAAAAAAAAAAAAAA=</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
@@ -651,7 +611,18 @@
 			</dict>
 		</array>
 		<key>KernelToPatch</key>
-		<array/>
+		<array>
+			<dict>
+				<key>Comment</key>
+				<string>MSR 0xE2 _xcpm_idle instant reboot(c) Pike R. Alpha</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>ILniAAAADzA=</data>
+				<key>Replace</key>
+				<data>ILniAAAAkJA=</data>
+			</dict>
+		</array>
 	</dict>
 	<key>RtVariables</key>
 	<dict>

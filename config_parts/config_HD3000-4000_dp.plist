@@ -10,12 +10,18 @@
 			<dict>
 				<key>framebuffer-patch-enable</key>
 				<integer>1</integer>
-				<key>framebuffer-cursormem</key>
-				<data>AACQAA==</data>
-				<key>framebuffer-portcount</key>
+				<key>framebuffer-con1-enable</key>
 				<integer>1</integer>
-				<key>framebuffer-memorycount</key>
+				<key>framebuffer-con1-01660004-alldata</key>
+				<data>AgUAAAAEAAAHBAAAAwQAAAAEAACBAAAABAYAAAAEAACBAAAA</data>
+				<key>framebuffer-patch0-enable</key>
 				<integer>1</integer>
+				<key>framebuffer-patch0-framebufferid</key>
+				<data>BABmAQ==</data>
+				<key>framebuffer-patch0-find</key>
+				<data>AQMBAQAAAAI=</data>
+				<key>framebuffer-patch0-replace</key>
+				<data>AQIEAgAAAAQ=</data>
 			</dict>
 		</dict>
 	</dict>

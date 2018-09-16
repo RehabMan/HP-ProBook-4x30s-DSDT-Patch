@@ -2,10 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>KernelAndKextPatches</key>
+	<key>Devices</key>
 	<dict>
-		<key>KextsToPatch</key>
-		<array/>
+		<key>Properties</key>
+		<dict/>
 	</dict>
 </dict>
 </plist>

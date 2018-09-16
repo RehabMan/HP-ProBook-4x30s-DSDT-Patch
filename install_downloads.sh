@@ -9,8 +9,8 @@ TAG=tag_file
 TAGCMD=`pwd`/tools/tag
 SLE=/System/Library/Extensions
 LE=/Library/Extensions
-EXCEPTIONS="Sensors|FakePCIID_BCM57XX|FakePCIID_AR9280|FakePCIID_Intel_GbX|BrcmPatchRAM|BrcmBluetoothInjector|BrcmFirmwareData|BrcmNonPatchRAM|USBInjectAll|Lilu|IntelGraphicsFixup"
-ESSENTIAL="FakeSMC.kext SATA-unsupported.kext XHCI-300-series-injector.kext IntelMausiEthernet.kext RealtekRTL8111.kext USBInjectAll.kext FakePCIID.kext FakePCIID_XHCIMux.kext FakePCIID_Intel_HD_Graphics.kext Lilu.kext IntelGraphicsFixup.kext AppleBacklightInjector.kext IntelBacklight.kext VoodooPS2Controller.kext"
+EXCEPTIONS="Sensors|FakePCIID_BCM57XX|FakePCIID_AR9280|FakePCIID_Intel_GbX|BrcmPatchRAM|BrcmBluetoothInjector|BrcmFirmwareData|BrcmNonPatchRAM|USBInjectAll|WhateverName"
+ESSENTIAL="FakeSMC.kext SATA-unsupported.kext XHCI-300-series-injector.kext IntelMausiEthernet.kext RealtekRTL8111.kext USBInjectAll.kext FakePCIID.kext FakePCIID_XHCIMux.kext FakePCIID_Intel_HD_Graphics.kext Lilu.kext WhateverGreen.kext AppleBacklightInjector.kext IntelBacklight.kext VoodooPS2Controller.kext"
 
 # extract minor version (eg. 10.9 vs. 10.10 vs. 10.11)
 MINOR_VER=$([[ "$(sw_vers -productVersion)" =~ [0-9]+\.([0-9]+) ]] && echo ${BASH_REMATCH[1]})
@@ -46,11 +46,16 @@ function nothing
     :
 }
 
+function remove_kext
+{
+    $SUDO rm -Rf $SLE/"$1" $LE/"$1"
+}
+
 function install_kext
 {
     if [ "$1" != "" ]; then
         echo installing $1 to $KEXTDEST
-        $SUDO rm -Rf $SLE/`basename $1` $KEXTDEST/`basename $1`
+        remove_kext `basename $1`
         $SUDO cp -Rf $1 $KEXTDEST
         $TAG -a Gray $KEXTDEST/`basename $1`
     fi
@@ -106,14 +111,22 @@ function install
     check_directory $out/Release/*.app
     if [ $? -ne 0 ]; then
         for app in $out/Release/*.app; do
-            install_app $app
+            # install the app when it exists regardless of filter
+            appname="`basename $app`"
+            if [[ -e "/Applications/$appname" || -e "/Applications/$appname" || "$2" == "" || "`echo $appname | grep -vE "$2"`" != "" ]]; then
+                install_app $app
+            fi
         done
         installed=1
     fi
     check_directory $out/*.app
     if [ $? -ne 0 ]; then
         for app in $out/*.app; do
-            install_app $app
+            # install the app when it exists regardless of filter
+            appname="`basename $app`"
+            if [[ -e "/Applications/$appname" || -e "/Applications/$appname" || "$2" == "" || "`echo $appname | grep -vE "$2"`" != "" ]]; then
+                install_app $app
+            fi
         done
         installed=1
     fi
@@ -159,55 +172,41 @@ if [ $? -ne 0 ]; then
         # 10.11 needs USBInjectAll.kext
         cd RehabMan-USBInjectAll*/Release && install_kext USBInjectAll.kext && cd ../..
         # remove BrcPatchRAM.kext just in case
-        $SUDO rm -Rf $SLE/BrcmPatchRAM.kext $KEXTDEST/BrcmPatchRAM.kext
+        remove_kext BrcmPatchRAM.kext
         # remove injector just in case
-        $SUDO rm -Rf $SLE/BrcmBluetoothInjector.kext $KEXTDEST/BrcmBluetoothInjector.kext
+        remove_kext BrcmBluetoothInjector.kext
     else
         # prior to 10.11, need BrcmPatchRAM.kext
         cd RehabMan-BrcmPatchRAM*/Release && install_kext BrcmPatchRAM.kext && cd ../..
         cd RehabMan-BrcmPatchRAM*/Release && install_kext BrcmNonPatchRAM.kext && cd ../..
         # remove BrcPatchRAM2.kext just in case
-        $SUDO rm -Rf $SLE/BrcmPatchRAM2.kext $KEXTDEST/BrcmPatchRAM2.kext
+        remove_kext BrcmPatchRAM2.kext
         # remove injector just in case
-        $SUDO rm -Rf $SLE/BrcmBluetoothInjector.kext $KEXTDEST/BrcmBluetoothInjector.kext
-    fi
-    if [[ $MINOR_VER -ge 12 ]]; then
-        #10.12 needs Lilu.kext and IntelGraphicsFixup.kext
-        cd nbb_vit9696-Lilu* && install_kext Lilu.kext && cd ..
-        cd nbb_lvs1974-IntelGraphicsFixup* && install_kext IntelGraphicsFixup.kext && cd ..
+        remove_kext BrcmBluetoothInjector.kext
     fi
     # this guide does not use BrcmFirmwareData.kext
-    $SUDO rm -Rf $SLE/BrcmFirmwareData.kext $KEXTDEST/BrcmFirmwareData.kext
+    remove_kext BrcmFirmwareData.kext
     # now using IntelBacklight.kext instead of ACPIBacklight.kext
-    $SUDO rm -Rf $SLE/ACPIBacklight.kext $KEXTDEST/ACPIBacklight.kext
+    remove_kext ACPIBacklight.kext
     # deal with some renames
-    if [[ -e $KEXTDEST/FakePCIID_Broadcom_WiFi.kext ]]; then
-        # remove old FakePCIID_BCM94352Z_as_BCM94360CS2.kext
-        $SUDO rm -Rf $SLE/FakePCIID_BCM94352Z_as_BCM94360CS2.kext $KEXTDEST/FakePCIID_BCM94352Z_as_BCM94360CS2.kext
-    fi
-    if [[ -e $KEXTDEST/FakePCIID_Intel_HD_Graphics.kext ]]; then
-        # remove old FakePCIID_HD4600_HD4400.kext
-        $SUDO rm -Rf $SLE/FakePCIID_HD4600_HD4400.kext $KEXTDEST/FakePCIID_HD4600_HD4400.kext
-    fi
+    remove_kext FakePCIID_BCM94352Z_as_BCM94360CS2.kext
+    remove_kext FakePCIID_HD4600_HD4400.kext
+    # IntelGraphicsFixup.kext is no longer used (replaced by WhateverGreen.kext)
+    remove_kext IntelGraphicsFixup.kext
     cd ../..
 fi
 
 # remove kexts that PBI might have installed
-if [[ -e $SLE/AppleHDAIDT.kext ]]; then
-    $SUDO rm -Rf $SLE/AppleHDAIDT.kext
-fi
-if [[ -e $SLE/AppleHDAALC.kext ]]; then
-    $SUDO rm -Rf $SLE/AppleHDAALC.kext
-fi
-if [[ -e $SLE/USBXHCI_4x40s.kext ]]; then
-    $SUDO rm -Rf $SLE/USBXHCI_4x40s.kext
-fi
+remove_kext AppleHDAIDT.kext
+remove_kext AppleHDAALC.kext
+remove_kext USBXHCI_4x40s.kext
 
 # install (injector) kexts in the repo itself
+
 # patching AppleHDA
 HDA=ProBook
-$SUDO rm -Rf $KEXTDEST/AppleHDA_$HDA.kext $SLE/AppleHDA_$HDA.kext
-$SUDO rm -Rf $KEXTDEST/AppleHDAHCD_$HDA.kext $SLE/AppleHDAHCD_$HDA.kext
+remove_kext AppleHDA_$HDA.kext
+remove_kext AppleHDAHCD_$HDA.kext
 $SUDO rm -f $SLE/AppleHDA.kext/Contents/Resources/*.zml*
 if [[ ! -e AppleHDA_$HDA.kext ]]; then
     ./patch_hda.sh $HDA
@@ -222,15 +221,6 @@ else
     $TAG -a Gray $SLE/AppleHDA.kext
 fi
 
-# install NVMeGeneric.kext if it is found in Clover/kexts
-# patch it so it is marked OSBundleRequired=Root
-EFI=`./mount_efi.sh`
-if [[ -e "$EFI/EFI/CLOVER/kexts/Other/NVMeGeneric.kext" ]]; then
-    cp -Rf "$EFI/EFI/CLOVER/kexts/Other/NVMeGeneric.kext" /tmp/NVMeGeneric.kext
-    /usr/libexec/PlistBuddy -c "Add :OSBundleRequired string" /tmp/NVMeGeneric.kext/Contents/Info.plist
-    /usr/libexec/PlistBuddy -c "Set :OSBundleRequired Root" /tmp/NVMeGeneric.kext/Contents/Info.plist
-    install_kext /tmp/NVMeGeneric.kext
-fi
 # install HackrNVMEFamily-.* if it is found in Clover/kexts
 kext=`echo "$EFI"/EFI/CLOVER/kexts/Other/HackrNVMeFamily-*.kext`
 if [[ -e "$kext" ]]; then
@@ -255,9 +245,7 @@ if [[ $MINOR_VER -ge 12 ]]; then
     install_kext AppleBacklightInjector.kext
     cd ..
     # remove IntelBacklight.kext if it is installed (doesn't work with 10.12)
-    if [ -d $KEXTDEST/IntelBacklight.kext ]; then
-        $SUDO rm -Rf $KEXTDEST/IntelBacklight.kext
-    fi
+    remove_kext IntelBacklight.kext
 fi
 
 #check_directory *.kext
@@ -297,6 +285,7 @@ for kext in $ESSENTIAL; do
         echo updating $EFI/EFI/CLOVER/kexts/Other/$kext
         cp -Rf $KEXTDEST/$kext $EFI/EFI/CLOVER/kexts/Other
     fi
+    rm -Rf $EFI/EFI/CLOVER/kexts/Other/IntelGraphicsFixup.kext
 done
 
 fi # "toolsonly"
