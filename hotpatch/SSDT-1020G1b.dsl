@@ -5,8 +5,8 @@ DefinitionBlock("", "SSDT", 2, "hack", "_1020G1b", 0)
     #include "SSDT-RMCF.asl"
     #include "SSDT-RP05_DGFX_RDSS.asl"
     #include "SSDT-HACK.asl"
-    #include "include/layout6_HDEF.asl"
-    #include "include/layout6_HDAU.asl"
+    #include "include/ALC286_HDEF.asl"
+    #include "include/ALC286_HDAU.asl"
     //#include "include/standard_PS2K.asl"
     External(_SB.PCI0.LPCB.PS2K, DeviceObj)
     Scope (_SB.PCI0.LPCB.PS2K)
