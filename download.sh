@@ -67,6 +67,8 @@ download_latest_notbitbucket "https://github.com" "https://github.com/vit9696/Li
 # IntelGraphicsFixup.kext replaced by WhateverGreen.kext
 #download_latest_notbitbucket "https://github.com" "https://github.com/lvs1974/IntelGraphicsFixup/releases" "RELEASE" "nbb_lvs1974-IntelGraphicsFixup.zip"
 download_latest_notbitbucket "https://github.com" "https://github.com/acidanthera/WhateverGreen/releases" "RELEASE" "nbb_acidanthera-WhateverGreen.zip"
+download_latest_notbitbucket "https://github.com" "https://github.com/acidanthera/AirportBrcmFixup/releases" "RELEASE" nbb_acidanthera-AirportBrcmFixup.zip
+download_latest_notbitbucket "https://github.com" "https://github.com/acidanthera/BT4LEContiunityFixup/releases" "RELEASE" nbb_acidanthera-BT4LEContiunityFixup.zip
 cd ..
 
 # download tools

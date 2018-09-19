@@ -9,7 +9,7 @@ TAG=tag_file
 TAGCMD=`pwd`/tools/tag
 SLE=/System/Library/Extensions
 LE=/Library/Extensions
-EXCEPTIONS="Sensors|FakePCIID_BCM57XX|FakePCIID_AR9280|FakePCIID_Intel_GbX|BrcmPatchRAM|BrcmBluetoothInjector|BrcmFirmwareData|BrcmNonPatchRAM|USBInjectAll|WhateverName"
+EXCEPTIONS="Sensors|FakePCIID_BCM57XX|FakePCIID_AR9280|FakePCIID_Intel_GbX|FakePCIID_Broadcom_WiFi.kext|BrcmPatchRAM|BrcmBluetoothInjector|BrcmFirmwareData|BrcmNonPatchRAM|USBInjectAll|WhateverName"
 ESSENTIAL="FakeSMC.kext SATA-unsupported.kext XHCI-300-series-injector.kext IntelMausiEthernet.kext RealtekRTL8111.kext USBInjectAll.kext FakePCIID.kext FakePCIID_XHCIMux.kext FakePCIID_Intel_HD_Graphics.kext Lilu.kext WhateverGreen.kext AppleBacklightInjector.kext IntelBacklight.kext VoodooPS2Controller.kext"
 
 # extract minor version (eg. 10.9 vs. 10.10 vs. 10.11)
@@ -193,6 +193,8 @@ if [ $? -ne 0 ]; then
     remove_kext FakePCIID_HD4600_HD4400.kext
     # IntelGraphicsFixup.kext is no longer used (replaced by WhateverGreen.kext)
     remove_kext IntelGraphicsFixup.kext
+    # using AirportBrcmFixup.kext instead of FakePCIID_Broadcom_WiFi.kext
+    remove_kext FakePCIID_Broadcom_WiFi.kext
     cd ../..
 fi
 
