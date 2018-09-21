@@ -241,6 +241,7 @@ install_kext JMB38X.kext
 install_kext JMicronATA.kext
 install_kext ProBookAtheros.kext
 cd ..
+remove_kext SATA-100-series-unsupported.kext
 
 # and AppleBacklightInjector.kext
 #  (set BKLT=1 in SSDT-HACK.dsl to use it, set BKLT=0 to use IntelBacklight.kext)
@@ -290,6 +291,7 @@ for kext in $ESSENTIAL; do
         cp -Rf $KEXTDEST/$kext $EFI/EFI/CLOVER/kexts/Other
     fi
     rm -Rf $EFI/EFI/CLOVER/kexts/Other/IntelGraphicsFixup.kext
+    rm -Rf $EFI/EFI/CLOVER/kexts/Other/SATA-100-series-unsupported.kext
 done
 
 fi # "toolsonly"
