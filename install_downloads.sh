@@ -263,14 +263,9 @@ fi
 # force cache rebuild with output
 $SUDO touch $SLE && $SUDO kextcache -u /
 
-# install VoodooPS2Daemon
-echo Installing VoodooPS2Daemon to /usr/bin and /Library/LaunchDaemons...
-cd ./downloads/kexts/RehabMan-Voodoo-*
-$SUDO cp ./Release/VoodooPS2Daemon /usr/bin
-$TAG -a Gray /usr/bin/VoodooPS2Daemon
-$SUDO cp ./org.rehabman.voodoo.driver.Daemon.plist /Library/LaunchDaemons
-$TAG -a Gray /Library/LaunchDaemons/org.rehabman.voodoo.driver.Daemon.plist
-cd ../../..
+# remove VoodooPS2Daemon (deprecated)
+$SUDO rm -f /usr/bin/VoodooPS2Daemon
+$SUDO rm -f /Library/LaunchDaemons/org.rehabman.voodoo.driver.Daemon.plist
 
 # install HPFanReset.efi
 EFI=`./mount_efi.sh`
