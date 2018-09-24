@@ -37,6 +37,7 @@ install_kext kexts/JMicronATA.kext
 install_kext kexts/ProBookAtheros.kext
 
 # install HackrNVMEFamily-.* if it is found in Clover/kexts
+EFI=`./mount_efi.sh`
 kext=`echo "$EFI"/EFI/CLOVER/kexts/Other/HackrNVMeFamily-*.kext`
 if [[ -e "$kext" ]]; then
     install_kext "$kext"
@@ -52,7 +53,6 @@ rebuild_kernel_cache
 update_efi_kexts
 
 # install HPFanReset.efi
-EFI=`./mount_efi.sh`
 zip=`echo -n _downloads/efi/HPFanReset*.zip`
 out=${zip/.efi.zip/}
 rm -Rf $out && unzip -q -d $out $zip
