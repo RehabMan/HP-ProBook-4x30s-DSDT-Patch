@@ -21,8 +21,6 @@
 		846B57131706046600E19787 /* Mini-SSDT.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "Mini-SSDT.dsl"; path = "mini/Mini-SSDT.dsl"; sourceTree = "<group>"; };
 		8470FEA0180B7FD700FA322E /* 08b_BCM4322x.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = 08b_BCM4322x.txt; path = patches/08b_BCM4322x.txt; sourceTree = "<group>"; };
 		847F5ED81B50873A00825CE8 /* 09_USB3_4x40s_10_11.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = 09_USB3_4x40s_10_11.txt; path = patches/09_USB3_4x40s_10_11.txt; sourceTree = "<group>"; };
-		847F5EDC1B508B4B00825CE8 /* patch_backlight.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = patch_backlight.sh; path = backlight/patch_backlight.sh; sourceTree = "<group>"; };
-		847F5EDD1B508B4B00825CE8 /* Backlight_0x710.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Backlight_0x710.plist; path = backlight/Backlight_0x710.plist; sourceTree = "<group>"; };
 		84817C301878CFE00061AF92 /* 13_Brightness.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = 13_Brightness.txt; path = patches/13_Brightness.txt; sourceTree = "<group>"; };
 		84878E3B17445FE100F82A03 /* 00_Optimize.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = 00_Optimize.txt; path = patches/00_Optimize.txt; sourceTree = "<group>"; };
 		8497866A1E9DBFBB0020BEF8 /* SSDT-2x60.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; lineEnding = 0; name = "SSDT-2x60.dsl"; path = "hotpatch/SSDT-2x60.dsl"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.simpleColoring; };
@@ -55,7 +53,6 @@
 		84D4D88F17025C86004FF373 /* 04c_FanSpeed.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = 04c_FanSpeed.txt; path = patches/04c_FanSpeed.txt; sourceTree = "<group>"; };
 		84DA7C6317033BC400738DC0 /* 09_USB3_4x40s_Mieze.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = 09_USB3_4x40s_Mieze.txt; path = patches/09_USB3_4x40s_Mieze.txt; sourceTree = "<group>"; };
 		84E815E21752C76500B9EF1E /* Mini-SSDT-AR9285.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "Mini-SSDT-AR9285.dsl"; path = "mini/Mini-SSDT-AR9285.dsl"; sourceTree = "<group>"; };
-		84EC4C841E8CADB60097C736 /* Backlight_0x56c.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Backlight_0x56c.plist; path = backlight/Backlight_0x56c.plist; sourceTree = "<group>"; };
 		84F52D0B1709C9A3001643C8 /* Mini-SSDT-IMEI.dsl */ = {isa = PBXFileReference; lastKnownFileType = text; name = "Mini-SSDT-IMEI.dsl"; path = "mini/Mini-SSDT-IMEI.dsl"; sourceTree = "<group>"; };
 		84F616791850BC650053B76E /* 10_LPC_4x40s_Sandy_SL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = 10_LPC_4x40s_Sandy_SL.txt; path = patches/10_LPC_4x40s_Sandy_SL.txt; sourceTree = "<group>"; };
 		84F681FC1E74CDD30097D85D /* SSDT-BATT-G4.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-BATT-G4.asl"; path = "hotpatch/SSDT-BATT-G4.asl"; sourceTree = "<group>"; };
@@ -68,9 +65,6 @@
 		ED023EB31CFDC75C00C5F3A2 /* SSDT-6x0G1h.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-6x0G1h.dsl"; path = "hotpatch/SSDT-6x0G1h.dsl"; sourceTree = "<group>"; };
 		ED17156E1D070F3C00219AC6 /* SSDT-USB-6x0-G1.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-USB-6x0-G1.asl"; path = "hotpatch/SSDT-USB-6x0-G1.asl"; sourceTree = "<group>"; };
 		ED1837421C0A4B1200A5A3DA /* merge_plist.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = merge_plist.sh; sourceTree = "<group>"; };
-		ED1837431C0A4B1200A5A3DA /* mount_efi.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = mount_efi.sh; sourceTree = "<group>"; };
-		ED1837441C0A4B1200A5A3DA /* patch_hda.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = patch_hda.sh; sourceTree = "<group>"; };
-		ED1837451C0A4B1200A5A3DA /* print_version.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = print_version.sh; sourceTree = "<group>"; };
 		ED1837461C0A4B1200A5A3DA /* ahhcd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = ahhcd.plist; path = Resources_ProBook/ahhcd.plist; sourceTree = "<group>"; };
 		ED1837471C0A4B1200A5A3DA /* layout33.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = layout33.plist; path = Resources_ProBook/layout33.plist; sourceTree = "<group>"; };
 		ED1837481C0A4B1200A5A3DA /* layout122.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = layout122.plist; path = Resources_ProBook/layout122.plist; sourceTree = "<group>"; };
@@ -126,6 +120,7 @@
 		ED92D2AA1D19A4A8005C6F78 /* SSDT-USB-8x0-G3.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-USB-8x0-G3.asl"; path = "hotpatch/SSDT-USB-8x0-G3.asl"; sourceTree = "<group>"; };
 		ED97346F1C0A5F260063BCF9 /* download.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = download.sh; sourceTree = "<group>"; };
 		ED9734701C0A5F370063BCF9 /* install_downloads.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = install_downloads.sh; sourceTree = "<group>"; };
+		ED9755F321588F6200103E5D /* install_tools.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = install_tools.sh; sourceTree = "<group>"; };
 		ED97E9121CC75350006C757A /* ALC282_HDAU.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ALC282_HDAU.asl; path = hotpatch/include/ALC282_HDAU.asl; sourceTree = "<group>"; };
 		ED97E9131CC75350006C757A /* ALC282_HDEF.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ALC282_HDEF.asl; path = hotpatch/include/ALC282_HDEF.asl; sourceTree = "<group>"; };
 		ED97E9141CC75350006C757A /* ALC280_HDAU.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ALC280_HDAU.asl; path = hotpatch/include/ALC280_HDAU.asl; sourceTree = "<group>"; };
@@ -190,7 +185,6 @@
 		ED97E9561CC757D7006C757A /* SSDT-FANREAD.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-FANREAD.dsl"; path = "hotpatch/SSDT-FANREAD.dsl"; sourceTree = "<group>"; };
 		ED97E9571CC757D7006C757A /* SSDT-KEY87.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-KEY87.asl"; path = "hotpatch/SSDT-KEY87.asl"; sourceTree = "<group>"; };
 		ED97E9581CC757D7006C757A /* SSDT-KEY102.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-KEY102.asl"; path = "hotpatch/SSDT-KEY102.asl"; sourceTree = "<group>"; };
-		ED9C6C2F1CCA74D0000A578F /* install_tools.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = install_tools.sh; sourceTree = "<group>"; };
 		ED9CD3A61F376730004C5906 /* SSDT-USB-4x0-G0.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-USB-4x0-G0.asl"; path = "hotpatch/SSDT-USB-4x0-G0.asl"; sourceTree = "<group>"; };
 		ED9E98FB1CC905FA0032E2A3 /* SSDT-zbG2b.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-zbG2b.dsl"; path = "hotpatch/SSDT-zbG2b.dsl"; sourceTree = "<group>"; };
 		EDA152011CC82A4B0040A5C0 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -206,7 +200,6 @@
 		EDBB1BE71E993AAA00F49BDE /* SSDT-USB-4x0-G4.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-USB-4x0-G4.asl"; path = "hotpatch/SSDT-USB-4x0-G4.asl"; sourceTree = "<group>"; };
 		EDBB3F8D1FDAD6AC00CF45FC /* SSDT-USB-1030-G1.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-USB-1030-G1.asl"; path = "hotpatch/SSDT-USB-1030-G1.asl"; sourceTree = "<group>"; };
 		EDBFC62A1AC74DA600E24D1F /* 06a_Battery_PNOT.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = 06a_Battery_PNOT.txt; path = patches/06a_Battery_PNOT.txt; sourceTree = "<group>"; };
-		EDD010261CC0181000D0CCF1 /* Backlight_0xad9.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Backlight_0xad9.plist; path = backlight/Backlight_0xad9.plist; sourceTree = "<group>"; };
 		EDD906B81F8DC3700044EC08 /* makefile.d */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.dtrace; path = makefile.d; sourceTree = "<group>"; };
 		EDD906B91F8DC3BE0044EC08 /* find_dependencies.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = find_dependencies.sh; sourceTree = "<group>"; };
 		EDDC92011FD44C040071D2C2 /* SSDT-ALS0.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-ALS0.asl"; path = "hotpatch/SSDT-ALS0.asl"; sourceTree = "<group>"; };
@@ -233,10 +226,6 @@
 			isa = PBXGroup;
 			children = (
 				84596D291E8CBD780005C4DB /* AppleBacklightInjector.kext */,
-				847F5EDC1B508B4B00825CE8 /* patch_backlight.sh */,
-				847F5EDD1B508B4B00825CE8 /* Backlight_0x710.plist */,
-				EDD010261CC0181000D0CCF1 /* Backlight_0xad9.plist */,
-				84EC4C841E8CADB60097C736 /* Backlight_0x56c.plist */,
 			);
 			name = backlight;
 			sourceTree = "<group>";
@@ -305,9 +294,8 @@
 			children = (
 				EDA152011CC82A4B0040A5C0 /* README.md */,
 				84B9D52516FFE684002CD441 /* License.md */,
-				ED1837431C0A4B1200A5A3DA /* mount_efi.sh */,
 				ED97346F1C0A5F260063BCF9 /* download.sh */,
-				ED9C6C2F1CCA74D0000A578F /* install_tools.sh */,
+				ED9755F321588F6200103E5D /* install_tools.sh */,
 				ED9734701C0A5F370063BCF9 /* install_downloads.sh */,
 				84B9D52616FFE684002CD441 /* makefile */,
 				EDD906B81F8DC3700044EC08 /* makefile.d */,
@@ -315,7 +303,6 @@
 				ED824E1D1CCFC43500EFDDF2 /* build.sh */,
 				ED824E191CCFC43500EFDDF2 /* install_acpi.sh */,
 				ED824E1E1CCFC43F00EFDDF2 /* generated scripts */,
-				ED1837451C0A4B1200A5A3DA /* print_version.sh */,
 				ED1837421C0A4B1200A5A3DA /* merge_plist.sh */,
 				ED18374F1C0A4B5D00A5A3DA /* audio */,
 				EDB940BA1C04D44500480024 /* hotpatch */,
@@ -330,7 +317,6 @@
 			isa = PBXGroup;
 			children = (
 				ED18374E1C0A4B1200A5A3DA /* README.txt */,
-				ED1837441C0A4B1200A5A3DA /* patch_hda.sh */,
 				ED1837461C0A4B1200A5A3DA /* ahhcd.plist */,
 				ED18374D1C0A4B1200A5A3DA /* Platforms.plist */,
 				ED1837471C0A4B1200A5A3DA /* layout33.plist */,

@@ -1,3 +1,4 @@
 #!/bin/bash
 
-./install_downloads.sh toolsonly
+./tools/install_tools.sh
+
