@@ -14,12 +14,18 @@ warn_about_superuser
 # install tools
 install_tools
 
+# remove kexts that are no longer used
+remove_deprecated_kexts
+remove_kext AppleHDAIDT.kext
+remove_kext AppleHDAALC.kext
+remove_kext USBXHCI_4x40s.kext
+remove_kext SATA-100-series-unsupported.kext
+
 # install required kexts
 install_download_kexts
 install_brcmpatchram_kexts
 install_fakepciid_xhcimux
 install_fakepciid_intel_hdmi_audio
-remove_deprecated_kexts
 install_backlight_kexts
 
 # install special kexts specific to ProBook
@@ -35,12 +41,6 @@ kext=`echo "$EFI"/EFI/CLOVER/kexts/Other/HackrNVMeFamily-*.kext`
 if [[ -e "$kext" ]]; then
     install_kext "$kext"
 fi
-
-# remove kexts that are no longer used
-remove_kext AppleHDAIDT.kext
-remove_kext AppleHDAALC.kext
-remove_kext USBXHCI_4x40s.kext
-remove_kext SATA-100-series-unsupported.kext
 
 # create/install patched AppleHDA files
 install_hda
