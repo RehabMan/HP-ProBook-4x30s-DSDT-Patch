@@ -1,3 +1,11 @@
+// Mirone version
+#define LAYOUT_MIRONE 3
+
+// InsanelyDeepak version
+#define LAYOUT_INSANELYDEEPAK 13
+
+#define LAYOUTID 3
+
 // inject properties for audio
 
     External(_SB.PCI0.HDEF, DeviceObj)
@@ -6,7 +14,7 @@
         If (!Arg2) { Return (Buffer() { 0x03 } ) }
         Return(Package()
         {
-            "layout-id", Buffer(4) { 7, 0, 0, 0 },
+            "layout-id", Buffer(4) { LAYOUTID, 0, 0, 0 },
             "hda-gfx", Buffer() { "onboard-1" },
             "PinConfigurations", Buffer() { },
             "RM,disable_FakePCIID", 1,
@@ -17,7 +25,7 @@
 
     Name(_SB.PCI0.HDEF.RMCF, Package()
     {
-        "CodecCommanderProbeInit", Package()
+        "//CodecCommanderProbeInit", Package()
         {
             "Version", 0x020600,
             "14f1_50f4", Package()
@@ -25,9 +33,9 @@
                 "PinConfigDefault", Package()
                 {
                     Package(){},
-                    Package()   // alternate layout-id=5, Mirone version
+                    Package()   // alternate Mirone version
                     {
-                        "LayoutID", 5,
+                        "LayoutID", LAYOUT_MIRONE,
                         "PinConfigs", Package()
                         {
                             Package(){},
@@ -39,7 +47,7 @@
                     },
                     Package()   // InsanelyDeepak version
                     {
-                        "LayoutID", 7,
+                        "LayoutID", LAYOUT_INSANELYDEEPAK,
                         "PinConfigs", Package()
                         {
                             Package(){},

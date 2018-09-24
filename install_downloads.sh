@@ -21,6 +21,10 @@ remove_kext AppleHDAALC.kext
 remove_kext USBXHCI_4x40s.kext
 remove_kext SATA-100-series-unsupported.kext
 
+# using AppleALC.kext, remove CodecCommander.kext and patched zml.zlib files
+remove_kext CodecCommander.kext
+sudo rm -f /System/Library/Extensions/AppleHDA.kext/Contents/Resources/*.zml.zlib
+
 # install required kexts
 install_download_kexts
 install_brcmpatchram_kexts
@@ -42,9 +46,6 @@ kext=`echo "$EFI"/EFI/CLOVER/kexts/Other/HackrNVMeFamily-*.kext`
 if [[ -e "$kext" ]]; then
     install_kext "$kext"
 fi
-
-# create/install patched AppleHDA files
-install_hda
 
 # all kexts are now installed, so rebuild cache
 rebuild_kernel_cache

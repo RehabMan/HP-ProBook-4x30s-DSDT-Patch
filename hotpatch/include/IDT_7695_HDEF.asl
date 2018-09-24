@@ -1,3 +1,5 @@
+#define LAYOUTID 12
+
 // inject properties for audio
 
     External(_SB.PCI0.HDEF, DeviceObj)
@@ -6,7 +8,7 @@
         If (!Arg2) { Return (Buffer() { 0x03 } ) }
         Return(Package()
         {
-            "layout-id", Buffer(4) { 19, 0, 0, 0 },
+            "layout-id", Buffer(4) { LAYOUTID, 0, 0, 0 },
             "hda-gfx", Buffer() { "onboard-1" },
             "PinConfigurations", Buffer() { },
         })
@@ -18,7 +20,7 @@
     {
         "CodecCommander", Package() { "Disable", ">y", },
         "CodecCommanderPowerHook", Package() { "Disable", ">y", },
-        "CodecCommanderProbeInit", Package()
+        "//CodecCommanderProbeInit", Package()
         {
             "Version", 0x020600,
             "111d_7695", Package()
@@ -28,7 +30,7 @@
                     Package(){},
                     Package()
                     {
-                        "LayoutID", 19,
+                        "LayoutID", LAYOUTID,
                         "PinConfigs", Package()
                         {
                             Package(){},
@@ -44,7 +46,7 @@
                     Package(){},
                     Package()
                     {
-                        "LayoutID", 19,
+                        "LayoutID", LAYOUTID,
                         "Command", Buffer()
                         {
                             0x00, 0xa7, 0x0c, 0x02,

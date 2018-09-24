@@ -131,7 +131,7 @@ config/config_4x30.plist : $(PARTS)/config_master.plist $(PARTS)/config_IDT76d1.
 	/usr/libexec/PlistBuddy -c "Set ACPI:SSDT:Generate:PluginType false" $@
 	/usr/libexec/PlistBuddy -c "Set SMBIOS:ProductName MacBookPro8,1" $@
 	./merge_plist.sh "Devices:Properties" $(PARTS)/config_HD3000-4000_hdmi.plist $@
-	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_IDT76d1.plist $@
+#	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_IDT76d1.plist $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_non_Intel_USB3.plist $@
 	@printf "\n"
 
@@ -142,7 +142,7 @@ config/config_4x40.plist : $(PARTS)/config_master.plist $(PARTS)/config_IDT76d9.
 	/usr/libexec/PlistBuddy -c "Set ACPI:SSDT:Generate:PluginType false" $@
 	/usr/libexec/PlistBuddy -c "Set :SMBIOS:ProductName MacBookPro9,2" $@
 	./merge_plist.sh "Devices:Properties" $(PARTS)/config_HD3000-4000_hdmi.plist $@
-	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_IDT76d9.plist $@
+#	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_IDT76d9.plist $@
 	@printf "\n"
 
 # 4x0_G0 is IDT 76e0, HD4000, HDMI
@@ -152,7 +152,7 @@ config/config_4x0_G0.plist : $(PARTS)/config_master.plist $(PARTS)/config_IDT76e
 	/usr/libexec/PlistBuddy -c "Set ACPI:SSDT:Generate:PluginType false" $@
 	/usr/libexec/PlistBuddy -c "Set :SMBIOS:ProductName MacBookPro9,2" $@
 	./merge_plist.sh "Devices:Properties" $(PARTS)/config_HD3000-4000_hdmi.plist $@
-	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_IDT76e0.plist $@
+#	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_IDT76e0.plist $@
 	@printf "\n"
 
 # 4x0_G1_Ivy is same as 4x0_G0
@@ -168,7 +168,7 @@ config/config_8x0_G1_Ivy.plist: $(PARTS)/config_master.plist $(PARTS)/config_IDT
 	/usr/libexec/PlistBuddy -c "Set ACPI:SSDT:Generate:PluginType false" $@
 	/usr/libexec/PlistBuddy -c "Set :SMBIOS:ProductName MacBookPro9,2" $@
 	./merge_plist.sh "Devices:Properties" $(PARTS)/config_HD3000-4000_dp.plist $@
-	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_IDT76e0.plist $@
+#	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_IDT76e0.plist $@
 	@printf "\n"
 
 # ZBook_G0 is same as 8x0_G1_Ivy
@@ -184,7 +184,7 @@ config/config_9x70m.plist : $(PARTS)/config_master.plist $(PARTS)/config_IDT76e0
 	/usr/libexec/PlistBuddy -c "Set ACPI:SSDT:Generate:PluginType false" $@
 	/usr/libexec/PlistBuddy -c "Set :SMBIOS:ProductName MacBookPro9,2" $@
 	./merge_plist.sh "Devices:Properties" $(PARTS)/config_HD3000-4000_dp.plist $@
-	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_IDT76e0.plist $@
+#	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_IDT76e0.plist $@
 	@printf "\n"
 
 # 9x80m is ALC280, HD4400, DP
@@ -194,7 +194,7 @@ config/config_9x80m.plist : $(PARTS)/config_master.plist $(PARTS)/config_ALC280.
 	/usr/libexec/PlistBuddy -c "Set KernelAndKextPatches:AppleIntelCPUPM false" $@
 	/usr/libexec/PlistBuddy -c "Set :SMBIOS:ProductName MacBookAir6,2" $@
 	./merge_plist.sh "Devices:Properties" $(PARTS)/config_Haswell_dp.plist $@
-	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_ALC280.plist $@
+#	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_ALC280.plist $@
 	@printf "\n"
 
 # 4x0_G1_Haswell is IDT 76e0, HD4400, HDMI
@@ -204,7 +204,7 @@ config/config_4x0_G1_Haswell.plist : $(PARTS)/config_master.plist $(PARTS)/confi
 	/usr/libexec/PlistBuddy -c "Set KernelAndKextPatches:AppleIntelCPUPM false" $@
 	/usr/libexec/PlistBuddy -c "Set :SMBIOS:ProductName MacBookAir6,2" $@
 	./merge_plist.sh "Devices:Properties" $(PARTS)/config_Haswell_hdmi.plist $@
-	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_IDT76e0.plist $@
+#	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_IDT76e0.plist $@
 	@printf "\n"
 
 # 8x0_G1_Haswell is IDT 76e0, HD4400, DP
@@ -214,7 +214,7 @@ config/config_8x0_G1_Haswell.plist : $(PARTS)/config_master.plist $(PARTS)/confi
 	/usr/libexec/PlistBuddy -c "Set KernelAndKextPatches:AppleIntelCPUPM false" $@
 	/usr/libexec/PlistBuddy -c "Set :SMBIOS:ProductName MacBookAir6,2" $@
 	./merge_plist.sh "Devices:Properties" $(PARTS)/config_Haswell_dp.plist $@
-	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_IDT76e0.plist $@
+#	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_IDT76e0.plist $@
 	@printf "\n"
 
 # 6x0_G1_Haswell is same as 8x0_G1_Haswell
@@ -237,7 +237,7 @@ config/config_6x60p.plist : $(PARTS)/config_master.plist $(PARTS)/config_IDT7605
 	/usr/libexec/PlistBuddy -c "Set KernelAndKextPatches:KernelPm false" $@
 	/usr/libexec/PlistBuddy -c "Set SMBIOS:ProductName MacBookPro8,1" $@
 	./merge_plist.sh "Devices:Properties" $(PARTS)/config_HD3000-4000_dp.plist $@
-	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_IDT7605.plist $@
+#	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_IDT7605.plist $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_non_Intel_USB3.plist $@
 	@printf "\n"
 
@@ -261,7 +261,7 @@ config/config_5x30m.plist : $(PARTS)/config_master.plist $(PARTS)/config_IDT7605
 	/usr/libexec/PlistBuddy -c "Set KernelAndKextPatches:KernelPm false" $@
 	/usr/libexec/PlistBuddy -c "Set SMBIOS:ProductName MacBookPro8,1" $@
 	./merge_plist.sh "Devices:Properties" $(PARTS)/config_HD3000-4000_hdmi.plist $@
-	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_IDT7605.plist $@
+#	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_IDT7605.plist $@
 	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_non_Intel_USB3.plist $@
 	@printf "\n"
 
@@ -272,7 +272,7 @@ config/config_6x70p.plist : $(PARTS)/config_master.plist $(PARTS)/config_IDT7605
 	/usr/libexec/PlistBuddy -c "Set ACPI:SSDT:Generate:PluginType false" $@
 	/usr/libexec/PlistBuddy -c "Set :SMBIOS:ProductName MacBookPro9,2" $@
 	./merge_plist.sh "Devices:Properties" $(PARTS)/config_HD3000-4000_dp.plist $@
-	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_IDT7605.plist $@
+#	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_IDT7605.plist $@
 	@printf "\n"
 
 # 8x70p is same as 6x70p
@@ -294,7 +294,7 @@ config/config_3x0_G1.plist : $(PARTS)/config_master.plist $(PARTS)/config_IDT769
 	/usr/libexec/PlistBuddy -c "Set ACPI:SSDT:Generate:PluginType false" $@
 	/usr/libexec/PlistBuddy -c "Set :SMBIOS:ProductName MacBookPro9,2" $@
 	./merge_plist.sh "Devices:Properties" $(PARTS)/config_HD3000-4000_hdmi.plist $@
-	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_IDT7695.plist $@
+#	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_IDT7695.plist $@
 	@printf "\n"
 
 # 4x0_G2_Haswell is ALC282, Haswell, HDMI
@@ -304,7 +304,7 @@ config/config_4x0_G2_Haswell.plist : $(PARTS)/config_master.plist $(PARTS)/confi
 	/usr/libexec/PlistBuddy -c "Set KernelAndKextPatches:AppleIntelCPUPM false" $@
 	/usr/libexec/PlistBuddy -c "Set :SMBIOS:ProductName MacBookAir6,2" $@
 	./merge_plist.sh "Devices:Properties" $(PARTS)/config_Haswell_hdmi.plist $@
-	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_ALC282.plist $@
+#	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_ALC282.plist $@
 	@printf "\n"
 
 # 8x0_G2_Haswell is ALC282, Haswell, DP
@@ -314,7 +314,7 @@ config/config_8x0_G2_Haswell.plist: $(PARTS)/config_master.plist $(PARTS)/config
 	/usr/libexec/PlistBuddy -c "Set KernelAndKextPatches:AppleIntelCPUPM false" $@
 	/usr/libexec/PlistBuddy -c "Set :SMBIOS:ProductName MacBookAir6,2" $@
 	./merge_plist.sh "Devices:Properties" $(PARTS)/config_Haswell_dp.plist $@
-	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_ALC282.plist $@
+#	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_ALC282.plist $@
 	@printf "\n"
 
 # 4x0_G2_Broadwell is ALC282, Broadwell, HDMI
@@ -324,7 +324,7 @@ config/config_4x0_G2_Broadwell.plist : $(PARTS)/config_master.plist $(PARTS)/con
 	/usr/libexec/PlistBuddy -c "Set KernelAndKextPatches:AppleIntelCPUPM false" $@
 	/usr/libexec/PlistBuddy -c "Set :SMBIOS:ProductName MacBookAir7,2" $@
 	./merge_plist.sh "Devices:Properties" $(PARTS)/config_Broadwell_hdmi.plist $@
-	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_ALC282.plist $@
+#	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_ALC282.plist $@
 	@printf "\n"
 
 # 8x0_G2_Broadwell is ALC280, Broadwell, DP
@@ -334,7 +334,7 @@ config/config_8x0_G2_Broadwell.plist : $(PARTS)/config_master.plist $(PARTS)/con
 	/usr/libexec/PlistBuddy -c "Set KernelAndKextPatches:AppleIntelCPUPM false" $@
 	/usr/libexec/PlistBuddy -c "Set :SMBIOS:ProductName MacBookAir7,2" $@
 	./merge_plist.sh "Devices:Properties" $(PARTS)/config_Broadwell_dp.plist $@
-	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_ALC280.plist $@
+#	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_ALC280.plist $@
 	@printf "\n"
 
 # 1020_G1_Broadwell is ALC286, Broadwell, HDMI
@@ -344,7 +344,7 @@ config/config_1020_G1_Broadwell.plist : $(PARTS)/config_master.plist $(PARTS)/co
 	/usr/libexec/PlistBuddy -c "Set KernelAndKextPatches:AppleIntelCPUPM false" $@
 	/usr/libexec/PlistBuddy -c "Set :SMBIOS:ProductName MacBookAir7,2" $@
 	./merge_plist.sh "Devices:Properties" $(PARTS)/config_Broadwell_hdmi.plist $@
-	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_ALC286.plist $@
+#	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_ALC286.plist $@
 	@printf "\n"
 
 # ZBook_G2_Haswell is IDT 76e0, Haswell, no external ports for Intel graphics
@@ -355,7 +355,7 @@ config/config_ZBook_G2_Haswell.plist : $(PARTS)/config_master.plist $(PARTS)/con
 	/usr/libexec/PlistBuddy -c "Set KernelAndKextPatches:AppleIntelCPUPM false" $@
 	/usr/libexec/PlistBuddy -c "Set :SMBIOS:ProductName MacBookPro11,1" $@
 	./merge_plist.sh "Devices:Properties" $(PARTS)/config_Haswell_no_hdmi_dp.plist $@
-	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_IDT76e0.plist $@
+#	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_IDT76e0.plist $@
 	@printf "\n"
 
 # ZBook_G1_Haswell is same as ZBook_G2_Haswell
@@ -371,7 +371,7 @@ config/config_ZBook_G2_Haswell_ALC280.plist : $(PARTS)/config_master.plist $(PAR
 	/usr/libexec/PlistBuddy -c "Set KernelAndKextPatches:AppleIntelCPUPM false" $@
 	/usr/libexec/PlistBuddy -c "Set :SMBIOS:ProductName MacBookPro11,1" $@
 	./merge_plist.sh "Devices:Properties" $(PARTS)/config_Haswell_dp.plist $@
-	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_ALC280.plist $@
+#	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_ALC280.plist $@
 	@printf "\n"
 
 # ZBook_G2_Broadwell is ALC280, Broadwell, DP
@@ -381,7 +381,7 @@ config/config_ZBook_G2_Broadwell.plist : $(PARTS)/config_master.plist $(PARTS)/c
 	/usr/libexec/PlistBuddy -c "Set KernelAndKextPatches:AppleIntelCPUPM false" $@
 	/usr/libexec/PlistBuddy -c "Set :SMBIOS:ProductName MacBookPro11,1" $@
 	./merge_plist.sh "Devices:Properties" $(PARTS)/config_Broadwell_dp.plist $@
-	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_ALC280.plist $@
+#	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_ALC280.plist $@
 	@printf "\n"
 
 # ProBook_4x0_G3_Skylake is CX20724, Skylake, HDMI
@@ -391,7 +391,7 @@ config/config_4x0_G3_Skylake.plist : $(PARTS)/config_master.plist $(PARTS)/confi
 	/usr/libexec/PlistBuddy -c "Set KernelAndKextPatches:AppleIntelCPUPM false" $@
 	/usr/libexec/PlistBuddy -c "Set :SMBIOS:ProductName MacBookPro11,1" $@
 	./merge_plist.sh "Devices:Properties" $(PARTS)/config_Skylake_hdmi.plist $@
-	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_CX20724.plist $@
+#	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_CX20724.plist $@
 	@printf "\n"
 
 # ProBook_8x0_G3_Skylake is CX20724, Skylake, DP
@@ -401,7 +401,7 @@ config/config_8x0_G3_Skylake.plist : $(PARTS)/config_master.plist $(PARTS)/confi
 	/usr/libexec/PlistBuddy -c "Set KernelAndKextPatches:AppleIntelCPUPM false" $@
 	/usr/libexec/PlistBuddy -c "Set :SMBIOS:ProductName MacBookPro11,1" $@
 	./merge_plist.sh "Devices:Properties" $(PARTS)/config_Skylake_dp.plist $@
-	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_CX20724.plist $@
+#	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_CX20724.plist $@
 	@printf "\n"
 
 # EliteBook 1030_G1_Skylake is same as 8x0_G3_Skylake
@@ -423,7 +423,7 @@ config/config_6x0_G2_Skylake.plist : $(PARTS)/config_master.plist $(PARTS)/confi
 	/usr/libexec/PlistBuddy -c "Set KernelAndKextPatches:AppleIntelCPUPM false" $@
 	/usr/libexec/PlistBuddy -c "Set :SMBIOS:ProductName MacBookPro11,1" $@
 	./merge_plist.sh "Devices:Properties" $(PARTS)/config_Skylake_dp.plist $@
-	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_CX20724.plist $@
+#	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_CX20724.plist $@
 	@printf "\n"
 
 # EliteBook 1040_G3_Skylake is CX20724, Skylake, DP
@@ -433,7 +433,7 @@ config/config_1040_G3_Skylake.plist : $(PARTS)/config_master.plist $(PARTS)/conf
 	/usr/libexec/PlistBuddy -c "Set KernelAndKextPatches:AppleIntelCPUPM false" $@
 	/usr/libexec/PlistBuddy -c "Set :SMBIOS:ProductName MacBookPro11,1" $@
 	./merge_plist.sh "Devices:Properties" $(PARTS)/config_Skylake_dp.plist $@
-	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_CX20724.plist $@
+#	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_CX20724.plist $@
 	@printf "\n"
 
 #REVIEW: CX20724 is not correct for the 1050 (it uses a new audio codec)
@@ -444,7 +444,7 @@ config/config_1050_G1_KabyLake-R.plist : $(PARTS)/config_master.plist $(PARTS)/c
 	/usr/libexec/PlistBuddy -c "Set KernelAndKextPatches:AppleIntelCPUPM false" $@
 	/usr/libexec/PlistBuddy -c "Set :SMBIOS:ProductName MacBookPro11,1" $@
 	./merge_plist.sh "Devices:Properties" $(PARTS)/config_Kabylake_dp.plist $@
-	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_CX20724.plist $@
+#	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_CX20724.plist $@
 	@printf "\n"
 
 # ProBook_4x0_G4_Kabylake is CX8200, Kabylake, HDMI
@@ -454,7 +454,7 @@ config/config_4x0_G4_Kabylake.plist : $(PARTS)/config_master.plist $(PARTS)/conf
 	/usr/libexec/PlistBuddy -c "Set KernelAndKextPatches:AppleIntelCPUPM false" $@
 	/usr/libexec/PlistBuddy -c "Set :SMBIOS:ProductName MacBookPro11,1" $@
 	./merge_plist.sh "Devices:Properties" $(PARTS)/config_Kabylake_hdmi.plist $@
-	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_CX8200.plist $@
+#	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_CX8200.plist $@
 	@printf "\n"
 
 # ProBook_4x0_G5_Kabylake-R is same as 4x0_G4_Kabylake
@@ -470,7 +470,7 @@ config/config_8x0_G4_Kabylake.plist : $(PARTS)/config_master.plist $(PARTS)/conf
 	/usr/libexec/PlistBuddy -c "Set KernelAndKextPatches:AppleIntelCPUPM false" $@
 	/usr/libexec/PlistBuddy -c "Set :SMBIOS:ProductName MacBookPro11,1" $@
 	./merge_plist.sh "Devices:Properties" $(PARTS)/config_Kabylake_dp.plist $@
-	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_CX8200.plist $@
+#	./merge_plist.sh "KernelAndKextPatches:KextsToPatch" $(PARTS)/config_CX8200.plist $@
 	@printf "\n"
 
 # new hotpatch SSDTs
