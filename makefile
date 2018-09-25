@@ -13,7 +13,7 @@ HDAINJECT=AppleHDA_$(HDA).kext
 HDAINJECT_MARK=_hdainject_marker.txt
 HDAZML=AppleHDA_$(HDA)_Resources
 HDAZML_MARK=_hdazml_marker.txt
-HDA_PRODUCTS=$(HDAZML_MARK) $(HDAINJECT_MARK)
+#HDA_PRODUCTS=$(HDAZML_MARK) $(HDAINJECT_MARK)
 
 LE=/Library/Extensions
 SLE=/System/Library/Extensions

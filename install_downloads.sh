@@ -2,7 +2,7 @@
 #set -x
 
 EXCEPTIONS=
-ESSENTIAL=
+ESSENTIAL=AppleALC.kext ProBookAtheros.kext SATA-unsupported.kext XHCI-300-series-injector.kext
 HDA=ProBook
 
 # include subroutines
