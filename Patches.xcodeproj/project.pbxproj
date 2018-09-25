@@ -116,6 +116,8 @@
 		ED89CD261F393FDC00D752F9 /* config_Kabylake_hdmi.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config_Kabylake_hdmi.plist; path = config_parts/config_Kabylake_hdmi.plist; sourceTree = "<group>"; };
 		ED8D01121E18596D009A8C63 /* SSDT-USB-ZBook-G3.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-USB-ZBook-G3.asl"; path = "hotpatch/SSDT-USB-ZBook-G3.asl"; sourceTree = "<group>"; };
 		ED8D01131E185D62009A8C63 /* SSDT-zbG3s.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-zbG3s.dsl"; path = "hotpatch/SSDT-zbG3s.dsl"; sourceTree = "<group>"; };
+		ED8D28F4215A54C900F2E66E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = kexts/LiluFriendLite.kext/Contents/Info.plist; sourceTree = "<group>"; };
+		ED8D28F5215A54E600F2E66E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = kexts/LiluFriend.kext/Contents/Info.plist; sourceTree = "<group>"; };
 		ED8D4ED41E9C39C700F87978 /* SSDT-IGPU.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-IGPU.dsl"; path = "hotpatch/SSDT-IGPU.dsl"; sourceTree = "<group>"; };
 		ED92D2AA1D19A4A8005C6F78 /* SSDT-USB-8x0-G3.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-USB-8x0-G3.asl"; path = "hotpatch/SSDT-USB-8x0-G3.asl"; sourceTree = "<group>"; };
 		ED97346F1C0A5F260063BCF9 /* download.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = download.sh; sourceTree = "<group>"; };
@@ -222,12 +224,14 @@
 			name = AppleBacklightInjector.kext;
 			sourceTree = "<group>";
 		};
-		847F5ED91B508AFC00825CE8 /* backlight */ = {
+		847F5ED91B508AFC00825CE8 /* kexts */ = {
 			isa = PBXGroup;
 			children = (
+				ED8D28F3215A53F000F2E66E /* LiluFriend.kext */,
+				ED8D28F2215A53E400F2E66E /* LiluFriendLite.kext */,
 				84596D291E8CBD780005C4DB /* AppleBacklightInjector.kext */,
 			);
-			name = backlight;
+			name = kexts;
 			sourceTree = "<group>";
 		};
 		847F5EDF1B508B8200825CE8 /* mini-SSDTs */ = {
@@ -306,7 +310,7 @@
 				ED1837421C0A4B1200A5A3DA /* merge_plist.sh */,
 				ED18374F1C0A4B5D00A5A3DA /* audio */,
 				EDB940BA1C04D44500480024 /* hotpatch */,
-				847F5ED91B508AFC00825CE8 /* backlight */,
+				847F5ED91B508AFC00825CE8 /* kexts */,
 				847F5EDF1B508B8200825CE8 /* mini-SSDTs */,
 				847F5EE11B508C2300825CE8 /* legacy patches */,
 				847F5EE01B508C1400825CE8 /* other patches */,
@@ -342,6 +346,22 @@
 				ED824E1C1CCFC43500EFDDF2 /* make_config.sh */,
 			);
 			name = "generated scripts";
+			sourceTree = "<group>";
+		};
+		ED8D28F2215A53E400F2E66E /* LiluFriendLite.kext */ = {
+			isa = PBXGroup;
+			children = (
+				ED8D28F4215A54C900F2E66E /* Info.plist */,
+			);
+			name = LiluFriendLite.kext;
+			sourceTree = "<group>";
+		};
+		ED8D28F3215A53F000F2E66E /* LiluFriend.kext */ = {
+			isa = PBXGroup;
+			children = (
+				ED8D28F5215A54E600F2E66E /* Info.plist */,
+			);
+			name = LiluFriend.kext;
 			sourceTree = "<group>";
 		};
 		ED923A291CC9406900BD18E2 /* models */ = {
