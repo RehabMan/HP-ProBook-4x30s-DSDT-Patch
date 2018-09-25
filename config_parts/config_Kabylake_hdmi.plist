@@ -12,8 +12,8 @@
 				<integer>1</integer>
 				<key>framebuffer-con1-enable</key>
 				<integer>1</integer>
-				<key>framebuffer-con1-type</key>
-				<data>AAgAAA==</data>
+				<key>framebuffer-con1-alldata</key>
+				<data>AQUKAAAIAACHAQAAAgQKAAAIAACHAQAA</data>
 			</dict>
 		</dict>
 	</dict>
