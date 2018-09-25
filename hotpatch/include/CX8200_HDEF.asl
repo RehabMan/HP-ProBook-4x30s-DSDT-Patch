@@ -21,7 +21,8 @@
     {
         //REVIEW: seems like nonsense:
         //"CodecCommander", Package() { "Disable", ">y", },
-        "CodecCommanderPowerHook", Package() { "Disable", ">y", },
+        //REVIEW: do we really want this option disabled (needs testing both ways)
+        //"CodecCommanderPowerHook", Package() { "Disable", ">y", },
         "//CodecCommanderProbeInit", Package()
         {
             "Version", 0x020600,
@@ -58,12 +59,14 @@
                 },
             },
         },
-        //REVIEW (continued from above review): see.. should not have two "CodecCommander" configs!
         "CodecCommander", Package()
         {
             "Version", 0x00020600,
             "14f1_2008", Package()
             {
+                // the reset options must be disabled for use with AppleALC.kext
+                "Perform Reset", ">n",
+                "Perform Reset on External Wake", ">n",
                 "Custom Commands", Package()
                 {
                     Package(){},

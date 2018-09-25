@@ -21,8 +21,7 @@ remove_kext AppleHDAALC.kext
 remove_kext USBXHCI_4x40s.kext
 remove_kext SATA-100-series-unsupported.kext
 
-# using AppleALC.kext, remove CodecCommander.kext and patched zml.zlib files
-remove_kext CodecCommander.kext
+# using AppleALC.kext, remove patched zml.zlib files
 sudo rm -f /System/Library/Extensions/AppleHDA.kext/Contents/Resources/*.zml.zlib
 
 # install required kexts
