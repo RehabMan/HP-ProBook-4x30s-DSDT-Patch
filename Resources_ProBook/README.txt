@@ -23,6 +23,7 @@ IDT_76d9 (IDT92HD87B2_4): 123 (was 13 prior to 10.14)
 
 IDT_76e0 (IDT92HD91BXX): 17
 	AppleALC: 3, 12(envy), 13, 33, 84
+	per @atomfried AppleALC layout-id 3 does not work with Haswell ZBook G1, so switched to layout-id 13
 
 IDT_7605 (IDT92HD81B1X5): 128 (was 18 prior to 10.14) (has alternate: IDT92HD87B1)
 	AppleALC: 3, 11, (12), 20, 21, 28

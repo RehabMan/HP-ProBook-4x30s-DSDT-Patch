@@ -1,4 +1,4 @@
-#define LAYOUTID 3
+#define LAYOUTID 13
 
 // inject properties for HDMI audio
 
