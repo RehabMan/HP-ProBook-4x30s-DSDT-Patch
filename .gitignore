@@ -6,7 +6,7 @@ Patches.xcodeproj/xcuserdata/
 build/*
 !build/readme.txt
 _downloads/
-tools/
+_tools/
 config/config_*.plist
 AppleHDAHCD_ProBook.kext
 AppleHDA_ProBook.kext
