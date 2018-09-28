@@ -8,6 +8,7 @@ ALC280: 4
 
 CX20724: 5(Mirone version) or 7(InsanelyDeepak version)
 	AppleALC: 3(Mirone), 13(InsanelyDeepak)
+    per @y010204025, AppleALC layout-id 3 does not allow headphones to work, so switched to layout-id 13
 
 ALC286: 6
 	AppleALC: 3
