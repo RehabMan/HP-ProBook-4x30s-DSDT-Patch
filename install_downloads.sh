@@ -3,7 +3,6 @@
 
 EXCEPTIONS=
 ESSENTIAL=AppleALC.kext ProBookAtheros.kext SATA-unsupported.kext XHCI-300-series-injector.kext
-HDA=ProBook
 
 # include subroutines
 DIR=$(dirname ${BASH_SOURCE[0]})
@@ -20,6 +19,7 @@ remove_kext AppleHDAIDT.kext
 remove_kext AppleHDAALC.kext
 remove_kext USBXHCI_4x40s.kext
 remove_kext SATA-100-series-unsupported.kext
+remove_kext AppleHDA_ProBook.kext
 
 # using AppleALC.kext, remove patched zml.zlib files
 sudo rm -f /System/Library/Extensions/AppleHDA.kext/Contents/Resources/*.zml.zlib
