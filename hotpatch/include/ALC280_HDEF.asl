@@ -18,42 +18,6 @@
 
     Name(_SB.PCI0.HDEF.RMCF, Package()
     {
-        "//CodecCommanderProbeInit", Package()
-        {
-            "Version", 0x020600,
-            "10ec_0280", Package()
-            {
-                "PinConfigDefault", Package()
-                {
-                    Package(){},
-                    Package()
-                    {
-                        "LayoutID", LAYOUTID,
-                        "PinConfigs", Package()
-                        {
-                            Package(){},
-                            0x12, 0x90a00010,
-                            0x14, 0x90170020,
-                            0x15, 0x02211030,
-                            0x1a, 0x02811040,
-                        },
-                    },
-                },
-                "Custom Commands", Package()
-                {
-                    Package(){},
-                    Package()
-                    {
-                        "LayoutID", LAYOUTID,
-                        "Command", Buffer()
-                        {
-                            0x01, 0x47, 0x0c, 0x02,
-                            0x01, 0x57, 0x0c, 0x02
-                        },
-                    },
-                },
-            },
-        },
         "CodecCommander", Package()
         {
             "Version", 0x020600,

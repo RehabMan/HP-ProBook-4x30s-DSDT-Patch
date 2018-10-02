@@ -25,40 +25,11 @@
 
     Name(_SB.PCI0.HDEF.RMCF, Package()
     {
-        "//CodecCommanderProbeInit", Package()
+        "CodecCommander", Package()
         {
-            "Version", 0x020600,
-            "14f1_50f4", Package()
-            {
-                "PinConfigDefault", Package()
-                {
-                    Package(){},
-                    Package()   // alternate Mirone version
-                    {
-                        "LayoutID", LAYOUT_MIRONE,
-                        "PinConfigs", Package()
-                        {
-                            Package(){},
-                            0x16, 0x02211010,
-                            0x17, 0x91170020,
-                            0x19, 0x02811030,
-                            0x1a, 0x90a60040,
-                        },
-                    },
-                    Package()   // InsanelyDeepak version
-                    {
-                        "LayoutID", LAYOUT_INSANELYDEEPAK,
-                        "PinConfigs", Package()
-                        {
-                            Package(){},
-                            0x17, 0x91170110,
-                            0x19, 0x048b1030,
-                            0x1a, 0x95a00120,
-                            0x1d, 0x042b1040,
-                        },
-                    },
-                },
-            },
+            // the reset options must be disabled for use with AppleALC.kext
+            "Perform Reset", ">n",
+            "Perform Reset on External Wake", ">n",
         },
     })
 

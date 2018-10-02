@@ -18,40 +18,11 @@
 
     Name(_SB.PCI0.HDEF.RMCF, Package()
     {
-        "//CodecCommanderProbeInit", Package()
+        "CodecCommander", Package()
         {
-            "Version", 0x020600,
-            "10ec_0282", Package()
-            {
-                "PinConfigDefault", Package()
-                {
-                    Package(){},
-                    Package()
-                    {
-                        "LayoutID", LAYOUTID,
-                        "PinConfigs", Package()
-                        {
-                            Package(){},
-                            0x12, 0x99a00010,
-                            0x14, 0x99130020,
-                            0x21, 0x01211050,
-                        },
-                    },
-                },
-                "Custom Commands", Package()
-                {
-                    Package(){},
-                    Package()
-                    {
-                        "LayoutID", LAYOUTID,
-                        "Command", Buffer()
-                        {
-                            0x01, 0x47, 0x0c, 0x02,
-                            0x02, 0x17, 0x0c, 0x02
-                        },
-                    },
-                },
-            },
+            // the reset options must be disabled for use with AppleALC.kext
+            "Perform Reset", ">n",
+            "Perform Reset on External Wake", ">n",
         },
     })
 

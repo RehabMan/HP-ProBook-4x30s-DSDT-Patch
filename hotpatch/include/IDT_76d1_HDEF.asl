@@ -20,26 +20,6 @@
     {
         "CodecCommander", Package() { "Disable", ">y", },
         "CodecCommanderPowerHook", Package() { "Disable", ">y", },
-        "//CodecCommanderProbeInit", Package()
-        {
-            "Version", 0x020600,
-            "111d_76d1", Package()
-            {
-                "Custom Commands", Package()
-                {
-                    Package(){},
-                    Package()
-                    {
-                        "LayoutID", LAYOUTID,
-                        "Command", Buffer()
-                        {
-                            0x00, 0xc7, 0x1e, 0x81,
-                            0x00, 0xc7, 0x1f, 0x03
-                        },
-                    },
-                },
-            },
-        },
     })
 
 //EOF

@@ -19,49 +19,9 @@
 
     Name(_SB.PCI0.HDEF.RMCF, Package()
     {
-        //REVIEW: seems like nonsense:
-        //"CodecCommander", Package() { "Disable", ">y", },
-        //REVIEW: do we really want this option disabled (needs testing both ways)
-        //"CodecCommanderPowerHook", Package() { "Disable", ">y", },
-        "//CodecCommanderProbeInit", Package()
-        {
-            "Version", 0x020600,
-            "14f1_2008", Package()
-            {
-                "PinConfigDefault", Package()
-                {
-                    Package(){},
-                    Package()
-                    {
-                        "LayoutID", LAYOUTID,
-                        "PinConfigs", Package()
-                        {
-                            Package(){},
-                            0x16, 0x012b1040,
-                            0x17, 0x90170010,
-                            0x18, 0x400000f0,
-                            0x19, 0x018b1030,
-                            0x1a, 0x90a60020,
-                        },
-                    },
-                },
-                "Custom Commands", Package()
-                {
-                    Package(){},
-                    Package()
-                    {
-                        "LayoutID", LAYOUTID,
-                        "Command", Buffer()
-                        {
-                            0x01, 0x77, 0x0c, 0x02,
-                        },
-                    },
-                },
-            },
-        },
         "CodecCommander", Package()
         {
-            "Version", 0x00020600,
+            "Version", 0x020600,
             "14f1_2008", Package()
             {
                 // the reset options must be disabled for use with AppleALC.kext
