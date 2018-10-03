@@ -21,16 +21,4 @@
         })
     }
 
-// CodecCommander configuration
-
-    Name(_SB.PCI0.HDEF.RMCF, Package()
-    {
-        "CodecCommander", Package()
-        {
-            // the reset options must be disabled for use with AppleALC.kext
-            "Perform Reset", ">n",
-            "Perform Reset on External Wake", ">n",
-        },
-    })
-
 //EOF

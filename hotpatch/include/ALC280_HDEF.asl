@@ -23,9 +23,6 @@
             "Version", 0x020600,
             "10ec_0280", Package()
             {
-                // the reset options must be disabled for use with AppleALC.kext
-                "Perform Reset", ">n",
-                "Perform Reset on External Wake", ">n",
                 "Custom Commands", Package()
                 {
                     Package(){}, // signifies Array instead of Dictionary

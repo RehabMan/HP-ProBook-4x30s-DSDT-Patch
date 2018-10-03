@@ -24,9 +24,6 @@
             "Version", 0x020600,
             "14f1_2008", Package()
             {
-                // the reset options must be disabled for use with AppleALC.kext
-                "Perform Reset", ">n",
-                "Perform Reset on External Wake", ">n",
                 "Custom Commands", Package()
                 {
                     Package(){},
