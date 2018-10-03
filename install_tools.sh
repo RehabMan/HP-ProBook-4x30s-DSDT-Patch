@@ -1,4 +1,4 @@
 #!/bin/bash
 
-./tools/install_tools.sh
+./tools/_install_tools.sh
 

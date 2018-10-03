@@ -7,16 +7,6 @@
 #
 
 BUILDDIR=./build
-
-LE=/Library/Extensions
-SLE=/System/Library/Extensions
-VERSION_ERA=$(shell ./tools/print_version.sh)
-ifeq "$(VERSION_ERA)" "10.10-"
-	INSTDIR=$SLE
-else
-	INSTDIR=$LE
-endif
-
 HOTPATCH=./hotpatch
 HACK=$(wildcard $(HOTPATCH)/*.dsl)
 HACK:=$(subst $(HOTPATCH),$(BUILDDIR),$(HACK))
