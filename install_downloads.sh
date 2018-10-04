@@ -2,12 +2,10 @@
 #set -x
 
 EXCEPTIONS=
-ESSENTIAL=
-HDA=ProBook
+ESSENTIAL=AppleALC.kext ProBookAtheros.kext SATA-unsupported.kext XHCI-300-series-injector.kext
 
 # include subroutines
-DIR=$(dirname ${BASH_SOURCE[0]})
-source "$DIR/_tools/_install_subs.sh"
+source "$(dirname ${BASH_SOURCE[0]})"/_tools/_install_subs.sh
 
 warn_about_superuser
 
@@ -20,6 +18,10 @@ remove_kext AppleHDAIDT.kext
 remove_kext AppleHDAALC.kext
 remove_kext USBXHCI_4x40s.kext
 remove_kext SATA-100-series-unsupported.kext
+remove_kext AppleHDA_ProBook.kext
+
+# using AppleALC.kext, remove patched zml.zlib files
+sudo rm -f /System/Library/Extensions/AppleHDA.kext/Contents/Resources/*.zml.zlib
 
 # install required kexts
 install_download_kexts
@@ -42,9 +44,6 @@ kext=`echo "$EFI"/EFI/CLOVER/kexts/Other/HackrNVMeFamily-*.kext`
 if [[ -e "$kext" ]]; then
     install_kext "$kext"
 fi
-
-# create/install patched AppleHDA files
-install_hda
 
 # all kexts are now installed, so rebuild cache
 rebuild_kernel_cache

@@ -1,22 +1,43 @@
-LayoutID and PathMapID mappings for AppleHDA_ProBook.kext
+LayoutID and PathMapID mappings for AppleHDA_ProBook.kext and applicable AppleALC.kext
 
 ALC282: 33 (was 3 prior to 10.14)
-ALC280: 4
-CX20724: 5 (Mirone version)
-ALC286: 6
-CX20724: 7 (InsanelyDeepak version, extracted from AppleALC)
-CX8200: 20 (extracted from AppleALC)
+	AppleALC: 3,4,13,27,28,29,76,86,127
 
-IDT_76d1: 122 (was 12 prior to 10.14)
-IDT_76d9: 123 (was 13 prior to 10.14)
-IDT_76e0: 17
-IDT_7605: 128 (was 18 prior to 10.14)
-IDT_7695: 19
+ALC280: 4
+	AppleALC: 3,(4),11,13,15
+
+CX20724: 5(Mirone version) or 7(InsanelyDeepak version)
+	AppleALC: 3(Mirone), 13(InsanelyDeepak)
+    per @y010204025, AppleALC layout-id 3 does not allow headphones to work, so switched to layout-id 13
+
+ALC286: 6
+	AppleALC: 3
+
+CX8200: 20 (extracted from AppleALC)
+	AppleALC: 3
+
+IDT_76d1 (IDT92HD87B1_3): 122 (was 12 prior to 10.14)
+	AppleALC: 12, 13
+
+IDT_76d9 (IDT92HD87B2_4): 123 (was 13 prior to 10.14)
+	AppleALC: 13
+
+IDT_76e0 (IDT92HD91BXX): 17
+	AppleALC: 3, 12(envy), 13, 33, 84
+	per @atomfried AppleALC layout-id 3 does not work with Haswell ZBook G1, so switched to layout-id 13
+
+IDT_7605 (IDT92HD81B1X5): 128 (was 18 prior to 10.14) (has alternate: IDT92HD87B1)
+	AppleALC: 3, 11, (12), 20, 21, 28
+
+IDT_7695 (IDT92HD95): 19
+	AppleALC: 12
+
 
 Note: Layout-id 14,15,16 may not be able to be used due to AppleHDA not using them (there may be a whitelist)
 
 Note: macOS Mojave removes layout-id that were used: 3, 12, 13, 18.
 
+Note: AppleALC removes layout-id restriction with a bit of trickery/patching.
 
 
 --

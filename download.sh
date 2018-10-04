@@ -1,19 +1,11 @@
 #!/bin/bash
 #set -x
 
-# get copy of tools if not present
-if [[ ! -d ./_tools ]]; then
-    git clone https://github.com/RehabMan/hack-tools.git _tools
-fi
-# update tools to latest
-if [[ -e ./_tools/.git ]]; then
-    cd ./_tools && git pull
-    cd ..
-fi
+# get copy of tools
+"$(dirname ${BASH_SOURCE[0]})"/_get_tools.sh
 
 # include subroutines
-DIR=$(dirname ${BASH_SOURCE[0]})
-source "$DIR/_tools/_download_subs.sh"
+source "$(dirname ${BASH_SOURCE[0]})"/_tools/_download_subs.sh
 
 # remove deprecated downloads directory to avoid confusion
 if [[ -e ./downloads ]]; then rm -Rf ./downloads; fi
@@ -47,6 +39,7 @@ download_acidanthera Lilu acidanthera-Lilu
 download_acidanthera WhateverGreen acidanthera-WhateverGreen
 download_acidanthera AirportBrcmFixup acidanthera-AirportBrcmFixup
 download_acidanthera BT4LEContiunityFixup acidanthera-BT4LEContiunityFixup
+download_acidanthera AppleALC acidanthera-AppleALC
 cd ..
 
 # download tools

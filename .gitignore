@@ -8,8 +8,3 @@ build/*
 _downloads/
 _tools/
 config/config_*.plist
-AppleHDAHCD_ProBook.kext
-AppleHDA_ProBook.kext
-AppleHDA_ProBook_Resources
-_hdainject_marker.txt
-_hdazml_marker.txt

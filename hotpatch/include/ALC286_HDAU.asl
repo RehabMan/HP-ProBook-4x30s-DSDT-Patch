@@ -1,3 +1,5 @@
+#define LAYOUTID 3
+
 // inject properties for HDMI audio
 
     External(_SB.PCI0.HDAU, DeviceObj)
@@ -6,7 +8,7 @@
         If (!Arg2) { Return (Buffer() { 0x03 } ) }
         Return(Package()
         {
-            "layout-id", Buffer(4) { 6, 0, 0, 0 },
+            "layout-id", Buffer(4) { LAYOUTID, 0, 0, 0 },
             "hda-gfx", Buffer() { "onboard-1" },
         })
     }

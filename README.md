@@ -22,6 +22,10 @@ https://github.com/RehabMan/HP-ProBook-4x30s-DSDT-Patch/wiki/How-to-patch-your-D
 
 ### Change Log:
 
+2018-09-01
+
+- completed major changes for Mojave and AppleALC.kext
+
 2016-04-20
 
 - initial creation of this README
