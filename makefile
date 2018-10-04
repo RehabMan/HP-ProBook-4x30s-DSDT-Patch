@@ -65,42 +65,6 @@ force_update:
 	make -B install_acpi_include.sh
 	./find_dependencies.sh >makefile.d
 
-<<<<<<< HEAD
-$(HDAZML_MARK): $(RESOURCES)/*.plist _tools/patch_hdazml.sh _tools/_hda_subs.sh
-	./_tools/patch_hdazml.sh $(HDA)
-	touch $(HDAZML_MARK)
-
-$(HDAINJECT_MARK): $(RESOURCES)/*.plist _tools/patch_hdazml.sh _tools/_hda_subs.sh
-	./_tools/patch_hdainject.sh $(HDA)
-	touch $(HDAINJECT_MARK)
-
-.PHONY: clean_hda
-clean_hda:
-	rm -rf $(HDAZML) $(HDAINJECT)
-	rm -f $(HDAZML_MARK) $(HDAINJECT_MARK)
-
-.PHONY: update_kernelcache
-	update_kernelcache:
-	sudo touch $(SLE) && sudo kextcache -update-volume /
-
-.PHONY: install_hda
-install_hda:
-	sudo rm -Rf $(INSTDIR)/$(HDAINJECT)
-	sudo rm -f $(SLE)/AppleHDA.kext/Contents/Resources/*.zml*
-	sudo cp $(HDAZML)/* $(SLE)/AppleHDA.kext/Contents/Resources
-	if [ "`which tag`" != "" ]; then sudo tag -a Blue $(SLE)/AppleHDA.kext/Contents/Resources/*.zml*; fi
-	make update_kernelcache
-
-.PHONY: install_hdadummy
-install_hdadummy:
-	sudo rm -Rf $(INSTDIR)/$(HDAINJECT)
-	sudo cp -R ./$(HDAINJECT) $(INSTDIR)
-	sudo rm -f $(SLE)/AppleHDA.kext/Contents/Resources/*.zml*
-	if [ "`which tag`" != "" ]; then sudo tag -a Blue $(INSTDIR)/$(HDAINJECT); fi
-	make update_kernelcache
-
-=======
->>>>>>> applealc
 # dependencies for model specific SSDTs
 include makefile.d
 
