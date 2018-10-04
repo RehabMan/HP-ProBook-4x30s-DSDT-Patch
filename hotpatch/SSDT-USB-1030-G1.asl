@@ -2,7 +2,7 @@
 //
 // data from livacore's EliteBook 1030 G1
 
-//DefinitionBlock ("", "SSDT", 2, "hack", "usb1030g1", 0)
+//DefinitionBlock("", "SSDT", 2, "hack", "usb1030g1", 0)
 //{
     //
     // Override for USBInjectAll.kext

@@ -2,7 +2,7 @@
 //
 // Based on nandystam's HP ZBook 15 G2 (Broadwell)
 
-//DefinitionBlock ("", "SSDT", 2, "hack", "usbzbg2", 0)
+//DefinitionBlock("", "SSDT", 2, "hack", "usbzbg2", 0)
 //{
 //
 // Override for USBInjectAll.kext

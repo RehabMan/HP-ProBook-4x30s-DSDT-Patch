@@ -2,7 +2,7 @@
 //
 // This information from an EliteBook 6570b (courtesy Xeon3D).
 
-//DefinitionBlock ("", "SSDT", 2, "hack", "usb6x70", 0)
+//DefinitionBlock("", "SSDT", 2, "hack", "usb6x70", 0)
 //{
 //
 // Override for USBInjectAll.kext

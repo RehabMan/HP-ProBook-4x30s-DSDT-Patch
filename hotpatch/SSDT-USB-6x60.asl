@@ -1,7 +1,7 @@
 // USB configuration for EliteBook 6x60
 // Based on information from EliteBook 6460p
 
-//DefinitionBlock ("", "SSDT", 2, "hack", "usb6x60", 0)
+//DefinitionBlock("", "SSDT", 2, "hack", "usb6x60", 0)
 //{
 //
 // Override for USBInjectAll.kext

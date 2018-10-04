@@ -3,11 +3,8 @@ DerivedData/
 Patches.xcodeproj/project.xcworkspace/xcuserdata/
 Patches.xcodeproj/project.xcworkspace/xcshareddata/
 Patches.xcodeproj/xcuserdata/
-backlight/AppleBacklightInjector.kext
 build/*
 !build/readme.txt
-downloads
+_downloads/
+_tools/
 config/config_*.plist
-AppleHDAHCD_ProBook.kext
-AppleHDA_ProBook.kext
-AppleHDA_ProBook_Resources

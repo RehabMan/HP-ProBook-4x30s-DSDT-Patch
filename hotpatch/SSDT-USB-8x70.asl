@@ -2,7 +2,7 @@
 //
 // This information from an EliteBook 8470p (courtesy freeweber).
 
-//DefinitionBlock ("", "SSDT", 2, "hack", "usb8x70", 0)
+//DefinitionBlock("", "SSDT", 2, "hack", "usb8x70", 0)
 //{
     //
     // Override for USBInjectAll.kext

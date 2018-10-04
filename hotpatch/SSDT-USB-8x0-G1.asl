@@ -4,7 +4,7 @@
 // Current data includes HS01/SSP1 from the optional docking station.
 // still missing a port for bluetooth
 
-//DefinitionBlock ("", "SSDT", 2, "hack", "usb8x0g1", 0)
+//DefinitionBlock("", "SSDT", 2, "hack", "usb8x0g1", 0)
 //{
 //
 // Override for USBInjectAll.kext

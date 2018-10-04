@@ -2,23 +2,22 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>KernelAndKextPatches</key>
+	<key>Devices</key>
 	<dict>
-		<key>KextsToPatch</key>
-		<array>
+		<key>Properties</key>
+		<dict>
+			<key>PciRoot(0)/Pci(0x02,0)</key>
 			<dict>
-				<key>Comment</key>
-				<string>disable HDMI/DP ports by port count patching, 0x0a260006</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Name</key>
-				<string>com.apple.driver.AppleIntelFramebufferAzul</string>
-				<key>Find</key>
-				<data>BgAmCgEDAwM=</data>
-				<key>Replace</key>
-				<data>BgAmCgEDAQE=</data>
+				<key>framebuffer-patch-enable</key>
+				<integer>1</integer>
+				<key>framebuffer-cursormem</key>
+				<data>AACQAA==</data>
+				<key>framebuffer-portcount</key>
+				<integer>1</integer>
+				<key>framebuffer-memorycount</key>
+				<integer>1</integer>
 			</dict>
-		</array>
+		</dict>
 	</dict>
 </dict>
 </plist>

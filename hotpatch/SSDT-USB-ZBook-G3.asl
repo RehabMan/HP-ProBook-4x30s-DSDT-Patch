@@ -2,7 +2,7 @@
 //
 // Based on information provided from hackintoshking's Skylake ZBook G3
 
-//DefinitionBlock ("", "SSDT", 2, "hack", "usbzbg3", 0)
+//DefinitionBlock("", "SSDT", 2, "hack", "usbzbg3", 0)
 //{
     //
     // Override for USBInjectAll.kext

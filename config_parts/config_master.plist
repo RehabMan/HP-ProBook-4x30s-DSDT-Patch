@@ -6,6 +6,8 @@
 	<dict>
 		<key>DSDT</key>
 		<dict>
+			<key>DropOEM_DSM</key>
+			<false/>
 			<key>Fixes</key>
 			<dict>
 				<key>FixTMR</key>
@@ -92,14 +94,6 @@
 					<data>QjBEMw==</data>
 					<key>Replace</key>
 					<data>SERBVQ==</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>change SAT0 to SATA</string>
-					<key>Find</key>
-					<data>U0FUMA==</data>
-					<key>Replace</key>
-					<data>U0FUQQ==</data>
 				</dict>
 				<dict>
 					<key>Comment</key>
@@ -394,6 +388,8 @@
 			<key>Inject</key>
 			<integer>0</integer>
 		</dict>
+		<key>Properties</key>
+		<dict/>
 		<key>USB</key>
 		<dict>
 			<key>Inject</key>
@@ -471,60 +467,6 @@
 		<array>
 			<dict>
 				<key>Comment</key>
-				<string>change 15 port limit to 26 in XHCI kext</string>
-				<key>MatchOS</key>
-				<string>10.11.x</string>
-				<key>Disabled</key>
-				<true/>
-				<key>Name</key>
-				<string>com.apple.driver.usb.AppleUSBXHCIPCI</string>
-				<key>Find</key>
-				<data>g72M/v//EA==</data>
-				<key>Replace</key>
-				<data>g72M/v//Gw==</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>change 15 port limit to 26 in XHCI kext</string>
-				<key>MatchOS</key>
-				<string>10.12.x</string>
-				<key>Disabled</key>
-				<true/>
-				<key>Name</key>
-				<string>com.apple.driver.usb.AppleUSBXHCIPCI</string>
-				<key>Find</key>
-				<data>g710////EA==</data>
-				<key>Replace</key>
-				<data>g710////Gw==</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>change 15 port limit to 26 in XHCI kext</string>
-				<key>MatchOS</key>
-				<string>10.13.x</string>
-				<key>Disabled</key>
-				<true/>
-				<key>Name</key>
-				<string>com.apple.driver.usb.AppleUSBXHCIPCI</string>
-				<key>Find</key>
-				<data>g32MEA==</data>
-				<key>Replace</key>
-				<data>g32MGw==</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>AppleHDA .xml.zl to .zml.zl</string>
-				<key>MatchOS</key>
-				<string>10.10.x,10.11.x,10.12.x,10.13.x</string>
-				<key>Name</key>
-				<string>com.apple.driver.AppleHDA</string>
-				<key>Find</key>
-				<data>LnhtbC56bA==</data>
-				<key>Replace</key>
-				<data>LnptbC56bA==</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
 				<string>Enable TRIM for non-Apple SSDs</string>
 				<key>Disabled</key>
 				<true/>
@@ -537,114 +479,6 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>AirPortBrcm4360 whitelist patch (board-id), 10.13.beta9, credit RehabMan</string>
-				<key>MatchOS</key>
-				<string>10.13.x</string>
-				<key>Name</key>
-				<string>com.apple.driver.AirPort.Brcm4360</string>
-				<key>Find</key>
-				<data>SDtF4HUU</data>
-				<key>Replace</key>
-				<data>/8OQkJCQ</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>AirPortBrcm4360 whitelist patch (board-id), 10.12.dp1, credit RehabMan</string>
-				<key>MatchOS</key>
-				<string>10.12.x</string>
-				<key>Name</key>
-				<string>com.apple.driver.AirPort.Brcm4360</string>
-				<key>Find</key>
-				<data>MdtMO33YdRI=</data>
-				<key>Replace</key>
-				<data>Mdv/w5CQkJA=</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>AirPortBrcm4360 whitelist patch (board-id), 10.11.x, credit RehabMan</string>
-				<key>MatchOS</key>
-				<string>10.11.x</string>
-				<key>Name</key>
-				<string>com.apple.driver.AirPort.Brcm4360</string>
-				<key>Find</key>
-				<data>MdtMO2XYdRI=</data>
-				<key>Replace</key>
-				<data>Mdv/w5CQkJA=</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>AirPortBrcm4360 whitelist patch (board-id), 10.10.5, credit RehabMan</string>
-				<key>MatchOS</key>
-				<string>10.10.5</string>
-				<key>Name</key>
-				<string>com.apple.driver.AirPort.Brcm4360</string>
-				<key>Find</key>
-				<data>MdtJiwQkSDtF2HUS</data>
-				<key>Replace</key>
-				<data>Mdv/w5CQkJCQkJCQ</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>10.9.5 5Ghz US FCC, svko</string>
-				<key>MatchOS</key>
-				<string>10.9.5</string>
-				<key>Name</key>
-				<string>com.apple.driver.AirPort.Brcm4360</string>
-				<key>Find</key>
-				<data>WFQAIBcnIAAA</data>
-				<key>Replace</key>
-				<data>WFQAG2cxlQAJ</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>10.10.2+ 5Ghz US FCC, the-darkvoid</string>
-				<key>MatchOS</key>
-				<string>10.10.x,10.11.x</string>
-				<key>Name</key>
-				<string>com.apple.driver.AirPort.Brcm4360</string>
-				<key>Find</key>
-				<data>QYP8/3QsSA==</data>
-				<key>Replace</key>
-				<data>ZscGVVPrKw==</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>AirPortBrcm4360 - fcvo, 10.12.x (credit the-darkvoid)</string>
-				<key>MatchOS</key>
-				<string>10.12.x</string>
-				<key>Name</key>
-				<string>com.apple.driver.AirPort.Brcm4360</string>
-				<key>Find</key>
-				<data>gflSqgAAdSk=</data>
-				<key>Replace</key>
-				<data>gflSqgAAZpA=</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>10.10.2+ BT4LE-Handoff-Hotspot, Dokterdok</string>
-				<key>MatchOS</key>
-				<string>10.10.x</string>
-				<key>Name</key>
-				<string>com.apple.iokit.IOBluetoothFamily</string>
-				<key>Find</key>
-				<data>SIXAdFwPt0g=</data>
-				<key>Replace</key>
-				<data>Qb4PAAAA61k=</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>10.11.dp1+ BT4LE-Handoff-Hotspot, credit RehabMan based on Dokterdok original</string>
-				<key>MatchOS</key>
-				<string>10.11.x,10.12.x</string>
-				<key>Name</key>
-				<string>com.apple.iokit.IOBluetoothFamily</string>
-				<key>Find</key>
-				<data>SIX/dEdIiwc=</data>
-				<key>Replace</key>
-				<data>Qb4PAAAA60Q=</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
 				<string>change F%uT%04x to F%uTxxxx in AppleBacklightInjector.kext (credit RehabMan)</string>
 				<key>Disabled</key>
 				<false/>
@@ -654,6 +488,39 @@
 				<data>RiV1VCUwNHgA</data>
 				<key>Replace</key>
 				<data>RiV1VHh4eHgA</data>
+			</dict>
+		</array>
+		<key>KernelToPatch</key>
+		<array>
+			<dict>
+				<key>Comment</key>
+				<string>MSR 0xE2 _xcpm_idle instant reboot(c) Pike R. Alpha</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>ILniAAAADzA=</data>
+				<key>Replace</key>
+				<data>ILniAAAAkJA=</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Disable panic kext logging on 10.13 release kernel (credit Vandroiy)</string>
+				<key>MatchOS</key>
+				<string>10.13.x</string>
+				<key>Find</key>
+				<data>igKEwHRE</data>
+				<key>Replace</key>
+				<data>igKEwOtE</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Disable panic kext logging on 10.14 release kernel (credit Vandroiy)</string>
+				<key>MatchOS</key>
+				<string>10.14.x</string>
+				<key>Find</key>
+				<data>igKEwHRC</data>
+				<key>Replace</key>
+				<data>igKEwOtC</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
@@ -684,8 +551,6 @@
 				<true/>
 			</dict>
 		</array>
-		<key>KernelToPatch</key>
-		<array/>
 	</dict>
 	<key>RtVariables</key>
 	<dict>

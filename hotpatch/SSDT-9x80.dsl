@@ -1,12 +1,12 @@
 // SSDT for 9x80m Haswell
 
-DefinitionBlock ("", "SSDT", 2, "hack", "9x80", 0)
+DefinitionBlock("", "SSDT", 2, "hack", "_9x80", 0)
 {
     #include "SSDT-RMCF.asl"
     #include "SSDT-RP05_DGFX_RDSS.asl"
     #include "SSDT-HACK.asl"
-    #include "include/layout4_HDEF.asl"
-    #include "include/layout4_HDAU.asl"
+    #include "include/ALC280_HDEF.asl"
+    #include "include/ALC280_HDAU.asl"
     #include "include/standard_PS2K.asl"
     #include "SSDT-KEY87.asl"
     #include "SSDT-USB-9x80.asl"

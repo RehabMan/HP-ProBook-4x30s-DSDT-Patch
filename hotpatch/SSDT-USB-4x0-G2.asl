@@ -5,7 +5,7 @@
 // modifications based on Titanius 450 G2 Haswell.
 // added HS08 for USB2 port reported not working by daniela-sammartino
 
-//DefinitionBlock ("", "SSDT", 2, "hack", "usb4x0g2", 0)
+//DefinitionBlock("", "SSDT", 2, "hack", "usb4x0g2", 0)
 //{
 //
 // Override for USBInjectAll.kext

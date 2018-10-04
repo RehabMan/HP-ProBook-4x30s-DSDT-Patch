@@ -2,7 +2,7 @@
 // based on data provided from a ProBook 470 G0 by Reprise80
 // Note: it is essentially the same as for ProBook 4x40s
 
-//DefinitionBlock ("", "SSDT", 2, "hack", "usb4x0G0", 0)
+//DefinitionBlock("", "SSDT", 2, "hack", "usb4x0G0", 0)
 //{
 //
 // Override for USBInjectAll.kext

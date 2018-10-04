@@ -3,7 +3,7 @@
 // Based on secret-sounds' HP ZBook 17 G1 (Haswell)
 // Also based on matrining's ZBook 14 G1 (Haswell) (8086:9c31)
 
-//DefinitionBlock ("", "SSDT", 2, "hack", "usbzbg1", 0)
+//DefinitionBlock("", "SSDT", 2, "hack", "usbzbg1", 0)
 //{
 //
 // Override for USBInjectAll.kext

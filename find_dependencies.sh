@@ -27,3 +27,5 @@ for f in $(ls hotpatch/*.dsl); do
         echo
     fi
 done
+
+#EOF

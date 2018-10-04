@@ -2,7 +2,7 @@
 //
 // No data provided yet.
 
-//DefinitionBlock ("", "SSDT", 2, "hack", "usb8x0g4", 0)
+//DefinitionBlock("", "SSDT", 2, "hack", "usb8x0g4", 0)
 //{
 //
 // Override for USBInjectAll.kext

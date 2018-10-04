@@ -3,7 +3,7 @@
 // Based on information provided from bran1m1r's Skylake ProBook 440 G3
 // HS05 port added for Skylake ProBook 450 G3 (per data from mo7a1995)
 
-//DefinitionBlock ("", "SSDT", 2, "hack", "usb4x0g3", 0)
+//DefinitionBlock("", "SSDT", 2, "hack", "usb4x0g3", 0)
 //{
 //
 // Override for USBInjectAll.kext

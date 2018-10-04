@@ -2,7 +2,7 @@
 //
 // Based on information provided from expastname's Skylake EliteBook 1040 G3
 
-//DefinitionBlock ("", "SSDT", 2, "hack", "usb1040g3", 0)
+//DefinitionBlock("", "SSDT", 2, "hack", "usb1040g3", 0)
 //{
 //
 // Override for USBInjectAll.kext

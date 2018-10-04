@@ -1,6 +1,10 @@
 // IGPU injections for Intel graphics
 
-DefinitionBlock ("", "SSDT", 2, "hack", "igpu", 0)
+#ifndef HIRES
+DefinitionBlock("", "SSDT", 2, "hack", "_IGPU", 0)
+#else
+DefinitionBlock("", "SSDT", 2, "hack", "_IGPUH", 0)
+#endif
 {
 //
 // IGPU injection
@@ -107,7 +111,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "igpu", 0)
                 "model", Buffer() { "Intel HD Graphics 515" },
                 "hda-gfx", Buffer() { "onboard-1" },
                 "AAPL,GfxYTile", Buffer() { 1, 0, 0, 0 },
-                "RM,device-id", Buffer() { 0x1e, 0x19, 0x00, 0x00 },
+                //"RM,device-id", Buffer() { 0x1e, 0x19, 0x00, 0x00 },
             },
             // Skylake/HD520
             0x1916, 0, Package()
@@ -116,7 +120,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "igpu", 0)
                 "model", Buffer() { "Intel HD Graphics 520" },
                 "hda-gfx", Buffer() { "onboard-1" },
                 "AAPL,GfxYTile", Buffer() { 1, 0, 0, 0 },
-                "RM,device-id", Buffer() { 0x16, 0x19, 0x00, 0x00 },
+                //"RM,device-id", Buffer() { 0x16, 0x19, 0x00, 0x00 },
             },
             // Skylake/HD530
             0x191b, 0, Package()
@@ -125,7 +129,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "igpu", 0)
                 "model", Buffer() { "Intel HD Graphics 530" },
                 "hda-gfx", Buffer() { "onboard-1" },
                 "AAPL,GfxYTile", Buffer() { 1, 0, 0, 0 },
-                "RM,device-id", Buffer() { 0x1b, 0x19, 0x00, 0x00 },
+                //"RM,device-id", Buffer() { 0x1b, 0x19, 0x00, 0x00 },
             },
             // Skylake/P530
             0x191d, 0, Package()
@@ -135,7 +139,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "igpu", 0)
                 "device-id", Buffer() { 0x1b, 0x19, 0x00, 0x00 },
                 "hda-gfx", Buffer() { "onboard-1" },
                 "AAPL,GfxYTile", Buffer() { 1, 0, 0, 0 },
-                "RM,device-id", Buffer() { 0x1d, 0x19, 0x00, 0x00 },
+                //"RM,device-id", Buffer() { 0x1d, 0x19, 0x00, 0x00 },
             },
             // Kaby Lake/HD620
             0x5916, 0, Package()
@@ -168,6 +172,17 @@ DefinitionBlock ("", "SSDT", 2, "hack", "igpu", 0)
                 //SKL spoof: "device-id", Buffer() { 0x1b, 0x19, 0x00, 0x00 },
                 //"device-id", Buffer() { 0x1b, 0x59, 0x00, 0x00 },
                 "hda-gfx", Buffer() { "onboard-1" },
+                //SKL spoof: "AAPL,GfxYTile", Buffer() { 1, 0, 0, 0 },
+            },
+            // Kaby Lake-R/UHD630
+            0x3e9b, 0, Package()
+            {
+                //SKL spoof: "AAPL,ig-platform-id", Buffer() { 0x00, 0x00, 0x1b, 0x19 },
+                "AAPL,ig-platform-id", Buffer() { 0x00, 0x00, 0x1b, 0x59 },
+                "model", Buffer() { "Intel UHD Graphics 630" },
+                "hda-gfx", Buffer() { "onboard-1" },
+                //SKL spoof: "device-id", Buffer() { 0x1b, 0x19, 0x00, 0x00 },
+                "device-id", Buffer() { 0x1b, 0x59, 0x00, 0x00 },
                 //SKL spoof: "AAPL,GfxYTile", Buffer() { 1, 0, 0, 0 },
             },
         })

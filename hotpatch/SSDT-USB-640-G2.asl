@@ -5,7 +5,7 @@
 
 //REVIEW: rename to SSDT-USB-6x0-G2.dsl
 
-//DefinitionBlock ("", "SSDT", 2, "hack", "usb640g2s", 0)
+//DefinitionBlock("", "SSDT", 2, "hack", "usb640g2s", 0)
 //{
     //
     // Override for USBInjectAll.kext

@@ -4,7 +4,7 @@
 // Additional data for docking station provided by mayonaise1091
 // Note: It did not have bluetooth hardware installed, so the bluetooth port HP16 is a guess
 
-//DefinitionBlock ("", "SSDT", 2, "hack", "usb9x70", 0)
+//DefinitionBlock("", "SSDT", 2, "hack", "usb9x70", 0)
 //{
 //
 // Override for USBInjectAll.kext

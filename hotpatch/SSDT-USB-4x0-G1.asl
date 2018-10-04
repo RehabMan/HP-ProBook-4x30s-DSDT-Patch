@@ -3,7 +3,7 @@
 // Based on information provided from ProBook 450 G1 Haswell (from Titanius)
 //
 
-//DefinitionBlock ("", "SSDT", 2, "hack", "usb4x0g1", 0)
+//DefinitionBlock("", "SSDT", 2, "hack", "usb4x0g1", 0)
 //{
 //
 // Override for USBInjectAll.kext

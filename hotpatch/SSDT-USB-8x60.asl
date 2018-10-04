@@ -1,7 +1,7 @@
 // USB configuration for EliteBook 8x60
 // Based on information from EliteBook 8560p + docking station (anx-v)
 
-//DefinitionBlock ("", "SSDT", 2, "hack", "usb8x60", 0)
+//DefinitionBlock("", "SSDT", 2, "hack", "usb8x60", 0)
 //{
 //
 // Override for USBInjectAll.kext

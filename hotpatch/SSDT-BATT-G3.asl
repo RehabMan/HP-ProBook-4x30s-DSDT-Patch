@@ -3,7 +3,7 @@
 //REVIEW: currently not used, as BIOS seems to be updated to the SSDT-BATT-G4.asl code
 // This file can eventually be removed.
 
-//DefinitionBlock ("", "SSDT", 2, "hack", "battg3", 0)
+//DefinitionBlock("", "SSDT", 2, "hack", "battg3", 0)
 //{
     External(\_SB.PCI0, DeviceObj)
     External(\_SB.PCI0.LPCB, DeviceObj)
