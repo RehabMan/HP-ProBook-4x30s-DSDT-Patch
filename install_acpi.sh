@@ -244,19 +244,14 @@ case "$1" in
         cp $BUILDDIR/SSDT-4x0G2b.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         ls $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
-    install_820g2_broadwell)
+    install_8x0g2_broadwell)
         $0 inst_xcpm $2
         cp $BUILDDIR/SSDT-8x0G2b.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         ls $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
-    install_840g2_broadwell)
+    install_8x0g3_broadwell)
         $0 inst_xcpm $2
-        cp $BUILDDIR/SSDT-8x0G2b.aml $EFIDIR/EFI/CLOVER/ACPI/patched
-        ls $EFIDIR/EFI/CLOVER/ACPI/patched
-    ;;
-    install_850g2_broadwell)
-        $0 inst_xcpm
-        cp $BUILDDIR/SSDT-8x0G2b.aml $EFIDIR/EFI/CLOVER/ACPI/patched
+        cp $BUILDDIR/SSDT-8x0G3b.aml $EFIDIR/EFI/CLOVER/ACPI/patched
         ls $EFIDIR/EFI/CLOVER/ACPI/patched
     ;;
     install_1020g1_broadwell)

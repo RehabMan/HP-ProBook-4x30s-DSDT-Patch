@@ -119,6 +119,9 @@ cp config_parts/config_master.plist config/config_8x0_G2_Broadwell.plist
 /usr/libexec/PlistBuddy -c "Set :SMBIOS:ProductName MacBookAir7,2" config/config_8x0_G2_Broadwell.plist
 ./merge_plist.sh "Devices:Properties" config_parts/config_Broadwell_dp.plist config/config_8x0_G2_Broadwell.plist
 printf "\n"
+printf "!! creating config/config_8x0_G3_Broadwell.plist\n"
+cp config/config_8x0_G2_Broadwell.plist config/config_8x0_G3_Broadwell.plist
+printf "\n"
 printf "!! creating config/config_1020_G1_Broadwell.plist\n"
 cp config_parts/config_master.plist config/config_1020_G1_Broadwell.plist
 /usr/libexec/PlistBuddy -c "Set KernelAndKextPatches:AppleIntelCPUPM false" config/config_1020_G1_Broadwell.plist

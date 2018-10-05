@@ -25,7 +25,7 @@ PLIST:= \
 	config/config_3x0_G1.plist \
 	config/config_8x0_G1_Haswell.plist config/config_4x0_G1_Haswell.plist \
 	config/config_4x0_G2_Haswell.plist config/config_8x0_G2_Haswell.plist \
-	config/config_4x0_G2_Broadwell.plist config/config_8x0_G2_Broadwell.plist \
+	config/config_4x0_G2_Broadwell.plist config/config_8x0_G2_Broadwell.plist config/config_8x0_G3_Broadwell.plist \
 	config/config_1020_G1_Broadwell.plist \
 	config/config_ZBook_G1_Haswell.plist config/config_ZBook_G2_Haswell.plist config/config_ZBook_G2_Broadwell.plist \
 	config/config_ZBook_G2_Haswell_ALC280.plist \
@@ -268,6 +268,12 @@ config/config_8x0_G2_Broadwell.plist : $(PARTS)/config_master.plist $(PARTS)/con
 	/usr/libexec/PlistBuddy -c "Set KernelAndKextPatches:AppleIntelCPUPM false" $@
 	/usr/libexec/PlistBuddy -c "Set :SMBIOS:ProductName MacBookAir7,2" $@
 	./merge_plist.sh "Devices:Properties" $(PARTS)/config_Broadwell_dp.plist $@
+	@printf "\n"
+
+# 8x0_G3_Broadwell is same as 8x0_G2_Broadwell
+config/config_8x0_G3_Broadwell.plist  : config/config_8x0_G2_Broadwell.plist
+	@printf "!! creating $@\n"
+	cp config/config_8x0_G2_Broadwell.plist $@
 	@printf "\n"
 
 # 1020_G1_Broadwell is ALC286, Broadwell, HDMI
