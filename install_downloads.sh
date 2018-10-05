@@ -38,6 +38,9 @@ install_kext kexts/JMB38X.kext
 install_kext kexts/JMicronATA.kext
 install_kext kexts/ProBookAtheros.kext
 
+# install special build of AppleALC.kext until fixed build is available
+install_kext kexts/AppleALC.kext
+
 # install HackrNVMEFamily-.* if it is found in Clover/kexts
 EFI=`./mount_efi.sh`
 kext=`echo "$EFI"/EFI/CLOVER/kexts/Other/HackrNVMeFamily-*.kext`
