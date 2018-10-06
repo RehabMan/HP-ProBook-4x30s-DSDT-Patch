@@ -2,7 +2,7 @@
 #set -x
 
 EXCEPTIONS=
-ESSENTIAL=AppleALC.kext ProBookAtheros.kext SATA-unsupported.kext XHCI-300-series-injector.kext
+ESSENTIAL="AppleALC.kext ProBookAtheros.kext SATA-unsupported.kext XHCI-300-series-injector.kext"
 
 # include subroutines
 source "$(dirname ${BASH_SOURCE[0]})"/_tools/_install_subs.sh
