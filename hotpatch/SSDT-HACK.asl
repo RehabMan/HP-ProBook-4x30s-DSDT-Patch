@@ -31,9 +31,15 @@
             "Windows 2006 SP1",     // Windows Vista SP1
             "Windows 2006.1",       // Windows Server 2008
             "Windows 2009",         // Windows 7/Windows Server 2008 R2
+#ifndef SPOOF_WIN10
             //"Windows 2012",       // Windows 8/Windows Server 2012
             //"Windows 2013",       // Windows 8.1/Windows Server 2012 R2
             //"Windows 2015",       // Windows 10/Windows Server TP
+#else
+            "Windows 2012",         // Windows 8/Windows Server 2012
+            "Windows 2013",         // Windows 8.1/Windows Server 2012 R2
+            "Windows 2015",         // Windows 10/Windows Server TP
+#endif
         }
         Return (Ones != Match(Local0, MEQ, Arg0, MTR, 0, 0))
     }

@@ -40,6 +40,7 @@ download_acidanthera WhateverGreen acidanthera-WhateverGreen
 download_acidanthera AirportBrcmFixup acidanthera-AirportBrcmFixup
 download_acidanthera BT4LEContiunityFixup acidanthera-BT4LEContiunityFixup
 #download_acidanthera AppleALC acidanthera-AppleALC
+download_latest_notbitbucket "https://github.com" "https://github.com/alexandred/VoodooI2C/releases" "VoodooI2C-v" "nbb_alexandred_VoodooI2C.zip"
 cd ..
 
 # download tools

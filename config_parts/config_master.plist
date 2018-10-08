@@ -489,6 +489,34 @@
 				<key>Replace</key>
 				<data>RiV1VHh4eHgA</data>
 			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Prevent Apple I2C kexts from attaching to I2C controllers, credit CoolStar</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Name</key>
+				<string>com.apple.driver.AppleIntelLpssI2C</string>
+				<key>Find</key>
+				<data>SU9LaXQ=</data>
+				<key>Replace</key>
+				<data>SU9LaXM=</data>
+				<key>InfoPlistPatch</key>
+				<true/>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Prevent Apple I2C kexts from attaching to I2C controllers, credit CoolStar</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Name</key>
+				<string>com.apple.driver.AppleIntelLpssI2CController</string>
+				<key>Find</key>
+				<data>SU9LaXQ=</data>
+				<key>Replace</key>
+				<data>SU9LaXM=</data>
+				<key>InfoPlistPatch</key>
+				<true/>
+			</dict>
 		</array>
 		<key>KernelToPatch</key>
 		<array>
