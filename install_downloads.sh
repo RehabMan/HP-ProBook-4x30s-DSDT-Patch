@@ -42,8 +42,8 @@ install_kext kexts/ProBookAtheros.kext
 install_kext kexts/AppleALC.kext
 
 # install HackrNVMEFamily-.* if it is found in Clover/kexts
-EFI=`./mount_efi.sh`
-kext=`echo "$EFI"/EFI/CLOVER/kexts/Other/HackrNVMeFamily-*.kext`
+EFI="$(./mount_efi.sh)"
+kext="$(echo "$EFI"/EFI/CLOVER/kexts/Other/HackrNVMeFamily-*.kext)"
 if [[ -e "$kext" ]]; then
     install_kext "$kext"
 fi
@@ -58,11 +58,11 @@ update_efi_kexts
 zip=`echo -n _downloads/efi/HPFanReset*.zip`
 out=${zip/.efi.zip/}
 rm -Rf $out && unzip -q -d $out $zip
-echo copying $out/*.efi to $EFI/EFI/CLOVER/drivers64UEFI
-cp $out/*.efi $EFI/EFI/CLOVER/drivers64UEFI
+echo copying $out/*.efi to "$EFI"/EFI/CLOVER/drivers64UEFI
+cp $out/*.efi "$EFI"/EFI/CLOVER/drivers64UEFI
 
 # delete old kexts that might be on EFI
-rm -Rf $EFI/EFI/CLOVER/kexts/Other/SATA-100-series-unsupported.kext
+rm -Rf "$EFI"/EFI/CLOVER/kexts/Other/SATA-100-series-unsupported.kext
 
 # VoodooPS2Daemon is deprecated
 remove_voodoops2daemon
