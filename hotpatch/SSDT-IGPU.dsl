@@ -243,7 +243,7 @@ DefinitionBlock("", "SSDT", 2, "hack", "_IGPUH", 0)
     }
 
 //
-// Backlight control with AppleBacklightInjector.kext or IntelBacklight.kext
+// Backlight control with AppleBacklightFixup.kext or IntelBacklight.kext
 // From SSDT-PNLF.dsl
 //
 
@@ -388,7 +388,7 @@ DefinitionBlock("", "SSDT", 2, "hack", "_IGPUH", 0)
                 }
             }
 
-            // The _UID selects the correct entry in AppleBacklightInjector.kext
+            // The _UID selects the correct entry in AppleBacklightFixup.kext
             // RMCF.BUID can be set to override automatic _UID selection
             Local0 = 0
             If (CondRefOf(\RMCF.BUID)) { Local0 = \RMCF.BUID }

@@ -35,6 +35,7 @@ download_rehabman os-x-brcmpatchram RehabMan-BrcmPatchRAM
 download_rehabman os-x-atheros-3k-firmware RehabMan-Atheros
 download_rehabman os-x-acpi-poller RehabMan-Poller
 download_rehabman os-x-usb-inject-all RehabMan-USBInjectAll
+download_rehabman applebacklightfixup RehabMan-BacklightFixup
 download_acidanthera Lilu acidanthera-Lilu
 download_acidanthera WhateverGreen acidanthera-WhateverGreen
 download_acidanthera AirportBrcmFixup acidanthera-AirportBrcmFixup

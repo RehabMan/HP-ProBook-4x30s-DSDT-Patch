@@ -37,7 +37,7 @@
         Name(LMAX, OVERRIDE_LMAX)
 #endif
 
-        // BUID: Backlight _UID.  _UID is matched against AppleBacklightInjector profiles
+        // BUID: Backlight _UID.  _UID is matched against AppleBacklightFixup profiles
         // 0: Use default based on LMAX
         // Other values: customized, but must match a backlight profile
 #ifndef OVERRIDE_BUID
@@ -58,7 +58,7 @@
         // BKLT: Backlight control type
         //
         // 0: Using IntelBacklight.kext
-        // 1: Using AppleBacklight.kext + AppleBacklightInjector.kext
+        // 1: Using AppleBacklight.kext + AppleBacklightFixup.kext
 #ifndef OVERRIDE_BLKT
         Name(BKLT, 1)
 #else

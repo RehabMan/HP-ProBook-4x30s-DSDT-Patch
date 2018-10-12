@@ -373,7 +373,7 @@
 	<key>Boot</key>
 	<dict>
 		<key>Arguments</key>
-		<string>kext-dev-mode=1 dart=0 -disablegfxfirmware</string>
+		<string>kext-dev-mode=1 dart=0</string>
 		<key>NeverHibernate</key>
 		<true/>
 		<key>Secure</key>
@@ -476,18 +476,6 @@
 				<data>AEFQUExFIFNTRAA=</data>
 				<key>Replace</key>
 				<data>AAAAAAAAAAAAAAA=</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>change F%uT%04x to F%uTxxxx in AppleBacklightInjector.kext (credit RehabMan)</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Name</key>
-				<string>com.apple.driver.AppleBacklight</string>
-				<key>Find</key>
-				<data>RiV1VCUwNHgA</data>
-				<key>Replace</key>
-				<data>RiV1VHh4eHgA</data>
 			</dict>
 		</array>
 		<key>KernelToPatch</key>
