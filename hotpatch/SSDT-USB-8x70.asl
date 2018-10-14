@@ -31,9 +31,9 @@
                 "port-count", Buffer() { 8, 0, 0, 0 },
                 "ports", Package()
                 {
-                    "HP11", Package()   // USB2 hub (on normal dock and advanced dock)
+                    "HP11", Package()   // HS USB3 hub (on normal dock and advanced dock)
                     {
-                        //"UsbConnector", 0,
+                        //"UsbConnector", 3,
                         "port", Buffer() { 1, 0, 0, 0 },
                     },
                     "HP12", Package()   // near display USB2 left
@@ -43,7 +43,7 @@
                     },
                     "HP13", Package()   // near display USB3 right
                     {
-                        //"UsbConnector", 0,
+                        //"UsbConnector", 3,
                         "port", Buffer() { 3, 0, 0, 0 },
                     },
                     "HP14", Package()   // far display USB3 right
@@ -116,13 +116,7 @@
                 "port-count", Buffer() { 8, 0, 0, 0 },
                 "ports", Package()
                 {
-                    // HS01 not used
-                    // HS02-HS04 not used due to FakePCIID_XHCIMux
-                    // HS02 HS USB3 near left
-                    // HS03 HS USB3 far left
-                    // HS04 USB2 far right
-                    // SS05 USB3 advanced dock
-
+                    // HSxx not used due to FakePCIID_XHCIMux
                     "SS05", Package()   // SS USB3 hub advanced dock
                     {
                         "UsbConnector", 3,
