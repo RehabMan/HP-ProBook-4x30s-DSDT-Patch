@@ -13,6 +13,6 @@ DefinitionBlock("", "SSDT", 2, "hack", "_1040G1h", 0)
     #include "SSDT-XHC.asl"
     #include "SSDT-BATT.asl"
     #include "SSDT-EH01.asl" //REVIEW: placing at end as no USB customization data available
-    #include "SSDT-EH02.asl" //REVIEW: placing at end as no USB customization data available
+    //#include "SSDT-EH02.asl" //REVIEW: placing at end as no USB customization data available
 }
 //EOF

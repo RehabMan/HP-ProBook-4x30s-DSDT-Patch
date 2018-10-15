@@ -2,7 +2,7 @@
 #set -x
 
 EXCEPTIONS=
-ESSENTIAL="AppleALC.kext ProBookAtheros.kext SATA-unsupported.kext XHCI-300-series-injector.kext"
+ESSENTIAL="AppleALC.kext ProBookAtheros.kext"
 
 # include subroutines
 source "$(dirname ${BASH_SOURCE[0]})"/_tools/_install_subs.sh
@@ -31,12 +31,13 @@ install_fakepciid_intel_hdmi_audio
 install_backlight_kexts
 
 # install special kexts specific to ProBook
-install_kext kexts/SATA-unsupported.kext
-install_kext kexts/XHCI-300-series-injector.kext
 install_kext kexts/HSSDBlockStorage.kext
 install_kext kexts/JMB38X.kext
 install_kext kexts/JMicronATA.kext
-install_kext kexts/ProBookAtheros.kext
+# install other common kexts
+install_kext _tools/kexts/XHCI-unsupported.kext
+install_kext _tools/kexts/SATA-unsupported.kext
+install_kext _tools/kexts/ProBookAtheros.kext
 
 # install special build of AppleALC.kext until fixed build is available
 install_kext kexts/AppleALC.kext
@@ -48,7 +49,14 @@ if [[ -e "$kext" ]]; then
     install_kext "$kext"
 fi
 
-# all kexts are now installed, so rebuild cache
+# rebuild cache before making LiluFriend
+remove_kext LiluFriend.kext
+rebuild_kernel_cache
+
+# create LiluFriendLite and install
+create_and_install_lilufriendlite
+
+# all kexts are now installed, so rebuild cache again
 rebuild_kernel_cache
 
 # update kexts on EFI/CLOVER/kexts/Other
