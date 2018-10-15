@@ -7,10 +7,7 @@
 		<key>Properties</key>
 		<dict>
 			<key>PciRoot(0)/Pci(0x02,0)</key>
-			<dict>
-				<key>framebuffer-patch-enable</key>
-				<integer>1</integer>
-			</dict>
+			<dict/>
 		</dict>
 	</dict>
 </dict>
