@@ -2,7 +2,7 @@
 #set -x
 
 EXCEPTIONS=
-ESSENTIAL="AppleALC.kext ProBookAtheros.kext"
+ESSENTIAL="AppleALC.kext CodecCommander.kext ProBookAtheros.kext"
 
 # include subroutines
 source "$(dirname ${BASH_SOURCE[0]})"/_tools/_install_subs.sh
