@@ -40,7 +40,7 @@ download_acidanthera Lilu acidanthera-Lilu
 download_acidanthera WhateverGreen acidanthera-WhateverGreen
 download_acidanthera AirportBrcmFixup acidanthera-AirportBrcmFixup
 download_acidanthera BT4LEContiunityFixup acidanthera-BT4LEContiunityFixup
-#download_acidanthera AppleALC acidanthera-AppleALC
+download_acidanthera AppleALC acidanthera-AppleALC
 cd ..
 
 # download tools
