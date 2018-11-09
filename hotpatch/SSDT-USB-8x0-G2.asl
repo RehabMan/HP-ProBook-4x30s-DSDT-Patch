@@ -31,12 +31,12 @@
                         "UsbConnector", 3,
                         "port", Buffer() { 0x01, 0, 0, 0 },
                     },
-                    "HS02", Package() // USB2 (SSP2 is USB3)
+                    "HS02", Package() // USB2 (SS02 is USB3)
                     {
                         "UsbConnector", 0,
                         "port", Buffer() { 0x02, 0, 0, 0 },
                     },
-                    "HS03", Package() // internal 4-port USB2 hub (SSP3 is USB3)
+                    "HS03", Package() // internal 4-port USB2 hub (SS03 is USB3)
                     {
                         "UsbConnector", 255,
                         "port", Buffer() { 0x03, 0, 0, 0 },
@@ -54,22 +54,22 @@
                         "port", Buffer() { 0x07, 0, 0, 0 },
                     },
                     // HS08/HS09/HS10/HS11 not used
-                    "SSP1", Package() // 4-port USB3 hub (dockingstation)
+                    "SS01", Package() // 4-port USB3 hub (dockingstation)
                     {
                         "UsbConnector", 3,
                         "port", Buffer() { 0x0c, 0, 0, 0 },
                     },
-                    "SSP2", Package() // SS USB3 port
+                    "SS02", Package() // SS USB3 port
                     {
                         "UsbConnector", 3,
                         "port", Buffer() { 0x0d, 0, 0, 0 },
                     },
-                    "SSP3", Package() // SS USB3 hub (HS03.port2 is USB2?)
+                    "SS03", Package() // SS USB3 hub (HS03.port2 is USB2?)
                     {
                         "UsbConnector", 255,
                         "port", Buffer() { 0x0e, 0, 0, 0 },
                     },
-                    // SSP4 not used
+                    // SS04 not used
                 },
             },
             // EliteBook 840 G2
@@ -84,7 +84,7 @@
                         "UsbConnector", 0,
                         "port", Buffer() { 0x02, 0, 0, 0 },
                     },
-                    "HS03", Package() // internal 4-port USB2 hub (SSP3 is USB3)
+                    "HS03", Package() // internal 4-port USB2 hub (SS03 is USB3)
                     {
                         "UsbConnector", 255,
                         "port", Buffer() { 0x03, 0, 0, 0 },
@@ -101,8 +101,8 @@
                         "port", Buffer() { 0x07, 0, 0, 0 },
                     },
                     // HS08/HS09 not used
-                    // SSP1/SSP2/SSP3 not used
-                    "SSP4", Package() // SS USB3 (HS03.port2 is USB2?)
+                    // SS01/SS02/SS03 not used
+                    "SS04", Package() // SS USB3 (HS03.port2 is USB2?)
                     {
                         "UsbConnector", 255,
                         "port", Buffer() { 0x0d, 0, 0, 0 },

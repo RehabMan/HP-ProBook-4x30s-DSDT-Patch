@@ -20,12 +20,12 @@
                 "ports", Package()
                 {
                     // HS01 not used
-                    "HS02", Package() // USB2 (SSP2 is USB3)
+                    "HS02", Package() // USB2 (SS02 is USB3)
                     {
                         "UsbConnector", 0,
                         "port", Buffer() { 2, 0, 0, 0 },
                     },
-                    "HS03", Package() // internal 4-port USB2 hub (SSP3 is USB3)
+                    "HS03", Package() // internal 4-port USB2 hub (SS03 is USB3)
                     {
                         "UsbConnector", 255,
                         "port", Buffer() { 3, 0, 0, 0 },
@@ -43,18 +43,18 @@
                         "port", Buffer() { 7, 0, 0, 0 },
                     },
                     // HS08/HS09/HS10/HS11 not used
-                    // SSP1 not used
-                    "SSP2", Package() // SS USB3 port
+                    // SS01 not used
+                    "SS02", Package() // SS USB3 port
                     {
                         "UsbConnector", 3,
                         "port", Buffer() { 11, 0, 0, 0 },
                     },
-                    "SSP3", Package() // SS USB3 hub (HS03.port2 is USB2?)
+                    "SS03", Package() // SS USB3 hub (HS03.port2 is USB2?)
                     {
                         "UsbConnector", 255,
                         "port", Buffer() { 12, 0, 0, 0 },
                     },
-                    // SSP4 not used
+                    // SS04 not used
                 },
             },
         })

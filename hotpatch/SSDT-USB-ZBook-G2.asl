@@ -48,18 +48,18 @@
                         "port", Buffer() { 7, 0, 0, 0 },
                     },
                     // HS08/HS09/HS10/HS11 not used
-                    // SSP1 not used
-                    "SSP2", Package()
+                    // SS01 not used
+                    "SS02", Package()
                     {
                         "UsbConnector", 3,
                         "port", Buffer() { 13, 0, 0, 0 },
                     },
-                    "SSP3", Package()   // internal USB3 hub
+                    "SS03", Package()   // internal USB3 hub
                     {
                         "UsbConnector", 255,
                         "port", Buffer() { 14, 0, 0, 0 },
                     },
-                    // SSP4 not used
+                    // SS04 not used
                 },
             },
             // Some ZBook G2 Haswell have 8c31 like G1 Haswell
@@ -69,7 +69,7 @@
                 "ports", Package()
                 {
                     // HS01 not used
-                    "HS02", Package() // HS on USB3 port SSP2
+                    "HS02", Package() // HS on USB3 port SS02
                     {
                         "UsbConnector", 3,
                         "port", Buffer() { 0x02, 0, 0, 0 },
@@ -87,12 +87,12 @@
                         "port", Buffer() { 0x07, 0, 0, 0 },
                     },
                     // HS08 not used
-                    "HS09", Package() // HS on USB3 port SSP5
+                    "HS09", Package() // HS on USB3 port SS05
                     {
                         "UsbConnector", 3,
                         "port", Buffer() { 0x09, 0, 0, 0 },
                     },
-                    "HS10", Package() // HS on USB3 port SSP6
+                    "HS10", Package() // HS on USB3 port SS06
                     {
                         "UsbConnector", 3,
                         "port", Buffer() { 0x0a, 0, 0, 0 },
@@ -104,19 +104,19 @@
                         "port", Buffer() { 0x0c, 0, 0, 0 },
                     },
                     // HS13,HS14 not used
-                    // SSP1 not used
-                    "SSP2", Package() // USB3, right front
+                    // SS01 not used
+                    "SS02", Package() // USB3, right front
                     {
                         "UsbConnector", 3,
                         "port", Buffer() { 0x11, 0, 0, 0 },
                     },
-                    // SSP3/SSP4 not used
-                    "SSP5", Package() // USB3, right back
+                    // SS03/SS04 not used
+                    "SS05", Package() // USB3, right back
                     {
                         "UsbConnector", 3,
                         "port", Buffer() { 0x14, 0, 0, 0 },
                     },
-                    "SSP6", Package() // USB3, left back
+                    "SS06", Package() // USB3, left back
                     {
                         "UsbConnector", 3,
                         "port", Buffer() { 0x15, 0, 0, 0 },
