@@ -30,6 +30,7 @@
                         "UsbConnector", 3,
                         "port", Buffer() { 0x02, 0, 0, 0 },
                     },
+                    // Note: bluetooth controller is attached to port#2 of this HS03 hub
                     "HS03", Package() // internal 4-port USB2 hub (SS03 is USB3)
                     {
                         "UsbConnector", 255,
@@ -78,7 +79,6 @@
                         "UsbConnector", 3,
                         "port", Buffer() { 0x0d, 0, 0, 0 },
                     },
-                    //REVIEW: what port is bluetooth?
                 },
             },
         })
