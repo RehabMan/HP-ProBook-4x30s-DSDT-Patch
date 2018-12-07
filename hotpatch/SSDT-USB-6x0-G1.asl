@@ -70,32 +70,32 @@
                     //HS13 not used
                     //HS14 is smart card reader (disabled)
                     //HS15 is phantom port (port address 15 not used)
-                    "SSP1", Package()   // SS USB3 hub, docking station
+                    "SS01", Package()   // SS USB3 hub, docking station
                     {
                         "UsbConnector", 3,
                         "port", Buffer() { 16, 0, 0, 0 },
                     },
-                    "SSP2", Package()   // SS USB3 right back
+                    "SS02", Package()   // SS USB3 right back
                     {
                         "UsbConnector", 3,
                         "port", Buffer() { 17, 0, 0, 0 },
                     },
-                    "SSP3", Package()   // SS USB3 right front
+                    "SS03", Package()   // SS USB3 right front
                     {
                         "UsbConnector", 3,
                         "port", Buffer() { 18, 0, 0, 0 },
                     },
-                    "SSP4", Package()   // SS USB3 left center
+                    "SS04", Package()   // SS USB3 left center
                     {
                         "UsbConnector", 3,
                         "port", Buffer() { 19, 0, 0, 0 },
                     },
-                    "SSP5", Package()   // SS USB3 left back
+                    "SS05", Package()   // SS USB3 left back
                     {
                         "UsbConnector", 3,
                         "port", Buffer() { 20, 0, 0, 0 },
                     },
-                    "SSP6", Package()   // SS USB3 left front
+                    "SS06", Package()   // SS USB3 left front
                     {
                         "UsbConnector", 3,
                         "port", Buffer() { 21, 0, 0, 0 },

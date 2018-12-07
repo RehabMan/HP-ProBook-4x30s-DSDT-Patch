@@ -64,18 +64,18 @@
                         "port", Buffer() { 8, 0, 0, 0 },
                     },
                     //HS09 not used
-                    "SSP1", Package() // SS USB3 (left front)
+                    "SS01", Package() // SS USB3 (left front)
                     {
                         "UsbConnector", 3,
                         "port", Buffer() { 10, 0, 0, 0 },
                     },
-                    "SSP2", Package() // SS USB3 (left back)
+                    "SS02", Package() // SS USB3 (left back)
                     {
                         "UsbConnector", 3,
                         "port", Buffer() { 11, 0, 0, 0 },
                     },
-                    //SSP3 not used
-                    //SSP4 not used
+                    //SS03 not used
+                    //SS04 not used
                 },
             },
             "8086_9cb1", Package() // for G2 Broadwell
@@ -128,18 +128,18 @@
                     //HS09 not used
                     //HS10 not used
                     //HS11 not used
-                    "SSP1", Package() // SS USB3 (left front)
+                    "SS01", Package() // SS USB3 (left front)
                     {
                         "UsbConnector", 3,
                         "port", Buffer() { 12, 0, 0, 0 },
                     },
-                    "SSP2", Package() // SS USB3 (left back)
+                    "SS02", Package() // SS USB3 (left back)
                     {
                         "UsbConnector", 3,
                         "port", Buffer() { 13, 0, 0, 0 },
                     },
-                    //SSP3 not used
-                    //SSP4 not used
+                    //SS03 not used
+                    //SS04 not used
                 },
             },
         })

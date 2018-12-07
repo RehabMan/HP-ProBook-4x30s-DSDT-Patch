@@ -43,6 +43,7 @@
 		ED4BAC3C2167C68F007D7014 /* SSDT-8x0G3b.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-8x0G3b.dsl"; path = "hotpatch/SSDT-8x0G3b.dsl"; sourceTree = "<group>"; };
 		ED4FCB5A20EE7F5700528938 /* SSDT-USB-1050-G1.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-USB-1050-G1.asl"; path = "hotpatch/SSDT-USB-1050-G1.asl"; sourceTree = "<group>"; };
 		ED507CCE1CDCDAF400E14F67 /* SSDT-USB-9x70.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-USB-9x70.asl"; path = "hotpatch/SSDT-USB-9x70.asl"; sourceTree = "<group>"; };
+		ED5777E92175979D0093A621 /* SSDT-PNLF.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-PNLF.asl"; path = "hotpatch/SSDT-PNLF.asl"; sourceTree = "<group>"; };
 		ED5F0FDA1CE218160097FADC /* SSDT-zbG1h.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-zbG1h.dsl"; path = "hotpatch/SSDT-zbG1h.dsl"; sourceTree = "<group>"; };
 		ED5F37A0216BB4C900CE748C /* disable_trackpad.asl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = disable_trackpad.asl; path = hotpatch/include/disable_trackpad.asl; sourceTree = "<group>"; };
 		ED607C7620ED491300846672 /* SSDT-1050G1k.dsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "SSDT-1050G1k.dsl"; path = "hotpatch/SSDT-1050G1k.dsl"; sourceTree = "<group>"; };
@@ -371,6 +372,7 @@
 				ED97E9441CC757D7006C757A /* SSDT-HACK.asl */,
 				ED841A021ED637AB00A0B6BB /* SSDT-RMCF.asl */,
 				ED8D4ED41E9C39C700F87978 /* SSDT-IGPU.dsl */,
+				ED5777E92175979D0093A621 /* SSDT-PNLF.asl */,
 				EDDC92011FD44C040071D2C2 /* SSDT-ALS0.asl */,
 				ED334FFC1F8D474E00202D59 /* SSDT-PEGP_DGFX_RDSS.asl */,
 				ED334FFB1F8D3ED100202D59 /* SSDT-PEG0_PEGP_RDSS.asl */,

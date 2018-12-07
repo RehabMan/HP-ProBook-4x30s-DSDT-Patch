@@ -2,7 +2,7 @@
 #set -x
 
 EXCEPTIONS=
-ESSENTIAL="AppleALC.kext ProBookAtheros.kext SATA-unsupported.kext XHCI-300-series-injector.kext"
+ESSENTIAL="AppleALC.kext CodecCommander.kext ProBookAtheros.kext"
 
 # include subroutines
 source "$(dirname ${BASH_SOURCE[0]})"/_tools/_install_subs.sh
@@ -31,25 +31,23 @@ install_fakepciid_intel_hdmi_audio
 install_backlight_kexts
 
 # install special kexts specific to ProBook
-install_kext kexts/SATA-unsupported.kext
-install_kext kexts/XHCI-300-series-injector.kext
 install_kext kexts/HSSDBlockStorage.kext
 install_kext kexts/JMB38X.kext
 install_kext kexts/JMicronATA.kext
-install_kext kexts/ProBookAtheros.kext
-
-# install special build of AppleALC.kext until fixed build is available
-install_kext kexts/AppleALC.kext
+# install other common kexts
+install_kext _tools/kexts/XHCI-unsupported.kext
+install_kext _tools/kexts/SATA-unsupported.kext
+install_kext _tools/kexts/ProBookAtheros.kext
 
 # install HackrNVMEFamily-.* if it is found in Clover/kexts
-EFI=`./mount_efi.sh`
-kext=`echo "$EFI"/EFI/CLOVER/kexts/Other/HackrNVMeFamily-*.kext`
+EFI="$(./mount_efi.sh)"
+kext="$(echo "$EFI"/EFI/CLOVER/kexts/Other/HackrNVMeFamily-*.kext)"
 if [[ -e "$kext" ]]; then
     install_kext "$kext"
 fi
 
-# all kexts are now installed, so rebuild cache
-rebuild_kernel_cache
+# LiluFriend and kernel cache rebuild
+finish_kexts
 
 # update kexts on EFI/CLOVER/kexts/Other
 update_efi_kexts
@@ -58,11 +56,11 @@ update_efi_kexts
 zip=`echo -n _downloads/efi/HPFanReset*.zip`
 out=${zip/.efi.zip/}
 rm -Rf $out && unzip -q -d $out $zip
-echo copying $out/*.efi to $EFI/EFI/CLOVER/drivers64UEFI
-cp $out/*.efi $EFI/EFI/CLOVER/drivers64UEFI
+echo copying $out/*.efi to "$EFI"/EFI/CLOVER/drivers64UEFI
+cp $out/*.efi "$EFI"/EFI/CLOVER/drivers64UEFI
 
 # delete old kexts that might be on EFI
-rm -Rf $EFI/EFI/CLOVER/kexts/Other/SATA-100-series-unsupported.kext
+rm -Rf "$EFI"/EFI/CLOVER/kexts/Other/SATA-100-series-unsupported.kext
 
 # VoodooPS2Daemon is deprecated
 remove_voodoops2daemon

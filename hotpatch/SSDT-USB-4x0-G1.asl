@@ -54,18 +54,18 @@
                     },
                     //HS13/HS14 not used
                     //HS15 is phantom port (port address 15 not used)
-                    //SSP1 not used
-                    "SSP2", Package()   // SS USB3 left back
+                    //SS01 not used
+                    "SS02", Package()   // SS USB3 left back
                     {
                         "UsbConnector", 3,
                         "port", Buffer() { 17, 0, 0, 0 },
                     },
-                    "SSP3", Package()   // SS USB3 left front
+                    "SS03", Package()   // SS USB3 left front
                     {
                         "UsbConnector", 3,
                         "port", Buffer() { 18, 0, 0, 0 },
                     },
-                    //SSP4/SSP5/SSP6 not used
+                    //SS04/SS05/SS06 not used
                 },
             },
         })

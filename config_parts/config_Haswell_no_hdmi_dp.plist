@@ -16,6 +16,10 @@
 				<integer>1</integer>
 				<key>framebuffer-memorycount</key>
 				<integer>1</integer>
+				<key>framebuffer-con1-enable</key>
+				<integer>1</integer>
+				<key>framebuffer-con1-alldata</key>
+				<data>/wAAAAEAAABAAAAA/wAAAAEAAABAAAAA/wAAAAEAAABAAAAA</data>
 			</dict>
 		</dict>
 	</dict>

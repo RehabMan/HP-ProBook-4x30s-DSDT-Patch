@@ -5,7 +5,10 @@
 	<key>Devices</key>
 	<dict>
 		<key>Properties</key>
-		<dict/>
+		<dict>
+			<key>PciRoot(0)/Pci(0x02,0)</key>
+			<dict/>
+		</dict>
 	</dict>
 </dict>
 </plist>

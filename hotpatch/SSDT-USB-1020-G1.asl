@@ -58,22 +58,22 @@
                         "port", Buffer() { 0x08, 0, 0, 0 },
                     },
                     //HS09,HS10,HS11 not used
-                    "SSP1", Package() // SS USB3 (hub on dock)
+                    "SS01", Package() // SS USB3 (hub on dock)
                     {
                         "UsbConnector", 3,
                         "port", Buffer() { 0x0c, 0, 0, 0 },
                     },
-                    "SSP2", Package() // SS USB3 left
+                    "SS02", Package() // SS USB3 left
                     {
                         "UsbConnector", 3,
                         "port", Buffer() { 0x0d, 0, 0, 0 },
                     },
-                    "SSP3", Package() // SS USB3 right
+                    "SS03", Package() // SS USB3 right
                     {
                         "UsbConnector", 3,
                         "port", Buffer() { 0x0e, 0, 0, 0 },
                     },
-                    //SSP4 not used
+                    //SS04 not used
                 },
             },
         })

@@ -31,20 +31,24 @@
                 "port-count", Buffer() { 8, 0, 0, 0 },
                 "ports", Package()
                 {
-                    "HP11", Package()   // unknown USB2 (on dock?)
+                    "HP11", Package()   // HS USB3 hub (on normal dock and advanced dock)
                     {
                         //"UsbConnector", 3,
                         "port", Buffer() { 1, 0, 0, 0 },
                     },
-                    //HP12 not used
-                    "HP13", Package()   // HS USB3 left
+                    "HP12", Package()   // near display USB2 left
+                    {
+                        //"UsbConnector", 0,
+                        "port", Buffer() { 2, 0, 0, 0 },
+                    },
+                    "HP13", Package()   // near display USB3 right
                     {
                         //"UsbConnector", 3,
                         "port", Buffer() { 3, 0, 0, 0 },
                     },
-                    "HP14", Package()   // HS USB3 left
+                    "HP14", Package()   // far display USB3 right
                     {
-                        //"UsbConnector", 0,
+                        //"UsbConnector", 3,
                         "port", Buffer() { 4, 0, 0, 0 },
                     },
                     "HP16", Package()   // bluetooth
@@ -82,7 +86,7 @@
                         "port", Buffer() { 1, 0, 0, 0 },
                     },
                     #endif
-                    "HP22", Package()   // USB2 right
+                    "HP22", Package()   // far display USB2 left
                     {
                         //"UsbConnector", 0,
                         "port", Buffer() { 2, 0, 0, 0 },
@@ -94,12 +98,12 @@
                         //"portType", 4,  // fix for camera after sleep?
                         "port", Buffer() { 3, 0, 0, 0 },
                     },
-                    "HP24", Package()   // unknown USB2 port with hub (dock?)
+                    "HP24", Package()   //  USB3 port with hub (advanced dock)
                     {
-                        //"UsbConnector", 0,
+                        //"UsbConnector", 3,
                         "port", Buffer() { 4, 0, 0, 0 },
                     },
-                    "HP26", Package()   // unknown USB2 port (dock?)
+                    "HP26", Package()   // eSata/USB2 port left
                     {
                         //"UsbConnector", 0,
                         "port", Buffer() { 6, 0, 0, 0 },
@@ -112,18 +116,18 @@
                 "port-count", Buffer() { 8, 0, 0, 0 },
                 "ports", Package()
                 {
-                    // HS01 not used
-                    // HS02-HS04 not used due to FakePCIID_XHCIMux
-                    // HS02 HS USB3 near left
-                    // HS03 HS USB3 far left
-                    // HS04 USB2 far right
-                    // SS05/SS06 not used
-                    "SS07", Package()   // SS USB3 left
+                    // HSxx not used due to FakePCIID_XHCIMux
+                    "SS05", Package()   // SS USB3 hub advanced dock
+                    {
+                        "UsbConnector", 3,
+                        "port", Buffer() { 5, 0, 0, 0 },
+                    },
+                    "SS07", Package()   // near display SS USB3 right
                     {
                         "UsbConnector", 3,
                         "port", Buffer() { 7, 0, 0, 0 },
                     },
-                    "SS08", Package()   // SS USB3 left
+                    "SS08", Package()   // far display SS USB3 right
                     {
                         "UsbConnector", 3,
                         "port", Buffer() { 8, 0, 0, 0 },
